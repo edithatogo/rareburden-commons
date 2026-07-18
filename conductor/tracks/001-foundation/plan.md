@@ -24,8 +24,8 @@
 
 ## Phase 5 — Add executable foundations
 
-- [ ] Add data-source metadata schema and seed register.
-- [ ] Add offline validation utility and tests.
+- [x] Add data-source metadata schema and seed register.
+- [x] Add offline validation utility and tests.
 - [ ] Add continuous integration and contributor guidance.
 
 ## Phase 6 — Review and package
