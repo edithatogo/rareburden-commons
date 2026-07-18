@@ -1,0 +1,9 @@
+{
+  "id": "002-public-source-acquisition",
+  "title": "Public-source acquisition and provenance adapters",
+  "status": "active",
+  "priority": "must",
+  "created": "2026-07-18",
+  "updated": "2026-07-18",
+  "dependencies": ["001-foundation"]
+}

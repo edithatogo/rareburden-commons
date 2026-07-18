@@ -6,7 +6,7 @@ RareBurden Commons is the working repository of the **Global Rare Disease Burden
 
 ## Status
 
-**Foundation / pre-protocol v0.1.** The repository currently defines project context, requirements, architecture, governance principles and the first analytic protocol. It does not yet publish burden estimates.
+**Foundation v0.1 complete; public-source acquisition track active.** The repository defines project context, requirements, architecture, governance principles, the first analytic protocol and a validated 14-source access catalogue. It does not yet publish burden estimates.
 
 ## Start here
 
@@ -15,7 +15,7 @@ RareBurden Commons is the working repository of the **Global Rare Disease Burden
 - [MoSCoW requirements](docs/requirements.md)
 - [System architecture](docs/design/architecture.md)
 - [Public-data-first protocol](docs/protocols/public-data-foundation.md)
-- [Conductor context](conductor/index.md)
+- [Conductor context and active track](conductor/index.md)
 
 ## Core design principle
 

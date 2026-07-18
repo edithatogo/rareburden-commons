@@ -17,8 +17,13 @@ This directory is the persistent source of truth for the project's context-drive
 
 ## Active work
 
+- [Track 002 — Public-source acquisition and provenance adapters](tracks/002-public-source-acquisition/spec.md)
+- [Track 002 implementation plan](tracks/002-public-source-acquisition/plan.md)
+
+## Completed foundation
+
 - [Track 001 — Foundation and public-data protocol](tracks/001-foundation/spec.md)
-- [Track 001 implementation plan](tracks/001-foundation/plan.md)
+- [Track 001 completed plan](tracks/001-foundation/plan.md)
 
 ## Lifecycle
 

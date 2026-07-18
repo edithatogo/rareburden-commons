@@ -30,6 +30,6 @@
 
 ## Phase 6 — Review and package
 
-- [ ] Run all checks and inspect repository for sensitive files.
-- [ ] Update track status and document next tracks.
-- [ ] Create a portable Git bundle and source archive.
+- [x] Run all checks and inspect repository for sensitive files.
+- [x] Update track status and document next tracks.
+- [x] Create a portable Git bundle and source archive.
