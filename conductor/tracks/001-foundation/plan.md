@@ -19,8 +19,8 @@
 
 ## Phase 4 — Define the scientific protocol
 
-- [ ] Write the initial public-data foundation protocol.
-- [ ] Define source-access classes, evidence grading and release gates.
+- [x] Write the initial public-data foundation protocol.
+- [x] Define source-access classes, evidence grading and release gates.
 
 ## Phase 5 — Add executable foundations
 
