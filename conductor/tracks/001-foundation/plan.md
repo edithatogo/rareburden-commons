@@ -8,8 +8,8 @@
 
 ## Phase 2 — Define programme intent
 
-- [ ] Write vision, mission and purpose.
-- [ ] Write strategy, operating model and staged roadmap.
+- [x] Write vision, mission and purpose.
+- [x] Write strategy, operating model and staged roadmap.
 
 ## Phase 3 — Specify the product
 
