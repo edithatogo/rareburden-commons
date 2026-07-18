@@ -1,0 +1,35 @@
+# Track 001 plan
+
+## Phase 1 — Establish persistent context
+
+- [x] Initialise Git repository and safe data exclusions.
+- [x] Create Conductor product, product-guideline, technical and workflow context.
+- [x] Create initial track register and this specification.
+
+## Phase 2 — Define programme intent
+
+- [ ] Write vision, mission and purpose.
+- [ ] Write strategy, operating model and staged roadmap.
+
+## Phase 3 — Specify the product
+
+- [ ] Define MoSCoW requirements and release boundaries.
+- [ ] Document system, data and governance architecture in Mermaid.
+- [ ] Record the public-data-first/federated architecture decision.
+
+## Phase 4 — Define the scientific protocol
+
+- [ ] Write the initial public-data foundation protocol.
+- [ ] Define source-access classes, evidence grading and release gates.
+
+## Phase 5 — Add executable foundations
+
+- [ ] Add data-source metadata schema and seed register.
+- [ ] Add offline validation utility and tests.
+- [ ] Add continuous integration and contributor guidance.
+
+## Phase 6 — Review and package
+
+- [ ] Run all checks and inspect repository for sensitive files.
+- [ ] Update track status and document next tracks.
+- [ ] Create a portable Git bundle and source archive.

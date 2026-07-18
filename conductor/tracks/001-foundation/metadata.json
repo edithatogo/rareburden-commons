@@ -1,0 +1,9 @@
+{
+  "id": "001-foundation",
+  "title": "Foundation and public-data protocol",
+  "status": "active",
+  "priority": "must",
+  "created": "2026-07-18",
+  "updated": "2026-07-18",
+  "dependencies": []
+}

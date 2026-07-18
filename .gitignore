@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Environments and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Data: never commit raw or controlled records
+data/raw/**
+!data/raw/README.md
+data/interim/**
+!data/interim/README.md
+data/processed/**
+!data/processed/README.md
+outputs/**
+!outputs/README.md
+
+# Build artefacts
+build/
+dist/
+*.egg-info/
