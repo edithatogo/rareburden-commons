@@ -13,9 +13,9 @@
 
 ## Phase 3 — Specify the product
 
-- [ ] Define MoSCoW requirements and release boundaries.
-- [ ] Document system, data and governance architecture in Mermaid.
-- [ ] Record the public-data-first/federated architecture decision.
+- [x] Define MoSCoW requirements and release boundaries.
+- [x] Document system, data and governance architecture in Mermaid.
+- [x] Record the public-data-first/federated architecture decision.
 
 ## Phase 4 — Define the scientific protocol
 
