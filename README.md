@@ -36,6 +36,17 @@ data/                   Local-only working data; raw records are not committed
 outputs/                Reproducible non-sensitive outputs
 ```
 
+## Validate the foundation
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements-dev.txt
+make check
+```
+
+The catalogue validator runs offline. Source downloads are deliberately not part of the foundation track.
+
 ## Safety boundary
 
 No patient-level, row-level or otherwise sensitive health data may be committed to this repository. Synthetic, public aggregate and disclosure-controlled data only.
@@ -43,3 +54,7 @@ No patient-level, row-level or otherwise sensitive health data may be committed 
 ## Working name
 
 “RareBurden Commons” is provisional and should be tested with patient organisations, country partners and prospective institutional hosts before public launch.
+
+## Licensing
+
+Reference code is Apache-2.0. Original documentation and catalogue metadata are intended as CC BY 4.0. Third-party data retain their own terms; see `LICENSE-DATA.md`.

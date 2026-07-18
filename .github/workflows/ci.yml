@@ -1,0 +1,39 @@
+name: continuous integration
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Validate source catalogue
+        run: PYTHONPATH=src python -m rareburden validate-catalog
+
+      - name: Run tests
+        run: PYTHONPATH=src python -m pytest
+
+      - name: Lint
+        run: python -m ruff check .
+
+      - name: Check repository safety
+        run: PYTHONPATH=src python scripts/check_repository_safety.py
+
+      - name: Compile package
+        run: python -m compileall -q src

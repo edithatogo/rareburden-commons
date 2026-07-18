@@ -26,7 +26,7 @@
 
 - [x] Add data-source metadata schema and seed register.
 - [x] Add offline validation utility and tests.
-- [ ] Add continuous integration and contributor guidance.
+- [x] Add continuous integration and contributor guidance.
 
 ## Phase 6 — Review and package
 
