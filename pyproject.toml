@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rareburden"
-version = "0.1.0"
+version = "0.2.0"
 description = "Reference validation and reproducibility utilities for RareBurden Commons"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
   "jsonschema>=4.20,<5",
   "PyYAML>=6.0,<7",
@@ -31,7 +31,7 @@ testpaths = ["tests"]
 addopts = "-q"
 
 [tool.ruff]
-target-version = "py312"
+target-version = "py311"
 line-length = 100
 
 [tool.ruff.lint]
