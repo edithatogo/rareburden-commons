@@ -14,6 +14,7 @@
 | Must requirements map to tracks and evidence | Pass | `docs/requirements-traceability.md` |
 | Roadmap validates through CLI and CI | Pass | Programme validation command and workflow |
 | Full check works in Git clone and source archive | Pass | Verification logs generated during packaging |
+| Human and machine roadmaps agree | Pass | Canonical track-reference validation and drift regression test |
 | Foundation review and gap assignment complete | Pass | Track 001 review and traceability matrix |
 
 ## Quality review
@@ -32,3 +33,7 @@
 ## Disposition
 
 Approve v0.2.0 as the programme-control release and continue Tracks 002 and 007 in parallel.
+
+## Final packaging correction
+
+The pre-publication archive review detected stale track numbering in the narrative roadmap while the machine-readable graph remained correct. The narrative roadmap, foundation review, risk register and protocol ownership references were reconciled, and an automated canonical-reference check was added before the release tag was finalised.

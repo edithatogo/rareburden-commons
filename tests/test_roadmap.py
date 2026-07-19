@@ -69,3 +69,23 @@ def test_complete_track_with_unchecked_task_is_rejected(tmp_path: Path) -> None:
 
     with pytest.raises(RoadmapValidationError, match="complete track has unchecked"):
         validate_with(tracks)
+
+
+def test_human_roadmap_track_drift_is_rejected(tmp_path: Path) -> None:
+    shutil.copytree(ROOT / "conductor", tmp_path / "conductor")
+    shutil.copytree(ROOT / "docs", tmp_path / "docs")
+    roadmap = tmp_path / "conductor" / "roadmap.yml"
+    tracks = tmp_path / "conductor" / "tracks"
+    document = tmp_path / "docs" / "roadmap-v1.md"
+    text = document.read_text(encoding="utf-8").replace(
+        "006-v1-delivery-system — v1 delivery system and foundation hardening",
+        "006-v1-delivery-system — stale title",
+        1,
+    )
+    document.write_text(text, encoding="utf-8")
+
+    with pytest.raises(
+        RoadmapValidationError,
+        match="human roadmap missing canonical track reference",
+    ):
+        validate_roadmap_files(roadmap, ROADMAP_SCHEMA, tracks, TRACK_SCHEMA)

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from collections import Counter
 from dataclasses import dataclass
@@ -270,6 +271,25 @@ def _roadmap_invariant_errors(
         relative = programme.get(field)
         if isinstance(relative, str) and not (root / relative).is_file():
             errors.append(f"programme.{field}: file does not exist: {relative}")
+
+    roadmap_document = programme.get("roadmap_document")
+    if isinstance(roadmap_document, str):
+        document_path = root / roadmap_document
+        if document_path.is_file():
+            document = document_path.read_text(encoding="utf-8")
+            for track_id, metadata in sorted(tracks.items()):
+                target = root / "conductor" / "tracks" / track_id / "spec.md"
+                relative_target = os.path.relpath(target, document_path.parent).replace(
+                    os.sep, "/"
+                )
+                canonical_reference = (
+                    f"[{track_id} — {metadata['title']}]({relative_target})"
+                )
+                if canonical_reference not in document:
+                    errors.append(
+                        "human roadmap missing canonical track reference: "
+                        f"{canonical_reference}"
+                    )
 
     return errors
 

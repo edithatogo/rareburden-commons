@@ -32,5 +32,6 @@
 
 - [x] Make repository safety scanning work in Git clones and source archives.
 - [x] Include linting in the documented full check.
+- [x] Reconcile the narrative roadmap with the canonical machine track graph and add a drift test.
 - [x] Update version, README, changelog and release files.
 - [x] Run formal review, package source and Git history, and verify artefacts.

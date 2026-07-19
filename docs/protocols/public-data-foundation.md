@@ -393,4 +393,4 @@ RBC-P001 remains the umbrella protocol. Stable v1 requires demonstrator and meth
 - **RBC-P003:** bronchiectasis demonstrator;
 - **RBC-P004:** collective paediatric administrative-data demonstrator.
 
-These modules are owned by Tracks 003, 005, 008, 010, 011 and 012. They must define machine-readable estimands, primary and sensitivity models, validation, reporting tables and release evidence. This umbrella draft is not sufficient on its own to authorise a numerical v1 release.
+The method modules are implemented through Tracks 008–010 and 005; the demonstrator modules through Tracks 003, 011 and 012. Track 009 supplies the evidence and parameter contracts used across them. They must define machine-readable estimands, primary and sensitivity models, validation, reporting tables and release evidence. This umbrella draft is not sufficient on its own to authorise a numerical v1 release.

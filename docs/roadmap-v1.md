@@ -14,7 +14,7 @@ This roadmap converts the founding concept into a delivery system for a stable, 
 - a public-interest governance system;
 - a policy-facing evidence product.
 
-Dates are planning assumptions, not permission to weaken standards. A release moves when an entry or exit criterion is not met.
+Dates are planning assumptions, not permission to weaken standards. A release does not advance when an entry or exit criterion is not met.
 
 ## 2. What “stable v1.0” means
 
@@ -68,12 +68,12 @@ The normative v1 product is a versioned static release and reference command-lin
 | **v0.2** | Controlled roadmap | Is all work to v1 decomposed, gated, owned by role and machine-checkable? |
 | **v0.3** | Public-data substrate | Can source releases be found, lawfully acquired or registered, and reproduced? Is the programme genuinely additive? |
 | **v0.4** | Semantic/evidence core | Can diseases, mappings, evidence and parameters be represented without hidden ambiguity? |
-| **v0.5** | Methods alpha | Can bounded public estimates and gaps be generated with defensible uncertainty and overlap handling? |
-| **v0.6** | Demonstrator/node alpha | Does rare-within-common estimation work end to end, including a synthetic secure-node pathway? |
-| **v0.7** | Multi-demonstrator beta | Does the method generalise across disease structures, administrative data and economic/social outcomes under real governance? |
-| **v0.8** | Product/operations beta | Can reviewed evidence be released accessibly and operated securely as a coherent product? |
-| **v0.9** | Release candidate | Can independent teams reproduce and challenge the frozen v1 contracts and outputs? |
-| **v1.0** | Stable | Can the project support, correct, migrate and defend a bounded public release over time? |
+| **v0.5** | Methods alpha | Can the first bounded reference analysis be generated with defensible uncertainty and overlap handling? |
+| **v0.6** | Federated/multi-aetiology alpha | Can the methods run through a disclosure-safe synthetic node and a second disease structure? |
+| **v0.7** | Economic/paediatric beta | Do the contracts generalise to administrative data and health-system, household and societal outcomes? |
+| **v0.8** | Validated product beta | Can quality-graded evidence, gaps and aggregate outputs be released accessibly with full provenance? |
+| **v0.9** | Governed release candidate | Are governance, security, reliability and operating controls ready to support a frozen candidate? |
+| **v1.0** | Stable | Can independent users reproduce, operate, support, correct and migrate the bounded public release? |
 
 ## 5. Release train and exit gates
 
@@ -83,12 +83,12 @@ The normative v1 product is a versioned static release and reference command-lin
 | M1 | v0.2.0 | 2026 Q3 | Full Conductor track system, v1 definition of done, quality/release/risk controls | Every v1 track specified and dependency graph validates |
 | M2 | v0.3.0 | 2027 Q1 | Four reproducible source pathways and novelty/adjacency review | Source provenance works end to end; proceed/partner/narrow/stop decisions published |
 | M3 | v0.4.0 | 2027 Q4 | Disease hierarchy, mappings, evidence and parameter ledger | Semantic and evidence contracts pass scientific, community and engineering review |
-| M4 | v0.5.0 | 2028 Q2 | Public burden engine and gap atlas | Uncertainty, overlap, evidence status and non-estimability are explicit and tested |
-| M5 | v0.6.0 | 2028 Q4 | Monogenic-diabetes demonstrator and federated node alpha | Demonstrator reproduces; synthetic node emits only approved aggregates |
-| M6 | v0.7.0 | 2029 Q2 | Bronchiectasis, paediatric and economic/social modules; operational governance | Multiple environments and three demonstrators pass their defined review gates |
-| M7 | v0.8.0 | 2029 Q3 | Atlas beta, machine-readable releases, security and operational controls | Full release pipeline, accessibility, threat model and recovery drills pass |
-| M8 | v0.9.0 | 2030 Q1 | Frozen release candidate and independent validation | Two clean reproductions, node/equity threshold and 90-day soak pass |
-| M9 | v1.0.0 | 2030 Q2 | Stable public release | Every v1 definition-of-done criterion has objective evidence or a time-limited approved exception |
+| M4 | v0.5.0 | 2028 Q2 | Public burden engine and monogenic-diabetes alpha | Deterministic and simulation analyses reproduce; unsupported operations fail safely; first demonstrator passes independent scientific review |
+| M5 | v0.6.0 | 2028 Q4 | Federated node and bronchiectasis alpha | Synthetic node emits only approved aggregates; a second operator runs it; second demonstrator validates overlap handling |
+| M6 | v0.7.0 | 2029 Q2 | Economic/social and paediatric beta | Economic contracts are explicit; the paediatric workflow passes synthetic linked-data and disclosure tests; claims remain bounded by approvals |
+| M7 | v0.8.0 | 2029 Q3 | Quality, gap and equity assurance plus atlas/API beta | Gap maps are released; at least one analysis is independently reproduced; public outputs expose provenance, uncertainty, quality and missingness |
+| M8 | v0.9.0 | 2030 Q1 | Operational governance and security/reliability release candidate | Required governance is active; threat model, locked build, SBOM, provenance and recovery exercises pass; no blocking finding remains |
+| M9 | v1.0.0 | 2030 Q2 | Documentation, adoption, sustainability and stable public release | All blocking criteria have evidence; two clean builds and one independent reproduction agree; support and succession are approved |
 
 The exact machine-readable release plan is maintained in `conductor/roadmap.yml`.
 
@@ -96,32 +96,32 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 
 ### Programme control and discovery
 
-- **001 Foundation and public-data protocol** — complete.
-- **003 V1 roadmap and programme control** — establishes this release system and automated validation.
-- **004 Landscape, adjacency, novelty and partnership map** — tests the white-space hypothesis and defines where to build, partner, narrow or stop.
+- **[001-foundation — Foundation and public-data protocol](../conductor/tracks/001-foundation/spec.md)** — complete founding scaffold.
+- **[006-v1-delivery-system — v1 delivery system and foundation hardening](../conductor/tracks/006-v1-delivery-system/spec.md)** — establishes this release system and automated validation.
+- **[007-landscape-novelty — Landscape, adjacency, novelty and partnership map](../conductor/tracks/007-landscape-novelty/spec.md)** — tests the white-space hypothesis and defines where to build, partner, narrow or stop.
 
 ### Data and semantics
 
-- **002 Public-source acquisition and provenance adapters** — establishes lawful, versioned and reproducible inputs.
-- **005 Semantic backbone and burden-purpose hierarchy** — defines disease identity, mappings, aggregation and overlap rules.
-- **006 Evidence and parameter ledger** — represents evidence, assumptions, quality, transportability and lineage.
+- **[002-public-source-acquisition — Public-source acquisition and provenance adapters](../conductor/tracks/002-public-source-acquisition/spec.md)** — establishes lawful, versioned and reproducible inputs.
+- **[008-semantic-backbone — Semantic backbone and burden-purpose hierarchy](../conductor/tracks/008-semantic-backbone/spec.md)** — defines disease identity, mappings, aggregation and overlap rules.
+- **[009-evidence-parameter-ledger — Evidence and parameter ledger](../conductor/tracks/009-evidence-parameter-ledger/spec.md)** — represents evidence, assumptions, quality, transportability and lineage.
 
 ### Methods and demonstrators
 
-- **007 Public burden engine and uncertainty** — implements core estimands, uncertainty and sensitivity methods.
-- **008 Public-data gap atlas and quality grading** — exposes what can and cannot be estimated.
-- **009 Monogenic-diabetes demonstrator** — first rare-within-common proof.
-- **010 Bronchiectasis demonstrator** — multi-aetiology and overlap stress test.
-- **011 Paediatric rare-disease burden demonstrator** — linked administrative-data and country portability test.
-- **013 Economic and social burden** — health-system, household and societal consequences.
+- **[010-public-burden-engine — Public burden engine and uncertainty framework](../conductor/tracks/010-public-burden-engine/spec.md)** — implements core estimands, uncertainty and sensitivity methods.
+- **[003-monogenic-diabetes-demonstrator — Monogenic diabetes rare-within-common demonstrator](../conductor/tracks/003-monogenic-diabetes-demonstrator/spec.md)** — first rare-within-common proof.
+- **[011-bronchiectasis-demonstrator — Bronchiectasis rare-aetiology demonstrator](../conductor/tracks/011-bronchiectasis-demonstrator/spec.md)** — multi-aetiology and overlap stress test.
+- **[005-economic-social-burden — Patient, family, economic and social burden module](../conductor/tracks/005-economic-social-burden/spec.md)** — health-system, household and societal consequences.
+- **[012-paediatric-burden-demonstrator — Collective paediatric rare-disease burden demonstrator](../conductor/tracks/012-paediatric-burden-demonstrator/spec.md)** — linked administrative-data and country-portability test.
 
 ### Federated platform, trust and products
 
-- **012 Federated node runner and disclosure control** — portable local execution and approved aggregate outputs.
-- **014 Governance, equity and participation** — operational patient/community and locally governed decision rights.
-- **015 Atlas, API and policy products** — accessible, machine-readable and decision-relevant releases.
-- **016 Security, reliability and release engineering** — supply chain, incident, recovery, support and release evidence.
-- **017 Independent validation and v1 integration** — frozen contracts, clean-room reproduction, release-candidate soak and launch decision.
+- **[004-federated-node-runner — Federated country-node execution package](../conductor/tracks/004-federated-node-runner/spec.md)** — portable local execution and approved aggregate outputs.
+- **[013-quality-validation-gap-equity — Quality, validation, gap mapping and equity assurance](../conductor/tracks/013-quality-validation-gap-equity/spec.md)** — exposes what can and cannot be estimated and constrains representation claims.
+- **[014-atlas-api-release — Atlas, API and reproducible release engineering](../conductor/tracks/014-atlas-api-release/spec.md)** — accessible, machine-readable and decision-relevant releases.
+- **[015-governance-partnership-policy — Operational governance, partnerships and policy translation](../conductor/tracks/015-governance-partnership-policy/spec.md)** — operational patient/community, scientific and locally governed decision rights.
+- **[016-security-reliability-operations — Security, reliability, performance and operations](../conductor/tracks/016-security-reliability-operations/spec.md)** — supply chain, incident, recovery, performance, support and release evidence.
+- **[017-documentation-adoption-v1 — Documentation, adoption, sustainability and stable v1 release](../conductor/tracks/017-documentation-adoption-v1/spec.md)** — independent usability, reproduction, support, succession and launch decision.
 
 ## 7. Critical path
 

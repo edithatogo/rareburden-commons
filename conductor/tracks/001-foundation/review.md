@@ -1,6 +1,6 @@
 # Track 001 retrospective review — Foundation and public-data protocol
 
-**Review disposition:** Accepted with remediation completed in Track 003  
+**Review disposition:** Accepted with remediation completed in Track 006
 **Reviewed:** 19 July 2026
 
 ## What passed
@@ -20,7 +20,7 @@
 
 ## Remediation
 
-Track 003 introduced the complete v1 roadmap, detailed acceptance contract, machine-validated track system, requirements traceability, quality/release controls, source-archive-safe checks and a dedicated gap-atlas track.
+Track 006 introduced the complete v1 roadmap, detailed acceptance contract, machine-validated track system, requirements traceability, quality/release controls, source-archive-safe checks and a dedicated gap-atlas track.
 
 ## Decision
 
