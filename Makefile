@@ -1,12 +1,18 @@
 PYTHON ?= python
 
-.PHONY: install validate test lint safety check
+.PHONY: install validate validate-catalog validate-roadmap test lint links safety compile check
 
 install:
-	$(PYTHON) -m pip install -r requirements-dev.txt
+	$(PYTHON) -m pip install -e ".[dev]"
 
 validate:
+	PYTHONPATH=src $(PYTHON) -m rareburden validate-programme
+
+validate-catalog:
 	PYTHONPATH=src $(PYTHON) -m rareburden validate-catalog
+
+validate-roadmap:
+	PYTHONPATH=src $(PYTHON) -m rareburden validate-roadmap
 
 test:
 	PYTHONPATH=src $(PYTHON) -m pytest
@@ -14,8 +20,13 @@ test:
 lint:
 	$(PYTHON) -m ruff check .
 
+links:
+	PYTHONPATH=src $(PYTHON) scripts/check_markdown_links.py
+
 safety:
 	PYTHONPATH=src $(PYTHON) scripts/check_repository_safety.py
 
-check: validate test safety
-	$(PYTHON) -m compileall -q src
+compile:
+	$(PYTHON) -m compileall -q src scripts
+
+check: validate test lint links safety compile

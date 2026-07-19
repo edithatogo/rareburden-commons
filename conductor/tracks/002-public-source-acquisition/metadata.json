@@ -4,6 +4,19 @@
   "status": "active",
   "priority": "must",
   "created": "2026-07-18",
-  "updated": "2026-07-18",
-  "dependencies": ["001-foundation"]
+  "updated": "2026-07-19",
+  "target_release": "0.3.0",
+  "stage": "evidence_acquisition",
+  "owner_role": "Data Engineering Lead",
+  "dependencies": [
+    "001-foundation",
+    "006-v1-delivery-system"
+  ],
+  "review_gates": [
+    "scientific",
+    "data_governance",
+    "engineering",
+    "security"
+  ],
+  "v1_critical": true
 }

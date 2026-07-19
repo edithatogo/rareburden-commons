@@ -1,0 +1,27 @@
+{
+  "id": "017-documentation-adoption-v1",
+  "title": "Documentation, adoption, sustainability and stable v1 release",
+  "status": "planned",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-19",
+  "target_release": "1.0.0",
+  "stage": "stable_release",
+  "owner_role": "Product, Documentation and Programme Leads",
+  "dependencies": [
+    "013-quality-validation-gap-equity",
+    "014-atlas-api-release",
+    "015-governance-partnership-policy",
+    "016-security-reliability-operations"
+  ],
+  "review_gates": [
+    "scientific",
+    "patient_community",
+    "data_governance",
+    "engineering",
+    "security",
+    "programme",
+    "release"
+  ],
+  "v1_critical": true
+}

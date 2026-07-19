@@ -1,6 +1,6 @@
 # Governance principles
 
-**Status:** Proposed; no board or partner is yet constituted.
+**Status:** Proposed; no board or partner is yet constituted. Track 015 owns operationalisation before the v1 release candidate.
 
 ## Proposed bodies
 
@@ -13,7 +13,7 @@
 
 ## Reserved decisions
 
-Changes to the disease inclusion framework, primary estimands, public release criteria, patient acceptable-use principles, conflict policy or central hosting require joint approval from scientific and patient/community governance.
+Changes to the disease inclusion framework, primary estimands, public release criteria, patient acceptable-use principles, conflict policy, global claims or central hosting require joint scientific and patient/community approval, plus data-governance or security approval where relevant.
 
 ## Independence
 
@@ -21,8 +21,12 @@ Core outputs are intended as public goods. A funder or data contributor may not 
 
 ## Participation
 
-Patient, community and LMIC node participation should be budgeted and remunerated. Governance should be accessible, multilingual where feasible and designed to avoid tokenistic representation.
+Patient, community, Indigenous and LMIC node participation must be budgeted and remunerated. Governance should be accessible, multilingual where feasible and designed to avoid tokenistic representation. Local data authority and CARE-aligned principles apply where relevant.
 
 ## Transparency
 
 Minutes, methods decisions, conflicts, correction notices and release approvals should be public except where confidentiality is legally or ethically required.
+
+## v1 governance gate
+
+Stable v1 requires constituted charters, voting and appointment rules, remuneration, conflicts, authorship, acceptable-use, complaints, appeals, correction, benefit-sharing, country-node and succession processes. Principles alone are not completion evidence.

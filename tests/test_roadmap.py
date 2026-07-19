@@ -1,0 +1,71 @@
+from __future__ import annotations
+
+import json
+import shutil
+from pathlib import Path
+
+import pytest
+import yaml
+
+from rareburden.roadmap import RoadmapValidationError, validate_roadmap_files
+
+ROOT = Path(__file__).resolve().parents[1]
+ROADMAP = ROOT / "conductor" / "roadmap.yml"
+ROADMAP_SCHEMA = ROOT / "schemas" / "roadmap.schema.json"
+TRACKS = ROOT / "conductor" / "tracks"
+TRACK_SCHEMA = ROOT / "schemas" / "track-metadata.schema.json"
+
+
+def validate_with(tracks: Path, roadmap: Path = ROADMAP) -> None:
+    validate_roadmap_files(roadmap, ROADMAP_SCHEMA, tracks, TRACK_SCHEMA)
+
+
+def test_seed_roadmap_is_valid() -> None:
+    summary = validate_roadmap_files(ROADMAP, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
+    assert summary.release_count == 10
+    assert summary.track_count == 17
+    assert summary.v1_critical_track_count == 17
+    assert summary.current_release == "0.3.0"
+    assert summary.track_status_counts["complete"] == 2
+
+
+def test_dependency_cycle_is_rejected(tmp_path: Path) -> None:
+    tracks = tmp_path / "tracks"
+    shutil.copytree(TRACKS, tracks)
+    metadata_path = tracks / "001-foundation" / "metadata.json"
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata["dependencies"] = ["017-documentation-adoption-v1"]
+    metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+
+    with pytest.raises(RoadmapValidationError, match="dependency cycle"):
+        validate_with(tracks)
+
+
+def test_missing_track_document_is_rejected(tmp_path: Path) -> None:
+    tracks = tmp_path / "tracks"
+    shutil.copytree(TRACKS, tracks)
+    (tracks / "007-landscape-novelty" / "spec.md").unlink()
+
+    with pytest.raises(RoadmapValidationError, match="missing required file spec.md"):
+        validate_with(tracks)
+
+
+def test_duplicate_release_assignment_is_rejected(tmp_path: Path) -> None:
+    roadmap_data = yaml.safe_load(ROADMAP.read_text(encoding="utf-8"))
+    roadmap_data["releases"][3]["tracks"].append("007-landscape-novelty")
+    roadmap = tmp_path / "roadmap.yml"
+    roadmap.write_text(yaml.safe_dump(roadmap_data, sort_keys=False), encoding="utf-8")
+
+    with pytest.raises(RoadmapValidationError, match="assigned to multiple releases"):
+        validate_roadmap_files(roadmap, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
+
+
+def test_complete_track_with_unchecked_task_is_rejected(tmp_path: Path) -> None:
+    tracks = tmp_path / "tracks"
+    shutil.copytree(TRACKS, tracks)
+    plan_path = tracks / "006-v1-delivery-system" / "plan.md"
+    plan = plan_path.read_text(encoding="utf-8").replace("- [x]", "- [ ]", 1)
+    plan_path.write_text(plan, encoding="utf-8")
+
+    with pytest.raises(RoadmapValidationError, match="complete track has unchecked"):
+        validate_with(tracks)

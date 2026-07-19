@@ -1,0 +1,35 @@
+# Track 004 plan
+
+## Phase 1 — Node contracts and threat model
+
+- [ ] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]`
+- [ ] Define trust zones, adversaries, permitted exports and local override rules. `[M-12, M-15]`
+- [ ] Define coordinator/node version negotiation and compatibility policy.
+- [ ] Obtain data-governance and patient/community review before implementation.
+
+## Phase 2 — Synthetic environment
+
+- [ ] Build synthetic cohort generator with multi-diagnosis and small-cell edge cases. `[C-03]`
+- [ ] Implement offline preflight and environment capture. `[M-19]`
+- [ ] Implement portable local runner and reproducible package. `[S-08, C-06]`
+- [ ] Implement disclosure configuration, suppression and export validation.
+
+## Phase 3 — Conformance and security
+
+- [ ] Add contract, privacy, differencing and log-redaction tests.
+- [ ] Verify participant rows cannot enter export artefacts. `[M-13]`
+- [ ] Add checksums/signatures and node execution manifest.
+- [ ] Test incompatible versions, failed runs, correction and withdrawal.
+
+## Phase 4 — External pilot readiness
+
+- [ ] Write operator, data-steward and export-review guides.
+- [ ] Complete independent synthetic-node execution.
+- [ ] Prepare controlled-environment pilot protocol and application pack.
+- [ ] Complete a pilot before v1 or remove controlled-pilot claims from scope.
+
+## Phase 5 — Review
+
+- [ ] Conduct scientific, privacy, security and engineering review.
+- [ ] Record residual risks and required local controls.
+- [ ] Release the node alpha only after all blocking findings close.

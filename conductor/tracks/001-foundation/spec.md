@@ -24,9 +24,13 @@ Create a reviewable, version-controlled foundation for RareBurden Commons using 
 6. Tests run without network access.
 7. No patient-level data or credentials are present.
 
-## Out of scope
+## Non-goals
 
 - downloading complete third-party datasets;
 - applying for controlled access;
 - producing a numerical global burden estimate;
 - representing any organisation as a confirmed partner.
+
+## v1 contribution
+
+This track supplies the strategic, protocol, architectural and repository baseline on which all v1-critical work depends.

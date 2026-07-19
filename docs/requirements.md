@@ -1,11 +1,11 @@
 # Requirements baseline
 
-**Status:** v0.1 for Track 001  
+**Status:** v0.2 planning baseline for the route to stable v1.0  
 **Prioritisation:** MoSCoW — Must, Should, Could, Won't for the current programme increment. The original request's “MoWCoW” is interpreted as the standard MoSCoW method.
 
 ## Product increment
 
-This baseline covers the foundation and first public-data minimum viable product. Requirements for controlled-data demonstrators are included where they shape architecture, but are not all deliverables of the first release.
+This baseline preserves the original MoSCoW product requirements and now feeds the complete release train through v1.0. Individual tracks own implementation evidence; `docs/requirements-traceability.md` maps each requirement to those tracks. The detailed stable-release contract is `docs/v1-acceptance-criteria.md`.
 
 ## Personas and decisions supported
 
@@ -115,11 +115,14 @@ This baseline covers the foundation and first public-data minimum viable product
 
 ## Release acceptance criteria
 
-The public-data MVP may be labelled ready only when:
+A pre-v1 release may be labelled ready only when:
 
-1. all Must requirements relevant to the release have evidence of completion;
-2. the source register validates and contains no secrets or controlled records;
-3. a clean environment can reproduce validation and tests;
+1. all Must requirements assigned to that release have evidence of completion;
+2. the source register and programme roadmap validate and contain no secrets or controlled records;
+3. a clean Git clone and source archive reproduce the documented checks;
 4. every published estimate displays provenance, uncertainty and evidence status;
-5. scientific, governance, patient/community and engineering review gates are documented;
-6. limitations clearly distinguish feasibility estimates from authoritative national burden estimates.
+5. assigned scientific, data-governance, patient/community, engineering, security and release gates are documented;
+6. limitations clearly distinguish feasibility estimates from authoritative national burden estimates;
+7. incomplete downstream tracks are not represented as delivered capabilities.
+
+Stable v1.0 additionally requires every blocking criterion in `docs/v1-acceptance-criteria.md` and a formal multi-lane release decision.

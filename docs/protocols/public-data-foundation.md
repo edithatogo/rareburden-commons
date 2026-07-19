@@ -380,3 +380,17 @@ Reporting will follow relevant observational, systematic-review, economic-evalua
 ## 24. Current limitations of this draft
 
 This is a founding protocol. The disease inclusion framework, patient acceptable-use principles, quality rubric thresholds, primary reference year, economic perspective and demonstrator-specific analysis plans require external co-design and formal approval before primary numerical analyses.
+
+## 25. Protocol family and stable-v1 implementation
+
+RBC-P001 remains the umbrella protocol. Stable v1 requires demonstrator and method modules that are narrower, executable and reviewed:
+
+- **RBC-P001A:** semantic inclusion, coding and aggregation;
+- **RBC-P001B:** epidemiology and expected affected population;
+- **RBC-P001C:** rare-aetiology composition within common conditions;
+- **RBC-P001D:** economic and social burden;
+- **RBC-P002:** monogenic-diabetes demonstrator;
+- **RBC-P003:** bronchiectasis demonstrator;
+- **RBC-P004:** collective paediatric administrative-data demonstrator.
+
+These modules are owned by Tracks 003, 005, 008, 010, 011 and 012. They must define machine-readable estimands, primary and sensitivity models, validation, reporting tables and release evidence. This umbrella draft is not sufficient on its own to authorise a numerical v1 release.

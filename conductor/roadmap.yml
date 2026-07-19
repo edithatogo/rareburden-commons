@@ -1,0 +1,128 @@
+programme:
+  name: RareBurden Commons
+  roadmap_version: 0.2.0
+  stable_release: 1.0.0
+  status: pre_release
+  planning_model: gate_based
+  roadmap_document: docs/roadmap-v1.md
+  stable_acceptance_contract: docs/v1-acceptance-criteria.md
+
+releases:
+  - version: 0.1.0
+    name: Foundation
+    status: released
+    objective: Establish the programme thesis, architecture, protocol, source catalogue and executable validation scaffold.
+    tracks:
+      - 001-foundation
+    exit_gates:
+      - Foundation acceptance criteria pass.
+      - Offline catalogue validation and repository safety checks pass.
+      - No burden estimate or partner access is implied.
+
+  - version: 0.2.0
+    name: Programme control plane
+    status: released
+    objective: Define and machine-validate the complete track portfolio, maturity model and stable v1 release contract.
+    tracks:
+      - 006-v1-delivery-system
+    exit_gates:
+      - Every roadmap track has a specification, plan and valid metadata.
+      - Dependencies are acyclic and each track is assigned to exactly one release.
+      - Must requirements and known foundation gaps are traced.
+      - Git clone and clean source archive pass the documented checks.
+
+  - version: 0.3.0
+    name: Evidence acquisition foundation
+    status: current
+    objective: Prove lawful, versioned public-source acquisition and validate the programme's novelty and adjacency.
+    tracks:
+      - 002-public-source-acquisition
+      - 007-landscape-novelty
+    exit_gates:
+      - Supported sources produce manifests and schema-valid normalised fixtures.
+      - Source changes and licence uncertainty fail safely.
+      - Landscape review records a proceed, narrow, combine, revise or stop decision.
+
+  - version: 0.4.0
+    name: Semantic evidence core
+    status: planned
+    objective: Create the versioned disease hierarchy, mapping layer and evidence/parameter ledger.
+    tracks:
+      - 008-semantic-backbone
+      - 009-evidence-parameter-ledger
+    exit_gates:
+      - Demonstrator entities map without silent parent-child or multi-diagnosis overlap.
+      - Parameters have provenance, uncertainty, quality and transportability metadata.
+      - Schema migrations and version diffs are tested.
+
+  - version: 0.5.0
+    name: Public burden engine alpha
+    status: planned
+    objective: Implement reproducible burden calculations and validate them through the monogenic-diabetes demonstrator.
+    tracks:
+      - 010-public-burden-engine
+      - 003-monogenic-diabetes-demonstrator
+    exit_gates:
+      - Deterministic and simulation reference analyses reproduce from release artefacts.
+      - Unsupported metric or envelope combinations fail safely.
+      - Independent scientific review of the reference analysis is complete.
+
+  - version: 0.6.0
+    name: Federated methods alpha
+    status: planned
+    objective: Prove portable local execution and a second multi-aetiology rare-within-common analysis.
+    tracks:
+      - 004-federated-node-runner
+      - 011-bronchiectasis-demonstrator
+    exit_gates:
+      - Synthetic node execution and disclosure tests pass.
+      - A second operator can run the node from documentation.
+      - Bronchiectasis analysis validates overlapping and unclassified aetiology handling.
+
+  - version: 0.7.0
+    name: Economic and paediatric beta
+    status: planned
+    objective: Add economic/social burden contracts and a paediatric controlled-data demonstrator specification.
+    tracks:
+      - 005-economic-social-burden
+      - 012-paediatric-burden-demonstrator
+    exit_gates:
+      - Economic perspective, units, price year and component overlap are explicit.
+      - Paediatric workflow passes synthetic linked-data and disclosure tests.
+      - Controlled-data claims are bounded by actual approvals.
+
+  - version: 0.8.0
+    name: Validated atlas beta
+    status: planned
+    objective: Publish quality-graded, uncertainty-forward aggregate products and a reproducible atlas/API beta.
+    tracks:
+      - 013-quality-validation-gap-equity
+      - 014-atlas-api-release
+    exit_gates:
+      - Machine-readable and human-readable public-data gap maps are released.
+      - At least one analysis has been independently reproduced.
+      - Atlas and API outputs expose provenance, uncertainty, quality and missingness.
+
+  - version: 0.9.0
+    name: Release candidate
+    status: planned
+    objective: Constitute governance and harden security, reliability, performance, operations and support.
+    tracks:
+      - 015-governance-partnership-policy
+      - 016-security-reliability-operations
+    exit_gates:
+      - Required governance bodies and policies are operational.
+      - Threat model, locked build, SBOM, signing/attestation and recovery exercises pass.
+      - No unresolved blocking governance, privacy, security or operational finding remains.
+
+  - version: 1.0.0
+    name: Stable public infrastructure
+    status: planned
+    objective: Demonstrate independent usability, reproducibility, sustainable ownership and complete the stable release contract.
+    tracks:
+      - 017-documentation-adoption-v1
+    exit_gates:
+      - Every blocking criterion in docs/v1-acceptance-criteria.md has linked evidence.
+      - Two clean release-candidate builds and one independent reproduction agree.
+      - Supported scope, maintainers, support, succession and sustainability are approved.
+      - A formal multi-lane release decision authorises the v1.0.0 tag.

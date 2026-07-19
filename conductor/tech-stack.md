@@ -4,33 +4,47 @@
 
 - Public-data-first and metadata-first.
 - Federated computation for controlled data.
-- Language-neutral specifications with a Python reference implementation.
+- Language-neutral contracts with a Python reference implementation.
 - Open, portable formats: CSV, JSON, YAML, Parquet and Arrow.
-- Version every ontology, source release, transformation and model.
+- Version every ontology, source release, transformation, parameter, model and output.
+- A static versioned release is the normative scientific product; hosted services are optional until separately governed.
 
-## Initial implementation
+## Target implementation stack
 
-| Layer | Initial choice | Rationale |
+| Layer | v1 direction | Rationale |
 |---|---|---|
-| Language | Python 3.12+ | Broad scientific ecosystem and portability |
-| Metadata | YAML validated by JSON Schema | Human-readable and machine-checkable |
-| Tabular interchange | CSV initially; Parquet for larger releases | Accessible first, scalable later |
-| Local analytics | DuckDB/Polars proposed for Track 002 | Reproducible analysis without a server |
-| Statistical modelling | Python/R interfaces; Bayesian engine selected per demonstrator | Avoid premature lock-in |
-| Reporting | Markdown and Quarto proposed | Reviewable source and reproducible outputs |
-| Diagrams | Mermaid | Version-controlled architecture and workflows |
-| Testing | pytest plus schema/fixture tests | Fast automated validation |
-| Quality | Ruff, type checking and pre-commit proposed | Consistent contributions |
-| CI | GitHub Actions | Portable public-repository automation |
+| Language | Python 3.11–3.13 reference implementation | Compatibility with scientific and secure research environments |
+| Packaging | Standard Python package, locked release environment and offline node bundle | Reproducibility and portability |
+| Metadata | YAML/JSON validated by JSON Schema 2020-12 | Human-reviewable and machine-enforced contracts |
+| Tabular interchange | CSV for small accessible releases; Parquet/Arrow for scale | Accessibility plus efficient exchange |
+| Local analytics | DuckDB and/or Polars only after ADR and benchmark | Portable processing without mandatory server infrastructure |
+| Statistical modelling | NumPy/SciPy plus a selected Bayesian engine per demonstrator where justified | Avoid premature framework lock-in |
+| Reporting | Markdown and a reproducible static-report system | Reviewable sources and immutable products |
+| Diagrams | Mermaid with accessible summaries | Version control and text alternatives |
+| Testing | pytest, schema, property, contract, statistical, end-to-end and documentation tests | Scientific and software assurance |
+| Quality | Ruff, static typing, coverage and compatibility tests | Stable public interfaces and maintainability |
+| CI | GitHub Actions or equivalent with supported Python matrix | Portable automation |
+| Release | Lockfile, SBOM, checksums/signing, provenance manifest and persistent archive | Supply-chain and scientific reproducibility |
+| Federated node | Offline-capable package/container plus language-neutral schemas | Custodian-controlled execution |
 
 ## Data architecture constraints
 
 - No controlled data leave approved environments unless explicitly permitted.
-- No participant-level output is committed to Git.
-- Small-cell and inferential disclosure rules are custodian-specific and must be encoded per node.
-- Every transformed dataset must have a manifest, source checksum where lawful, and lineage record.
-- Models must separate data, parameters, assumptions, code and outputs.
+- No participant-level, row-level or small-cell output is committed to public Git.
+- Custodian disclosure rules are authoritative and fail closed.
+- Every transformed dataset has a manifest, source release/checksum where lawful and lineage record.
+- Models separate data, parameters, assumptions, code and outputs.
+- Source and ontology changes explicitly invalidate affected derived artefacts.
+- A hosted API serves immutable reviewed releases, not mutable working tables.
 
-## Future-compatible standards
+## Compatibility target
 
-Candidate standards include ORPHAcodes/ORDO, ICD-10/11, SNOMED CT, MONDO, HPO, OMOP CDM, GA4GH standards, RO-Crate, Frictionless Data Packages, DataCite metadata and PROV-O. Adoption requires an explicit architecture decision record.
+- Linux on a current long-term-support distribution is the normative v1 platform.
+- Python 3.11, 3.12 and 3.13 are continuously tested.
+- macOS and Windows/WSL support is documented from actual test evidence.
+- Secure environments may use local runners that satisfy the versioned conformance contract.
+- Stable schema, CLI and data-package changes follow `docs/release-policy.md`.
+
+## Candidate standards requiring ADRs before adoption
+
+ORDO/ORPHAcodes, ICD-10/11, SNOMED CT, MONDO, OMIM, HPO, OMOP CDM, GA4GH Data Use Ontology, RO-Crate, Frictionless Data Packages, DataCite metadata and PROV-O.

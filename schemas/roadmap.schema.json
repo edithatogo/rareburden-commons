@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/roadmap.schema.json",
+  "title": "RareBurden Commons release roadmap",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["programme", "releases"],
+  "properties": {
+    "programme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "roadmap_version",
+        "stable_release",
+        "status",
+        "planning_model",
+        "roadmap_document",
+        "stable_acceptance_contract"
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 3},
+        "roadmap_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "stable_release": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "status": {"enum": ["pre_release", "stable", "maintenance", "archived"]},
+        "planning_model": {"const": "gate_based"},
+        "roadmap_document": {"type": "string", "pattern": "^docs/.+\\.md$"},
+        "stable_acceptance_contract": {"type": "string", "pattern": "^docs/.+\\.md$"}
+      }
+    },
+    "releases": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["version", "name", "status", "objective", "tracks", "exit_gates"],
+        "properties": {
+          "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+          "name": {"type": "string", "minLength": 3},
+          "status": {"enum": ["released", "current", "planned", "cancelled"]},
+          "objective": {"type": "string", "minLength": 20},
+          "tracks": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*$"}
+          },
+          "exit_gates": {
+            "type": "array",
+            "minItems": 2,
+            "items": {"type": "string", "minLength": 10}
+          }
+        }
+      }
+    }
+  }
+}
