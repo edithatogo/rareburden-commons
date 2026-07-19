@@ -1,0 +1,21 @@
+{
+  "id": "007-landscape-novelty",
+  "title": "Landscape, adjacency, novelty and partnership map",
+  "status": "ready",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-19",
+  "target_release": "0.3.0",
+  "stage": "landscape_validation",
+  "owner_role": "Programme and Evidence Synthesis Leads",
+  "dependencies": [
+    "001-foundation",
+    "006-v1-delivery-system"
+  ],
+  "review_gates": [
+    "scientific",
+    "patient_community",
+    "programme"
+  ],
+  "v1_critical": true
+}

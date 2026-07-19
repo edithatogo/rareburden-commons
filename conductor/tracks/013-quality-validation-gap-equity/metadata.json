@@ -1,0 +1,26 @@
+{
+  "id": "013-quality-validation-gap-equity",
+  "title": "Quality, validation, gap mapping and equity assurance",
+  "status": "planned",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-19",
+  "target_release": "0.8.0",
+  "stage": "assurance",
+  "owner_role": "Methods Assurance and Equity Leads",
+  "dependencies": [
+    "003-monogenic-diabetes-demonstrator",
+    "005-economic-social-burden",
+    "007-landscape-novelty",
+    "010-public-burden-engine",
+    "011-bronchiectasis-demonstrator",
+    "012-paediatric-burden-demonstrator"
+  ],
+  "review_gates": [
+    "scientific",
+    "patient_community",
+    "data_governance",
+    "programme"
+  ],
+  "v1_critical": true
+}

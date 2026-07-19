@@ -1,0 +1,22 @@
+{
+  "id": "006-v1-delivery-system",
+  "title": "v1 delivery system and foundation hardening",
+  "status": "complete",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-19",
+  "target_release": "0.2.0",
+  "stage": "programme_control",
+  "owner_role": "Product and Engineering Leads",
+  "dependencies": [
+    "001-foundation"
+  ],
+  "review_gates": [
+    "scientific",
+    "data_governance",
+    "patient_community",
+    "engineering",
+    "security"
+  ],
+  "v1_critical": true
+}

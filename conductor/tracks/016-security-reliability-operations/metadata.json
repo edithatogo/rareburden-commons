@@ -1,0 +1,22 @@
+{
+  "id": "016-security-reliability-operations",
+  "title": "Security, reliability, performance and operations",
+  "status": "planned",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-19",
+  "target_release": "0.9.0",
+  "stage": "production_hardening",
+  "owner_role": "Security and Site Reliability Leads",
+  "dependencies": [
+    "004-federated-node-runner",
+    "014-atlas-api-release"
+  ],
+  "review_gates": [
+    "data_governance",
+    "engineering",
+    "security",
+    "release"
+  ],
+  "v1_critical": true
+}

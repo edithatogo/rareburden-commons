@@ -1,0 +1,23 @@
+{
+  "id": "003-monogenic-diabetes-demonstrator",
+  "title": "Monogenic diabetes rare-within-common demonstrator",
+  "status": "planned",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-19",
+  "target_release": "0.5.0",
+  "stage": "reference_analysis",
+  "owner_role": "Clinical and Epidemiology Leads",
+  "dependencies": [
+    "008-semantic-backbone",
+    "009-evidence-parameter-ledger",
+    "010-public-burden-engine"
+  ],
+  "review_gates": [
+    "scientific",
+    "patient_community",
+    "data_governance",
+    "engineering"
+  ],
+  "v1_critical": true
+}
