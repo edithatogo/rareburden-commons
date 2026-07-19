@@ -107,68 +107,58 @@ No organisation should be asked initially for unrestricted transfer of all under
 
 The investment case is for shared measurement infrastructure and distributed analytic capacity, not a one-off disease study. A blended portfolio could include philanthropic seed funding, public research grants, institutional co-investment and ring-fenced node grants. Industry funding, if accepted, should be pooled and non-controlling, with public conflict declarations.
 
-## Five-year sequence
+## Delivery sequence to stable v1.0
 
-| Phase | Timing | Main outcome |
-|---|---|---|
-| Found | Jul–Oct 2026 | Charter, governance pathway, novelty validation and anchor interest |
-| Design | Oct 2026–Apr 2027 | Landscape, source catalogue, methods protocol and demonstrator designs |
-| Prove | Apr 2027–Jan 2028 | Public-data MVP, first secure analyses and atlas beta |
-| Validate and expand | 2028 | Independent validation and 6–10 country/thematic nodes |
-| Scale and institutionalise | 2029–Jun 2031 | Multi-region network, annual release and sustainable host |
+The implementation sequence is controlled by `conductor/roadmap.yml` and the detailed roadmap in `docs/roadmap-v1.md`. Progress is gate-based rather than date-driven.
 
-## First 100 days
+| Release stage | Strategic outcome |
+|---|---|
+| Foundation and programme control | Founding proposition, complete track portfolio, maturity model and stable-release contract |
+| Public evidence foundation | Reproducible public-source acquisition and demonstrated novelty/complementarity |
+| Semantic and evidence core | Versioned disease hierarchy, mappings and parameter ledger |
+| Public burden methods | Tested estimation and uncertainty engine plus first rare-within-common demonstrator |
+| Federated and multi-method validation | Portable node runner, second rare-within-common analysis and controlled-data-ready paediatric methods |
+| Economic, gap and atlas beta | Economic/social methods, evidence-gap map and accessible reviewed aggregate products |
+| Governance and operational hardening | Constituted decision rights, security, reliability, support and sustainable ownership |
+| Stable v1 | Independent reproduction, complete documentation and formal multi-lane release decision |
 
-### Days 1–30: establish legitimacy
+A polished atlas cannot substitute for missing semantic, provenance or validation gates. Each release may narrow its supported scope when the evidence does not justify the broader claim.
 
-- confirm working scope, name and institutional-host options;
-- recruit a patient/community co-lead;
-- publish the founding repository and decision principles;
-- complete a partner, funder and adjacent-initiative map;
-- select two demonstrators and define their estimands.
+## Initial mobilisation priorities
 
-### Days 31–60: test novelty and feasibility
+- confirm the working scope, name and institutional-host options;
+- recruit a patient/community co-lead with real decision rights;
+- publish the programme-control repository and stable-release principles;
+- complete the adjacency, duplication and novelty assessment;
+- select and freeze the first demonstrator estimands;
+- verify the first public-source access and licence contracts;
+- identify one secure genomic and one administrative-data route without treating access as confirmed;
+- prepare a bounded case for support tied to the track portfolio and decision gates.
 
-- conduct structured discussions with 10–15 prospective partners;
-- publish an adjacency and duplication matrix;
-- complete the public-source catalogue alpha;
-- draft governance, conflict and publication policies;
-- identify one secure genomic and one administrative-data access route.
+## Measures of progress
 
-### Days 61–100: create an investable programme
+### Foundation and public-data readiness
 
-- convene a founding roundtable;
-- publish a two-page case for support and technical protocol;
-- obtain expressions of interest without overstating commitment;
-- submit at least one seed-funding proposal;
-- make an explicit go, revise or stop decision against predefined criteria.
+- all v1-critical tracks have valid specifications, dependencies and owners;
+- the source and release catalogue distinguishes public, registered, controlled, federated and new collection routes;
+- the novelty review records a proceed, narrow, combine, revise or stop decision;
+- the first acquisition-to-normalised-table workflow reproduces from a clean environment.
 
-## Measures of success
+### Scientific and platform readiness
 
-### By 12 months
+- the semantic hierarchy and parameter ledger are versioned and tested;
+- expected affected-population and rare-aetiology methods propagate uncertainty and reject incompatible operations;
+- three demonstrator protocols exercise different evidence and overlap structures;
+- a synthetic federated node and at least one approved local pilot validate the node contract;
+- the gap map makes missing public evidence and additional custodian asks explicit.
 
-- versioned ontology and burden linearisation prototype;
-- public source and access catalogue;
-- preregistered protocol and two demonstrator specifications;
-- functioning governance with paid patient participation;
-- at least two secure/federated data pathways in development;
-- seed funding for a two-year proof programme.
+### Stable-release readiness
 
-### By 24 months
-
-- first reproducible burden demonstrator and economic module;
-- public atlas beta with uncertainty and quality grades;
-- three or more country/thematic nodes;
-- independent methods review and correction mechanism;
-- documented policy use case.
-
-### By five years
-
-- all WHO regions represented through locally governed nodes;
-- annual public release with stable identifiers and archived versions;
-- routine country profiles and rare-within-common estimates;
-- sustainable institutional home and diversified funding;
-- evidence of influence on at least one major policy, financing or measurement framework.
+- all blocking criteria in `docs/v1-acceptance-criteria.md` have linked evidence;
+- at least one released analysis is independently reproduced;
+- patient/community, scientific, data-governance, engineering and security authorities approve the supported scope;
+- release, correction, migration, support and succession processes are tested;
+- geographic and global claims are bounded to represented evidence and governance.
 
 ## Strategic risks and responses
 

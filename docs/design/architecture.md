@@ -1,6 +1,6 @@
 # System and data architecture
 
-**Status:** Conceptual architecture v0.1
+**Status:** Conceptual architecture v0.2; implementation staged through the v1 roadmap
 
 ## Architectural summary
 
@@ -218,3 +218,8 @@ Containerised or environment-portable node packages, signed manifests, schema-co
 - immutable release manifests and audit logs;
 - no public model output that permits reconstruction of prohibited small cells;
 - incident, correction and withdrawal procedures before controlled nodes launch.
+
+
+## V1 delivery controls
+
+The component architecture is implemented through the release and track gates in `docs/roadmap-v1.md`. The separate delivery diagrams in `docs/design/v1-delivery-architecture.md` show track lifecycle, assurance and release evidence. A component is not treated as production-ready merely because it appears in this conceptual diagram.
