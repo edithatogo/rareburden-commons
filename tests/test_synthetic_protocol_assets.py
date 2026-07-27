@@ -6,7 +6,6 @@ import pytest
 
 from rareburden.schema import load_mapping, validate_instance
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -31,10 +30,22 @@ def test_protocol_drafts_are_explicitly_non_binding(track: str) -> None:
 @pytest.mark.parametrize(
     ("fixture", "schema"),
     (
-        ("examples/ledger/public-foundation-synthetic.yml", "schemas/parameter-ledger.schema.json"),
-        ("examples/analyses/expected-population-synthetic.yml", "schemas/analysis-specification.schema.json"),
-        ("examples/semantics/orpha-to-synthetic-mapping.yml", "schemas/ontology-mapping.schema.json"),
-        ("examples/semantics/rare-within-common-synthetic.yml", "schemas/disease-hierarchy.schema.json"),
+        (
+            "examples/ledger/public-foundation-synthetic.yml",
+            "schemas/parameter-ledger.schema.json",
+        ),
+        (
+            "examples/analyses/expected-population-synthetic.yml",
+            "schemas/analysis-specification.schema.json",
+        ),
+        (
+            "examples/semantics/orpha-to-synthetic-mapping.yml",
+            "schemas/ontology-mapping.schema.json",
+        ),
+        (
+            "examples/semantics/rare-within-common-synthetic.yml",
+            "schemas/disease-hierarchy.schema.json",
+        ),
     ),
 )
 def test_synthetic_contract_fixtures_validate(fixture: str, schema: str) -> None:

@@ -33,3 +33,7 @@
 - [ ] Conduct scientific, privacy, security and engineering review.
 - [ ] Record residual risks and required local controls.
 - [ ] Release the node alpha only after all blocking findings close.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 004 cannot activate until Tracks 009 and 010 are complete. Evidence: `f919b03`.

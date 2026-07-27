@@ -27,3 +27,8 @@
 - [ ] Add schema migration and ontology-update impact tests.
 - [ ] Document unsupported mappings and residual overlap risk.
 - [ ] Freeze v0.4 semantic contracts for dependent tracks.
+
+## Review fixes — 2026-07-27
+
+- [x] Add a review record that captures the dependency block and prevents premature semantic-contract freeze. Evidence: `2e2a853`.
+- [x] Add non-binding semantic contract v0.1.0 draft to the specification; activation and contract freeze remain blocked.

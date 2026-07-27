@@ -1,10 +1,10 @@
 {
   "id": "005-economic-social-burden",
   "title": "Patient, family, economic and social burden module",
-  "status": "planned",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-19",
+  "updated": "2026-07-27",
   "target_release": "0.7.0",
   "stage": "economic_social_methods",
   "owner_role": "Health Economics and Patient-Reported Outcomes Leads",

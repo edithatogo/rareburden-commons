@@ -27,3 +27,8 @@
 - [ ] Validate ledger use with all three demonstrator specifications.
 - [ ] Close or assign every blocking data-contract issue.
 - [ ] Freeze v0.4 ledger contracts.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 009 cannot activate until Tracks 002 and 008 are complete. Evidence: `ebca9a1`.
+- [x] Add non-binding ledger contract v0.1.0 draft to the specification; activation and contract freeze remain blocked.

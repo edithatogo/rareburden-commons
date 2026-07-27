@@ -21,3 +21,44 @@
 ## Disposition
 
 Keep Track 007 **In review**. Use `proceed_with_narrowed_scope` as a provisional programme decision only. Complete registration, searches and external challenge before the final v0.3.0 gate.
+
+## Review fixes
+
+- Confirmed the catalogue contains 13 initiatives and remains a rapid internal landscape.
+- Kept protocol registration, repository-native searches, deduplication/exclusions, and independent methods and patient/community challenge explicitly open.
+- Kept partnership, endorsement, data-access, and final novelty claims bounded by documentary evidence.
+
+### Repository-native search evidence — 2026-07-27
+
+To make the next screening pass reproducible, the following bounded public API searches were run with the query `rare disease burden` and a descriptive user agent. HTTP status and result totals are recorded; these are discovery results, not screened inclusions or novelty conclusions.
+
+| Registry | Query endpoint | HTTP | Result observation |
+| --- | --- | ---: | --- |
+| GitHub repositories | `https://api.github.com/search/repositories?q=rare%20disease%20burden` | 200 | `total_count=5` |
+| Zenodo records | `https://zenodo.org/api/records/?q=rare%20disease%20burden&size=10` | 200 | `hits.total=192233` (broad full-text search; requires fielded screening) |
+| OSF nodes | `https://api.osf.io/v2/nodes/?filter%5Btitle%5D=rare%20disease%20burden` | 200 | `total=0` for exact title filter |
+| Hugging Face datasets | `https://huggingface.co/api/datasets?search=rare%20disease%20burden&limit=10` | 200 | 0 returned datasets |
+
+Official API documentation used to select these routes: [Zenodo search guide](https://zenodo.org/help/search), [Zenodo developers](https://developers.zenodo.org/), and [OSF API v2 documentation](https://developer.osf.io/). Search totals are time-sensitive and must be rerun at screening; deduplication, exclusions, protocol registration, and independent methods/patient-community challenge remain open.
+
+A mechanical catalogue deduplication pass on 2026-07-27 found 13 initiatives, 13 unique `initiative_id` values and 13 unique official URLs. This confirms no exact identifier/URL duplicates in the current register; it is not a substitute for title/entity screening, cross-registry deduplication or an exclusions log.
+
+### Versioned draft search and screening protocol — RBC-LAND-007 v0.1.0 (2026-07-27)
+
+This is a repository-native draft prepared for external registration; it is not itself a registered protocol or completed systematic review.
+
+**Question.** Which public rare-disease burden, registry, ontology, genomic, policy, standards and methodological infrastructures overlap with or complement a federated measurement/provenance/policy-translation layer, and what documented gap or boundary remains?
+
+**Sources and search strings.** Search each source on the retrieval date using the exact strings below, preserving the raw URL, timestamp, HTTP status, result total (where provided), and first-page identifiers:
+
+1. GitHub repository search API: `rare disease burden`, `rare disease registry`, `rare disease ontology`, `rare disease prevalence`, `rare disease cost`.
+2. Zenodo records API: the same five strings, with fielded follow-up searches for `title`, `description`, `metadata.subjects` and `communities`.
+3. OSF nodes API: title filters for each string, followed by broader public search if the exact-title result is zero.
+4. Hugging Face datasets API: each string plus `rare disease`, `burden`, `registry` and `ontology` as separate terms.
+5. Cited official institutional and scholarly sources in `catalog/initiatives.yml`, searched by initiative name, alternate name and official domain.
+
+**Eligibility.** Include a record when it is publicly identifiable, has a stable landing page or persistent identifier, and materially contributes a rare-disease burden estimate, registry/data infrastructure, ontology/standard, policy mandate, or method relevant to measurement, provenance, uncertainty, equity or governance. Include both potential overlap and foundational dependency. Exclude purely clinical guidance with no measurement/data relevance, individual case reports, non-public systems with no inspectable description, duplicate versions of the same initiative, and records whose only relation is a generic rare-disease mention.
+
+**Screening workflow.** Export discovery metadata; normalize title, canonical URL/DOI, organisation and year; perform exact identifier/URL deduplication; then perform manual entity-level deduplication across alternate names and versions. Screen title/abstract/landing metadata, record include/exclude/uncertain plus a one-line reason, and resolve uncertain records by a second reviewer. Extract the existing catalogue fields, preserve excluded records in an exclusions table, and record a change log whenever eligibility or search strings change. Report counts at discovery, after exact deduplication, after entity deduplication, screened, included, excluded and awaiting resolution.
+
+**Bias and limits.** API totals are time-sensitive; English-language and public-web bias, ranking bias, missing metadata, duplicate releases and inaccessible proprietary systems may affect completeness. The result is an adjacency and gap map, not evidence of partnership, endorsement, data access or scientific superiority. External registration, independent methods review and patient/community challenge remain required.

@@ -1,10 +1,10 @@
 {
   "id": "009-evidence-parameter-ledger",
   "title": "Evidence and parameter ledger",
-  "status": "planned",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-19",
+  "updated": "2026-07-27",
   "target_release": "0.4.0",
   "stage": "evidence_core",
   "owner_role": "Epidemiology and Data Architecture Leads",
