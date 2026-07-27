@@ -36,3 +36,7 @@
 - [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.
 - [ ] Close or assign every external review finding.
 - [ ] Release v0.3.0 only when Track 007 also satisfies its gate.
+
+## Review fixes — 2026-07-27
+
+- [x] Refresh internal harness evidence and separate repository validation from live-source and governance gates. Evidence: pending focused review commit.
