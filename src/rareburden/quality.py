@@ -7,7 +7,7 @@ reviewers can disagree with individual decisions without reverse-engineering a s
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from typing import Any
 
 from rareburden.provenance import content_id
@@ -42,7 +42,9 @@ def build_evidence_assessment(core: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
-def validate_evidence_assessment(assessment: Mapping[str, Any], schema: Mapping[str, Any]) -> dict[str, Any]:
+def validate_evidence_assessment(
+    assessment: Mapping[str, Any], schema: Mapping[str, Any]
+) -> dict[str, Any]:
     """Validate schema and non-opaque quality-decision invariants."""
     value = dict(assessment)
     try:
@@ -57,15 +59,20 @@ def validate_evidence_assessment(assessment: Mapping[str, Any], schema: Mapping[
         raise QualityAssessmentError("Evidence assessment contains duplicate domains")
     for item in domains:
         if item["judgement"] == "not_applicable" and not item["rationale"].strip():
-            raise QualityAssessmentError(f"{item['domain']}: not_applicable requires an explicit rationale")
+            raise QualityAssessmentError(
+                f"{item['domain']}: not_applicable requires an explicit rationale"
+            )
     decision = value["overall_judgement"]["decision"]
     high_risk = sorted(str(item["domain"]) for item in domains if item["judgement"] in _HIGH_RISK)
     if decision == "direct_use" and high_risk:
         raise QualityAssessmentError(
-            "direct_use is incompatible with high-concern or unclear domains: " + ", ".join(high_risk)
+            "direct_use is incompatible with high-concern or unclear domains: "
+            + ", ".join(high_risk)
         )
     if decision == "unsuitable" and not high_risk:
-        raise QualityAssessmentError("unsuitable requires at least one high-concern or unclear domain")
+        raise QualityAssessmentError(
+            "unsuitable requires at least one high-concern or unclear domain"
+        )
     return value
 
 
@@ -79,7 +86,9 @@ def build_transportability_assessment(core: Mapping[str, Any]) -> dict[str, Any]
     }
 
 
-def validate_transportability_assessment(assessment: Mapping[str, Any], schema: Mapping[str, Any]) -> dict[str, Any]:
+def validate_transportability_assessment(
+    assessment: Mapping[str, Any], schema: Mapping[str, Any]
+) -> dict[str, Any]:
     """Validate schema and fail on contradictory transfer decisions."""
     value = dict(assessment)
     try:
@@ -92,14 +101,17 @@ def validate_transportability_assessment(assessment: Mapping[str, Any], schema: 
     domains = [str(item["domain"]) for item in differences]
     if len(domains) != len(set(domains)):
         raise QualityAssessmentError("Transportability assessment contains duplicate domains")
-    material = sorted(str(item["domain"]) for item in differences if item["materiality"] in _MATERIAL_DIFFERENCES)
+    material = sorted(
+        str(item["domain"]) for item in differences if item["materiality"] in _MATERIAL_DIFFERENCES
+    )
     strategy = value["method"]["strategy"]
     use = value["judgement"]["use"]
     multiplier = float(value["judgement"]["uncertainty_multiplier"])
 
     if use == "direct" and material:
         raise QualityAssessmentError(
-            "direct transfer is incompatible with moderate, high, unknown differences: " + ", ".join(material)
+            "direct transfer is incompatible with moderate, high, unknown differences: "
+            + ", ".join(material)
         )
     if strategy == "no_transfer" and use != "not_transportable":
         raise QualityAssessmentError("no_transfer strategy requires not_transportable use")
@@ -116,12 +128,16 @@ def validate_transportability_assessment(assessment: Mapping[str, Any], schema: 
 
 def release_eligibility(
     *,
-    evidence_assessments: list[Mapping[str, Any]],
-    transportability_assessments: list[Mapping[str, Any]],
+    evidence_assessments: Sequence[Mapping[str, Any]],
+    transportability_assessments: Sequence[Mapping[str, Any]],
 ) -> dict[str, Any]:
     """Summarise visible decisions without collapsing them into a quality score."""
-    evidence_decisions = sorted({str(item["overall_judgement"]["decision"]) for item in evidence_assessments})
-    transport_decisions = sorted({str(item["judgement"]["use"]) for item in transportability_assessments})
+    evidence_decisions = sorted(
+        {str(item["overall_judgement"]["decision"]) for item in evidence_assessments}
+    )
+    transport_decisions = sorted(
+        {str(item["judgement"]["use"]) for item in transportability_assessments}
+    )
     blockers: list[str] = []
     if any(item in {"unsuitable", "unclear"} for item in evidence_decisions):
         blockers.append("evidence quality decision blocks primary release use")
@@ -143,8 +159,8 @@ def build_quality_disposition(
     analysis_id: str,
     created_at: str,
     intended_use: str,
-    evidence_assessments: list[Mapping[str, Any]],
-    transportability_assessments: list[Mapping[str, Any]],
+    evidence_assessments: Sequence[Mapping[str, Any]],
+    transportability_assessments: Sequence[Mapping[str, Any]],
 ) -> dict[str, Any]:
     """Build a content-addressed, use-specific fitness-for-use disposition.
 
@@ -177,15 +193,21 @@ def build_quality_disposition(
         "analysis_id": analysis_id,
         "created_at": created_at,
         "intended_use": intended_use,
-        "evidence_assessment_ids": sorted({str(item["assessment_id"]) for item in evidence_assessments}),
+        "evidence_assessment_ids": sorted(
+            {str(item["assessment_id"]) for item in evidence_assessments}
+        ),
         "transportability_assessment_ids": sorted(
             {str(item["assessment_id"]) for item in transportability_assessments}
         ),
         "eligible_for_primary_analysis": bool(summary["eligible_for_primary_analysis"]),
-        "eligible_for_synthetic_assurance": (intended_use == "synthetic_assurance" and not synthetic_hard_blockers),
+        "eligible_for_synthetic_assurance": (
+            intended_use == "synthetic_assurance" and not synthetic_hard_blockers
+        ),
         "evidence_decisions": list(summary["evidence_decisions"]),
         "transportability_decisions": list(summary["transportability_decisions"]),
-        "blockers": sorted({str(item) for item in summary["blockers"]} | set(synthetic_hard_blockers)),
+        "blockers": sorted(
+            {str(item) for item in summary["blockers"]} | set(synthetic_hard_blockers)
+        ),
         "note": summary["note"],
     }
     materialised = {"schema_version": "1.0.0", **core}
@@ -199,8 +221,8 @@ def validate_quality_disposition(
     disposition: Mapping[str, Any],
     schema: Mapping[str, Any],
     *,
-    evidence_assessments: list[Mapping[str, Any]] | None = None,
-    transportability_assessments: list[Mapping[str, Any]] | None = None,
+    evidence_assessments: Sequence[Mapping[str, Any]] | None = None,
+    transportability_assessments: Sequence[Mapping[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Validate schema, content identity and optional assessment closure."""
     value = dict(disposition)
@@ -211,8 +233,13 @@ def validate_quality_disposition(
     _validate_content_identifier(value, field="disposition_id", prefix="qdp")
     if value["eligible_for_primary_analysis"] and value["blockers"]:
         raise QualityAssessmentError("eligible_for_primary_analysis cannot coexist with blockers")
-    if value["intended_use"] == "synthetic_assurance" and not value["eligible_for_synthetic_assurance"]:
-        raise QualityAssessmentError("synthetic_assurance intended use must remain executable as assurance")
+    if (
+        value["intended_use"] == "synthetic_assurance"
+        and not value["eligible_for_synthetic_assurance"]
+    ):
+        raise QualityAssessmentError(
+            "synthetic_assurance intended use must remain executable as assurance"
+        )
     if evidence_assessments is not None or transportability_assessments is not None:
         evidence = evidence_assessments or []
         transportability = transportability_assessments or []
@@ -224,23 +251,27 @@ def validate_quality_disposition(
             transportability_assessments=transportability,
         )
         if rebuilt != value:
-            raise QualityAssessmentError("Quality disposition differs from the supplied assessment set")
+            raise QualityAssessmentError(
+                "Quality disposition differs from the supplied assessment set"
+            )
     return value
 
 
 def verify_parameter_assessment_closure(
     *,
-    parameters: list[Mapping[str, Any]],
+    parameters: Sequence[Mapping[str, Any]],
     parameter_ids: list[str],
-    evidence_assessments: list[Mapping[str, Any]],
-    transportability_assessments: list[Mapping[str, Any]],
+    evidence_assessments: Sequence[Mapping[str, Any]],
+    transportability_assessments: Sequence[Mapping[str, Any]],
     disposition: Mapping[str, Any],
 ) -> list[str]:
     """Verify that analysis parameters, assessments and disposition form a closed graph."""
     failures: list[str] = []
     parameter_map = {str(item.get("parameter_id", "")): item for item in parameters}
     evidence_map = {str(item.get("assessment_id", "")): item for item in evidence_assessments}
-    transport_map = {str(item.get("assessment_id", "")): item for item in transportability_assessments}
+    transport_map = {
+        str(item.get("assessment_id", "")): item for item in transportability_assessments
+    }
     selected_evidence: set[str] = set()
     selected_transport: set[str] = set()
     for parameter_id in parameter_ids:
@@ -255,21 +286,28 @@ def verify_parameter_assessment_closure(
             selected_evidence.add(assessment_id)
             assessment = evidence_map.get(assessment_id)
             if assessment is None:
-                failures.append(f"parameter {parameter_id} references missing evidence assessment {assessment_id}")
+                failures.append(
+                    f"parameter {parameter_id} references missing evidence assessment "
+                    f"{assessment_id}"
+                )
                 continue
             subject = assessment.get("subject", {})
             if not isinstance(subject, Mapping) or subject.get("subject_type") != "parameter":
                 failures.append(f"evidence assessment does not assess a parameter: {assessment_id}")
             elif subject.get("subject_id") != parameter_id:
                 failures.append(
-                    f"evidence assessment {assessment_id} assesses {subject.get('subject_id')!r}, not {parameter_id!r}"
+                    f"evidence assessment {assessment_id} assesses "
+                    f"{subject.get('subject_id')!r}, not {parameter_id!r}"
                 )
-        for assessment_id in [str(item) for item in record.get("transportability_assessment_ids", [])]:
+        for assessment_id in [
+            str(item) for item in record.get("transportability_assessment_ids", [])
+        ]:
             selected_transport.add(assessment_id)
             assessment = transport_map.get(assessment_id)
             if assessment is None:
                 failures.append(
-                    f"parameter {parameter_id} references missing transportability assessment {assessment_id}"
+                    f"parameter {parameter_id} references missing transportability "
+                    f"assessment {assessment_id}"
                 )
             elif assessment.get("parameter_id") != parameter_id:
                 failures.append(
@@ -277,11 +315,17 @@ def verify_parameter_assessment_closure(
                     f"{assessment.get('parameter_id')!r}, not {parameter_id!r}"
                 )
     declared_evidence = {str(item) for item in disposition.get("evidence_assessment_ids", [])}
-    declared_transport = {str(item) for item in disposition.get("transportability_assessment_ids", [])}
+    declared_transport = {
+        str(item) for item in disposition.get("transportability_assessment_ids", [])
+    }
     if selected_evidence != declared_evidence:
-        failures.append("quality disposition evidence-assessment set differs from selected parameter records")
+        failures.append(
+            "quality disposition evidence-assessment set differs from selected parameter records"
+        )
     if selected_transport != declared_transport:
-        failures.append("quality disposition transportability set differs from selected parameter records")
+        failures.append(
+            "quality disposition transportability set differs from selected parameter records"
+        )
     return sorted(set(failures))
 
 

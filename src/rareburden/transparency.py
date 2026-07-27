@@ -236,12 +236,7 @@ def build_analysis_decision_log(
 
 def _safe_local_path(root: Path, logical_path: str) -> Path:
     path = PurePosixPath(logical_path)
-    if (
-        not logical_path
-        or path.is_absolute()
-        or ".." in path.parts
-        or "\\" in logical_path
-    ):
+    if not logical_path or path.is_absolute() or ".." in path.parts or "\\" in logical_path:
         raise TransparencyRecordError(f"Unsafe transparency evidence path: {logical_path!r}")
     root_resolved = root.expanduser().resolve()
     candidate = root_resolved / path.as_posix()
@@ -333,8 +328,7 @@ def verify_analysis_decision_log(
             failures.append("analysis decision log content identifier mismatch")
     if (
         expected_protocol_registration_id is not None
-        and decision_log.get("protocol_registration_id")
-        != expected_protocol_registration_id
+        and decision_log.get("protocol_registration_id") != expected_protocol_registration_id
     ):
         failures.append("analysis decision log refers to the wrong protocol registration")
     deviations = decision_log.get("deviations")
@@ -349,9 +343,7 @@ def verify_analysis_decision_log(
             and decision.get("timing") == "post_hoc"
             and not decision.get("evidence")
         ):
-            failures.append(
-                f"post-hoc decision lacks evidence: {decision.get('decision_id', '')}"
-            )
+            failures.append(f"post-hoc decision lacks evidence: {decision.get('decision_id', '')}")
     return sorted(set(failures))
 
 

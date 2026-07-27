@@ -313,9 +313,7 @@ def verify_prov_bundle(
 ) -> list[str]:
     """Structurally verify a PROV projection against native workflow evidence."""
     failures: list[str] = []
-    canonical_payload = {
-        key: value for key, value in bundle.items() if key != "rb:canonicalDigest"
-    }
+    canonical_payload = {key: value for key, value in bundle.items() if key != "rb:canonicalDigest"}
     expected_digest = hashlib.sha256(canonical_json_bytes(canonical_payload)).hexdigest()
     if bundle.get("rb:canonicalDigest") != expected_digest:
         failures.append("PROV bundle canonical digest mismatch")
@@ -337,12 +335,12 @@ def verify_prov_bundle(
 
     expected_run_ids = {str(run.get("transformation_run_id", "")) for run in transformation_runs}
     expected_activities = {_activity_id(run_id) for run_id in expected_run_ids if run_id}
-    actual_activities = {
-        identifier
-        for identifier, entity in index.items()
-        if "prov:Activity"
-        in (entity.get("@type") if isinstance(entity.get("@type"), list) else [entity.get("@type")])
-    }
+    actual_activities: set[str] = set()
+    for identifier, entity in index.items():
+        raw_type: object = entity.get("@type")
+        entity_types = raw_type if isinstance(raw_type, list) else [raw_type]
+        if "prov:Activity" in entity_types:
+            actual_activities.add(identifier)
     if actual_activities != expected_activities:
         failures.append("PROV activities do not exactly match transformation runs")
 
@@ -369,12 +367,12 @@ def verify_prov_bundle(
             if set(_extract_refs(entity.get("prov:wasDerivedFrom"))) != expected_inputs:
                 failures.append(f"PROV derivation relation mismatch for {output_id}")
 
-    actual_artifacts = {
-        identifier
-        for identifier, entity in index.items()
-        if "prov:Entity"
-        in (entity.get("@type") if isinstance(entity.get("@type"), list) else [entity.get("@type")])
-    }
+    actual_artifacts: set[str] = set()
+    for identifier, entity in index.items():
+        raw_type = entity.get("@type")
+        entity_types = raw_type if isinstance(raw_type, list) else [raw_type]
+        if "prov:Entity" in entity_types:
+            actual_artifacts.add(identifier)
     if actual_artifacts != expected_artifacts:
         failures.append("PROV entities do not exactly match workflow artefacts")
 

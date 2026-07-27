@@ -8,11 +8,6 @@ from pathlib import Path
 from typing import Any
 
 from rareburden import __version__
-from rareburden.assurance import (
-    ScholarlyAssuranceError,
-    ScholarlyAssuranceResult,
-    build_reference_scholarly_assurance,
-)
 from rareburden.acquisition.adapters import (
     normalise_indicator_json,
     normalise_orphadata_xml,
@@ -20,19 +15,15 @@ from rareburden.acquisition.adapters import (
     normalise_who_csv,
 )
 from rareburden.acquisition.normalise import write_record_package
+from rareburden.assurance import (
+    ScholarlyAssuranceError,
+    ScholarlyAssuranceResult,
+    build_reference_scholarly_assurance,
+)
 from rareburden.catalog import load_yaml
 from rareburden.gapmap import build_domain_gap_map, render_gap_map_markdown
 from rareburden.ledger import load_ledger
 from rareburden.model import run_analysis_spec
-from rareburden.quality import (
-    build_evidence_assessment,
-    build_quality_disposition,
-    build_transportability_assessment,
-    validate_evidence_assessment,
-    validate_quality_disposition,
-    validate_transportability_assessment,
-    verify_parameter_assessment_closure,
-)
 from rareburden.provenance import (
     atomic_write_bytes,
     atomic_write_json,
@@ -41,6 +32,15 @@ from rareburden.provenance import (
     sha256_file,
     utc_now,
     write_json_record,
+)
+from rareburden.quality import (
+    build_evidence_assessment,
+    build_quality_disposition,
+    build_transportability_assessment,
+    validate_evidence_assessment,
+    validate_quality_disposition,
+    validate_transportability_assessment,
+    verify_parameter_assessment_closure,
 )
 from rareburden.release import build_release_manifest, verify_release_manifest
 from rareburden.reproducibility import verify_reproducibility_assessment
@@ -222,9 +222,7 @@ def _normalised_records(
             acquisition_manifest_id=un_manifest,
             columns={
                 str(key): str(value)
-                for key, value in load_mapping(
-                    root / "examples/config/un-wpp-columns.yml"
-                ).items()
+                for key, value in load_mapping(root / "examples/config/un-wpp-columns.yml").items()
             },
             multiplier=1000.0,
             geography_code_system="UN_M49",
@@ -235,9 +233,7 @@ def _normalised_records(
             acquisition_manifest_id=who_manifest,
             columns={
                 str(key): str(value)
-                for key, value in load_mapping(
-                    root / "examples/config/who-ghe-columns.yml"
-                ).items()
+                for key, value in load_mapping(root / "examples/config/who-ghe-columns.yml").items()
             },
         ),
         "world-bank-indicators": normalise_indicator_json(
@@ -268,9 +264,7 @@ def _write_normalised_packages(
     return generated
 
 
-def _write_quality_records(
-    *, root: Path, output: Path, created_at: str
-) -> _QualityArtifacts:
+def _write_quality_records(*, root: Path, output: Path, created_at: str) -> _QualityArtifacts:
     evidence_schema = load_mapping(root / "schemas/evidence-assessment.schema.json")
     transport_schema = load_mapping(root / "schemas/transportability-assessment.schema.json")
     disposition_schema = load_mapping(root / "schemas/quality-disposition.schema.json")
@@ -278,9 +272,7 @@ def _write_quality_records(
     evidence_paths: list[Path] = []
     for name in ("population-parameter-assessment", "fraction-parameter-assessment"):
         core = load_mapping(root / "examples/quality" / f"{name}.yml")
-        assessment = validate_evidence_assessment(
-            build_evidence_assessment(core), evidence_schema
-        )
+        assessment = validate_evidence_assessment(build_evidence_assessment(core), evidence_schema)
         path = output / "analysis/evidence-assessments" / f"{name}.json"
         atomic_write_json(path, assessment)
         evidence_assessments.append(assessment)
@@ -293,14 +285,11 @@ def _write_quality_records(
         build_transportability_assessment(transport_core), transport_schema
     )
     transport_path = (
-        output
-        / "analysis/transportability-assessments/fraction-transportability-assessment.json"
+        output / "analysis/transportability-assessments/fraction-transportability-assessment.json"
     )
     atomic_write_json(transport_path, transport)
 
-    specification = load_mapping(
-        root / "examples/analyses/expected-population-synthetic.yml"
-    )
+    specification = load_mapping(root / "examples/analyses/expected-population-synthetic.yml")
     disposition = build_quality_disposition(
         analysis_id=str(specification["analysis_id"]),
         created_at=created_at,
@@ -314,9 +303,7 @@ def _write_quality_records(
         evidence_assessments=evidence_assessments,
         transportability_assessments=[transport],
     )
-    ledger_document = load_mapping(
-        root / "examples/ledger/public-foundation-synthetic.yml"
-    )
+    ledger_document = load_mapping(root / "examples/ledger/public-foundation-synthetic.yml")
     closure_failures = verify_parameter_assessment_closure(
         parameters=list(ledger_document["parameters"]),
         parameter_ids=[
@@ -432,9 +419,7 @@ def run_public_foundation_reference(
             root=repository_root, output=output, records=records, created_at=timestamp
         )
     )
-    quality = _write_quality_records(
-        root=repository_root, output=output, created_at=timestamp
-    )
+    quality = _write_quality_records(root=repository_root, output=output, created_at=timestamp)
     generated.extend(quality.generated_files)
     analysis_result, analysis_path = _run_reference_analysis(
         root=repository_root,

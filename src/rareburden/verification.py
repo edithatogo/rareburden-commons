@@ -121,6 +121,19 @@ def _check(
     }
 
 
+def _verify_release_manifest_schema_and_content(
+    release_root: Path,
+    schemas: Path,
+    manifest: Mapping[str, Any],
+) -> Sequence[str]:
+    validate_instance(
+        dict(manifest),
+        _schema(schemas, "release-manifest.schema.json"),
+        label="release-manifest.json",
+    )
+    return verify_release_manifest(release_root, dict(manifest))
+
+
 def _validate_document(
     root: Path,
     schema_root: Path,
@@ -162,7 +175,9 @@ def _verify_source_records(root: Path, schema_root: Path) -> list[str]:
     for path in sorted((root / "acquisition").glob("*.acquisition.json")):
         logical = path.relative_to(root).as_posix()
         record = _load_json(root, logical)
-        validate_instance(record, _schema(schema_root, "acquisition-manifest.schema.json"), label=logical)
+        validate_instance(
+            record, _schema(schema_root, "acquisition-manifest.schema.json"), label=logical
+        )
         identity = {
             "source_id": record["source_id"],
             "release_id": record["release_id"],
@@ -185,7 +200,9 @@ def _verify_source_records(root: Path, schema_root: Path) -> list[str]:
         logical = path.relative_to(root).as_posix()
         record = _load_json(root, logical)
         validate_instance(record, _schema(schema_root, "source-release.schema.json"), label=logical)
-        expected_id = stable_identifier(str(record["source_id"]), str(record["release_id"]), prefix="src")
+        expected_id = stable_identifier(
+            str(record["source_id"]), str(record["release_id"]), prefix="src"
+        )
         if record["source_release_id"] != expected_id:
             failures.append(f"source-release identifier mismatch: {logical}")
         acquisition_path = str(record["acquisition_manifest"])
@@ -258,7 +275,9 @@ def _verify_normalised_packages(root: Path, schema_root: Path) -> list[str]:
             failures.append(f"normalised record validation failed for {records_name}: {exc}")
             continue
         if rows != ordered:
-            failures.append(f"normalised records are not in canonical identifier order: {records_name}")
+            failures.append(
+                f"normalised records are not in canonical identifier order: {records_name}"
+            )
         if len(rows) != manifest["record_count"]:
             failures.append(f"normalised record count mismatch: {records_name}")
         stable_core = {
@@ -284,7 +303,9 @@ def _verify_normalised_packages(root: Path, schema_root: Path) -> list[str]:
     return sorted(set(failures))
 
 
-def _verify_fitness_for_use(root: Path, schema_root: Path) -> tuple[list[str], dict[str, Any] | None]:
+def _verify_fitness_for_use(
+    root: Path, schema_root: Path
+) -> tuple[list[str], dict[str, Any] | None]:
     """Rebuild quality records and verify parameter-to-assessment closure."""
     failures: list[str] = []
     evidence_schema = _schema(schema_root, "evidence-assessment.schema.json")
@@ -305,10 +326,14 @@ def _verify_fitness_for_use(root: Path, schema_root: Path) -> tuple[list[str], d
             failures.append(f"evidence assessment does not reproduce: {output_path}")
         evidence.append(recorded)
 
-    transport_output = "analysis/transportability-assessments/fraction-transportability-assessment.json"
+    transport_output = (
+        "analysis/transportability-assessments/fraction-transportability-assessment.json"
+    )
     transport_recorded = _load_json(root, transport_output)
     validate_transportability_assessment(transport_recorded, transport_schema)
-    transport_core = load_mapping(root / "materials/quality/fraction-transportability-assessment.yml")
+    transport_core = load_mapping(
+        root / "materials/quality/fraction-transportability-assessment.yml"
+    )
     transport_rebuilt = validate_transportability_assessment(
         build_transportability_assessment(transport_core), transport_schema
     )
@@ -322,7 +347,9 @@ def _verify_fitness_for_use(root: Path, schema_root: Path) -> tuple[list[str], d
         transportability_assessments=[transport_recorded],
     )
     specification = load_mapping(root / "materials/analysis/expected-population-synthetic.yml")
-    ledger_document = load_mapping(root / "materials/analysis/public-foundation-synthetic-ledger.yml")
+    ledger_document = load_mapping(
+        root / "materials/analysis/public-foundation-synthetic-ledger.yml"
+    )
     closure = verify_parameter_assessment_closure(
         parameters=list(ledger_document["parameters"]),
         parameter_ids=[
@@ -352,7 +379,9 @@ def _verify_scientific_products(root: Path, schema_root: Path) -> list[str]:
     failures.extend(quality_failures)
     analysis_path = "analysis/expected-population-synthetic.json"
     result = _load_json(root, analysis_path)
-    validate_instance(result, _schema(schema_root, "analysis-result.schema.json"), label=analysis_path)
+    validate_instance(
+        result, _schema(schema_root, "analysis-result.schema.json"), label=analysis_path
+    )
     ledger = load_ledger(
         root / "materials/analysis/public-foundation-synthetic-ledger.yml",
         schema_root / "parameter-ledger.schema.json",
@@ -365,9 +394,13 @@ def _verify_scientific_products(root: Path, schema_root: Path) -> list[str]:
         quality_disposition=disposition,
     )
     comparable_keys = set(result) - {"runtime"}
-    if {key: result[key] for key in comparable_keys} != {key: rerun[key] for key in comparable_keys}:
+    if {key: result[key] for key in comparable_keys} != {
+        key: rerun[key] for key in comparable_keys
+    }:
         failures.append("deterministic analysis does not reproduce from packaged materials")
-    if result.get("runtime", {}).get("random_engine") != rerun.get("runtime", {}).get("random_engine"):
+    if result.get("runtime", {}).get("random_engine") != rerun.get("runtime", {}).get(
+        "random_engine"
+    ):
         failures.append("analysis random-engine identity differs from verifier")
 
     gap_path = "reports/public-data-gap-map.json"
@@ -424,12 +457,19 @@ def _verify_scholarly_assurance(root: Path, schema_root: Path) -> list[str]:
     for path in run_paths:
         logical = path.relative_to(root).as_posix()
         run = _load_json(root, logical)
-        validate_instance(run, _schema(schema_root, "transformation-run.schema.json"), label=logical)
-        failures.extend(f"{logical}: {failure}" for failure in verify_transformation_run(run, artefact_roots=[root]))
+        validate_instance(
+            run, _schema(schema_root, "transformation-run.schema.json"), label=logical
+        )
+        failures.extend(
+            f"{logical}: {failure}"
+            for failure in verify_transformation_run(run, artefact_roots=[root])
+        )
         runs.append(run)
 
     workflow = _load_json(root, workflow_path)
-    validate_instance(workflow, _schema(schema_root, "workflow-run.schema.json"), label=workflow_path)
+    validate_instance(
+        workflow, _schema(schema_root, "workflow-run.schema.json"), label=workflow_path
+    )
     failures.extend(verify_workflow_run(root, workflow))
 
     prov = _load_json(root, prov_path)
@@ -437,7 +477,9 @@ def _verify_scholarly_assurance(root: Path, schema_root: Path) -> list[str]:
     failures.extend(verify_prov_bundle(prov, workflow=workflow, transformation_runs=runs))
 
     lineage = _load_json(root, lineage_path)
-    validate_instance(lineage, _schema(schema_root, "lineage-audit.schema.json"), label=lineage_path)
+    validate_instance(
+        lineage, _schema(schema_root, "lineage-audit.schema.json"), label=lineage_path
+    )
     rebuilt_lineage = build_lineage_audit(
         root=root,
         release_id=str(lineage["release_id"]),
@@ -450,11 +492,15 @@ def _verify_scholarly_assurance(root: Path, schema_root: Path) -> list[str]:
         failures.append("lineage audit differs from recomputed audit")
 
     reporting = _load_json(root, reporting_path)
-    validate_instance(reporting, _schema(schema_root, "reporting-checklist.schema.json"), label=reporting_path)
+    validate_instance(
+        reporting, _schema(schema_root, "reporting-checklist.schema.json"), label=reporting_path
+    )
     failures.extend(verify_gather_checklist(reporting, root=root))
 
     crate = _load_json(root, crate_path)
-    validate_instance(crate, _schema(schema_root, "research-object-profile.schema.json"), label=crate_path)
+    validate_instance(
+        crate, _schema(schema_root, "research-object-profile.schema.json"), label=crate_path
+    )
     failures.extend(verify_process_run_crate(root, crate))
 
     reproducibility = _load_json(root, reproducibility_path)
@@ -485,7 +531,9 @@ def verify_reference_release(
     if requested_root.is_symlink() or not requested_root.is_dir():
         raise ReferenceVerificationError(f"Release root is missing or unsafe: {root}")
     release_root = requested_root.resolve()
-    requested_schemas = schema_root.expanduser() if schema_root is not None else release_root / "materials/schemas"
+    requested_schemas = (
+        schema_root.expanduser() if schema_root is not None else release_root / "materials/schemas"
+    )
     if requested_schemas.is_symlink() or not requested_schemas.is_dir():
         raise ReferenceVerificationError(f"Schema root is missing or unsafe: {requested_schemas}")
     schemas = requested_schemas.resolve()
@@ -495,14 +543,7 @@ def verify_reference_release(
         _check(
             "release_manifest",
             "Release manifest schema, identities, checksums and summary",
-            lambda: (
-                validate_instance(
-                    manifest,
-                    _schema(schemas, "release-manifest.schema.json"),
-                    label="release-manifest.json",
-                ),
-                *verify_release_manifest(release_root, manifest),
-            )[1:],
+            lambda: _verify_release_manifest_schema_and_content(release_root, schemas, manifest),
         ),
         _check(
             "release_closure",
@@ -535,7 +576,9 @@ def verify_reference_release(
             lambda: _verify_scholarly_assurance(release_root, schemas),
         ),
     ]
-    failures = [f"{check['check_id']}: {failure}" for check in checks for failure in check["failures"]]
+    failures = [
+        f"{check['check_id']}: {failure}" for check in checks for failure in check["failures"]
+    ]
     core = {
         "release_id": str(manifest.get("release_id", "")),
         "release_manifest_id": str(manifest.get("release_manifest_id", "")),
@@ -562,7 +605,8 @@ def verify_reference_release(
         "limitations": [
             "A passed report establishes internal structural and deterministic auditability only.",
             (
-                "The verifier does not establish external preregistration, independent reproduction, "
+                "The verifier does not establish external preregistration, "
+                "independent reproduction, "
                 "empirical validity, custodian approval, or community governance."
             ),
         ],

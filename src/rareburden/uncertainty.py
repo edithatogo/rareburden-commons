@@ -94,8 +94,10 @@ def decompose_independent_product(
         "empirical_product_variance": empirical_variance,
         "relative_closure_error": abs(moment_total - empirical_variance) / closure_denominator,
         "limitations": [
-            "The decomposition assumes independent inputs and is invalid for correlated parameters.",
-            "Components use finite deterministic Monte Carlo moments rather than analytic distribution moments.",
+            "The decomposition assumes independent inputs and is invalid for "
+            "correlated parameters.",
+            "Components use finite deterministic Monte Carlo moments rather than "
+            "analytic distribution moments.",
             "The interaction term reflects multiplicative uncertainty, not biological interaction.",
         ],
     }

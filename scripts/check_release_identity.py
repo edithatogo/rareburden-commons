@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Validate consistent software version, canonical tag and release identity."""
+
 from __future__ import annotations
 
 import argparse
@@ -48,7 +49,9 @@ def _source_version(root: Path) -> str:
     return match.group(1)
 
 
-def validate_release_identity(root: Path, *, tag: str | None = None, require_git: bool = True) -> str:
+def validate_release_identity(
+    root: Path, *, tag: str | None = None, require_git: bool = True
+) -> str:
     root = root.resolve()
     project = _project_version(root)
     source = _source_version(root)
@@ -72,7 +75,11 @@ def validate_release_identity(root: Path, *, tag: str | None = None, require_git
             if len(head) != 40:
                 raise ReleaseIdentityError("Git HEAD is unavailable")
             status = subprocess.run(
-                ["git", "status", "--porcelain=v1"], cwd=root, check=True, capture_output=True, text=True
+                ["git", "status", "--porcelain=v1"],
+                cwd=root,
+                check=True,
+                capture_output=True,
+                text=True,
             ).stdout.strip()
         except (OSError, subprocess.CalledProcessError) as exc:
             raise ReleaseIdentityError(f"Git identity cannot be verified: {exc}") from exc
@@ -81,7 +88,11 @@ def validate_release_identity(root: Path, *, tag: str | None = None, require_git
         if tag is not None:
             try:
                 tagged = subprocess.run(
-                    ["git", "rev-list", "-n", "1", tag], cwd=root, check=True, capture_output=True, text=True
+                    ["git", "rev-list", "-n", "1", tag],
+                    cwd=root,
+                    check=True,
+                    capture_output=True,
+                    text=True,
                 ).stdout.strip()
             except (OSError, subprocess.CalledProcessError) as exc:
                 raise ReleaseIdentityError(f"Git tag cannot be resolved: {tag}") from exc

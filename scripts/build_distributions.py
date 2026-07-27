@@ -42,9 +42,7 @@ def _canonicalise_sdist(path: Path, *, source_date_epoch: int) -> None:
             for member in archive.getmembers():
                 name = _safe_archive_name(member.name)
                 if member.issym() or member.islnk() or member.isdev():
-                    raise DistributionBuildError(
-                        f"Unsafe source-distribution member type: {name}"
-                    )
+                    raise DistributionBuildError(f"Unsafe source-distribution member type: {name}")
                 if member.isdir():
                     records.append((name.rstrip("/") + "/", True, 0o755, b""))
                     continue
@@ -52,9 +50,7 @@ def _canonicalise_sdist(path: Path, *, source_date_epoch: int) -> None:
                     continue
                 extracted = archive.extractfile(member)
                 if extracted is None:
-                    raise DistributionBuildError(
-                        f"Cannot read source-distribution member: {name}"
-                    )
+                    raise DistributionBuildError(f"Cannot read source-distribution member: {name}")
                 data = extracted.read()
                 mode = 0o755 if member.mode & 0o111 else 0o644
                 records.append((name, False, mode, data))
@@ -82,11 +78,13 @@ def _canonicalise_sdist(path: Path, *, source_date_epoch: int) -> None:
 
     temporary = path.with_name(f".{path.name}.canonical")
     try:
-        with temporary.open("wb") as raw:
-            with gzip.GzipFile(
+        with (
+            temporary.open("wb") as raw,
+            gzip.GzipFile(
                 filename="", mode="wb", fileobj=raw, mtime=source_date_epoch, compresslevel=9
-            ) as compressed:
-                compressed.write(buffer.getvalue())
+            ) as compressed,
+        ):
+            compressed.write(buffer.getvalue())
         temporary.replace(path)
     finally:
         temporary.unlink(missing_ok=True)
@@ -108,7 +106,9 @@ def _build_once(root: Path, output: Path) -> dict[str, bytes]:
         _clean_generated(root)
         wheel_name = backend.build_wheel(str(output), config_settings={})
         sdist_name = backend.build_sdist(str(output), config_settings={})
-        _canonicalise_sdist(output / sdist_name, source_date_epoch=int(os.environ["SOURCE_DATE_EPOCH"]))
+        _canonicalise_sdist(
+            output / sdist_name, source_date_epoch=int(os.environ["SOURCE_DATE_EPOCH"])
+        )
     except Exception as exc:
         raise DistributionBuildError(f"Distribution build failed: {exc}") from exc
     finally:
@@ -116,12 +116,16 @@ def _build_once(root: Path, output: Path) -> dict[str, bytes]:
         _clean_generated(root)
     names = {wheel_name, sdist_name}
     if len(names) != 2:
-        raise DistributionBuildError("Build backend did not return one wheel and one source distribution")
+        raise DistributionBuildError(
+            "Build backend did not return one wheel and one source distribution"
+        )
     records: dict[str, bytes] = {}
     for name in sorted(names):
         path = output / name
         if path.is_symlink() or not path.is_file():
-            raise DistributionBuildError(f"Build backend did not create a safe distribution: {path}")
+            raise DistributionBuildError(
+                f"Build backend did not create a safe distribution: {path}"
+            )
         records[name] = path.read_bytes()
     return records
 
@@ -148,7 +152,9 @@ def build_reproducible_distributions(
             raise DistributionBuildError("Repeated builds produced different distribution names")
         changed = sorted(name for name in first if first[name] != second[name])
         if changed:
-            raise DistributionBuildError("Repeated builds are not byte-for-byte reproducible: " + ", ".join(changed))
+            raise DistributionBuildError(
+                "Repeated builds are not byte-for-byte reproducible: " + ", ".join(changed)
+            )
         if destination.exists():
             if destination.is_symlink() or not destination.is_dir():
                 raise DistributionBuildError(f"Distribution destination is unsafe: {destination}")

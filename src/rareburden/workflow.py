@@ -178,12 +178,8 @@ def _derive_graph(
             if previous is not None:
                 if _artifact_key(previous) != (path, digest, size):
                     raise WorkflowProvenanceError(f"Conflicting input identities for {path}")
-                previous_media = str(
-                    previous.get("media_type", "application/octet-stream")
-                )
-                current_media = str(
-                    input_artifact.get("media_type", "application/octet-stream")
-                )
+                previous_media = str(previous.get("media_type", "application/octet-stream"))
+                current_media = str(input_artifact.get("media_type", "application/octet-stream"))
                 if previous_media != current_media:
                     raise WorkflowProvenanceError(
                         f"Conflicting input media types for {path}: "

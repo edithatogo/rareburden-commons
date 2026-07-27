@@ -61,7 +61,6 @@ from rareburden.provenance import (
     write_json_record,
 )
 from rareburden.reference import ReferenceWorkflowError, run_public_foundation_reference
-from rareburden.verification import ReferenceVerificationError, verify_reference_release
 from rareburden.release import (
     ReleaseManifestError,
     build_release_manifest,
@@ -79,6 +78,7 @@ from rareburden.semantics import (
     load_hierarchy,
     load_mapping_set,
 )
+from rareburden.verification import ReferenceVerificationError, verify_reference_release
 
 
 def _add_root_argument(parser: argparse.ArgumentParser) -> None:
@@ -741,9 +741,7 @@ def _gap_payload(args: argparse.Namespace, root: Path) -> dict[str, Any]:
     gap_map = build_domain_gap_map(catalog, requirements)
     validate_instance(gap_map, load_mapping(root / "schemas/gap-map.schema.json"), label="gap_map")
     if args.output_json:
-        atomic_write_json(
-            resolve_output_path(root, args.output_json), gap_map
-        )
+        atomic_write_json(resolve_output_path(root, args.output_json), gap_map)
     if args.output_markdown:
         output = resolve_output_path(root, args.output_markdown)
         atomic_write_bytes(output, render_gap_map_markdown(gap_map).encode("utf-8"))

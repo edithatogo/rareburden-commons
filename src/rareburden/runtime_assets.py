@@ -1,4 +1,5 @@
 """Read-only integrity verification for packaged repository reference assets."""
+
 from __future__ import annotations
 
 import hashlib

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Check pinned requirements projections against uv.lock."""
+
 from __future__ import annotations
 
 import argparse
@@ -65,7 +66,9 @@ def validate_requirements_exports(root: Path) -> tuple[int, int]:
     locked = {
         re.sub(r"[-_.]+", "-", item["name"]).lower(): item["version"]
         for item in packages
-        if isinstance(item, dict) and isinstance(item.get("name"), str) and isinstance(item.get("version"), str)
+        if isinstance(item, dict)
+        and isinstance(item.get("name"), str)
+        and isinstance(item.get("version"), str)
     }
     production = _records(root / "requirements.txt")
     development = _records(root / "requirements-dev.txt")
@@ -73,7 +76,9 @@ def validate_requirements_exports(root: Path) -> tuple[int, int]:
     for label, records in (("production", production), ("development", development)):
         for name, version in records.items():
             if locked.get(name) != version:
-                errors.append(f"{label}: {name}=={version} differs from uv.lock {locked.get(name)!r}")
+                errors.append(
+                    f"{label}: {name}=={version} differs from uv.lock {locked.get(name)!r}"
+                )
     if not set(production).issubset(development):
         errors.append("development export does not contain every production dependency")
     if errors:

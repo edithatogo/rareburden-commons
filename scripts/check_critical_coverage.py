@@ -47,7 +47,9 @@ def _percentage(summary: dict[str, Any]) -> float:
     covered_statements = int(summary.get("covered_lines", 0))
     covered_branches = int(summary.get("covered_branches", 0))
     denominator = statements + branches
-    return 100.0 if denominator == 0 else 100.0 * (covered_statements + covered_branches) / denominator
+    return (
+        100.0 if denominator == 0 else 100.0 * (covered_statements + covered_branches) / denominator
+    )
 
 
 def check_critical_coverage(
@@ -69,7 +71,10 @@ def check_critical_coverage(
     failures: list[str] = []
     measured: dict[str, float] = {"overall": _percentage(totals)}
     if measured["overall"] + 1e-9 < overall_minimum:
-        failures.append(f"overall branch-aware coverage {measured['overall']:.2f}% is below {overall_minimum:.2f}%")
+        failures.append(
+            f"overall branch-aware coverage {measured['overall']:.2f}% "
+            f"is below {overall_minimum:.2f}%"
+        )
     files: dict[str, Any] = report["files"]
     for rule in rules:
         entry = files.get(rule.path)
@@ -79,7 +84,8 @@ def check_critical_coverage(
         measured[rule.path] = _percentage(entry["summary"])
         if measured[rule.path] + 1e-9 < rule.minimum:
             failures.append(
-                f"{rule.path} coverage {measured[rule.path]:.2f}% is below {rule.minimum:.2f}% ({rule.rationale})"
+                f"{rule.path} coverage {measured[rule.path]:.2f}% "
+                f"is below {rule.minimum:.2f}% ({rule.rationale})"
             )
     if failures:
         raise CriticalCoverageError("Critical coverage policy failed:\n- " + "\n- ".join(failures))
@@ -96,7 +102,10 @@ def main() -> int:
     except CriticalCoverageError as exc:
         print(str(exc), file=sys.stderr)
         return 1
-    print(f"Critical coverage policy passed: overall={measured['overall']:.2f}%, modules={len(measured) - 1}.")
+    print(
+        f"Critical coverage policy passed: overall={measured['overall']:.2f}%, "
+        f"modules={len(measured) - 1}."
+    )
     return 0
 
 
