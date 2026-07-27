@@ -13,6 +13,8 @@
 - Synthetic adapters cover Orphadata-style XML, UN-style population CSV, WHO-style aggregate CSV and World Bank responses.
 - Normalised rows retain source-release, acquisition and transformation lineage.
 - The synthetic reference workflow executes offline and its release passes independent verification.
+- Commit `39a4b4d` passed the complete local harness with 265 tests, 90.36% branch coverage and all 15 critical-module floors.
+- A clean single-branch clone of `track/002-release-harness` passed `uv sync --frozen --extra dev` and `make check`; distributions built from that clone were installed into separate empty environments, where both the wheel and source archive passed `rareburden validate-programme`.
 
 ## Open blocking evidence
 
@@ -20,7 +22,6 @@
 - Record redistribution and archival permissions source by source.
 - Obtain data-governance and scientific review of production source choices.
 - Exercise live source-change and licence-uncertainty incident paths.
-- Validate final installed-wheel and source-archive workflows in the exact locked environment.
 
 ## Disposition
 

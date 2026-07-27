@@ -33,6 +33,6 @@
 
 - [x] Complete internal engineering and security review of the offline substrate.
 - [ ] Complete live-source licence, scientific and data-governance review.
-- [ ] Verify the final exact Git clone, installed wheel and clean source archive workflows.
+- [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.
 - [ ] Close or assign every external review finding.
 - [ ] Release v0.3.0 only when Track 007 also satisfies its gate.
