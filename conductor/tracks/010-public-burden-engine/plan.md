@@ -34,3 +34,7 @@
 - [ ] Document API/CLI and interpretation limits.
 - [ ] Freeze alpha interfaces required by Track 003.
 - [ ] Record review and residual risks.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 010 cannot activate until Track 009 is complete. Evidence: pending focused implementation commit.
