@@ -33,3 +33,4 @@ Keep Track 002 **In review**. The substrate may be extended, tested and used wit
 
 - Refreshed the stale internal test and coverage counts above.
 - Kept live-source, licensing, scientific and data-governance items explicitly open; repository validation cannot satisfy those gates.
+- On 2026-07-27, a bounded HTTPS `HEAD` check reached 13 catalog access URLs with HTTP 200 responses. The World Bank API catalog root returned HTTP 404; this is recorded as an endpoint-contract finding, not as evidence that a production query is usable.

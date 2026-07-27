@@ -40,3 +40,4 @@
 ## Review fixes — 2026-07-27
 
 - [x] Refresh internal harness evidence and separate repository validation from live-source and governance gates. Evidence: `506ce6b`.
+- [x] Run a bounded dated reachability check for catalog access URLs; record the World Bank root 404 as an endpoint-contract finding. Evidence: pending focused implementation commit.
