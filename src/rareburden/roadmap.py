@@ -136,7 +136,16 @@ def _load_tracks(
     if not tracks_root.is_dir():
         return tracks, [f"Track directory not found: {tracks_root}"]
 
-    track_dirs = sorted(path for path in tracks_root.iterdir() if path.is_dir())
+    roots = [tracks_root]
+    archive_root = tracks_root.parent / "archive"
+    if archive_root.is_dir():
+        roots.append(archive_root)
+    track_dirs = sorted(
+        path
+        for root in roots
+        for path in root.iterdir()
+        if path.is_dir() and path.name != "README.md"
+    )
     for track_dir in track_dirs:
         if not TRACK_ID_RE.fullmatch(track_dir.name):
             errors.append(f"Unexpected track directory name: {track_dir.name}")
@@ -261,7 +270,7 @@ def _roadmap_invariant_errors(
             incomplete = [
                 track_id
                 for track_id in release_tracks
-                if tracks.get(track_id, {}).get("status") != "complete"
+                if tracks.get(track_id, {}).get("status") not in {"complete", "archived"}
             ]
             if incomplete:
                 errors.append(
@@ -300,7 +309,7 @@ def _roadmap_invariant_errors(
             errors.append(
                 f"{track_id}: blocked track targets release with status {target_status!r}"
             )
-        if status == "archived" and target_status != "cancelled":
+        if status == "archived" and target_status not in {"released", "current", "cancelled"}:
             errors.append(
                 f"{track_id}: archived track must target a cancelled release, not {target!r}"
             )
@@ -330,7 +339,8 @@ def _roadmap_invariant_errors(
         if document_path.is_file():
             document = document_path.read_text(encoding="utf-8")
             for track_id, metadata in sorted(tracks.items()):
-                target = root / "conductor" / "tracks" / track_id / "spec.md"
+                directory = "archive" if metadata.get("status") == "archived" else "tracks"
+                target = root / "conductor" / directory / track_id / "spec.md"
                 relative_target = os.path.relpath(target, document_path.parent).replace(os.sep, "/")
                 canonical_reference = f"[{track_id} — {metadata['title']}]({relative_target})"
                 if canonical_reference not in document:
