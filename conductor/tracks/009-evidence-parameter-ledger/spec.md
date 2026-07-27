@@ -36,3 +36,7 @@ Create the machine-readable evidence core that links each analytic parameter to 
 ## v1 contribution
 
 This track is the provenance and parameter substrate for V1-SCI-03, V1-DATA-03, V1-DATA-06 and V1-DATA-07.
+
+## Non-binding protocol draft — ledger contract v0.1.0 (2026-07-27)
+
+Preparatory only; this does not activate the track or freeze the v0.4 schema. Each parameter records stable ID/revision, supersession, quantity type, population/geography/period, measure, metric, unit, semantic IDs, source release, transformations, evidence status, quality, bias, transportability, licence, uncertainty and rationale. The workflow validates lawful acquisition outputs, rejects missing mandatory fields, preserves conflicts/missingness, supports historical queries and traces downstream impact. Epidemiology, data-governance, engineering and methods review are required.

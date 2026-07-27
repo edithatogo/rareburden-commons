@@ -38,3 +38,7 @@ Implement a tested reference engine for expected affected populations, rare-aeti
 ## v1 contribution
 
 This track implements V1-MOD-01 to V1-MOD-06 and supplies the common engine for all demonstrators.
+
+## Non-binding protocol draft — burden engine contract v0.1.0 (2026-07-27)
+
+Preparatory only; this does not activate the track or freeze alpha interfaces. Support compatible expected-population and rare-aetiology case-count estimands; outcome and cost estimates require explicit subgroup models. Validate ledger fingerprints, semantic IDs, units, metrics, distributions, dependence rationale, seed and iteration bounds. Propagate fixed, uniform, normal, lognormal and beta uncertainty with recorded seed, engine, iterations and decomposition. Reject direct case-fraction allocation to DALYs, YLD/YLL, deaths or costs and unsupported dependence. Scientific-software, statistical, patient/community and engineering review are required.
