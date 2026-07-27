@@ -12,7 +12,7 @@
 - [x] Implement adapter and manual-registration protocols. `[S-03]`
 - [x] Implement cache, checksum, retry, timeout, bounded-size and atomic-write behaviour. `[M-11, M-20]`
 - [x] Add structured provenance that excludes credentials and participant data. `[M-13, M-15]`
-- [~] Complete licence-uncertainty policy and live source-change exercises. `[M-22]` Local policy and pre-network enforcement completed in `c5e50b2`; dated live-source exercises remain open.
+- [~] Complete licence-uncertainty policy and live source-change exercises. `[M-22]` Local policy and pre-network enforcement completed in `c5e50b2`; schema-valid source-change incident evidence completed in `97421ca`; dated live-source exercises remain open.
 
 ## Phase 3 — Source adapters
 
