@@ -66,7 +66,12 @@ def test_complete_track_with_unchecked_task_is_rejected(tmp_path: Path) -> None:
     shutil.copytree(TRACKS, tracks)
     archive = tmp_path / "archive"
     shutil.copytree(ROOT / "conductor" / "archive", archive)
-    plan_path = archive / "006-v1-delivery-system" / "plan.md"
+    track_dir = archive / "006-v1-delivery-system"
+    metadata_path = track_dir / "metadata.json"
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata["status"] = "complete"
+    metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    plan_path = track_dir / "plan.md"
     plan = plan_path.read_text(encoding="utf-8").replace("- [x]", "- [ ]", 1)
     plan_path.write_text(plan, encoding="utf-8")
 
