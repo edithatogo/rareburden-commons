@@ -39,7 +39,9 @@ def _source_files(root: Path) -> list[tuple[Path, str]]:
     for directory in _DIRECTORIES:
         source_root = root / directory
         if source_root.is_symlink() or not source_root.is_dir():
-            raise RuntimeAssetSyncError(f"Required runtime source directory is missing or unsafe: {source_root}")
+            raise RuntimeAssetSyncError(
+                f"Required runtime source directory is missing or unsafe: {source_root}"
+            )
         for path in sorted(source_root.rglob("*"), key=lambda item: item.as_posix()):
             if path.is_symlink() or not path.is_file():
                 continue
@@ -73,9 +75,9 @@ def build_projection(root: Path) -> tuple[dict[str, bytes], dict[str, object]]:
         "file_count": len(files),
         "files": files,
     }
-    projected["runtime-assets.json"] = (json.dumps(manifest, sort_keys=True, separators=(",", ":")) + "\n").encode(
-        "utf-8"
-    )
+    projected["runtime-assets.json"] = (
+        json.dumps(manifest, sort_keys=True, separators=(",", ":")) + "\n"
+    ).encode("utf-8")
     return projected, manifest
 
 
@@ -98,7 +100,9 @@ def synchronise(root: Path, destination: Path, *, check: bool) -> int:
         missing = sorted(projected.keys() - existing.keys())
         extra = sorted(existing.keys() - projected.keys())
         changed = sorted(
-            logical for logical in projected.keys() & existing.keys() if projected[logical] != existing[logical]
+            logical
+            for logical in projected.keys() & existing.keys()
+            if projected[logical] != existing[logical]
         )
         if missing or extra or changed:
             detail = []
@@ -108,7 +112,9 @@ def synchronise(root: Path, destination: Path, *, check: bool) -> int:
                 detail.append("extra=" + ",".join(extra))
             if changed:
                 detail.append("changed=" + ",".join(changed))
-            raise RuntimeAssetSyncError("Runtime asset projection has drifted: " + "; ".join(detail))
+            raise RuntimeAssetSyncError(
+                "Runtime asset projection has drifted: " + "; ".join(detail)
+            )
         return int(manifest["file_count"])
 
     temporary = destination.with_name(f".{destination.name}.partial")

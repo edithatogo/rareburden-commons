@@ -106,11 +106,11 @@ def _write_wheel(path: Path, *, forbidden: bool = False) -> None:
         "License-Expression: Apache-2.0\n\n"
     ).encode()
     wheel = (
-        "Wheel-Version: 1.0\n"
-        "Generator: rareburden-test\n"
-        "Root-Is-Purelib: true\n"
-        "Tag: py3-none-any\n\n"
-    ).encode()
+        b"Wheel-Version: 1.0\n"
+        b"Generator: rareburden-test\n"
+        b"Root-Is-Purelib: true\n"
+        b"Tag: py3-none-any\n\n"
+    )
     required = {
         "catalog/data_sources.yml",
         "catalog/initiatives.yml",
@@ -201,9 +201,7 @@ def test_sdist_inspection_rejects_symlink(tmp_path: Path) -> None:
         raise AssertionError("unsafe source-distribution member was accepted")
 
 
-def _write_noncanonical_sdist(
-    path: Path, *, reverse: bool, member_mtime: int, uid: int
-) -> None:
+def _write_noncanonical_sdist(path: Path, *, reverse: bool, member_mtime: int, uid: int) -> None:
     records = [
         ("rareburden-0.3.0rc2/", True, b""),
         ("rareburden-0.3.0rc2/README.md", False, b"reference\n"),

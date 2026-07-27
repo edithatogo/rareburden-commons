@@ -112,7 +112,9 @@ def _validate_runtime_assets(archive: zipfile.ZipFile, names: list[str]) -> None
         digest = raw.get("sha256")
         size = raw.get("size_bytes")
         if not isinstance(logical, str) or _unsafe(logical) or logical in logicals:
-            raise PackageCheckError(f"runtime-assets manifest has unsafe or duplicate path: {logical!r}")
+            raise PackageCheckError(
+                f"runtime-assets manifest has unsafe or duplicate path: {logical!r}"
+            )
         member = prefix + logical
         if member not in names:
             raise PackageCheckError(f"runtime asset is missing from wheel: {logical}")
@@ -184,8 +186,12 @@ def inspect_sdist(path: Path) -> None:
                 if _unsafe(member.name) or member.issym() or member.islnk() or member.isdev():
                     raise PackageCheckError(f"unsafe member in source distribution: {member.name}")
                 if member.isfile() and member.size < 0:
-                    raise PackageCheckError(f"invalid member size in source distribution: {member.name}")
-            missing = sorted(suffix for suffix in required_suffixes if f"{root}/{suffix}" not in names)
+                    raise PackageCheckError(
+                        f"invalid member size in source distribution: {member.name}"
+                    )
+            missing = sorted(
+                suffix for suffix in required_suffixes if f"{root}/{suffix}" not in names
+            )
             if missing:
                 raise PackageCheckError(f"source distribution omits required files: {missing}")
     except PackageCheckError:

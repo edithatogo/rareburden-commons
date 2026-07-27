@@ -18,7 +18,7 @@ from typing import Any
 
 from rareburden.lineage import build_lineage_audit, require_lineage_audit_pass
 from rareburden.prov import build_prov_bundle, verify_prov_bundle
-from rareburden.provenance import atomic_write_json, sha256_file
+from rareburden.provenance import atomic_write_json
 from rareburden.reporting import GATHER_ITEMS, build_gather_checklist
 from rareburden.reproducibility import (
     build_reproducibility_assessment,
@@ -278,16 +278,19 @@ def _transparency_records(
         registration_url=None,
         registration_service=None,
         research_questions=[
-            "What rare-disease burden components can be estimated reproducibly from public data alone?",
+            "What rare-disease burden components can be estimated reproducibly "
+            "from public data alone?",
             "Which conclusions remain non-estimable without controlled or newly collected data?",
-            "How can rare aetiologies within common disease envelopes be estimated without invalid outcome allocation?",
+            "How can rare aetiologies within common disease envelopes be estimated "
+            "without invalid outcome allocation?",
         ],
         estimands=[
             "Expected affected population from a population denominator and prevalence fraction",
             "Evidence-gap readiness by parameter domain and access class",
         ],
         planned_analyses=[
-            "Normalise four synthetic public-source fixtures under explicit column and semantic contracts",
+            "Normalise four synthetic public-source fixtures under explicit column "
+            "and semantic contracts",
             "Run a seeded expected-population simulation using a versioned parameter ledger",
             "Generate a constraint-aware public-data evidence-gap map",
         ],
@@ -316,8 +319,13 @@ def _transparency_records(
                 "decision_type": "design",
                 "timing": "prospective",
                 "description": "Use only synthetic fixtures in the reference workflow.",
-                "rationale": "The workflow must be executable without controlled data or empirical interpretation.",
-                "consequence": "Outputs demonstrate mechanics and assurance, not population burden.",
+                "rationale": (
+                    "The workflow must be executable without controlled data or "
+                    "empirical interpretation."
+                ),
+                "consequence": (
+                    "Outputs demonstrate mechanics and assurance, not population burden."
+                ),
                 "recorded_at": created_at,
                 "status": "accepted",
                 "evidence": [_logical(output, materials["protocol"])],
@@ -327,8 +335,12 @@ def _transparency_records(
                 "decision_type": "uncertainty",
                 "timing": "prospective",
                 "description": "Use a versioned deterministic stochastic stream and fixed seed.",
-                "rationale": "Simulation results must be exactly rerunnable across supported environments.",
-                "consequence": "The random algorithm, version, seed, and iteration count are recorded.",
+                "rationale": (
+                    "Simulation results must be exactly rerunnable across supported environments."
+                ),
+                "consequence": (
+                    "The random algorithm, version, seed, and iteration count are recorded."
+                ),
                 "recorded_at": created_at,
                 "status": "accepted",
                 "evidence": [_logical(output, materials["analysis_spec"])],
@@ -337,9 +349,18 @@ def _transparency_records(
                 "decision_id": "D003",
                 "decision_type": "reporting",
                 "timing": "implementation",
-                "description": "Classify unresolved GATHER items explicitly rather than asserting blanket compliance.",
-                "rationale": "A synthetic assurance package cannot satisfy empirical interpretation and validation items.",
-                "consequence": "The reporting checklist contains satisfied, partial, and not-applicable states.",
+                "description": (
+                    "Classify unresolved GATHER items explicitly rather than asserting "
+                    "blanket compliance."
+                ),
+                "rationale": (
+                    "A synthetic assurance package cannot satisfy empirical interpretation "
+                    "and validation items."
+                ),
+                "consequence": (
+                    "The reporting checklist contains satisfied, partial, and "
+                    "not-applicable states."
+                ),
                 "recorded_at": created_at,
                 "status": "accepted",
                 "evidence": [_logical(output, materials["protocol"])],
@@ -443,9 +464,7 @@ def _build_run(
     return record, path, reference
 
 
-def _gather_evidence(
-    *, output: Path, created_at: str
-) -> dict[str, Any]:
+def _gather_evidence(*, output: Path, created_at: str) -> dict[str, Any]:
     satisfied: dict[int, list[str]] = {
         1: ["materials/protocols/public-data-foundation.md"],
         3: ["materials/catalog/data_sources.yml", "acquisition/"],
@@ -468,16 +487,28 @@ def _gather_evidence(
         14: ["materials/software/"],
         15: ["analysis/expected-population-synthetic.json"],
         16: ["analysis/expected-population-synthetic.json"],
-        18: ["materials/protocols/public-data-foundation.md", "analysis/expected-population-synthetic.json"],
+        18: [
+            "materials/protocols/public-data-foundation.md",
+            "analysis/expected-population-synthetic.json",
+        ],
     }
     not_applicable = {
-        2: "The synthetic reference has no external funding award; programme funding disclosure belongs to empirical releases.",
+        2: (
+            "The synthetic reference has no external funding award; programme funding "
+            "disclosure belongs to empirical releases."
+        ),
         11: "No candidate-model comparison is performed in this bounded synthetic calculation.",
         17: "Synthetic outputs are not interpreted against external epidemiological evidence.",
     }
     partial = {
-        6: "Domain-level evidence-quality records expose synthetic limitations but cannot characterize empirical source bias.",
-        12: "Deterministic and tamper tests are included, but empirical calibration and predictive validation are not applicable.",
+        6: (
+            "Domain-level evidence-quality records expose synthetic limitations but "
+            "cannot characterize empirical source bias."
+        ),
+        12: (
+            "Deterministic and tamper tests are included, but empirical calibration "
+            "and predictive validation are not applicable."
+        ),
     }
     evidence: dict[int, dict[str, Any]] = {}
     for number, _, _ in GATHER_ITEMS:
@@ -495,7 +526,8 @@ def _gather_evidence(
                 "evidence": ["materials/protocols/public-data-foundation.md"],
                 "rationale": partial.get(
                     number,
-                    "The synthetic reference exposes the required structure but cannot supply empirical evidence.",
+                    "The synthetic reference exposes the required structure but cannot "
+                    "supply empirical evidence.",
                 ),
             }
     return build_gather_checklist(
@@ -536,7 +568,7 @@ def build_reference_scholarly_assurance(
     ):
         (output / directory).mkdir(parents=True, exist_ok=True)
     materials, generated = _prepare_materials(root, output)
-    registration, registration_path, decisions, decision_path = _transparency_records(
+    registration, registration_path, _decisions, decision_path = _transparency_records(
         root=root, output=output, materials=materials, created_at=created_at
     )
     generated.extend((registration_path, decision_path))
@@ -661,7 +693,9 @@ def build_reference_scholarly_assurance(
                 parameters={"source_id": source_id, "synthetic_fixture": True},
                 command=["rareburden", "assurance", "normalise", source_id],
                 limitations=["The adapter is fixture-tested; no live custodian access is claimed."],
-                assertions=["Normalised records retain source-release and acquisition identifiers."],
+                assertions=[
+                    "Normalised records retain source-release and acquisition identifiers."
+                ],
             )
         )
 
@@ -687,9 +721,17 @@ def build_reference_scholarly_assurance(
             inputs=[
                 _artifact(output, materials["ledger"], role="parameter_ledger"),
                 _artifact(output, materials["analysis_spec"], role="analysis_specification"),
-                _artifact(output, materials["quality_population"], role="quality_assessment_template"),
-                _artifact(output, materials["quality_fraction"], role="quality_assessment_template"),
-                _artifact(output, materials["quality_transport"], role="transportability_assessment_template"),
+                _artifact(
+                    output, materials["quality_population"], role="quality_assessment_template"
+                ),
+                _artifact(
+                    output, materials["quality_fraction"], role="quality_assessment_template"
+                ),
+                _artifact(
+                    output,
+                    materials["quality_transport"],
+                    role="transportability_assessment_template",
+                ),
             ],
             outputs=quality_outputs,
             parameters={
@@ -699,11 +741,14 @@ def build_reference_scholarly_assurance(
             },
             command=["rareburden", "assurance", "fitness-for-use"],
             limitations=[
-                "Producer assessments are internal and do not replace independent scientific review."
+                "Producer assessments are internal and do not replace independent "
+                "scientific review."
             ],
             assertions=[
-                "Domain judgements and rationales remain visible rather than being collapsed into an opaque score.",
-                "Sensitivity-only evidence blocks a primary empirical claim but not the synthetic assurance run.",
+                "Domain judgements and rationales remain visible rather than being "
+                "collapsed into an opaque score.",
+                "Sensitivity-only evidence blocks a primary empirical claim but not "
+                "the synthetic assurance run.",
             ],
         )
     )
@@ -812,7 +857,8 @@ def build_reference_scholarly_assurance(
         assertions=[
             "All empirical-looking values are synthetic fixtures.",
             "Every transformation output has one declared producer.",
-            "Fitness-for-use decisions preserve domain-level rationales and do not use an opaque composite score.",
+            "Fitness-for-use decisions preserve domain-level rationales and do not use "
+            "an opaque composite score.",
         ],
         limitations=[
             "No external scientific review or independent reproduction is claimed.",
@@ -848,12 +894,7 @@ def build_reference_scholarly_assurance(
         raise ScholarlyAssuranceError("PROV verification failed: " + "; ".join(prov_failures))
 
     expected_outputs = sorted(
-        {
-            str(item["path"])
-            for run in runs
-            for item in run["outputs"]
-            if isinstance(item, Mapping)
-        }
+        {str(item["path"]) for run in runs for item in run["outputs"] if isinstance(item, Mapping)}
     )
     lineage = build_lineage_audit(
         root=output,

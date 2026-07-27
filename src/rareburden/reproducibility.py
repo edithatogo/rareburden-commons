@@ -263,9 +263,7 @@ def reference_assessment_criteria() -> list[dict[str, Any]]:
 def _safe_evidence_path(root: Path, value: str) -> Path:
     path = PurePosixPath(value.removesuffix("/"))
     if not value or path.is_absolute() or ".." in path.parts or "\\" in value:
-        raise ReproducibilityAssessmentError(
-            f"Unsafe reproducibility evidence path: {value!r}"
-        )
+        raise ReproducibilityAssessmentError(f"Unsafe reproducibility evidence path: {value!r}")
     root_resolved = root.expanduser().resolve()
     candidate = root_resolved / path.as_posix()
     try:

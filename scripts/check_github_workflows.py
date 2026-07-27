@@ -84,7 +84,9 @@ def validate_workflow(path: Path) -> list[str]:
         if str(job.get("continue-on-error", "false")).lower() == "true":
             errors.append(f"{location}: continue-on-error is forbidden for blocking jobs")
         if "permissions" in job:
-            errors.extend(_permission_errors(job.get("permissions"), location=f"{location}.permissions"))
+            errors.extend(
+                _permission_errors(job.get("permissions"), location=f"{location}.permissions")
+            )
         steps = job.get("steps", [])
         if not isinstance(steps, list):
             errors.append(f"{location}: steps must be a list")
@@ -94,17 +96,27 @@ def validate_workflow(path: Path) -> list[str]:
                 errors.append(f"{location}.steps[{index}]: step must be a mapping")
                 continue
             uses = step.get("uses")
-            if isinstance(uses, str) and not uses.startswith("./") and not uses.startswith("docker://"):
+            if (
+                isinstance(uses, str)
+                and not uses.startswith("./")
+                and not uses.startswith("docker://")
+            ):
                 if "@" not in uses or not _SHA_RE.fullmatch(uses.rsplit("@", 1)[1]):
                     errors.append(
-                        f"{location}.steps[{index}]: third-party actions must use a full 40-character commit SHA"
+                        f"{location}.steps[{index}]: third-party actions must use "
+                        "a full 40-character commit SHA"
                     )
                 if uses.startswith("actions/checkout@"):
                     with_value = step.get("with")
-                    persist = with_value.get("persist-credentials") if isinstance(with_value, dict) else None
+                    persist = (
+                        with_value.get("persist-credentials")
+                        if isinstance(with_value, dict)
+                        else None
+                    )
                     if str(persist).lower() != "false":
                         errors.append(
-                            f"{location}.steps[{index}]: actions/checkout must set persist-credentials: false"
+                            f"{location}.steps[{index}]: actions/checkout must set "
+                            "persist-credentials: false"
                         )
             run = step.get("run")
             if isinstance(run, str):
@@ -114,7 +126,9 @@ def validate_workflow(path: Path) -> list[str]:
                         "directly into a shell command"
                     )
                 if re.search(r"(?:curl|wget)[^\n|]*\|\s*(?:ba)?sh\b", run):
-                    errors.append(f"{location}.steps[{index}]: unverified remote script piped to shell")
+                    errors.append(
+                        f"{location}.steps[{index}]: unverified remote script piped to shell"
+                    )
     return errors
 
 

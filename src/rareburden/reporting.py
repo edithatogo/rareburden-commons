@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 from rareburden.provenance import content_id
@@ -106,18 +107,13 @@ def build_gather_checklist(
     }
 
 
-
-def verify_gather_checklist(
-    checklist: Mapping[str, Any], *, root: "Path | None" = None
-) -> list[str]:
+def verify_gather_checklist(checklist: Mapping[str, Any], *, root: Path | None = None) -> list[str]:
     """Recompute checklist identity, item coverage, counts and evidence-path safety.
 
     The verifier deliberately returns all detected failures so release assurance can show
     a complete audit trail rather than failing at the first malformed item.  Evidence paths
     must be relative regular files beneath ``root`` when a release root is supplied.
     """
-    from pathlib import Path, PurePosixPath
-
     failures: list[str] = []
     expected = {number: (section, topic) for number, section, topic in GATHER_ITEMS}
     items = checklist.get("items")
@@ -125,10 +121,9 @@ def verify_gather_checklist(
         return ["GATHER checklist items are unavailable"]
 
     seen: set[int] = set()
-    calculated_counts = {
-        status: 0
-        for status in ("satisfied", "partially_satisfied", "not_applicable", "planned")
-    }
+    calculated_counts = dict.fromkeys(
+        ("satisfied", "partially_satisfied", "not_applicable", "planned"), 0
+    )
     for index, raw in enumerate(items):
         if not isinstance(raw, Mapping):
             failures.append(f"GATHER item {index + 1} is not an object")
@@ -214,6 +209,7 @@ def verify_gather_checklist(
         failures.append("reporting checklist source differs from the configured GATHER source")
     return sorted(set(failures))
 
+
 def require_no_unresolved_reporting_items(checklist: Mapping[str, Any]) -> None:
     """Raise when planned or partially satisfied items remain."""
     items = checklist.get("items")
@@ -222,8 +218,7 @@ def require_no_unresolved_reporting_items(checklist: Mapping[str, Any]) -> None:
     unresolved = [
         item.get("item_id")
         for item in items
-        if isinstance(item, Mapping)
-        and item.get("status") in {"planned", "partially_satisfied"}
+        if isinstance(item, Mapping) and item.get("status") in {"planned", "partially_satisfied"}
     ]
     if unresolved:
         raise ReportingChecklistError(

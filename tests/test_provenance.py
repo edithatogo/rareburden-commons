@@ -65,6 +65,36 @@ def test_source_release_and_atomic_writer_are_schema_valid(tmp_path: Path) -> No
     validate_json_record(record, SOURCE_RELEASE_SCHEMA)
 
 
+@pytest.mark.parametrize(
+    ("licence_state", "licence_reference", "notes", "message"),
+    [
+        ("uncertain", None, "Needs review.", "Unsupported licence state"),
+        ("verified", None, "", "requires a persistent HTTPS licence reference"),
+        ("conditional", None, "", "requires a persistent HTTPS licence reference"),
+        ("restricted", None, "", "requires a persistent HTTPS licence reference"),
+        ("unknown", None, "", "requires a substantive rationale"),
+        ("verified", "http://example.org/terms", "", "credential-free HTTPS"),
+        ("verified", "https://user:secret@example.org/terms", "", "credential-free HTTPS"),
+    ],
+)
+def test_source_release_rejects_incomplete_licence_evidence(
+    licence_state: str,
+    licence_reference: str | None,
+    notes: str,
+    message: str,
+) -> None:
+    with pytest.raises(ProvenanceError, match=message):
+        build_source_release(
+            source_id="test-source",
+            release_id="r1",
+            source_url="https://example.org/source",
+            licence_state=licence_state,
+            licence_reference=licence_reference,
+            acquisition_manifest="manifests/test.json",
+            notes=notes,
+        )
+
+
 def test_stable_identifier_rejects_empty_input() -> None:
     with pytest.raises(ProvenanceError, match="empty"):
         stable_identifier("***")

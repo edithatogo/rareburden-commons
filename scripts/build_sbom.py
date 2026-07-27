@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate a deterministic CycloneDX 1.5 SBOM from uv.lock."""
+
 from __future__ import annotations
 
 import argparse
@@ -18,7 +19,9 @@ def _normalise(name: str) -> str:
     return re.sub(r"[-_.]+", "-", name).lower()
 
 
-def build_sbom(lockfile: Path, *, name: str = "rareburden", version: str | None = None) -> dict[str, Any]:
+def build_sbom(
+    lockfile: Path, *, name: str = "rareburden", version: str | None = None
+) -> dict[str, Any]:
     try:
         document = tomllib.loads(lockfile.read_text(encoding="utf-8"))
     except (OSError, tomllib.TOMLDecodeError) as exc:
@@ -58,10 +61,17 @@ def build_sbom(lockfile: Path, *, name: str = "rareburden", version: str | None 
         dependency_names[normalised] = sorted(set(names))
     components.sort(key=lambda item: (item["name"], item["version"]))
     dependencies = [
-        {"ref": component["bom-ref"], "dependsOn": sorted(refs[item] for item in dependency_names[component["name"]] if item in refs)}
+        {
+            "ref": component["bom-ref"],
+            "dependsOn": sorted(
+                refs[item] for item in dependency_names[component["name"]] if item in refs
+            ),
+        }
         for component in components
     ]
-    metadata_component = next((item for item in components if item["name"] == _normalise(name)), None)
+    metadata_component = next(
+        (item for item in components if item["name"] == _normalise(name)), None
+    )
     if metadata_component is None:
         metadata_component = {
             "type": "application",
@@ -81,10 +91,14 @@ def build_sbom(lockfile: Path, *, name: str = "rareburden", version: str | None 
     }
 
 
-def write_sbom(lockfile: Path, output: Path, *, name: str = "rareburden", version: str | None = None) -> dict[str, Any]:
+def write_sbom(
+    lockfile: Path, output: Path, *, name: str = "rareburden", version: str | None = None
+) -> dict[str, Any]:
     document = build_sbom(lockfile, name=name, version=version)
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(document, sort_keys=True, separators=(",", ":")) + "\n", encoding="utf-8")
+    output.write_text(
+        json.dumps(document, sort_keys=True, separators=(",", ":")) + "\n", encoding="utf-8"
+    )
     return document
 
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Validate public, immutable uv lockfile sources and project identity."""
+
 from __future__ import annotations
 
 import argparse
@@ -137,7 +138,8 @@ def validate_lockfile(path: Path, pyproject: Path | None = None) -> LockfileSumm
                 errors.append(f"{name}: wheel[{wheel_index}] SHA-256 is missing or malformed")
     if expected_project is not None and project_version != expected_project:
         errors.append(
-            f"lockfile project version {project_version!r} does not match pyproject {expected_project!r}"
+            f"lockfile project version {project_version!r} does not match "
+            f"pyproject {expected_project!r}"
         )
     if errors:
         raise LockfilePolicyError("Lockfile policy failed:\n- " + "\n- ".join(sorted(set(errors))))

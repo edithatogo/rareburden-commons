@@ -23,7 +23,9 @@ from rareburden.provenance import (
     ProvenanceError,
     atomic_write_json,
     build_manifest,
+    content_id,
     register_local_artifact,
+    utc_now,
     validate_json_record,
 )
 
@@ -50,6 +52,45 @@ class AcquisitionError(RuntimeError):
 
 class SourceChangedError(AcquisitionError):
     """Raised when acquired bytes do not match the pinned release digest."""
+
+    def __init__(
+        self,
+        *,
+        source_id: str,
+        release_id: str,
+        requested_url: str,
+        expected_sha256: str,
+        observed_sha256: str,
+    ) -> None:
+        self.source_id = source_id
+        self.release_id = release_id
+        self.requested_url = redact_url(requested_url)
+        self.expected_sha256 = expected_sha256
+        self.observed_sha256 = observed_sha256
+        super().__init__(
+            f"Checksum mismatch: expected {expected_sha256}, received {observed_sha256}"
+        )
+
+    def as_record(self, *, detected_at: str | None = None) -> dict[str, Any]:
+        """Return a review-required, credential-redacted incident record."""
+        core = {
+            "source_id": self.source_id,
+            "release_id": self.release_id,
+            "requested_url": self.requested_url,
+            "expected_sha256": self.expected_sha256,
+            "observed_sha256": self.observed_sha256,
+            "detected_at": detected_at or utc_now(),
+            "status": "review_required",
+            "required_action": (
+                "Preserve the pinned release and repeat licence, source and scientific review "
+                "before registering new bytes."
+            ),
+        }
+        return {
+            "schema_version": "1.0.0",
+            "incident_id": content_id("chg", core),
+            **core,
+        }
 
 
 @dataclass(frozen=True)
@@ -365,7 +406,11 @@ def download_public_artifact(
             )
             if expected is not None and artifact.sha256 != expected:
                 raise SourceChangedError(
-                    f"Checksum mismatch: expected {expected}, received {artifact.sha256}"
+                    source_id=source_id,
+                    release_id=release_id,
+                    requested_url=url,
+                    expected_sha256=expected,
+                    observed_sha256=artifact.sha256,
                 )
             destination.parent.mkdir(parents=True, exist_ok=True)
             temporary_path.replace(destination)

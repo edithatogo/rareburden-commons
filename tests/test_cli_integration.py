@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from rareburden.__main__ import main
+from rareburden.acquisition import SourceChangedError
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_ID = "acq-0123456789abcdef01234567"
@@ -354,3 +355,97 @@ def test_world_bank_plain_output_and_cli_error_paths(
         == 1
     )
     assert "Network acquisition is disabled" in capsys.readouterr().err
+
+
+@pytest.mark.parametrize("licence_state", ["unknown", "restricted"])
+def test_fetch_release_blocks_uncertain_or_restricted_licence_before_network(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    licence_state: str,
+) -> None:
+    root = _repository_fixture(tmp_path)
+    arguments = [
+        "fetch-release",
+        "--root",
+        str(root),
+        "--source-id",
+        "fixture",
+        "--release-id",
+        "r1",
+        "--url",
+        "https://example.org/data.csv",
+        "--destination",
+        "outputs/data.csv",
+        "--expected-sha256",
+        "0" * 64,
+        "--manifest",
+        "outputs/data.acquisition.json",
+        "--source-release-record",
+        "outputs/data.release.json",
+        "--licence-state",
+        licence_state,
+        "--notes",
+        "Rights require source-specific review.",
+        "--allow-network",
+    ]
+    if licence_state == "restricted":
+        arguments.extend(["--licence-reference", "https://example.org/terms"])
+
+    assert main(arguments) == 1
+    assert "prohibits automated acquisition" in capsys.readouterr().err
+    assert not (root / "outputs").exists()
+
+
+def test_fetch_release_records_redacted_source_change_incident(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    root = _repository_fixture(tmp_path)
+
+    def changed(**_kwargs: object) -> dict[str, object]:
+        raise SourceChangedError(
+            source_id="fixture",
+            release_id="r1",
+            requested_url="https://example.org/data.csv?token=secret",
+            expected_sha256="0" * 64,
+            observed_sha256="1" * 64,
+        )
+
+    monkeypatch.setattr("rareburden.cli.download_public_artifact", changed)
+    assert (
+        main(
+            [
+                "fetch-release",
+                "--root",
+                str(root),
+                "--source-id",
+                "fixture",
+                "--release-id",
+                "r1",
+                "--url",
+                "https://example.org/data.csv?token=secret",
+                "--destination",
+                "outputs/data.csv",
+                "--expected-sha256",
+                "0" * 64,
+                "--manifest",
+                "outputs/data.acquisition.json",
+                "--source-release-record",
+                "outputs/data.release.json",
+                "--source-change-report",
+                "outputs/data.source-change.json",
+                "--licence-state",
+                "verified",
+                "--licence-reference",
+                "https://example.org/terms",
+                "--allow-network",
+            ]
+        )
+        == 1
+    )
+    assert "Checksum mismatch" in capsys.readouterr().err
+    incident = json.loads((root / "outputs/data.source-change.json").read_text(encoding="utf-8"))
+    assert incident["status"] == "review_required"
+    assert incident["requested_url"].endswith("token=REDACTED")
+    assert "secret" not in json.dumps(incident)

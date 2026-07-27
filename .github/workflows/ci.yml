@@ -62,7 +62,7 @@ jobs:
       - name: Run complete assurance harness
         run: uv run --python "3.13" make ci
       - name: Build and inspect distributions
-        run: uv run --python "3.13" make build package-check sbom
+        run: uv run --python "3.13" make build package-check installed-package-check sbom
       - name: Upload test and distribution evidence
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
@@ -105,3 +105,7 @@ jobs:
         run: |
           uv run --python "3.13" rareburden validate-programme --json
           uv run --python "3.13" rareburden doctor --json
+      - name: Exercise installed wheel outside the checkout
+        run: |
+          uv run --python "3.13" make build
+          uv run --python "3.13" make installed-package-check

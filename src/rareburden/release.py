@@ -96,9 +96,7 @@ def build_release_manifest(
     """
     resolved_root = root.expanduser().resolve()
     resolved_repository_root = (
-        repository_root.expanduser().resolve()
-        if repository_root is not None
-        else resolved_root
+        repository_root.expanduser().resolve() if repository_root is not None else resolved_root
     )
     if not resolved_root.is_dir():
         raise ReleaseManifestError(f"Release root is not a directory: {root}")

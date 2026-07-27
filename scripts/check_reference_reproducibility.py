@@ -66,7 +66,9 @@ def _run_reference(*, root: Path, output: Path, created_at: str, hash_seed: str)
     except json.JSONDecodeError as exc:
         raise ReferenceReproducibilityError("Reference command did not emit valid JSON") from exc
     if not isinstance(payload, dict) or payload.get("generated_file_count", 0) < 1:
-        raise ReferenceReproducibilityError("Reference command returned an invalid completion summary")
+        raise ReferenceReproducibilityError(
+            "Reference command returned an invalid completion summary"
+        )
 
 
 def _files(root: Path) -> dict[str, bytes]:
@@ -106,14 +108,18 @@ def check_reference_reproducibility(
         first = work_root / "run-a"
         second = work_root / "run-b"
         _run_reference(root=repository_root, output=first, created_at=created_at, hash_seed="11")
-        _run_reference(root=repository_root, output=second, created_at=created_at, hash_seed="8675309")
+        _run_reference(
+            root=repository_root, output=second, created_at=created_at, hash_seed="8675309"
+        )
 
         first_files = _files(first)
         second_files = _files(second)
         if first_files.keys() != second_files.keys():
             missing = sorted(first_files.keys() - second_files.keys())
             extra = sorted(second_files.keys() - first_files.keys())
-            raise ReferenceReproducibilityError(f"Reference file sets differ: missing={missing}; extra={extra}")
+            raise ReferenceReproducibilityError(
+                f"Reference file sets differ: missing={missing}; extra={extra}"
+            )
         changed = sorted(path for path in first_files if first_files[path] != second_files[path])
         if changed:
             raise ReferenceReproducibilityError(

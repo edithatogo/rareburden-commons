@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Validate the repository JSON Schema collection and identifier uniqueness."""
+
 from __future__ import annotations
 
 import argparse
