@@ -13,7 +13,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 002 | Public-source acquisition and provenance adapters | In review | Must | v0.3.0 | Data Engineering Lead | 001, 006 |
 | 007 | Landscape, adjacency, novelty and partnership map | In review | Must | v0.3.0 | Programme and Evidence Synthesis Leads | 001, 006 |
 | 018 | Scholarly provenance, protocol transparency and reproducibility | Complete | Must | v0.3.0 | Methods Assurance and Research Software Leads | 001, 006 |
-| 008 | Semantic backbone and burden-purpose hierarchy | Planned | Must | v0.4.0 | Semantic Methods Lead | 002, 007 |
+| 008 | Semantic backbone and burden-purpose hierarchy | Blocked | Must | v0.4.0 | Semantic Methods Lead | 002, 007 |
 | 009 | Evidence and parameter ledger | Planned | Must | v0.4.0 | Epidemiology and Data Architecture Leads | 002, 008 |
 | 010 | Public burden engine and uncertainty framework | Planned | Must | v0.5.0 | Statistical and Scientific Software Leads | 009 |
 | 003 | Monogenic diabetes rare-within-common demonstrator | Planned | Must | v0.5.0 | Clinical and Epidemiology Leads | 008, 009, 010 |
