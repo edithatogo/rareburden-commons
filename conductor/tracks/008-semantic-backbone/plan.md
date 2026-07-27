@@ -30,4 +30,4 @@
 
 ## Review fixes — 2026-07-27
 
-- [x] Add a review record that captures the dependency block and prevents premature semantic-contract freeze. Evidence: pending focused review commit.
+- [x] Add a review record that captures the dependency block and prevents premature semantic-contract freeze. Evidence: `2e2a853`.
