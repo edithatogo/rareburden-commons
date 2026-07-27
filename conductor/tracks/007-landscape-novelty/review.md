@@ -14,7 +14,7 @@
 ## Evidence limitations
 
 - The current 13-item register is a rapid structured landscape, not a completed systematic or scoping review.
-- Repository-native searches, deduplication and exclusions are incomplete.
+- Repository-native discovery searches and mechanical exact deduplication are recorded; entity-level screening and an auditable exclusions log remain incomplete.
 - No independent methods or patient/community reviewer has yet challenged the novelty conclusion.
 - Partnership, endorsement and data-access claims remain prohibited without written confirmation.
 

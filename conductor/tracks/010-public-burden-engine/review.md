@@ -6,7 +6,7 @@
 ## Findings
 
 - Track 009 is blocked by the incomplete source-acquisition and semantic contracts.
-- No Track 010 estimand contract, deterministic engine, uncertainty engine, numerical assurance suite or alpha interface has been implemented.
+- No approved Track 010 estimand contract, track-scoped alpha interface or release assurance package has been completed; reusable model primitives and tests are preparatory only.
 - Scientific, engineering and patient/community review gates remain required.
 
 ## Disposition

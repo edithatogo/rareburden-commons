@@ -7,7 +7,7 @@
 
 - Track 002 remains in review pending live-source, licensing, scientific, data-governance and security evidence.
 - Track 008 remains blocked pending Tracks 002 and 007.
-- No Track 009 ledger contracts, interfaces, impact tracing or migration tooling have been implemented.
+- No approved Track 009 ledger contract, interfaces, impact tracing or migration tooling have been completed; existing generic ledger code and fixtures are not a frozen Track 009 contract.
 - Scientific, data-governance and engineering review gates remain required.
 
 ## Disposition

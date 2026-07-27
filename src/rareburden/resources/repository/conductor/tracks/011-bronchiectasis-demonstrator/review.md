@@ -6,7 +6,7 @@
 ## Findings
 
 - Tracks 008, 009 and 010 are blocked and have not provided the semantic, evidence-ledger or burden-engine contracts required by this demonstrator.
-- No Track 011 protocol, aetiology scope, overlap model, transportability model or analysis has been implemented.
+- No approved Track 011 protocol, aetiology scope, overlap model, transportability model or analysis has been completed; only a non-binding protocol draft exists.
 - Respiratory clinical, patient/community and engineering review gates remain required.
 
 ## Disposition

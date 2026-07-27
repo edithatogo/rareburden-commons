@@ -6,7 +6,7 @@
 ## Findings
 
 - The repository contains semantic schemas, hierarchy/mapping validation, fail-closed mutually-exclusive aggregation, stable fingerprints, and synthetic semantic tests.
-- Track 008 has not entered implementation: all plan tasks remain pending and no v0.4 semantic contract has been frozen.
+- Track 008 has not entered implementation: all substantive implementation tasks remain pending and no v0.4 semantic contract has been frozen.
 - Track 002 remains `in_review` pending live-source, licensing, scientific, data-governance and security evidence.
 - Track 007 remains `in_review` pending protocol registration, reproducible repository searches, screening/exclusions, independent methods review and patient/community challenge.
 

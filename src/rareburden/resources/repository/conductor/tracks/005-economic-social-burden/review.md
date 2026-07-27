@@ -5,9 +5,9 @@
 
 ## Findings
 
-- Track 009 remains planned and depends on Tracks 002 and 008.
-- Track 010 remains planned and depends on Track 009.
-- No economic/social component contracts, perspective rules, parameter schemas, calculations or patient co-design have been completed in Track 005.
+- Track 009 remains blocked and depends on Tracks 002 and 008.
+- Track 010 remains blocked and depends on Track 009.
+- No approved Track 005 economic/social component contract, perspective rules, parameter schemas, calculations or patient co-design have been completed; only a non-binding protocol draft exists.
 - Health-economics, ethics, data-governance and patient/community review gates remain required.
 
 ## Disposition

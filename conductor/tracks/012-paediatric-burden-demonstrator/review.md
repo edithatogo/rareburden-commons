@@ -6,7 +6,7 @@
 ## Findings
 
 - Tracks 004 and 005 are blocked, and Tracks 008, 009 and 010 are also blocked.
-- No paediatric protocol, approved data pathway, synthetic linked-data model, federated integration or disclosure package has been implemented.
+- No approved paediatric protocol, data pathway, synthetic linked-data model, federated integration or disclosure package has been completed; only a non-binding protocol draft exists.
 - Paediatric, clinical, economic, privacy, data-governance, security and patient/community gates remain required.
 
 ## Disposition
