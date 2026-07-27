@@ -42,3 +42,4 @@
 - [x] Refresh internal harness evidence and separate repository validation from live-source and governance gates. Evidence: `506ce6b`.
 - [x] Run a bounded dated reachability check for catalog access URLs; record the World Bank root 404 as an endpoint-contract finding. Evidence: `3a62e38`.
 - [x] Record dated public access/licence evidence for Orphadata, MONDO, UN WPP, WHO GHE and World Bank API documentation. Evidence: review record updated 2026-07-27; exact production endpoint and governance gates remain open.
+- [x] Probe documented concrete World Bank indicator queries and source terms/download routes; record HTTP results and unresolved file/hash selection. Evidence: review record updated 2026-07-27.

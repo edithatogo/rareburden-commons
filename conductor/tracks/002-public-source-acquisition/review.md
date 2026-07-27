@@ -48,3 +48,20 @@ The following official public pages were retrieved on 2026-07-27 and are evidenc
 | World Bank Indicators | [API query guidance](https://datahelpdesk.worldbank.org/knowledgebase/articles/898599-indicator-api-queries) documents indicator requests and [API call structures](https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures); [Group terms](https://www.worldbank.org/ext/en/legal/terms-conditions) state that API/data-catalog use is governed by specific incorporated terms. | Endpoint contract and applicable dataset terms must be confirmed for the exact indicator query; the catalog-root 404 remains unresolved. |
 
 These observations strengthen the public-access/terms record but do not close the open exact-endpoint, licence-change exercise, or scientific/data-governance review gates.
+
+### Exact endpoint probe — 2026-07-27
+
+A second bounded HTTPS `HEAD` probe used the following concrete public URLs and a descriptive user agent; every URL below returned HTTP 200 on 2026-07-27:
+
+| Source/role | Exact URL probed | Result |
+| --- | --- | ---: |
+| World Bank population indicator query (JSON, one record) | `https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2000&format=json&per_page=1` | 200 |
+| World Bank indicator metadata query (JSON) | `https://api.worldbank.org/v2/indicator/NY.GDP.MKTP.CD?format=json` | 200 |
+| Orphadata release catalogue | `https://sciences.orphadata.com/orphanet-scientific-knowledge-files/` | 200 |
+| MONDO downloads | `https://mondo.monarchinitiative.org/pages/download/` | 200 |
+| UN WPP landing/download route | `https://population.un.org/wpp/` | 200 |
+| WHO GHE landing/download route | `https://www.who.int/data/global-health-estimates` | 200 |
+| WHO data terms | `https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions` | 200 |
+| World Bank Group terms | `https://www.worldbank.org/ext/en/legal/terms-conditions` | 200 |
+
+The World Bank root catalog URL in the source catalogue (`https://api.worldbank.org/v2/`) still returned 404 in the earlier probe. The successful indicator calls show a usable documented query shape, but do not select a production indicator, prove its current value coverage, or replace source-specific terms review. Exact downloadable file URLs and release hashes for Orphadata, UN WPP and WHO GHE remain to be pinned before production acquisition.
