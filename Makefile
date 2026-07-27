@@ -7,7 +7,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 .PHONY: install sync validate validate-catalog validate-roadmap validate-landscape \
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
-	reproducibility build package-check sbom check ci release-check clean
+	reproducibility build package-check installed-package-check sbom check ci release-check clean
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -92,6 +92,9 @@ package-check:
 		--name rareburden --version $(VERSION)
 	$(PYTHON) -m twine check $(WHEEL) $(SDIST)
 
+installed-package-check:
+	$(PYTHON) scripts/check_installed_package.py --wheel $(WHEEL)
+
 sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
@@ -101,4 +104,4 @@ check: validate schemas workflows lock requirements runtime-assets-check release
 
 ci: check coverage critical-coverage reproducibility
 
-release-check: ci build package-check sbom
+release-check: ci build package-check installed-package-check sbom
