@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/workflow-run.schema.json",
+  "title": "RareBurden workflow run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "workflow_run_id", "workflow_id", "title", "created_at",
+    "prospective_plan", "runs", "edges", "topological_order", "entry_inputs",
+    "final_outputs", "assertions", "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "workflow_run_id": {"type": "string", "pattern": "^workflow-[0-9a-f]{24}$"},
+    "workflow_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "prospective_plan": {"type": "object"},
+    "runs": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"$ref": "#/$defs/run"}
+    },
+    "edges": {
+      "type": "array", "uniqueItems": true,
+      "items": {"$ref": "#/$defs/edge"}
+    },
+    "topological_order": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^run-[0-9a-f]{24}$"}
+    },
+    "entry_inputs": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"$ref": "#/$defs/artifact"}
+    },
+    "final_outputs": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"$ref": "#/$defs/artifact"}
+    },
+    "assertions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "limitations": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "safePath": {
+      "type": "string", "minLength": 1,
+      "not": {"anyOf": [
+        {"pattern": "^/"}, {"pattern": "(^|/)\\.\\.(/|$)"},
+        {"pattern": "^\\./"}, {"pattern": "\\\\"}
+      ]}
+    },
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "run": {
+      "type": "object", "additionalProperties": false,
+      "required": ["transformation_run_id", "activity_id", "title", "status", "record_path", "record_sha256", "record_size_bytes"],
+      "properties": {
+        "transformation_run_id": {"type": "string", "pattern": "^run-[0-9a-f]{24}$"},
+        "activity_id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "status": {"enum": ["completed", "failed", "partial"]},
+        "record_path": {"$ref": "#/$defs/safePath"},
+        "record_sha256": {"$ref": "#/$defs/sha256"},
+        "record_size_bytes": {"type": "integer", "minimum": 0}
+      }
+    },
+    "edge": {
+      "type": "object", "additionalProperties": false,
+      "required": ["from_run", "to_run", "artifacts"],
+      "properties": {
+        "from_run": {"type": "string", "pattern": "^run-[0-9a-f]{24}$"},
+        "to_run": {"type": "string", "pattern": "^run-[0-9a-f]{24}$"},
+        "artifacts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/safePath"}}
+      }
+    },
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes", "media_type", "role"],
+      "properties": {
+        "path": {"$ref": "#/$defs/safePath"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 0},
+        "media_type": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

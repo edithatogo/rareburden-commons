@@ -1,0 +1,26 @@
+{
+  "id": "014-atlas-api-release",
+  "title": "Atlas, API and reproducible release engineering",
+  "status": "planned",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-19",
+  "target_release": "0.8.0",
+  "stage": "public_products",
+  "owner_role": "Product, Data and Release Engineering Leads",
+  "dependencies": [
+    "002-public-source-acquisition",
+    "009-evidence-parameter-ledger",
+    "010-public-burden-engine",
+    "013-quality-validation-gap-equity"
+  ],
+  "review_gates": [
+    "scientific",
+    "patient_community",
+    "data_governance",
+    "engineering",
+    "security",
+    "release"
+  ],
+  "v1_critical": true
+}

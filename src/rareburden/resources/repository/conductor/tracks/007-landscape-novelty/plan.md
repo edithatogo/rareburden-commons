@@ -1,0 +1,29 @@
+# Track 007 plan
+
+## Phase 1 — Register the review
+
+- [x] Define provisional questions, inclusion logic, sources and extraction fields.
+- [ ] Register the landscape-review protocol externally and version the complete search strategy.
+- [x] Define initiative, dataset, software, standard, mandate and methodological-precedent fields.
+- [ ] Recruit patient/community and independent methods reviewers.
+
+## Phase 2 — Search and screen
+
+- [x] Complete an initial search of cited scholarly and institutional infrastructures.
+- [ ] Run repository-native GitHub, Zenodo, OSF and Hugging Face searches reproducibly.
+- [x] Seed registry, genomic, burden, policy and standards ecosystems in the landscape register.
+- [ ] Complete deduplication, screening and an auditable exclusions log.
+
+## Phase 3 — Analyse adjacency
+
+- [x] Compare scope, geography, disease coverage, access, methods, outputs and maturity.
+- [x] Identify foundational dependencies, candidate partners and conflicting mandates.
+- [x] Test the programme thesis against the initial adjacency evidence.
+- [x] Produce a machine-readable adjacency and white-space map.
+
+## Phase 4 — Decide and publish
+
+- [x] Draft the adjacency matrix and provisional landscape report.
+- [ ] Obtain external methodological and patient/community challenge and revise claims.
+- [x] Record the provisional `proceed_with_narrowed_scope` decision.
+- [x] Update the roadmap and programme framing to avoid duplicating registries, ontologies or genomic platforms.

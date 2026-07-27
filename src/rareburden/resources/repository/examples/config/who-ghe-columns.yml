@@ -1,0 +1,10 @@
+geography_code: geography_code
+geography_name: geography_name
+year: year
+sex: sex
+indicator_code: cause_code
+indicator_name: cause_name
+measure: measure
+metric: metric
+unit: unit
+value: value

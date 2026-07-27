@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/gap-map.schema.json",
+  "title": "RareBurden data capability gap map",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "map_type",
+    "title",
+    "catalogue_schema_version",
+    "catalogue_last_updated",
+    "rows",
+    "summary",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "map_type": {
+      "const": "domain_access_capability"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "catalogue_schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "catalogue_last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "need_id",
+          "label",
+          "domain",
+          "scope",
+          "required_analytic_role",
+          "required_geographic_level",
+          "required_data_levels",
+          "status",
+          "operational_readiness",
+          "sufficiency",
+          "candidate_source_ids",
+          "matching_source_ids",
+          "acquisition_tested_source_ids",
+          "access_tested_source_ids",
+          "metadata_only_source_ids",
+          "country_specific_validation_required",
+          "unresolved_questions",
+          "rationale"
+        ],
+        "properties": {
+          "need_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "domain": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required_analytic_role": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "required_geographic_level": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "required_data_levels": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "public_open",
+              "public_registered",
+              "controlled_access_required",
+              "federated_analysis_required",
+              "new_collection_required",
+              "unavailable"
+            ]
+          },
+          "operational_readiness": {
+            "type": "string",
+            "enum": [
+              "acquisition_tested",
+              "access_tested",
+              "metadata_reviewed",
+              "unverified",
+              "unavailable"
+            ]
+          },
+          "sufficiency": {
+            "const": "not_assessed"
+          },
+          "candidate_source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "matching_source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "acquisition_tested_source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "access_tested_source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "metadata_only_source_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "country_specific_validation_required": {
+            "const": true
+          },
+          "unresolved_questions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "need_count",
+        "access_status_counts",
+        "readiness_counts"
+      ],
+      "properties": {
+        "need_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "access_status_counts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "readiness_counts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

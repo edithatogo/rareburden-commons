@@ -1,0 +1,37 @@
+schema_version: 1.0.0
+subject:
+  subject_type: parameter
+  subject_id: australia-population-synthetic
+assessed_at: '2026-07-19T00:00:00Z'
+assessor:
+  role: RareBurden synthetic assurance harness
+  identifier: rareburden-internal-reference
+  independence: producer
+framework_version: RareBurden-EQA-1.0.0
+domains:
+- domain: construct_validity
+  judgement: low_concern
+  rationale: The parameter is explicitly defined as a synthetic population denominator
+    for assurance only.
+  evidence_refs:
+  - synthetic-un-wpp-fixture
+- domain: representativeness
+  judgement: some_concern
+  rationale: The fixture resembles a national denominator but contains deliberately
+    synthetic values and cannot support inference.
+  evidence_refs:
+  - synthetic-un-wpp-fixture
+- domain: computational_reproducibility
+  judgement: low_concern
+  rationale: The exact fixture, column contract, checksum and transformation are packaged
+    with the workflow.
+  evidence_refs:
+  - normalisation-manifest
+overall_judgement:
+  decision: direct_use
+  rationale: Suitable for the explicitly bounded synthetic assurance workflow, not
+    for empirical estimation.
+  unresolved_questions:
+  - No empirical custodian release has been verified in this synthetic reference.
+limitations:
+- Synthetic assurance record; not a real population estimate.

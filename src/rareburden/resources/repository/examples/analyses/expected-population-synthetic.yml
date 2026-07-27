@@ -1,0 +1,16 @@
+schema_version: 1.0.0
+analysis_id: expected-population-synthetic
+title: Synthetic expected affected-population assurance analysis
+estimand: expected_affected_population
+left_parameter_id: australia-population-synthetic
+right_parameter_id: rare-diabetes-fraction-synthetic
+output_unit: people
+iterations: 10000
+seed: 20260719
+interval_probability: 0.95
+dependence: independent
+dependence_rationale: The synthetic reference assumes independence solely to exercise
+  a declared and reproducible dependence contract.
+intended_use: synthetic_assurance
+limitations:
+- Synthetic assurance only; no empirical interpretation or policy use is permitted.

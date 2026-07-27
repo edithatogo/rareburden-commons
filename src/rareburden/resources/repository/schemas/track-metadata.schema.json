@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/track-metadata.schema.json",
+  "title": "RareBurden Commons Conductor track metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "status",
+    "priority",
+    "created",
+    "updated",
+    "target_release",
+    "stage",
+    "owner_role",
+    "dependencies",
+    "review_gates",
+    "v1_critical"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "title": {"type": "string", "minLength": 8},
+    "status": {
+      "enum": ["proposed", "planned", "ready", "active", "blocked", "in_review", "complete", "archived"]
+    },
+    "priority": {"enum": ["must", "should", "could"]},
+    "created": {"type": "string", "format": "date"},
+    "updated": {"type": "string", "format": "date"},
+    "target_release": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "stage": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "owner_role": {"type": "string", "minLength": 3},
+    "dependencies": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*$"}
+    },
+    "review_gates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "scientific",
+          "data_governance",
+          "patient_community",
+          "engineering",
+          "security",
+          "programme",
+          "release"
+        ]
+      }
+    },
+    "v1_critical": {"type": "boolean"}
+  }
+}

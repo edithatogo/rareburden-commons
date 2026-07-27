@@ -1,0 +1,38 @@
+schema_version: 1.0.0
+subject:
+  subject_type: parameter
+  subject_id: rare-diabetes-fraction-synthetic
+assessed_at: '2026-07-19T00:00:00Z'
+assessor:
+  role: RareBurden synthetic assurance harness
+  identifier: rareburden-internal-reference
+  independence: producer
+framework_version: RareBurden-EQA-1.0.0
+domains:
+- domain: construct_validity
+  judgement: some_concern
+  rationale: The fraction is a deliberately assumed synthetic value used to exercise
+    uncertainty propagation.
+  evidence_refs:
+  - synthetic-assumption-record
+- domain: ascertainment
+  judgement: some_concern
+  rationale: No empirical ascertainment process is claimed; the limitation is explicit
+    in the parameter ledger.
+  evidence_refs:
+  - synthetic-assumption-record
+- domain: computational_reproducibility
+  judgement: low_concern
+  rationale: The distribution, seed, random engine and source definition are packaged
+    and content identified.
+  evidence_refs:
+  - parameter-ledger
+  - analysis-specification
+overall_judgement:
+  decision: sensitivity_only
+  rationale: Appropriate only for synthetic assurance and sensitivity exercises because
+    it is an explicit assumption.
+  unresolved_questions:
+  - A real demonstrator requires an empirical systematic evidence synthesis.
+limitations:
+- The assumed fraction is not an epidemiological estimate.

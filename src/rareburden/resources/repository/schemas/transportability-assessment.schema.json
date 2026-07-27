@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/transportability-assessment.schema.json",
+  "title": "RareBurden parameter transportability assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "assessment_id",
+    "parameter_id",
+    "assessed_at",
+    "source_context",
+    "target_context",
+    "differences",
+    "method",
+    "judgement",
+    "validation_plan",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "assessment_id": {"type": "string", "pattern": "^tra-[0-9a-f]{24}$"},
+    "parameter_id": {"type": "string", "minLength": 3},
+    "assessed_at": {"type": "string", "format": "date-time"},
+    "source_context": {"$ref": "#/$defs/context"},
+    "target_context": {"$ref": "#/$defs/context"},
+    "differences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/difference"}
+    },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "description", "assumptions"],
+      "properties": {
+        "strategy": {
+          "enum": [
+            "direct_transfer",
+            "stratification",
+            "standardisation",
+            "calibration",
+            "hierarchical_model",
+            "uncertainty_inflation",
+            "scenario_analysis",
+            "no_transfer"
+          ]
+        },
+        "description": {"type": "string", "minLength": 20},
+        "assumptions": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3},
+          "uniqueItems": true
+        }
+      }
+    },
+    "judgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["use", "uncertainty_multiplier", "rationale"],
+      "properties": {
+        "use": {
+          "enum": ["direct", "adjusted", "sensitivity_only", "not_transportable", "unclear"]
+        },
+        "uncertainty_multiplier": {"type": "number", "minimum": 1},
+        "rationale": {"type": "string", "minLength": 20}
+      }
+    },
+    "validation_plan": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 5},
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 3},
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geography",
+        "calendar_period",
+        "population",
+        "case_definition",
+        "ascertainment",
+        "health_system"
+      ],
+      "properties": {
+        "geography": {"type": "string", "minLength": 2},
+        "calendar_period": {"type": "string", "minLength": 3},
+        "population": {"type": "string", "minLength": 3},
+        "case_definition": {"type": "string", "minLength": 3},
+        "ascertainment": {"type": "string", "minLength": 3},
+        "health_system": {"type": "string", "minLength": 3}
+      }
+    },
+    "difference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "materiality", "direction", "rationale", "evidence_refs"],
+      "properties": {
+        "domain": {
+          "enum": [
+            "population_structure",
+            "disease_definition",
+            "ascertainment",
+            "diagnostic_access",
+            "treatment",
+            "survival",
+            "calendar_time",
+            "geography",
+            "ancestry",
+            "health_system",
+            "socioeconomic_context",
+            "other"
+          ]
+        },
+        "materiality": {"enum": ["negligible", "low", "moderate", "high", "unknown"]},
+        "direction": {"enum": ["none", "likely_upward", "likely_downward", "uncertain"]},
+        "rationale": {"type": "string", "minLength": 15},
+        "evidence_refs": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 3},
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

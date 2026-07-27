@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/normalisation-manifest.schema.json",
+  "title": "Normalisation manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "normalisation_manifest_id",
+    "record_count",
+    "records_sha256",
+    "size_bytes",
+    "acquisition_manifest_id",
+    "transformation_id",
+    "record_schema",
+    "records_file",
+    "created_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "normalisation_manifest_id": {
+      "type": "string",
+      "pattern": "^norm-[0-9a-f]{24}$"
+    },
+    "record_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "records_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "acquisition_manifest_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "transformation_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "record_schema": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "records_file": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/analysis-result.schema.json",
+  "title": "RareBurden analysis result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "created_at",
+    "analysis_result_id",
+    "analysis_id",
+    "estimand",
+    "ledger_id",
+    "left_parameter_id",
+    "left_parameter_fingerprint",
+    "right_parameter_id",
+    "right_parameter_fingerprint",
+    "output_unit",
+    "dependence",
+    "dependence_rationale",
+    "summary",
+    "evidence_statuses",
+    "limitations",
+    "runtime"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "analysis_result_id": {
+      "type": "string",
+      "pattern": "^ana-[0-9a-f]{24}$"
+    },
+    "analysis_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "estimand": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ledger_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "left_parameter_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "left_parameter_fingerprint": {
+      "type": "string",
+      "pattern": "^par-[0-9a-f]{24}$"
+    },
+    "right_parameter_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "right_parameter_fingerprint": {
+      "type": "string",
+      "pattern": "^par-[0-9a-f]{24}$"
+    },
+    "output_unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dependence": {
+      "const": "independent"
+    },
+    "dependence_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mean",
+        "median",
+        "lower",
+        "upper",
+        "standard_deviation",
+        "interval_probability",
+        "iterations",
+        "seed"
+      ],
+      "properties": {
+        "mean": {
+          "type": "number"
+        },
+        "median": {
+          "type": "number"
+        },
+        "lower": {
+          "type": "number"
+        },
+        "upper": {
+          "type": "number"
+        },
+        "standard_deviation": {
+          "type": "number",
+          "minimum": 0
+        },
+        "interval_probability": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 1
+        },
+        "iterations": {
+          "type": "integer",
+          "minimum": 100
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "evidence_statuses": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "software_version",
+        "python_implementation",
+        "python_version",
+        "random_engine"
+      ],
+      "properties": {
+        "software_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "python_implementation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "python_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "random_engine": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "quality_disposition_id": {
+      "type": "string",
+      "pattern": "^qdp-[0-9a-f]{24}$"
+    }
+  }
+}

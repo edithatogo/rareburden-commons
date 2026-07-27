@@ -1,0 +1,21 @@
+{
+  "id": "008-semantic-backbone",
+  "title": "Semantic backbone and burden-purpose hierarchy",
+  "status": "planned",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-19",
+  "target_release": "0.4.0",
+  "stage": "semantic_core",
+  "owner_role": "Semantic Methods Lead",
+  "dependencies": [
+    "002-public-source-acquisition",
+    "007-landscape-novelty"
+  ],
+  "review_gates": [
+    "scientific",
+    "patient_community",
+    "engineering"
+  ],
+  "v1_critical": true
+}

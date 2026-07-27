@@ -1,0 +1,8 @@
+geography_code: Location code
+geography_name: Location
+year: Year
+sex: Sex
+age_start: AgeStart
+age_end: AgeEnd
+age_label: AgeLabel
+value: PopulationThousands

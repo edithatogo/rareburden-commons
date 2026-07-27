@@ -1,0 +1,3 @@
+geography_code,geography_name,year,sex,cause_code,cause_name,measure,metric,unit,value
+AUS,Australia,2021,Both sexes,DIAB,Diabetes mellitus,Deaths,count,people,5100
+NZL,New Zealand,2021,Both sexes,DIAB,Diabetes mellitus,Deaths,count,people,840

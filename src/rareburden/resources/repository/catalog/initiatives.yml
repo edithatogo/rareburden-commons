@@ -1,0 +1,301 @@
+schema_version: 0.1.0
+last_updated: '2026-07-19'
+review_status: internal_review
+scope: Rapid internal landscape of global rare-disease policy, data, standards and
+  burden infrastructures relevant to the proposed RareBurden measurement layer.
+initiatives:
+- initiative_id: who-rare-disease-action-plan
+  name: WHO rare-disease global action plan mandate
+  initiative_type: policy_mandate
+  status: active
+  official_url: https://www.who.int/health-topics/rare-diseases
+  data_access: not_applicable
+  patient_level_data: false
+  federated: false
+  rareburden_relationship: policy_alignment
+  overlap_dimensions:
+  - policy
+  - patient_governance
+  unique_contribution: Creates a global policy mandate and expectation of measurable
+    implementation progress.
+  remaining_gap: Does not itself provide a comprehensive reproducible rare-disease
+    burden measurement layer.
+  recommended_engagement: Align indicators and country implementation products without
+    presenting RareBurden as a WHO programme.
+  evidence_references:
+  - https://www.who.int/health-topics/rare-diseases
+  last_verified: '2026-07-19'
+- initiative_id: rdi-lancet-commission
+  name: Rare Diseases International–Lancet Commission
+  initiative_type: commission
+  status: active
+  official_url: https://www.rarediseasesinternational.org/
+  data_access: not_applicable
+  patient_level_data: false
+  federated: false
+  rareburden_relationship: candidate_partner
+  overlap_dimensions:
+  - policy
+  - patient_governance
+  - economic_burden
+  unique_contribution: Provides patient-led global synthesis and policy recommendations
+    across rare diseases.
+  remaining_gap: A durable open computational burden infrastructure remains a distinct
+    implementation need.
+  recommended_engagement: Seek patient co-governance and methodological alignment
+    rather than duplicate commission work.
+  evidence_references:
+  - https://www.rarediseasesinternational.org/
+  last_verified: '2026-07-19'
+- initiative_id: wef-rare-disease-data
+  name: World Economic Forum rare-disease data agenda
+  initiative_type: policy_mandate
+  status: active
+  official_url: https://www.weforum.org/
+  data_access: not_applicable
+  patient_level_data: false
+  federated: false
+  rareburden_relationship: policy_alignment
+  overlap_dimensions:
+  - policy
+  - economic_burden
+  - funding
+  unique_contribution: Convenes cross-sector leaders and has framed rare-disease data
+    as an economic and policy priority.
+  remaining_gap: Does not operate a transparent versioned burden estimation and provenance
+    platform.
+  recommended_engagement: Approach as a convening and translation partner after the
+    public-data demonstrator is reproducible.
+  evidence_references:
+  - https://www.weforum.org/
+  last_verified: '2026-07-19'
+- initiative_id: orphadata
+  name: Orphadata scientific knowledge infrastructure
+  initiative_type: ontology
+  status: active
+  official_url: https://www.orphadata.com/
+  data_access: open
+  patient_level_data: false
+  federated: false
+  rareburden_relationship: foundational_dependency
+  overlap_dimensions:
+  - ontology
+  - data_discovery
+  unique_contribution: Provides authoritative rare-disease nomenclature, classifications,
+    mappings and scientific knowledge files.
+  remaining_gap: Its primary purpose is not population burden estimation or economic
+    modelling.
+  recommended_engagement: Use versioned releases as a semantic foundation and invite
+    review of burden-purpose linearisation.
+  evidence_references:
+  - https://www.orphadata.com/
+  last_verified: '2026-07-19'
+- initiative_id: mondo
+  name: Mondo Disease Ontology
+  initiative_type: ontology
+  status: active
+  official_url: https://mondo.monarchinitiative.org/
+  data_access: open
+  patient_level_data: false
+  federated: false
+  rareburden_relationship: foundational_dependency
+  overlap_dimensions:
+  - ontology
+  - standards
+  unique_contribution: Harmonises disease identities and cross-references across multiple
+    biomedical resources.
+  remaining_gap: It does not define a complete rare-disease burden aggregation and
+    double-counting contract.
+  recommended_engagement: Use as a complementary mapping resource with explicit relation
+    semantics and versioned review.
+  evidence_references:
+  - https://mondo.monarchinitiative.org/
+  last_verified: '2026-07-19'
+- initiative_id: ihme-gbd
+  name: IHME Global Burden of Disease
+  initiative_type: burden_programme
+  status: active
+  official_url: https://www.healthdata.org/research-analysis/gbd
+  data_access: registered
+  patient_level_data: false
+  federated: false
+  rareburden_relationship: foundational_dependency
+  overlap_dimensions:
+  - burden_estimation
+  - policy
+  unique_contribution: Provides the leading global comparative health-loss envelopes
+    and estimation methods.
+  remaining_gap: Most rare diseases are not individually surfaced and rare causes
+    inside common categories remain underdeveloped.
+  recommended_engagement: Seek methodological collaboration, hierarchy advice and
+    permissible aggregate or secure analyses.
+  evidence_references:
+  - https://www.healthdata.org/research-analysis/gbd
+  last_verified: '2026-07-19'
+- initiative_id: who-ghe
+  name: WHO Global Health Estimates
+  initiative_type: burden_programme
+  status: active
+  official_url: https://www.who.int/data/global-health-estimates
+  data_access: open
+  patient_level_data: false
+  federated: false
+  rareburden_relationship: methodological_precedent
+  overlap_dimensions:
+  - burden_estimation
+  - policy
+  unique_contribution: Provides an independent global health-estimate framework and
+    downloadable aggregate outputs.
+  remaining_gap: Published cause categories generally do not expose the collective
+    rare-disease burden.
+  recommended_engagement: Use for triangulation and indicator alignment while preserving
+    framework differences.
+  evidence_references:
+  - https://www.who.int/data/global-health-estimates
+  last_verified: '2026-07-19'
+- initiative_id: erdera-virtual-platform
+  name: ERDERA Virtual Platform and rare-disease research infrastructure
+  initiative_type: research_infrastructure
+  status: developing
+  official_url: https://erdera.org/
+  data_access: federated
+  patient_level_data: true
+  federated: true
+  rareburden_relationship: candidate_partner
+  overlap_dimensions:
+  - registries
+  - federation
+  - data_discovery
+  - patient_governance
+  unique_contribution: Connects European rare-disease research resources, registries
+    and data services through governed infrastructure.
+  remaining_gap: It is not itself a global population burden and economic measurement
+    engine.
+  recommended_engagement: Design a portable node contract that can interoperate rather
+    than duplicate European infrastructure.
+  evidence_references:
+  - https://erdera.org/
+  last_verified: '2026-07-19'
+- initiative_id: rd-connect
+  name: RD-Connect Genome-Phenome Analysis Platform
+  initiative_type: data_platform
+  status: active
+  official_url: https://platform.rd-connect.eu/
+  data_access: controlled
+  patient_level_data: true
+  federated: false
+  rareburden_relationship: candidate_partner
+  overlap_dimensions:
+  - genomics
+  - data_discovery
+  - registries
+  unique_contribution: Provides controlled rare-disease genomic and phenotypic analysis
+    capabilities.
+  remaining_gap: Cohort ascertainment cannot automatically provide national or global
+    burden estimates.
+  recommended_engagement: Use for bounded parameter estimation and validation under
+    approved research access.
+  evidence_references:
+  - https://platform.rd-connect.eu/
+  last_verified: '2026-07-19'
+- initiative_id: ga4gh
+  name: Global Alliance for Genomics and Health
+  initiative_type: standards_body
+  status: active
+  official_url: https://www.ga4gh.org/
+  data_access: not_applicable
+  patient_level_data: false
+  federated: false
+  rareburden_relationship: foundational_dependency
+  overlap_dimensions:
+  - standards
+  - genomics
+  - federation
+  unique_contribution: Develops interoperable standards for responsible genomic and
+    health-data sharing and use restrictions.
+  remaining_gap: It does not estimate rare-disease population health or economic burden.
+  recommended_engagement: Adopt relevant standards such as data-use semantics and
+    federated execution patterns.
+  evidence_references:
+  - https://www.ga4gh.org/
+  last_verified: '2026-07-19'
+- initiative_id: all-of-us
+  name: All of Us Research Program
+  initiative_type: data_platform
+  status: active
+  official_url: https://www.researchallofus.org/
+  data_access: mixed
+  patient_level_data: true
+  federated: false
+  rareburden_relationship: candidate_partner
+  overlap_dimensions:
+  - genomics
+  - data_discovery
+  unique_contribution: Offers a large diverse US cohort with genomic, phenotype and
+    healthcare information under tiered access.
+  remaining_gap: The participant cohort is not automatically nationally representative
+    and is US-specific.
+  recommended_engagement: Use standard controlled-access routes for selected rare-within-common
+    parameter studies.
+  evidence_references:
+  - https://www.researchallofus.org/
+  last_verified: '2026-07-19'
+- initiative_id: genomics-england
+  name: Genomics England Research Environment
+  initiative_type: data_platform
+  status: active
+  official_url: https://www.genomicsengland.co.uk/
+  data_access: controlled
+  patient_level_data: true
+  federated: false
+  rareburden_relationship: candidate_partner
+  overlap_dimensions:
+  - genomics
+  - registries
+  - data_discovery
+  unique_contribution: Provides linked genomic and clinical data from UK genomic medicine
+    cohorts in a secure environment.
+  remaining_gap: Referral and testing ascertainment mean direct population prevalence
+    inference is unsafe.
+  recommended_engagement: Develop preregistered parameter analyses and validate transportability
+    explicitly.
+  evidence_references:
+  - https://www.genomicsengland.co.uk/
+  last_verified: '2026-07-19'
+- initiative_id: western-australia-rare-disease-burden
+  name: Western Australian linked-data rare-disease burden studies
+  initiative_type: burden_programme
+  status: completed
+  official_url: https://www.wa.gov.au/organisation/department-of-health
+  data_access: controlled
+  patient_level_data: true
+  federated: false
+  rareburden_relationship: methodological_precedent
+  overlap_dimensions:
+  - burden_estimation
+  - economic_burden
+  - registries
+  unique_contribution: Demonstrated that linked administrative data can reveal substantial
+    collective rare-disease health-system burden.
+  remaining_gap: A single jurisdiction and coding strategy do not create a global
+    reusable measurement infrastructure.
+  recommended_engagement: Replicate transparently through country nodes while crediting
+    and extending the methodological precedent.
+  evidence_references:
+  - https://www.wa.gov.au/organisation/department-of-health
+  last_verified: '2026-07-19'
+decision:
+  outcome: proceed_with_narrowed_scope
+  external_review_status: planned
+  decision_date: '2026-07-19'
+  rationale: The programme appears additive when narrowly positioned as an open burden-measurement,
+    provenance and implementation layer that depends on, interoperates with and does
+    not replace existing initiatives.
+  conditions:
+  - Complete independent methods and patient/community review.
+  - Run repository-native GitHub, Zenodo, OSF and Hugging Face landscape searches.
+  - Publish explicit exclusions, partnership opportunities and stop-or-merge criteria.
+limitations:
+- This is a rapid internal landscape, not a completed systematic or scoping review.
+- URLs and statuses require live custodian verification before external publication.
+- Novelty remains provisional until external challenge and reproducible search completion.

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/analysis-specification.schema.json",
+  "title": "RareBurden analysis specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "analysis_id",
+    "title",
+    "estimand",
+    "left_parameter_id",
+    "right_parameter_id",
+    "output_unit",
+    "iterations",
+    "seed",
+    "interval_probability",
+    "dependence",
+    "dependence_rationale",
+    "intended_use",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "analysis_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "estimand": {
+      "type": "string",
+      "enum": [
+        "expected_affected_population",
+        "rare_aetiology_cases"
+      ]
+    },
+    "left_parameter_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "right_parameter_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "output_unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "iterations": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 10000000
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615
+    },
+    "interval_probability": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "exclusiveMaximum": 1
+    },
+    "dependence": {
+      "type": "string",
+      "enum": [
+        "independent"
+      ]
+    },
+    "dependence_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intended_use": {
+      "type": "string",
+      "enum": [
+        "synthetic_assurance",
+        "exploratory",
+        "primary_estimate",
+        "policy_decision"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

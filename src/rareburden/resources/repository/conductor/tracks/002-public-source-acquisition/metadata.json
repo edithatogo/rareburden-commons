@@ -1,0 +1,22 @@
+{
+  "id": "002-public-source-acquisition",
+  "title": "Public-source acquisition and provenance adapters",
+  "status": "in_review",
+  "priority": "must",
+  "created": "2026-07-18",
+  "updated": "2026-07-27",
+  "target_release": "0.3.0",
+  "stage": "evidence_acquisition",
+  "owner_role": "Data Engineering Lead",
+  "dependencies": [
+    "001-foundation",
+    "006-v1-delivery-system"
+  ],
+  "review_gates": [
+    "scientific",
+    "data_governance",
+    "engineering",
+    "security"
+  ],
+  "v1_critical": true
+}
