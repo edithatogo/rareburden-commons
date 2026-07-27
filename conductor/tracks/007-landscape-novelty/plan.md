@@ -30,4 +30,4 @@
 
 ## Review fixes — 2026-07-27
 
-- [x] Reconcile the internal review with the current 13-item catalogue and keep provisional and external gates distinct. Evidence: pending focused review commit.
+- [x] Reconcile the internal review with the current 13-item catalogue and keep provisional and external gates distinct. Evidence: `a18cee0`.
