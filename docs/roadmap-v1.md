@@ -1,7 +1,7 @@
 # Roadmap to a stable RareBurden Commons v1.0
 
-**Roadmap baseline:** v0.2  
-**As of:** 19 July 2026  
+**Roadmap baseline:** v0.3 release-candidate
+**As of:** 19 July 2026
 **Target stable release:** v1.0.0, gate-driven with an indicative window of 2030 Q2
 
 ## 1. Purpose of this roadmap
@@ -66,7 +66,7 @@ The normative v1 product is a versioned static release and reference command-lin
 |---|---|---|
 | **v0.1** | Founding scaffold | Is the programme proposition coherent and safe enough to specify? |
 | **v0.2** | Controlled roadmap | Is all work to v1 decomposed, gated, owned by role and machine-checkable? |
-| **v0.3** | Public-data substrate | Can source releases be found, lawfully acquired or registered, and reproduced? Is the programme genuinely additive? |
+| **v0.3** | Public-data and scholarly-assurance substrate | Can source releases be found, lawfully acquired or registered, transformed with auditable provenance, and reproduced? Is the programme genuinely additive? |
 | **v0.4** | Semantic/evidence core | Can diseases, mappings, evidence and parameters be represented without hidden ambiguity? |
 | **v0.5** | Methods alpha | Can the first bounded reference analysis be generated with defensible uncertainty and overlap handling? |
 | **v0.6** | Federated/multi-aetiology alpha | Can the methods run through a disclosure-safe synthetic node and a second disease structure? |
@@ -81,7 +81,7 @@ The normative v1 product is a versioned static release and reference command-lin
 |---|---:|---:|---|---|
 | M0 | v0.1.0 | 2026 Q3 | Founding strategy, protocol, catalogue and validator | Foundation tagged and independently rechecked |
 | M1 | v0.2.0 | 2026 Q3 | Full Conductor track system, v1 definition of done, quality/release/risk controls | Every v1 track specified and dependency graph validates |
-| M2 | v0.3.0 | 2027 Q1 | Four reproducible source pathways and novelty/adjacency review | Source provenance works end to end; proceed/partner/narrow/stop decisions published |
+| M2 | v0.3.0 | 2027 Q1 | Four reproducible source pathways, novelty/adjacency review and scholarly-assurance substrate | Source and transformation provenance work end to end; claims remain conservative; proceed/partner/narrow/stop decisions published |
 | M3 | v0.4.0 | 2027 Q4 | Disease hierarchy, mappings, evidence and parameter ledger | Semantic and evidence contracts pass scientific, community and engineering review |
 | M4 | v0.5.0 | 2028 Q2 | Public burden engine and monogenic-diabetes alpha | Deterministic and simulation analyses reproduce; unsupported operations fail safely; first demonstrator passes independent scientific review |
 | M5 | v0.6.0 | 2028 Q4 | Federated node and bronchiectasis alpha | Synthetic node emits only approved aggregates; a second operator runs it; second demonstrator validates overlap handling |
@@ -99,6 +99,7 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 - **[001-foundation — Foundation and public-data protocol](../conductor/tracks/001-foundation/spec.md)** — complete founding scaffold.
 - **[006-v1-delivery-system — v1 delivery system and foundation hardening](../conductor/tracks/006-v1-delivery-system/spec.md)** — establishes this release system and automated validation.
 - **[007-landscape-novelty — Landscape, adjacency, novelty and partnership map](../conductor/tracks/007-landscape-novelty/spec.md)** — tests the white-space hypothesis and defines where to build, partner, narrow or stop.
+- **[018-scholarly-provenance-reproducibility — Scholarly provenance, protocol transparency and reproducibility](../conductor/tracks/018-scholarly-provenance-reproducibility/spec.md)** — distinguishes planned from executed work and packages exact source-to-result evidence without overstating external validation.
 
 ### Data and semantics
 

@@ -2,6 +2,8 @@
 
 Before changing this repository:
 
+For the portable autonomous handoff branch, also read `docs/handoff/implementation-status.md` and `docs/handoff/CODEX_AUTONOMOUS_CONTINUATION.md` before changing code, Git history or GitHub configuration.
+
 1. Read `conductor/index.md`, `conductor/product.md`, `conductor/tech-stack.md`, `conductor/workflow.md` and `conductor/roadmap.yml`.
 2. Read the active track's `spec.md`, `plan.md` and `metadata.json`.
 3. Work only on a defined task, update its checkbox and make a focused Git commit.

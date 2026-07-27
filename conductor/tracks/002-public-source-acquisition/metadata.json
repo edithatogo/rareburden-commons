@@ -1,10 +1,10 @@
 {
   "id": "002-public-source-acquisition",
   "title": "Public-source acquisition and provenance adapters",
-  "status": "active",
+  "status": "in_review",
   "priority": "must",
   "created": "2026-07-18",
-  "updated": "2026-07-19",
+  "updated": "2026-07-27",
   "target_release": "0.3.0",
   "stage": "evidence_acquisition",
   "owner_role": "Data Engineering Lead",

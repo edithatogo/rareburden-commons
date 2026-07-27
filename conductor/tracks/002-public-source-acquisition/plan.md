@@ -2,36 +2,37 @@
 
 ## Phase 1 — Source contracts and schemas
 
-- [ ] Reverify access URLs, terms, release conventions and redistribution conditions. `[M-07, M-08, M-10]`
-- [ ] Select exact first files/endpoints and define normalised output contracts. `[M-03, M-09]`
-- [ ] Add source-release and acquisition-manifest schemas. `[M-11, M-18, M-20]`
-- [ ] Extend geography, representativeness and verification fields in the source catalogue. `[M-07]`
+- [ ] Reverify live access URLs, terms, release conventions and redistribution conditions. `[M-07, M-08, M-10]`
+- [ ] Select and evidence exact production files/endpoints for each supported live source. `[M-03, M-09]`
+- [x] Add source-release, acquisition-manifest and normalisation-manifest schemas. `[M-11, M-18, M-20]`
+- [x] Extend geography, representativeness and verification fields in the source catalogue. `[M-07]`
 
 ## Phase 2 — Common acquisition framework
 
-- [ ] Implement adapter and manual-registration protocols. `[S-03]`
-- [ ] Implement cache, checksum, retry, timeout and atomic-write behaviour. `[M-11, M-20]`
-- [ ] Add structured logs that exclude secrets and participant data. `[M-13, M-15]`
-- [ ] Add source-change and licence-uncertainty failure modes. `[M-22]`
+- [x] Implement adapter and manual-registration protocols. `[S-03]`
+- [x] Implement cache, checksum, retry, timeout, bounded-size and atomic-write behaviour. `[M-11, M-20]`
+- [x] Add structured provenance that excludes credentials and participant data. `[M-13, M-15]`
+- [ ] Complete licence-uncertainty policy and live source-change exercises. `[M-22]`
 
 ## Phase 3 — Source adapters
 
-- [ ] Implement Orphadata acquisition and metadata extraction. `[S-01, S-03]`
-- [ ] Implement UN WPP acquisition and population normalisation. `[S-03, S-04]`
-- [ ] Implement one selected WHO bulk-source adapter or registrar. `[S-03]`
-- [ ] Implement World Bank Indicators query adapter with cached responses. `[S-03]`
-- [ ] Specify manual IHME and OECD release registration without automating restricted flows. `[M-10]`
+- [x] Implement bounded Orphadata XML extraction against lawful synthetic fixtures. `[S-01, S-03]`
+- [x] Implement UN-style population acquisition/registration and normalisation. `[S-03, S-04]`
+- [x] Implement a WHO-style aggregate CSV registrar and normaliser. `[S-03]`
+- [x] Implement World Bank Indicators canonical query construction and response normalisation. `[S-03]`
+- [x] Preserve manual IHME and OECD release registration without circumventing restricted flows. `[M-10]`
 
 ## Phase 4 — Normalisation and lineage
 
-- [ ] Implement common geography, age, sex, measure, metric and unit fields. `[M-03, M-11]`
-- [ ] Link every transformed row to source and acquisition manifests. `[M-20]`
-- [ ] Add lawful/synthetic fixtures and offline integration tests. `[M-19]`
-- [ ] Run an end-to-end acquisition-to-normalised-table example. `[S-04]`
+- [x] Implement common geography, age, sex, measure, metric and unit fields. `[M-03, M-11]`
+- [x] Link every transformed row to source and acquisition manifests. `[M-20]`
+- [x] Add lawful synthetic fixtures and offline integration tests. `[M-19]`
+- [x] Run an end-to-end acquisition-to-normalised-release example. `[S-04]`
 
 ## Phase 5 — Review and release
 
-- [ ] Complete licence, scientific, engineering and security review.
-- [ ] Verify both Git clone and clean source archive workflows.
-- [ ] Add review findings and close or assign every issue.
+- [x] Complete internal engineering and security review of the offline substrate.
+- [ ] Complete live-source licence, scientific and data-governance review.
+- [ ] Verify the final exact Git clone, installed wheel and clean source archive workflows.
+- [ ] Close or assign every external review finding.
 - [ ] Release v0.3.0 only when Track 007 also satisfies its gate.

@@ -1,6 +1,6 @@
 # Requirements baseline
 
-**Status:** v0.2 planning baseline for the route to stable v1.0  
+**Status:** v0.3.0rc2 handoff baseline for the route to stable v1.0
 **Prioritisation:** MoSCoW — Must, Should, Could, Won't for the current programme increment. The original request's “MoWCoW” is interpreted as the standard MoSCoW method.
 
 ## Product increment

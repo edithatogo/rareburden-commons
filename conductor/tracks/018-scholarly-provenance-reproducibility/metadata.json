@@ -1,0 +1,22 @@
+{
+  "id": "018-scholarly-provenance-reproducibility",
+  "title": "Scholarly provenance, protocol transparency and reproducibility",
+  "status": "complete",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-07-27",
+  "target_release": "0.3.0",
+  "stage": "scholarly_assurance",
+  "owner_role": "Methods Assurance and Research Software Leads",
+  "dependencies": [
+    "001-foundation",
+    "006-v1-delivery-system"
+  ],
+  "review_gates": [
+    "scientific",
+    "engineering",
+    "security",
+    "release"
+  ],
+  "v1_critical": true
+}

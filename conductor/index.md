@@ -31,6 +31,7 @@ This directory is the persistent source of truth for the project's context-drive
 
 - [Track 001 — Foundation](tracks/001-foundation/spec.md) and [review](tracks/001-foundation/review.md)
 - [Track 006 — v1 delivery system](tracks/006-v1-delivery-system/spec.md) and [review](tracks/006-v1-delivery-system/review.md)
+- [Track 018 — Scholarly provenance and reproducibility](tracks/018-scholarly-provenance-reproducibility/spec.md) and [review](tracks/018-scholarly-provenance-reproducibility/review.md)
 
 ## Lifecycle
 
