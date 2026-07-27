@@ -27,3 +27,7 @@
 - [ ] Obtain external methodological and patient/community challenge and revise claims.
 - [x] Record the provisional `proceed_with_narrowed_scope` decision.
 - [x] Update the roadmap and programme framing to avoid duplicating registries, ontologies or genomic platforms.
+
+## Review fixes — 2026-07-27
+
+- [x] Reconcile the internal review with the current 13-item catalogue and keep provisional and external gates distinct. Evidence: pending focused review commit.

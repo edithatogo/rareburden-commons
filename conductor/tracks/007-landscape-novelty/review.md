@@ -21,3 +21,9 @@
 ## Disposition
 
 Keep Track 007 **In review**. Use `proceed_with_narrowed_scope` as a provisional programme decision only. Complete registration, searches and external challenge before the final v0.3.0 gate.
+
+## Review fixes
+
+- Confirmed the catalogue contains 13 initiatives and remains a rapid internal landscape.
+- Kept protocol registration, repository-native searches, deduplication/exclusions, and independent methods and patient/community challenge explicitly open.
+- Kept partnership, endorsement, data-access, and final novelty claims bounded by documentary evidence.
