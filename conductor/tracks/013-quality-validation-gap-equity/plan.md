@@ -27,3 +27,7 @@
 - [ ] Complete patient/community harm and interpretation review.
 - [ ] Complete scientific assurance report and disposition log.
 - [ ] Block, narrow or approve outputs for the atlas beta.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 013 cannot activate until Tracks 003, 005, 007, 010, 011 and 012 are complete. Evidence: pending focused implementation commit.

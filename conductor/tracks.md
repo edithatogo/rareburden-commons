@@ -21,7 +21,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 011 | Bronchiectasis rare-aetiology demonstrator | Blocked | Must | v0.6.0 | Respiratory Clinical and Epidemiology Leads | 008, 009, 010 |
 | 005 | Patient, family, economic and social burden module | Blocked | Must | v0.7.0 | Health Economics and Patient-Reported Outcomes Leads | 009, 010 |
 | 012 | Collective paediatric rare-disease burden demonstrator | Blocked | Must | v0.7.0 | Paediatric, Administrative Data and Health Economics Leads | 004, 005, 008, 009, 010 |
-| 013 | Quality, validation, gap mapping and equity assurance | Planned | Must | v0.8.0 | Methods Assurance and Equity Leads | 003, 005, 007, 010, 011, 012 |
+| 013 | Quality, validation, gap mapping and equity assurance | Blocked | Must | v0.8.0 | Methods Assurance and Equity Leads | 003, 005, 007, 010, 011, 012 |
 | 014 | Atlas, API and reproducible release engineering | Planned | Must | v0.8.0 | Product, Data and Release Engineering Leads | 002, 009, 010, 013 |
 | 015 | Operational governance, partnerships and policy translation | Planned | Must | v0.9.0 | Programme Director and Patient Community Co-chair | 006, 007, 013 |
 | 016 | Security, reliability, performance and operations | Planned | Must | v0.9.0 | Security and Site Reliability Leads | 004, 014 |
