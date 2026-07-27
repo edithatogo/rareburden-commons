@@ -27,3 +27,7 @@
 - [ ] Complete external scientific and language review.
 - [ ] Produce reproducible report and limitations.
 - [ ] Record approval, narrowing or redesign decision.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 011 cannot activate until Tracks 008, 009 and 010 are complete. Evidence: pending focused implementation commit.
