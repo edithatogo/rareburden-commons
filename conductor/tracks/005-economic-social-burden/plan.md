@@ -30,4 +30,4 @@
 
 ## Dependency review — 2026-07-27
 
-- [x] Record that Track 005 cannot activate until Tracks 009 and 010 are complete. Evidence: pending focused implementation commit.
+- [x] Record that Track 005 cannot activate until Tracks 009 and 010 are complete. Evidence: `749a434`.
