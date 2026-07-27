@@ -37,4 +37,4 @@
 
 ## Dependency review — 2026-07-27
 
-- [x] Record that Track 010 cannot activate until Track 009 is complete. Evidence: pending focused implementation commit.
+- [x] Record that Track 010 cannot activate until Track 009 is complete. Evidence: `17b5c69`.
