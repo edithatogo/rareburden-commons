@@ -26,7 +26,8 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.track_count == 18
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
-    assert summary.track_status_counts["complete"] == 3
+    assert summary.track_status_counts["complete"] == 2
+    assert summary.track_status_counts["archived"] == 1
 
 
 def test_dependency_cycle_is_rejected(tmp_path: Path) -> None:
@@ -63,7 +64,9 @@ def test_duplicate_release_assignment_is_rejected(tmp_path: Path) -> None:
 def test_complete_track_with_unchecked_task_is_rejected(tmp_path: Path) -> None:
     tracks = tmp_path / "tracks"
     shutil.copytree(TRACKS, tracks)
-    plan_path = tracks / "006-v1-delivery-system" / "plan.md"
+    archive = tmp_path / "archive"
+    shutil.copytree(ROOT / "conductor" / "archive", archive)
+    plan_path = archive / "006-v1-delivery-system" / "plan.md"
     plan = plan_path.read_text(encoding="utf-8").replace("- [x]", "- [ ]", 1)
     plan_path.write_text(plan, encoding="utf-8")
 
@@ -94,6 +97,7 @@ def test_human_roadmap_track_drift_is_rejected(tmp_path: Path) -> None:
 def test_complete_track_may_target_current_release(tmp_path: Path) -> None:
     tracks = tmp_path / "tracks"
     shutil.copytree(TRACKS, tracks)
+    shutil.copytree(ROOT / "conductor" / "archive", tmp_path / "archive")
     track_dir = tracks / "007-landscape-novelty"
     metadata_path = track_dir / "metadata.json"
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
