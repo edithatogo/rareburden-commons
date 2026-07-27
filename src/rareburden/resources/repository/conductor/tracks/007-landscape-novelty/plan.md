@@ -10,7 +10,7 @@
 ## Phase 2 — Search and screen
 
 - [x] Complete an initial search of cited scholarly and institutional infrastructures.
-- [ ] Run repository-native GitHub, Zenodo, OSF and Hugging Face searches reproducibly.
+- [x] Run repository-native GitHub, Zenodo, OSF and Hugging Face searches reproducibly. Evidence: dated API metadata recorded in review, 2026-07-27.
 - [x] Seed registry, genomic, burden, policy and standards ecosystems in the landscape register.
 - [ ] Complete deduplication, screening and an auditable exclusions log.
 
