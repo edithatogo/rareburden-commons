@@ -13,12 +13,14 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, BinaryIO
+from urllib.parse import urlsplit
 
 from rareburden import __version__
 from rareburden.schema import SchemaValidationError, load_mapping, validate_instance
 
 _CHUNK_SIZE = 1024 * 1024
 _SLUG_RE = re.compile(r"[^a-z0-9]+")
+LICENCE_STATES = frozenset({"verified", "conditional", "unknown", "not_applicable", "restricted"})
 
 
 class ProvenanceError(ValueError):
@@ -42,6 +44,51 @@ class ArtifactRecord:
             "size_bytes": self.size_bytes,
             "media_type": self.media_type,
         }
+
+
+def validate_licence_evidence(
+    *,
+    licence_state: str,
+    licence_reference: str | None,
+    notes: str,
+) -> None:
+    """Require explicit, non-credentialled evidence for each licence assertion."""
+    if licence_state not in LICENCE_STATES:
+        raise ProvenanceError(f"Unsupported licence state: {licence_state}")
+    if licence_state in {"verified", "conditional", "restricted"} and not licence_reference:
+        raise ProvenanceError(
+            f"Licence state {licence_state!r} requires a persistent HTTPS licence reference"
+        )
+    if licence_reference is not None:
+        parsed = urlsplit(licence_reference)
+        if (
+            parsed.scheme != "https"
+            or not parsed.netloc
+            or parsed.username is not None
+            or parsed.password is not None
+        ):
+            raise ProvenanceError("Licence reference must be a credential-free HTTPS URL")
+    if licence_state == "unknown" and not notes.strip():
+        raise ProvenanceError("Unknown licence state requires a substantive rationale in notes")
+
+
+def require_automated_acquisition_licence(
+    *,
+    licence_state: str,
+    licence_reference: str | None,
+    notes: str,
+) -> None:
+    """Fail before network access when rights are unknown or restrict automation."""
+    validate_licence_evidence(
+        licence_state=licence_state,
+        licence_reference=licence_reference,
+        notes=notes,
+    )
+    if licence_state in {"unknown", "restricted"}:
+        raise ProvenanceError(
+            f"Licence state {licence_state!r} prohibits automated acquisition; "
+            "use manual registration after authorised review"
+        )
 
 
 def utc_now() -> str:
@@ -303,6 +350,11 @@ def build_source_release(
     registered_at: str | None = None,
 ) -> dict[str, Any]:
     """Build a compact source-release record linked to its acquisition manifest."""
+    validate_licence_evidence(
+        licence_state=licence_state,
+        licence_reference=licence_reference,
+        notes=notes,
+    )
     return {
         "schema_version": "1.0.0",
         "source_release_id": stable_identifier(source_id, release_id, prefix="src"),
@@ -342,10 +394,12 @@ __all__ = [
     "content_id",
     "git_commit",
     "register_local_artifact",
+    "require_automated_acquisition_licence",
     "sha256_file",
     "sha256_stream",
     "stable_identifier",
     "utc_now",
     "validate_json_record",
+    "validate_licence_evidence",
     "write_json_record",
 ]

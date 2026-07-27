@@ -1,5 +1,8 @@
 # Data access and contribution model
 
+The operational fail-closed rules for licence evidence and automated acquisition
+are defined in the [licence and acquisition policy](licence-acquisition-policy.md).
+
 ## Purpose
 
 Define what “accessible” means and minimise the additional request made of each organisation.

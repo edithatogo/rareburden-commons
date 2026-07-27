@@ -58,6 +58,7 @@ from rareburden.provenance import (
     atomic_write_json,
     build_source_release,
     register_local_artifact,
+    require_automated_acquisition_licence,
     write_json_record,
 )
 from rareburden.reference import ReferenceWorkflowError, run_public_foundation_reference
@@ -323,7 +324,7 @@ def _add_release_record_arguments(parser: argparse.ArgumentParser, *, include_fe
     parser.add_argument(
         "--licence-state",
         required=True,
-        choices=("verified", "uncertain", "restricted", "not_applicable"),
+        choices=("verified", "conditional", "unknown", "restricted", "not_applicable"),
     )
     parser.add_argument("--licence-reference")
     parser.add_argument("--notes", default="")
@@ -498,6 +499,11 @@ def _release_record_payload(args: argparse.Namespace, root: Path, *, fetch: bool
         root, args.source_release_record, str(args.source_release_record)
     )
     if fetch:
+        require_automated_acquisition_licence(
+            licence_state=args.licence_state,
+            licence_reference=args.licence_reference,
+            notes=args.notes,
+        )
         policy = DownloadPolicy(
             timeout_seconds=args.timeout,
             retries=args.retries,

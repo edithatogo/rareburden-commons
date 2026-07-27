@@ -354,3 +354,42 @@ def test_world_bank_plain_output_and_cli_error_paths(
         == 1
     )
     assert "Network acquisition is disabled" in capsys.readouterr().err
+
+
+@pytest.mark.parametrize("licence_state", ["unknown", "restricted"])
+def test_fetch_release_blocks_uncertain_or_restricted_licence_before_network(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    licence_state: str,
+) -> None:
+    root = _repository_fixture(tmp_path)
+    arguments = [
+        "fetch-release",
+        "--root",
+        str(root),
+        "--source-id",
+        "fixture",
+        "--release-id",
+        "r1",
+        "--url",
+        "https://example.org/data.csv",
+        "--destination",
+        "outputs/data.csv",
+        "--expected-sha256",
+        "0" * 64,
+        "--manifest",
+        "outputs/data.acquisition.json",
+        "--source-release-record",
+        "outputs/data.release.json",
+        "--licence-state",
+        licence_state,
+        "--notes",
+        "Rights require source-specific review.",
+        "--allow-network",
+    ]
+    if licence_state == "restricted":
+        arguments.extend(["--licence-reference", "https://example.org/terms"])
+
+    assert main(arguments) == 1
+    assert "prohibits automated acquisition" in capsys.readouterr().err
+    assert not (root / "outputs").exists()
