@@ -72,3 +72,19 @@ The World Bank root catalog URL in the source catalogue (`https://api.worldbank.
 - **Scientific decision:** confirm source choice, denominator meaning, coverage, update cadence, units/metrics and known bias; record approved use and limitations.
 - **Data-governance decision:** confirm lawful purpose, third-party restrictions, retention/cache rules and the changed/uncertain-terms incident path.
 - **Evidence required:** attributable review record linked to exact source-release and acquisition-manifest IDs; unresolved items remain blockers.
+
+### Bounded source inventory — v0.1.0 (retrieved 2026-07-27)
+
+This inventory is complete as a candidate register for the Track 002 scope. A candidate is not production-approved until its exact file/query, release hash and terms position are recorded.
+
+| Source ID | Candidate artifact or endpoint | Access class | Licence/terms route | Inventory status and next evidence |
+| --- | --- | --- | --- | --- |
+| `orphadata-science` | [Orphadata Science files](https://sciences.orphadata.com/orphanet-scientific-knowledge-files/), including the July 2026 release catalogue and epidemiology product route | open download/API | [Orphadata legal notice](https://sciences.orphadata.com/legal-notice/) and CC BY 4.0 | Candidate identified; select the exact epidemiology/alignment file, capture SHA-256 and attribution/change notice. |
+| `mondo-disease-ontology` | [MONDO official downloads](https://mondo.monarchinitiative.org/pages/download/) | open download | [MONDO download/licence page](https://mondo.monarchinitiative.org/pages/download/) | Candidate semantic dependency identified; pin ontology release and checksum before mapping use. |
+| `un-world-population-prospects` | [UN WPP 2024](https://population.un.org/wpp/) and [WPP 2024 methodology](https://population.un.org/wpp/assets/Files/WPP2024_Methodology.pdf) | open download | UN publication/download terms attached to selected file | Edition identified; select exact geography/age/sex workbook and checksum. |
+| `who-global-health-estimates` | [WHO GHE downloads](https://www.who.int/data/global-health-estimates), latest stated coverage 2000–2021 | open download/API | [WHO data terms](https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions) | Release family identified; select exact aggregate file, inspect third-party fields, checksum and redistribution position. |
+| `world-bank-indicators-api` | [Population query](https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2000&format=json&per_page=1); documented query shape also supports indicator metadata | public API | [World Bank Group terms](https://www.worldbank.org/ext/en/legal/terms-conditions) and [API guidance](https://datahelpdesk.worldbank.org/knowledgebase/articles/898599-indicator-api-queries) | Exact query shape reached HTTP 200; choose production indicator/country/date window and record response hash plus source-specific terms. |
+| `ihme-gbd-results` / `ihme-ghdx` | [GBD Results](https://vizhub.healthdata.org/gbd-results/) and [GHDx](https://ghdx.healthdata.org/) | registered/manual | IHME dataset/user agreement | Manual registration only; no automated acquisition or redistribution claim. |
+| `oecd-data-explorer` | [OECD Data Explorer](https://data-explorer.oecd.org/) | public/registration depending on dataset | OECD terms and conditions | Manual release registration; no automated acquisition until dataset terms and API/export behaviour are reviewed. |
+
+The inventory separates candidate discovery from production selection. The remaining Track 002 task is exact artifact/file selection and release hashing for the open-download sources, not further source discovery.
