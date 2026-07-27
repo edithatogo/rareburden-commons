@@ -69,3 +69,7 @@ This is a repository-native draft prepared for external registration; it is not 
 - **Patient/community decision:** assess relevance, harms, language, equity and acceptable interpretation; record approval, requested narrowing or dissent.
 - **Programme decision:** approve only bounded adjacency/gap claims; prohibit partnership, endorsement or access claims without documentary evidence.
 - **Evidence required:** protocol registration, dated search logs, deduplication/exclusions table, reviewer comments and a claim-to-source map.
+
+### Preliminary screening baseline — 2026-07-27
+
+The seeded catalogue provides an auditable starting screen of 13 records. All 13 are provisionally **include for adjacency review** because each has a stable official URL, a documented contribution type, and a stated RareBurden relationship in `catalog/initiatives.yml`. The baseline counts are: discovered 13; exact-duplicate removals 0; entity-level duplicate removals 0; provisionally included 13; excluded 0; uncertain 0. This is a seed-catalogue screen, not a completed search screen: newly discovered records, alternate names, full-text eligibility and independent second-review resolution remain outstanding. The exclusions log therefore remains open and must record later exclusions rather than treating this zero baseline as proof that no exclusions exist.

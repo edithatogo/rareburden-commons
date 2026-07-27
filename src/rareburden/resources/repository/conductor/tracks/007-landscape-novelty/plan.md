@@ -34,3 +34,4 @@
 - [x] Run and record bounded GitHub, Zenodo, OSF and Hugging Face repository-native discovery searches with dated API metadata. Evidence: review record updated 2026-07-27; screening, deduplication, registration and external challenge remain open.
 - [x] Run a mechanical duplicate check over the current 13-item catalogue (unique IDs and official URLs). Evidence: review record updated 2026-07-27; semantic screening and exclusions remain open.
 - [x] Produce versioned draft search strings, eligibility rules, screening workflow and exclusions fields for external registration. Evidence: `RBC-LAND-007 v0.1.0` in review record, 2026-07-27; registration and independent review remain open.
+- [x] Record a preliminary 13-record seed-catalogue screening baseline with counts and explicit zero-exclusion caveat. Evidence: review record updated 2026-07-27; final screening and exclusions remain open.
