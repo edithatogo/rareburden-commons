@@ -27,3 +27,7 @@
 - [ ] Complete numerical, scientific and language review.
 - [ ] Produce reproducible report, data package and limitations summary.
 - [ ] Record review findings and approve, narrow, revise or stop.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 003 cannot activate until Tracks 008, 009 and 010 are complete. Evidence: pending focused implementation commit.

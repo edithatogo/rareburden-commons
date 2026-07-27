@@ -16,7 +16,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 008 | Semantic backbone and burden-purpose hierarchy | Blocked | Must | v0.4.0 | Semantic Methods Lead | 002, 007 |
 | 009 | Evidence and parameter ledger | Planned | Must | v0.4.0 | Epidemiology and Data Architecture Leads | 002, 008 |
 | 010 | Public burden engine and uncertainty framework | Planned | Must | v0.5.0 | Statistical and Scientific Software Leads | 009 |
-| 003 | Monogenic diabetes rare-within-common demonstrator | Planned | Must | v0.5.0 | Clinical and Epidemiology Leads | 008, 009, 010 |
+| 003 | Monogenic diabetes rare-within-common demonstrator | Blocked | Must | v0.5.0 | Clinical and Epidemiology Leads | 008, 009, 010 |
 | 004 | Federated country-node execution package | Planned | Must | v0.6.0 | Node Architecture and Data Governance Leads | 006, 009, 010 |
 | 011 | Bronchiectasis rare-aetiology demonstrator | Planned | Must | v0.6.0 | Respiratory Clinical and Epidemiology Leads | 008, 009, 010 |
 | 005 | Patient, family, economic and social burden module | Planned | Must | v0.7.0 | Health Economics and Patient-Reported Outcomes Leads | 009, 010 |
