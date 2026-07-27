@@ -40,3 +40,5 @@ To make the next screening pass reproducible, the following bounded public API s
 | Hugging Face datasets | `https://huggingface.co/api/datasets?search=rare%20disease%20burden&limit=10` | 200 | 0 returned datasets |
 
 Official API documentation used to select these routes: [Zenodo search guide](https://zenodo.org/help/search), [Zenodo developers](https://developers.zenodo.org/), and [OSF API v2 documentation](https://developer.osf.io/). Search totals are time-sensitive and must be rerun at screening; deduplication, exclusions, protocol registration, and independent methods/patient-community challenge remain open.
+
+A mechanical catalogue deduplication pass on 2026-07-27 found 13 initiatives, 13 unique `initiative_id` values and 13 unique official URLs. This confirms no exact identifier/URL duplicates in the current register; it is not a substitute for title/entity screening, cross-registry deduplication or an exclusions log.
