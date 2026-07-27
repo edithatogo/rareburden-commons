@@ -65,3 +65,10 @@ A second bounded HTTPS `HEAD` probe used the following concrete public URLs and 
 | World Bank Group terms | `https://www.worldbank.org/ext/en/legal/terms-conditions` | 200 |
 
 The World Bank root catalog URL in the source catalogue (`https://api.worldbank.org/v2/`) still returned 404 in the earlier probe. The successful indicator calls show a usable documented query shape, but do not select a production indicator, prove its current value coverage, or replace source-specific terms review. Exact downloadable file URLs and release hashes for Orphadata, UN WPP and WHO GHE remain to be pinned before production acquisition.
+
+### External reviewer packet
+
+- **Source/terms decision:** approve, narrow or reject each exact endpoint/file; require URL, release/version, retrieval date, SHA-256, licence/terms, attribution and redistribution position.
+- **Scientific decision:** confirm source choice, denominator meaning, coverage, update cadence, units/metrics and known bias; record approved use and limitations.
+- **Data-governance decision:** confirm lawful purpose, third-party restrictions, retention/cache rules and the changed/uncertain-terms incident path.
+- **Evidence required:** attributable review record linked to exact source-release and acquisition-manifest IDs; unresolved items remain blockers.

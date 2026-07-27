@@ -13,3 +13,10 @@
 ## Disposition
 
 Keep Track 005 **blocked**. Do not activate economic or social burden calculations until the evidence ledger and burden-engine contracts are complete and the required co-design and review gates are available.
+
+### External reviewer packet
+
+- **Health economics:** approve perspectives, component taxonomy, valuation, price-year/PPP, discounting and overlap rules.
+- **Ethics/patient-family:** assess acceptable burden framing, remuneration, translation, equity and co-design evidence.
+- **Governance/engineering:** confirm lawful collection, parameter provenance, missingness and reproducibility controls.
+- **Evidence required:** co-design record, ledger-linked synthetic examples, scenario outputs, review comments and dissent disposition.

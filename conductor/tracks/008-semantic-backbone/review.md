@@ -18,3 +18,10 @@
 ## Disposition
 
 Keep Track 008 **blocked**. Re-run dependency validation when Tracks 002 and 007 are formally complete; only then move Track 008 to active implementation.
+
+### External reviewer packet
+
+- **Semantic/clinical:** approve identifiers, ontology versions, relation meanings, ambiguity and deprecation rules.
+- **Patient/community:** assess naming, grouping, stigma and acceptable burden-purpose categories.
+- **Engineering:** inspect schema compatibility, cycle/conservation tests, migration and version-diff evidence.
+- **Evidence required:** reviewed mapping release, golden fixtures, impact report, comments and explicit freeze decision.

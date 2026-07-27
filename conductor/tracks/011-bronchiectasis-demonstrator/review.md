@@ -12,3 +12,10 @@
 ## Disposition
 
 Keep Track 011 **blocked**. Do not activate bronchiectasis analysis or freeze multi-aetiology contracts until the prerequisite tracks are complete.
+
+### External reviewer packet
+
+- **Respiratory clinical:** approve denominator, aetiology categories, overlap and diagnostic-capacity framing.
+- **Methods:** inspect referral/transportability, unclassified causes, uncertainty and independent comparison.
+- **Patient/community:** assess language, harms, equity and acceptable interpretation.
+- **Evidence required:** RBC-P003 decision record, synthetic analysis, setting scenarios, validation report and dissent disposition.

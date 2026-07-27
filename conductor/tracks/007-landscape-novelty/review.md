@@ -62,3 +62,10 @@ This is a repository-native draft prepared for external registration; it is not 
 **Screening workflow.** Export discovery metadata; normalize title, canonical URL/DOI, organisation and year; perform exact identifier/URL deduplication; then perform manual entity-level deduplication across alternate names and versions. Screen title/abstract/landing metadata, record include/exclude/uncertain plus a one-line reason, and resolve uncertain records by a second reviewer. Extract the existing catalogue fields, preserve excluded records in an exclusions table, and record a change log whenever eligibility or search strings change. Report counts at discovery, after exact deduplication, after entity deduplication, screened, included, excluded and awaiting resolution.
 
 **Bias and limits.** API totals are time-sensitive; English-language and public-web bias, ranking bias, missing metadata, duplicate releases and inaccessible proprietary systems may affect completeness. The result is an adjacency and gap map, not evidence of partnership, endorsement, data access or scientific superiority. External registration, independent methods review and patient/community challenge remain required.
+
+### External reviewer packet
+
+- **Methods decision:** accept, revise or reject the search question, strings, eligibility rules, deduplication and exclusion reasons; require the registered protocol identifier and reproducible exports.
+- **Patient/community decision:** assess relevance, harms, language, equity and acceptable interpretation; record approval, requested narrowing or dissent.
+- **Programme decision:** approve only bounded adjacency/gap claims; prohibit partnership, endorsement or access claims without documentary evidence.
+- **Evidence required:** protocol registration, dated search logs, deduplication/exclusions table, reviewer comments and a claim-to-source map.

@@ -13,3 +13,10 @@
 ## Disposition
 
 Keep Track 003 **blocked**. Do not freeze clinical entities, estimands, denominators, or numerical analyses until the semantic, parameter-ledger and burden-engine dependencies are complete and the required clinical, patient/community, data-governance and engineering gates are available.
+
+### External reviewer packet
+
+- **Clinical/genetics:** approve entity and phenotype scope, denominator definitions, ascertainment and interpretation limits.
+- **Methods:** inspect estimands, mapping, bias/transportability, uncertainty, validation and double-counting controls.
+- **Patient/community:** assess framing, harms, equity and acceptable outputs.
+- **Evidence required:** signed protocol/decision record, ledger IDs, reproducible synthetic report, independent review comments and dissent disposition.

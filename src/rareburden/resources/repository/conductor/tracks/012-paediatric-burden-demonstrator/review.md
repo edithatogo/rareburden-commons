@@ -12,3 +12,10 @@
 ## Disposition
 
 Keep Track 012 **blocked**. Do not activate controlled-data or paediatric burden work until all prerequisite contracts and approvals are available.
+
+### External reviewer packet
+
+- **Paediatric/clinical/economic:** approve estimands, coding, observation windows, utilisation, mortality and cost interpretation.
+- **Privacy/data governance/security:** approve custodian pathway, linkage authority, Indigenous governance, suppression, retention and incident controls.
+- **Patient/family:** assess acceptable use, equity, language and harms.
+- **Evidence required:** approved pathway record, synthetic linked-data run, disclosure tests, export specification, review comments and dissent disposition.

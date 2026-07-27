@@ -13,3 +13,10 @@
 ## Disposition
 
 Keep Track 009 **blocked**. Do not freeze evidence-ledger contracts until source acquisition and semantic contracts are formally complete.
+
+### External reviewer packet
+
+- **Epidemiology/methods:** approve parameter identity, estimands, quality/bias/transportability and conflict rules.
+- **Data governance:** approve rights, provenance, retention, licence states and restricted-source handling.
+- **Engineering:** inspect schema validation, revisions/supersession, export, migration and impact tracing.
+- **Evidence required:** validated fixtures, ledger audit, schema/version decision and unresolved-issue disposition.
