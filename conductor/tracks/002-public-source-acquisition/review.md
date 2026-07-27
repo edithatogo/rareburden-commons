@@ -34,3 +34,17 @@ Keep Track 002 **In review**. The substrate may be extended, tested and used wit
 - Refreshed the stale internal test and coverage counts above.
 - Kept live-source, licensing, scientific and data-governance items explicitly open; repository validation cannot satisfy those gates.
 - On 2026-07-27, a bounded HTTPS `HEAD` check reached 13 catalog access URLs with HTTP 200 responses. The World Bank API catalog root returned HTTP 404; this is recorded as an endpoint-contract finding, not as evidence that a production query is usable.
+
+### Public-source evidence refresh — 2026-07-27
+
+The following official public pages were retrieved on 2026-07-27 and are evidence of published access/terms only (not scientific or data-governance approval):
+
+| Source | Public evidence | Operational implication |
+| --- | --- | --- |
+| Orphadata | [Legal notice](https://sciences.orphadata.com/legal-notice/) and [scientific files](https://sciences.orphadata.com/orphanet-scientific-knowledge-files/) state that datasets/APIs are CC BY 4.0, with attribution/change-notice requirements; releases are described as biannual. | Candidate automated source, subject to selecting and pinning an exact release and preserving attribution. Expert Resources remain separately contracted. |
+| MONDO | [Official download page](https://mondo.monarchinitiative.org/pages/download/) identifies the official repository and CC BY 4.0 licence. | Candidate ontology dependency; exact release and redistribution record still required. |
+| UN WPP 2024 | [Official WPP site](https://population.un.org/wpp/) identifies the 28th edition and provides downloadable Excel outputs; [methodology](https://population.un.org/wpp/assets/Files/WPP2024_Methodology.pdf) is published separately. | Candidate population denominator; pin edition/file and retain methodology provenance. |
+| WHO Global Health Estimates | [GHE page](https://www.who.int/data/global-health-estimates) publishes downloadable datasets and 2000–2021 update scope; [WHO data terms](https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions) permit reuse for public-health purposes while excluding credited third-party material without permission. | Candidate aggregate source; verify exact release, purpose, third-party fields and attribution before production use. |
+| World Bank Indicators | [API query guidance](https://datahelpdesk.worldbank.org/knowledgebase/articles/898599-indicator-api-queries) documents indicator requests and [API call structures](https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structures); [Group terms](https://www.worldbank.org/ext/en/legal/terms-conditions) state that API/data-catalog use is governed by specific incorporated terms. | Endpoint contract and applicable dataset terms must be confirmed for the exact indicator query; the catalog-root 404 remains unresolved. |
+
+These observations strengthen the public-access/terms record but do not close the open exact-endpoint, licence-change exercise, or scientific/data-governance review gates.

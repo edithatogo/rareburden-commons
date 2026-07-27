@@ -31,3 +31,4 @@
 ## Review fixes — 2026-07-27
 
 - [x] Reconcile the internal review with the current 13-item catalogue and keep provisional and external gates distinct. Evidence: `a18cee0`.
+- [x] Run and record bounded GitHub, Zenodo, OSF and Hugging Face repository-native discovery searches with dated API metadata. Evidence: review record updated 2026-07-27; screening, deduplication, registration and external challenge remain open.
