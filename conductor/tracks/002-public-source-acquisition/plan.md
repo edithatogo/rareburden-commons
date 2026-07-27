@@ -39,4 +39,4 @@
 
 ## Review fixes — 2026-07-27
 
-- [x] Refresh internal harness evidence and separate repository validation from live-source and governance gates. Evidence: pending focused review commit.
+- [x] Refresh internal harness evidence and separate repository validation from live-source and governance gates. Evidence: `506ce6b`.
