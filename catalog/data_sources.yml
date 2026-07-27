@@ -1,331 +1,522 @@
-schema_version: "0.1.0"
-last_updated: "2026-07-18"
+schema_version: 0.1.0
+last_updated: '2026-07-18'
 sources:
-  - source_id: orphadata-science
-    name: Orphadata Science
-    custodian: Orphanet / INSERM US14
-    domains: [ontology, coding, epidemiology, gene_disease, phenotype]
-    access_class: open_download_api
-    data_level: knowledge_base
-    geographic_scope: Global
-    primary_uses:
-      - rare-disease semantic backbone
-      - coding crosswalks
-      - epidemiological evidence discovery
-    access_url: https://sciences.orphadata.com/orphanet-scientific-knowledge-files/
-    access_route: Download versioned scientific knowledge files or use documented APIs.
-    licence: CC BY 4.0 for designated Orphadata Science datasets and APIs
-    redistribution: "yes"
-    registration_required: false
-    version_strategy: Pin the exact biannual release and retain its licence and checksum metadata.
-    limitations:
-      - Epidemiological values vary in evidence quality and geographic specificity.
-      - Disease hierarchy requires burden-purpose adjudication before aggregation.
-    official_reference: https://sciences.orphadata.com/legal-notice/
-    status: approved
-    last_verified: "2026-07-18"
-
-  - source_id: mondo-disease-ontology
-    name: Mondo Disease Ontology
-    custodian: Monarch Initiative
-    domains: [ontology, coding]
-    access_class: open_download_api
-    data_level: knowledge_base
-    geographic_scope: Global
-    primary_uses:
-      - cross-resource disease identity
-      - equivalence and mapping review
-      - rare-disease subset comparison
-    access_url: https://mondo.monarchinitiative.org/pages/download/
-    access_route: Download stable OWL, OBO or JSON releases from the official repository links.
-    licence: CC BY 4.0
-    redistribution: "yes"
-    registration_required: false
-    version_strategy: Pin the stable release tag and file checksum; do not depend on an unversioned latest file.
-    limitations:
-      - Equivalence and cross-reference semantics differ and require careful interpretation.
-      - Mondo is complementary to rather than a replacement for Orphanet rare-disease curation.
-    official_reference: https://mondo.monarchinitiative.org/
-    status: candidate
-    last_verified: "2026-07-18"
-
-  - source_id: un-world-population-prospects
-    name: United Nations World Population Prospects 2024
-    custodian: United Nations Department of Economic and Social Affairs Population Division
-    domains: [population]
-    access_class: open_download_api
-    data_level: aggregate
-    geographic_scope: 237 countries or areas and international aggregates
-    primary_uses:
-      - country population denominators
-      - age and sex standardisation
-      - projection scenarios
-    access_url: https://population.un.org/wpp/
-    access_route: Use the download centre for bulk CSV files or the public data portal/API.
-    licence: United Nations data terms; confirm terms for each redistribution use
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Record revision, variant, geography code, age structure and extraction date.
-    limitations:
-      - Population estimates and projections are modelled and revised between releases.
-      - Country or territory definitions must be harmonised with health datasets.
-    status: approved
-    last_verified: "2026-07-18"
-
-  - source_id: who-global-health-estimates
-    name: WHO Global Health Estimates
-    custodian: World Health Organization
-    domains: [mortality, health_burden]
-    access_class: open_download_api
-    data_level: aggregate
-    geographic_scope: Global, regional and country
-    primary_uses:
-      - broad cause mortality envelopes
-      - health loss comparison
-      - validation against an independent burden framework
-    access_url: https://www.who.int/data/global-health-estimates
-    access_route: Download complete data files or use current WHO data interfaces where available.
-    licence: Asset-specific WHO terms; verify the licence attached to each downloaded file
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Record release, cause hierarchy, measure, age, sex, location, year and extraction date.
-    limitations:
-      - Published cause categories may not expose most rare diseases directly.
-      - Current WHO and IHME estimates are not interchangeable and should not be silently combined.
-    status: approved
-    last_verified: "2026-07-18"
-
-  - source_id: who-global-health-expenditure-database
-    name: WHO Global Health Expenditure Database
-    custodian: World Health Organization
-    domains: [health_expenditure]
-    access_class: open_download_api
-    data_level: aggregate
-    geographic_scope: 195 countries and territories
-    primary_uses:
-      - health-system financing context
-      - national expenditure denominators
-      - disease-spending discovery where available
-    access_url: https://apps.who.int/nha/database/DocumentationCentre/Index/en
-    access_route: Download the consolidated GHED file and accompanying documentation from the documentation centre.
-    licence: WHO database terms; verify terms for each release and derived product
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Record the GHED release month, indicator definitions, currency/unit and extraction date.
-    limitations:
-      - National totals do not directly attribute spending to rare disease.
-      - Functional and disease detail varies substantially by country.
-    status: approved
-    last_verified: "2026-07-18"
-
-  - source_id: ihme-gbd-results
-    name: IHME Global Burden of Disease Results
-    custodian: Institute for Health Metrics and Evaluation
-    domains: [epidemiology, mortality, health_burden]
-    access_class: public_web_registration
-    data_level: aggregate
-    geographic_scope: Global, national and selected subnational locations
-    primary_uses:
-      - population burden envelopes
-      - cause-specific prevalence mortality YLD YLL and DALY estimates
-      - age sex geography and time comparisons
-    access_url: https://vizhub.healthdata.org/gbd-results/
-    access_route: Create an account if required, accept applicable terms, specify the complete query and download aggregate results.
-    licence: IHME Free-of-Charge Non-Commercial User Agreement or dataset-specific terms
-    redistribution: conditional
-    registration_required: true
-    version_strategy: Record GBD round, model context, measure, metric, cause, location, age, sex, year and query date.
-    limitations:
-      - Most rare diseases are not separate causes in the published hierarchy.
-      - Underlying source microdata may be owned by other custodians and unavailable for redistribution.
-    official_reference: https://www.healthdata.org/research-analysis/gbd
-    status: approved
-    last_verified: "2026-07-18"
-
-  - source_id: ihme-ghdx
-    name: Global Health Data Exchange
-    custodian: Institute for Health Metrics and Evaluation
-    domains: [data_discovery]
-    access_class: public_web_registration
-    data_level: metadata
-    geographic_scope: Global
-    primary_uses:
-      - discover burden input sources
-      - identify custodians and access conditions
-      - record source metadata and citations
-    access_url: https://ghdx.healthdata.org/
-    access_route: Search catalogue records and follow each dataset's download, request or custodian route.
-    licence: Catalogue metadata and dataset-specific terms; underlying source conditions vary
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Preserve the GHDx record URL, modification date, provider and source-specific access status.
-    limitations:
-      - Catalogue inclusion does not mean the underlying data are downloadable.
-      - Access and redistribution rights must be confirmed with the original source.
-    status: approved
-    last_verified: "2026-07-18"
-
-  - source_id: oecd-data-explorer
-    name: OECD Data Explorer and SDMX API
-    custodian: Organisation for Economic Co-operation and Development
-    domains: [health_expenditure, socioeconomic, epidemiology]
-    access_class: open_download_api
-    data_level: aggregate
-    geographic_scope: OECD members, partners and selected international aggregates
-    primary_uses:
-      - comparable health-system indicators
-      - health expenditure and utilisation context
-      - high-income country validation
-    access_url: https://data-explorer.oecd.org/
-    access_route: Select a dataflow in Data Explorer and use Download or the Developer API query builder.
-    licence: OECD terms and conditions
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Store the SDMX dataflow, version, query, dimensions, response format and retrieval date.
-    limitations:
-      - Coverage is concentrated in OECD and partner economies.
-      - Indicator definitions and completeness vary across countries and years.
-    official_reference: https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html
-    status: approved
-    last_verified: "2026-07-18"
-
-  - source_id: world-bank-indicators-api
-    name: World Bank Indicators API
-    custodian: World Bank
-    domains: [socioeconomic, population, health_expenditure]
-    access_class: open_download_api
-    data_level: aggregate
-    geographic_scope: Global
-    primary_uses:
-      - macroeconomic covariates
-      - development and health-system context
-      - transportability modelling
-    access_url: https://api.worldbank.org/v2/
-    access_route: Query Indicators API version 2 or download through World Bank Open Data tools.
-    licence: World Bank data terms; verify source indicator conditions
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Record database, indicator code, economy, date range, format and retrieval date.
-    limitations:
-      - Indicator availability and revision histories differ.
-      - Ecological covariates cannot substitute for individual-level determinants.
-    official_reference: https://datahelpdesk.worldbank.org/knowledgebase/articles/889392
-    status: approved
-    last_verified: "2026-07-18"
-
-  - source_id: ncbi-clinvar
-    name: ClinVar
-    custodian: US National Center for Biotechnology Information
-    domains: [variant, gene_disease]
-    access_class: open_download_api
-    data_level: knowledge_base
-    geographic_scope: Global submissions
-    primary_uses:
-      - variant-condition assertion discovery
-      - gene and disease mapping support
-      - evidence provenance for demonstrator definitions
-    access_url: https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/
-    access_route: Use the public website, FTP release files or NCBI E-utilities for programmatic access.
-    licence: Public archive; attribution requested and NCBI disclaimer applies
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Record assembly, file type, release date and accession-level version where relevant.
-    limitations:
-      - Submitted assertions may conflict and are not independently verified by NIH.
-      - Variant assertions are not population prevalence or penetrance estimates.
-    status: candidate
-    last_verified: "2026-07-18"
-
-  - source_id: genomics-england-panelapp
-    name: Genomics England PanelApp
-    custodian: Genomics England
-    domains: [gene_disease, coding]
-    access_class: open_download_api
-    data_level: knowledge_base
-    geographic_scope: International expert contributions with UK clinical curation context
-    primary_uses:
-      - diagnostic-grade gene panel definitions
-      - gene-disease evidence review
-      - demonstrator phenotype scope
-    access_url: https://panelapp.genomicsengland.co.uk/
-    access_route: Browse, download or query versioned panels through the documented PanelApp API.
-    licence: PanelApp data and software terms; verify licence for the selected export
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Pin panel identifier, panel version, entity confidence and retrieval date.
-    limitations:
-      - Panel membership supports diagnostic interpretation and does not measure burden.
-      - Panel scope reflects curation context and changes over time.
-    official_reference: https://www.genomicsengland.co.uk/panelapp/
-    status: candidate
-    last_verified: "2026-07-18"
-
-  - source_id: all-of-us-public-tier
-    name: All of Us Public Tier
-    custodian: US National Institutes of Health All of Us Research Program
-    domains: [genomics, phenotype, electronic_health_record, data_discovery]
-    access_class: public_web_registration
-    data_level: aggregate
-    geographic_scope: United States participant cohort
-    primary_uses:
-      - cohort feasibility
-      - public aggregate phenotype and demographic exploration
-      - controlled-access application planning
-    access_url: https://www.researchallofus.org/data-tools/data-access/
-    access_route: Use public Data Snapshots and Data Browser without Researcher Workbench credentials.
-    licence: All of Us public data use policies
-    redistribution: conditional
-    registration_required: false
-    version_strategy: Record public tool, data snapshot/version and retrieval date.
-    limitations:
-      - Participant cohort is not automatically nationally representative.
-      - Public aggregates do not support detailed individual-level attribution analyses.
-    status: candidate
-    last_verified: "2026-07-18"
-
-  - source_id: all-of-us-researcher-workbench
-    name: All of Us Registered and Controlled Tiers
-    custodian: US National Institutes of Health All of Us Research Program
-    domains: [genomics, phenotype, electronic_health_record]
-    access_class: controlled_research
-    data_level: individual_level
-    geographic_scope: United States participant cohort
-    primary_uses:
-      - phenotype-genotype attribution
-      - multimorbidity and outcome analysis
-      - rare-within-common parameter estimation
-    access_url: https://www.researchallofus.org/data-tools/data-access/
-    access_route: Obtain institutional agreement, identity verification and required training, then analyse approved tiers in the Researcher Workbench.
-    licence: All of Us Data User Code of Conduct and tier-specific policies
-    redistribution: "no"
-    registration_required: true
-    version_strategy: Record CDR tier and release, workspace purpose, code version and approved export review.
-    limitations:
-      - Data must remain within the approved environment except permitted outputs.
-      - Selection, ancestry, healthcare-data completeness and disclosure rules affect inference.
-    official_reference: https://support.researchallofus.org/hc/en-us/articles/9005549268756-How-to-Obtain-a-DURA-with-All-of-Us
-    status: candidate
-    last_verified: "2026-07-18"
-
-  - source_id: genomics-england-research-environment
-    name: Genomics England Research Environment
-    custodian: Genomics England
-    domains: [genomics, phenotype, electronic_health_record]
-    access_class: controlled_research
-    data_level: individual_level
-    geographic_scope: England genomic medicine cohorts
-    primary_uses:
-      - genotype-phenotype analysis
-      - diagnostic pathway and outcome parameters
-      - rare-within-common demonstrators
-    access_url: https://www.genomicsengland.co.uk/join-us
-    access_route: Apply to the Genomics England Research Network and complete onboarding for approved Research Environment access.
-    licence: Genomics England research and data-access agreements
-    redistribution: "no"
-    registration_required: true
-    version_strategy: Record dataset release, approved project, workspace package, code commit and export review.
-    limitations:
-      - Cohort ascertainment reflects genomic testing pathways and is not population prevalence by default.
-      - Detailed data and outputs remain subject to secure-environment controls.
-    status: candidate
-    last_verified: "2026-07-18"
+- source_id: orphadata-science
+  name: Orphadata Science
+  custodian: Orphanet / INSERM US14
+  domains:
+  - ontology
+  - coding
+  - epidemiology
+  - gene_disease
+  - phenotype
+  access_class: open_download_api
+  data_level: knowledge_base
+  geographic_scope: Global
+  primary_uses:
+  - rare-disease semantic backbone
+  - coding crosswalks
+  - epidemiological evidence discovery
+  access_url: https://sciences.orphadata.com/orphanet-scientific-knowledge-files/
+  access_route: Download versioned scientific knowledge files or use documented APIs.
+  licence: CC BY 4.0 for designated Orphadata Science datasets and APIs
+  redistribution: 'yes'
+  registration_required: false
+  version_strategy: Pin the exact biannual release and retain its licence and checksum
+    metadata.
+  limitations:
+  - Epidemiological values vary in evidence quality and geographic specificity.
+  - Disease hierarchy requires burden-purpose adjudication before aggregation.
+  official_reference: https://sciences.orphadata.com/legal-notice/
+  status: approved
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  maximum_geographic_resolution: global
+- source_id: mondo-disease-ontology
+  name: Mondo Disease Ontology
+  custodian: Monarch Initiative
+  domains:
+  - ontology
+  - coding
+  access_class: open_download_api
+  data_level: knowledge_base
+  geographic_scope: Global
+  primary_uses:
+  - cross-resource disease identity
+  - equivalence and mapping review
+  - rare-disease subset comparison
+  access_url: https://mondo.monarchinitiative.org/pages/download/
+  access_route: Download stable OWL, OBO or JSON releases from the official repository
+    links.
+  licence: CC BY 4.0
+  redistribution: 'yes'
+  registration_required: false
+  version_strategy: Pin the stable release tag and file checksum; do not depend on
+    an unversioned latest file.
+  limitations:
+  - Equivalence and cross-reference semantics differ and require careful interpretation.
+  - Mondo is complementary to rather than a replacement for Orphanet rare-disease
+    curation.
+  official_reference: https://mondo.monarchinitiative.org/
+  status: candidate
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  maximum_geographic_resolution: global
+- source_id: un-world-population-prospects
+  name: United Nations World Population Prospects 2024
+  custodian: United Nations Department of Economic and Social Affairs Population Division
+  domains:
+  - population
+  access_class: open_download_api
+  data_level: aggregate
+  geographic_scope: 237 countries or areas and international aggregates
+  primary_uses:
+  - country population denominators
+  - age and sex standardisation
+  - projection scenarios
+  access_url: https://population.un.org/wpp/
+  access_route: Use the download centre for bulk CSV files or the public data portal/API.
+  licence: United Nations data terms; confirm terms for each redistribution use
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Record revision, variant, geography code, age structure and extraction
+    date.
+  limitations:
+  - Population estimates and projections are modelled and revised between releases.
+  - Country or territory definitions must be harmonised with health datasets.
+  status: approved
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  - regional
+  - national
+  maximum_geographic_resolution: national
+- source_id: who-global-health-estimates
+  name: WHO Global Health Estimates
+  custodian: World Health Organization
+  domains:
+  - mortality
+  - health_burden
+  access_class: open_download_api
+  data_level: aggregate
+  geographic_scope: Global, regional and country
+  primary_uses:
+  - broad cause mortality envelopes
+  - health loss comparison
+  - validation against an independent burden framework
+  access_url: https://www.who.int/data/global-health-estimates
+  access_route: Download complete data files or use current WHO data interfaces where
+    available.
+  licence: Asset-specific WHO terms; verify the licence attached to each downloaded
+    file
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Record release, cause hierarchy, measure, age, sex, location,
+    year and extraction date.
+  limitations:
+  - Published cause categories may not expose most rare diseases directly.
+  - Current WHO and IHME estimates are not interchangeable and should not be silently
+    combined.
+  status: approved
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  - regional
+  - national
+  maximum_geographic_resolution: national
+- source_id: who-global-health-expenditure-database
+  name: WHO Global Health Expenditure Database
+  custodian: World Health Organization
+  domains:
+  - health_expenditure
+  access_class: open_download_api
+  data_level: aggregate
+  geographic_scope: 195 countries and territories
+  primary_uses:
+  - health-system financing context
+  - national expenditure denominators
+  - disease-spending discovery where available
+  access_url: https://apps.who.int/nha/database/DocumentationCentre/Index/en
+  access_route: Download the consolidated GHED file and accompanying documentation
+    from the documentation centre.
+  licence: WHO database terms; verify terms for each release and derived product
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Record the GHED release month, indicator definitions, currency/unit
+    and extraction date.
+  limitations:
+  - National totals do not directly attribute spending to rare disease.
+  - Functional and disease detail varies substantially by country.
+  status: approved
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  - regional
+  - national
+  maximum_geographic_resolution: national
+- source_id: ihme-gbd-results
+  name: IHME Global Burden of Disease Results
+  custodian: Institute for Health Metrics and Evaluation
+  domains:
+  - epidemiology
+  - mortality
+  - health_burden
+  access_class: public_web_registration
+  data_level: aggregate
+  geographic_scope: Global, national and selected subnational locations
+  primary_uses:
+  - population burden envelopes
+  - cause-specific prevalence mortality YLD YLL and DALY estimates
+  - age sex geography and time comparisons
+  access_url: https://vizhub.healthdata.org/gbd-results/
+  access_route: Create an account if required, accept applicable terms, specify the
+    complete query and download aggregate results.
+  licence: IHME Free-of-Charge Non-Commercial User Agreement or dataset-specific terms
+  redistribution: conditional
+  registration_required: true
+  version_strategy: Record GBD round, model context, measure, metric, cause, location,
+    age, sex, year and query date.
+  limitations:
+  - Most rare diseases are not separate causes in the published hierarchy.
+  - Underlying source microdata may be owned by other custodians and unavailable for
+    redistribution.
+  official_reference: https://www.healthdata.org/research-analysis/gbd
+  status: approved
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  - regional
+  - national
+  - subnational_1
+  maximum_geographic_resolution: subnational_1
+- source_id: ihme-ghdx
+  name: Global Health Data Exchange
+  custodian: Institute for Health Metrics and Evaluation
+  domains:
+  - data_discovery
+  access_class: public_web_registration
+  data_level: metadata
+  geographic_scope: Global
+  primary_uses:
+  - discover burden input sources
+  - identify custodians and access conditions
+  - record source metadata and citations
+  access_url: https://ghdx.healthdata.org/
+  access_route: Search catalogue records and follow each dataset's download, request
+    or custodian route.
+  licence: Catalogue metadata and dataset-specific terms; underlying source conditions
+    vary
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Preserve the GHDx record URL, modification date, provider and
+    source-specific access status.
+  limitations:
+  - Catalogue inclusion does not mean the underlying data are downloadable.
+  - Access and redistribution rights must be confirmed with the original source.
+  status: approved
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  maximum_geographic_resolution: global
+- source_id: oecd-data-explorer
+  name: OECD Data Explorer and SDMX API
+  custodian: Organisation for Economic Co-operation and Development
+  domains:
+  - health_expenditure
+  - socioeconomic
+  - epidemiology
+  access_class: open_download_api
+  data_level: aggregate
+  geographic_scope: OECD members, partners and selected international aggregates
+  primary_uses:
+  - comparable health-system indicators
+  - health expenditure and utilisation context
+  - high-income country validation
+  access_url: https://data-explorer.oecd.org/
+  access_route: Select a dataflow in Data Explorer and use Download or the Developer
+    API query builder.
+  licence: OECD terms and conditions
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Store the SDMX dataflow, version, query, dimensions, response
+    format and retrieval date.
+  limitations:
+  - Coverage is concentrated in OECD and partner economies.
+  - Indicator definitions and completeness vary across countries and years.
+  official_reference: https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html
+  status: approved
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  - regional
+  - national
+  maximum_geographic_resolution: national
+- source_id: world-bank-indicators-api
+  name: World Bank Indicators API
+  custodian: World Bank
+  domains:
+  - socioeconomic
+  - population
+  - health_expenditure
+  access_class: open_download_api
+  data_level: aggregate
+  geographic_scope: Global
+  primary_uses:
+  - macroeconomic covariates
+  - development and health-system context
+  - transportability modelling
+  access_url: https://api.worldbank.org/v2/
+  access_route: Query Indicators API version 2 or download through World Bank Open
+    Data tools.
+  licence: World Bank data terms; verify source indicator conditions
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Record database, indicator code, economy, date range, format and
+    retrieval date.
+  limitations:
+  - Indicator availability and revision histories differ.
+  - Ecological covariates cannot substitute for individual-level determinants.
+  official_reference: https://datahelpdesk.worldbank.org/knowledgebase/articles/889392
+  status: approved
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  maximum_geographic_resolution: global
+- source_id: ncbi-clinvar
+  name: ClinVar
+  custodian: US National Center for Biotechnology Information
+  domains:
+  - variant
+  - gene_disease
+  access_class: open_download_api
+  data_level: knowledge_base
+  geographic_scope: Global submissions
+  primary_uses:
+  - variant-condition assertion discovery
+  - gene and disease mapping support
+  - evidence provenance for demonstrator definitions
+  access_url: https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/
+  access_route: Use the public website, FTP release files or NCBI E-utilities for
+    programmatic access.
+  licence: Public archive; attribution requested and NCBI disclaimer applies
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Record assembly, file type, release date and accession-level version
+    where relevant.
+  limitations:
+  - Submitted assertions may conflict and are not independently verified by NIH.
+  - Variant assertions are not population prevalence or penetrance estimates.
+  status: candidate
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  maximum_geographic_resolution: global
+- source_id: genomics-england-panelapp
+  name: Genomics England PanelApp
+  custodian: Genomics England
+  domains:
+  - gene_disease
+  - coding
+  access_class: open_download_api
+  data_level: knowledge_base
+  geographic_scope: International expert contributions with UK clinical curation context
+  primary_uses:
+  - diagnostic-grade gene panel definitions
+  - gene-disease evidence review
+  - demonstrator phenotype scope
+  access_url: https://panelapp.genomicsengland.co.uk/
+  access_route: Browse, download or query versioned panels through the documented
+    PanelApp API.
+  licence: PanelApp data and software terms; verify licence for the selected export
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Pin panel identifier, panel version, entity confidence and retrieval
+    date.
+  limitations:
+  - Panel membership supports diagnostic interpretation and does not measure burden.
+  - Panel scope reflects curation context and changes over time.
+  official_reference: https://www.genomicsengland.co.uk/panelapp/
+  status: candidate
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  maximum_geographic_resolution: global
+- source_id: all-of-us-public-tier
+  name: All of Us Public Tier
+  custodian: US National Institutes of Health All of Us Research Program
+  domains:
+  - genomics
+  - phenotype
+  - electronic_health_record
+  - data_discovery
+  access_class: public_web_registration
+  data_level: aggregate
+  geographic_scope: United States participant cohort
+  primary_uses:
+  - cohort feasibility
+  - public aggregate phenotype and demographic exploration
+  - controlled-access application planning
+  access_url: https://www.researchallofus.org/data-tools/data-access/
+  access_route: Use public Data Snapshots and Data Browser without Researcher Workbench
+    credentials.
+  licence: All of Us public data use policies
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Record public tool, data snapshot/version and retrieval date.
+  limitations:
+  - Participant cohort is not automatically nationally representative.
+  - Public aggregates do not support detailed individual-level attribution analyses.
+  status: candidate
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - global
+  maximum_geographic_resolution: global
+- source_id: all-of-us-researcher-workbench
+  name: All of Us Registered and Controlled Tiers
+  custodian: US National Institutes of Health All of Us Research Program
+  domains:
+  - genomics
+  - phenotype
+  - electronic_health_record
+  access_class: controlled_research
+  data_level: individual_level
+  geographic_scope: United States participant cohort
+  primary_uses:
+  - phenotype-genotype attribution
+  - multimorbidity and outcome analysis
+  - rare-within-common parameter estimation
+  access_url: https://www.researchallofus.org/data-tools/data-access/
+  access_route: Obtain institutional agreement, identity verification and required
+    training, then analyse approved tiers in the Researcher Workbench.
+  licence: All of Us Data User Code of Conduct and tier-specific policies
+  redistribution: 'no'
+  registration_required: true
+  version_strategy: Record CDR tier and release, workspace purpose, code version and
+    approved export review.
+  limitations:
+  - Data must remain within the approved environment except permitted outputs.
+  - Selection, ancestry, healthcare-data completeness and disclosure rules affect
+    inference.
+  official_reference: https://support.researchallofus.org/hc/en-us/articles/9005549268756-How-to-Obtain-a-DURA-with-All-of-Us
+  status: candidate
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - cohort
+  maximum_geographic_resolution: cohort
+- source_id: genomics-england-research-environment
+  name: Genomics England Research Environment
+  custodian: Genomics England
+  domains:
+  - genomics
+  - phenotype
+  - electronic_health_record
+  access_class: controlled_research
+  data_level: individual_level
+  geographic_scope: England genomic medicine cohorts
+  primary_uses:
+  - genotype-phenotype analysis
+  - diagnostic pathway and outcome parameters
+  - rare-within-common demonstrators
+  access_url: https://www.genomicsengland.co.uk/join-us
+  access_route: Apply to the Genomics England Research Network and complete onboarding
+    for approved Research Environment access.
+  licence: Genomics England research and data-access agreements
+  redistribution: 'no'
+  registration_required: true
+  version_strategy: Record dataset release, approved project, workspace package, code
+    commit and export review.
+  limitations:
+  - Cohort ascertainment reflects genomic testing pathways and is not population prevalence
+    by default.
+  - Detailed data and outputs remain subject to secure-environment controls.
+  status: candidate
+  last_verified: '2026-07-18'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-07-18'
+      evidence: Initial metadata and access-route review; live acquisition and licence
+        review remain separate gates.
+  geographic_levels:
+  - cohort
+  maximum_geographic_resolution: cohort

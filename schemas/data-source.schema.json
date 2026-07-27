@@ -4,7 +4,11 @@
   "title": "RareBurden Commons data source catalogue",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "last_updated", "sources"],
+  "required": [
+    "schema_version",
+    "last_updated",
+    "sources"
+  ],
   "properties": {
     "schema_version": {
       "type": "string",
@@ -17,7 +21,9 @@
     "sources": {
       "type": "array",
       "minItems": 1,
-      "items": {"$ref": "#/$defs/source"}
+      "items": {
+        "$ref": "#/$defs/source"
+      }
     }
   },
   "$defs": {
@@ -48,8 +54,14 @@
           "type": "string",
           "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
         },
-        "name": {"type": "string", "minLength": 3},
-        "custodian": {"type": "string", "minLength": 2},
+        "name": {
+          "type": "string",
+          "minLength": 3
+        },
+        "custodian": {
+          "type": "string",
+          "minLength": 2
+        },
         "domains": {
           "type": "array",
           "minItems": 1,
@@ -89,36 +101,243 @@
         },
         "data_level": {
           "type": "string",
-          "enum": ["metadata", "aggregate", "knowledge_base", "individual_level", "mixed"]
+          "enum": [
+            "metadata",
+            "aggregate",
+            "knowledge_base",
+            "individual_level",
+            "mixed"
+          ]
         },
-        "geographic_scope": {"type": "string", "minLength": 2},
+        "geographic_scope": {
+          "type": "string",
+          "minLength": 2
+        },
         "primary_uses": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": {"type": "string", "minLength": 3}
+          "items": {
+            "type": "string",
+            "minLength": 3
+          }
         },
-        "access_url": {"type": "string", "format": "uri", "pattern": "^https://"},
-        "access_route": {"type": "string", "minLength": 8},
-        "licence": {"type": "string", "minLength": 2},
+        "access_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "access_route": {
+          "type": "string",
+          "minLength": 8
+        },
+        "licence": {
+          "type": "string",
+          "minLength": 2
+        },
         "redistribution": {
           "type": "string",
-          "enum": ["yes", "no", "conditional", "unknown"]
+          "enum": [
+            "yes",
+            "no",
+            "conditional",
+            "unknown"
+          ]
         },
-        "registration_required": {"type": "boolean"},
-        "version_strategy": {"type": "string", "minLength": 8},
+        "registration_required": {
+          "type": "boolean"
+        },
+        "version_strategy": {
+          "type": "string",
+          "minLength": 8
+        },
         "limitations": {
           "type": "array",
           "minItems": 1,
-          "items": {"type": "string", "minLength": 5}
+          "items": {
+            "type": "string",
+            "minLength": 5
+          }
         },
-        "notes": {"type": "string"},
-        "official_reference": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "notes": {
+          "type": "string"
+        },
+        "official_reference": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
         "status": {
           "type": "string",
-          "enum": ["candidate", "approved", "blocked", "deprecated"]
+          "enum": [
+            "candidate",
+            "approved",
+            "blocked",
+            "deprecated"
+          ]
         },
-        "last_verified": {"type": "string", "format": "date"}
+        "last_verified": {
+          "type": "string",
+          "format": "date"
+        },
+        "analytic_roles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "geographic_levels": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "global",
+              "regional",
+              "national",
+              "subnational_1",
+              "subnational_2",
+              "local",
+              "cohort"
+            ]
+          }
+        },
+        "maximum_geographic_resolution": {
+          "type": "string",
+          "enum": [
+            "global",
+            "regional",
+            "national",
+            "subnational_1",
+            "subnational_2",
+            "local",
+            "cohort"
+          ]
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "metadata_review": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "verified_at",
+                "evidence"
+              ],
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "not_tested",
+                    "preliminary",
+                    "passed",
+                    "failed",
+                    "blocked"
+                  ]
+                },
+                "verified_at": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "evidence": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "access_test": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "verified_at",
+                "evidence"
+              ],
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "not_tested",
+                    "preliminary",
+                    "passed",
+                    "failed",
+                    "blocked"
+                  ]
+                },
+                "verified_at": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "evidence": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "acquisition_test": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "verified_at",
+                "evidence"
+              ],
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "not_tested",
+                    "preliminary",
+                    "passed",
+                    "failed",
+                    "blocked"
+                  ]
+                },
+                "verified_at": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "evidence": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "terms_review": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "verified_at",
+                "evidence"
+              ],
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "not_tested",
+                    "preliminary",
+                    "passed",
+                    "failed",
+                    "blocked"
+                  ]
+                },
+                "verified_at": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "evidence": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

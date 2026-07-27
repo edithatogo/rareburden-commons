@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/parameter-ledger.schema.json",
+  "title": "RareBurden parameter ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "ledger_id",
+    "title",
+    "created_at",
+    "parameters",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "ledger_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "parameters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "parameter_id",
+          "label",
+          "quantity_type",
+          "measure",
+          "metric",
+          "unit",
+          "distribution",
+          "evidence_status",
+          "source_release_ids",
+          "limitations",
+          "evidence_assessment_ids",
+          "transportability_assessment_ids"
+        ],
+        "properties": {
+          "parameter_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quantity_type": {
+            "type": "string",
+            "enum": [
+              "population",
+              "fraction",
+              "case_count",
+              "rate",
+              "cost",
+              "health_loss",
+              "other"
+            ]
+          },
+          "measure": {
+            "type": "string",
+            "minLength": 1
+          },
+          "metric": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "distribution": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "value"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "fixed"
+                  },
+                  "value": {
+                    "type": "number"
+                  },
+                  "minimum": {
+                    "type": "number"
+                  },
+                  "maximum": {
+                    "type": "number"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "lower",
+                  "upper"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "uniform"
+                  },
+                  "lower": {
+                    "type": "number"
+                  },
+                  "upper": {
+                    "type": "number"
+                  },
+                  "minimum": {
+                    "type": "number"
+                  },
+                  "maximum": {
+                    "type": "number"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "mean",
+                  "standard_deviation"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "normal"
+                  },
+                  "mean": {
+                    "type": "number"
+                  },
+                  "standard_deviation": {
+                    "type": "number"
+                  },
+                  "minimum": {
+                    "type": "number"
+                  },
+                  "maximum": {
+                    "type": "number"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "mu",
+                  "sigma"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "lognormal"
+                  },
+                  "mu": {
+                    "type": "number"
+                  },
+                  "sigma": {
+                    "type": "number"
+                  },
+                  "minimum": {
+                    "type": "number"
+                  },
+                  "maximum": {
+                    "type": "number"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "alpha",
+                  "beta"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "beta"
+                  },
+                  "alpha": {
+                    "type": "number"
+                  },
+                  "beta": {
+                    "type": "number"
+                  },
+                  "minimum": {
+                    "type": "number"
+                  },
+                  "maximum": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "evidence_status": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "derived",
+              "modelled",
+              "transferred",
+              "assumed"
+            ]
+          },
+          "source_release_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "assumption_rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "population": {
+            "type": "object"
+          },
+          "period": {
+            "type": "object"
+          },
+          "disease_definition": {
+            "type": "object"
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "notes": {
+            "type": "string"
+          },
+          "evidence_assessment_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^eqa-[0-9a-f]{24}$"
+            }
+          },
+          "transportability_assessment_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^tra-[0-9a-f]{24}$"
+            }
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

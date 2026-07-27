@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JDBOR>
+  <DisorderList count="2">
+    <Disorder id="1"><OrphaCode>244</OrphaCode><Name lang="en">Synthetic familial hyperinsulinism</Name></Disorder>
+    <Disorder id="2"><OrphaCode>791</OrphaCode><Name lang="en">Synthetic neonatal diabetes mellitus</Name></Disorder>
+  </DisorderList>
+</JDBOR>

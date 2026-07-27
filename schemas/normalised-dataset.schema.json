@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/normalised-dataset.schema.json",
+  "title": "RareBurden normalised dataset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_id",
+    "source_release_id",
+    "acquisition_manifest_id",
+    "transformation_id",
+    "generated_at",
+    "observations"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "source_release_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "acquisition_manifest_id": {
+      "type": "string",
+      "pattern": "^acq-[0-9a-f]{24}$"
+    },
+    "transformation_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

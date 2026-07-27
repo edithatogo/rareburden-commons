@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/reproducibility-assessment.schema.json",
+  "title": "RareBurden reproducibility assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "reproducibility_assessment_id", "release_id", "workflow_run_id", "created_at", "assessment_method", "claimed_level", "criteria", "summary", "limitations", "external_approval_claimed"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "reproducibility_assessment_id": {"type": "string", "pattern": "^repro-[0-9a-f]{24}$"},
+    "release_id": {"type": "string", "minLength": 3},
+    "workflow_run_id": {"type": "string", "pattern": "^workflow-[0-9a-f]{24}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "assessment_method": {"const": "automated_internal_structural_assessment"},
+    "claimed_level": {"enum": ["R0_conceptual", "R1_rerunnable", "R2_auditable", "R3_independently_reproduced", "R4_externally_replicated"]},
+    "criteria": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["criterion_id", "title", "status", "evidence", "rationale", "independently_verified"],
+        "properties": {
+          "criterion_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]+$"},
+          "title": {"type": "string", "minLength": 5},
+          "status": {"enum": ["met", "partially_met", "not_met", "not_applicable"]},
+          "evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "rationale": {"type": "string", "minLength": 5},
+          "independently_verified": {"type": "boolean"}
+        }
+      }
+    },
+    "summary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["met", "partially_met", "not_met", "not_applicable"],
+      "properties": {
+        "met": {"type": "integer", "minimum": 0},
+        "partially_met": {"type": "integer", "minimum": 0},
+        "not_met": {"type": "integer", "minimum": 0},
+        "not_applicable": {"type": "integer", "minimum": 0}
+      }
+    },
+    "limitations": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "external_approval_claimed": {"const": false}
+  }
+}

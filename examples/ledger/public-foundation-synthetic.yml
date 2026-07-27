@@ -1,0 +1,48 @@
+schema_version: 1.0.0
+ledger_id: public-foundation-synthetic-ledger
+title: Synthetic public-foundation parameter ledger
+created_at: '2026-07-19T00:00:00Z'
+parameters:
+- parameter_id: australia-population-synthetic
+  label: Synthetic Australian population denominator
+  quantity_type: population
+  measure: population
+  metric: count
+  unit: people
+  distribution:
+    type: normal
+    mean: 26638544.0
+    standard_deviation: 100000.0
+    minimum: 0.0
+  evidence_status: observed
+  source_release_ids:
+  - synthetic-un-wpp-2026-07
+  evidence_assessment_ids:
+  - eqa-9094d747d9be42c39065d97e
+  transportability_assessment_ids: []
+  limitations:
+  - Synthetic assurance value; not an official UN or Australian population estimate.
+- parameter_id: rare-diabetes-fraction-synthetic
+  label: Synthetic rare-aetiology fraction within diabetes
+  quantity_type: fraction
+  measure: rare aetiology share
+  metric: case_fraction
+  unit: proportion
+  distribution:
+    type: beta
+    alpha: 2.0
+    beta: 98.0
+    minimum: 0.0
+    maximum: 1.0
+  evidence_status: assumed
+  source_release_ids: []
+  assumption_rationale: A transparent synthetic assumption used only to exercise rare-within-common
+    modelling and provenance.
+  evidence_assessment_ids:
+  - eqa-a996c37d962a989e31fd4233
+  transportability_assessment_ids:
+  - tra-2a77e6b21b5ed474ad42cadd
+  limitations:
+  - Not an empirical prevalence or etiologic fraction.
+limitations:
+- Every value is synthetic and must not be cited as an empirical burden estimate.

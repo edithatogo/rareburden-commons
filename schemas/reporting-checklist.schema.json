@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/reporting-checklist.schema.json",
+  "title": "RareBurden machine-readable reporting checklist",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "reporting_checklist_id",
+    "report_id",
+    "title",
+    "created_at",
+    "standard",
+    "standard_version",
+    "source",
+    "scope_statement",
+    "items",
+    "summary"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "reporting_checklist_id": {"type": "string", "pattern": "^reporting-[0-9a-f]{24}$"},
+    "report_id": {"type": "string", "minLength": 3},
+    "title": {"type": "string", "minLength": 8},
+    "created_at": {"type": "string", "format": "date-time"},
+    "standard": {"const": "GATHER"},
+    "standard_version": {"type": "string", "minLength": 3},
+    "source": {"type": "string", "format": "uri"},
+    "scope_statement": {"type": "string", "minLength": 20},
+    "items": {
+      "type": "array",
+      "minItems": 18,
+      "maxItems": 18,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item_id", "number", "section", "topic", "status", "evidence"],
+        "properties": {
+          "item_id": {"type": "string", "pattern": "^GATHER-(0[1-9]|1[0-8])$"},
+          "number": {"type": "integer", "minimum": 1, "maximum": 18},
+          "section": {"type": "string", "minLength": 3},
+          "topic": {"type": "string", "minLength": 8},
+          "status": {
+            "enum": ["satisfied", "partially_satisfied", "not_applicable", "planned"]
+          },
+          "evidence": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "rationale": {"type": "string", "minLength": 5}
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["satisfied", "partially_satisfied", "not_applicable", "planned"],
+      "properties": {
+        "satisfied": {"type": "integer", "minimum": 0},
+        "partially_satisfied": {"type": "integer", "minimum": 0},
+        "not_applicable": {"type": "integer", "minimum": 0},
+        "planned": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

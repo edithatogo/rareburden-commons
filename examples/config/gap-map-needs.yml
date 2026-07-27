@@ -1,0 +1,32 @@
+title: RareBurden public-data capability and evidence-gap map
+needs:
+- need_id: population
+  label: Population denominators
+  domain: population
+  scope: Global and country
+- need_id: mortality
+  label: Mortality envelopes
+  domain: mortality
+  scope: Global and country
+- need_id: health-loss
+  label: Health-loss envelopes
+  domain: health_burden
+  scope: Global and country
+- need_id: utilisation
+  label: Individual healthcare utilisation
+  domain: electronic_health_record
+  scope: Country or cohort
+  required_data_levels:
+  - individual_level
+- need_id: semantic
+  label: Rare-disease semantic definitions
+  domain: ontology
+  scope: Global
+- need_id: economic-social
+  label: Household economic and social burden
+  domain: economic_social
+  scope: Country and patient/family
+limitations:
+- A catalogue match is not evidence of completeness, representativeness, transportability
+  or analytical sufficiency.
+- Access conditions and licences require source-specific verification.

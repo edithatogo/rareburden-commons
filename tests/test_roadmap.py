@@ -23,10 +23,10 @@ def validate_with(tracks: Path, roadmap: Path = ROADMAP) -> None:
 def test_seed_roadmap_is_valid() -> None:
     summary = validate_roadmap_files(ROADMAP, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
     assert summary.release_count == 10
-    assert summary.track_count == 17
-    assert summary.v1_critical_track_count == 17
+    assert summary.track_count == 18
+    assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
-    assert summary.track_status_counts["complete"] == 2
+    assert summary.track_status_counts["complete"] == 3
 
 
 def test_dependency_cycle_is_rejected(tmp_path: Path) -> None:
@@ -46,7 +46,7 @@ def test_missing_track_document_is_rejected(tmp_path: Path) -> None:
     shutil.copytree(TRACKS, tracks)
     (tracks / "007-landscape-novelty" / "spec.md").unlink()
 
-    with pytest.raises(RoadmapValidationError, match="missing required file spec.md"):
+    with pytest.raises(RoadmapValidationError, match=r"missing required file spec\.md"):
         validate_with(tracks)
 
 
@@ -89,3 +89,42 @@ def test_human_roadmap_track_drift_is_rejected(tmp_path: Path) -> None:
         match="human roadmap missing canonical track reference",
     ):
         validate_roadmap_files(roadmap, ROADMAP_SCHEMA, tracks, TRACK_SCHEMA)
+
+
+def test_complete_track_may_target_current_release(tmp_path: Path) -> None:
+    tracks = tmp_path / "tracks"
+    shutil.copytree(TRACKS, tracks)
+    track_dir = tracks / "007-landscape-novelty"
+    metadata_path = track_dir / "metadata.json"
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata["status"] = "complete"
+    metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    plan_path = track_dir / "plan.md"
+    plan_path.write_text(
+        plan_path.read_text(encoding="utf-8").replace("- [ ]", "- [x]"),
+        encoding="utf-8",
+    )
+    (track_dir / "review.md").write_text("# Review\n\nNo blocking findings.\n", encoding="utf-8")
+
+    validate_with(tracks)
+
+
+def test_released_release_requires_complete_tracks(tmp_path: Path) -> None:
+    roadmap_data = yaml.safe_load(ROADMAP.read_text(encoding="utf-8"))
+    roadmap_data["releases"][2]["status"] = "released"
+    roadmap_data["releases"][3]["status"] = "current"
+    roadmap = tmp_path / "roadmap.yml"
+    roadmap.write_text(yaml.safe_dump(roadmap_data, sort_keys=False), encoding="utf-8")
+
+    with pytest.raises(RoadmapValidationError, match="released but tracks are not complete"):
+        validate_roadmap_files(roadmap, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
+
+
+def test_release_status_regression_is_rejected(tmp_path: Path) -> None:
+    roadmap_data = yaml.safe_load(ROADMAP.read_text(encoding="utf-8"))
+    roadmap_data["releases"][3]["status"] = "released"
+    roadmap = tmp_path / "roadmap.yml"
+    roadmap.write_text(yaml.safe_dump(roadmap_data, sort_keys=False), encoding="utf-8")
+
+    with pytest.raises(RoadmapValidationError, match="Release statuses must progress"):
+        validate_roadmap_files(roadmap, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
