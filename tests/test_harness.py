@@ -5,6 +5,7 @@ import tarfile
 import zipfile
 from pathlib import Path
 
+from scripts.build_distributions import _canonicalise_sdist
 from scripts.check_built_package import PackageCheckError, inspect_sdist, inspect_wheel
 from scripts.check_github_workflows import validate_workflow, validate_workflows
 from scripts.check_schemas import validate_schemas
@@ -198,3 +199,50 @@ def test_sdist_inspection_rejects_symlink(tmp_path: Path) -> None:
         assert "unsafe member" in str(exc)
     else:  # pragma: no cover - assertion guard
         raise AssertionError("unsafe source-distribution member was accepted")
+
+
+def _write_noncanonical_sdist(
+    path: Path, *, reverse: bool, member_mtime: int, uid: int
+) -> None:
+    records = [
+        ("rareburden-0.3.0rc2/", True, b""),
+        ("rareburden-0.3.0rc2/README.md", False, b"reference\n"),
+        ("rareburden-0.3.0rc2/src/module.py", False, b"VALUE = 1\n"),
+    ]
+    if reverse:
+        records.reverse()
+    with tarfile.open(path, "w:gz") as archive:
+        for name, is_directory, data in records:
+            info = tarfile.TarInfo(name)
+            info.mtime = member_mtime
+            info.uid = uid
+            info.gid = uid
+            info.uname = f"user-{uid}"
+            info.gname = f"group-{uid}"
+            if is_directory:
+                info.type = tarfile.DIRTYPE
+                info.mode = 0o700
+                archive.addfile(info)
+            else:
+                info.size = len(data)
+                info.mode = 0o600
+                archive.addfile(info, __import__("io").BytesIO(data))
+
+
+def test_sdist_canonicalisation_normalises_order_and_archive_metadata(tmp_path: Path) -> None:
+    first = tmp_path / "first.tar.gz"
+    second = tmp_path / "second.tar.gz"
+    _write_noncanonical_sdist(first, reverse=False, member_mtime=100, uid=1000)
+    _write_noncanonical_sdist(second, reverse=True, member_mtime=200, uid=2000)
+
+    epoch = 1_760_000_000
+    _canonicalise_sdist(first, source_date_epoch=epoch)
+    _canonicalise_sdist(second, source_date_epoch=epoch)
+
+    assert first.read_bytes() == second.read_bytes()
+    with tarfile.open(first, "r:gz") as archive:
+        members = archive.getmembers()
+    assert [member.name for member in members] == sorted(member.name for member in members)
+    assert all(member.mtime == epoch for member in members)
+    assert all(member.uid == 0 and member.gid == 0 for member in members)
+    assert all(member.uname == "" and member.gname == "" for member in members)
