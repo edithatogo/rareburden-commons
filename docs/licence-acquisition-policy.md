@@ -31,5 +31,11 @@ private query parameters must never appear in licence evidence.
    do not overwrite the pinned release, and repeat licence and scientific review
    before registering new bytes.
 
+For automated runs, pass `--source-change-report <path>` to `fetch-release`.
+When observed bytes differ from the pinned SHA-256, no source file or acquisition
+manifest is committed; a schema-valid `review_required` incident record is written
+with redacted URL evidence, the expected and observed digests, and the required
+review action.
+
 This policy does not itself constitute legal, custodian, scientific or
 data-governance approval.

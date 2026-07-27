@@ -13,6 +13,7 @@ from rareburden import __version__
 from rareburden.acquisition import (
     AcquisitionError,
     DownloadPolicy,
+    SourceChangedError,
     download_public_artifact,
     redact_url,
 )
@@ -337,6 +338,11 @@ def _add_release_record_arguments(parser: argparse.ArgumentParser, *, include_fe
         parser.add_argument("--timeout", type=float, default=30.0)
         parser.add_argument("--retries", type=int, default=2)
         parser.add_argument("--max-bytes", type=int, default=2 * 1024 * 1024 * 1024)
+        parser.add_argument(
+            "--source-change-report",
+            type=Path,
+            help="write a review-required incident record when pinned bytes change",
+        )
     _add_json_argument(parser)
 
 
@@ -513,17 +519,31 @@ def _release_record_payload(args: argparse.Namespace, root: Path, *, fetch: bool
             allow_private_network=args.allow_private_network,
             overwrite=args.overwrite,
         )
-        manifest = download_public_artifact(
-            source_id=args.source_id,
-            release_id=args.release_id,
-            url=args.source_url,
-            destination=artefact_path,
-            expected_sha256=args.expected_sha256,
-            policy=policy,
-            allow_network=args.allow_network,
-            repository_root=root,
-            notes=args.notes,
-        )
+        try:
+            manifest = download_public_artifact(
+                source_id=args.source_id,
+                release_id=args.release_id,
+                url=args.source_url,
+                destination=artefact_path,
+                expected_sha256=args.expected_sha256,
+                policy=policy,
+                allow_network=args.allow_network,
+                repository_root=root,
+                notes=args.notes,
+            )
+        except SourceChangedError as exc:
+            if args.source_change_report is not None:
+                report_path = resolve_repository_path(
+                    root,
+                    args.source_change_report,
+                    str(args.source_change_report),
+                )
+                write_json_record(
+                    exc.as_record(),
+                    report_path,
+                    root / "schemas/source-change-incident.schema.json",
+                )
+            raise
     else:
         manifest = register_local_artifact(
             source_id=args.source_id,
