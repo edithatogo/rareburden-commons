@@ -27,3 +27,7 @@
 - [ ] Specify linked administrative-cost inputs for paediatric analysis.
 - [ ] Produce patient/family data-gap and new-collection plan. `[M-26]`
 - [ ] Complete health-economics, ethics and patient/community review.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 005 cannot activate until Tracks 009 and 010 are complete. Evidence: pending focused implementation commit.

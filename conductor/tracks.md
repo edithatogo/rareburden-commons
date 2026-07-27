@@ -19,7 +19,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 003 | Monogenic diabetes rare-within-common demonstrator | Blocked | Must | v0.5.0 | Clinical and Epidemiology Leads | 008, 009, 010 |
 | 004 | Federated country-node execution package | Blocked | Must | v0.6.0 | Node Architecture and Data Governance Leads | 006, 009, 010 |
 | 011 | Bronchiectasis rare-aetiology demonstrator | Planned | Must | v0.6.0 | Respiratory Clinical and Epidemiology Leads | 008, 009, 010 |
-| 005 | Patient, family, economic and social burden module | Planned | Must | v0.7.0 | Health Economics and Patient-Reported Outcomes Leads | 009, 010 |
+| 005 | Patient, family, economic and social burden module | Blocked | Must | v0.7.0 | Health Economics and Patient-Reported Outcomes Leads | 009, 010 |
 | 012 | Collective paediatric rare-disease burden demonstrator | Planned | Must | v0.7.0 | Paediatric, Administrative Data and Health Economics Leads | 004, 005, 008, 009, 010 |
 | 013 | Quality, validation, gap mapping and equity assurance | Planned | Must | v0.8.0 | Methods Assurance and Equity Leads | 003, 005, 007, 010, 011, 012 |
 | 014 | Atlas, API and reproducible release engineering | Planned | Must | v0.8.0 | Product, Data and Release Engineering Leads | 002, 009, 010, 013 |
