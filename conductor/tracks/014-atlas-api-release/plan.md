@@ -27,3 +27,10 @@
 - [ ] Build and verify from a clean environment.
 - [ ] Complete independent reproduction and release-content audit.
 - [ ] Publish v0.8 beta only after Track 013 approval.
+
+## Preparatory dependency review — 2026-07-29
+
+- [x] Document the immutable reviewed-artifact boundary, missingness rule,
+  aggregate-only publication boundary and shared release-fingerprint requirement.
+  Evidence: `docs/atlas-release-014-reference.md`; product activation remains
+  blocked by upstream tracks and release gates.
