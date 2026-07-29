@@ -102,6 +102,10 @@ These are implementation-ready candidates for reviewer confirmation; they do not
 
 Until each row has a named approver and the required evidence, adapters must remain in registration/probe mode and fail closed for production acquisition.
 
+### Scope decision — approved candidate set (2026-07-29)
+
+The repository owner approved the recommended candidate set: a same-date Orphadata epidemiology/alignment pair; UN WPP 2024 medium-variant national totals; one WHO aggregate burden file covering the approved measure; and bounded World Bank `SP.POP.TOTL` JSON queries. This approves scope only. Exact artifact URLs, release identifiers, hashes, attribution and redistribution checks remain mandatory before activation.
+
 ### Content-addressed endpoint probe — 2026-07-29
 
 The concrete World Bank reference query `https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2000&format=json&per_page=1` returned HTTP 200. The response was 310 bytes with SHA-256 `cf007aeb8ff4078b46a28861c022c678c22b6c115b255b0f8f0c6ce58de6c5cb`. This is a reproducible endpoint probe, not approval of the indicator for production use; source selection, coverage review and terms confirmation remain open.
