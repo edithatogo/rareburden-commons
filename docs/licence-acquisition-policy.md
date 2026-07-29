@@ -39,3 +39,12 @@ review action.
 
 This policy does not itself constitute legal, custodian, scientific or
 data-governance approval.
+
+## Approved-scope staging rule
+
+Track 002 has an owner-approved candidate scope, but its exact releases are
+still being pinned. Until the source-specific evidence is complete, operators
+must use `world-bank-url` only to produce a reviewable query (with explicit
+`--country`, `--year-start` and `--year-end`) and must not call `fetch-release`
+for the candidate sources. This preserves the distinction between an approved
+scope and an activated acquisition contract.
