@@ -3,6 +3,15 @@
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Track 009
 
+### Review rerun — 2026-07-29
+
+Repository review result: **Pass with dependency and scientific gates**. The
+synthetic reference report, deterministic estimands, seeded uncertainty summary,
+unit guards and prohibited-operation tests are consistent with the plan. The
+full project validation gate passes. Track 010 remains blocked because Track
+009 is incomplete and no scientific, engineering or patient/community review
+has approved an alpha interface.
+
 ## Findings
 
 - Track 009 is blocked by the incomplete source-acquisition and semantic contracts.

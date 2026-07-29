@@ -24,14 +24,14 @@
 ## Phase 4 — Assurance
 
 - [ ] Add unit, property, golden, convergence and numerical-stability tests.
-- [ ] Add negative tests for incompatible DALY/cost shortcuts.
+- [x] Add negative tests for incompatible DALY/cost shortcuts. Evidence: `tests/test_burden.py` and `tests/test_quality_edges.py`.
 - [ ] Benchmark reference workloads.
 - [ ] Run independent scientific-software review.
 
 ## Phase 5 — Release
 
-- [ ] Produce reproducible public/synthetic reference report.
-- [ ] Document API/CLI and interpretation limits.
+- [x] Produce reproducible public/synthetic reference report. Evidence: `docs/burden-engine-010-reference.md`.
+- [x] Document API/CLI and interpretation limits. Evidence: reference report and `estimate-cases` CLI contract.
 - [ ] Freeze alpha interfaces required by Track 003.
 - [ ] Record review and residual risks.
 
