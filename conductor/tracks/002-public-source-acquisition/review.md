@@ -120,3 +120,14 @@ The response returned HTTP 200, one page, 44 observations, 8,826 bytes and
 SHA-256 `7db1f222bf7b5af9b9da9b5f380cad48356b1d33c74c2666c9a96d0d7ca7ad4f`.
 This is a bounded reference manifest and smoke test, not a production geography
 decision or redistribution approval.
+
+### Remaining exact-file blocker
+
+The remaining exact-file task is blocked by publisher delivery evidence, not by
+the repository implementation: the Orphadata catalogue intermittently fails
+TLS retrieval from this environment, while UN WPP and WHO landing pages expose
+download content through dynamic/static-site routes without stable data-file
+URLs in the retrieved HTML. No guessed URL is recorded and no bulk source bytes
+are downloaded. The next safe action is to record the publisher-provided exact
+file URLs (or a custodian-approved manual registration) and then run the existing
+checksum/manifest workflow.
