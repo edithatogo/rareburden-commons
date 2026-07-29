@@ -9,11 +9,11 @@ import pytest
 from rareburden.schema import load_mapping, validate_instance
 from rareburden.semantics import (
     SemanticValidationError,
+    diff_mapping_sets,
     load_hierarchy,
     load_mapping_set,
     validate_hierarchy,
     validate_mapping_set,
-    diff_mapping_sets,
 )
 
 ROOT = Path(__file__).resolve().parents[1]

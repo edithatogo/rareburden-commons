@@ -129,9 +129,7 @@ class OntologyMappingSet:
     fingerprint: str
 
 
-def diff_mapping_sets(
-    previous: OntologyMappingSet, current: OntologyMappingSet
-) -> dict[str, Any]:
+def diff_mapping_sets(previous: OntologyMappingSet, current: OntologyMappingSet) -> dict[str, Any]:
     """Return a deterministic, reviewable diff between two validated mapping releases."""
     previous_rows = {str(row["source_code"]): row for row in previous.document["mappings"]}
     current_rows = {str(row["source_code"]): row for row in current.document["mappings"]}

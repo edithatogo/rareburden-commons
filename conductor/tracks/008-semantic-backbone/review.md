@@ -10,6 +10,11 @@
 - Track 002 remains `in_review` pending live-source, licensing, scientific, data-governance and security evidence.
 - Track 007 remains `in_review` pending protocol registration, reproducible repository searches, screening/exclusions, independent methods review and patient/community challenge.
 
+The repository-owned version-diff gap is now addressed by `diff_mapping_sets`,
+which emits deterministic added, removed and changed source-code lists plus
+release fingerprints. Focused semantic tests pass. This does not activate a
+semantic contract or substitute for source-release and clinical review.
+
 ## Review boundaries
 
 - Repository validation cannot satisfy upstream scientific, licensing, governance or patient/community gates.
