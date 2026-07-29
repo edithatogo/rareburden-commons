@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/node-execution-manifest.schema.json",
+  "title": "Federated node execution manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "execution_id", "coordinator_version", "node_version", "analysis_id", "policy_id", "status"],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "execution_id": {"type": "string", "minLength": 3},
+    "coordinator_version": {"type": "string", "minLength": 1},
+    "node_version": {"type": "string", "minLength": 1},
+    "analysis_id": {"type": "string", "minLength": 1},
+    "policy_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["prepared", "completed", "failed", "withdrawn"]},
+    "input_fingerprint": {"type": "string", "minLength": 3},
+    "output_fingerprint": {"type": "string", "minLength": 3},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  }
+}

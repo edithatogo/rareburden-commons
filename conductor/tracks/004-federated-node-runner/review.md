@@ -20,6 +20,15 @@ disclosure boundary and tests are deterministic, and the full validation gate
 passes. Track 004 remains blocked pending Tracks 009/010 and data-governance,
 patient/community, engineering and security review.
 
+### Blocker resolution matrix — 2026-07-29
+
+| Blocker | Local resolution | Remaining gate |
+|---|---|---|
+| Unspecified node/disclosure contracts | Added execution-manifest and disclosure-policy schemas plus synthetic fixtures | Data-governance and engineering approval |
+| Participant-level export risk | Export validator rejects participant fields and suppresses small cells | Custodian-specific thresholds and privacy review |
+| Controlled execution authorization | No custodian connection or person-level execution added | Approved node pilot and patient/community review |
+| Signing/attestation | Manifest supports input/output fingerprints; signing remains unclaimed | Release/security authority |
+
 ## Disposition
 
 Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete.

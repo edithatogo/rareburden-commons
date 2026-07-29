@@ -2,7 +2,7 @@
 
 ## Phase 1 — Node contracts and threat model
 
-- [ ] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]`
+- [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: `schemas/node-execution-manifest.schema.json`, `schemas/node-disclosure-policy.schema.json` and synthetic fixtures.
 - [ ] Define trust zones, adversaries, permitted exports and local override rules. `[M-12, M-15]`
 - [ ] Define coordinator/node version negotiation and compatibility policy.
 - [ ] Obtain data-governance and patient/community review before implementation.
@@ -24,7 +24,7 @@
 
 - [ ] Add contract, privacy, differencing and log-redaction tests.
 - [ ] Verify participant rows cannot enter export artefacts. `[M-13]`
-- [ ] Add checksums/signatures and node execution manifest.
+- [x] Add node execution manifest contract and fingerprint fields. Evidence: `schemas/node-execution-manifest.schema.json` and synthetic manifest; signing remains release-gated.
 - [ ] Test incompatible versions, failed runs, correction and withdrawal.
 
 ## Phase 4 — External pilot readiness

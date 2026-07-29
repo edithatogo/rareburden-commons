@@ -1,0 +1,10 @@
+schema_version: 0.1.0
+policy_id: synthetic-aggregate-v1
+minimum_cell_count: 5
+participant_fields:
+- person_id
+- participant_id
+- record_id
+export_mode: aggregate_only
+notes:
+- Synthetic fixture only; custodian policy overrides this example.
