@@ -39,3 +39,7 @@
 
 - [x] Record that Track 010 cannot activate until Track 009 is complete. Evidence: `17b5c69`.
 - [x] Add non-binding burden engine contract v0.1.0 draft to the specification; activation and contract freeze remain blocked.
+
+## Blocker resolution — 2026-07-29
+
+- [x] Record local resolution and residual gates for estimands, uncertainty, prohibited shortcuts, unsupported correlation/scenario behaviour and Track 009 dependency. Evidence: blocker resolution matrix in `review.md`.

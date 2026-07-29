@@ -15,6 +15,16 @@ seeded beta uncertainty propagation, unit guards and prohibited DALY/cost
 shortcuts are covered by existing focused tests. This is synthetic assurance
 only and does not activate Track 010 or freeze a Track 003 interface.
 
+### Blocker resolution matrix — 2026-07-29
+
+| Blocker | Repository action | Status | Remaining gate |
+|---|---|---|---|
+| Undefined alpha estimands | Synthetic reference defines affected-population and rare-aetiology cases, units and invalid operations | resolved locally | Scientific/statistical approval |
+| Unbounded uncertainty behaviour | Seeded beta propagation records seed/draws/unit and has deterministic regression coverage | resolved locally | Scientific review of distribution assumptions |
+| Unsafe health-loss/cost shortcut | DALY/YLD/YLL/cost case-fraction allocation fails closed with a targeted negative test | resolved locally | Scientific and patient/community interpretation review |
+| Correlation and structural scenarios | Explicitly unsupported in alpha documentation; no silent independence claim | bounded | Contract decision before implementation |
+| Track 009 dependency | No ledger activation or downstream interface freeze performed | pending | Track 009 completion |
+
 ## Disposition
 
 Keep Track 010 **blocked**. Do not activate burden calculations or freeze interfaces for Track 003 until the evidence and parameter ledger is complete.
