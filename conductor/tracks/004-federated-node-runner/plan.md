@@ -12,7 +12,13 @@
 - [ ] Build synthetic cohort generator with multi-diagnosis and small-cell edge cases. `[C-03]`
 - [ ] Implement offline preflight and environment capture. `[M-19]`
 - [ ] Implement portable local runner and reproducible package. `[S-08, C-06]`
-- [ ] Implement disclosure configuration, suppression and export validation.
+- [x] Implement disclosure configuration, suppression and export validation. Evidence: `rareburden.node.validate_aggregate_export`, `tests/test_node.py`, and `docs/federated-node-004-reference.md`; custodian-specific thresholds remain external-gated.
+
+## Preparatory implementation — 2026-07-29
+
+- [x] Add a deterministic offline aggregate-export safety boundary that rejects
+  participant-level fields and suppresses small cells. Evidence: focused node
+  tests and reference documentation.
 
 ## Phase 3 — Conformance and security
 
