@@ -9,6 +9,18 @@
 - No approved Track 011 protocol, aetiology scope, overlap model, transportability model or analysis has been completed; only a non-binding protocol draft exists.
 - Respiratory clinical, patient/community and engineering review gates remain required.
 
+Repository-owned preparatory work now includes a schema-valid synthetic analysis
+specification and limitations report. These artifacts exercise the contract only;
+they do not assert bronchiectasis aetiology, activate the protocol or replace
+reviewed ledger/semantic inputs.
+
+### Review rerun — 2026-07-29
+
+Repository review result: **Pass with dependency and clinical gates**. The
+synthetic artifacts are bounded and reproducible, and the full validation gate
+passes. Track 011 remains blocked pending Tracks 008–010 and respiratory,
+methods, patient/community and engineering review.
+
 ## Disposition
 
 Keep Track 011 **blocked**. Do not activate bronchiectasis analysis or freeze multi-aetiology contracts until the prerequisite tracks are complete.
