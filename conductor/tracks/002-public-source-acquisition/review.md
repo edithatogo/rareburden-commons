@@ -111,3 +111,12 @@ The existing CLI already enforces the required World Bank bounds (`--country`, `
 ### Content-addressed endpoint probe — 2026-07-29
 
 The concrete World Bank reference query `https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2000&format=json&per_page=1` returned HTTP 200. The response was 310 bytes with SHA-256 `cf007aeb8ff4078b46a28861c022c678c22b6c115b255b0f8f0c6ce58de6c5cb`. This is a reproducible endpoint probe, not approval of the indicator for production use; source selection, coverage review and terms confirmation remain open.
+
+### Bounded World Bank reference manifest — 2026-07-29
+
+The approved indicator was exercised with an explicit two-country, 2000–2021 query:
+`https://api.worldbank.org/v2/country/AUS;NZL/indicator/SP.POP.TOTL?date=2000:2021&format=json&per_page=100&source=2`.
+The response returned HTTP 200, one page, 44 observations, 8,826 bytes and
+SHA-256 `7db1f222bf7b5af9b9da9b5f380cad48356b1d33c74c2666c9a96d0d7ca7ad4f`.
+This is a bounded reference manifest and smoke test, not a production geography
+decision or redistribution approval.

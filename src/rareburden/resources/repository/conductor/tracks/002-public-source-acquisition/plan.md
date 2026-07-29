@@ -48,4 +48,4 @@
 - [x] Hash the public Orphadata terms catalogue, UN WPP methodology and WHO data-terms pages. Evidence: hashes and retrieval sizes recorded in `review.md`, 2026-07-29; exact production files and source approval remain open.
 - [x] Record the owner-approved candidate scope without activating production acquisition. Evidence: `review.md` scope decision, 2026-07-29.
 - [ ] Pin exact Orphadata, UN WPP and WHO artifact URLs/releases and record hashes after the approved source pages expose stable download routes.
-- [ ] Bound the approved World Bank query to named geographies and years, then capture a final response manifest.
+- [x] Bound the approved World Bank query to named geographies and years, then capture a final response manifest. Evidence: explicit `AUS;NZL`, 2000–2021 query, 8,826-byte HTTP 200 response and SHA-256 recorded in `review.md`, 2026-07-29.
