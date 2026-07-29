@@ -9,6 +9,12 @@
 - No approved Track 010 estimand contract, track-scoped alpha interface or release assurance package has been completed; reusable model primitives and tests are preparatory only.
 - Scientific, engineering and patient/community review gates remain required.
 
+Repository-owned alpha work is now documented in
+`docs/burden-engine-010-reference.md`: supported deterministic estimands,
+seeded beta uncertainty propagation, unit guards and prohibited DALY/cost
+shortcuts are covered by existing focused tests. This is synthetic assurance
+only and does not activate Track 010 or freeze a Track 003 interface.
+
 ## Disposition
 
 Keep Track 010 **blocked**. Do not activate burden calculations or freeze interfaces for Track 003 until the evidence and parameter ledger is complete.

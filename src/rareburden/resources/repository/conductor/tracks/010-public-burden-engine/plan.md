@@ -2,22 +2,22 @@
 
 ## Phase 1 — Analysis contracts
 
-- [ ] Define supported estimands, inputs, outputs and invalid operations. `[M-03]`
-- [ ] Define distribution and correlation specifications.
+- [x] Define supported estimands, inputs, outputs and invalid operations. `[M-03]` Evidence: synthetic reference contract in `docs/burden-engine-010-reference.md` and existing burden tests.
+- [x] Define supported distribution specification (seeded beta fraction propagation); correlation specifications remain out of scope pending contract review.
 - [ ] Define structural scenarios and missingness outputs.
 - [ ] Link all inputs and outputs to ledger IDs. `[M-11]`
 
 ## Phase 2 — Deterministic engine
 
-- [ ] Implement expected affected-population calculations. `[S-04]`
-- [ ] Implement rare-aetiology composition calculations.
-- [ ] Implement unit, metric and population compatibility guards.
+- [x] Implement expected affected-population calculations. `[S-04]` Evidence: `expected_affected_population` and tests.
+- [x] Implement rare-aetiology composition calculations. Evidence: `rare_aetiology_cases` and tests.
+- [x] Implement unit, metric and population compatibility guards. Evidence: fail-closed burden tests.
 - [ ] Add lineage-preserving result objects.
 
 ## Phase 3 — Uncertainty engine
 
-- [ ] Implement supported probability distributions and sampling. `[M-06]`
-- [ ] Record seed, environment and sampling configuration.
+- [x] Implement supported probability distributions and sampling. `[M-06]` Evidence: seeded beta propagation and tests.
+- [x] Record seed and sampling configuration. Evidence: `SimulationSummary` includes seed, draws and unit.
 - [ ] Implement correlation and structural-scenario handling.
 - [ ] Add uncertainty decomposition and sensitivity outputs.
 
