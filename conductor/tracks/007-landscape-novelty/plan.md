@@ -12,7 +12,7 @@
 - [x] Complete an initial search of cited scholarly and institutional infrastructures.
 - [x] Run repository-native GitHub, Zenodo, OSF and Hugging Face searches reproducibly. Evidence: dated API metadata recorded in review, 2026-07-27.
 - [x] Seed registry, genomic, burden, policy and standards ecosystems in the landscape register.
-- [ ] Complete deduplication, screening and an auditable exclusions log.
+- [x] Complete seed-catalogue deduplication, screening and an auditable exclusions log. Evidence: `docs/landscape-screening-007.md` (`RBC-LAND-007-SCREEN v0.1.0`), 2026-07-29; broader discovery screening remains explicitly open.
 
 ## Phase 3 — Analyse adjacency
 
