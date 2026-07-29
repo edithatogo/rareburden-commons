@@ -88,3 +88,7 @@ This inventory is complete as a candidate register for the Track 002 scope. A ca
 | `oecd-data-explorer` | [OECD Data Explorer](https://data-explorer.oecd.org/) | public/registration depending on dataset | OECD terms and conditions | Manual release registration; no automated acquisition until dataset terms and API/export behaviour are reviewed. |
 
 The inventory separates candidate discovery from production selection. The remaining Track 002 task is exact artifact/file selection and release hashing for the open-download sources, not further source discovery.
+
+### Content-addressed endpoint probe — 2026-07-29
+
+The concrete World Bank reference query `https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2000&format=json&per_page=1` returned HTTP 200. The response was 310 bytes with SHA-256 `cf007aeb8ff4078b46a28861c022c678c22b6c115b255b0f8f0c6ce58de6c5cb`. This is a reproducible endpoint probe, not approval of the indicator for production use; source selection, coverage review and terms confirmation remain open.

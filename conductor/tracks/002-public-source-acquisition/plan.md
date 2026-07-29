@@ -44,3 +44,4 @@
 - [x] Record dated public access/licence evidence for Orphadata, MONDO, UN WPP, WHO GHE and World Bank API documentation. Evidence: review record updated 2026-07-27; exact production endpoint and governance gates remain open.
 - [x] Probe documented concrete World Bank indicator queries and source terms/download routes; record HTTP results and unresolved file/hash selection. Evidence: review record updated 2026-07-27.
 - [x] Complete bounded candidate inventory for supported open, API and manual sources, with access class, terms route and next evidence. Evidence: `review.md` inventory v0.1.0, 2026-07-27; exact file/hash selection remains pending.
+- [x] Capture a content-addressed World Bank reference-query response. Evidence: 310-byte HTTP 200 response, SHA-256 `cf007aeb8ff4078b46a28861c022c678c22b6c115b255b0f8f0c6ce58de6c5cb`, 2026-07-29; production indicator approval remains open.
