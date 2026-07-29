@@ -3,6 +3,18 @@
 **Review date:** 2026-07-27  
 **Decision:** Internal implementation passes for autonomous handoff; production/live-source approval remains open
 
+### Review rerun — 2026-07-29
+
+Repository review result: **Pass with external blockers**. The full project gate
+(`uv run make check`) passes, including programme/schema/workflow validation,
+runtime assets, lint/format/type checks, Markdown links, repository safety,
+compileall and the test suite. No credentials, participant-level data or bulk
+third-party source files are present in the tracked diff.
+
+The track is not archive-eligible because exact Orphadata, UN WPP and WHO
+production artifacts and their live licence/scientific/data-governance review
+remain unresolved, and Track 007 has not completed its external challenge gate.
+
 ## Passed internal evidence
 
 - Network access is opt-in and bounded by HTTPS, host, address, size, timeout and redirect controls.
