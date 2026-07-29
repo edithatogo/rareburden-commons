@@ -3,6 +3,15 @@
 **Review date:** 2026-07-27  
 **Decision:** Proceed with narrowed scope, subject to registered review and external challenge
 
+### Review rerun — 2026-07-29
+
+Repository review result: **Pass with external blockers**. The seed screening
+register, protocol draft, repository-native search evidence and adjacency claims
+are internally consistent after the wording correction above. The full project
+validation gate passes. The track remains in review because protocol registration,
+broader discovery screening, independent methods review and patient/community
+challenge are external or human gates.
+
 ## Internal findings
 
 - The programme should not create another rare-disease registry, ontology, genomic repository or central patient-data lake.
@@ -14,7 +23,7 @@
 ## Evidence limitations
 
 - The current 13-item register is a rapid structured landscape, not a completed systematic or scoping review.
-- Repository-native discovery searches and mechanical exact deduplication are recorded; entity-level screening and an auditable exclusions log remain incomplete.
+- Repository-native discovery searches and mechanical exact deduplication are recorded; the 13-record seed catalogue now has an auditable screening/exclusions register, while broader discovery screening remains incomplete.
 - No independent methods or patient/community reviewer has yet challenged the novelty conclusion.
 - Partnership, endorsement and data-access claims remain prohibited without written confirmation.
 
@@ -41,7 +50,7 @@ To make the next screening pass reproducible, the following bounded public API s
 
 Official API documentation used to select these routes: [Zenodo search guide](https://zenodo.org/help/search), [Zenodo developers](https://developers.zenodo.org/), and [OSF API v2 documentation](https://developer.osf.io/). Search totals are time-sensitive and must be rerun at screening; deduplication, exclusions, protocol registration, and independent methods/patient-community challenge remain open.
 
-A mechanical catalogue deduplication pass on 2026-07-27 found 13 initiatives, 13 unique `initiative_id` values and 13 unique official URLs. This confirms no exact identifier/URL duplicates in the current register; it is not a substitute for title/entity screening, cross-registry deduplication or an exclusions log.
+A mechanical catalogue deduplication pass on 2026-07-27 found 13 initiatives, 13 unique `initiative_id` values and 13 unique official URLs. This confirms no exact identifier/URL duplicates in the current register; it is not a substitute for title/entity screening or cross-registry deduplication of newly discovered records.
 
 ### Versioned draft search and screening protocol — RBC-LAND-007 v0.1.0 (2026-07-27)
 
