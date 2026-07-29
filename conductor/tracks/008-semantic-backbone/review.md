@@ -6,7 +6,7 @@
 ## Findings
 
 - The repository contains semantic schemas, hierarchy/mapping validation, fail-closed mutually-exclusive aggregation, stable fingerprints, and synthetic semantic tests.
-- Track 008 has not entered implementation: all substantive implementation tasks remain pending and no v0.4 semantic contract has been frozen.
+- Track 008 has preparatory implementation (validated schemas, hierarchy/mapping checks, synthetic fixtures and mapping release diffs), but substantive source-pinned semantic release work remains pending and no v0.4 semantic contract has been frozen.
 - Track 002 remains `in_review` pending live-source, licensing, scientific, data-governance and security evidence.
 - Track 007 remains `in_review` pending protocol registration, reproducible repository searches, screening/exclusions, independent methods review and patient/community challenge.
 
@@ -14,6 +14,14 @@ The repository-owned version-diff gap is now addressed by `diff_mapping_sets`,
 which emits deterministic added, removed and changed source-code lists plus
 release fingerprints. Focused semantic tests pass. This does not activate a
 semantic contract or substitute for source-release and clinical review.
+
+### Review rerun — 2026-07-29
+
+Repository review result: **Pass with dependency blockers**. The semantic
+implementation evidence and version-diff tooling are internally consistent, and
+the full project validation gate passes. Track 008 remains blocked pending Track
+002 source/licence evidence, Track 007 external review, and clinical and
+patient/community approval of identifiers, naming and aggregation semantics.
 
 ## Review boundaries
 
