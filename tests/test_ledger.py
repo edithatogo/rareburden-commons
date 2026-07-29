@@ -71,3 +71,12 @@ def test_unknown_parameter_has_actionable_error() -> None:
     ledger = load_ledger(LEDGER, SCHEMA)
     with pytest.raises(LedgerError, match="Unknown parameter_id"):
         ledger.get("missing")
+
+
+def test_source_release_impact_trace_is_sorted_and_fail_closed() -> None:
+    ledger = load_ledger(LEDGER, SCHEMA)
+    assert ledger.impacted_by_source_releases({"synthetic-un-wpp-2026-07"}) == [
+        "australia-population-synthetic"
+    ]
+    assert ledger.impacted_by_source_releases(set()) == []
+    assert ledger.impacted_by_source_releases({"missing-release"}) == []

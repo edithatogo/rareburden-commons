@@ -35,6 +35,16 @@ class ParameterLedger:
         self.get(parameter_id)
         return self.fingerprints[parameter_id]
 
+    def impacted_by_source_releases(self, source_release_ids: set[str]) -> list[str]:
+        """Return parameter IDs whose evidence references any changed release."""
+        if not source_release_ids:
+            return []
+        return sorted(
+            parameter_id
+            for parameter_id, record in self.records.items()
+            if source_release_ids.intersection(record.get("source_release_ids", []))
+        )
+
 
 def _finite_number(value: Any) -> bool:
     return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
@@ -138,4 +148,9 @@ def load_ledger(document_path: Path, schema_path: Path) -> ParameterLedger:
     return validate_ledger(load_mapping(document_path), load_mapping(schema_path))
 
 
-__all__ = ["LedgerError", "ParameterLedger", "load_ledger", "validate_ledger"]
+__all__ = [
+    "LedgerError",
+    "ParameterLedger",
+    "load_ledger",
+    "validate_ledger",
+]
