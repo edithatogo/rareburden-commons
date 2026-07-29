@@ -29,6 +29,10 @@ patient/community, engineering and security review.
 | Controlled execution authorization | No custodian connection or person-level execution added | Approved node pilot and patient/community review |
 | Signing/attestation | Manifest supports input/output fingerprints; signing remains unclaimed | Release/security authority |
 
+The manifest builder now validates non-empty identifiers, bounds status values
+and rejects incompatible major versions. It remains a deterministic offline
+preflight helper; it does not attest an environment or authorize execution.
+
 ## Disposition
 
 Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete.

@@ -5,12 +5,14 @@
 - [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: `schemas/node-execution-manifest.schema.json`, `schemas/node-disclosure-policy.schema.json` and synthetic fixtures.
 - [ ] Define trust zones, adversaries, permitted exports and local override rules. `[M-12, M-15]`
 - [ ] Define coordinator/node version negotiation and compatibility policy.
+- [x] Define coordinator/node major-version compatibility and execution-manifest creation. Evidence: `rareburden.node` helpers and tests; full negotiation policy remains review-gated.
 - [ ] Obtain data-governance and patient/community review before implementation.
 
 ## Phase 2 — Synthetic environment
 
 - [ ] Build synthetic cohort generator with multi-diagnosis and small-cell edge cases. `[C-03]`
 - [ ] Implement offline preflight and environment capture. `[M-19]`
+- [x] Implement deterministic offline execution-manifest preflight. `[M-19]` Evidence: `build_execution_manifest` and version tests; environment capture remains pending.
 - [ ] Implement portable local runner and reproducible package. `[S-08, C-06]`
 - [x] Implement disclosure configuration, suppression and export validation. Evidence: `rareburden.node.validate_aggregate_export`, `tests/test_node.py`, and `docs/federated-node-004-reference.md`; custodian-specific thresholds remain external-gated.
 

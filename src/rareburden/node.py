@@ -10,6 +10,52 @@ class NodeExportError(ValueError):
     """Raised when a node export violates its disclosure contract."""
 
 
+def validate_version_compatibility(
+    *, coordinator_version: str, node_version: str, supported_major: int = 0
+) -> None:
+    """Reject malformed or incompatible coordinator/node major versions."""
+    try:
+        coordinator_major = int(coordinator_version.split(".", 1)[0])
+        node_major = int(node_version.split(".", 1)[0])
+    except (AttributeError, ValueError):
+        raise NodeExportError("coordinator and node versions must be semantic versions") from None
+    if coordinator_major != supported_major or node_major != supported_major:
+        raise NodeExportError("coordinator and node major versions are incompatible")
+
+
+def build_execution_manifest(
+    *,
+    execution_id: str,
+    coordinator_version: str,
+    node_version: str,
+    analysis_id: str,
+    policy_id: str,
+    input_fingerprint: str,
+    status: str = "prepared",
+) -> dict[str, Any]:
+    """Build a minimal deterministic execution manifest without sensitive values."""
+    if not all(
+        value.strip() for value in (execution_id, analysis_id, policy_id, input_fingerprint)
+    ):
+        raise NodeExportError("execution, analysis, policy and input identifiers must be non-empty")
+    validate_version_compatibility(
+        coordinator_version=coordinator_version, node_version=node_version
+    )
+    if status not in {"prepared", "completed", "failed", "withdrawn"}:
+        raise NodeExportError(f"unsupported execution status: {status}")
+    return {
+        "schema_version": "0.1.0",
+        "execution_id": execution_id,
+        "coordinator_version": coordinator_version,
+        "node_version": node_version,
+        "analysis_id": analysis_id,
+        "policy_id": policy_id,
+        "status": status,
+        "input_fingerprint": input_fingerprint,
+        "limitations": ["Synthetic/offline manifest; no participant-level data."],
+    }
+
+
 _PARTICIPANT_FIELDS = {
     "person_id",
     "participant_id",
@@ -45,4 +91,9 @@ def validate_aggregate_export(
     return exported
 
 
-__all__ = ["NodeExportError", "validate_aggregate_export"]
+__all__ = [
+    "NodeExportError",
+    "build_execution_manifest",
+    "validate_aggregate_export",
+    "validate_version_compatibility",
+]
