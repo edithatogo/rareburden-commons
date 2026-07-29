@@ -9,6 +9,19 @@
 - No approved paediatric protocol, data pathway, synthetic linked-data model, federated integration or disclosure package has been completed; only a non-binding protocol draft exists.
 - Paediatric, clinical, economic, privacy, data-governance, security and patient/community gates remain required.
 
+Repository-owned preparatory work now includes an entirely synthetic linked-data
+fixture covering person, diagnosis, admission, death and cost tables, with
+multimorbidity retention, duplicate-admission handling and disclosure-boundary
+rules. It contains no real or controlled data.
+
+### Review rerun — 2026-07-29
+
+Repository review result: **Pass with dependency and governance gates**. The
+fixture and reference documentation are bounded and reproducible, and the full
+validation gate passes. Track 012 remains blocked pending Tracks 004, 005,
+008–010 and paediatric, privacy, Indigenous/data-governance, security,
+patient/family and engineering review.
+
 ## Disposition
 
 Keep Track 012 **blocked**. Do not activate controlled-data or paediatric burden work until all prerequisite contracts and approvals are available.

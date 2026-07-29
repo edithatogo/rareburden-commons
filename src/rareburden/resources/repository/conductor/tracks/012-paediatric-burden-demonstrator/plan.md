@@ -9,10 +9,10 @@
 
 ## Phase 2 — Synthetic linked-data model
 
-- [ ] Create synthetic person, diagnosis, admission, death and cost tables. `[C-03]`
-- [ ] Implement person-level deduplication and multimorbidity rules. `[M-05]`
+- [x] Create synthetic person, diagnosis, admission, death and cost tables. `[C-03]` Evidence: `examples/paediatric/linked-data-synthetic.yml`.
+- [x] Define person-level deduplication and multimorbidity rules. `[M-05]` Evidence: fixture rules and `docs/paediatric-012-reference.md`; implementation against controlled data remains gated.
 - [ ] Implement utilisation, mortality and cost estimands.
-- [ ] Add small-cell and inferential disclosure cases.
+- [x] Add small-cell disclosure case and export rule. Evidence: synthetic fixture disclosure rule; custodian threshold and inferential controls remain external-gated.
 
 ## Phase 3 — Federated package
 

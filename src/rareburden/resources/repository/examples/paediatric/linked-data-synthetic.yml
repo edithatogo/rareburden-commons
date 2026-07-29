@@ -1,0 +1,52 @@
+schema_version: 0.1.0
+fixture_id: paediatric-linked-data-synthetic
+status: synthetic_only
+tables:
+  person:
+  - person_id: P001
+    birth_year: 2012
+    jurisdiction: synthetic-au
+  - person_id: P002
+    birth_year: 2014
+    jurisdiction: synthetic-nz
+  diagnosis:
+  - person_id: P001
+    code_system: synthetic
+    code: RD-A
+    diagnosis_year: 2018
+  - person_id: P001
+    code_system: synthetic
+    code: RD-B
+    diagnosis_year: 2019
+  - person_id: P002
+    code_system: synthetic
+    code: RD-A
+    diagnosis_year: 2020
+  admission:
+  - person_id: P001
+    admission_id: A001
+    year: 2020
+    cost_units: 3
+  - person_id: P001
+    admission_id: A002
+    year: 2021
+    cost_units: 2
+  - person_id: P002
+    admission_id: A003
+    year: 2021
+    cost_units: 1
+  death:
+  - person_id: P002
+    year: null
+  cost:
+  - person_id: P001
+    year: 2021
+    amount: 500.0
+    currency: SYN
+rules:
+  deduplication: person_id is the synthetic local linkage key; duplicate admissions remain distinct.
+  multimorbidity: retain both diagnosis rows and do not force a single cause.
+  disclosure: no aggregate cell with count below the custodian threshold may be exported.
+limitations:
+- All values, codes and jurisdictions are invented for offline tests.
+- This fixture does not authorise linkage, re-identification or controlled-data access.
