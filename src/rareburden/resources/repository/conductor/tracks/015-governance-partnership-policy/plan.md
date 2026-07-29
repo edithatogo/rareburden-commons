@@ -23,9 +23,9 @@
 
 ## Phase 4 — Policy translation
 
-- [ ] Define policy products and indicator crosswalk. `[C-09]`
+- [x] Define policy-product claim boundaries and relationship-state crosswalk. `[C-09]` Evidence: `docs/governance-015-reference.md`; indicator approval remains open.
 - [ ] Test framing with patient/community and policy users.
-- [ ] Maintain confirmed/proposed relationship register.
+- [x] Define confirmed/proposed relationship register states. Evidence: relationship claim-state contract in `docs/governance-015-reference.md`; no relationships are confirmed.
 - [ ] Approve geographic and “global” claims for v1 scope.
 
 ## Phase 5 — Review
@@ -33,3 +33,9 @@
 - [ ] Conduct governance tabletop exercise.
 - [ ] Close or bound every blocking governance finding.
 - [ ] Record v1 governance readiness decision.
+
+## Preparatory dependency review — 2026-07-29
+
+- [x] Document proposed decision bodies, reserved authority, claim states and
+  policy-translation limits without activating governance or partnership claims.
+  Evidence: `docs/governance-015-reference.md` and review record.
