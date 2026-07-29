@@ -7,7 +7,7 @@
 
 - Track 002 remains in review pending live-source, licensing, scientific, data-governance and security evidence.
 - Track 008 remains blocked pending Tracks 002 and 007.
-- No approved Track 009 ledger contract, interfaces, impact tracing or migration tooling have been completed; existing generic ledger code and fixtures are not a frozen Track 009 contract.
+- No approved Track 009 ledger contract or migration tooling has been completed; existing generic ledger code, fixtures and impact tracing remain preparatory and are not a frozen Track 009 contract.
 - Scientific, data-governance and engineering review gates remain required.
 
 The repository-owned impact-tracing gap is now addressed: validated ledgers can
@@ -15,6 +15,14 @@ return the sorted parameter IDs affected by changed source-release IDs, with
 empty and unknown release sets failing closed to an empty impact list. Focused
 ledger tests pass. This does not activate the ledger contract or replace source
 and semantic approvals.
+
+### Review rerun — 2026-07-29
+
+Repository review result: **Pass with dependency blockers**. The impact-tracing
+implementation and focused tests are internally consistent, and the full project
+validation gate passes. Track 009 remains blocked because Tracks 002 and 008 are
+not complete; no ledger contract, migration path or demonstrator validation has
+been frozen.
 
 ## Disposition
 
