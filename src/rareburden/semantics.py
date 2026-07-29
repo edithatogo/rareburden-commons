@@ -129,6 +129,35 @@ class OntologyMappingSet:
     fingerprint: str
 
 
+def diff_mapping_sets(
+    previous: OntologyMappingSet, current: OntologyMappingSet
+) -> dict[str, Any]:
+    """Return a deterministic, reviewable diff between two validated mapping releases."""
+    previous_rows = {str(row["source_code"]): row for row in previous.document["mappings"]}
+    current_rows = {str(row["source_code"]): row for row in current.document["mappings"]}
+    added = sorted(set(current_rows) - set(previous_rows))
+    removed = sorted(set(previous_rows) - set(current_rows))
+    changed = sorted(
+        source
+        for source in set(previous_rows) & set(current_rows)
+        if previous_rows[source] != current_rows[source]
+    )
+    return {
+        "previous_version": previous.document["version"],
+        "current_version": current.document["version"],
+        "previous_fingerprint": previous.fingerprint,
+        "current_fingerprint": current.fingerprint,
+        "added_source_codes": added,
+        "removed_source_codes": removed,
+        "changed_source_codes": changed,
+        "impact_summary": {
+            "added": len(added),
+            "removed": len(removed),
+            "changed": len(changed),
+        },
+    }
+
+
 def _cycle_path(graph: Mapping[str, tuple[str, ...]]) -> list[str] | None:
     visiting: set[str] = set()
     visited: set[str] = set()
@@ -338,6 +367,7 @@ __all__ = [
     "DiseaseHierarchy",
     "OntologyMappingSet",
     "SemanticValidationError",
+    "diff_mapping_sets",
     "load_hierarchy",
     "load_mapping_set",
     "validate_hierarchy",

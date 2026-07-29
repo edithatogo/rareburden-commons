@@ -13,6 +13,7 @@ from rareburden.semantics import (
     load_mapping_set,
     validate_hierarchy,
     validate_mapping_set,
+    diff_mapping_sets,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -136,3 +137,31 @@ def test_mapping_set_rejects_low_confidence_accepted_exact_mapping() -> None:
     document["mappings"][0]["confidence"] = "low"
     with pytest.raises(SemanticValidationError, match="moderate or high"):
         validate_mapping_set(document, load_mapping(MAPPING_SCHEMA))
+
+
+def test_mapping_set_diff_is_deterministic_and_reports_impact() -> None:
+    previous_document = load_mapping(MAPPING_PATH)
+    current_document = deepcopy(previous_document)
+    current_document["version"] = "0.2.0"
+    current_document["mappings"][0]["rationale"] = "Updated synthetic evidence"
+    current_document["mappings"].pop()
+    current_document["mappings"].append(
+        {
+            "source_code": "ORPHA:999999",
+            "target_code": "synthetic-unmapped",
+            "relation": "related",
+            "confidence": "moderate",
+            "status": "provisional",
+            "rationale": "Synthetic change for diff coverage",
+            "evidence_refs": ["fixture:diff"],
+        }
+    )
+    previous = validate_mapping_set(previous_document, load_mapping(MAPPING_SCHEMA))
+    current = validate_mapping_set(current_document, load_mapping(MAPPING_SCHEMA))
+    diff = diff_mapping_sets(previous, current)
+    assert diff["previous_version"] == "0.1.0"
+    assert diff["current_version"] == "0.2.0"
+    assert diff["added_source_codes"] == ["ORPHA:999999"]
+    assert diff["removed_source_codes"]
+    assert diff["changed_source_codes"] == ["552"]
+    assert diff["impact_summary"] == {"added": 1, "removed": 1, "changed": 1}
