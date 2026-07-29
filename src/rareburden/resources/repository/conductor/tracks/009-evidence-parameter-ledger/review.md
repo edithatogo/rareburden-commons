@@ -10,6 +10,12 @@
 - No approved Track 009 ledger contract, interfaces, impact tracing or migration tooling have been completed; existing generic ledger code and fixtures are not a frozen Track 009 contract.
 - Scientific, data-governance and engineering review gates remain required.
 
+The repository-owned impact-tracing gap is now addressed: validated ledgers can
+return the sorted parameter IDs affected by changed source-release IDs, with
+empty and unknown release sets failing closed to an empty impact list. Focused
+ledger tests pass. This does not activate the ledger contract or replace source
+and semantic approvals.
+
 ## Disposition
 
 Keep Track 009 **blocked**. Do not freeze evidence-ledger contracts until source acquisition and semantic contracts are formally complete.

@@ -18,7 +18,7 @@
 
 - [ ] Integrate acquisition outputs from Track 002.
 - [ ] Build human-readable evidence and assumption reports.
-- [ ] Add downstream impact tracing for changed parameters.
+- [x] Add downstream impact tracing for changed parameters. Evidence: `ParameterLedger.impacted_by_source_releases` and regression tests in `4a8c663`; semantic/source-release activation remains gated.
 - [ ] Add portable export and schema migration tooling.
 
 ## Phase 4 — Review
