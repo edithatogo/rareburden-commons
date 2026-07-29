@@ -89,6 +89,19 @@ This inventory is complete as a candidate register for the Track 002 scope. A ca
 
 The inventory separates candidate discovery from production selection. The remaining Track 002 task is exact artifact/file selection and release hashing for the open-download sources, not further source discovery.
 
+### Decision worksheet — non-binding candidate pins (v0.1.0, 2026-07-29)
+
+These are implementation-ready candidates for reviewer confirmation; they do not activate acquisition or freeze a contract.
+
+| Source | Proposed pin for review | Why this is the smallest useful choice | Required confirmation before activation |
+| --- | --- | --- | --- |
+| Orphadata | One epidemiology product release plus its alignment release from the same catalogue date | Keeps disease identifiers and estimates on a single release boundary | Exact filenames/URLs, release date, CC BY attribution/change notice and redistribution allowed |
+| UN WPP | WPP 2024 medium-variant national population totals, one workbook and explicitly recorded geography/year range | Supplies a denominator without importing unused age/sex tables | Workbook URL/hash, variant, geography/year scope and publication terms |
+| WHO GHE | One aggregate burden release matching the approved measure/unit and 2000–2021 coverage | Avoids mixing releases or silently including credited third-party fields | Exact file URL/hash, metric/unit, third-party field exclusions and redistribution position |
+| World Bank | `SP.POP.TOTL`, explicitly bounded country/year query, JSON response | Already has a reproducible query shape and content-addressed probe | Approved geography/year window, update cadence and terms/attribution review |
+
+Until each row has a named approver and the required evidence, adapters must remain in registration/probe mode and fail closed for production acquisition.
+
 ### Content-addressed endpoint probe — 2026-07-29
 
 The concrete World Bank reference query `https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2000&format=json&per_page=1` returned HTTP 200. The response was 310 bytes with SHA-256 `cf007aeb8ff4078b46a28861c022c678c22b6c115b255b0f8f0c6ce58de6c5cb`. This is a reproducible endpoint probe, not approval of the indicator for production use; source selection, coverage review and terms confirmation remain open.
