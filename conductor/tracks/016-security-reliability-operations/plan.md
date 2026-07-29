@@ -2,10 +2,10 @@
 
 ## Phase 1 — Threat model and support scope
 
-- [ ] Threat-model repository, acquisition, build, node, API and release boundaries.
+- [x] Threat-model repository, acquisition, build, node, API and release boundaries. Evidence: `docs/security-operations-016-reference.md`; independent review remains open.
 - [ ] Declare supported runtimes and environments.
 - [ ] Define security, incident, backup and recovery ownership.
-- [ ] Define performance and availability budgets without unsupported service promises.
+- [x] Define performance/availability boundary without unsupported service promises. Evidence: reference scaffold explicitly withholds service-level commitments pending capacity/owner approval.
 
 ## Phase 2 — Supply-chain hardening
 
@@ -27,3 +27,8 @@
 - [ ] Run backup/restore and release rollback exercises.
 - [ ] Triage all security and reliability findings.
 - [ ] Publish support and security-fix policy with primary and backup owners.
+
+## Preparatory dependency review — 2026-07-29
+
+- [x] Document threat boundaries, operational invariants and activation gates
+  without activating production hardening. Evidence: reference and review records.
