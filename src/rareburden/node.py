@@ -72,6 +72,33 @@ def capture_environment(*, lockfile_fingerprint: str) -> dict[str, str]:
     }
 
 
+def run_offline_node(
+    rows: Sequence[Mapping[str, Any]],
+    *,
+    execution_id: str,
+    coordinator_version: str,
+    node_version: str,
+    analysis_id: str,
+    policy_id: str,
+    input_fingerprint: str,
+    minimum_cell_count: int = 5,
+) -> dict[str, Any]:
+    """Execute the synthetic node boundary without persistence or network access."""
+    manifest = build_execution_manifest(
+        execution_id=execution_id,
+        coordinator_version=coordinator_version,
+        node_version=node_version,
+        analysis_id=analysis_id,
+        policy_id=policy_id,
+        input_fingerprint=input_fingerprint,
+        status="completed",
+    )
+    return {
+        "manifest": manifest,
+        "rows": validate_aggregate_export(rows, minimum_cell_count=minimum_cell_count),
+    }
+
+
 _PARTICIPANT_FIELDS = {
     "person_id",
     "participant_id",
@@ -111,6 +138,7 @@ __all__ = [
     "NodeExportError",
     "build_execution_manifest",
     "capture_environment",
+    "run_offline_node",
     "validate_aggregate_export",
     "validate_version_compatibility",
 ]

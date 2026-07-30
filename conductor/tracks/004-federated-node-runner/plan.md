@@ -11,9 +11,10 @@
 ## Phase 2 — Synthetic environment
 
 - [ ] Build synthetic cohort generator with multi-diagnosis and small-cell edge cases. `[C-03]`
+- [x] Add a deterministic offline synthetic node runner over supplied rows. Evidence: `rareburden.node.run_offline_node` and focused positive/negative tests; no persistence, network access, or controlled data.
 - [x] Implement offline preflight and bounded environment capture. `[M-19]` Evidence: `build_execution_manifest`, `capture_environment`, and focused tests; capture is limited to runtime identity plus a caller-supplied lockfile fingerprint, with no credentials, host paths, or participant data.
 - [x] Implement deterministic offline execution-manifest preflight. `[M-19]` Evidence: `build_execution_manifest`, `capture_environment`, and version/environment tests; controlled-node execution remains pending external authorization.
-- [ ] Implement portable local runner and reproducible package. `[S-08, C-06]`
+- [ ] Implement portable local runner and reproducible package. `[S-08, C-06]` The bounded helper is preparatory only; packaging and independent execution remain pending.
 - [x] Implement disclosure configuration, suppression and export validation. Evidence: `rareburden.node.validate_aggregate_export`, `tests/test_node.py`, and `docs/federated-node-004-reference.md`; custodian-specific thresholds remain external-gated.
 
 ## Preparatory implementation — 2026-07-29

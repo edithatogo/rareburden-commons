@@ -37,6 +37,10 @@ The preflight also captures only bounded runtime identity and a caller-supplied
 lockfile fingerprint. It excludes credentials, host paths, and participant data;
 environment attestation and controlled execution remain gated.
 
+The synthetic `run_offline_node` helper now composes manifest creation with the
+disclosure validator. It is deterministic and memory-only, with negative coverage
+for participant-level rows; it is not a portable package or controlled pilot.
+
 ## Disposition
 
 Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete.
