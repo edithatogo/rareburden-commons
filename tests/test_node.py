@@ -5,6 +5,7 @@ import pytest
 from rareburden.node import (
     NodeExportError,
     build_execution_manifest,
+    capture_environment,
     validate_aggregate_export,
     validate_version_compatibility,
 )
@@ -50,3 +51,18 @@ def test_execution_manifest_and_version_negotiation_are_bounded() -> None:
     validate_version_compatibility(coordinator_version="0.1.0", node_version="0.2.0")
     with pytest.raises(NodeExportError, match="major versions"):
         validate_version_compatibility(coordinator_version="1.0.0", node_version="0.1.0")
+
+
+def test_environment_capture_is_bounded_and_requires_lockfile_fingerprint() -> None:
+    captured = capture_environment(lockfile_fingerprint="sha256:lock")
+    assert set(captured) == {
+        "python_version",
+        "implementation",
+        "system",
+        "machine",
+        "lockfile_fingerprint",
+        "runtime",
+    }
+    assert captured["lockfile_fingerprint"] == "sha256:lock"
+    with pytest.raises(NodeExportError, match="non-empty"):
+        capture_environment(lockfile_fingerprint=" ")

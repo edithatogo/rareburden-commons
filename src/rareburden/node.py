@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import platform
+import sys
 from collections.abc import Mapping, Sequence
 from typing import Any
 
@@ -56,6 +58,20 @@ def build_execution_manifest(
     }
 
 
+def capture_environment(*, lockfile_fingerprint: str) -> dict[str, str]:
+    """Capture bounded runtime identity for a node preflight manifest."""
+    if not lockfile_fingerprint.strip():
+        raise NodeExportError("lockfile_fingerprint must be non-empty")
+    return {
+        "python_version": platform.python_version(),
+        "implementation": platform.python_implementation(),
+        "system": platform.system(),
+        "machine": platform.machine(),
+        "lockfile_fingerprint": lockfile_fingerprint,
+        "runtime": sys.implementation.name,
+    }
+
+
 _PARTICIPANT_FIELDS = {
     "person_id",
     "participant_id",
@@ -94,6 +110,7 @@ def validate_aggregate_export(
 __all__ = [
     "NodeExportError",
     "build_execution_manifest",
+    "capture_environment",
     "validate_aggregate_export",
     "validate_version_compatibility",
 ]

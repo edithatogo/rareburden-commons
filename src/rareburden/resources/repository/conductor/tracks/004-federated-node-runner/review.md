@@ -33,6 +33,10 @@ The manifest builder now validates non-empty identifiers, bounds status values
 and rejects incompatible major versions. It remains a deterministic offline
 preflight helper; it does not attest an environment or authorize execution.
 
+The preflight also captures only bounded runtime identity and a caller-supplied
+lockfile fingerprint. It excludes credentials, host paths, and participant data;
+environment attestation and controlled execution remain gated.
+
 ## Disposition
 
 Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete.
