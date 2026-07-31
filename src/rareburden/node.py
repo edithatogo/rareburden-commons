@@ -58,6 +58,49 @@ def build_execution_manifest(
     }
 
 
+def amend_execution_manifest(
+    manifest: Mapping[str, Any], *, correction_reason: str, replacement_execution_id: str
+) -> dict[str, Any]:
+    """Create an immutable correction record without rewriting the source manifest."""
+    if not correction_reason.strip() or not replacement_execution_id.strip():
+        raise NodeExportError("correction reason and replacement execution ID must be non-empty")
+    required = {"execution_id", "schema_version", "analysis_id", "policy_id"}
+    if not required.issubset(manifest):
+        raise NodeExportError("manifest lacks correction provenance fields")
+    amended = dict(manifest)
+    amended["supersedes_execution_id"] = str(manifest["execution_id"])
+    amended["execution_id"] = replacement_execution_id
+    amended["correction_reason"] = correction_reason
+    amended["status"] = "prepared"
+    return amended
+
+
+_SENSITIVE_LOG_KEYS = {
+    "token",
+    "password",
+    "secret",
+    "authorization",
+    "person_id",
+    "participant_id",
+}
+
+
+def redact_node_log(value: Any) -> Any:
+    """Return a recursively redacted log-safe copy of node metadata."""
+    if isinstance(value, Mapping):
+        return {
+            str(key): "[REDACTED]"
+            if str(key).lower() in _SENSITIVE_LOG_KEYS
+            else redact_node_log(item)
+            for key, item in value.items()
+        }
+    if isinstance(value, list):
+        return [redact_node_log(item) for item in value]
+    if isinstance(value, tuple):
+        return tuple(redact_node_log(item) for item in value)
+    return value
+
+
 def capture_environment(*, lockfile_fingerprint: str) -> dict[str, str]:
     """Capture bounded runtime identity for a node preflight manifest."""
     if not lockfile_fingerprint.strip():
@@ -145,9 +188,11 @@ def validate_aggregate_export(
 
 __all__ = [
     "NodeExportError",
+    "amend_execution_manifest",
     "build_execution_manifest",
     "build_synthetic_cohort",
     "capture_environment",
+    "redact_node_log",
     "run_offline_node",
     "validate_aggregate_export",
     "validate_version_compatibility",

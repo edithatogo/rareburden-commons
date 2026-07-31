@@ -3,8 +3,8 @@
 ## Phase 1 — Node contracts and threat model
 
 - [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: `schemas/node-execution-manifest.schema.json`, `schemas/node-disclosure-policy.schema.json` and synthetic fixtures.
-- [ ] Define trust zones, adversaries, permitted exports and local override rules. `[M-12, M-15]`
-- [ ] Define coordinator/node version negotiation and compatibility policy.
+- [x] Define trust zones, adversaries, permitted exports and local override rules. `[M-12, M-15]` Evidence: `docs/federated-node-004-threat-model.md`; controlled governance approval remains open.
+- [x] Define coordinator/node version negotiation and compatibility policy. Evidence: major-version helper and threat-model boundary; release compatibility policy remains review-gated.
 - [x] Define coordinator/node major-version compatibility and execution-manifest creation. Evidence: `rareburden.node` helpers and tests; full negotiation policy remains review-gated.
 - [ ] Obtain data-governance and patient/community review before implementation.
 
@@ -25,14 +25,14 @@
 
 ## Phase 3 — Conformance and security
 
-- [ ] Add contract, privacy, differencing and log-redaction tests.
-- [ ] Verify participant rows cannot enter export artefacts. `[M-13]`
+- [x] Add contract, privacy, differencing and log-redaction tests. Evidence: node negative tests cover participant fields, small-cell suppression, recursive log redaction and stable suppression behavior.
+- [x] Verify participant rows cannot enter export artefacts. `[M-13]` Evidence: fail-closed validator and offline-runner tests.
 - [x] Add node execution manifest contract and fingerprint fields. Evidence: `schemas/node-execution-manifest.schema.json` and synthetic manifest; signing remains release-gated.
 - [x] Test incompatible versions, failed runs and withdrawal. Evidence: version-negotiation and terminal-status tests; correction semantics remain external/protocol-gated.
 
 ## Phase 4 — External pilot readiness
 
-- [ ] Write operator, data-steward and export-review guides.
+- [x] Write draft operator, data-steward and export-review guidance. Evidence: `docs/federated-node-004-operator-guide.md` and threat model; approval remains open.
 - [ ] Complete independent synthetic-node execution.
 - [ ] Prepare controlled-environment pilot protocol and application pack.
 - [ ] Complete a pilot before v1 or remove controlled-pilot claims from scope.
@@ -40,7 +40,7 @@
 ## Phase 5 — Review
 
 - [ ] Conduct scientific, privacy, security and engineering review.
-- [ ] Record residual risks and required local controls.
+- [x] Record residual risks and required local controls. Evidence: `docs/federated-node-004-threat-model.md`; external review remains open.
 - [ ] Release the node alpha only after all blocking findings close.
 
 ## Dependency review — 2026-07-27

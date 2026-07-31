@@ -4,9 +4,11 @@ import pytest
 
 from rareburden.node import (
     NodeExportError,
+    amend_execution_manifest,
     build_execution_manifest,
     build_synthetic_cohort,
     capture_environment,
+    redact_node_log,
     run_offline_node,
     validate_aggregate_export,
     validate_version_compatibility,
@@ -117,3 +119,34 @@ def test_manifest_supports_non_success_terminal_states(status: str) -> None:
         status=status,
     )
     assert manifest["status"] == status
+
+
+def test_correction_creates_superseding_manifest_without_mutating_original() -> None:
+    original = build_execution_manifest(
+        execution_id="exec-original",
+        coordinator_version="0.1.0",
+        node_version="0.1.1",
+        analysis_id="analysis-1",
+        policy_id="policy-1",
+        input_fingerprint="sha256:input",
+    )
+    corrected = amend_execution_manifest(
+        original,
+        correction_reason="fixed synthetic aggregation",
+        replacement_execution_id="exec-corrected",
+    )
+    assert original["execution_id"] == "exec-original"
+    assert corrected["execution_id"] == "exec-corrected"
+    assert corrected["supersedes_execution_id"] == "exec-original"
+    assert corrected["status"] == "prepared"
+
+
+def test_node_log_redaction_is_recursive_and_preserves_safe_metadata() -> None:
+    redacted = redact_node_log(
+        {"execution_id": "exec-1", "token": "secret", "nested": [{"person_id": "P1"}]}
+    )
+    assert redacted == {
+        "execution_id": "exec-1",
+        "token": "[REDACTED]",
+        "nested": [{"person_id": "[REDACTED]"}],
+    }
