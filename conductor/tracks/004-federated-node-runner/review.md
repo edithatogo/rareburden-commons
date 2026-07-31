@@ -94,6 +94,13 @@ value-free query-shape fingerprints, immutable in-memory ledger snapshots and a
 deterministic integrity-checked bundle for locally supplied wheels. These close
 the repository-owned reference gaps without creating custodian authority.
 
+The durable reference store now serialises query registration, preserves policy
+snapshots and value-free receipts across restarts, enforces replay and overlap
+budgets transactionally, and detects schema/receipt tampering. It deliberately
+does not claim that a local SQLite file is an authoritative custodian-controlled
+system; deployment ownership, access control, backup, signed checkpoints and
+operational approval remain open.
+
 Production approval of the common analysis contract, a complete pre-staged and
 locked dependency wheel set, custodian-controlled durable policy/query storage
 and clean second-operator installation remain open behind Tracks 009/010 and the

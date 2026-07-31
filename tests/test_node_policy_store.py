@@ -1,0 +1,196 @@
+from __future__ import annotations
+
+import sqlite3
+from pathlib import Path
+
+import pytest
+
+from rareburden.node_policy_store import DurableNodePolicyStore, NodePolicyStoreError
+
+
+def _policy(*, budget: int = 1) -> dict[str, object]:
+    return {
+        "schema_version": "0.1.0",
+        "policy_id": "synthetic-policy",
+        "minimum_cell_count": 5,
+        "max_queries_per_overlap_group": budget,
+        "allowed_dimension_fields": ["group", "diagnosis"],
+        "participant_fields": ["participant_id", "person_id"],
+        "export_mode": "aggregate_only",
+    }
+
+
+def _shape(analysis_id: str = "synthetic-analysis") -> dict[str, object]:
+    return {"analysis_id": analysis_id, "dimensions": ["group"], "measure": "count"}
+
+
+def test_store_persists_policy_and_value_free_query_chain(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        policy = store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        query = store.register_query(
+            _shape(),
+            overlap_group="synthetic-overlap",
+            policy_id=policy.policy_id,
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+        assert query.sequence == 1
+        assert query.previous_chain_sha256 is None
+        assert store.verify() == (1, 1)
+    with DurableNodePolicyStore(database) as reopened:
+        assert reopened.verify() == (1, 1)
+
+
+def test_store_rejects_replay_and_budget_across_restarts(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        store.register_query(
+            _shape(),
+            overlap_group="synthetic-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+    with DurableNodePolicyStore(database) as store:
+        with pytest.raises(NodePolicyStoreError, match="duplicate"):
+            store.register_query(
+                _shape(),
+                overlap_group="different-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:02:00Z",
+            )
+        with pytest.raises(NodePolicyStoreError, match="budget exhausted"):
+            store.register_query(
+                _shape("second-analysis"),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:03:00Z",
+            )
+        assert store.verify() == (1, 1)
+
+
+def test_store_serialises_competing_budget_registration(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    first = DurableNodePolicyStore(database)
+    second = DurableNodePolicyStore(database)
+    try:
+        first.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        first.register_query(
+            _shape("first-analysis"),
+            overlap_group="shared-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+        with pytest.raises(NodePolicyStoreError, match="budget exhausted"):
+            second.register_query(
+                _shape("second-analysis"),
+                overlap_group="shared-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:02:00Z",
+            )
+    finally:
+        second.close()
+        first.close()
+
+
+def test_store_rejects_unknown_policy_sensitive_identifiers_and_bad_time(tmp_path: Path) -> None:
+    with DurableNodePolicyStore(tmp_path / "node-policy.sqlite3") as store:
+        with pytest.raises(NodePolicyStoreError, match="not registered"):
+            store.register_query(
+                _shape(),
+                overlap_group="synthetic-overlap",
+                policy_id="missing-policy",
+                recorded_at="2026-08-01T00:00:00Z",
+            )
+        with pytest.raises(NodePolicyStoreError, match="bounded non-sensitive"):
+            store.register_policy(
+                {**_policy(), "policy_id": "person name@example.org"},
+                recorded_at="2026-08-01T00:00:00Z",
+            )
+        with pytest.raises(NodePolicyStoreError, match="timezone"):
+            store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00")
+
+
+def test_store_triggers_and_verifier_detect_tampering(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        store.register_query(
+            _shape(),
+            overlap_group="synthetic-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+    connection = sqlite3.connect(database)
+    with pytest.raises(sqlite3.DatabaseError, match="immutable"):
+        connection.execute("DELETE FROM query_receipts")
+    connection.execute("DROP TRIGGER query_receipts_no_update")
+    connection.execute("UPDATE query_receipts SET chain_sha256 = ?", ("0" * 64,))
+    connection.commit()
+    connection.close()
+    with (
+        DurableNodePolicyStore(database) as store,
+        pytest.raises(NodePolicyStoreError, match="receipt integrity"),
+    ):
+        store.verify()
+
+
+def test_verifier_replays_policy_budget_after_privileged_insert(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        first = store.register_query(
+            _shape("first-analysis"),
+            overlap_group="shared-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+    connection = sqlite3.connect(database)
+    connection.execute("DROP TRIGGER query_receipts_no_update")
+    connection.execute("DROP TRIGGER query_receipts_no_delete")
+    connection.execute(
+        """
+        INSERT INTO query_receipts (
+            query_fingerprint, overlap_group, analysis_id, policy_id,
+            dimensions_json, measure, previous_chain_sha256,
+            chain_sha256, recorded_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            "sha256:" + "1" * 64,
+            "shared-overlap",
+            "second-analysis",
+            "synthetic-policy",
+            '["group"]',
+            "count",
+            first.chain_sha256,
+            "2" * 64,
+            "2026-08-01T00:02:00Z",
+        ),
+    )
+    connection.commit()
+    connection.close()
+    with (
+        DurableNodePolicyStore(database) as store,
+        pytest.raises(NodePolicyStoreError, match="policy integrity"),
+    ):
+        store.verify()
+
+
+def test_store_rejects_symlink_database(tmp_path: Path) -> None:
+    target = tmp_path / "target.sqlite3"
+    target.touch()
+    link = tmp_path / "link.sqlite3"
+    link.symlink_to(target)
+    with pytest.raises(NodePolicyStoreError, match="unsafe"):
+        DurableNodePolicyStore(link)
+
+
+def test_store_rejects_precreated_incompatible_schema(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    connection = sqlite3.connect(database)
+    connection.execute("CREATE TABLE disclosure_policies (policy_id TEXT PRIMARY KEY)")
+    connection.commit()
+    connection.close()
+    with pytest.raises(NodePolicyStoreError, match="schema is incompatible"):
+        DurableNodePolicyStore(database)
