@@ -24,6 +24,18 @@ seeded beta uncertainty propagation, unit guards and prohibited DALY/cost
 shortcuts are covered by existing focused tests. This is synthetic assurance
 only and does not activate Track 010 or freeze a Track 003 interface.
 
+### Preparatory assurance rerun — 2026-07-31
+
+The bounded synthetic engine now emits explicit non-estimability records without
+imputation and can execute two to twenty named structural scenarios while
+holding the analysis identity, estimand, output unit and intended use invariant.
+Each scenario retains its analysis-result ID, ledger ID, parameter IDs and
+parameter fingerprints, and reports its mean change from the declared baseline.
+Reproducibility and fail-closed missing-input/invariant tests pass.
+
+This does not approve the scenario set, establish a dependence model, complete
+formal uncertainty decomposition or freeze an alpha interface.
+
 ### Blocker resolution matrix — 2026-07-29
 
 | Blocker | Repository action | Status | Remaining gate |
@@ -31,7 +43,7 @@ only and does not activate Track 010 or freeze a Track 003 interface.
 | Undefined alpha estimands | Synthetic reference defines affected-population and rare-aetiology cases, units and invalid operations | resolved locally | Scientific/statistical approval |
 | Unbounded uncertainty behaviour | Seeded beta propagation records seed/draws/unit and has deterministic regression coverage | resolved locally | Scientific review of distribution assumptions |
 | Unsafe health-loss/cost shortcut | DALY/YLD/YLL/cost case-fraction allocation fails closed with a targeted negative test | resolved locally | Scientific and patient/community interpretation review |
-| Correlation and structural scenarios | Explicitly unsupported in alpha documentation; no silent independence claim | bounded | Contract decision before implementation |
+| Correlation and structural scenarios | Bounded named synthetic scenarios are implemented; correlation remains explicitly unsupported with no silent independence claim | partial | Scientific approval of scenario and dependence contracts |
 | Track 009 dependency | No ledger activation or downstream interface freeze performed | pending | Track 009 completion |
 
 ## Disposition

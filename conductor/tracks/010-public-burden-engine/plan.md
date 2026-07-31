@@ -4,7 +4,7 @@
 
 - [x] Define supported estimands, inputs, outputs and invalid operations. `[M-03]` Evidence: synthetic reference contract in `docs/burden-engine-010-reference.md` and existing burden tests.
 - [x] Define supported distribution specification (seeded beta fraction propagation); correlation specifications remain out of scope pending contract review.
-- [ ] Define structural scenarios and missingness outputs.
+- [x] Define bounded structural-scenario and fail-closed missingness outputs. Evidence: `rareburden.burden_assurance`, focused reproducibility/negative tests and `docs/burden-engine-010-reference.md`; scientific approval remains open.
 - [ ] Link all inputs and outputs to ledger IDs. `[M-11]`
 
 ## Phase 2 — Deterministic engine
@@ -12,7 +12,7 @@
 - [x] Implement expected affected-population calculations. `[S-04]` Evidence: `expected_affected_population` and tests.
 - [x] Implement rare-aetiology composition calculations. Evidence: `rare_aetiology_cases` and tests.
 - [x] Implement unit, metric and population compatibility guards. Evidence: fail-closed burden tests.
-- [ ] Add lineage-preserving result objects.
+- [x] Add lineage-preserving result objects. Evidence: analysis results and structural-scenario records retain ledger ID, parameter IDs, parameter fingerprints and result IDs with schema-valid base-result coverage.
 
 ## Phase 3 — Uncertainty engine
 
