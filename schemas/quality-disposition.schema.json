@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/quality-disposition.schema.json",
+  "title": "RareBurden fitness-for-use disposition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "disposition_id",
+    "analysis_id",
+    "created_at",
+    "intended_use",
+    "evidence_assessment_ids",
+    "transportability_assessment_ids",
+    "eligible_for_primary_analysis",
+    "eligible_for_synthetic_assurance",
+    "evidence_decisions",
+    "transportability_decisions",
+    "blockers",
+    "note"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "disposition_id": {"type": "string", "pattern": "^qdp-[0-9a-f]{24}$"},
+    "analysis_id": {"type": "string", "minLength": 3},
+    "created_at": {"type": "string", "format": "date-time"},
+    "intended_use": {
+      "enum": ["synthetic_assurance", "exploratory", "primary_estimate", "policy_decision"]
+    },
+    "evidence_assessment_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^eqa-[0-9a-f]{24}$"}
+    },
+    "transportability_assessment_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^tra-[0-9a-f]{24}$"}
+    },
+    "eligible_for_primary_analysis": {"type": "boolean"},
+    "eligible_for_synthetic_assurance": {"type": "boolean"},
+    "evidence_decisions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["direct_use", "use_with_adjustment", "sensitivity_only", "unsuitable", "unclear"]
+      }
+    },
+    "transportability_decisions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"enum": ["direct", "adjusted", "sensitivity_only", "not_transportable", "unclear"]}
+    },
+    "blockers": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 3}
+    },
+    "note": {
+      "const": "This is a rule-based disposition, not a numeric or weighted quality score."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"eligible_for_primary_analysis": {"const": true}},
+        "required": ["eligible_for_primary_analysis"]
+      },
+      "then": {"properties": {"blockers": {"maxItems": 0}}}
+    },
+    {
+      "if": {
+        "properties": {"intended_use": {"const": "synthetic_assurance"}},
+        "required": ["intended_use"]
+      },
+      "then": {"properties": {"eligible_for_synthetic_assurance": {"const": true}}}
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+schema_version: 0.1.0
+mapping_set_id: orpha-to-synthetic-diabetes
+title: Synthetic ORPHA-to-RareBurden mapping set
+version: 0.1.0
+source_system: ORPHA
+source_version: synthetic-2026-07
+target_system: RareBurden synthetic hierarchy
+target_version: 0.1.0
+mappings:
+- source_code: '552'
+  target_code: mody
+  relation: exact
+  confidence: high
+  status: accepted
+  rationale: Synthetic mapping for assurance.
+  evidence_refs:
+  - synthetic-fixture-orphadata-552
+- source_code: '791'
+  target_code: neonatal-diabetes
+  relation: exact
+  confidence: high
+  status: accepted
+  rationale: Synthetic mapping for assurance.
+  evidence_refs:
+  - synthetic-fixture-orphadata-791
+limitations:
+- This mapping set is synthetic and not a clinical terminology product.

@@ -1,0 +1,41 @@
+schema_version: 1.0.0
+parameter_id: rare-diabetes-fraction-synthetic
+assessed_at: '2026-07-19T00:00:00Z'
+source_context:
+  geography: Synthetic source context
+  calendar_period: Synthetic 2026 fixture
+  population: Synthetic diabetes envelope
+  case_definition: Synthetic rare-aetiology fraction
+  ascertainment: No empirical ascertainment
+  health_system: Not applicable
+target_context:
+  geography: Synthetic Australia example
+  calendar_period: Synthetic 2026 fixture
+  population: Synthetic national population
+  case_definition: Synthetic rare-diabetes fraction
+  ascertainment: No empirical ascertainment
+  health_system: Not applicable
+differences:
+- domain: geography
+  materiality: moderate
+  direction: uncertain
+  rationale: The synthetic source and target labels differ and no empirical transport
+    claim is possible.
+  evidence_refs:
+  - synthetic-assumption-record
+method:
+  strategy: scenario_analysis
+  description: Use the assumed fraction only as a transparent synthetic scenario with
+    widened uncertainty.
+  assumptions:
+  - No empirical target-population validity is claimed.
+judgement:
+  use: sensitivity_only
+  uncertainty_multiplier: 2.0
+  rationale: The parameter is suitable only for synthetic sensitivity analysis and
+    not a primary estimate.
+validation_plan:
+- Replace the synthetic assumption with a registered empirical evidence synthesis
+  before primary use.
+limitations:
+- No empirical source-to-target transportability is asserted.

@@ -48,7 +48,9 @@ def load_schema(path: Path) -> dict[str, Any]:
 def _schema_errors(catalog: dict[str, Any], schema: dict[str, Any]) -> list[str]:
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
     errors: list[str] = []
-    for error in sorted(validator.iter_errors(catalog), key=lambda item: list(item.path)):
+    for error in sorted(
+        validator.iter_errors(catalog), key=lambda item: tuple(str(part) for part in item.path)
+    ):
         location = ".".join(str(part) for part in error.absolute_path) or "<root>"
         errors.append(f"{location}: {error.message}")
     return errors
@@ -60,7 +62,11 @@ def _invariant_errors(catalog: dict[str, Any]) -> list[str]:
     if not isinstance(sources, list):
         return errors
 
-    ids = [source.get("source_id") for source in sources if isinstance(source, dict)]
+    ids = [
+        str(source["source_id"])
+        for source in sources
+        if isinstance(source, dict) and isinstance(source.get("source_id"), str)
+    ]
     duplicate_ids = sorted(source_id for source_id, count in Counter(ids).items() if count > 1)
     if duplicate_ids:
         errors.append(f"Duplicate source_id values: {', '.join(duplicate_ids)}")
@@ -86,6 +92,27 @@ def _invariant_errors(catalog: dict[str, Any]) -> list[str]:
                 date.fromisoformat(str(value))
             except ValueError:
                 errors.append(f"{source_id}.{field}: must be an ISO 8601 date")
+
+        verification = source.get("verification", {})
+        if isinstance(verification, dict):
+            for check_name, check in verification.items():
+                if not isinstance(check, dict):
+                    continue
+                verified_at = check.get("verified_at")
+                try:
+                    date.fromisoformat(str(verified_at))
+                except ValueError:
+                    errors.append(
+                        f"{source_id}.verification.{check_name}.verified_at: "
+                        "must be an ISO 8601 date"
+                    )
+
+        levels = source.get("geographic_levels", [])
+        maximum = source.get("maximum_geographic_resolution")
+        if isinstance(levels, list) and maximum not in levels:
+            errors.append(
+                f"{source_id}: maximum_geographic_resolution must appear in geographic_levels"
+            )
 
         if source.get("data_level") == "individual_level" and source.get("redistribution") == "yes":
             errors.append(

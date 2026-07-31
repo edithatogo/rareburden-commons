@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using the metadata below.
+type: software
+title: RareBurden Commons
+abstract: RareBurden Commons provides data-acquisition, provenance, semantic, evidence-ledger,
+  burden-estimation, federated-analysis and release-assurance components for the Global
+  Rare Disease Burden Initiative. Pre-v1 releases are research software and synthetic
+  assurance infrastructure, not clinical decision-support tools or definitive global
+  burden estimates.
+authors:
+- name: RareBurden Commons contributors
+version: 0.3.0rc2
+date-released: 2026-07-19
+license: Apache-2.0
+keywords:
+- burden of disease
+- epidemiology
+- federated analysis
+- health economics
+- provenance
+- rare diseases
+- reproducible research

@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/normalised-record.schema.json",
+  "title": "RareBurden normalised observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "source_id",
+    "source_release_id",
+    "acquisition_manifest_id",
+    "transformation_id",
+    "record_type",
+    "sex",
+    "measure",
+    "metric",
+    "unit",
+    "evidence_status",
+    "attributes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "source_release_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "acquisition_manifest_id": {
+      "type": "string",
+      "pattern": "^acq-[0-9a-f]{24}$"
+    },
+    "transformation_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "population_estimate",
+        "indicator_estimate",
+        "disease_entity"
+      ]
+    },
+    "geography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code_system",
+        "code",
+        "label",
+        "level"
+      ],
+      "properties": {
+        "code_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "year"
+      ],
+      "properties": {
+        "year": {
+          "type": "integer",
+          "minimum": 1800,
+          "maximum": 2300
+        },
+        "start_year": {
+          "type": "integer"
+        },
+        "end_year": {
+          "type": "integer"
+        }
+      }
+    },
+    "age": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "start_years",
+        "end_years"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_years": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "end_years": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "open_ended": {
+          "type": "boolean"
+        }
+      }
+    },
+    "sex": {
+      "type": "string",
+      "enum": [
+        "female",
+        "male",
+        "intersex",
+        "all",
+        "other",
+        "unknown",
+        "not_applicable"
+      ]
+    },
+    "measure": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metric": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value": {
+      "type": "number"
+    },
+    "lower": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "upper": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "evidence_status": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "derived",
+        "modelled",
+        "transferred",
+        "assumed"
+      ]
+    },
+    "indicator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "label"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "disease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system",
+        "code",
+        "label"
+      ],
+      "properties": {
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "attributes": {
+      "type": "object"
+    }
+  }
+}

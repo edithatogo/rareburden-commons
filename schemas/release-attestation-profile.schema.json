@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/release-attestation-profile.schema.json",
+  "title": "Release attestation verification profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "repository",
+    "signer_workflow",
+    "oidc_issuer",
+    "predicate_type",
+    "source_ref_pattern",
+    "deny_self_hosted_runners",
+    "trusted_root_refresh_policy",
+    "activation_state"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "repository": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "signer_workflow": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/\\.github/workflows/[A-Za-z0-9_.-]+\\.ya?ml$"
+    },
+    "oidc_issuer": {"const": "https://token.actions.githubusercontent.com"},
+    "predicate_type": {"const": "https://slsa.dev/provenance/v1"},
+    "source_ref_pattern": {
+      "type": "string",
+      "const": "^refs/tags/v[0-9]+\\.[0-9]+\\.[0-9]+(?:-(?:a|b|rc)\\.[0-9]+)?$"
+    },
+    "deny_self_hosted_runners": {"const": true},
+    "trusted_root_refresh_policy": {"const": "per_release"},
+    "activation_state": {
+      "const": "repository_profile_approved_custodian_acceptance_pending"
+    }
+  }
+}

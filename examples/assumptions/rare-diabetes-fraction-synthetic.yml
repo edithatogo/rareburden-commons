@@ -1,0 +1,17 @@
+schema_version: 0.1.0
+assumption_id: asm-rare-diabetes-fraction-synthetic
+revision: 1
+title: Synthetic rare-diabetes fraction
+rationale: >-
+  A synthetic beta distribution is used only to exercise deterministic
+  uncertainty and provenance contracts without implying empirical evidence.
+assumption_type: distributional
+analysis_ids:
+- expected-population-synthetic
+parameter_ids:
+- rare-diabetes-fraction-synthetic
+status: draft
+created_at: '2026-07-31T00:00:00Z'
+owner_role: Statistical and Scientific Software Leads
+limitations:
+- This assumption is non-binding and unsuitable for empirical interpretation.

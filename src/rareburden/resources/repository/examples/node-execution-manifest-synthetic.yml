@@ -1,0 +1,11 @@
+schema_version: 0.1.0
+execution_id: exec-synthetic-001
+coordinator_version: 0.1.0
+node_version: 0.1.0
+analysis_id: synthetic-assurance
+policy_id: synthetic-aggregate-v1
+status: completed
+input_fingerprint: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+output_fingerprint: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+limitations:
+- No controlled or participant-level data.

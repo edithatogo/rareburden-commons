@@ -1,0 +1,7 @@
+aggregation_id: monogenic-diabetes-composition
+unit: people
+require_complete: true
+counts:
+  mody: 40
+  neonatal-diabetes: 10
+  other-monogenic-diabetes: 5

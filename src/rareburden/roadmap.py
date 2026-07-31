@@ -102,7 +102,7 @@ def _dependency_errors(tracks: dict[str, dict[str, Any]]) -> list[str]:
             elif dependency not in tracks:
                 errors.append(f"{track_id}: unknown dependency {dependency}")
 
-    state: dict[str, int] = {track_id: 0 for track_id in tracks}
+    state: dict[str, int] = dict.fromkeys(tracks, 0)
     stack: list[str] = []
 
     def visit(track_id: str) -> None:
@@ -110,7 +110,7 @@ def _dependency_errors(tracks: dict[str, dict[str, Any]]) -> list[str]:
             return
         if state[track_id] == 1:
             start = stack.index(track_id)
-            cycle = stack[start:] + [track_id]
+            cycle = [*stack[start:], track_id]
             errors.append(f"dependency cycle: {' -> '.join(cycle)}")
             return
         state[track_id] = 1
@@ -136,7 +136,16 @@ def _load_tracks(
     if not tracks_root.is_dir():
         return tracks, [f"Track directory not found: {tracks_root}"]
 
-    track_dirs = sorted(path for path in tracks_root.iterdir() if path.is_dir())
+    roots = [tracks_root]
+    archive_root = tracks_root.parent / "archive"
+    if archive_root.is_dir():
+        roots.append(archive_root)
+    track_dirs = sorted(
+        path
+        for root in roots
+        for path in root.iterdir()
+        if path.is_dir() and path.name != "README.md"
+    )
     for track_dir in track_dirs:
         if not TRACK_ID_RE.fullmatch(track_dir.name):
             errors.append(f"Unexpected track directory name: {track_dir.name}")
@@ -154,9 +163,7 @@ def _load_tracks(
         errors.extend(_schema_errors(metadata, track_schema, track_dir.name))
         track_id = metadata.get("id")
         if track_id != track_dir.name:
-            errors.append(
-                f"{track_dir.name}: metadata id {track_id!r} must match directory name"
-            )
+            errors.append(f"{track_dir.name}: metadata id {track_id!r} must match directory name")
         if isinstance(track_id, str):
             if track_id in tracks:
                 errors.append(f"Duplicate track id: {track_id}")
@@ -191,16 +198,14 @@ def _roadmap_invariant_errors(
 
     versions = [release.get("version") for release in releases if isinstance(release, dict)]
     duplicate_versions = sorted(
-        version for version, count in Counter(versions).items() if count > 1
+        str(version) for version, count in Counter(versions).items() if count > 1
     )
     if duplicate_versions:
         duplicate_text = ", ".join(str(version) for version in duplicate_versions)
         errors.append(f"Duplicate release versions: {duplicate_text}")
 
     valid_versions = [
-        version
-        for version in versions
-        if isinstance(version, str) and SEMVER_RE.fullmatch(version)
+        version for version in versions if isinstance(version, str) and SEMVER_RE.fullmatch(version)
     ]
     if len(valid_versions) == len(versions):
         ordered = sorted(valid_versions, key=_semver_tuple)
@@ -249,22 +254,78 @@ def _roadmap_invariant_errors(
                 f"Roadmap assigns unknown track {track_id} to {', '.join(assigned_versions)}"
             )
 
+    status_rank = {"released": 0, "current": 1, "planned": 2, "cancelled": 3}
+    seen_ranks = [status_rank.get(str(release.get("status")), 99) for release in releases]
+    if seen_ranks != sorted(seen_ranks):
+        errors.append("Release statuses must progress from released to current to planned")
+
+    current_version = current[0] if len(current) == 1 else None
+    for release in releases:
+        if not isinstance(release, dict):
+            continue
+        version = release.get("version")
+        status = release.get("status")
+        release_tracks = [str(item) for item in release.get("tracks", [])]
+        if status == "released":
+            incomplete = [
+                track_id
+                for track_id in release_tracks
+                if tracks.get(track_id, {}).get("status") not in {"complete", "archived"}
+            ]
+            if incomplete:
+                errors.append(
+                    f"Release {version} is released but tracks are not complete: "
+                    f"{', '.join(sorted(incomplete))}"
+                )
+        if status == "cancelled":
+            non_archived = [
+                track_id
+                for track_id in release_tracks
+                if tracks.get(track_id, {}).get("status") != "archived"
+            ]
+            if non_archived:
+                errors.append(
+                    f"Release {version} is cancelled but tracks are not archived: "
+                    f"{', '.join(sorted(non_archived))}"
+                )
+
     for track_id, metadata in tracks.items():
         target = metadata.get("target_release")
         status = metadata.get("status")
         target_status = release_status.get(str(target))
-        if status == "complete" and target_status != "released":
+        if status == "complete" and target_status not in {"released", "current"}:
             errors.append(
-                f"{track_id}: complete track targets non-released version {target!r}"
+                f"{track_id}: complete track targets release with status {target_status!r}"
             )
-        if status in {"active", "ready"} and target_status != "current":
+        if status in {"active", "ready", "in_review"} and target_status != "current":
             errors.append(
                 f"{track_id}: {status} track must target the current release, not {target!r}"
             )
-        if status == "planned" and target_status not in {"planned", "current"}:
+        if status in {"planned", "proposed"} and target_status not in {"planned", "current"}:
             errors.append(
-                f"{track_id}: planned track targets release with status {target_status!r}"
+                f"{track_id}: {status} track targets release with status {target_status!r}"
             )
+        if status == "blocked" and target_status not in {"current", "planned"}:
+            errors.append(
+                f"{track_id}: blocked track targets release with status {target_status!r}"
+            )
+        if status == "archived" and target_status not in {"released", "current", "cancelled"}:
+            errors.append(
+                f"{track_id}: archived track must target a cancelled release, not {target!r}"
+            )
+
+    if current_version is not None:
+        current_tuple = _semver_tuple(str(current_version))
+        for version, status in release_status.items():
+            version_tuple = _semver_tuple(version)
+            if status == "released" and version_tuple >= current_tuple:
+                errors.append(
+                    f"Released version {version} must precede current version {current_version}"
+                )
+            if status == "planned" and version_tuple <= current_tuple:
+                errors.append(
+                    f"Planned version {version} must follow current version {current_version}"
+                )
 
     programme = roadmap.get("programme", {})
     for field in ("roadmap_document", "stable_acceptance_contract"):
@@ -278,17 +339,13 @@ def _roadmap_invariant_errors(
         if document_path.is_file():
             document = document_path.read_text(encoding="utf-8")
             for track_id, metadata in sorted(tracks.items()):
-                target = root / "conductor" / "tracks" / track_id / "spec.md"
-                relative_target = os.path.relpath(target, document_path.parent).replace(
-                    os.sep, "/"
-                )
-                canonical_reference = (
-                    f"[{track_id} — {metadata['title']}]({relative_target})"
-                )
+                directory = "archive" if metadata.get("status") == "archived" else "tracks"
+                target = root / "conductor" / directory / track_id / "spec.md"
+                relative_target = os.path.relpath(target, document_path.parent).replace(os.sep, "/")
+                canonical_reference = f"[{track_id} — {metadata['title']}]({relative_target})"
                 if canonical_reference not in document:
                     errors.append(
-                        "human roadmap missing canonical track reference: "
-                        f"{canonical_reference}"
+                        f"human roadmap missing canonical track reference: {canonical_reference}"
                     )
 
     return errors

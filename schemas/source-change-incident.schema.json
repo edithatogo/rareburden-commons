@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/source-change-incident.schema.json",
+  "title": "Source change incident",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "incident_id",
+    "source_id",
+    "release_id",
+    "requested_url",
+    "expected_sha256",
+    "observed_sha256",
+    "detected_at",
+    "status",
+    "required_action"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "incident_id": {"type": "string", "pattern": "^chg-[0-9a-f]{24}$"},
+    "source_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "release_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "requested_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+    "expected_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "observed_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "detected_at": {"type": "string", "format": "date-time"},
+    "status": {"const": "review_required"},
+    "required_action": {
+      "const": "Preserve the pinned release and repeat licence, source and scientific review before registering new bytes."
+    }
+  }
+}

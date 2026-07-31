@@ -1,0 +1,11 @@
+{
+  "activation_state": "repository_profile_approved_custodian_acceptance_pending",
+  "deny_self_hosted_runners": true,
+  "oidc_issuer": "https://token.actions.githubusercontent.com",
+  "predicate_type": "https://slsa.dev/provenance/v1",
+  "repository": "edithatogo/rareburden-commons",
+  "schema_version": "1.0.0",
+  "signer_workflow": "edithatogo/rareburden-commons/.github/workflows/release.yml",
+  "source_ref_pattern": "^refs/tags/v[0-9]+\\.[0-9]+\\.[0-9]+(?:-(?:a|b|rc)\\.[0-9]+)?$",
+  "trusted_root_refresh_policy": "per_release"
+}

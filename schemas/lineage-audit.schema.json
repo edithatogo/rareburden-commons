@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/lineage-audit.schema.json",
+  "title": "RareBurden lineage audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "lineage_audit_id", "release_id", "created_at", "status",
+    "transformation_run_ids", "expected_outputs", "exempt_outputs", "checks",
+    "failures", "summary"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "lineage_audit_id": {"type": "string", "pattern": "^audit-[0-9a-f]{24}$"},
+    "release_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "status": {"enum": ["passed", "failed"]},
+    "transformation_run_ids": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^run-[0-9a-f]{24}$"}
+    },
+    "expected_outputs": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/safePath"}},
+    "exempt_outputs": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/safePath"}},
+    "checks": {
+      "type": "array", "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["path", "status", "producer", "sha256"],
+        "properties": {
+          "path": {"$ref": "#/$defs/safePath"},
+          "status": {"const": "passed"},
+          "producer": {"type": "string", "pattern": "^run-[0-9a-f]{24}$"},
+          "sha256": {"$ref": "#/$defs/sha256"}
+        }
+      }
+    },
+    "failures": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "summary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["expected_output_count", "verified_output_count", "failure_count"],
+      "properties": {
+        "expected_output_count": {"type": "integer", "minimum": 0},
+        "verified_output_count": {"type": "integer", "minimum": 0},
+        "failure_count": {"type": "integer", "minimum": 0}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "passed"}}},
+      "then": {"properties": {"failures": {"maxItems": 0}, "summary": {"properties": {"failure_count": {"const": 0}}}}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "failed"}}},
+      "then": {"properties": {"failures": {"minItems": 1}}}
+    }
+  ],
+  "$defs": {
+    "safePath": {
+      "type": "string", "minLength": 1,
+      "not": {"anyOf": [
+        {"pattern": "^/"}, {"pattern": "(^|/)\\.\\.(/|$)"},
+        {"pattern": "^\\./"}, {"pattern": "\\\\"}
+      ]}
+    },
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

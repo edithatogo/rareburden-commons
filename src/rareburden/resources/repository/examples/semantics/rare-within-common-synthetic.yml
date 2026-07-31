@@ -1,0 +1,104 @@
+schema_version: 0.1.0
+hierarchy_id: rare-within-common-synthetic
+title: Synthetic rare-within-common diabetes burden hierarchy
+version: 0.1.0
+purpose: Demonstrate explicit mutually exclusive aggregation without making empirical
+  burden claims.
+entities:
+- entity_id: diabetes-envelope
+  preferred_label: Diabetes burden envelope
+  entity_type: common_envelope
+  aggregation_role: root
+  parents: []
+  codes:
+  - system: SYNTHETIC
+    code: DIABETES
+  definition: Synthetic common-disease envelope for assurance only.
+  limitations:
+  - Not an empirical disease definition.
+- entity_id: monogenic-diabetes
+  preferred_label: Monogenic diabetes
+  entity_type: rare_disease_group
+  aggregation_role: intermediate
+  parents:
+  - diabetes-envelope
+  codes:
+  - system: SYNTHETIC
+    code: MONOGENIC
+  definition: Synthetic parent grouping for monogenic diabetes.
+  limitations:
+  - Grouping requires clinical and ontology review before empirical use.
+- entity_id: polygenic-or-other-diabetes
+  preferred_label: Polygenic or other diabetes residual
+  entity_type: residual_group
+  aggregation_role: leaf
+  parents:
+  - diabetes-envelope
+  codes:
+  - system: SYNTHETIC
+    code: OTHER-DIABETES
+  definition: Explicit synthetic residual required to make the top-level example exhaustive.
+  limitations:
+  - Residual is not a clinical category.
+- entity_id: mody
+  preferred_label: Maturity-onset diabetes of the young
+  entity_type: rare_disease
+  aggregation_role: leaf
+  parents:
+  - monogenic-diabetes
+  codes:
+  - system: ORPHA
+    code: '552'
+  definition: Synthetic MODY demonstration entity.
+  limitations:
+  - No empirical estimates are attached.
+- entity_id: neonatal-diabetes
+  preferred_label: Neonatal diabetes mellitus
+  entity_type: rare_disease
+  aggregation_role: leaf
+  parents:
+  - monogenic-diabetes
+  codes:
+  - system: ORPHA
+    code: '791'
+  definition: Synthetic neonatal diabetes demonstration entity.
+  limitations:
+  - No empirical estimates are attached.
+- entity_id: other-monogenic-diabetes
+  preferred_label: Other or unclassified monogenic diabetes
+  entity_type: residual_group
+  aggregation_role: leaf
+  parents:
+  - monogenic-diabetes
+  codes:
+  - system: SYNTHETIC
+    code: OTHER-MONOGENIC
+  definition: Explicit residual for synthetic composition assurance.
+  limitations:
+  - Not an ontology assertion.
+aggregation_sets:
+- aggregation_id: diabetes-aetiology-composition
+  parent_entity_id: diabetes-envelope
+  member_entity_ids:
+  - monogenic-diabetes
+  - polygenic-or-other-diabetes
+  strategy: mutually_exclusive_sum
+  exhaustive: true
+  unclassified_member_id: polygenic-or-other-diabetes
+  rationale: Synthetic exhaustive split of the common envelope.
+  limitations:
+  - Valid only when member counts share population, period and ascertainment.
+- aggregation_id: monogenic-diabetes-composition
+  parent_entity_id: monogenic-diabetes
+  member_entity_ids:
+  - mody
+  - neonatal-diabetes
+  - other-monogenic-diabetes
+  strategy: mutually_exclusive_sum
+  exhaustive: true
+  unclassified_member_id: other-monogenic-diabetes
+  rationale: Synthetic mutually exclusive monogenic diabetes composition.
+  limitations:
+  - Real-world overlap and diagnostic uncertainty require empirical adjudication.
+limitations:
+- All entities and counts are synthetic assurance artefacts.

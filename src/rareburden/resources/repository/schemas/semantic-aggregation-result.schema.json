@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/semantic-aggregation-result.schema.json",
+  "title": "Semantic aggregation result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "result_id",
+    "hierarchy_id",
+    "hierarchy_version",
+    "hierarchy_fingerprint",
+    "aggregation_id",
+    "parent_entity_id",
+    "strategy",
+    "coverage",
+    "unit",
+    "value",
+    "inputs",
+    "missing_member_entity_ids",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "result_id": {
+      "type": "string",
+      "pattern": "^sem-[0-9a-f]{24}$"
+    },
+    "hierarchy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hierarchy_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "hierarchy_fingerprint": {
+      "type": "string",
+      "pattern": "^hier-[0-9a-f]{24}$"
+    },
+    "aggregation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_entity_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strategy": {
+      "const": "mutually_exclusive_sum"
+    },
+    "coverage": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "partial"
+      ]
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value": {
+      "type": "number",
+      "minimum": 0
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entity_id",
+          "value"
+        ],
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "missing_member_entity_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

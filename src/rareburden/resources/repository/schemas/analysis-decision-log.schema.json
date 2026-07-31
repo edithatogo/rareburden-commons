@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/analysis-decision-log.schema.json",
+  "title": "RareBurden analytic decision and deviation log",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "analysis_decision_log_id", "analysis_id", "protocol_registration_id", "created_at", "decisions", "deviations", "deviation_status", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "analysis_decision_log_id": {"type": "string", "pattern": "^decisions-[0-9a-f]{24}$"},
+    "analysis_id": {"type": "string", "minLength": 3},
+    "protocol_registration_id": {"type": "string", "pattern": "^protocol-[0-9a-f]{24}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "decisions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["decision_id", "decision_type", "timing", "description", "rationale", "consequence", "recorded_at", "status", "evidence"],
+        "properties": {
+          "decision_id": {"type": "string", "minLength": 2},
+          "decision_type": {"enum": ["design", "data", "semantic", "model", "uncertainty", "quality", "reporting"]},
+          "timing": {"enum": ["prospective", "implementation", "post_hoc"]},
+          "description": {"type": "string", "minLength": 3},
+          "rationale": {"type": "string", "minLength": 3},
+          "consequence": {"type": "string", "minLength": 3},
+          "recorded_at": {"type": "string", "format": "date-time"},
+          "status": {"type": "string", "minLength": 2},
+          "evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "deviations": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["deviation_id", "classification", "planned", "actual", "rationale", "impact", "recorded_at", "resolution"],
+        "properties": {
+          "deviation_id": {"type": "string", "minLength": 2},
+          "classification": {"enum": ["minor", "major", "critical"]},
+          "planned": {"type": "string", "minLength": 3},
+          "actual": {"type": "string", "minLength": 3},
+          "rationale": {"type": "string", "minLength": 3},
+          "impact": {"type": "string", "minLength": 3},
+          "recorded_at": {"type": "string", "format": "date-time"},
+          "resolution": {"type": "string", "minLength": 3}
+        }
+      }
+    },
+    "deviation_status": {"enum": ["none_recorded", "recorded"]},
+    "limitations": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  }
+}

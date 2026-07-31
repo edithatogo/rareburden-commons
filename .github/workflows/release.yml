@@ -1,0 +1,107 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-attest-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment: release
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
+        with:
+          version: "0.10.0"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Install locked release environment
+        run: |
+          uv python install "3.13"
+          uv sync --frozen --extra dev --python "3.13"
+      - name: Verify exact tag and run release harness
+        run: |
+          uv run --python "3.13" python scripts/check_release_identity.py --root . --tag "$GITHUB_REF_NAME"
+          uv run --python "3.13" make release-check
+      - name: Stage offline verification inputs
+        run: |
+          mkdir -p attestation-evidence
+          cp scripts/verify_release_attestation.py attestation-evidence/verify_release_attestation.py
+          cp examples/config/release-attestation-profile.json attestation-evidence/profile.json
+      - name: Generate checksums
+        run: |
+          sha256sum \
+            dist/* \
+            rareburden.cdx.json \
+            attestation-evidence/profile.json \
+            attestation-evidence/verify_release_attestation.py \
+            > SHA256SUMS
+      - name: Attest build provenance
+        id: attest_provenance
+        uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6
+        with:
+          subject-path: |
+            dist/*
+            rareburden.cdx.json
+            SHA256SUMS
+            attestation-evidence/profile.json
+            attestation-evidence/verify_release_attestation.py
+      - name: Attest SBOM
+        id: attest_sbom
+        uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6
+        with:
+          subject-path: dist/*
+          sbom-path: rareburden.cdx.json
+      - name: Prepare offline attestation evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROVENANCE_BUNDLE: ${{ steps.attest_provenance.outputs.bundle-path }}
+          SBOM_BUNDLE: ${{ steps.attest_sbom.outputs.bundle-path }}
+        run: |
+          mkdir -p attestation-evidence
+          cp "$PROVENANCE_BUNDLE" attestation-evidence/provenance.sigstore.json
+          cp "$SBOM_BUNDLE" attestation-evidence/sbom.sigstore.json
+          gh attestation trusted-root > attestation-evidence/trusted_root.jsonl
+          sha256sum \
+            attestation-evidence/profile.json \
+            attestation-evidence/provenance.sigstore.json \
+            attestation-evidence/sbom.sigstore.json \
+            attestation-evidence/trusted_root.jsonl \
+            attestation-evidence/verify_release_attestation.py \
+            > attestation-evidence/SHA256SUMS
+      - name: Publish immutable GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            dist/* rareburden.cdx.json SHA256SUMS attestation-evidence/* \
+            --verify-tag --generate-notes
+      - name: Retain release evidence
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: release-evidence-${{ github.ref_name }}
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            dist/*
+            rareburden.cdx.json
+            SHA256SUMS
+            attestation-evidence/*

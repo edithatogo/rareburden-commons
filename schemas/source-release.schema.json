@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/source-release.schema.json",
+  "title": "Source release",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source_release_id",
+    "source_id",
+    "release_id",
+    "source_url",
+    "licence_state",
+    "licence_reference",
+    "acquisition_manifest",
+    "registered_at",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "source_release_id": {
+      "type": "string",
+      "minLength": 12
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "release_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "licence_state": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "conditional",
+        "unknown",
+        "not_applicable",
+        "restricted"
+      ]
+    },
+    "licence_reference": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "acquisition_manifest": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "registered_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

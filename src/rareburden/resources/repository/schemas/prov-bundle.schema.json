@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/prov-bundle.schema.json",
+  "title": "RareBurden W3C PROV-O JSON-LD bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["@context", "@id", "@graph", "rb:canonicalDigest"],
+  "properties": {
+    "@context": {
+      "type": "object",
+      "required": ["prov", "schema", "rb"],
+      "properties": {
+        "prov": {"const": "http://www.w3.org/ns/prov#"},
+        "schema": {"const": "https://schema.org/"},
+        "rb": {"const": "https://rareburden.org/ns#"}
+      },
+      "additionalProperties": true
+    },
+    "@id": {"type": "string", "pattern": "^urn:rareburden:provenance:[0-9a-f]{24}$"},
+    "@graph": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["@id", "@type"],
+        "properties": {
+          "@id": {"type": "string", "minLength": 8},
+          "@type": {
+            "oneOf": [
+              {"type": "string", "minLength": 3},
+              {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 3}}
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "rb:canonicalDigest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

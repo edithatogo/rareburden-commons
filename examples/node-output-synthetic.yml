@@ -1,0 +1,9 @@
+schema_version: 0.1.0
+manifest:
+  execution_id: exec-synthetic-001
+rows:
+- diagnosis: condition-a
+  count: 8
+  count_status: released
+- count: null
+  count_status: suppressed

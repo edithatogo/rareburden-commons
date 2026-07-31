@@ -1,0 +1,43 @@
+[
+  {
+    "page": 1,
+    "pages": 1,
+    "per_page": 50,
+    "total": 2,
+    "sourceid": "2"
+  },
+  [
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "AU",
+        "value": "Australia"
+      },
+      "countryiso3code": "AUS",
+      "date": "2023",
+      "value": 64820.1,
+      "unit": "current US$",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "NZ",
+        "value": "New Zealand"
+      },
+      "countryiso3code": "NZL",
+      "date": "2023",
+      "value": 48530.2,
+      "unit": "current US$",
+      "obs_status": "",
+      "decimal": 1
+    }
+  ]
+]

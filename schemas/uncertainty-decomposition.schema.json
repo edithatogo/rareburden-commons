@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/uncertainty-decomposition.schema.json",
+  "title": "RareBurden product uncertainty decomposition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "method",
+    "assumption",
+    "iterations",
+    "seed",
+    "left_parameter",
+    "right_parameter",
+    "interaction",
+    "moment_derived_total_variance",
+    "empirical_product_variance",
+    "relative_closure_error",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "method": {"const": "independent-product-moment-decomposition"},
+    "assumption": {"const": "independent"},
+    "iterations": {"type": "integer", "minimum": 100},
+    "seed": {"type": "integer", "minimum": 0},
+    "left_parameter": {"$ref": "#/$defs/component"},
+    "right_parameter": {"$ref": "#/$defs/component"},
+    "interaction": {"$ref": "#/$defs/component"},
+    "moment_derived_total_variance": {"type": "number", "minimum": 0},
+    "empirical_product_variance": {"type": "number", "minimum": 0},
+    "relative_closure_error": {"type": "number", "minimum": 0},
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 5},
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["variance", "fraction_of_moment_variance"],
+      "properties": {
+        "variance": {"type": "number", "minimum": 0},
+        "fraction_of_moment_variance": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    }
+  }
+}

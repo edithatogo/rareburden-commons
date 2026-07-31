@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/demonstrator-ledger-profile.schema.json",
+  "title": "Non-binding demonstrator ledger profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "demonstrator_id", "protocol_id", "status", "requirements"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "demonstrator_id": {
+      "enum": [
+        "003-monogenic-diabetes-demonstrator",
+        "011-bronchiectasis-demonstrator",
+        "012-paediatric-burden-demonstrator"
+      ]
+    },
+    "protocol_id": {"enum": ["RBC-P002", "RBC-P003", "RBC-P004"]},
+    "status": {"const": "non_binding_draft"},
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "acceptable_quantity_types"],
+        "properties": {
+          "role": {"type": "string", "minLength": 1},
+          "acceptable_quantity_types": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": ["population", "fraction", "case_count", "rate", "cost", "health_loss", "other"]
+            }
+          },
+          "parameter_id": {"type": ["string", "null"], "minLength": 1},
+          "unresolved_reason": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+schema_version: 1.0.0
+demonstrator_id: 011-bronchiectasis-demonstrator
+protocol_id: RBC-P003
+status: non_binding_draft
+requirements:
+- role: denominator
+  acceptable_quantity_types: [population]
+  parameter_id: australia-population-synthetic
+- role: aetiologic_fractions
+  acceptable_quantity_types: [fraction]
+  parameter_id: null
+  unresolved_reason: Requires bronchiectasis-specific, overlap-aware evidence.
+- role: diagnosis_delay
+  acceptable_quantity_types: [other]
+  parameter_id: null
+  unresolved_reason: Requires reviewed respiratory evidence.
+- role: outcomes
+  acceptable_quantity_types: [rate, health_loss, other]
+  parameter_id: null
+  unresolved_reason: Requires compatible outcome evidence.
+- role: service_use
+  acceptable_quantity_types: [rate, cost, other]
+  parameter_id: null
+  unresolved_reason: Requires setting-specific evidence and perspective.
