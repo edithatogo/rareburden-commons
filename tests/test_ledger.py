@@ -96,16 +96,19 @@ def test_query_and_portable_export_are_sorted_and_detached() -> None:
 
 def test_context_compatibility_fails_closed_on_missing_and_mismatch() -> None:
     schema = load_mapping(SCHEMA)
-    missing = validate_ledger(_document(), schema)
+    missing_document = deepcopy(_document())
+    missing_document["parameters"][0].pop("population")  # type: ignore[index]
+    with pytest.raises(LedgerError, match="required property"):
+        validate_ledger(missing_document, schema)
+
+    compatible_document = deepcopy(_document())
+    missing = validate_ledger(deepcopy(compatible_document), schema)
+    del missing.records["australia-population-synthetic"]["population"]
     with pytest.raises(LedgerError, match="missing population"):
         missing.require_compatible_context(
             ["australia-population-synthetic", "rare-diabetes-fraction-synthetic"]
         )
 
-    compatible_document = deepcopy(_document())
-    for record in compatible_document["parameters"]:  # type: ignore[union-attr]
-        record["population"] = {"geography_id": "synthetic-au", "population_id": "all"}
-        record["period"] = {"start": "2025-01-01", "end": "2025-12-31"}
     compatible = validate_ledger(compatible_document, schema)
     compatible.require_compatible_context(
         ["australia-population-synthetic", "rare-diabetes-fraction-synthetic"]
@@ -118,3 +121,62 @@ def test_context_compatibility_fails_closed_on_missing_and_mismatch() -> None:
         incompatible.require_compatible_context(
             ["australia-population-synthetic", "rare-diabetes-fraction-synthetic"]
         )
+
+
+@pytest.mark.parametrize(
+    "mutation, message",
+    [
+        (
+            {"parameter_revision": 2},
+            "requires supersession evidence",
+        ),
+        (
+            {
+                "period": {
+                    "start": "2026-01-01",
+                    "end": "2025-01-01",
+                }
+            },
+            "period start exceeds end",
+        ),
+        (
+            {
+                "population": {
+                    "population_id": "all",
+                    "geography_id": "synthetic-au",
+                    "age_min": 20,
+                    "age_max": 10,
+                }
+            },
+            "age_min exceeds age_max",
+        ),
+    ],
+)
+def test_revision_period_and_population_contracts_fail_closed(
+    mutation: dict[str, object], message: str
+) -> None:
+    document = deepcopy(_document())
+    document["parameters"][0].update(mutation)  # type: ignore[index]
+    with pytest.raises(LedgerError, match=message):
+        validate_ledger(document, load_mapping(SCHEMA))
+
+
+def test_conflicting_alternative_parameters_are_exposed_not_selected() -> None:
+    document = deepcopy(_document())
+    alternative = deepcopy(document["parameters"][1])  # type: ignore[index]
+    alternative["parameter_id"] = "rare-diabetes-fraction-alternative"
+    alternative["distribution"] = {
+        "type": "beta",
+        "alpha": 3.0,
+        "beta": 97.0,
+        "minimum": 0.0,
+        "maximum": 1.0,
+    }
+    document["parameters"].append(alternative)  # type: ignore[union-attr]
+    ledger = validate_ledger(document, load_mapping(SCHEMA))
+    assert ledger.conflict_groups() == (
+        (
+            "rare-diabetes-fraction-alternative",
+            "rare-diabetes-fraction-synthetic",
+        ),
+    )

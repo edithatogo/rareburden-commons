@@ -31,6 +31,13 @@ database or remove triggers. Signed checkpoints, operational access control,
 approved migrations, full provenance-link contracts and external review remain
 open.
 
+The non-binding parameter contract now also requires parameter revisions,
+uncertainty and licence states, transformation and semantic links, and explicit
+population/geography and period contexts. A separate assumption schema and
+conflict grouping make assumptions and alternative evidence visible without
+automatic selection. Ordering, missingness, incompatibility and supersession
+failures have focused negative coverage.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with dependency blockers**. The impact-tracing

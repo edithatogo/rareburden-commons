@@ -2,24 +2,24 @@
 
 ## Phase 1 — Information model
 
-- [ ] Define parameter, evidence-assessment, assumption and analysis-specification schemas. `[M-03, M-04, M-18]`
-- [ ] Define stable IDs, revisions and supersession.
-- [ ] Define population, geography, period, measure, metric and unit contracts.
-- [ ] Define quality, bias and transportability dimensions. `[M-21, S-07]`
+- [x] Define parameter, evidence-assessment, assumption and analysis-specification schemas. `[M-03, M-04, M-18]` Evidence: the four JSON Schemas, strict schema collection validation and synthetic fixtures; contracts remain non-binding pending review.
+- [x] Define stable IDs, revisions and supersession. Evidence: parameter IDs/fingerprints, required positive revisions, supersession invariants and durable sequential snapshot receipts.
+- [x] Define population, geography, period, measure, metric and unit contracts. Evidence: required strict population/period objects, date/age ordering invariants and unit/quantity tests.
+- [x] Define quality, bias and transportability dimensions. `[M-21, S-07]` Evidence: evidence- and transportability-assessment schemas and validated synthetic assessments; external methods review remains open.
 
 ## Phase 2 — Storage and validation
 
-- [ ] Implement ledger read/write/query interfaces.
-- [ ] Link parameters to source releases, transformations and semantic entities. `[M-11, M-20]`
-- [ ] Enforce mandatory uncertainty, evidence status and licence state. `[M-22]`
-- [ ] Add conflict, missingness and incompatible-unit fixtures.
+- [x] Implement ledger read/write/query interfaces. Evidence: validated loading, bounded queries, detached export and transactional durable snapshots.
+- [x] Link parameters to source releases, transformations and semantic entities. `[M-11, M-20]` Evidence: required source-release, transformation and semantic-entity ID fields in the parameter contract and fixture.
+- [x] Enforce mandatory uncertainty, evidence status and licence state. `[M-22]` Evidence: required enumerated schema fields, distribution invariants and assumed/non-assumed provenance checks.
+- [x] Add conflict, missingness and incompatible-unit/context fixtures. Evidence: explicit alternative conflict grouping, missing provenance/context failures and model unit/period/population negative tests; no automatic conflict selection.
 
 ## Phase 3 — Workflow integration
 
 - [ ] Integrate acquisition outputs from Track 002.
 - [ ] Build human-readable evidence and assumption reports.
 - [x] Add downstream impact tracing for changed parameters. Evidence: `ParameterLedger.impacted_by_source_releases` and regression tests in `4a8c663`; semantic/source-release activation remains gated.
-- [ ] Add portable export and schema migration tooling.
+- [x] Add portable export and schema migration tooling. Evidence: canonical JSONL history export and fail-closed `migrate_ledger_document`; future migrations remain approval-gated.
 
 ## Phase 4 — Review
 

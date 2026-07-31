@@ -4,6 +4,7 @@ title: Synthetic public-foundation parameter ledger
 created_at: '2026-07-19T00:00:00Z'
 parameters:
 - parameter_id: australia-population-synthetic
+  parameter_revision: 1
   label: Synthetic Australian population denominator
   quantity_type: population
   measure: population
@@ -15,14 +16,27 @@ parameters:
     standard_deviation: 100000.0
     minimum: 0.0
   evidence_status: observed
+  uncertainty_status: quantified
+  licence_state: not_applicable
   source_release_ids:
   - synthetic-un-wpp-2026-07
+  transformation_ids: []
+  semantic_entity_ids:
+  - synthetic:population-au
+  population:
+    population_id: all-residents
+    geography_id: synthetic-au
+    sex: all
+  period:
+    start: '2025-01-01'
+    end: '2025-12-31'
   evidence_assessment_ids:
   - eqa-9094d747d9be42c39065d97e
   transportability_assessment_ids: []
   limitations:
   - Synthetic assurance value; not an official UN or Australian population estimate.
 - parameter_id: rare-diabetes-fraction-synthetic
+  parameter_revision: 1
   label: Synthetic rare-aetiology fraction within diabetes
   quantity_type: fraction
   measure: rare aetiology share
@@ -35,7 +49,19 @@ parameters:
     minimum: 0.0
     maximum: 1.0
   evidence_status: assumed
+  uncertainty_status: quantified
+  licence_state: not_applicable
   source_release_ids: []
+  transformation_ids: []
+  semantic_entity_ids:
+  - synthetic:rare-diabetes
+  population:
+    population_id: all-residents
+    geography_id: synthetic-au
+    sex: all
+  period:
+    start: '2025-01-01'
+    end: '2025-12-31'
   assumption_rationale: A transparent synthetic assumption used only to exercise rare-within-common
     modelling and provenance.
   evidence_assessment_ids:

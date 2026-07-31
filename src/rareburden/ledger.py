@@ -5,6 +5,7 @@ from __future__ import annotations
 import math
 from copy import deepcopy
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -93,6 +94,27 @@ class ParameterLedger:
                 values.append(record[field])
             if any(value != values[0] for value in values[1:]):
                 raise LedgerError(f"incompatible parameter {field} contexts")
+
+    def conflict_groups(self) -> tuple[tuple[str, ...], ...]:
+        """Expose alternative parameters sharing one analytic context."""
+        groups: dict[str, list[str]] = {}
+        for parameter_id, record in self.records.items():
+            context = {
+                "quantity_type": record["quantity_type"],
+                "measure": record["measure"],
+                "metric": record["metric"],
+                "unit": record["unit"],
+                "population": record["population"],
+                "period": record["period"],
+                "semantic_entity_ids": record["semantic_entity_ids"],
+            }
+            key = str(content_id("ctx", context))
+            groups.setdefault(key, []).append(parameter_id)
+        return tuple(
+            tuple(sorted(parameter_ids))
+            for _key, parameter_ids in sorted(groups.items())
+            if len(parameter_ids) > 1
+        )
 
 
 def _finite_number(value: Any) -> bool:
@@ -185,6 +207,22 @@ def validate_ledger(document: dict[str, Any], schema: dict[str, Any]) -> Paramet
             errors.append(
                 f"{parameter_id}: non-assumed evidence requires at least one source_release_id"
             )
+        revision = record["parameter_revision"]
+        supersedes = record.get("supersedes_parameter_fingerprint")
+        if revision == 1 and supersedes is not None:
+            errors.append(f"{parameter_id}: first revision must not supersede another parameter")
+        if revision > 1 and supersedes is None:
+            errors.append(
+                f"{parameter_id}: revision greater than one requires supersession evidence"
+            )
+        period = record["period"]
+        if date.fromisoformat(period["start"]) > date.fromisoformat(period["end"]):
+            errors.append(f"{parameter_id}: period start exceeds end")
+        population = record["population"]
+        age_min = population.get("age_min")
+        age_max = population.get("age_max")
+        if age_min is not None and age_max is not None and age_min > age_max:
+            errors.append(f"{parameter_id}: population age_min exceeds age_max")
         records[parameter_id] = record
         fingerprints[parameter_id] = content_id("par", record)
     if errors:

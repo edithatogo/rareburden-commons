@@ -21,6 +21,16 @@ The store:
 filters. Returned records and portable documents are detached copies.
 `require_compatible_context` prevents explicitly requested population or period
 contexts from combining when values differ or required context is absent.
+`conflict_groups` exposes alternative parameters that share the same quantity,
+measure, metric, unit, population, period and semantic context; it never chooses
+one automatically.
+
+The parameter contract requires a positive revision, uncertainty status, licence
+state, source-release and transformation links, semantic entity IDs, and strict
+population/geography and period objects. Revision, date and age ordering
+invariants fail closed. A separate non-binding assumption schema distinguishes
+structural, distributional, transportability, missingness and operational
+assumptions from empirical parameters.
 
 This is not an authoritative custodian ledger. A process with database-owner
 access can replace the file or remove its triggers. Production use therefore
