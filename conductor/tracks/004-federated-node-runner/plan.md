@@ -52,6 +52,13 @@
   the installed synthetic node from a clean unrelated directory and retain a
   platform-specific receipt. Hosted success remains candidate evidence rather
   than custodian or independent-operator approval.
+
+## Review fixes — hosted portability
+
+- [x] Make the offline-install command-construction test recognize both
+  `python` and `python.exe`, after the first hosted Windows run exposed the
+  POSIX-only mock assumption. Runtime behavior was not reached by that failed
+  job; exact-head hosted rerun evidence is required.
 - [x] Test incompatible versions, failed runs, correction and withdrawal. Evidence: strict semantic-version, terminal-status and immutable superseding-manifest tests.
 
 ## Phase 4 — External pilot readiness

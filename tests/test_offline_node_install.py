@@ -36,7 +36,7 @@ def test_offline_install_constructs_network_disabled_commands(tmp_path: Path) ->
         calls.append((arguments, cwd, environment))
         stdout = (
             json.dumps({"output_fingerprint": "sha256:" + "0" * 64, "rows": 1})
-            if arguments[0].endswith("python")
+            if Path(arguments[0]).stem == "python"
             else ""
         )
         return subprocess.CompletedProcess(arguments, 0, stdout=stdout, stderr="")
