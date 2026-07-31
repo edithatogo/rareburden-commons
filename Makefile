@@ -7,7 +7,8 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 .PHONY: install sync validate validate-catalog validate-roadmap validate-landscape \
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
-	reproducibility burden-benchmark node-bundle-check offline-node-install offline-node-ci build package-check installed-package-check sbom check ci release-check clean
+	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
+	offline-node-install offline-node-ci build package-check installed-package-check sbom check ci release-check clean
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -89,6 +90,15 @@ burden-benchmark:
 node-bundle-check:
 	@test -n "$(BUNDLE)" || (echo "BUNDLE=/path/to/node-bundle.zip is required" >&2; exit 2)
 	PYTHONPATH=src:. $(PYTHON) scripts/build_node_bundle.py check $(BUNDLE)
+
+release-attestation-verify:
+	@test -n "$(ARTIFACT)" || (echo "ARTIFACT=/path/to/release-artifact is required" >&2; exit 2)
+	@test -n "$(ATTESTATION_BUNDLE)" || (echo "ATTESTATION_BUNDLE=/path/to/provenance.sigstore.json is required" >&2; exit 2)
+	@test -n "$(TRUSTED_ROOT)" || (echo "TRUSTED_ROOT=/path/to/trusted_root.jsonl is required" >&2; exit 2)
+	@test -n "$(SOURCE_REF)" || (echo "SOURCE_REF=refs/tags/vX.Y.Z is required" >&2; exit 2)
+	PYTHONPATH=src:. $(PYTHON) scripts/verify_release_attestation.py "$(ARTIFACT)" \
+		--bundle "$(ATTESTATION_BUNDLE)" --trusted-root "$(TRUSTED_ROOT)" \
+		--source-ref "$(SOURCE_REF)" $(if $(RECEIPT),--output "$(RECEIPT)",)
 
 offline-node-install:
 	@test -n "$(NODE_WHEEL)" || (echo "NODE_WHEEL=/path/to/rareburden.whl is required" >&2; exit 2)

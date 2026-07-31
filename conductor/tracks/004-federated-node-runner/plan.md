@@ -38,7 +38,13 @@
 - [ ] Bind the policy and query ledger to an authoritative custodian-controlled durable store in the approved runner; the in-memory snapshots do not establish authority or persistence.
 - [x] Verify participant rows cannot enter export artefacts. `[M-13]` Evidence: case-normalised sensitive-field rejection, nested-value rejection, aggregate dimension allowlist and offline-runner tests.
 - [x] Add node execution manifest contract and fingerprint fields. Evidence: strict digest schema, canonical output hash and tamper-evident manifest tests.
-- [ ] Obtain signing/attestation design approval and implement the approved trust-root/key-custody profile. Local output hashes are implemented; signing authority is external-gated with Track 016.
+- [x] Record and implement the repository release signing/attestation profile.
+  Evidence: ADR-0004 selects GitHub OIDC keyless Sigstore attestation; the pinned
+  release workflow retains provenance/SBOM bundles, a per-release trusted-root
+  snapshot and the profile; `scripts/verify_release_attestation.py` enforces
+  repository, workflow, issuer, predicate, release-ref and hosted-runner
+  constraints with negative tests. Custodian acceptance, a real tagged-release
+  verification receipt and Track 016 operational review remain open.
 - [x] Prepare a non-binding signing/attestation decision packet with trust-model
   options, a recommendation and exact closure evidence. Evidence:
   `docs/federated-node-004-signing-decision-packet.md`; this does not approve or
