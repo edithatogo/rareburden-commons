@@ -41,6 +41,10 @@ The synthetic `run_offline_node` helper now composes manifest creation with the
 disclosure validator. It is deterministic and memory-only, with negative coverage
 for participant-level rows; it is not a portable package or controlled pilot.
 
+`build_synthetic_cohort` supplies aggregate-only multi-diagnosis and small-cell
+fixtures. Manifest tests cover incompatible versions and failed/withdrawn terminal
+states; correction handling and independent execution remain gated.
+
 ## Disposition
 
 Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete.

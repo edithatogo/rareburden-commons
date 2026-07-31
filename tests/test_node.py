@@ -5,6 +5,7 @@ import pytest
 from rareburden.node import (
     NodeExportError,
     build_execution_manifest,
+    build_synthetic_cohort,
     capture_environment,
     run_offline_node,
     validate_aggregate_export,
@@ -95,3 +96,24 @@ def test_offline_node_rejects_participant_rows() -> None:
             policy_id="policy-1",
             input_fingerprint="sha256:input",
         )
+
+
+def test_synthetic_cohort_is_deterministic_and_has_multi_diagnosis_small_cell() -> None:
+    cohort = build_synthetic_cohort()
+    assert cohort == build_synthetic_cohort()
+    assert any(row["diagnosis"] == "condition-a+condition-b" for row in cohort)
+    assert any(row["count"] < 5 for row in cohort)
+
+
+@pytest.mark.parametrize("status", ["failed", "withdrawn"])
+def test_manifest_supports_non_success_terminal_states(status: str) -> None:
+    manifest = build_execution_manifest(
+        execution_id="exec-terminal",
+        coordinator_version="0.1.0",
+        node_version="0.1.1",
+        analysis_id="analysis-1",
+        policy_id="policy-1",
+        input_fingerprint="sha256:input",
+        status=status,
+    )
+    assert manifest["status"] == status

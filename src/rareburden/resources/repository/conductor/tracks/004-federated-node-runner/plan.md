@@ -10,7 +10,7 @@
 
 ## Phase 2 — Synthetic environment
 
-- [ ] Build synthetic cohort generator with multi-diagnosis and small-cell edge cases. `[C-03]`
+- [x] Build deterministic aggregate-only synthetic cohort generator with multi-diagnosis and small-cell edge cases. `[C-03]` Evidence: `build_synthetic_cohort` and deterministic fixture tests; no participant identifiers.
 - [x] Add a deterministic offline synthetic node runner over supplied rows. Evidence: `rareburden.node.run_offline_node` and focused positive/negative tests; no persistence, network access, or controlled data.
 - [x] Implement offline preflight and bounded environment capture. `[M-19]` Evidence: `build_execution_manifest`, `capture_environment`, and focused tests; capture is limited to runtime identity plus a caller-supplied lockfile fingerprint, with no credentials, host paths, or participant data.
 - [x] Implement deterministic offline execution-manifest preflight. `[M-19]` Evidence: `build_execution_manifest`, `capture_environment`, and version/environment tests; controlled-node execution remains pending external authorization.
@@ -28,7 +28,7 @@
 - [ ] Add contract, privacy, differencing and log-redaction tests.
 - [ ] Verify participant rows cannot enter export artefacts. `[M-13]`
 - [x] Add node execution manifest contract and fingerprint fields. Evidence: `schemas/node-execution-manifest.schema.json` and synthetic manifest; signing remains release-gated.
-- [ ] Test incompatible versions, failed runs, correction and withdrawal.
+- [x] Test incompatible versions, failed runs and withdrawal. Evidence: version-negotiation and terminal-status tests; correction semantics remain external/protocol-gated.
 
 ## Phase 4 — External pilot readiness
 

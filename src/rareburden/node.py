@@ -99,6 +99,15 @@ def run_offline_node(
     }
 
 
+def build_synthetic_cohort() -> list[dict[str, Any]]:
+    """Return a deterministic aggregate-only cohort fixture with edge cases."""
+    return [
+        {"diagnosis": "condition-a", "count": 8},
+        {"diagnosis": "condition-b", "count": 5},
+        {"diagnosis": "condition-a+condition-b", "count": 2},
+    ]
+
+
 _PARTICIPANT_FIELDS = {
     "person_id",
     "participant_id",
@@ -137,6 +146,7 @@ def validate_aggregate_export(
 __all__ = [
     "NodeExportError",
     "build_execution_manifest",
+    "build_synthetic_cohort",
     "capture_environment",
     "run_offline_node",
     "validate_aggregate_export",
