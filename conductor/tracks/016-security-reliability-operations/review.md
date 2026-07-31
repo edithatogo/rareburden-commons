@@ -30,7 +30,9 @@ service-level promises.
 The repository now declares a bounded supported-environment matrix: Linux runs
 the full Python 3.11–3.14 compatibility checks, while Python 3.13 carries the
 complete release assurance and Linux/macOS/Windows offline-install evidence.
-PRs #23–#25 passed their exact-head protected matrices.
+PRs #23–#29 passed their applicable exact-head protected matrices; PR #28
+integrated the release-candidate foundations into protected default branch
+`main`, and PR #29 corrected the Scorecard permission boundary.
 
 Release dependencies and exported requirements are locked; wheel/sdist and
 reference outputs reproduce deterministically; CodeQL, dependency/licence
@@ -40,9 +42,15 @@ attestation are implemented with offline bundles and a fail-closed verifier.
 The fresh hash-pinned production/development dependency audit passed on merged
 commit `c71756b` in hosted run
 `https://github.com/edithatogo/rareburden-commons/actions/runs/30669395458`.
-The Scorecard workflow is present on the handoff branch but cannot be manually
-dispatched until it is also present on the repository's default branch; this is
-a default-branch integration gap, not completed Scorecard evidence.
+A second default-branch audit passed on integrated commit `e017cdc` in hosted
+run `https://github.com/edithatogo/rareburden-commons/actions/runs/30670769183`.
+The corrected OpenSSF Scorecard workflow then passed on default-branch commit
+`a6f91b7` in hosted run
+`https://github.com/edithatogo/rareburden-commons/actions/runs/30670930650`.
+The run produced retained SARIF and published-results evidence with an initial
+score of 6.4. Its low or unavailable checks accurately reflect repository age,
+the solo-maintainer/no-review policy, absence of a canonical release, and
+external badge/ownership evidence; they are not silently treated as complete.
 
 No canonical tag has executed the release workflow, so build provenance and
 verifiable-attestation tasks remain pending despite their implementation. The
