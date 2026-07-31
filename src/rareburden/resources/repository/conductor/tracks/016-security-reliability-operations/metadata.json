@@ -4,7 +4,7 @@
   "status": "planned",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-29",
+  "updated": "2026-08-01",
   "target_release": "0.9.0",
   "stage": "production_hardening",
   "owner_role": "Security and Site Reliability Leads",

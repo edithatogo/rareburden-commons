@@ -3,22 +3,39 @@
 ## Phase 1 — Threat model and support scope
 
 - [x] Threat-model repository, acquisition, build, node, API and release boundaries. Evidence: `docs/security-operations-016-reference.md`; independent review remains open.
-- [ ] Declare supported runtimes and environments.
+- [x] Declare supported runtimes and environments. Evidence:
+  `docs/supported-environments.md` distinguishes continuously tested Linux
+  Python 3.11–3.14 from Python 3.13 cross-platform candidate evidence and
+  explicitly excludes unverified/custodian claims.
 - [ ] Define security, incident, backup and recovery ownership.
 - [x] Define performance/availability boundary without unsupported service promises. Evidence: reference scaffold explicitly withholds service-level commitments pending capacity/owner approval.
 
 ## Phase 2 — Supply-chain hardening
 
-- [ ] Lock release dependencies and test reproducible builds.
-- [ ] Add secret, dependency, licence and static security scanning.
+- [x] Lock release dependencies and test reproducible builds. Evidence:
+  `uv.lock`, hash-pinned requirements exports, deterministic wheel/sdist
+  builders, exact two-process reproduction, installed-package checks and the
+  cross-platform exact-wheel evidence from PR #23.
+- [x] Add secret, dependency, licence and static security scanning. Evidence:
+  repository-safety checks, GitHub secret scanning/push protection, CodeQL,
+  dependency review with licence policy, scheduled hash-pinned `pip-audit` and
+  pinned OpenSSF Scorecard workflow. Automated scanning is not independent
+  security review.
 - [ ] Generate SBOM, checksums and build provenance.
 - [ ] Add release signing or verifiable attestation.
+- [x] Configure fail-closed SBOM/checksum/provenance and keyless-attestation
+  generation with retained offline verification evidence. Evidence: release
+  workflow, ADR-0004, schema/profile/verifier and PR #24. The two parent tasks
+  remain pending until a canonical tagged release produces a real receipt.
 
 ## Phase 3 — Operational controls
 
 - [ ] Implement privacy-safe logging and metrics.
 - [ ] Implement backup, restore, rollback and correction runbooks.
 - [ ] Add benchmark and resource-regression tests.
+- [x] Add a bounded runtime regression gate for the synthetic reference burden
+  workload. Evidence: `scripts/check_burden_benchmark.py` runs in `make check`;
+  memory, package-size and representative large-workload budgets remain open.
 - [ ] Verify source archives and Git clones with the same public command.
 
 ## Phase 4 — Exercises and release candidate
