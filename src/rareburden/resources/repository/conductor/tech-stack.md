@@ -13,7 +13,7 @@
 
 | Layer | v1 direction | Rationale |
 |---|---|---|
-| Language | Python 3.11–3.13 reference implementation | Compatibility with scientific and secure research environments |
+| Language | Python 3.11–3.14 reference implementation | Compatibility with scientific and secure research environments |
 | Packaging | Standard Python package, locked release environment and offline node bundle | Reproducibility and portability |
 | Metadata | YAML/JSON validated by JSON Schema 2020-12 | Human-reviewable and machine-enforced contracts |
 | Tabular interchange | CSV for small accessible releases; Parquet/Arrow for scale | Accessibility plus efficient exchange |
@@ -40,8 +40,10 @@
 ## Compatibility target
 
 - Linux on a current long-term-support distribution is the normative v1 platform.
-- Python 3.11, 3.12 and 3.13 are continuously tested.
-- macOS and Windows/WSL support is documented from actual test evidence.
+- Python 3.11, 3.12, 3.13 and 3.14 are continuously tested on Linux.
+- Python 3.13 is the cross-platform release/portability runtime; macOS and
+  Windows candidate support is documented from actual test evidence in
+  `../docs/supported-environments.md`. WSL remains unverified.
 - Secure environments may use local runners that satisfy the versioned conformance contract.
 - Stable schema, CLI and data-package changes follow `docs/release-policy.md`.
 

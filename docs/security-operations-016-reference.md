@@ -3,6 +3,10 @@
 This is a preparatory control scaffold, not an independent security assurance or
 service-level commitment.
 
+The bounded runtime and operating-system support claim is maintained in
+`docs/supported-environments.md`. It distinguishes continuous compatibility,
+cross-platform candidate evidence and unverified custodian environments.
+
 ## Boundary threats and controls
 
 | Boundary | Primary threats | Required control |
