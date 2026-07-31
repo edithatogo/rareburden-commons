@@ -16,6 +16,21 @@ empty and unknown release sets failing closed to an empty impact list. Focused
 ledger tests pass. This does not activate the ledger contract or replace source
 and semantic approvals.
 
+### Preparatory implementation rerun — 2026-07-31
+
+The repository now also contains a transactional SQLite reference store for
+validated ledger snapshots. It enforces sequential revisions, rejects ordinary
+update/delete operations, creates canonical content and chain receipts, verifies
+the complete history and exports canonical JSONL atomically. Bounded query,
+detached export and explicit population/period compatibility checks have focused
+positive and negative coverage.
+
+This is engineering evidence, not an activated or frozen v0.4 contract. Database
+ownership is not custodian authority; a privileged file owner can replace the
+database or remove triggers. Signed checkpoints, operational access control,
+approved migrations, full provenance-link contracts and external review remain
+open.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with dependency blockers**. The impact-tracing

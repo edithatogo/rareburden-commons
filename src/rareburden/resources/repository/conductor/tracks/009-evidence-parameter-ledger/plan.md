@@ -28,6 +28,22 @@
 - [ ] Close or assign every blocking data-contract issue.
 - [ ] Freeze v0.4 ledger contracts.
 
+## Preparatory repository implementation — 2026-07-31
+
+- [x] Add a transactional append-only reference store for validated ledger
+  snapshots with sequential revisions, immutable triggers, canonical content
+  hashes, chain verification and atomic JSONL export. Evidence:
+  `rareburden.ledger_store`, `tests/test_ledger_store.py` and
+  `docs/evidence-ledger-009-reference.md`. Custodian authority and signed
+  checkpoints remain external gates.
+- [x] Add bounded read/query and detached portable-export interfaces. Evidence:
+  `ParameterLedger.query`, `ParameterLedger.portable_document` and focused
+  mutation-isolation tests.
+- [x] Add fail-closed population/period compatibility checks and unsupported
+  migration rejection. Evidence: `ParameterLedger.require_compatible_context`,
+  `migrate_ledger_document` and focused negative tests. The versioned v0.4
+  migration design remains approval-gated.
+
 ## Dependency review — 2026-07-27
 
 - [x] Record that Track 009 cannot activate until Tracks 002 and 008 are complete. Evidence: `ebca9a1`.

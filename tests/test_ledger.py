@@ -80,3 +80,41 @@ def test_source_release_impact_trace_is_sorted_and_fail_closed() -> None:
     ]
     assert ledger.impacted_by_source_releases(set()) == []
     assert ledger.impacted_by_source_releases({"missing-release"}) == []
+
+
+def test_query_and_portable_export_are_sorted_and_detached() -> None:
+    ledger = load_ledger(LEDGER, SCHEMA)
+    observed = ledger.query(evidence_status="observed", unit="people")
+    assert [record["parameter_id"] for record in observed] == ["australia-population-synthetic"]
+    assert ledger.query(source_release_id="missing") == ()
+    observed[0]["label"] = "changed"
+    exported = ledger.portable_document()
+    exported["title"] = "changed"
+    assert ledger.get("australia-population-synthetic")["label"] != "changed"
+    assert ledger.document["title"] != "changed"
+
+
+def test_context_compatibility_fails_closed_on_missing_and_mismatch() -> None:
+    schema = load_mapping(SCHEMA)
+    missing = validate_ledger(_document(), schema)
+    with pytest.raises(LedgerError, match="missing population"):
+        missing.require_compatible_context(
+            ["australia-population-synthetic", "rare-diabetes-fraction-synthetic"]
+        )
+
+    compatible_document = deepcopy(_document())
+    for record in compatible_document["parameters"]:  # type: ignore[union-attr]
+        record["population"] = {"geography_id": "synthetic-au", "population_id": "all"}
+        record["period"] = {"start": "2025-01-01", "end": "2025-12-31"}
+    compatible = validate_ledger(compatible_document, schema)
+    compatible.require_compatible_context(
+        ["australia-population-synthetic", "rare-diabetes-fraction-synthetic"]
+    )
+
+    incompatible_document = deepcopy(compatible_document)
+    incompatible_document["parameters"][1]["period"]["end"] = "2026-12-31"  # type: ignore[index]
+    incompatible = validate_ledger(incompatible_document, schema)
+    with pytest.raises(LedgerError, match="incompatible parameter period"):
+        incompatible.require_compatible_context(
+            ["australia-population-synthetic", "rare-diabetes-fraction-synthetic"]
+        )

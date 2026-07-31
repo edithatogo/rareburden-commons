@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -44,6 +45,54 @@ class ParameterLedger:
             for parameter_id, record in self.records.items()
             if source_release_ids.intersection(record.get("source_release_ids", []))
         )
+
+    def query(
+        self,
+        *,
+        evidence_status: str | None = None,
+        unit: str | None = None,
+        source_release_id: str | None = None,
+    ) -> tuple[dict[str, Any], ...]:
+        """Return detached records matching explicit portable filters."""
+        matches = []
+        for parameter_id in sorted(self.records):
+            record = self.records[parameter_id]
+            if evidence_status is not None and record["evidence_status"] != evidence_status:
+                continue
+            if unit is not None and record["unit"] != unit:
+                continue
+            if (
+                source_release_id is not None
+                and source_release_id not in record["source_release_ids"]
+            ):
+                continue
+            matches.append(deepcopy(record))
+        return tuple(matches)
+
+    def portable_document(self) -> dict[str, Any]:
+        """Return a detached JSON-compatible ledger export."""
+        return deepcopy(self.document)
+
+    def require_compatible_context(
+        self,
+        parameter_ids: list[str],
+        *,
+        fields: tuple[str, ...] = ("population", "period"),
+    ) -> None:
+        """Reject silent combination of missing or incompatible analytic contexts."""
+        if len(parameter_ids) < 2:
+            raise LedgerError("context compatibility requires at least two parameters")
+        records = [self.get(parameter_id) for parameter_id in parameter_ids]
+        for field in fields:
+            values: list[Any] = []
+            for parameter_id, record in zip(parameter_ids, records, strict=True):
+                if field not in record:
+                    raise LedgerError(
+                        f"{parameter_id}: missing {field} prevents compatibility assessment"
+                    )
+                values.append(record[field])
+            if any(value != values[0] for value in values[1:]):
+                raise LedgerError(f"incompatible parameter {field} contexts")
 
 
 def _finite_number(value: Any) -> bool:
