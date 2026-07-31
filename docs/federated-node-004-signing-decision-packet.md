@@ -1,7 +1,8 @@
 # Track 004 signing and attestation decision packet
 
-**Status:** non-binding; no trust root, key custodian or production signing
-method is approved by this document.
+**Status:** decision recorded. ADR-0004 approves option B for repository release
+engineering. Custodian acceptance, controlled-node activation and an independent
+offline verification receipt remain external gates.
 
 ## Decision required
 
@@ -41,25 +42,29 @@ Release artifacts carry both an offline organisational signature and
 transparency-backed provenance. This offers the strongest independent evidence
 but has the highest operational and recovery complexity.
 
-## Recommendation
+## Decision
 
-Approve option C only if participating custodians can operate and audit both
-trust paths. Otherwise approve option A for the first controlled pilot, with
-two-person release authorization, hardware-backed key storage, an offline
-revocation list, a tested rotation ceremony and a later migration path to
-transparency-backed provenance. Do not implement cryptographic signing until
-the authority, key custody and verification-failure policy are named.
+Use option B: GitHub OIDC keyless Sigstore attestations from the pinned release
+workflow, with release-retained bundles, a per-release trusted-root snapshot and
+an identity-constrained offline verifier. This avoids an unstaffed long-lived key
+custody ceremony in the single-maintainer repository. See
+`docs/decisions/ADR-0004-keyless-release-attestation.md`.
+
+Custodians must still approve their trusted-root transfer, retention,
+verification-failure and incident-response procedures before controlled-node
+activation. A later hybrid profile requires a new decision and staffed key
+custody; it is not implied by this decision.
 
 ## Evidence required to close the gate
 
-- signed architecture decision identifying the option and accountable roles;
-- key-generation/custody/backup/rotation/revocation ceremony record;
-- canonical signed-payload specification and test vectors;
-- positive, tamper, expired/revoked-key and wrong-trust-root verification tests;
+- custodian acceptance of ADR-0004 and accountable local roles;
+- canonical subject/profile evidence and positive, tamper, stale/revoked-root,
+  wrong-identity and wrong-ref verification evidence;
 - an independently operated offline installation receipt;
 - custodian acceptance of verification tooling and failure behavior; and
 - incident-response exercise covering compromised release credentials.
 
-Existing SHA-256 bundle and wheel checks protect integrity after a trusted
-manifest is obtained. They do not authenticate the manifest or establish a
-release authority.
+Repository tests cover fail-closed profile and command behavior; only a real
+tagged release can supply cryptographic positive evidence. Existing SHA-256
+bundle and wheel checks protect integrity after a trusted manifest is obtained;
+they do not independently authenticate the manifest.

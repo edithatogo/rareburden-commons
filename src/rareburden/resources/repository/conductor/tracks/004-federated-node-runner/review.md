@@ -27,7 +27,7 @@ patient/community, engineering and security review.
 | Unspecified node/disclosure contracts | Added execution-manifest and disclosure-policy schemas plus synthetic fixtures | Data-governance and engineering approval |
 | Participant-level export risk | Export validator rejects participant fields and suppresses small cells | Custodian-specific thresholds and privacy review |
 | Controlled execution authorization | No custodian connection or person-level execution added | Approved node pilot and patient/community review |
-| Signing/attestation | Manifest supports input/output fingerprints; signing remains unclaimed | Release/security authority |
+| Signing/attestation | ADR-0004 keyless profile, retained offline bundles/root and fail-closed verifier implemented | Real tagged-release receipt, custodian acceptance and Track 016 operational review |
 
 The manifest builder now validates non-empty identifiers, bounds status values
 and rejects incompatible major versions. It remains a deterministic offline
@@ -84,8 +84,10 @@ supplied-history guards, strict semantic versions, verifiable SHA-256 manifests,
 correction invariants, hardened redaction, four schema-valid node fixtures,
 installed-wheel node execution and corrected lifecycle evidence.
 
-Signing/key custody, a genuinely independent operator, controlled execution and
-the human review lanes remain open rather than being inferred from automation.
+The repository keyless signing profile is implemented without a long-lived key.
+A real tagged-release receipt, custodian acceptance, a genuinely independent
+operator, controlled execution and the human review lanes remain open rather
+than being inferred from automation.
 The bounded synthetic implementation now also includes an explicitly synthetic
 common-analysis runner, immutable schema-aligned policy snapshots, stable
 value-free query-shape fingerprints, immutable in-memory ledger snapshots and a

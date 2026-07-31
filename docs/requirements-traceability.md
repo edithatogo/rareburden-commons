@@ -55,7 +55,7 @@
 | S-05 Monogenic-diabetes demonstrator | 003 | **Partial:** synthetic rare-aetiology path exists; empirical protocol, data and validation remain open. |
 | S-06 Economic module | 005 | **Planned:** current guards prevent misuse of cost envelopes, but no production economic module exists. |
 | S-07 Evidence quality and transportability | 009, 013 | **Implemented — reference:** domain judgements and intended-use disposition are executable. |
-| S-08 Node and disclosure templates | 004 | **Partial:** packaged synthetic node, allowlisted aggregate outputs, small-cell suppression, monotonic custodian thresholds, overlap-query budgets, strict manifests and log redaction exist; independent operator, signing profile, custodian review and controlled pilot remain open. |
+| S-08 Node and disclosure templates | 004 | **Partial:** packaged synthetic node, allowlisted aggregate outputs, small-cell suppression, monotonic custodian thresholds, overlap-query budgets, strict manifests, log redaction and a keyless offline-verifiable release profile exist; real tagged-release verification, independent operator, custodian review and controlled pilot remain open. |
 | S-09 Persistent release archive | 014, 017, 018 | **Partial / external gate:** CFF, CodeMeta, Zenodo, DataCite-oriented and RO-Crate metadata exist; DOI deposition and independent preservation remain open. |
 | S-10 Independent reproduction | 013, 017, 018 | **External gate:** exact two-process internal reproducibility reaches R2 auditability; independent R3 evidence does not yet exist. |
 | S-11 LMIC-led or underserved node | 015 | **External gate:** required before unqualified global-representativeness claims. |
