@@ -17,6 +17,12 @@
 - [x] Package and exercise the bounded synthetic aggregate validator from an installed wheel. `[S-08, C-06]` Evidence: package checks, installed-wheel node execution and `scripts/check_node_reproducibility.py`.
 - [x] Implement a bounded synthetic common-analysis runner and deterministic local-only wheel-bundle builder. Evidence: `rareburden.node_analysis`, `scripts/build_node_bundle.py`, focused negative tests and installed-wheel execution. The runner accepts only explicitly synthetic records; the bundle builder downloads nothing and requires pre-staged wheels.
 - [ ] Approve the production common analysis contract and stage a complete locked dependency wheel set after Tracks 009/010 and policy approval.
+- [x] Rehearse a complete current-platform candidate wheelhouse and clean
+  network-disabled installation. Evidence:
+  `scripts/check_offline_node_install.py`,
+  `docs/federated-node-004-offline-install-rehearsal.md` and focused command/
+  failure tests. Cross-platform staging, dependency approval and independent
+  operation remain open.
 - [x] Implement disclosure configuration, suppression and export validation. Evidence: `rareburden.node.validate_aggregate_export`, `tests/test_node.py`, and `docs/federated-node-004-reference.md`; custodian-specific thresholds remain external-gated.
 
 ## Preparatory implementation — 2026-07-29

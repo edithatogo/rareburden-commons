@@ -20,6 +20,14 @@ This guide is preparatory and applies only to synthetic/offline execution.
    dependency wheel set has been staged.
 4. Install the verified wheels into a clean approved environment using only the
    custodian's approved local source.
+   The repository rehearsal can be repeated with:
+
+   ```sh
+   uv run make offline-node-install \
+     NODE_WHEEL=/approved/wheelhouse/rareburden-<version>-py3-none-any.whl \
+     WHEELHOUSE=/approved/wheelhouse \
+     PYTHON_VERSION=3.13
+   ```
 5. Run `uv run make installed-package-check`; this imports the installed
    `rareburden.node`, executes the synthetic aggregate fixture, and verifies its
    analysis, policy-ledger and output fingerprint from an unrelated working

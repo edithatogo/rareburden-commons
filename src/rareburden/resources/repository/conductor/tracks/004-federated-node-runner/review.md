@@ -97,6 +97,19 @@ locked dependency wheel set, custodian-controlled durable policy/query storage
 and clean second-operator installation remain open behind Tracks 009/010 and the
 governance/security design gates.
 
+### Offline-install rehearsal — 2026-07-31
+
+A current-platform candidate wheelhouse was produced from the hash-pinned
+production requirements. A clean Python 3.13 environment installed the project
+and seven dependencies with package-network access disabled, passed dependency
+checking and executed the installed synthetic node from an unrelated directory.
+The same artifacts formed an eight-wheel bundle that passed receiver-side
+verification.
+
+This closes the local rehearsal gap, not the approval or independence gates.
+Other supported platforms need separately staged wheels, and a different
+operator must produce their own receipt.
+
 ## Disposition
 
 Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete and the applicable external gates have documentary evidence.
