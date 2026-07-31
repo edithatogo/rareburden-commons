@@ -30,6 +30,17 @@ scenario's ledger and parameter fingerprints. Scenario results are synthetic
 assurance records, not an approved scenario set or a formal uncertainty
 decomposition.
 
+For independent multiplicative inputs,
+`decompose_independent_product` reports left, right and multiplicative
+interaction contributions using deterministic Monte Carlo moments, alongside
+the empirical product variance and closure error. It explicitly does not support
+correlated inputs.
+
+`make burden-benchmark` runs a 10,000-draw synthetic simulation and decomposition,
+records a digest of the scientific output and enforces a deliberately generous
+engineering time envelope. The timing gate detects gross regressions; it is not
+evidence that an estimand or distribution is scientifically appropriate.
+
 ## Fail-closed boundaries
 
 The engine rejects direct allocation of a case fraction to DALY, YLD, YLL or cost

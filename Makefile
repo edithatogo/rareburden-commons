@@ -7,7 +7,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 .PHONY: install sync validate validate-catalog validate-roadmap validate-landscape \
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
-	reproducibility node-bundle-check build package-check installed-package-check sbom check ci release-check clean
+	reproducibility burden-benchmark node-bundle-check build package-check installed-package-check sbom check ci release-check clean
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -83,6 +83,9 @@ reproducibility:
 node-reproducibility:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_node_reproducibility.py
 
+burden-benchmark:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_burden_benchmark.py
+
 node-bundle-check:
 	@test -n "$(BUNDLE)" || (echo "BUNDLE=/path/to/node-bundle.zip is required" >&2; exit 2)
 	PYTHONPATH=src:. $(PYTHON) scripts/build_node_bundle.py check $(BUNDLE)
@@ -106,7 +109,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check release-identity node-reproducibility \
+check: validate schemas workflows lock requirements runtime-assets-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility

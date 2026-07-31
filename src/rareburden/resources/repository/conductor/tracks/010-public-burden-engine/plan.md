@@ -19,13 +19,13 @@
 - [x] Implement supported probability distributions and sampling. `[M-06]` Evidence: seeded beta propagation and tests.
 - [x] Record seed and sampling configuration. Evidence: `SimulationSummary` includes seed, draws and unit.
 - [ ] Implement correlation and structural-scenario handling.
-- [ ] Add uncertainty decomposition and sensitivity outputs.
+- [x] Add uncertainty decomposition and bounded structural-sensitivity outputs. Evidence: `decompose_independent_product`, `run_structural_scenarios`, schema validation and focused deterministic/closure tests; correlated-input decomposition remains unsupported pending scientific approval.
 
 ## Phase 4 — Assurance
 
 - [ ] Add unit, property, golden, convergence and numerical-stability tests.
 - [x] Add negative tests for incompatible DALY/cost shortcuts. Evidence: `tests/test_burden.py` and `tests/test_quality_edges.py`.
-- [ ] Benchmark reference workloads.
+- [x] Benchmark the bounded synthetic reference workload. Evidence: `scripts/check_burden_benchmark.py`, its fail-closed tests and the `make burden-benchmark` release gate; timing is an engineering guard, not scientific validation.
 - [ ] Run independent scientific-software review.
 
 ## Phase 5 — Release

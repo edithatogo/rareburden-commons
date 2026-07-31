@@ -34,14 +34,16 @@ parameter fingerprints, and reports its mean change from the declared baseline.
 Reproducibility and fail-closed missing-input/invariant tests pass.
 
 This does not approve the scenario set, establish a dependence model, complete
-formal uncertainty decomposition or freeze an alpha interface.
+correlated-input uncertainty decomposition or freeze an alpha interface. The
+existing independent-product moment decomposition is schema-validated and now
+paired with a bounded reference-workload benchmark gate.
 
 ### Blocker resolution matrix — 2026-07-29
 
 | Blocker | Repository action | Status | Remaining gate |
 |---|---|---|---|
 | Undefined alpha estimands | Synthetic reference defines affected-population and rare-aetiology cases, units and invalid operations | resolved locally | Scientific/statistical approval |
-| Unbounded uncertainty behaviour | Seeded beta propagation records seed/draws/unit and has deterministic regression coverage | resolved locally | Scientific review of distribution assumptions |
+| Unbounded uncertainty behaviour | Seeded propagation records seed/draws/unit; independent-product decomposition and structural sensitivities have deterministic coverage | resolved locally for independence | Scientific review of distributions, sensitivity set and dependence assumptions |
 | Unsafe health-loss/cost shortcut | DALY/YLD/YLL/cost case-fraction allocation fails closed with a targeted negative test | resolved locally | Scientific and patient/community interpretation review |
 | Correlation and structural scenarios | Bounded named synthetic scenarios are implemented; correlation remains explicitly unsupported with no silent independence claim | partial | Scientific approval of scenario and dependence contracts |
 | Track 009 dependency | No ledger activation or downstream interface freeze performed | pending | Track 009 completion |
