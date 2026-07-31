@@ -7,7 +7,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 .PHONY: install sync validate validate-catalog validate-roadmap validate-landscape \
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
-	reproducibility burden-benchmark node-bundle-check offline-node-install build package-check installed-package-check sbom check ci release-check clean
+	reproducibility burden-benchmark node-bundle-check offline-node-install offline-node-ci build package-check installed-package-check sbom check ci release-check clean
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -96,6 +96,16 @@ offline-node-install:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_offline_node_install.py \
 		--node-wheel $(NODE_WHEEL) --wheelhouse $(WHEELHOUSE) \
 		--python-version $(or $(PYTHON_VERSION),3.13)
+
+offline-node-ci: build
+	rm -rf dist/wheelhouse
+	mkdir -p dist/wheelhouse
+	$(PYTHON) -m pip download --require-hashes --only-binary=:all: \
+		--dest dist/wheelhouse --requirement requirements.txt
+	PYTHONPATH=src:. $(PYTHON) scripts/check_offline_node_install.py \
+		--node-wheel $(WHEEL) --wheelhouse dist/wheelhouse \
+		--python-version $(or $(PYTHON_VERSION),3.13) \
+		> dist/offline-install-receipt.json
 
 clean:
 	rm -rf build dist .pytest_cache .mypy_cache .ruff_cache htmlcov

@@ -83,7 +83,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -109,3 +109,12 @@ jobs:
         run: |
           uv run --python "3.13" make build
           uv run --python "3.13" make installed-package-check
+      - name: Stage and prove a clean offline node installation
+        run: make offline-node-ci PYTHON_VERSION=3.13 PYTHON="uv run --python 3.13 python"
+      - name: Upload offline installation receipt
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: offline-node-${{ matrix.os }}-python-3.13
+          if-no-files-found: error
+          retention-days: 14
+          path: dist/offline-install-receipt.json

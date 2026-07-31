@@ -47,6 +47,11 @@
   distinguishes same-operator candidates from independent approved receipts.
   Evidence: `examples/node/wheelhouse-verification-matrix.yml` and negative
   schema tests. Only macOS arm64/Python 3.13 is currently candidate-passed.
+- [x] Add hosted Linux, macOS and Windows/Python 3.13 jobs that stage every
+  hash-pinned production wheel, disable package indexes for installation, run
+  the installed synthetic node from a clean unrelated directory and retain a
+  platform-specific receipt. Hosted success remains candidate evidence rather
+  than custodian or independent-operator approval.
 - [x] Test incompatible versions, failed runs, correction and withdrawal. Evidence: strict semantic-version, terminal-status and immutable superseding-manifest tests.
 
 ## Phase 4 — External pilot readiness
