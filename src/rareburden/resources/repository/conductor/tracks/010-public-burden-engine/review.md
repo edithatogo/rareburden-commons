@@ -38,6 +38,11 @@ correlated-input uncertainty decomposition or freeze an alpha interface. The
 existing independent-product moment decomposition is schema-validated and now
 paired with a bounded reference-workload benchmark gate.
 
+Property tests cover bounded population products; a versioned golden simulation
+vector protects the deterministic random contract; a seeded beta reference
+checks convergence toward its analytic mean; and overflow or negative simulated
+products now fail closed rather than entering summaries.
+
 ### Blocker resolution matrix — 2026-07-29
 
 | Blocker | Repository action | Status | Remaining gate |

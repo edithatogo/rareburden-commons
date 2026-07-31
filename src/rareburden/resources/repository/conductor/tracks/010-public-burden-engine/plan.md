@@ -5,7 +5,7 @@
 - [x] Define supported estimands, inputs, outputs and invalid operations. `[M-03]` Evidence: synthetic reference contract in `docs/burden-engine-010-reference.md` and existing burden tests.
 - [x] Define supported distribution specification (seeded beta fraction propagation); correlation specifications remain out of scope pending contract review.
 - [x] Define bounded structural-scenario and fail-closed missingness outputs. Evidence: `rareburden.burden_assurance`, focused reproducibility/negative tests and `docs/burden-engine-010-reference.md`; scientific approval remains open.
-- [ ] Link all inputs and outputs to ledger IDs. `[M-11]`
+- [x] Link all inputs and outputs to ledger IDs. `[M-11]` Evidence: analysis and scenario outputs retain ledger ID, parameter IDs, parameter fingerprints and content-derived result IDs; empirical ledger activation remains Track 009-gated.
 
 ## Phase 2 — Deterministic engine
 
@@ -18,12 +18,12 @@
 
 - [x] Implement supported probability distributions and sampling. `[M-06]` Evidence: seeded beta propagation and tests.
 - [x] Record seed and sampling configuration. Evidence: `SimulationSummary` includes seed, draws and unit.
-- [ ] Implement correlation and structural-scenario handling.
+- [x] Implement bounded structural-scenario handling and reject unsupported correlation. Evidence: `run_structural_scenarios`, invariant/estimability tests and the explicit `simulate_product` dependence error; no correlated model is claimed.
 - [x] Add uncertainty decomposition and bounded structural-sensitivity outputs. Evidence: `decompose_independent_product`, `run_structural_scenarios`, schema validation and focused deterministic/closure tests; correlated-input decomposition remains unsupported pending scientific approval.
 
 ## Phase 4 — Assurance
 
-- [ ] Add unit, property, golden, convergence and numerical-stability tests.
+- [x] Add unit, property, golden, convergence and numerical-stability tests. Evidence: `tests/test_burden_numerical_assurance.py`, existing burden/ledger suites and explicit overflow/negative-product rejection.
 - [x] Add negative tests for incompatible DALY/cost shortcuts. Evidence: `tests/test_burden.py` and `tests/test_quality_edges.py`.
 - [x] Benchmark the bounded synthetic reference workload. Evidence: `scripts/check_burden_benchmark.py`, its fail-closed tests and the `make burden-benchmark` release gate; timing is an engineering guard, not scientific validation.
 - [ ] Run independent scientific-software review.
@@ -33,7 +33,7 @@
 - [x] Produce reproducible public/synthetic reference report. Evidence: `docs/burden-engine-010-reference.md`.
 - [x] Document API/CLI and interpretation limits. Evidence: reference report and `estimate-cases` CLI contract.
 - [ ] Freeze alpha interfaces required by Track 003.
-- [ ] Record review and residual risks.
+- [x] Record repository review and residual risks. Evidence: `review.md`; external scientific-software, patient/community and engineering dispositions remain pending.
 
 ## Dependency review — 2026-07-27
 

@@ -41,6 +41,10 @@ records a digest of the scientific output and enforces a deliberately generous
 engineering time envelope. The timing gate detects gross regressions; it is not
 evidence that an estimand or distribution is scientifically appropriate.
 
+The assurance suite also includes property bounds, a versioned golden random
+vector, seeded convergence toward a known beta mean, and explicit rejection of
+overflow and negative simulated products.
+
 ## Fail-closed boundaries
 
 The engine rejects direct allocation of a case fraction to DALY, YLD, YLL or cost
