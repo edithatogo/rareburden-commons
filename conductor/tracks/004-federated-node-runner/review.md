@@ -43,8 +43,31 @@ for participant-level rows; it is not a portable package or controlled pilot.
 
 `build_synthetic_cohort` supplies aggregate-only multi-diagnosis and small-cell
 fixtures. Manifest tests cover incompatible versions and failed/withdrawn terminal
-states; correction handling and independent execution remain gated.
+states.
+
+### Review rerun — 2026-07-31
+
+Repository review result: **Pass for the bounded synthetic implementation**.
+Correction records supersede rather than overwrite manifests; recursive log
+redaction, participant-field rejection, small-cell suppression, deterministic
+two-run execution, package checks, threat-model controls, operator guidance and
+the non-binding pilot packet are present. The full repository gate passes.
+
+This evidence does not constitute an independent custodian run, controlled pilot,
+external review, signing/attestation approval, or approval to process controlled
+data. Tracks 009 and 010 also remain dependency blockers.
+
+### Remaining gate packet
+
+| Gate | Exact evidence required |
+|---|---|
+| Data governance | Named authority approves lawful basis, custodian conditions, retention, withdrawal and disclosure thresholds |
+| Patient/community | Recorded review of acceptable use, harms, equity, interpretation and framing |
+| Engineering | Independent installation and synthetic execution from the operator guide on a supported environment |
+| Security | Review of threat model, log redaction, dependency/supply-chain controls and signing/attestation design |
+| Scientific | Approval of the analysis specification and interpretation for any proposed pilot |
+| Pilot | Written custodian authorisation plus completed controlled-environment execution and export review |
 
 ## Disposition
 
-Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete.
+Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete and the applicable external gates have documentary evidence.
