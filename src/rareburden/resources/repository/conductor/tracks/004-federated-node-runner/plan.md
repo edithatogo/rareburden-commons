@@ -39,6 +39,14 @@
 - [x] Verify participant rows cannot enter export artefacts. `[M-13]` Evidence: case-normalised sensitive-field rejection, nested-value rejection, aggregate dimension allowlist and offline-runner tests.
 - [x] Add node execution manifest contract and fingerprint fields. Evidence: strict digest schema, canonical output hash and tamper-evident manifest tests.
 - [ ] Obtain signing/attestation design approval and implement the approved trust-root/key-custody profile. Local output hashes are implemented; signing authority is external-gated with Track 016.
+- [x] Prepare a non-binding signing/attestation decision packet with trust-model
+  options, a recommendation and exact closure evidence. Evidence:
+  `docs/federated-node-004-signing-decision-packet.md`; this does not approve or
+  implement a production trust root.
+- [x] Add a schema-validated cross-platform wheelhouse verification matrix that
+  distinguishes same-operator candidates from independent approved receipts.
+  Evidence: `examples/node/wheelhouse-verification-matrix.yml` and negative
+  schema tests. Only macOS arm64/Python 3.13 is currently candidate-passed.
 - [x] Test incompatible versions, failed runs, correction and withdrawal. Evidence: strict semantic-version, terminal-status and immutable superseding-manifest tests.
 
 ## Phase 4 — External pilot readiness
