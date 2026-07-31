@@ -117,4 +117,6 @@ jobs:
           name: offline-node-${{ matrix.os }}-python-3.13
           if-no-files-found: error
           retention-days: 14
-          path: dist/offline-install-receipt.json
+          path: |
+            dist/offline-install-receipt.json
+            dist/rareburden-*.whl

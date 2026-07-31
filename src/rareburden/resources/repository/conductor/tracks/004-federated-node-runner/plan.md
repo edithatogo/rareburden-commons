@@ -63,6 +63,9 @@
   macOS and Windows receipts exposed different pure-wheel digests despite an
   identical installed synthetic result. Binary release formats are explicitly
   excluded; exact-head Windows/macOS digest comparison remains required.
+- [x] Retain the platform-built node wheel with each hosted offline-install
+  receipt so cross-platform byte drift can be diagnosed member-by-member rather
+  than waived. Artifact retention is short-lived candidate evidence only.
 - [x] Test incompatible versions, failed runs, correction and withdrawal. Evidence: strict semantic-version, terminal-status and immutable superseding-manifest tests.
 
 ## Phase 4 — External pilot readiness
