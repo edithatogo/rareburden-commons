@@ -80,6 +80,9 @@ release-identity:
 reproducibility:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_reference_reproducibility.py --root .
 
+node-reproducibility:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_node_reproducibility.py
+
 clean:
 	rm -rf build dist .pytest_cache .mypy_cache .ruff_cache htmlcov
 	rm -f coverage.json coverage.xml junit.xml rareburden.cdx.json SHA256SUMS
@@ -99,7 +102,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check release-identity \
+check: validate schemas workflows lock requirements runtime-assets-check release-identity node-reproducibility \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility
