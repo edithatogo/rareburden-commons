@@ -25,6 +25,12 @@ contexts from combining when values differ or required context is absent.
 measure, metric, unit, population, period and semantic context; it never chooses
 one automatically.
 
+`validate_source_release_links` binds parameter references to supplied Track 002
+release records and rejects missing releases or unusable licence states.
+`render_markdown` produces a deterministic report that separates empirical or
+modelled parameters from assumptions and exposes revisions, units, uncertainty,
+licence, sources, rationales and limitations.
+
 The parameter contract requires a positive revision, uncertainty status, licence
 state, source-release and transformation links, semantic entity IDs, and strict
 population/geography and period objects. Revision, date and age ordering

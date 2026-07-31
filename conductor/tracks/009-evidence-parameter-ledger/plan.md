@@ -16,8 +16,8 @@
 
 ## Phase 3 — Workflow integration
 
-- [ ] Integrate acquisition outputs from Track 002.
-- [ ] Build human-readable evidence and assumption reports.
+- [x] Integrate acquisition outputs from Track 002. Evidence: `validate_source_release_links` resolves every referenced release and fails closed on missing or unusable licence states; live-source approval remains Track 002-gated.
+- [x] Build human-readable evidence and assumption reports. Evidence: deterministic `ParameterLedger.render_markdown` with separate evidence/assumption sections, provenance, uncertainty, licence and limitations coverage.
 - [x] Add downstream impact tracing for changed parameters. Evidence: `ParameterLedger.impacted_by_source_releases` and regression tests in `4a8c663`; semantic/source-release activation remains gated.
 - [x] Add portable export and schema migration tooling. Evidence: canonical JSONL history export and fail-closed `migrate_ledger_document`; future migrations remain approval-gated.
 

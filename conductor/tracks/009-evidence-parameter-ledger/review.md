@@ -38,6 +38,11 @@ conflict grouping make assumptions and alternative evidence visible without
 automatic selection. Ordering, missingness, incompatibility and supersession
 failures have focused negative coverage.
 
+Track 002 integration now has an explicit fail-closed source-release link check,
+and a deterministic human-readable report separates assumptions from other
+evidence while exposing licence, uncertainty, provenance and limitations. This
+does not clear Track 002's live-source or rights reviews.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with dependency blockers**. The impact-tracing

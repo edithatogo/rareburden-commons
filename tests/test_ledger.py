@@ -180,3 +180,20 @@ def test_conflicting_alternative_parameters_are_exposed_not_selected() -> None:
             "rare-diabetes-fraction-synthetic",
         ),
     )
+
+
+def test_track002_release_links_and_human_report_fail_closed() -> None:
+    ledger = load_ledger(LEDGER, SCHEMA)
+    release_id = "synthetic-un-wpp-2026-07"
+    ledger.validate_source_release_links({release_id: {"licence_state": "permitted"}})
+    with pytest.raises(LedgerError, match="unknown source release"):
+        ledger.validate_source_release_links({})
+    with pytest.raises(LedgerError, match="unusable licence"):
+        ledger.validate_source_release_links({release_id: {"licence_state": "unknown"}})
+
+    report = ledger.render_markdown()
+    assert report.startswith("# Synthetic public-foundation parameter ledger\n")
+    assert "## Empirical and modelled parameters" in report
+    assert "## Assumptions" in report
+    assert "rare-diabetes-fraction-synthetic" in report
+    assert "Synthetic assurance value" in report

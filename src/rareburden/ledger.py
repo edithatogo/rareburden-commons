@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+from collections.abc import Mapping
 from copy import deepcopy
 from dataclasses import dataclass
 from datetime import date
@@ -115,6 +116,68 @@ class ParameterLedger:
             for _key, parameter_ids in sorted(groups.items())
             if len(parameter_ids) > 1
         )
+
+    def validate_source_release_links(
+        self, source_releases: Mapping[str, Mapping[str, Any]]
+    ) -> None:
+        """Require every referenced Track 002 release to exist and be usable."""
+        errors: list[str] = []
+        for parameter_id, record in self.records.items():
+            for release_id in record["source_release_ids"]:
+                release = source_releases.get(release_id)
+                if release is None:
+                    errors.append(f"{parameter_id}: unknown source release {release_id}")
+                    continue
+                licence_state = release.get("licence_state")
+                if licence_state not in {"permitted", "not_applicable"}:
+                    errors.append(
+                        f"{parameter_id}: source release {release_id} has unusable licence state"
+                    )
+        if errors:
+            raise LedgerError("Source-release link validation failed:\n- " + "\n- ".join(errors))
+
+    def render_markdown(self) -> str:
+        """Render a deterministic human-readable evidence and assumption report."""
+        lines = [
+            f"# {self.document['title']}",
+            "",
+            f"Ledger ID: `{self.document['ledger_id']}`",
+            "",
+            "## Empirical and modelled parameters",
+            "",
+        ]
+        empirical = [record for record in self.query() if record["evidence_status"] != "assumed"]
+        assumptions = [record for record in self.query() if record["evidence_status"] == "assumed"]
+        lines.extend(_report_lines(empirical))
+        lines.extend(["", "## Assumptions", ""])
+        lines.extend(_report_lines(assumptions))
+        lines.extend(["", "## Ledger limitations", ""])
+        lines.extend(f"- {item}" for item in self.document["limitations"])
+        return "\n".join(lines) + "\n"
+
+
+def _report_lines(records: list[dict[str, Any]]) -> list[str]:
+    if not records:
+        return ["- None recorded."]
+    lines: list[str] = []
+    for record in records:
+        lines.extend(
+            [
+                f"### {record['label']}",
+                "",
+                f"- Parameter: `{record['parameter_id']}` revision {record['parameter_revision']}",
+                f"- Evidence status: `{record['evidence_status']}`",
+                f"- Unit: `{record['unit']}`",
+                f"- Uncertainty: `{record['uncertainty_status']}`",
+                f"- Licence state: `{record['licence_state']}`",
+                f"- Sources: {', '.join(record['source_release_ids']) or 'none'}",
+            ]
+        )
+        if record.get("assumption_rationale"):
+            lines.append(f"- Assumption rationale: {record['assumption_rationale']}")
+        lines.extend(f"- Limitation: {item}" for item in record["limitations"])
+        lines.append("")
+    return lines[:-1]
 
 
 def _finite_number(value: Any) -> bool:
