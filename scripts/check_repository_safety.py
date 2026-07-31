@@ -108,10 +108,7 @@ def main() -> int:
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         if secret_finding_count:
-            print(
-                f"- possible secret material detected ({secret_finding_count} finding(s))",
-                file=sys.stderr,
-            )
+            print("- possible secret material detected", file=sys.stderr)
         return 1
 
     print(f"Repository safety check passed: {len(files)} {mode} files inspected")
