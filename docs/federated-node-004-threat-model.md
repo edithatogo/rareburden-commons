@@ -15,6 +15,13 @@ incorrect results being silently replaced. The local controls are fail-closed
 field validation, minimum-cell suppression, bounded log redaction, immutable
 superseding manifests, and major-version negotiation.
 
+The durable reference query store additionally addresses process restart and
+concurrent replay by serialising registrations, enforcing immutable database
+records and verifying a canonical hash chain. It does not defend against a
+privileged database owner replacing the database, its backups or the verifier;
+operational access control and signed checkpoints remain custodian/security
+review gates.
+
 Local overrides may tighten a threshold or withdraw an output. They may not lower
 the minimum-cell threshold, add participant identifiers, bypass version checks, or
 replace a manifest in place. Custodian-specific rules and independent review are

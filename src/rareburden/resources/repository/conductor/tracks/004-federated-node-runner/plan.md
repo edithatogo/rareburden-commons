@@ -36,6 +36,13 @@
 - [x] Add contract, privacy, supplied-history query-budget and log-redaction tests. Evidence: allowlisted aggregate dimensions, monotonic threshold comparisons, bounded query-history guards, recursive credential redaction and adversarial tests.
 - [x] Implement immutable synthetic policy snapshots, stable value-free query-shape identity, replay rejection and overlap-budget checks. Evidence: `rareburden.node_policy` and focused tests.
 - [ ] Bind the policy and query ledger to an authoritative custodian-controlled durable store in the approved runner; the in-memory snapshots do not establish authority or persistence.
+- [x] Implement a transactional append-only durable reference store for immutable
+  policy snapshots and value-free query receipts. Evidence:
+  `rareburden.node_policy_store` uses SQLite `BEGIN IMMEDIATE`, immutable
+  triggers, canonical hashes and a complete query hash chain; it rejects replay,
+  overlap-budget races, malformed/precreated stores and tampering in focused
+  tests. Custodian ownership, access control, backup and authorization remain
+  required before this reference primitive can satisfy the parent task.
 - [x] Verify participant rows cannot enter export artefacts. `[M-13]` Evidence: case-normalised sensitive-field rejection, nested-value rejection, aggregate dimension allowlist and offline-runner tests.
 - [x] Add node execution manifest contract and fingerprint fields. Evidence: strict digest schema, canonical output hash and tamper-evident manifest tests.
 - [x] Record and implement the repository release signing/attestation profile.

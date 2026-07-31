@@ -23,6 +23,15 @@ query identities, replay rejection and overlap budgets. It is deliberately
 memory-only: authoritative policy loading and durable custodian-controlled
 query-ledger enforcement remain part of the approved common runner.
 
+`rareburden.node_policy_store.DurableNodePolicyStore` is the durable reference
+counterpart. It stores canonical immutable policy snapshots and value-free query
+receipts, serialises registration with SQLite `BEGIN IMMEDIATE`, enforces replay
+and overlap budgets across restarts, and verifies a complete receipt hash chain.
+It rejects incompatible pre-created schemas and detects mutation after trigger
+removal. The database is still only a reference primitive: filesystem access
+control, backup, signed checkpoints, custodian ownership and deployment
+authorization must be supplied and reviewed by the operating environment.
+
 `rareburden.node_analysis.aggregate_synthetic_records` is a bounded common
 analysis for explicitly synthetic records. It rejects identifier and unknown
 fields and places overlapping diagnoses into exclusive canonical combination
