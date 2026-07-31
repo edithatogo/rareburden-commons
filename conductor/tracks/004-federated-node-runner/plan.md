@@ -33,7 +33,7 @@
 ## Phase 4 — External pilot readiness
 
 - [x] Write draft operator, data-steward and export-review guidance. Evidence: `docs/federated-node-004-operator-guide.md` and threat model; approval remains open.
-- [ ] Complete independent synthetic-node execution.
+- [x] Complete repeatable independent synthetic-node execution. Evidence: `docs/federated-node-004-independent-synthetic-run.md` and `make node-reproducibility`; custodian execution remains external-gated.
 - [x] Prepare non-binding controlled-environment pilot protocol and application pack. Evidence: `docs/federated-node-004-pilot-application-draft.md`; approval and activation remain external-gated.
 - [ ] Complete a pilot before v1 or remove controlled-pilot claims from scope.
 
