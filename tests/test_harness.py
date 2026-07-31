@@ -13,6 +13,15 @@ from scripts.check_schemas import validate_schemas
 PIN = "a" * 40
 
 
+def test_git_attributes_normalise_packaged_text_across_platforms() -> None:
+    attributes = (
+        (Path(__file__).parents[1] / ".gitattributes").read_text(encoding="utf-8").splitlines()
+    )
+    assert "* text=auto eol=lf" in attributes
+    assert "*.whl binary" in attributes
+    assert "*.zip binary" in attributes
+
+
 def _workflow(path: Path, text: str) -> Path:
     path.write_text(text, encoding="utf-8")
     return path

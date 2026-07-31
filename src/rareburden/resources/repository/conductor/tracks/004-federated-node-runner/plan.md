@@ -59,6 +59,10 @@
   `python` and `python.exe`, after the first hosted Windows run exposed the
   POSIX-only mock assumption. Runtime behavior was not reached by that failed
   job; exact-head hosted rerun evidence is required.
+- [x] Add a repository-wide LF checkout policy for packaged text after hosted
+  macOS and Windows receipts exposed different pure-wheel digests despite an
+  identical installed synthetic result. Binary release formats are explicitly
+  excluded; exact-head Windows/macOS digest comparison remains required.
 - [x] Test incompatible versions, failed runs, correction and withdrawal. Evidence: strict semantic-version, terminal-status and immutable superseding-manifest tests.
 
 ## Phase 4 — External pilot readiness
