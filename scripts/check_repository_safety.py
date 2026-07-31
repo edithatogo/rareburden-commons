@@ -87,6 +87,7 @@ def repository_files() -> tuple[list[Path], str]:
 def main() -> int:
     files, mode = repository_files()
     errors: list[str] = []
+    secret_finding_count = 0
     for relative in files:
         path = ROOT / relative
         if relative.parts and relative.parts[0] == "data" and relative not in ALLOWED_DATA_FILES:
@@ -96,14 +97,21 @@ def main() -> int:
         if path.suffix.lower() not in TEXT_SUFFIXES or not path.is_file():
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
-        for label, pattern in SECRET_PATTERNS.items():
+        for pattern in SECRET_PATTERNS.values():
             if pattern.search(text):
-                errors.append(f"possible {label} in {relative}")
+                # Do not echo matched text, labels, or paths: filenames and nearby
+                # context can themselves contain credentials.
+                secret_finding_count += 1
 
-    if errors:
+    if errors or secret_finding_count:
         print("Repository safety check failed:", file=sys.stderr)
         for error in errors:
             print(f"- {error}", file=sys.stderr)
+        if secret_finding_count:
+            print(
+                f"- possible secret material detected ({secret_finding_count} finding(s))",
+                file=sys.stderr,
+            )
         return 1
 
     print(f"Repository safety check passed: {len(files)} {mode} files inspected")

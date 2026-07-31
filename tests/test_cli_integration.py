@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import shutil
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import pytest
 
@@ -322,7 +323,8 @@ def test_world_bank_plain_output_and_cli_error_paths(
         )
         == 0
     )
-    assert "api.worldbank.org" in capsys.readouterr().out
+    world_bank_url = capsys.readouterr().out.strip()
+    assert urlsplit(world_bank_url).hostname == "api.worldbank.org"
 
     assert main(["doctor", "--root", str(tmp_path)]) == 1
     assert "Not a RareBurden repository root" in capsys.readouterr().err
