@@ -3,10 +3,10 @@
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 009 and 010
 
-## Findings
+## Historical findings — 2026-07-27 (superseded by reruns below)
 
-- Track 006 is complete, but Track 009 remains planned and Track 010 depends on Track 009.
-- The node contracts, disclosure policy, version negotiation and synthetic runner are not yet implemented in Track 004.
+- Track 006 was complete, while Tracks 009 and 010 were dependency-blocked.
+- At that review point, the node contracts, disclosure policy, version negotiation and synthetic runner were not implemented in Track 004.
 - Data-governance, patient/community, engineering and security gates remain required before any controlled-node pilot claim.
 
 Repository-owned progress now includes an offline aggregate-export primitive
@@ -39,7 +39,8 @@ environment attestation and controlled execution remain gated.
 
 The synthetic `run_offline_node` helper now composes manifest creation with the
 disclosure validator. It is deterministic and memory-only, with negative coverage
-for participant-level rows; it is not a portable package or controlled pilot.
+for participant-level rows; packaged execution is locally tested, but independent
+second-operator installation and a controlled pilot remain open.
 
 `build_synthetic_cohort` supplies aggregate-only multi-diagnosis and small-cell
 fixtures. Manifest tests cover incompatible versions and failed/withdrawn terminal
@@ -57,6 +58,10 @@ This evidence does not constitute an independent custodian run, controlled pilot
 external review, signing/attestation approval, or approval to process controlled
 data. Tracks 009 and 010 also remain dependency blockers.
 
+ADR-0003 retains the controlled-environment pilot as a blocking v1 gate and
+requires a bounded-scope reconsideration after Tracks 009 and 010 and before the
+first v1 release candidate. Synthetic evidence cannot satisfy V1-FED-04.
+
 ### Remaining gate packet
 
 | Gate | Exact evidence required |
@@ -67,6 +72,23 @@ data. Tracks 009 and 010 also remain dependency blockers.
 | Security | Review of threat model, log redaction, dependency/supply-chain controls and signing/attestation design |
 | Scientific | Approval of the analysis specification and interpretation for any proposed pilot |
 | Pilot | Written custodian authorisation plus completed controlled-environment execution and export review |
+
+### Automated review fixes — 2026-07-31
+
+Security, packaging and lifecycle audits found fail-open aggregate fields,
+weak credential redaction, permissive version/fingerprint contracts, absent
+input/output schemas, caller-weakenable policy settings and overstated independent
+execution. Repository-owned findings were remediated with aggregate allowlists,
+nested-value rejection, monotonic supplied-policy comparisons, bounded
+supplied-history guards, strict semantic versions, verifiable SHA-256 manifests,
+correction invariants, hardened redaction, four schema-valid node fixtures,
+installed-wheel node execution and corrected lifecycle evidence.
+
+Signing/key custody, a genuinely independent operator, controlled execution and
+the human review lanes remain open rather than being inferred from automation.
+The approved common analysis runner, trusted policy loader, durable query ledger
+and offline dependency bundle also remain open behind Tracks 009/010 and the
+governance/security design gates.
 
 ## Disposition
 

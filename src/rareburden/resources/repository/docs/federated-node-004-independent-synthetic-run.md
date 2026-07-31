@@ -1,4 +1,4 @@
-# Track 004 independent synthetic execution record
+# Track 004 two-invocation synthetic execution record
 
 **Scope:** local synthetic fixture only; no network, persistence, custodian, or
 controlled data.
@@ -11,5 +11,5 @@ the command reported `Synthetic node reproducibility passed`.
 participant-field negative test passed; manifest and lockfile fingerprints were
 present; no credentials or host paths were emitted.
 
-This is repository evidence of repeatability, not independent custodian execution
-or pilot approval.
+This is repository evidence of repeatability, not independent second-operator or
+custodian execution, cross-environment reproduction, or pilot approval.

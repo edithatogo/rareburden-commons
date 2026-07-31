@@ -2,11 +2,11 @@
 
 ## Phase 1 — Node contracts and threat model
 
-- [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: `schemas/node-execution-manifest.schema.json`, `schemas/node-disclosure-policy.schema.json` and synthetic fixtures.
+- [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: four `schemas/node-*.schema.json` contracts and schema-valid synthetic fixtures.
 - [x] Define trust zones, adversaries, permitted exports and local override rules. `[M-12, M-15]` Evidence: `docs/federated-node-004-threat-model.md`; controlled governance approval remains open.
 - [x] Define coordinator/node version negotiation and compatibility policy. Evidence: major-version helper and threat-model boundary; release compatibility policy remains review-gated.
 - [x] Define coordinator/node major-version compatibility and execution-manifest creation. Evidence: `rareburden.node` helpers and tests; full negotiation policy remains review-gated.
-- [ ] Obtain data-governance and patient/community review before implementation.
+- [ ] Obtain data-governance and patient/community review before controlled-data implementation or pilot activation.
 
 ## Phase 2 — Synthetic environment
 
@@ -14,7 +14,8 @@
 - [x] Add a deterministic offline synthetic node runner over supplied rows. Evidence: `rareburden.node.run_offline_node` and focused positive/negative tests; no persistence, network access, or controlled data.
 - [x] Implement offline preflight and bounded environment capture. `[M-19]` Evidence: `build_execution_manifest`, `capture_environment`, and focused tests; capture is limited to runtime identity plus a caller-supplied lockfile fingerprint, with no credentials, host paths, or participant data.
 - [x] Implement deterministic offline execution-manifest preflight. `[M-19]` Evidence: `build_execution_manifest`, `capture_environment`, and version/environment tests; controlled-node execution remains pending external authorization.
-- [x] Implement portable local runner and reproducible package. `[S-08, C-06]` Evidence: package build/check workflow and `scripts/check_node_reproducibility.py`; controlled installation and independent operator execution remain external-gated.
+- [x] Package and exercise the bounded synthetic aggregate validator from an installed wheel. `[S-08, C-06]` Evidence: package checks, installed-wheel node execution and `scripts/check_node_reproducibility.py`.
+- [ ] Implement the approved common local analysis runner and locked offline dependency bundle after Tracks 009/010 and policy approval.
 - [x] Implement disclosure configuration, suppression and export validation. Evidence: `rareburden.node.validate_aggregate_export`, `tests/test_node.py`, and `docs/federated-node-004-reference.md`; custodian-specific thresholds remain external-gated.
 
 ## Preparatory implementation — 2026-07-29
@@ -25,16 +26,20 @@
 
 ## Phase 3 — Conformance and security
 
-- [x] Add contract, privacy, differencing and log-redaction tests. Evidence: node negative tests cover participant fields, small-cell suppression, recursive log redaction and stable suppression behavior.
-- [x] Verify participant rows cannot enter export artefacts. `[M-13]` Evidence: fail-closed validator and offline-runner tests.
-- [x] Add node execution manifest contract and fingerprint fields. Evidence: `schemas/node-execution-manifest.schema.json` and synthetic manifest; signing remains release-gated.
-- [x] Test incompatible versions, failed runs and withdrawal. Evidence: version-negotiation and terminal-status tests; correction semantics remain external/protocol-gated.
+- [x] Add contract, privacy, supplied-history query-budget and log-redaction tests. Evidence: allowlisted aggregate dimensions, monotonic threshold comparisons, bounded query-history guards, recursive credential redaction and adversarial tests.
+- [ ] Implement an authoritative append-only custodian query ledger, stable query-shape identity and operational differencing controls in the approved runner.
+- [x] Verify participant rows cannot enter export artefacts. `[M-13]` Evidence: case-normalised sensitive-field rejection, nested-value rejection, aggregate dimension allowlist and offline-runner tests.
+- [x] Add node execution manifest contract and fingerprint fields. Evidence: strict digest schema, canonical output hash and tamper-evident manifest tests.
+- [ ] Obtain signing/attestation design approval and implement the approved trust-root/key-custody profile. Local output hashes are implemented; signing authority is external-gated with Track 016.
+- [x] Test incompatible versions, failed runs, correction and withdrawal. Evidence: strict semantic-version, terminal-status and immutable superseding-manifest tests.
 
 ## Phase 4 — External pilot readiness
 
 - [x] Write draft operator, data-steward and export-review guidance. Evidence: `docs/federated-node-004-operator-guide.md` and threat model; approval remains open.
-- [x] Complete repeatable independent synthetic-node execution. Evidence: `docs/federated-node-004-independent-synthetic-run.md` and `make node-reproducibility`; custodian execution remains external-gated.
+- [x] Complete repeatable two-invocation synthetic-node execution. Evidence: `docs/federated-node-004-independent-synthetic-run.md` and `make node-reproducibility`.
+- [ ] Complete second-operator installation and synthetic-node execution on a supported environment.
 - [x] Prepare non-binding controlled-environment pilot protocol and application pack. Evidence: `docs/federated-node-004-pilot-application-draft.md`; approval and activation remain external-gated.
+- [x] Retain the controlled-pilot gate and define the bounded-scope reconsideration checkpoint. Evidence: `docs/decisions/ADR-0003-retain-controlled-pilot-gate.md`.
 - [ ] Complete a pilot before v1 or remove controlled-pilot claims from scope.
 
 ## Phase 5 — Review
@@ -42,6 +47,15 @@
 - [ ] Conduct scientific, privacy, security and engineering review.
 - [x] Record residual risks and required local controls. Evidence: `docs/federated-node-004-threat-model.md`; external review remains open.
 - [ ] Release the node alpha only after all blocking findings close.
+
+## Review fixes — 2026-07-31
+
+- [x] Add missing node input/output schemas and validate all four node fixtures.
+- [x] Enforce aggregate dimension allowlists, nested-value rejection and case-normalised sensitive-field rejection.
+- [x] Add local monotonic comparison primitives preventing analysis overrides from weakening a supplied custodian baseline; trusted policy loading remains open.
+- [x] Add strict semantic-version parsing, canonical output fingerprints and correction lifecycle invariants.
+- [x] Harden recursive log redaction for credential key variants and bearer/authorization values.
+- [x] Correct independent-execution, packaging, signing and historical-review claims.
 
 ## Dependency review — 2026-07-27
 

@@ -29,11 +29,11 @@
 | M-11 Stable provenance and manifests | 002, 009, 014, 018 | source-release, acquisition, normalisation, transformation, workflow, lineage and release manifests; seven-gate verifier | **Implemented — reference:** content-addressed end-to-end lineage is verified for the synthetic release; production sources require the same evidence. |
 | M-12 Public-data-first and federated architecture | 001, 004 | ADR, architecture documents, public reference workflow, synthetic node preview | **Partial:** public-data-first execution works; production federated node and custodian deployment remain open. |
 | M-13 No sensitive data in Git | 001, 016 | repository-safety checker; contribution/security policy; synthetic-only fixtures | **Implemented for repository controls:** hosted secret scanning and operational security review remain release gates. |
-| M-14 Local custodian execution | 004 | synthetic local-node specification/output preview | **Partial / external gate:** portable contract preview exists; approved custodian pilot, complete disclosure control and offline deployment evidence remain open. |
+| M-14 Local custodian execution | 004 | node input/output/policy/manifest schemas; packaged synthetic runner; operator guide | **Partial / external gate:** aggregate allowlists, threshold non-weakening, query budgets and deterministic package checks exist; second-operator installation, approved custodian pilot and controlled deployment remain open. |
 | M-15 Separate public and restricted zones | 001, 004, 016 | trust-zone architecture; local/export manifest separation; path/security tests | **Partial:** design and synthetic separation exist; production threat model and controlled-environment validation remain open. |
 | M-16 Patient/community governance | 015 | governance principles and roadmap gate | **External gate:** not constituted; voting authority, funded participation and decision records are required before relevant production claims. |
 | M-17 Publish conflicts, methods decisions and corrections | 015, 017, 018 | prospective protocol, decision log, release records, contribution/governance policies | **Partial:** machine-readable decision and amendment infrastructure exists; operational conflicts, corrections, appeals and publication governance remain open. |
-| M-18 Schema-validate metadata and inputs | 001, 002, 008, 009, 014, 018 | 30 JSON Schemas; schema meta-validator; strict YAML checks | **Implemented — reference:** current schema collection validates; migration/backward-compatibility policy remains a v1 task. |
+| M-18 Schema-validate metadata and inputs | 001, 002, 004, 008, 009, 014, 018 | JSON Schemas; schema meta-validator; strict YAML and node fixture checks | **Implemented — reference:** the current schema collection and node contract fixtures validate; migration/backward-compatibility policy remains a v1 task. |
 | M-19 Core validation works offline | 001, 004, 016, 018 | offline programme validation; packaged reference repository; synthetic workflow and verifier | **Implemented — reference:** installed wheel can validate and run the reference workflow without network; full locked cross-platform hosted evidence remains open. |
 | M-20 Record release, checksum, transform and commit | 002, 009, 014, 018 | activity-level transformation records, workflow graph, release manifest, Git/tree state, hashes | **Implemented — reference:** every reference output closes to source, activity and release evidence. |
 | M-21 Quality and transportability judgement | 009, 013 | evidence/transportability/quality-disposition schemas and engine | **Implemented — reference:** intended-use gates and transported-evidence requirements are executable; external methods review remains open. |
@@ -55,7 +55,7 @@
 | S-05 Monogenic-diabetes demonstrator | 003 | **Partial:** synthetic rare-aetiology path exists; empirical protocol, data and validation remain open. |
 | S-06 Economic module | 005 | **Planned:** current guards prevent misuse of cost envelopes, but no production economic module exists. |
 | S-07 Evidence quality and transportability | 009, 013 | **Implemented — reference:** domain judgements and intended-use disposition are executable. |
-| S-08 Node and disclosure templates | 004 | **Partial:** synthetic local-node and primary suppression preview exist; secondary suppression/repeated-query controls and custodian review remain open. |
+| S-08 Node and disclosure templates | 004 | **Partial:** packaged synthetic node, allowlisted aggregate outputs, small-cell suppression, monotonic custodian thresholds, overlap-query budgets, strict manifests and log redaction exist; independent operator, signing profile, custodian review and controlled pilot remain open. |
 | S-09 Persistent release archive | 014, 017, 018 | **Partial / external gate:** CFF, CodeMeta, Zenodo, DataCite-oriented and RO-Crate metadata exist; DOI deposition and independent preservation remain open. |
 | S-10 Independent reproduction | 013, 017, 018 | **External gate:** exact two-process internal reproducibility reaches R2 auditability; independent R3 evidence does not yet exist. |
 | S-11 LMIC-led or underserved node | 015 | **External gate:** required before unqualified global-representativeness claims. |
@@ -65,8 +65,8 @@
 | Requirement | Track(s) | Current state |
 |---|---:|---|
 | C-01 Reviewed atlas and API | 014 | Planned for v0.8. |
-| C-03 Synthetic node test package | 004 | Partial preview implemented; disclosure hardening remains open. |
-| C-06 Reusable interoperable node runner | 004, 008 | Partial contract preview; production packaging and standards alignment remain open. |
+| C-03 Synthetic node test package | 004 | **Implemented — bounded reference:** four node schemas, aggregate allowlists, suppression, supplied-history query guards, strict manifests and installed-wheel execution are tested; independent operator and controlled validation remain open. |
+| C-06 Reusable interoperable node runner | 004, 008 | **Partial:** the packaged installed-wheel aggregate validator is executable; the approved common analysis runner, trusted policy/query ledger, offline dependency bundle, standards alignment and controlled deployment remain open. |
 | C-09 Policy/action-plan indicators | 015 | Planned as a reviewed translation layer. |
 
 Other Could requirements remain post-v1 candidates unless adopted through change control.

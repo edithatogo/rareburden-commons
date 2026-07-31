@@ -5,7 +5,7 @@ node_version: 0.1.0
 analysis_id: synthetic-assurance
 policy_id: synthetic-aggregate-v1
 status: completed
-input_fingerprint: inp-synthetic-001
-output_fingerprint: out-synthetic-001
+input_fingerprint: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+output_fingerprint: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 limitations:
 - No controlled or participant-level data.

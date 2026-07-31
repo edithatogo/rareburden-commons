@@ -15,7 +15,6 @@ def _run() -> dict[str, object]:
         node_version="0.1.1",
         analysis_id="synthetic-analysis",
         policy_id="synthetic-policy",
-        input_fingerprint="sha256:synthetic-input",
     )
 
 

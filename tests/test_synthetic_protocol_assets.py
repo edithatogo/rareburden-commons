@@ -46,6 +46,16 @@ def test_protocol_drafts_are_explicitly_non_binding(track: str) -> None:
             "examples/semantics/rare-within-common-synthetic.yml",
             "schemas/disease-hierarchy.schema.json",
         ),
+        ("examples/node-input-synthetic.yml", "schemas/node-input.schema.json"),
+        ("examples/node-output-synthetic.yml", "schemas/node-output.schema.json"),
+        (
+            "examples/node-execution-manifest-synthetic.yml",
+            "schemas/node-execution-manifest.schema.json",
+        ),
+        (
+            "examples/node-disclosure-policy-synthetic.yml",
+            "schemas/node-disclosure-policy.schema.json",
+        ),
     ),
 )
 def test_synthetic_contract_fixtures_validate(fixture: str, schema: str) -> None:

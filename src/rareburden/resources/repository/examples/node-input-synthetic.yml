@@ -1,0 +1,6 @@
+schema_version: 0.1.0
+rows:
+- diagnosis: condition-a
+  count: 8
+- diagnosis: condition-a+condition-b
+  count: 2

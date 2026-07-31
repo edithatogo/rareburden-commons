@@ -108,6 +108,17 @@ def check_installed_wheel(wheel: Path, *, uv: str, python_version: str) -> None:
         if payload.get("status") != "passed":
             raise InstalledPackageCheckError("Installed reference release did not verify")
 
+        node_check = (
+            "from rareburden.node import run_offline_node,verify_output_fingerprint;"
+            "r=run_offline_node([{'group':'synthetic','count':8}],"
+            "execution_id='installed-node',coordinator_version='0.1.0',"
+            "node_version='0.1.0',analysis_id='synthetic-analysis',"
+            "policy_id='synthetic-policy');"
+            "verify_output_fingerprint(r);"
+            "assert r['rows'][0]['count']==8"
+        )
+        _run([str(python), "-c", node_check], cwd=work)
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -124,7 +135,7 @@ def main() -> int:
     except (InstalledPackageCheckError, json.JSONDecodeError) as exc:
         print(str(exc), file=sys.stderr)
         return 1
-    print("Installed-package reference workflow passed.")
+    print("Installed-package reference and synthetic-node workflows passed.")
     return 0
 
 
