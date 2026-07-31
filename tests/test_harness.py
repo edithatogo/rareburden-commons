@@ -5,7 +5,7 @@ import tarfile
 import zipfile
 from pathlib import Path
 
-from scripts.build_distributions import _canonicalise_sdist
+from scripts.build_distributions import _canonicalise_sdist, _canonicalise_wheel
 from scripts.check_built_package import PackageCheckError, inspect_sdist, inspect_wheel
 from scripts.check_github_workflows import validate_workflow, validate_workflows
 from scripts.check_schemas import validate_schemas
@@ -20,6 +20,30 @@ def test_git_attributes_normalise_packaged_text_across_platforms() -> None:
     assert "* text=auto eol=lf" in attributes
     assert "*.whl binary" in attributes
     assert "*.zip binary" in attributes
+
+
+def test_wheel_canonicalisation_removes_platform_metadata_drift(tmp_path: Path) -> None:
+    first = tmp_path / "first.whl"
+    second = tmp_path / "second.whl"
+    members = {
+        "rareburden/__init__.py": b"",
+        "rareburden-1.0.dist-info/METADATA": b"Name: rareburden\nVersion: 1.0\n",
+        "rareburden-1.0.dist-info/RECORD": b"stale\n",
+    }
+    for path, newline, create_system in (
+        (first, b"\n", 3),
+        (second, b"\r\n", 0),
+    ):
+        with zipfile.ZipFile(path, "w") as archive:
+            for name, data in reversed(members.items()):
+                info = zipfile.ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))
+                info.create_system = create_system
+                archive.writestr(info, data.replace(b"\n", newline))
+
+    _canonicalise_wheel(first, source_date_epoch=1760000000)
+    _canonicalise_wheel(second, source_date_epoch=1760000000)
+
+    assert first.read_bytes() == second.read_bytes()
 
 
 def _workflow(path: Path, text: str) -> Path:

@@ -66,6 +66,10 @@
 - [x] Retain the platform-built node wheel with each hosted offline-install
   receipt so cross-platform byte drift can be diagnosed member-by-member rather
   than waived. Artifact retention is short-lived candidate evidence only.
+- [x] Canonicalize generated wheel metadata, member order, ZIP attributes and
+  `RECORD` after the backend build. Member comparison showed that Windows CRLF
+  in `METADATA` was the sole content difference from macOS; a regression test
+  now requires platform-different fixtures to become byte-identical.
 - [x] Test incompatible versions, failed runs, correction and withdrawal. Evidence: strict semantic-version, terminal-status and immutable superseding-manifest tests.
 
 ## Phase 4 — External pilot readiness
