@@ -24,7 +24,11 @@
 ## Phase 4 — Review
 
 - [ ] Complete epidemiology, data-governance and engineering review.
-- [ ] Validate ledger use with all three demonstrator specifications.
+- [x] Validate ledger use with all three demonstrator specifications. Evidence:
+  schema-validated non-binding profiles for RBC-P002, RBC-P003 and RBC-P004,
+  plus fail-closed binding checks in `rareburden.demonstrator_readiness`. The
+  profiles deliberately report unresolved scientific and controlled-data roles
+  and therefore do not declare any demonstrator analysis ready.
 - [ ] Close or assign every blocking data-contract issue.
 - [ ] Freeze v0.4 ledger contracts.
 

@@ -43,6 +43,14 @@ and a deterministic human-readable report separates assumptions from other
 evidence while exposing licence, uncertainty, provenance and limitations. This
 does not clear Track 002's live-source or rights reviews.
 
+Repository-level compatibility with all three demonstrator specifications is
+now exercised by schema-validated, non-binding ledger profiles in
+`examples/demonstrators/`. The checker resolves compatible synthetic bindings,
+rejects incompatible quantity types and requires every unbound role to state
+why it remains unresolved. All three profiles remain `analysis_ready=false`;
+this is contract evidence, not scientific, clinical, custodian or governance
+approval.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with dependency blockers**. The impact-tracing

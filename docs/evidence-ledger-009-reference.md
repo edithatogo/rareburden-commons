@@ -47,3 +47,20 @@ data-governance authority.
 The v0.1.0 ledger contract remains non-binding. These primitives do not select
 between conflicting evidence, freeze schemas or replace epidemiology, methods,
 data-governance or engineering review.
+
+## Demonstrator readiness profiles
+
+The non-binding profiles in `examples/demonstrators/` map the parameter roles
+required by RBC-P002, RBC-P003 and RBC-P004 onto the ledger. A bound role must
+resolve to a parameter with a compatible quantity type. An unbound role must
+carry an explicit unresolved reason. `assess_demonstrator_readiness` separates
+two conclusions:
+
+- `contract_exercised` means at least one role has traversed the validated
+  ledger contract;
+- `analysis_ready` means every declared role is bound.
+
+The repository profiles exercise all three contracts but intentionally remain
+not analysis-ready. In particular, the paediatric profile does not treat a
+synthetic run or generic population denominator as custodian approval or
+controlled-data evidence.
