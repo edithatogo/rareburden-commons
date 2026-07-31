@@ -1,10 +1,10 @@
 {
   "id": "010-public-burden-engine",
   "title": "Public burden engine and uncertainty framework",
-  "status": "planned",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-19",
+  "updated": "2026-07-31",
   "target_release": "0.5.0",
   "stage": "modelling_core",
   "owner_role": "Statistical and Scientific Software Leads",

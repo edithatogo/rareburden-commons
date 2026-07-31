@@ -1,10 +1,10 @@
 {
   "id": "013-quality-validation-gap-equity",
   "title": "Quality, validation, gap mapping and equity assurance",
-  "status": "planned",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-19",
+  "updated": "2026-07-29",
   "target_release": "0.8.0",
   "stage": "assurance",
   "owner_role": "Methods Assurance and Equity Leads",

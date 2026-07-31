@@ -4,6 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import base64
+import csv
+import datetime as dt
 import gzip
 import hashlib
 import io
@@ -12,6 +15,7 @@ import shutil
 import sys
 import tarfile
 import tempfile
+import zipfile
 from pathlib import Path, PurePosixPath
 
 import setuptools.build_meta as backend
@@ -90,6 +94,62 @@ def _canonicalise_sdist(path: Path, *, source_date_epoch: int) -> None:
         temporary.unlink(missing_ok=True)
 
 
+def _canonicalise_wheel(path: Path, *, source_date_epoch: int) -> None:
+    """Rewrite a wheel with stable content, RECORD and ZIP metadata."""
+    members: dict[str, bytes] = {}
+    try:
+        with zipfile.ZipFile(path) as archive:
+            for info in archive.infolist():
+                name = _safe_archive_name(info.filename)
+                if name in members:
+                    raise DistributionBuildError(f"Duplicate wheel member: {name}")
+                if info.is_dir():
+                    continue
+                data = archive.read(info)
+                if name.endswith(".dist-info/METADATA"):
+                    data = data.replace(b"\r\n", b"\n")
+                members[name] = data
+    except (OSError, zipfile.BadZipFile) as exc:
+        raise DistributionBuildError(f"Cannot canonicalise wheel: {exc}") from exc
+
+    record_names = [name for name in members if name.endswith(".dist-info/RECORD")]
+    if len(record_names) != 1:
+        raise DistributionBuildError("Wheel must contain exactly one dist-info/RECORD")
+    record_name = record_names[0]
+    members.pop(record_name)
+    record_buffer = io.StringIO(newline="")
+    writer = csv.writer(record_buffer, lineterminator="\n")
+    for name, data in sorted(members.items()):
+        digest = base64.urlsafe_b64encode(hashlib.sha256(data).digest()).rstrip(b"=").decode()
+        writer.writerow([name, f"sha256={digest}", str(len(data))])
+    writer.writerow([record_name, "", ""])
+    members[record_name] = record_buffer.getvalue().encode("utf-8")
+
+    timestamp = dt.datetime.fromtimestamp(source_date_epoch, tz=dt.UTC)
+    zip_timestamp = (
+        max(1980, timestamp.year),
+        timestamp.month,
+        timestamp.day,
+        timestamp.hour,
+        timestamp.minute,
+        timestamp.second - timestamp.second % 2,
+    )
+    temporary = path.with_name(f".{path.name}.canonical")
+    try:
+        with zipfile.ZipFile(
+            temporary, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
+        ) as archive:
+            for name, data in sorted(members.items()):
+                info = zipfile.ZipInfo(name, date_time=zip_timestamp)
+                info.compress_type = zipfile.ZIP_DEFLATED
+                info.create_system = 3
+                info.external_attr = 0o100644 << 16
+                archive.writestr(info, data)
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def _clean_generated(root: Path) -> None:
     for path in (root / "build", root / "src" / "rareburden.egg-info"):
         if path.exists():
@@ -105,6 +165,9 @@ def _build_once(root: Path, output: Path) -> dict[str, bytes]:
         os.chdir(root)
         _clean_generated(root)
         wheel_name = backend.build_wheel(str(output), config_settings={})
+        _canonicalise_wheel(
+            output / wheel_name, source_date_epoch=int(os.environ["SOURCE_DATE_EPOCH"])
+        )
         sdist_name = backend.build_sdist(str(output), config_settings={})
         _canonicalise_sdist(
             output / sdist_name, source_date_epoch=int(os.environ["SOURCE_DATE_EPOCH"])

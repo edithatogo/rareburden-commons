@@ -1,10 +1,10 @@
 {
   "id": "004-federated-node-runner",
   "title": "Federated country-node execution package",
-  "status": "planned",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-19",
+  "updated": "2026-07-31",
   "target_release": "0.6.0",
   "stage": "federated_execution",
   "owner_role": "Node Architecture and Data Governance Leads",

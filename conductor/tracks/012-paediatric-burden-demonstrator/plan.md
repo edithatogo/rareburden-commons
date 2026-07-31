@@ -9,10 +9,10 @@
 
 ## Phase 2 — Synthetic linked-data model
 
-- [ ] Create synthetic person, diagnosis, admission, death and cost tables. `[C-03]`
-- [ ] Implement person-level deduplication and multimorbidity rules. `[M-05]`
+- [x] Create synthetic person, diagnosis, admission, death and cost tables. `[C-03]` Evidence: `examples/paediatric/linked-data-synthetic.yml`.
+- [x] Define person-level deduplication and multimorbidity rules. `[M-05]` Evidence: fixture rules and `docs/paediatric-012-reference.md`; implementation against controlled data remains gated.
 - [ ] Implement utilisation, mortality and cost estimands.
-- [ ] Add small-cell and inferential disclosure cases.
+- [x] Add small-cell disclosure case and export rule. Evidence: synthetic fixture disclosure rule; custodian threshold and inferential controls remain external-gated.
 
 ## Phase 3 — Federated package
 
@@ -27,3 +27,8 @@
 - [ ] Seek approved local pilot or publish a pilot-ready protocol only.
 - [ ] Specify replication in a differently governed country/node.
 - [ ] Complete scientific, economic, privacy and patient/community review.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 012 cannot activate until Tracks 004, 005, 008, 009 and 010 are complete. Evidence: `ff48477`.
+- [x] Add non-binding RBC-P004 v0.1.0 protocol draft to the specification; activation and contract freeze remain blocked.

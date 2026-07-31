@@ -1,0 +1,24 @@
+schema_version: 1.0.0
+demonstrator_id: 012-paediatric-burden-demonstrator
+protocol_id: RBC-P004
+status: non_binding_draft
+requirements:
+- role: population_context
+  acceptable_quantity_types: [population]
+  parameter_id: australia-population-synthetic
+- role: admissions
+  acceptable_quantity_types: [case_count, rate]
+  parameter_id: null
+  unresolved_reason: Requires custodian-approved aggregate output.
+- role: mortality
+  acceptable_quantity_types: [case_count, rate]
+  parameter_id: null
+  unresolved_reason: Requires custodian-approved aggregate output.
+- role: utilisation
+  acceptable_quantity_types: [rate, other]
+  parameter_id: null
+  unresolved_reason: Requires an approved observation-window contract.
+- role: cost
+  acceptable_quantity_types: [cost]
+  parameter_id: null
+  unresolved_reason: Requires an approved perspective, currency and price year.

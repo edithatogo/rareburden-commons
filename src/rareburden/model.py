@@ -196,9 +196,14 @@ def simulate_product(
             "only explicit independence is implemented"
         )
     rng = StableRandom(seed)
-    values = [
-        sample_distribution(left, rng) * sample_distribution(right, rng) for _ in range(iterations)
-    ]
+    values: list[float] = []
+    for _ in range(iterations):
+        left_value = sample_distribution(left, rng)
+        right_value = sample_distribution(right, rng)
+        value = left_value * right_value
+        if not math.isfinite(value) or value < 0:
+            raise ModelError("product simulation produced a non-finite or negative value")
+        values.append(value)
     mean = fmean(values)
     tail = (1 - interval_probability) / 2
     return SimulationSummary(

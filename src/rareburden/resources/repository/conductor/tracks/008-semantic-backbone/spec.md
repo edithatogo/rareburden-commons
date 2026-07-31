@@ -35,3 +35,7 @@ Implement a versioned semantic layer that defines rare-disease entities, maps re
 ## v1 contribution
 
 This track implements the disease-definition, mapping and overlap controls required by V1-SCI-02 and V1-DATA-05.
+
+## Non-binding protocol draft — semantic contract v0.1.0 (2026-07-27)
+
+Preparatory only; this does not activate the track or freeze a v0.4 interface. Represent disease, syndrome, aetiology, phenotype and code-system entities with stable internal IDs, source/version, relation, validity, provenance and licence state. Support exact, broader, narrower, approximate, ambiguous, deprecated and unmapped mappings, with ambiguous aggregation failing closed. Explicitly represent mutually exclusive nodes, non-tree relations, multi-aetiology and multi-diagnosis links. Validate cycles, conservation, version impact and golden fixtures; require semantic, clinical, patient/community and engineering review.

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/node-execution-manifest.schema.json",
+  "title": "Federated node execution manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "execution_id", "coordinator_version", "node_version", "analysis_id", "policy_id", "status", "input_fingerprint"],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "execution_id": {"type": "string", "minLength": 3},
+    "coordinator_version": {"type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"},
+    "node_version": {"type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"},
+    "analysis_id": {"type": "string", "minLength": 1},
+    "policy_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["prepared", "completed", "failed", "withdrawn"]},
+    "input_fingerprint": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "output_fingerprint": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "supersedes_execution_id": {"type": "string", "minLength": 3},
+    "correction_reason": {"type": "string", "minLength": 1}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "completed"}}, "required": ["status"]},
+      "then": {"required": ["output_fingerprint"]}
+    },
+    {
+      "if": {"required": ["supersedes_execution_id"]},
+      "then": {"required": ["correction_reason"]}
+    },
+    {
+      "if": {"required": ["correction_reason"]},
+      "then": {"required": ["supersedes_execution_id"]}
+    }
+  ]
+}

@@ -37,3 +37,7 @@ Specify and validate a federated administrative-data analysis of collective paed
 ## v1 contribution
 
 This track exercises person-level deduplication, controlled data, economic linkage and paediatric policy translation.
+
+## Non-binding protocol draft — RBC-P004 v0.1.0 (2026-07-27)
+
+Preparatory only; this does not activate the track, authorise person-level access or freeze a paediatric contract. Define aggregate and, only where approved, person-level estimands for incidence/prevalence, admissions, mortality, costs and service use by jurisdiction and observation window. Document Australian/New Zealand custodian pathways, linkage authority, Indigenous/data-governance, retention and withdrawal conditions. Use synthetic person/diagnosis/admission/death/cost tables with deduplication, multimorbidity, small-cell and suppression cases; export approved aggregates only. Paediatric/clinical, economics, privacy/governance, security, patient/family and engineering review are required.

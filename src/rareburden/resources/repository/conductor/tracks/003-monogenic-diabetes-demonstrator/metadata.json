@@ -1,10 +1,10 @@
 {
   "id": "003-monogenic-diabetes-demonstrator",
   "title": "Monogenic diabetes rare-within-common demonstrator",
-  "status": "planned",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-19",
+  "updated": "2026-07-27",
   "target_release": "0.5.0",
   "stage": "reference_analysis",
   "owner_role": "Clinical and Epidemiology Leads",

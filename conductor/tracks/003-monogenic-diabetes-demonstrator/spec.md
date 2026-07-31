@@ -41,3 +41,7 @@ For a defined geography, period, age and diabetes denominator, what proportion a
 ## v1 contribution
 
 This is the reference rare-within-common analysis for V1-SCI-05 and validates the semantic, ledger and burden-engine contracts.
+
+## Non-binding protocol draft — RBC-P002 v0.1.0 (2026-07-27)
+
+Preparatory only; this does not activate the track or freeze dependent contracts. For a declared geography, period, age band and diabetes denominator, estimate monogenic case count and proportion, separating diagnosed, undiagnosed and modelled states. Inputs are versioned semantic entities and ledger parameters for aetiologic fraction, ascertainment, penetrance, referral, outcomes and costs. The primary model is a compatible envelope-times-fraction calculation with seeded simulation; sensitivities cover denominator, age, ancestry, setting, ascertainment, penetrance and referral. Outputs include uncertainty, parameter fingerprints, limitations and reproducibility metadata. Clinical/genetics, epidemiology, patient/community, governance and engineering review are required.

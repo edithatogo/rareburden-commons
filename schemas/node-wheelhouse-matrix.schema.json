@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/node-wheelhouse-matrix.schema.json",
+  "title": "Federated node offline wheelhouse verification matrix",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "node_version", "rows"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "node_version": {"type": "string", "minLength": 1},
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "platform",
+          "architecture",
+          "python_version",
+          "status",
+          "operator_independence",
+          "evidence"
+        ],
+        "properties": {
+          "platform": {"enum": ["linux", "macos", "windows"]},
+          "architecture": {"enum": ["x86_64", "arm64"]},
+          "python_version": {"enum": ["3.11", "3.12", "3.13", "3.14"]},
+          "status": {"enum": ["not_run", "candidate_passed", "approved_passed", "failed"]},
+          "operator_independence": {"enum": ["none", "same_operator", "independent_operator"]},
+          "evidence": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"status": {"const": "not_run"}}},
+            "then": {"properties": {"evidence": {"maxItems": 0}}}
+          },
+          {
+            "if": {"properties": {"status": {"enum": ["candidate_passed", "approved_passed"]}}},
+            "then": {"properties": {"evidence": {"minItems": 1}}}
+          },
+          {
+            "if": {"properties": {"status": {"const": "approved_passed"}}},
+            "then": {
+              "properties": {
+                "operator_independence": {"const": "independent_operator"}
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

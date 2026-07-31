@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/node-output.schema.json",
+  "title": "Federated node disclosure-safe output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "manifest", "rows"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "manifest": {"type": "object"},
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["count", "count_status"],
+        "properties": {
+          "jurisdiction": {"type": "string"},
+          "group": {"type": "string"},
+          "diagnosis": {"type": "string"},
+          "count": {"type": ["integer", "null"], "minimum": 0},
+          "count_status": {"enum": ["released", "suppressed"]}
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"count_status": {"const": "suppressed"}}},
+            "then": {
+              "properties": {"count": {"type": "null"}},
+              "not": {"anyOf": [{"required": ["jurisdiction"]}, {"required": ["group"]}, {"required": ["diagnosis"]}]}
+            }
+          },
+          {
+            "if": {"properties": {"count_status": {"const": "released"}}},
+            "then": {
+              "properties": {"count": {"type": "integer", "minimum": 0}},
+              "anyOf": [{"required": ["jurisdiction"]}, {"required": ["group"]}, {"required": ["diagnosis"]}]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

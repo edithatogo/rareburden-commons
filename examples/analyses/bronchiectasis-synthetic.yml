@@ -1,0 +1,18 @@
+schema_version: 1.0.0
+analysis_id: bronchiectasis-rare-aetiology-synthetic
+title: Synthetic bronchiectasis rare-aetiology assurance analysis
+estimand: rare_aetiology_cases
+left_parameter_id: australia-population-synthetic
+right_parameter_id: rare-diabetes-fraction-synthetic
+output_unit: people
+iterations: 10000
+seed: 20260729
+interval_probability: 0.95
+dependence: independent
+dependence_rationale: Synthetic placeholder only; dependence is not clinically asserted.
+intended_use: synthetic_assurance
+limitations:
+- This fixture is a contract exercise, not bronchiectasis evidence or a clinical estimate.
+- Aetiology categories, overlap, age, setting and diagnostic capacity require reviewed ledger parameters.
+- Unclassified and multi-aetiology cases are not collapsed into a single cause by this fixture.
+- No country or cohort extrapolation is permitted.

@@ -35,3 +35,7 @@ Demonstrate rare-within-common estimation when the common phenotype contains mul
 ## v1 contribution
 
 This track proves that the semantic and burden framework works beyond a relatively discrete monogenic example.
+
+## Non-binding protocol draft — RBC-P003 v0.1.0 (2026-07-27)
+
+Preparatory only; this does not activate the track or freeze bronchiectasis contracts. Define a geography-, period-, age- and setting-specific denominator and estimate rare-aetiology fractions/cases with outcome and service-use scenarios. Represent mutually exclusive, multi-aetiology, unclassified and unknown categories, with overlap and ascertainment uncertainty. Use versioned mappings and ledger parameters, and test referral, diagnostic-capacity and setting transportability scenarios. Respiratory clinical, epidemiology, patient/community and engineering review are required.

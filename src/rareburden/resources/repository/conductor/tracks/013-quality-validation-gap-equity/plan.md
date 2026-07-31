@@ -2,15 +2,15 @@
 
 ## Phase 1 — Assurance framework
 
-- [ ] Define evidence quality, bias and transportability dimensions. `[M-21, S-07]`
+- [x] Define evidence quality, bias and transportability dimensions. `[M-21, S-07]` Evidence: evidence-assessment, transportability and quality-disposition schemas/validators; summary documented in `docs/quality-validation-013-reference.md`.
 - [ ] Define validation types, calibration thresholds and model criticism.
 - [ ] Define release-language rules by evidence maturity.
-- [ ] Define GATHER-aligned reporting checklist.
+- [x] Define GATHER-aligned reporting checklist. Evidence: `src/rareburden/reporting.py` and reporting checklist schema.
 
 ## Phase 2 — Gap and equity mapping
 
-- [ ] Define parameter-by-geography sufficiency taxonomy. `[M-26]`
-- [ ] Generate machine-readable gap map from source and ledger records.
+- [x] Define parameter-by-geography sufficiency taxonomy. `[M-26]` Evidence: gap-map schema uses explicit `sufficiency: not_assessed` until empirical validation.
+- [x] Generate machine-readable gap map from source and ledger records. Evidence: `src/rareburden/gapmap.py` and reference gap-map workflow.
 - [ ] Add rendered coverage, missingness and controlled-data-ask products.
 - [ ] Add LMIC, underserved-population and Indigenous governance assessment.
 
@@ -27,3 +27,7 @@
 - [ ] Complete patient/community harm and interpretation review.
 - [ ] Complete scientific assurance report and disposition log.
 - [ ] Block, narrow or approve outputs for the atlas beta.
+
+## Dependency review — 2026-07-27
+
+- [x] Record that Track 013 cannot activate until Tracks 003, 005, 007, 010, 011 and 012 are complete. Evidence: `c126052`.

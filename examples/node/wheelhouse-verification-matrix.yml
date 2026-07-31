@@ -1,0 +1,40 @@
+schema_version: 1.0.0
+node_version: 0.3.0rc2
+rows:
+- platform: macos
+  architecture: arm64
+  python_version: '3.13'
+  status: candidate_passed
+  operator_independence: same_operator
+  evidence:
+  - docs/federated-node-004-offline-install-rehearsal.md
+- platform: macos
+  architecture: arm64
+  python_version: '3.14'
+  status: not_run
+  operator_independence: none
+  evidence: []
+- platform: macos
+  architecture: x86_64
+  python_version: '3.13'
+  status: not_run
+  operator_independence: none
+  evidence: []
+- platform: linux
+  architecture: x86_64
+  python_version: '3.13'
+  status: not_run
+  operator_independence: none
+  evidence: []
+- platform: linux
+  architecture: arm64
+  python_version: '3.13'
+  status: not_run
+  operator_independence: none
+  evidence: []
+- platform: windows
+  architecture: x86_64
+  python_version: '3.13'
+  status: not_run
+  operator_independence: none
+  evidence: []

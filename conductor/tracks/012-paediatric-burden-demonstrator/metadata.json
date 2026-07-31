@@ -1,10 +1,10 @@
 {
   "id": "012-paediatric-burden-demonstrator",
   "title": "Collective paediatric rare-disease burden demonstrator",
-  "status": "planned",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-19",
+  "updated": "2026-07-29",
   "target_release": "0.7.0",
   "stage": "controlled_reference_analysis",
   "owner_role": "Paediatric, Administrative Data and Health Economics Leads",

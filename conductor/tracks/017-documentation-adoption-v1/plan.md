@@ -34,3 +34,9 @@
 - [ ] Build source, Git, data-package and provenance-rich release artefacts.
 - [ ] Tag v1.0.0 and archive immutable artefacts only after approval.
 - [ ] Verify published artefacts using public instructions and record the result.
+
+## Preparatory dependency review — 2026-07-29
+
+- [x] Define role-based documentation coverage, release-evidence lanes and clean
+  reproduction checklist without activating v1 publication. Evidence:
+  `docs/v1-adoption-017-reference.md` and review record.

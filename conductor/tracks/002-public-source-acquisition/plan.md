@@ -36,3 +36,16 @@
 - [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.
 - [ ] Close or assign every external review finding.
 - [ ] Release v0.3.0 only when Track 007 also satisfies its gate.
+
+## Review fixes — 2026-07-27
+
+- [x] Refresh internal harness evidence and separate repository validation from live-source and governance gates. Evidence: `506ce6b`.
+- [x] Run a bounded dated reachability check for catalog access URLs; record the World Bank root 404 as an endpoint-contract finding. Evidence: `3a62e38`.
+- [x] Record dated public access/licence evidence for Orphadata, MONDO, UN WPP, WHO GHE and World Bank API documentation. Evidence: review record updated 2026-07-27; exact production endpoint and governance gates remain open.
+- [x] Probe documented concrete World Bank indicator queries and source terms/download routes; record HTTP results and unresolved file/hash selection. Evidence: review record updated 2026-07-27.
+- [x] Complete bounded candidate inventory for supported open, API and manual sources, with access class, terms route and next evidence. Evidence: `review.md` inventory v0.1.0, 2026-07-27; exact file/hash selection remains pending.
+- [x] Capture a content-addressed World Bank reference-query response. Evidence: 310-byte HTTP 200 response, SHA-256 `cf007aeb8ff4078b46a28861c022c678c22b6c115b255b0f8f0c6ce58de6c5cb`, 2026-07-29; production indicator approval remains open.
+- [x] Hash the public Orphadata terms catalogue, UN WPP methodology and WHO data-terms pages. Evidence: hashes and retrieval sizes recorded in `review.md`, 2026-07-29; exact production files and source approval remain open.
+- [x] Record the owner-approved candidate scope without activating production acquisition. Evidence: `review.md` scope decision, 2026-07-29.
+- [ ] Pin exact Orphadata, UN WPP and WHO artifact URLs/releases and record hashes after the approved source pages expose stable download routes.
+- [x] Bound the approved World Bank query to named geographies and years, then capture a final response manifest. Evidence: explicit `AUS;NZL`, 2000–2021 query, 8,826-byte HTTP 200 response and SHA-256 recorded in `review.md`, 2026-07-29.

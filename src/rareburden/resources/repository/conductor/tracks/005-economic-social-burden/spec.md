@@ -38,3 +38,7 @@ Create transparent, perspective-specific methods and data contracts for health-s
 ## v1 contribution
 
 This track supports V1-SCI-05, V1-GOV-04 and the economic parts of the atlas and demonstrators.
+
+## Non-binding protocol draft — RBC-P001D v0.1.0 (2026-07-27)
+
+Preparatory only; this does not activate the track or freeze ledger/engine contracts. Report health-system, household and societal perspectives separately across direct medical, direct non-medical, informal care/time, productivity, education and social participation components. Each parameter carries payer/recipient, currency, price year, PPP, discounting, transfer-payment and evidence metadata. Analyses report per-person and aggregate burden, missingness, equity subgroups and valuation/discounting scenarios without applying case fractions directly to incompatible outcomes. Health-economics, ethics, patient/family, governance and engineering review are required.
