@@ -34,7 +34,7 @@
 
 - [x] Write draft operator, data-steward and export-review guidance. Evidence: `docs/federated-node-004-operator-guide.md` and threat model; approval remains open.
 - [ ] Complete independent synthetic-node execution.
-- [ ] Prepare controlled-environment pilot protocol and application pack.
+- [x] Prepare non-binding controlled-environment pilot protocol and application pack. Evidence: `docs/federated-node-004-pilot-application-draft.md`; approval and activation remain external-gated.
 - [ ] Complete a pilot before v1 or remove controlled-pilot claims from scope.
 
 ## Phase 5 — Review
