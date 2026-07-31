@@ -66,7 +66,7 @@
 |---|---:|---|
 | C-01 Reviewed atlas and API | 014 | Planned for v0.8. |
 | C-03 Synthetic node test package | 004 | **Implemented — bounded reference:** four node schemas, aggregate allowlists, suppression, supplied-history query guards, strict manifests and installed-wheel execution are tested; independent operator and controlled validation remain open. |
-| C-06 Reusable interoperable node runner | 004, 008 | **Partial:** the packaged installed-wheel aggregate validator is executable; the approved common analysis runner, trusted policy/query ledger, offline dependency bundle, standards alignment and controlled deployment remain open. |
+| C-06 Reusable interoperable node runner | 004, 008 | **Partial:** the installed wheel exercises the explicitly synthetic common-analysis, immutable policy/query-ledger and aggregate-export primitives; a deterministic local-wheel bundle is implemented. Production contract approval, complete locked wheel staging, custodian-controlled durable ledger, standards alignment and controlled deployment remain open. |
 | C-09 Policy/action-plan indicators | 015 | Planned as a reviewed translation layer. |
 
 Other Could requirements remain post-v1 candidates unless adopted through change control.

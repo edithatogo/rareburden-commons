@@ -15,7 +15,8 @@
 - [x] Implement offline preflight and bounded environment capture. `[M-19]` Evidence: `build_execution_manifest`, `capture_environment`, and focused tests; capture is limited to runtime identity plus a caller-supplied lockfile fingerprint, with no credentials, host paths, or participant data.
 - [x] Implement deterministic offline execution-manifest preflight. `[M-19]` Evidence: `build_execution_manifest`, `capture_environment`, and version/environment tests; controlled-node execution remains pending external authorization.
 - [x] Package and exercise the bounded synthetic aggregate validator from an installed wheel. `[S-08, C-06]` Evidence: package checks, installed-wheel node execution and `scripts/check_node_reproducibility.py`.
-- [ ] Implement the approved common local analysis runner and locked offline dependency bundle after Tracks 009/010 and policy approval.
+- [x] Implement a bounded synthetic common-analysis runner and deterministic local-only wheel-bundle builder. Evidence: `rareburden.node_analysis`, `scripts/build_node_bundle.py`, focused negative tests and installed-wheel execution. The runner accepts only explicitly synthetic records; the bundle builder downloads nothing and requires pre-staged wheels.
+- [ ] Approve the production common analysis contract and stage a complete locked dependency wheel set after Tracks 009/010 and policy approval.
 - [x] Implement disclosure configuration, suppression and export validation. Evidence: `rareburden.node.validate_aggregate_export`, `tests/test_node.py`, and `docs/federated-node-004-reference.md`; custodian-specific thresholds remain external-gated.
 
 ## Preparatory implementation — 2026-07-29
@@ -27,7 +28,8 @@
 ## Phase 3 — Conformance and security
 
 - [x] Add contract, privacy, supplied-history query-budget and log-redaction tests. Evidence: allowlisted aggregate dimensions, monotonic threshold comparisons, bounded query-history guards, recursive credential redaction and adversarial tests.
-- [ ] Implement an authoritative append-only custodian query ledger, stable query-shape identity and operational differencing controls in the approved runner.
+- [x] Implement immutable synthetic policy snapshots, stable value-free query-shape identity, replay rejection and overlap-budget checks. Evidence: `rareburden.node_policy` and focused tests.
+- [ ] Bind the policy and query ledger to an authoritative custodian-controlled durable store in the approved runner; the in-memory snapshots do not establish authority or persistence.
 - [x] Verify participant rows cannot enter export artefacts. `[M-13]` Evidence: case-normalised sensitive-field rejection, nested-value rejection, aggregate dimension allowlist and offline-runner tests.
 - [x] Add node execution manifest contract and fingerprint fields. Evidence: strict digest schema, canonical output hash and tamper-evident manifest tests.
 - [ ] Obtain signing/attestation design approval and implement the approved trust-root/key-custody profile. Local output hashes are implemented; signing authority is external-gated with Track 016.
@@ -56,6 +58,9 @@
 - [x] Add strict semantic-version parsing, canonical output fingerprints and correction lifecycle invariants.
 - [x] Harden recursive log redaction for credential key variants and bearer/authorization values.
 - [x] Correct independent-execution, packaging, signing and historical-review claims.
+- [x] Add an explicitly synthetic common-analysis runner that rejects identifiers and overlapping-diagnosis double counting.
+- [x] Add a deterministic, integrity-checked offline wheel-bundle builder for locally supplied artifacts; complete approved dependency staging remains open.
+- [x] Add immutable disclosure-policy and query-ledger primitives without claiming custodian authority or durable persistence.
 
 ## Dependency review — 2026-07-27
 

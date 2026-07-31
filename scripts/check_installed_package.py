@@ -109,13 +109,26 @@ def check_installed_wheel(wheel: Path, *, uv: str, python_version: str) -> None:
             raise InstalledPackageCheckError("Installed reference release did not verify")
 
         node_check = (
-            "from rareburden.node import run_offline_node,verify_output_fingerprint;"
-            "r=run_offline_node([{'group':'synthetic','count':8}],"
+            "from rareburden.node_analysis import aggregate_synthetic_records;"
+            "from rareburden.node_policy import QueryLedger,load_disclosure_policy,"
+            "run_policy_bound_synthetic_node;"
+            "from rareburden.node import verify_output_fingerprint;"
+            "rows=aggregate_synthetic_records("
+            "[{'synthetic':True,'diagnoses':['synthetic-diagnosis'],'group':'synthetic'}],"
+            "dimensions=('diagnosis','group'));"
+            "p=load_disclosure_policy({'schema_version':'0.1.0','policy_id':'synthetic-policy',"
+            "'minimum_cell_count':1,'max_queries_per_overlap_group':2,"
+            "'allowed_dimension_fields':['diagnosis','group'],"
+            "'participant_fields':['participant_id'],'export_mode':'aggregate_only'});"
+            "r,ledger=run_policy_bound_synthetic_node(rows,"
+            "query_shape={'analysis_id':'synthetic-analysis',"
+            "'dimensions':['diagnosis','group'],'measure':'count'},"
+            "overlap_group='synthetic-overlap',policy=p,ledger=QueryLedger(),"
             "execution_id='installed-node',coordinator_version='0.1.0',"
-            "node_version='0.1.0',analysis_id='synthetic-analysis',"
-            "policy_id='synthetic-policy');"
+            "node_version='0.1.0');"
+            "assert len(ledger.entries)==1;"
             "verify_output_fingerprint(r);"
-            "assert r['rows'][0]['count']==8"
+            "assert r['rows'][0]['count']==1"
         )
         _run([str(python), "-c", node_check], cwd=work)
 

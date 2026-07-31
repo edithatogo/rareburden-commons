@@ -7,7 +7,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 .PHONY: install sync validate validate-catalog validate-roadmap validate-landscape \
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
-	reproducibility build package-check installed-package-check sbom check ci release-check clean
+	reproducibility node-bundle-check build package-check installed-package-check sbom check ci release-check clean
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -82,6 +82,10 @@ reproducibility:
 
 node-reproducibility:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_node_reproducibility.py
+
+node-bundle-check:
+	@test -n "$(BUNDLE)" || (echo "BUNDLE=/path/to/node-bundle.zip is required" >&2; exit 2)
+	PYTHONPATH=src:. $(PYTHON) scripts/build_node_bundle.py check $(BUNDLE)
 
 clean:
 	rm -rf build dist .pytest_cache .mypy_cache .ruff_cache htmlcov

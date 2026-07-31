@@ -6,13 +6,13 @@
   "additionalProperties": false,
   "required": ["schema_version", "policy_id", "minimum_cell_count", "max_queries_per_overlap_group", "allowed_dimension_fields", "participant_fields", "export_mode"],
   "properties": {
-    "schema_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "schema_version": {"type": "string", "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"},
     "policy_id": {"type": "string", "minLength": 3},
     "minimum_cell_count": {"type": "integer", "minimum": 1},
     "max_queries_per_overlap_group": {"type": "integer", "minimum": 1},
     "allowed_dimension_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["jurisdiction", "group", "diagnosis"]}},
     "participant_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
     "export_mode": {"enum": ["aggregate_only", "metadata_only"]},
-    "notes": {"type": "array", "items": {"type": "string"}}
+    "notes": {"type": "array", "items": {"type": "string", "minLength": 1}}
   }
 }

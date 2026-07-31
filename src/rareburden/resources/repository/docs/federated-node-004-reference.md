@@ -17,9 +17,24 @@ participant identifiers from nested diagnostic metadata.
 The bounded validator compares analysis overrides with a supplied custodian
 baseline, accepts only approved aggregate dimensions, rejects nested export
 values, and applies a supplied-history replay/overlap-group guard. These are local
-comparison primitives; authoritative policy loading and durable query-ledger
-enforcement remain part of the approved common runner. Completed manifests include
-a canonical SHA-256 digest that can be recomputed with
+comparison primitives. `rareburden.node_policy` adds immutable, schema-aligned
+policy snapshots and an immutable reference query ledger with stable value-free
+query identities, replay rejection and overlap budgets. It is deliberately
+memory-only: authoritative policy loading and durable custodian-controlled
+query-ledger enforcement remain part of the approved common runner.
+
+`rareburden.node_analysis.aggregate_synthetic_records` is a bounded common
+analysis for explicitly synthetic records. It rejects identifier and unknown
+fields and places overlapping diagnoses into exclusive canonical combination
+buckets so each synthetic record contributes once. It is not approved for
+controlled data.
+
+`scripts/build_node_bundle.py` deterministically packages one project wheel and
+locally supplied dependency wheels with canonical metadata and integrity checks.
+It performs no downloads. A complete approved wheel set, clean second-operator
+installation and supply-chain/signing review remain external gates.
+
+Completed manifests include a canonical SHA-256 digest that can be recomputed with
 `verify_output_fingerprint`.
 
 The synthetic node contract still requires execution-manifest, version

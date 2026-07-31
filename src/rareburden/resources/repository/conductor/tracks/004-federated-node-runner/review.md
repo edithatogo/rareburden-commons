@@ -86,8 +86,15 @@ installed-wheel node execution and corrected lifecycle evidence.
 
 Signing/key custody, a genuinely independent operator, controlled execution and
 the human review lanes remain open rather than being inferred from automation.
-The approved common analysis runner, trusted policy loader, durable query ledger
-and offline dependency bundle also remain open behind Tracks 009/010 and the
+The bounded synthetic implementation now also includes an explicitly synthetic
+common-analysis runner, immutable schema-aligned policy snapshots, stable
+value-free query-shape fingerprints, immutable in-memory ledger snapshots and a
+deterministic integrity-checked bundle for locally supplied wheels. These close
+the repository-owned reference gaps without creating custodian authority.
+
+Production approval of the common analysis contract, a complete pre-staged and
+locked dependency wheel set, custodian-controlled durable policy/query storage
+and clean second-operator installation remain open behind Tracks 009/010 and the
 governance/security design gates.
 
 ## Disposition
