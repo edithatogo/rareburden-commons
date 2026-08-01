@@ -103,11 +103,21 @@ jobs:
               fi
             done
             gh release upload "$GITHUB_REF_NAME" \
-              dist/* rareburden.cdx.json SHA256SUMS attestation-evidence/* \
+              dist/* rareburden.cdx.json SHA256SUMS \
+              attestation-evidence/profile.json \
+              attestation-evidence/provenance.sigstore.json \
+              attestation-evidence/sbom.sigstore.json \
+              attestation-evidence/trusted_root.jsonl \
+              attestation-evidence/verify_release_attestation.py \
               --clobber
           else
             gh release create "$GITHUB_REF_NAME" \
-              dist/* rareburden.cdx.json SHA256SUMS attestation-evidence/* \
+              dist/* rareburden.cdx.json SHA256SUMS \
+              attestation-evidence/profile.json \
+              attestation-evidence/provenance.sigstore.json \
+              attestation-evidence/sbom.sigstore.json \
+              attestation-evidence/trusted_root.jsonl \
+              attestation-evidence/verify_release_attestation.py \
               --verify-tag --generate-notes
           fi
       - name: Retain release evidence
