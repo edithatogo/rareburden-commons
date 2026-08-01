@@ -18,6 +18,12 @@ The release boundary is:
 Track 013 approval, independent reproduction, accessibility review and release
 authority remain mandatory before any v0.8 beta publication.
 
+Accessibility preparation is documented in
+[`docs/accessibility-guidance.md`](accessibility-guidance.md). The guidance
+requires a structured text alternative for each visual output and keeps the
+static/data-package fallback available if an interactive surface cannot pass
+review.
+
 ## Static/package/API consistency rehearsal
 
 The repository-owned consistency contract is exercised with the synthetic
