@@ -1,0 +1,23 @@
+source_id: who-global-health-estimates
+publisher: World Health Organization
+title: GHE 2021 country DALY estimates for 2000
+exact_url: https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/ghe2021_daly_bycountry_2000.xlsx?sfvrsn=23cd3c55_5
+landing_page_url: https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates/global-health-estimates-leading-causes-of-dalys/
+release_or_version: Global Health Estimates 2021, 2000-2021 release family
+retrieved_at_utc: '2026-08-01'
+mime_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+size_bytes: 12756114
+sha256: a051da530e7802ff6c084293b50e8de21cce0c36f02b76085568487f143246fe
+licence_or_terms_url: https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions
+licence_state: conditional
+attribution_text: Global Health Estimates 2021: Disease burden by Cause, Age, Sex, by Country and by Region, 2000-2021. Geneva, World Health Organization; 2024.
+redistribution_position: pending_review
+third_party_material: pending_review
+intended_use: country DALY envelope and independent burden comparison
+geography_scope: country estimates; final countries pending scientific review
+time_scope: year 2000 workbook; broader release family covers 2000-2021
+measure_unit: DALY; final cause/age/sex dimensions pending review
+scientific_reviewer: pending
+data_governance_reviewer: pending
+decision: candidate_only
+decision_record_url: conductor/tracks/002-public-source-acquisition/review.md

@@ -184,3 +184,8 @@ as the 2000–2021 release family. The hash observations close the route-discove
 subtask only. They do not authorize caching, redistribution, scientific use or
 production acquisition; complete the source-registration template and obtain
 the required scientific and data-governance dispositions first.
+
+Machine-readable candidate records are preserved in
+`docs/track-002-un-wpp-2024-candidate.yml` and
+`docs/track-002-who-ghe-2021-candidate.yml`. Their `candidate_only` decisions,
+conditional licence states and pending reviewer fields are intentional.
