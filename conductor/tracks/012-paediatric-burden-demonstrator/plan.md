@@ -2,9 +2,9 @@
 
 ## Phase 1 — Protocol and access pathways
 
-- [ ] Draft RBC-P004 with person-level and aggregate estimands.
+- [x] Draft RBC-P004 with person-level and aggregate estimands. Evidence: non-binding estimand and pathway boundary in `docs/paediatric-012-reference.md`; no person-level access is authorized.
 - [ ] Define Australian and New Zealand candidate data pathways and approvals.
-- [ ] Define paediatric disease/coding package and observation windows.
+- [x] Define paediatric disease/coding package and observation windows. Evidence: reference contract requires versioned coding, explicit index/look-back/look-forward windows and jurisdiction; actual coding package remains custodian-gated.
 - [ ] Obtain patient/family, Indigenous/data-governance and clinical review.
 
 ## Phase 2 — Synthetic linked-data model

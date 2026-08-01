@@ -26,6 +26,14 @@ patient/family and engineering review.
 
 Keep Track 012 **blocked**. Do not activate controlled-data or paediatric burden work until all prerequisite contracts and approvals are available.
 
+### Repository-owned implementation slice — 2026-08-01
+
+The reference now distinguishes aggregate from approved-local person-level
+estimands and requires explicit jurisdiction, age, index, look-back/look-forward,
+denominator, coding, cost-perspective and missingness fields. Australian/New
+Zealand pathways remain questions for custodians; no linkage authority,
+Indigenous governance, pilot, or person-level access is inferred.
+
 ### External reviewer packet
 
 - **Paediatric/clinical/economic:** approve estimands, coding, observation windows, utilisation, mortality and cost interpretation.
