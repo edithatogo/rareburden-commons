@@ -7,7 +7,9 @@
   `docs/supported-environments.md` distinguishes continuously tested Linux
   Python 3.11–3.14 from Python 3.13 cross-platform candidate evidence and
   explicitly excludes unverified/custodian claims.
-- [ ] Define security, incident, backup and recovery ownership.
+- [~] Define security, incident, backup and recovery ownership. Non-binding
+  role and handoff draft: `docs/security-operations-016-ownership-draft.md`;
+  named acceptance remains open.
 - [x] Define performance/availability boundary without unsupported service promises. Evidence: reference scaffold explicitly withholds service-level commitments pending capacity/owner approval.
 
 ## Phase 2 — Supply-chain hardening
@@ -31,7 +33,9 @@
 ## Phase 3 — Operational controls
 
 - [ ] Implement privacy-safe logging and metrics.
-- [ ] Implement backup, restore, rollback and correction runbooks.
+- [~] Implement backup, restore, rollback and correction runbooks. Non-production
+  template: `docs/security-operations-016-runbook-draft.md`; exercise and
+  accountable-operator evidence remain open.
 - [ ] Add benchmark and resource-regression tests.
 - [x] Add a bounded runtime regression gate for the synthetic reference burden
   workload. Evidence: `scripts/check_burden_benchmark.py` runs in `make check`;
