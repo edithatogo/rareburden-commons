@@ -26,7 +26,16 @@ from rareburden.provenance import (
     sha256_file,
     stable_identifier,
 )
+from rareburden.quality import QualityAssessmentError, release_language_for_maturity
 from rareburden.release import ReleaseManifestError, build_release_manifest, verify_release_manifest
+
+
+def test_release_language_is_conservative_and_maturity_bound() -> None:
+    policy = release_language_for_maturity("synthetic_assurance")
+    assert "demonstrates executable synthetic assurance only" in policy["allowed_claims"]
+    assert "empirical estimate" in policy["prohibited_claims"]
+    with pytest.raises(QualityAssessmentError, match="Unsupported release maturity"):
+        release_language_for_maturity("unreviewed")
 
 
 @pytest.mark.parametrize(
