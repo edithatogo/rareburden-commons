@@ -1,0 +1,25 @@
+schema_version: "1.0"
+review_id: equity-gap-synthetic-013-v1
+status: draft
+scope: Metadata-only review scaffold for public synthetic examples; it does not assess prevalence, representativeness, or lived experience.
+populations:
+  - population_id: underserved-lmic
+    label: Underserved and LMIC populations
+    geography_scope: Country and regional metadata only
+    coverage_status: metadata_only
+    known_gaps: [No empirical coverage assessment has been completed.]
+    plausible_harms: [Transferred estimates could understate diagnostic delay or service burden.]
+    governance_requirements: [LMIC-led review and decision rights before any global claim.]
+    proposed_actions: [Register local reviewers and remunerated participation.]
+  - population_id: indigenous-communities
+    label: Indigenous communities
+    geography_scope: Jurisdictional metadata only
+    coverage_status: not_assessed
+    known_gaps: [Indigenous Data Sovereignty and CARE review is not complete.]
+    plausible_harms: [Aggregation could erase community-specific context or enable deficit framing.]
+    governance_requirements: [Community authority and CARE-aligned review before collection or release.]
+    proposed_actions: [Do not infer community estimates from national aggregates.]
+limitations:
+  - Synthetic metadata only; no participant-level or controlled data are included.
+  - All coverage and equity judgements remain unassessed until independent review.
+  - This draft cannot satisfy scientific, patient/community, or data-governance gates.
