@@ -25,3 +25,17 @@ release or publication authorization.
 - Reviewed source/parameter manifests and a release-content audit.
 - Accessible static/API consistency tests and independent reproduction.
 - Release authority approval for archive/DOI and public publication.
+
+### Implementation checkpoint — 2026-08-01
+
+The repository-owned release boundary was implemented and rechecked. Release
+manifests are schema-constrained and content-addressed; verification rejects
+manifest identity, repository-state and artefact-integrity mismatches. The
+offline reference workflow and research-object checks preserve provenance and
+do not activate an atlas, API, mutable dashboard, or public data publication.
+
+Track 014 remains **Planned** rather than Active because its dependencies are
+not complete. The atlas/API contracts, accessibility review, reviewed-artifact
+inputs, independent reproduction, archive/DOI authority, and Track 013
+approval remain release gates. No external approval or beta publication is
+inferred from the local checks.

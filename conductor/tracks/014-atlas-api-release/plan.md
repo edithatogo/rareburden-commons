@@ -34,3 +34,18 @@
   aggregate-only publication boundary and shared release-fingerprint requirement.
   Evidence: `docs/atlas-release-014-reference.md`; product activation remains
   blocked by upstream tracks and release gates.
+
+## Preparatory implementation — 2026-08-01
+
+- [x] Define the immutable release-manifest and aggregate-only public-output
+  boundary. Evidence: `schemas/release-manifest.schema.json`,
+  `src/rareburden/release.py`, and `docs/atlas-release-014-reference.md`.
+  This is a repository-owned contract; it is not a reviewed beta release.
+- [x] Verify release materials by content hash, repository state and manifest
+  identity before publication. Evidence: `verify_release_manifest` and the
+  release negative tests in `tests/test_release.py` and
+  `tests/test_quality_edges.py`.
+- [x] Preserve provenance and research-object integrity for the offline
+  reference workflow. Evidence: `src/rareburden/research_object.py`,
+  `src/rareburden/reference.py`, and the assurance-boundary tests. External
+  source rights and release authority remain open.
