@@ -14,6 +14,14 @@
 
 Keep Track 005 **blocked**. Do not activate economic or social burden calculations until the evidence ledger and burden-engine contracts are complete and the required co-design and review gates are available.
 
+### Repository-owned implementation slice — 2026-08-01
+
+The non-binding Track 005 reference contract now records perspectives,
+component separation, currency/price-year/PPP/discounting rules, transfer
+handling, overlap and missingness states, subgroup reporting, and survey
+safeguards. No economic calculation, participant collection, equity weighting,
+or patient/community approval is claimed.
+
 ### External reviewer packet
 
 - **Health economics:** approve perspectives, component taxonomy, valuation, price-year/PPP, discounting and overlap rules.
