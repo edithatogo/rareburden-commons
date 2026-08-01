@@ -41,6 +41,10 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [Documentation quality and correction guidance](docs/documentation-guidance-017.md)
 - [Blocker-resolution plan](docs/blocker-resolution-plan.md)
 - [Remaining gates plan and panel recommendation](docs/remaining-gates-plan.md)
+- [Track review and closeout packets](docs/track-014-atlas-api-review-packet.md),
+  [015 governance](docs/track-015-governance-review-packet.md),
+  [016 operations](docs/track-016-operations-review-packet.md),
+  [017 v1 closeout](docs/track-017-v1-closeout-packet.md)
 
 ### Route to stable v1.0
 
