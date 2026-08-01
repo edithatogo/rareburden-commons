@@ -16,6 +16,13 @@
 release-evidence lanes and the clean-reproduction checklist. It is preparatory
 and does not imply usability, support, institutional hosting or release approval.
 
+The repository-owned documentation slice is now present in `docs/guides/`, with
+an offline synthetic reference tutorial at `docs/tutorial-reference-workflow.md`
+and accessibility, citation, licence and correction guidance at
+`docs/documentation-guidance-017.md`. The markdown-link check and full local
+validation pass; these results do not substitute for independent users,
+operators, reproduction or accountable review.
+
 ## Activation gates
 
 - Complete Tracks 013–016 and link every blocking v1 criterion.
