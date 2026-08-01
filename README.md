@@ -35,6 +35,9 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [System architecture](docs/design/architecture.md)
 - [Public-data-first protocol](docs/protocols/public-data-foundation.md)
 - [Current handoff status](docs/handoff/implementation-status.md)
+- [Role-based guides](docs/guides/README.md)
+- [Synthetic reference workflow tutorial](docs/tutorial-reference-workflow.md)
+- [Documentation quality and correction guidance](docs/documentation-guidance-017.md)
 
 ### Route to stable v1.0
 
