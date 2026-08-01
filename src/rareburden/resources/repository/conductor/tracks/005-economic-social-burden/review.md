@@ -3,11 +3,22 @@
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 009 and 010
 
+### Review rerun — 2026-08-01
+
+Repository-owned preparation now includes a schema-valid, non-binding synthetic
+health-system cost ledger fixture with explicit unresolved perspective,
+currency, price-year, PPP, discounting, transfer and valuation limitations.
+The full validation gate passes. This fixture is not an economic contract,
+empirical estimate, patient/family co-design record or policy evidence; the
+blocked disposition is unchanged.
+
 ## Findings
 
 - Track 009 remains blocked and depends on Tracks 002 and 008.
 - Track 010 remains blocked and depends on Track 009.
-- No approved Track 005 economic/social component contract, perspective rules, parameter schemas, calculations or patient co-design have been completed; only a non-binding protocol draft exists.
+- No approved Track 005 economic/social component contract, perspective rules,
+  valuation calculations or patient co-design have been completed. The new
+  synthetic ledger fixture is preparation only and does not close those gates.
 - Health-economics, ethics, data-governance and patient/community review gates remain required.
 
 ## Disposition
