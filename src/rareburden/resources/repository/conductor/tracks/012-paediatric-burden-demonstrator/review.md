@@ -32,3 +32,10 @@ Keep Track 012 **blocked**. Do not activate controlled-data or paediatric burden
 - **Privacy/data governance/security:** approve custodian pathway, linkage authority, Indigenous governance, suppression, retention and incident controls.
 - **Patient/family:** assess acceptable use, equity, language and harms.
 - **Evidence required:** approved pathway record, synthetic linked-data run, disclosure tests, export specification, review comments and dissent disposition.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-012-rbc-p004-review-packet.md` records the decisions and evidence
+needed before activation. It is repository-owned preparation and does not
+constitute paediatric, privacy, Indigenous/data-governance, security,
+engineering or patient/family approval.

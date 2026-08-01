@@ -32,3 +32,11 @@
 
 - [x] Record that Track 012 cannot activate until Tracks 004, 005, 008, 009 and 010 are complete. Evidence: `ff48477`.
 - [x] Add non-binding RBC-P004 v0.1.0 protocol draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the RBC-P004 review packet with estimand, coding, linkage,
+  custodian/Indigenous governance, privacy, economic, patient/family and
+  replication decisions. Evidence:
+  `docs/track-012-rbc-p004-review-packet.md`; dependencies and external gates
+  remain open.
