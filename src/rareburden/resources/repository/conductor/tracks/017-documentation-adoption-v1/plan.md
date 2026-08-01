@@ -40,3 +40,9 @@
 - [x] Define role-based documentation coverage, release-evidence lanes and clean
   reproduction checklist without activating v1 publication. Evidence:
   `docs/v1-adoption-017-reference.md` and review record.
+
+## Review fixes — 2026-08-01
+
+- [x] Add explicit quickstart and methods guides so the role-based
+  documentation claim is directly navigable. Evidence: `docs/guides/quickstart.md`
+  and `docs/guides/methods.md`; full `uv run make check` passed.

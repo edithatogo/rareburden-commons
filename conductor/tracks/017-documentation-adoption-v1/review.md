@@ -23,6 +23,13 @@ and accessibility, citation, licence and correction guidance at
 validation pass; these results do not substitute for independent users,
 operators, reproduction or accountable review.
 
+## Review fixes — 2026-08-01
+
+The initial review found that “quickstart” and “methods” were only indirect
+links. Explicit navigable guides were added at `docs/guides/quickstart.md` and
+`docs/guides/methods.md`; runtime assets were regenerated and the full check
+passed with 429 tests. No external-gate claim was changed.
+
 ## Activation gates
 
 - Complete Tracks 013–016 and link every blocking v1 criterion.
