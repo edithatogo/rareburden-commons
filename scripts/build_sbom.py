@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import tomllib
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -80,10 +82,17 @@ def build_sbom(
             "version": version or "unknown",
             "purl": f"pkg:pypi/{_normalise(name)}@{version or 'unknown'}",
         }
+    canonical_identity = json.dumps(
+        {"name": name, "version": version, "components": components, "dependencies": dependencies},
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    serial_uuid = uuid.UUID(bytes=hashlib.sha256(canonical_identity).digest()[:16])
     return {
         "$schema": "https://cyclonedx.org/schema/bom-1.5.schema.json",
         "bomFormat": "CycloneDX",
         "specVersion": "1.5",
+        "serialNumber": f"urn:uuid:{serial_uuid}",
         "version": 1,
         "metadata": {"component": metadata_component},
         "components": components,
