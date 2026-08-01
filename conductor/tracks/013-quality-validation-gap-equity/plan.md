@@ -31,3 +31,10 @@
 ## Dependency review — 2026-07-27
 
 - [x] Record that Track 013 cannot activate until Tracks 003, 005, 007, 010, 011 and 012 are complete. Evidence: `c126052`.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the assurance/equity review packet with validation, triangulation,
+  gap, equity, release-language and independent-assurance decisions. Evidence:
+  `docs/track-013-assurance-review-packet.md`; prerequisite and external gates
+  remain open.

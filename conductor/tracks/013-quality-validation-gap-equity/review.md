@@ -26,3 +26,9 @@ patient/community, data-governance and programme review.
 ## Disposition
 
 Keep Track 013 **blocked**. Do not assess, triangulate or approve atlas-beta outputs until the prerequisite demonstrators and burden-engine contracts are complete.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-013-assurance-review-packet.md` records the decisions and evidence
+needed before activation. It is repository-owned preparation and does not
+constitute independent validation, equity approval or atlas release readiness.
