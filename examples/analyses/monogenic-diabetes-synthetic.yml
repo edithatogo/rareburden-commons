@@ -1,0 +1,16 @@
+schema_version: 1.0.0
+analysis_id: monogenic-diabetes-synthetic
+title: Synthetic monogenic diabetes rare-within-common assurance analysis
+estimand: rare_aetiology_cases
+left_parameter_id: australia-population-synthetic
+right_parameter_id: rare-diabetes-fraction-synthetic
+output_unit: people
+iterations: 10000
+seed: 20260731
+interval_probability: 0.95
+dependence: independent
+dependence_rationale: The synthetic reference exercises an explicit independent-product contract; it is not an empirical assumption for clinical use.
+intended_use: synthetic_assurance
+limitations:
+- Synthetic assurance only; no clinical, population, policy or patient-facing interpretation is permitted.
+- Entity, phenotype, denominator, ascertainment, penetrance and transportability contracts remain unreviewed.
