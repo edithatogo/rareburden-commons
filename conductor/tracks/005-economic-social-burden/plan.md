@@ -32,3 +32,10 @@
 
 - [x] Record that Track 005 cannot activate until Tracks 009 and 010 are complete. Evidence: `749a434`.
 - [x] Add non-binding RBC-P001D v0.1.0 protocol draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the economic/social burden review packet with perspective,
+  valuation, overlap, missingness, distributional and co-design decisions.
+  Evidence: `docs/track-005-economic-review-packet.md`; dependencies and
+  health-economics, ethics, governance and patient/community review remain open.

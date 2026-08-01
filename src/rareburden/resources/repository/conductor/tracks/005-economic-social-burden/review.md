@@ -31,3 +31,10 @@ Keep Track 005 **blocked**. Do not activate economic or social burden calculatio
 - **Ethics/patient-family:** assess acceptable burden framing, remuneration, translation, equity and co-design evidence.
 - **Governance/engineering:** confirm lawful collection, parameter provenance, missingness and reproducibility controls.
 - **Evidence required:** co-design record, ledger-linked synthetic examples, scenario outputs, review comments and dissent disposition.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-005-economic-review-packet.md` records the decisions and evidence
+needed before activation. It is repository-owned preparation and does not
+constitute co-design, ethics approval, economic review or patient/community
+approval.
