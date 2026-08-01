@@ -23,6 +23,14 @@ the full project validation gate passes. Track 008 remains blocked pending Track
 002 source/licence evidence, Track 007 external review, and clinical and
 patient/community approval of identifiers, naming and aggregation semantics.
 
+### Repository-owned implementation checkpoint — 2026-08-01
+
+The existing semantic implementation and tests now have explicit plan evidence
+for hierarchy conservation, parent/child integrity, ambiguous mappings and
+synthetic demonstrator fixtures. These are preparatory controls only: no real
+ontology release is pinned, no clinical or patient/community naming review is
+complete, and no v0.4 semantic contract is frozen.
+
 ## Review boundaries
 
 - Repository validation cannot satisfy upstream scientific, licensing, governance or patient/community gates.
@@ -31,6 +39,15 @@ patient/community approval of identifiers, naming and aggregation semantics.
 ## Disposition
 
 Keep Track 008 **blocked**. Re-run dependency validation when Tracks 002 and 007 are formally complete; only then move Track 008 to active implementation.
+
+### Review remediation — 2026-08-01
+
+The plan now distinguishes implemented repository contracts from blocked
+governance work: disease/mapping schemas, stable IDs and provenance, ambiguity
+states, explicit aggregation strategies, and synthetic syndrome/aetiology rules
+are marked complete with file-level evidence. This does not claim a pinned
+ontology release, clinical validity, patient/community acceptability, or a
+frozen v0.4 contract.
 
 ### External reviewer packet
 
