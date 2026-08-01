@@ -52,3 +52,10 @@
 
 - [x] Record that Track 009 cannot activate until Tracks 002 and 008 are complete. Evidence: `ebca9a1`.
 - [x] Add non-binding ledger contract v0.1.0 draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the ledger review packet with evidence lanes, freeze decisions,
+  migration requirements and custody boundaries. Evidence:
+  `docs/track-009-ledger-review-packet.md`; upstream source/semantic and
+  external epidemiology/data-governance/engineering review remain open.
