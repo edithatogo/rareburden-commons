@@ -166,3 +166,20 @@ without stable data-file URLs in the retrieved HTML. No guessed URL is recorded
 and no bulk UN/WHO source bytes are downloaded. The next safe action is to record
 publisher-provided exact file URLs (or a custodian-approved manual registration)
 for those two sources and then run the existing checksum/manifest workflow.
+
+### Exact UN/WHO candidate pins — 2026-08-01
+
+Bounded read-only publisher-route checks identified stable candidate files and
+streamed each response directly to a local hash process; source bytes were not
+retained or committed. These are candidate pins, not production approval.
+
+| Source | Exact candidate URL | Bytes | SHA-256 | Evidence state |
+| --- | --- | ---: | --- | --- |
+| UN WPP 2024 compact demographic indicators | `https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx` | 26,142,942 | `98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d` | Exact route/hash candidate; variant, scope, terms and reviewer decision open |
+| WHO GHE 2021 country DALY estimates for 2000 | `https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/ghe2021_daly_bycountry_2000.xlsx?sfvrsn=23cd3c55_5` | 12,756,114 | `a051da530e7802ff6c084293b50e8de21cce0c36f02b76085568487f143246fe` | Exact route/hash candidate; metric scope, third-party fields, terms and reviewer decision open |
+
+The publisher pages identify WPP 2024 as the 28th revision and WHO GHE 2021
+as the 2000–2021 release family. The hash observations close the route-discovery
+subtask only. They do not authorize caching, redistribution, scientific use or
+production acquisition; complete the source-registration template and obtain
+the required scientific and data-governance dispositions first.
