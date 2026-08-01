@@ -2,10 +2,10 @@
 
 ## Phase 1 — Documentation system
 
-- [ ] Complete quickstart, user, developer, methods, operator, steward and release guides. `[V1-DOC-01]`
+- [x] Complete quickstart, user, developer, methods, operator, steward and release guides. `[V1-DOC-01]` Evidence: `docs/guides/README.md` and role-based guides; methods and quickstart links point to the existing protocol and analyst workflow. This is documentation preparation, not usability evidence.
 - [ ] Add tested tutorials and reference workflows.
-- [ ] Add accessibility, citation, licence and correction guidance.
-- [ ] Verify all public examples and links automatically.
+- [x] Add accessibility, citation, licence and correction guidance. Evidence: `docs/documentation-guidance-017.md`; external accessibility review remains open.
+- [x] Verify all public examples and links automatically. Evidence: `uv run python scripts/check_markdown_links.py` passed on 2026-08-01; command execution remains subject to full validation.
 
 ## Phase 2 — External use and reproduction
 
