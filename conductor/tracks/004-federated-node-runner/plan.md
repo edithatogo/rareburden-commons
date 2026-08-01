@@ -91,8 +91,8 @@
 - [x] Complete repeatable two-invocation synthetic-node execution. Evidence: `docs/federated-node-004-independent-synthetic-run.md` and `make node-reproducibility`.
 - [ ] Complete second-operator installation and synthetic-node execution on a supported environment.
 - [x] Prepare non-binding controlled-environment pilot protocol and application pack. Evidence: `docs/federated-node-004-pilot-application-draft.md`; approval and activation remain external-gated.
-- [x] Retain the controlled-pilot gate and define the bounded-scope reconsideration checkpoint. Evidence: `docs/decisions/ADR-0003-retain-controlled-pilot-gate.md`.
-- [ ] Complete a pilot before v1 or remove controlled-pilot claims from scope.
+- [x] Retain the controlled-pilot gate for post-v1 work and define the bounded-scope reconsideration checkpoint. Evidence: `docs/decisions/ADR-0003-retain-controlled-pilot-gate.md` and `docs/decisions/ADR-0005-bound-v1-scope.md`.
+- [x] Remove controlled-pilot claims from stable v1 scope. Evidence: ADR-0005; controlled pilot authorization and execution remain post-v1 gates.
 
 ## Phase 5 — Review
 
