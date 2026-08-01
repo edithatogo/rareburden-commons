@@ -126,3 +126,7 @@ handoff, search-log schema, screening/exclusion fields, count reconciliation and
 reviewer decisions. It is repository-owned preparation only: no external
 protocol identifier, independent methods review or patient/community decision
 is inferred.
+
+The 2026-08-01 discovery observations are also preserved in
+`docs/track-007-search-log-2026-08-01.yml`; each row is explicitly marked
+discovery-only/unscreened (or exact-title-only for OSF).
