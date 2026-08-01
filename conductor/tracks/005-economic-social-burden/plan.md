@@ -19,7 +19,7 @@
 - [ ] Implement component calculations and declared-perspective validation.
 - [ ] Add price/currency conversion interfaces with provenance.
 - [ ] Add uncertainty and scenario propagation. `[M-06]`
-- [ ] Build synthetic examples and golden tests.
+- [x] Build a non-binding synthetic cost-ledger example and schema test. Evidence: `examples/ledger/economic-social-synthetic.yml`; perspective, price-year and valuation contracts remain unresolved. 
 
 ## Phase 4 — Demonstrator integration
 

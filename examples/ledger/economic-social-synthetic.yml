@@ -1,0 +1,40 @@
+schema_version: 1.0.0
+ledger_id: economic-social-synthetic-ledger
+title: Synthetic economic and social burden parameter ledger
+created_at: '2026-08-01T00:00:00Z'
+parameters:
+- parameter_id: synthetic-health-system-cost
+  parameter_revision: 1
+  label: Synthetic health-system cost per affected person
+  quantity_type: cost
+  measure: direct health-system cost
+  metric: cost_per_person
+  unit: SYN
+  distribution:
+    type: fixed
+    value: 1200.0
+    minimum: 0.0
+  evidence_status: assumed
+  uncertainty_status: not_quantified
+  licence_state: not_applicable
+  source_release_ids: []
+  transformation_ids: []
+  semantic_entity_ids:
+  - synthetic:monogenic-diabetes
+  population:
+    population_id: synthetic-affected
+    geography_id: synthetic-au
+    sex: all
+  period:
+    start: '2025-01-01'
+    end: '2025-12-31'
+  assumption_rationale: Synthetic value exercising a declared health-system perspective only.
+  limitations:
+  - Currency, price year, PPP, discounting, transfers and payer boundaries are intentionally unresolved.
+  - Not an empirical cost estimate and not suitable for policy or reimbursement decisions.
+  evidence_assessment_ids:
+  - eqa-9094d747d9be42c39065d97e
+  transportability_assessment_ids: []
+limitations:
+- All values are synthetic assurance artefacts.
+- Health-system, household and societal perspectives must remain separate until reviewed.
