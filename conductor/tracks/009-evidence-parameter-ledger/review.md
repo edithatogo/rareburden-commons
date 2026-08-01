@@ -69,3 +69,10 @@ Keep Track 009 **blocked**. Do not freeze evidence-ledger contracts until source
 - **Data governance:** approve rights, provenance, retention, licence states and restricted-source handling.
 - **Engineering:** inspect schema validation, revisions/supersession, export, migration and impact tracing.
 - **Evidence required:** validated fixtures, ledger audit, schema/version decision and unresolved-issue disposition.
+
+### External-gate panel synthesis — 2026-08-01
+
+The preparatory panel report (`docs/v1-subagent-panel-report-017.md`) is
+technical evidence only; it does not provide epidemiology, custodian or
+engineering sign-off. Track 009 remains blocked on Tracks 002 and 008 and the
+v0.4 contract and migration path remain unfrozen.

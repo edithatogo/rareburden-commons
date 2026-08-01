@@ -41,6 +41,16 @@ remain unresolved, and Track 007 has not completed its external challenge gate.
 
 Keep Track 002 **In review**. The substrate may be extended, tested and used with synthetic or explicitly lawful fixtures. Do not call the track complete or issue v0.3.0 until the live-source and governance gates are evidenced.
 
+### External-gate panel synthesis — 2026-08-01
+
+The repository's preparatory panel review is recorded in
+`docs/v1-subagent-panel-report-017.md` and governed by
+`docs/decisions/ADR-0007-external-gate-handling.md`. It confirms that the
+public/synthetic substrate is bounded for further preparation, but does not
+constitute live-source licensing, scientific, data-governance or security
+approval. The exact production artifact, rights and source-change exercises
+listed above therefore remain open; no status transition is implied.
+
 ## Review fixes
 
 - Refreshed the stale internal test and coverage counts above.
