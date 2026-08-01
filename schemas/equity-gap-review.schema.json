@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/equity-gap-review.schema.json",
+  "title": "RareBurden equity and capability-gap review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "review_id", "status", "scope", "populations", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "review_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft", "awaiting_review", "reviewed", "superseded"]},
+    "scope": {"type": "string", "minLength": 1},
+    "populations": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["population_id", "label", "geography_scope", "coverage_status", "known_gaps", "plausible_harms", "governance_requirements", "proposed_actions"], "properties": {"population_id": {"type": "string", "minLength": 1}, "label": {"type": "string", "minLength": 1}, "geography_scope": {"type": "string", "minLength": 1}, "coverage_status": {"enum": ["not_assessed", "metadata_only", "partial", "reviewed"]}, "known_gaps": {"type": "array", "items": {"type": "string", "minLength": 1}}, "plausible_harms": {"type": "array", "items": {"type": "string", "minLength": 1}}, "governance_requirements": {"type": "array", "items": {"type": "string", "minLength": 1}}, "proposed_actions": {"type": "array", "items": {"type": "string", "minLength": 1}}}}},
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+  }
+}
