@@ -31,3 +31,10 @@ Keep Track 011 **blocked**. Do not activate bronchiectasis analysis or freeze mu
 - **Methods:** inspect referral/transportability, unclassified causes, uncertainty and independent comparison.
 - **Patient/community:** assess language, harms, equity and acceptable interpretation.
 - **Evidence required:** RBC-P003 decision record, synthetic analysis, setting scenarios, validation report and dissent disposition.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-011-rbc-p003-review-packet.md` records the decisions and evidence
+needed before activation. It is repository-owned preparation and does not
+constitute respiratory clinical, methods, engineering or patient/community
+approval.

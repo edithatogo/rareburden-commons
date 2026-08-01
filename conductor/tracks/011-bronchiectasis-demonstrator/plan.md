@@ -32,3 +32,10 @@
 
 - [x] Record that Track 011 cannot activate until Tracks 008, 009 and 010 are complete. Evidence: `380db83`.
 - [x] Add non-binding RBC-P003 v0.1.0 protocol draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the RBC-P003 review packet with denominator, aetiology, overlap,
+  transportability, outcome and framing decisions. Evidence:
+  `docs/track-011-rbc-p003-review-packet.md`; dependencies and respiratory,
+  methods, engineering and patient/community review remain open.
