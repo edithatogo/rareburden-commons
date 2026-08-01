@@ -1,6 +1,7 @@
 name: release
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - "v*"
@@ -91,9 +92,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" \
-            dist/* rareburden.cdx.json SHA256SUMS attestation-evidence/* \
-            --verify-tag --generate-notes
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" \
+              dist/* rareburden.cdx.json SHA256SUMS attestation-evidence/* \
+              --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" \
+              dist/* rareburden.cdx.json SHA256SUMS attestation-evidence/* \
+              --verify-tag --generate-notes
+          fi
       - name: Retain release evidence
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
