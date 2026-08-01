@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "release_fingerprint": "sha256:synthetic-track-014-reference",
+  "record": {
+    "id": "synthetic:nz:rare-burden",
+    "geography": "NZ",
+    "measure": "prevalence",
+    "estimate": null,
+    "uncertainty": null,
+    "quality": "not_assessed",
+    "missingness": {"value": null, "reason": "synthetic fixture does not contain an empirical estimate"},
+    "evidence_status": "synthetic_only"
+  },
+  "representations": {
+    "static": {"record_id": "synthetic:nz:rare-burden", "release_fingerprint": "sha256:synthetic-track-014-reference", "display": "Estimate unavailable (synthetic fixture; no empirical estimate)."},
+    "package": {"record_id": "synthetic:nz:rare-burden", "release_fingerprint": "sha256:synthetic-track-014-reference", "estimate": null, "missingness_reason": "synthetic fixture does not contain an empirical estimate"},
+    "api": {"record_id": "synthetic:nz:rare-burden", "release_fingerprint": "sha256:synthetic-track-014-reference", "estimate": null, "evidence_status": "synthetic_only"}
+  },
+  "activation": "inactive"
+}

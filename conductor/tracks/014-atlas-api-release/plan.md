@@ -9,7 +9,10 @@
 
 ## Phase 2 — Release contracts
 
-- [ ] Define release-manifest and public-output schemas.
+- [x] Define release-manifest and public-output schemas. Evidence: existing
+  `schemas/release-manifest.schema.json` plus the synthetic static/package/API
+  consistency fixture and contract in `docs/atlas-release-014-reference.md`;
+  activation remains gated.
 - [ ] Implement reviewed-artifact-only build boundary.
 - [ ] Implement citation, licence, checksum and provenance packaging.
 - [ ] Implement correction, withdrawal and supersession metadata.
