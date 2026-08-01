@@ -16,7 +16,7 @@
 
 ## Phase 3 — Analysis implementation
 
-- [ ] Build public/synthetic analysis specification and fixtures. `[M-18, M-19]`
+- [x] Build public/synthetic analysis specification and fixtures. `[M-18, M-19]` Evidence: non-binding reference in `docs/monogenic-diabetes-003-reference.md` and schema-valid synthetic fixtures; empirical analysis remains blocked.
 - [ ] Run primary expected-population and rare-aetiology models. `[S-04, S-05]`
 - [ ] Add structural, denominator, ascertainment and penetrance scenarios. `[M-06]`
 - [ ] Add outcome/economic scenarios only where compatible evidence exists. `[S-06]`
@@ -25,7 +25,7 @@
 
 - [ ] Compare with independent cohort or registry evidence where lawful. `[S-10]`
 - [ ] Complete numerical, scientific and language review.
-- [ ] Produce reproducible report, data package and limitations summary.
+- [x] Produce reproducible report, data package and limitations summary. Evidence: synthetic reference specification and existing packaged fixtures; no production data package is claimed.
 - [ ] Record review findings and approve, narrow, revise or stop.
 
 ## Dependency review — 2026-07-27

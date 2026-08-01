@@ -14,6 +14,14 @@
 
 Keep Track 003 **blocked**. Do not freeze clinical entities, estimands, denominators, or numerical analyses until the semantic, parameter-ledger and burden-engine dependencies are complete and the required clinical, patient/community, data-governance and engineering gates are available.
 
+### Repository-owned implementation slice — 2026-08-01
+
+The non-binding synthetic RBC-P002 reference now explicitly separates diagnosed,
+undiagnosed and modelled states, identifies compatible denominator/fraction
+contracts, enumerates bounded sensitivity dimensions, and records the reusable
+fixture set. This is executable contract evidence only; clinical definitions,
+empirical inputs, production estimates and external review remain blocked.
+
 ### External reviewer packet
 
 - **Clinical/genetics:** approve entity and phenotype scope, denominator definitions, ascertainment and interpretation limits.
