@@ -16,6 +16,11 @@
 4. If an authority-sensitive review is unavailable, remove the affected claim
    or capability and retain the gate as open. Do not convert absence of review
    into approval.
+5. Repository-owner approval may be recorded separately as an owner/release-
+   authority decision for the bounded public/synthetic candidate. It must not
+   be represented as independent scientific, patient/community, custodian or
+   operator evidence, and no identity or health circumstance changes that
+   separation.
 
 ## Standing exclusions
 
