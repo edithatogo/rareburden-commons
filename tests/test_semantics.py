@@ -139,6 +139,41 @@ def test_mapping_set_rejects_low_confidence_accepted_exact_mapping() -> None:
         validate_mapping_set(document, load_mapping(MAPPING_SCHEMA))
 
 
+def test_mapping_set_rejects_malformed_unmapped_and_duplicate_rows() -> None:
+    """Unresolved source terms must remain explicit and rows must be unique."""
+    schema = load_mapping(MAPPING_SCHEMA)
+
+    unresolved_with_target = load_mapping(MAPPING_PATH)
+    unresolved_with_target["mappings"].append(
+        {
+            "source_code": "SYNTHETIC:UNRESOLVED",
+            "target_code": "mody",
+            "relation": "unmapped",
+            "confidence": "unclear",
+            "status": "provisional",
+            "rationale": "Negative control: unresolved terms cannot carry a target.",
+            "evidence_refs": ["fixture:negative-unmapped-target"],
+        }
+    )
+    with pytest.raises(SemanticValidationError, match="unmapped relation cannot have"):
+        validate_mapping_set(unresolved_with_target, schema)
+
+    duplicate = load_mapping(MAPPING_PATH)
+    duplicate["mappings"].append(deepcopy(duplicate["mappings"][0]))
+    with pytest.raises(SemanticValidationError, match="Duplicate mapping"):
+        validate_mapping_set(duplicate, schema)
+
+
+def test_hierarchy_rejects_multiple_aggregation_contracts_for_one_parent() -> None:
+    """A parent must have one explicit contract; alternatives need a new parent ID."""
+    schema = load_mapping(HIERARCHY_SCHEMA)
+    document = _hierarchy_document()
+    document["aggregation_sets"].append(deepcopy(document["aggregation_sets"][1]))
+    document["aggregation_sets"][-1]["aggregation_id"] = "duplicate-parent-contract"
+    with pytest.raises(SemanticValidationError, match="multiple aggregation sets"):
+        validate_hierarchy(document, schema)
+
+
 def test_mapping_set_diff_is_deterministic_and_reports_impact() -> None:
     previous_document = load_mapping(MAPPING_PATH)
     current_document = deepcopy(previous_document)
