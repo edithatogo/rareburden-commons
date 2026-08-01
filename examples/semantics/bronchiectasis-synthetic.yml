@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+hierarchy_id: bronchiectasis-synthetic
+title: Synthetic bronchiectasis burden-purpose hierarchy
+version: 0.1.0
+purpose: Demonstrate an explicit residual and non-summable overlap relation.
+entities:
+  - entity_id: bronchiectasis-envelope
+    preferred_label: Bronchiectasis burden envelope
+    entity_type: common_envelope
+    aggregation_role: root
+    parents: []
+    codes:
+      - system: SYNTHETIC
+        code: BRONCHIECTASIS
+    definition: Synthetic envelope for assurance only.
+    limitations:
+      - Not an empirical disease definition.
+  - entity_id: primary-bronchiectasis
+    preferred_label: Primary bronchiectasis
+    entity_type: rare_disease_group
+    aggregation_role: leaf
+    parents: [bronchiectasis-envelope]
+    codes:
+      - system: SYNTHETIC
+        code: PRIMARY-BRONCHIECTASIS
+    definition: Synthetic primary subgroup.
+    limitations:
+      - Requires clinical review before empirical use.
+  - entity_id: secondary-bronchiectasis
+    preferred_label: Secondary bronchiectasis
+    entity_type: rare_disease_group
+    aggregation_role: leaf
+    parents: [bronchiectasis-envelope]
+    codes:
+      - system: SYNTHETIC
+        code: SECONDARY-BRONCHIECTASIS
+    definition: Synthetic secondary subgroup.
+    limitations:
+      - May overlap with other aetiology classifications.
+  - entity_id: other-bronchiectasis
+    preferred_label: Other or unclassified bronchiectasis
+    entity_type: residual_group
+    aggregation_role: leaf
+    parents: [bronchiectasis-envelope]
+    codes:
+      - system: SYNTHETIC
+        code: OTHER-BRONCHIECTASIS
+    definition: Synthetic residual for conservation tests.
+    limitations:
+      - Not a clinical category.
+aggregation_sets:
+  - aggregation_id: bronchiectasis-composition
+    parent_entity_id: bronchiectasis-envelope
+    member_entity_ids: [primary-bronchiectasis, secondary-bronchiectasis, other-bronchiectasis]
+    strategy: mutually_exclusive_sum
+    exhaustive: true
+    unclassified_member_id: other-bronchiectasis
+    rationale: Synthetic exhaustive split for conservation assurance.
+    limitations:
+      - Inputs must share population, period and ascertainment.
+limitations:
+  - All entities and counts are synthetic assurance artefacts.

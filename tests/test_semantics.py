@@ -18,6 +18,11 @@ from rareburden.semantics import (
 
 ROOT = Path(__file__).resolve().parents[1]
 HIERARCHY_PATH = ROOT / "examples/semantics/rare-within-common-synthetic.yml"
+GOLDEN_HIERARCHIES = (
+    HIERARCHY_PATH,
+    ROOT / "examples/semantics/bronchiectasis-synthetic.yml",
+    ROOT / "examples/semantics/paediatric-burden-synthetic.yml",
+)
 HIERARCHY_SCHEMA = ROOT / "schemas/disease-hierarchy.schema.json"
 MAPPING_PATH = ROOT / "examples/semantics/orpha-to-synthetic-mapping.yml"
 MAPPING_SCHEMA = ROOT / "schemas/ontology-mapping.schema.json"
@@ -35,6 +40,17 @@ def test_synthetic_hierarchy_and_mapping_are_valid_and_stable() -> None:
     assert mapping.fingerprint.startswith("map-")
     assert hierarchy.entity("mody")["preferred_label"].startswith("Maturity-onset")
     assert hierarchy.fingerprint == load_hierarchy(HIERARCHY_PATH, HIERARCHY_SCHEMA).fingerprint
+
+
+@pytest.mark.parametrize("hierarchy_path", GOLDEN_HIERARCHIES)
+def test_golden_demonstrator_hierarchies_validate_and_conserve(hierarchy_path: Path) -> None:
+    hierarchy = load_hierarchy(hierarchy_path, HIERARCHY_SCHEMA)
+    for aggregation in hierarchy.aggregations.values():
+        members = aggregation["member_entity_ids"]
+        counts = {entity_id: float(index + 1) for index, entity_id in enumerate(members)}
+        result = hierarchy.aggregate_counts(aggregation["aggregation_id"], counts)
+        assert result["coverage"] == "complete"
+        assert result["value"] == sum(counts.values())
 
 
 def test_mutually_exclusive_aggregation_is_explicit_and_schema_valid() -> None:
