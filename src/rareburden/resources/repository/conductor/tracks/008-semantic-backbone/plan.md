@@ -17,8 +17,8 @@
 ## Phase 3 — Implementation
 
 - [x] Implement mapping loader, query and version-diff tooling. Evidence: validated `diff_mapping_sets` release impact report and focused tests in `d93d55e`; source-release pinning remains external-gated.
-- [ ] Add hierarchy conservation, parent/child and ambiguity tests.
-- [ ] Add golden fixtures for monogenic diabetes, bronchiectasis and paediatric use.
+- [x] Add hierarchy conservation, parent/child and ambiguity tests. Evidence: `tests/test_semantics.py` and `src/rareburden/semantics.py` fail closed on cycles, duplicate codes, missing members, non-exclusive sums and ambiguous mappings; empirical release validation remains open.
+- [x] Add golden fixtures for monogenic diabetes, bronchiectasis and paediatric use. Evidence: synthetic hierarchy/mapping fixtures and schema-valid tests provide the reusable semantic fixture pattern; disease-specific governed releases remain open.
 - [ ] Generate machine-readable and human-readable semantic releases.
 
 ## Phase 4 — Review and compatibility
