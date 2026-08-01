@@ -159,13 +159,14 @@ The publisher pages identify these as the July 2026 release and state CC BY
 does not activate production acquisition or substitute for the required live
 scientific/data-governance and redistribution review.
 
-### Remaining exact-file blocker
+### Remaining source-approval blocker
 
-UN WPP and WHO still expose download content through dynamic/static-site routes
-without stable data-file URLs in the retrieved HTML. No guessed URL is recorded
-and no bulk UN/WHO source bytes are downloaded. The next safe action is to record
-publisher-provided exact file URLs (or a custodian-approved manual registration)
-for those two sources and then run the existing checksum/manifest workflow.
+Exact UN WPP and WHO candidate routes and hashes are now recorded below. The
+remaining blocker is not route discovery: it is completion of the source
+registration fields, metric/scope confirmation, licensing/redistribution
+position, scientific review, data-governance review and live source-change
+exercise. No production acquisition is activated until those decisions are
+recorded.
 
 ### Exact UN/WHO candidate pins — 2026-08-01
 
