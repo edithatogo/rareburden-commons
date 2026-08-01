@@ -41,6 +41,7 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [Documentation quality and correction guidance](docs/documentation-guidance-017.md)
 - [Blocker-resolution plan](docs/blocker-resolution-plan.md)
 - [Remaining gates plan and panel recommendation](docs/remaining-gates-plan.md)
+- [External gate evidence index](docs/external-gate-evidence-index.md)
 - [Track review and closeout packets](docs/track-014-atlas-api-review-packet.md),
   [015 governance](docs/track-015-governance-review-packet.md),
   [016 operations](docs/track-016-operations-review-packet.md),
