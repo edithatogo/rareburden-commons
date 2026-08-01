@@ -42,6 +42,9 @@
 
 - [ ] Run vulnerability disclosure and incident tabletop exercise.
 - [ ] Run backup/restore and release rollback exercises.
+- [x] Prepare a bounded synthetic operations exercise protocol. Evidence:
+  `docs/synthetic-operations-016-exercise-protocol.md`; execution and production
+  ownership remain open.
 - [ ] Triage all security and reliability findings.
 - [ ] Publish support and security-fix policy with primary and backup owners.
 
