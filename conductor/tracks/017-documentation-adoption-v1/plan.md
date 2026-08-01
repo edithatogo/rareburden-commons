@@ -46,3 +46,11 @@
 - [x] Add explicit quickstart and methods guides so the role-based
   documentation claim is directly navigable. Evidence: `docs/guides/quickstart.md`
   and `docs/guides/methods.md`; full `uv run make check` passed.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepared `docs/track-017-v1-closeout-packet.md` mapping independent
+  usability, reproduction, ownership, governance and release receipts to the
+  stable-v1 decision.
+- [ ] Keep v1.0.0 tagging, stable-release claims and support promises disabled
+  until every accountable lane is dispositioned.

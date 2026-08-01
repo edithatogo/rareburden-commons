@@ -38,3 +38,11 @@ passed with 429 tests. No external-gate claim was changed.
 - Approved maintainer/backup roster, sustainability model and institutional host
   or bounded interim ownership.
 - Multi-lane sign-off and public artefact verification before v1.0.0 tagging.
+
+## Preparation refresh — 2026-08-01
+
+`docs/track-017-v1-closeout-packet.md` defines the exact receipts and
+accountable decisions needed for independent usability, reproduction,
+operational ownership, cross-track governance and release integrity. It is
+preparatory only; no stable-v1 tag, support promise or publication authority is
+asserted.
