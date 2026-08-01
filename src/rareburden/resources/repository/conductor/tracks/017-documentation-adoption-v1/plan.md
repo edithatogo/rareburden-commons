@@ -40,3 +40,21 @@
 - [x] Define role-based documentation coverage, release-evidence lanes and clean
   reproduction checklist without activating v1 publication. Evidence:
   `docs/v1-adoption-017-reference.md` and review record.
+
+## Preparatory implementation — 2026-08-01
+
+- [x] Record role-based documentation coverage, evidence-lane dispositions and
+  the exact clean-reproduction steps. Evidence:
+  `docs/v1-adoption-017-reference.md`. This is a release-evidence scaffold,
+  not independent usability or v1 evidence.
+- [x] Run the repository documentation, schema, safety and reference-workflow
+  checks as the current executable documentation baseline. Evidence:
+  `uv run make check`; independent users, support owners and release approval
+  remain open.
+
+## Preparatory release planning — 2026-08-01
+
+- [x] Create a versioned evidence register mapping the blocking v1 criteria to
+  objective evidence, current state and bounded contingencies. Evidence:
+  `docs/v1-release-evidence-register-017.md`. The register is traceability
+  scaffolding; it does not pass any external or independent gate.
