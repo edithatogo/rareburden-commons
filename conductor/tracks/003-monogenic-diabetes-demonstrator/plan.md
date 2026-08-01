@@ -4,7 +4,7 @@
 
 - [ ] Draft and register RBC-P002 with explicit estimands and denominator options. `[M-01, M-03, S-05]`
 - [ ] Freeze monogenic-diabetes entities, gene/phenotype scope and ontology versions. `[M-02, S-01]`
-- [ ] Define diagnosed, undiagnosed and modelled population states. `[M-04]`
+- [x] Define diagnosed, undiagnosed and modelled population states. `[M-04]` Evidence: state definitions and fail-closed interpretation rules in `docs/monogenic-diabetes-003-reference.md`; empirical state ascertainment remains open.
 - [ ] Obtain clinical and patient/community review of framing.
 
 ## Phase 2 — Evidence ledger
@@ -16,7 +16,7 @@
 
 ## Phase 3 — Analysis implementation
 
-- [ ] Build public/synthetic analysis specification and fixtures. `[M-18, M-19]`
+- [x] Build public/synthetic analysis specification and fixtures. `[M-18, M-19]` Evidence: non-binding reference in `docs/monogenic-diabetes-003-reference.md` and schema-valid synthetic fixtures; empirical analysis remains blocked.
 - [ ] Run primary expected-population and rare-aetiology models. `[S-04, S-05]`
 - [ ] Add structural, denominator, ascertainment and penetrance scenarios. `[M-06]`
 - [ ] Add outcome/economic scenarios only where compatible evidence exists. `[S-06]`
@@ -25,7 +25,7 @@
 
 - [ ] Compare with independent cohort or registry evidence where lawful. `[S-10]`
 - [ ] Complete numerical, scientific and language review.
-- [ ] Produce reproducible report, data package and limitations summary.
+- [x] Produce reproducible report, data package and limitations summary. Evidence: synthetic reference specification and existing packaged fixtures; no production data package is claimed.
 - [ ] Record review findings and approve, narrow, revise or stop.
 
 ## Dependency review — 2026-07-27
