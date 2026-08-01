@@ -130,3 +130,19 @@ Keep Track 004 **blocked**. Do not activate federated execution or controlled-en
 security, scientific, patient/community and independent-operation evidence
 required before activation. It is repository-owned preparation and does not
 authorize a controlled-data node or pilot.
+### Implementation rerun — 2026-08-01
+
+The repository-owned implementation was re-audited after the downstream-track
+reruns. The bounded synthetic path remains complete: the four node contracts,
+offline runner, disclosure validator, immutable reference primitives,
+wheelhouse checks, attestation verifier, and negative-test coverage are present
+and covered by the repository validation gate. No controlled records,
+custodian service, production policy, or pilot authority was introduced.
+
+The disposition is unchanged. Tracks 009 and 010 are still prerequisites, and
+the data-governance, patient/community, engineering, security, scientific,
+custodian, and independent-operator evidence listed above remains outstanding.
+These are external gates and cannot be closed by local implementation. The
+track must not be activated or represented as a production federated execution
+capability until those receipts are attached and the alpha release gate is
+reviewed.
