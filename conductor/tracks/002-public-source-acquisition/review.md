@@ -133,13 +133,26 @@ SHA-256 `7db1f222bf7b5af9b9da9b5f380cad48356b1d33c74c2666c9a96d0d7ca7ad4f`.
 This is a bounded reference manifest and smoke test, not a production geography
 decision or redistribution approval.
 
+### Exact Orphadata endpoint evidence — 2026-08-01
+
+The July 2026 Orphadata catalogue exposes stable English XML routes. Both files
+were retrieved directly from the publisher host and verified locally before this
+record was written; the bytes are not committed to the repository.
+
+| Candidate | Exact URL | Retrieved bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| English epidemiology XML (`en_product9_prev.xml`) | `https://www.orphadata.com/data/xml/en_product9_prev.xml` | 16,178,169 | `6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0` |
+| English alignment XML (`en_product1.xml`) | `https://www.orphadata.com/data/xml/en_product1.xml` | 54,026,799 | `df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb` |
+
+The publisher pages identify these as the July 2026 release and state CC BY
+4.0 terms. This records exact Orphadata endpoints and content hashes only; it
+does not activate production acquisition or substitute for the required live
+scientific/data-governance and redistribution review.
+
 ### Remaining exact-file blocker
 
-The remaining exact-file task is blocked by publisher delivery evidence, not by
-the repository implementation: the Orphadata catalogue intermittently fails
-TLS retrieval from this environment, while UN WPP and WHO landing pages expose
-download content through dynamic/static-site routes without stable data-file
-URLs in the retrieved HTML. No guessed URL is recorded and no bulk source bytes
-are downloaded. The next safe action is to record the publisher-provided exact
-file URLs (or a custodian-approved manual registration) and then run the existing
-checksum/manifest workflow.
+UN WPP and WHO still expose download content through dynamic/static-site routes
+without stable data-file URLs in the retrieved HTML. No guessed URL is recorded
+and no bulk UN/WHO source bytes are downloaded. The next safe action is to record
+publisher-provided exact file URLs (or a custodian-approved manual registration)
+for those two sources and then run the existing checksum/manifest workflow.
