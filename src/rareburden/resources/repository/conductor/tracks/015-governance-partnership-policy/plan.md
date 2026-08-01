@@ -51,3 +51,11 @@
 - [ ] Run an authorised governance tabletop and record decisions; external
   facilitator, patient/community authority and governance appointments remain
   required.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepared `docs/track-015-governance-review-packet.md` with exact
+  constitution, patient/community, custodian, scientific-independence and
+  relationship evidence requirements.
+- [ ] Keep governance, partnership and endorsement states unactivated until
+  constituted dispositions are recorded.

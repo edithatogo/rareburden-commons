@@ -55,3 +55,10 @@
 
 - [x] Document threat boundaries, operational invariants and activation gates
   without activating production hardening. Evidence: reference and review records.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepared `docs/track-016-operations-review-packet.md` with exact
+  security, runtime, recovery, privacy, supply-chain and owner evidence.
+- [ ] Keep production pathways and support promises disabled until independent
+  review and named-owner acceptance are recorded.

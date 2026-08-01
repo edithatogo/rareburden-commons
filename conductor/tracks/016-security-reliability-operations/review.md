@@ -52,6 +52,13 @@ score of 6.4. Its low or unavailable checks accurately reflect repository age,
 the solo-maintainer/no-review policy, absence of a canonical release, and
 external badge/ownership evidence; they are not silently treated as complete.
 
+## Preparation refresh — 2026-08-01
+
+`docs/track-016-operations-review-packet.md` records the exact receipts and
+accountable dispositions still required. Repository-owned attestations and
+scans remain evidence of preparation, not independent security review,
+operational acceptance or production authorization.
+
 The canonical prerelease tag `v0.3.0-rc.2` executed the release workflow
 successfully in hosted run
 `https://github.com/edithatogo/rareburden-commons/actions/runs/30686643886`.

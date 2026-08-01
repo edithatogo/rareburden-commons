@@ -24,3 +24,9 @@ and does not constitute appointments, consultation, consent or partnership.
   acceptable-use and Indigenous/CARE provisions.
 - Written relationship evidence for every `confirmed` claim.
 - Governance tabletop exercise and v1 readiness decision.
+
+## Preparation refresh — 2026-08-01
+
+`docs/track-015-governance-review-packet.md` provides a bounded decision and
+receipt contract. It does not create appointments, consent, remuneration,
+partnerships, endorsements or release authority.
