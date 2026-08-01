@@ -31,6 +31,7 @@ version = "2.0.0"
     assert first == second
     assert first["bomFormat"] == "CycloneDX"
     assert first["specVersion"] == "1.5"
+    assert str(first["serialNumber"]).startswith("urn:uuid:")
     assert [component["name"] for component in first["components"]] == [
         "dependency",
         "example-app",
