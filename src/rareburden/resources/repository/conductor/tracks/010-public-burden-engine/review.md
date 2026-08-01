@@ -63,3 +63,10 @@ Keep Track 010 **blocked**. Do not activate burden calculations or freeze interf
 - **Engineering:** inspect numerical stability, property/golden/convergence tests, reproducibility and API compatibility.
 - **Patient/community:** assess interpretation, communication of uncertainty and risk of misuse.
 - **Evidence required:** synthetic reference report, benchmark/test results, invalid-operation evidence, review comments and alpha-scope decision.
+
+### External-gate panel synthesis — 2026-08-01
+
+The preparatory panel report (`docs/v1-subagent-panel-report-017.md`) does not
+replace scientific/statistical, patient/community or engineering review. The
+bounded synthetic engine may continue to be tested, but Track 010 remains
+blocked by Track 009 and no alpha interface or dependence contract is frozen.

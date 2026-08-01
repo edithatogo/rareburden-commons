@@ -31,6 +31,16 @@ challenge are external or human gates.
 
 Keep Track 007 **In review**. Use `proceed_with_narrowed_scope` as a provisional programme decision only. Complete registration, searches and external challenge before the final v0.3.0 gate.
 
+### External-gate panel synthesis — 2026-08-01
+
+The repository's preparatory panel review is recorded in
+`docs/v1-subagent-panel-report-017.md` and governed by
+`docs/decisions/ADR-0007-external-gate-handling.md`. It supports continued
+bounded public/synthetic preparation, while confirming that protocol
+registration, broader screening, independent methods review and
+patient/community challenge remain open. The panel is not an external review
+body and this note does not change the track's `in_review` status.
+
 ## Review fixes
 
 - Confirmed the catalogue contains 13 initiatives and remains a rapid internal landscape.

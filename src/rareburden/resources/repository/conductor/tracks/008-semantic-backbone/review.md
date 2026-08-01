@@ -38,3 +38,11 @@ Keep Track 008 **blocked**. Re-run dependency validation when Tracks 002 and 007
 - **Patient/community:** assess naming, grouping, stigma and acceptable burden-purpose categories.
 - **Engineering:** inspect schema compatibility, cycle/conservation tests, migration and version-diff evidence.
 - **Evidence required:** reviewed mapping release, golden fixtures, impact report, comments and explicit freeze decision.
+
+### External-gate panel synthesis — 2026-08-01
+
+The preparatory panel report (`docs/v1-subagent-panel-report-017.md`) supports
+continued synthetic implementation only. It does not close the upstream
+source/licence or landscape challenge gates, nor does it approve identifiers,
+naming or aggregation semantics. Track 008 therefore remains blocked and its
+contract remains non-binding.
