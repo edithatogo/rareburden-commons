@@ -39,3 +39,15 @@
 - [x] Document proposed decision bodies, reserved authority, claim states and
   policy-translation limits without activating governance or partnership claims.
   Evidence: `docs/governance-015-reference.md` and review record.
+
+## Repository-owned preparation — 2026-08-01
+
+- [x] Provide a machine-readable-by-convention decision-register template with
+  claim-state, authority, conflicts, remuneration, evidence, correction and
+  bounded-fallback fields. Evidence: `docs/governance-015-decision-register-template.md`.
+- [x] Provide a non-binding tabletop exercise protocol covering withdrawal,
+  global-claim pressure, funder independence, stigmatizing language and
+  disclosure risk. Evidence: `docs/governance-015-tabletop-template.md`.
+- [ ] Run an authorised governance tabletop and record decisions; external
+  facilitator, patient/community authority and governance appointments remain
+  required.
