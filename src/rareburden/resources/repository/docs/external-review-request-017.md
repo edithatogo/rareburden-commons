@@ -6,6 +6,14 @@ sharing.
 
 ## Requested response
 
+Before recording a decision, complete the identity and scope fields:
+
+- candidate commit SHA, manifest ID and artefact digest;
+- reviewer name, accountable role and organisation (if applicable);
+- independence statement, conflicts of interest and any dissenting member;
+- evidence and protocol versions reviewed;
+- decision date, conditions, residual-risk owner and expiry/review date.
+
 Please select one disposition for the requested gate:
 
 - `pass` — the supplied scope is acceptable for the stated use;
@@ -13,8 +21,10 @@ Please select one disposition for the requested gate:
 - `bounded` — only the listed reduced scope is acceptable;
 - `stop` — do not proceed with the proposed release or use.
 
-Please record the decision-maker role, conflicts, date, evidence reviewed,
-conditions, dissent, residual-risk owner and review/expiry date.
+An owner or release-authority decision must be labelled separately from an
+independent scientific, patient/community, custodian or operator receipt. A
+technical subagent or automated test may be cited as preparation evidence, but
+cannot be identified as the accountable decision-maker.
 
 ## Gate-specific questions
 
