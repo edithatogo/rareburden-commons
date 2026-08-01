@@ -18,7 +18,7 @@ class QualityAssessmentError(ValueError):
     """Raised when a quality or transportability record is internally incoherent."""
 
 
-_RELEASE_MATURITY = {
+_RELEASE_MATURITY: dict[str, dict[str, tuple[str, ...]]] = {
     "synthetic_assurance": {
         "allowed_claims": ("demonstrates executable synthetic assurance only",),
         "prohibited_claims": ("empirical estimate", "representativeness", "policy recommendation"),
