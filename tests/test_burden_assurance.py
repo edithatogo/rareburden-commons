@@ -86,9 +86,7 @@ def test_structural_scenarios_fail_closed(
 
 def test_structural_scenarios_reject_unbounded_scenario_sets() -> None:
     scenarios = {"baseline": deepcopy(SPECIFICATION)}
-    scenarios.update(
-        {f"alternative-{index}": deepcopy(SPECIFICATION) for index in range(20)}
-    )
+    scenarios.update({f"alternative-{index}": deepcopy(SPECIFICATION) for index in range(20)})
     with pytest.raises(ModelError, match="between 2 and 20"):
         run_structural_scenarios(scenarios, LEDGER, created_at="2026-07-31T00:00:00Z")
 
