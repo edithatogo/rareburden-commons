@@ -24,3 +24,15 @@ and does not imply usability, support, institutional hosting or release approval
 - Approved maintainer/backup roster, sustainability model and institutional host
   or bounded interim ownership.
 - Multi-lane sign-off and public artefact verification before v1.0.0 tagging.
+
+### Implementation checkpoint — 2026-08-01
+
+The repository-owned preparation now records role-based guide coverage,
+release-evidence lanes and a reproducible clean-environment checklist. The
+full local validation suite, including documentation links, schema, safety and
+synthetic reference checks, passes. These checks do not establish independent
+usability, institutional ownership, cost approval, or release authorization.
+
+Track 017 remains **Planned**. Tracks 013–016 and the independent-user,
+independent-reproduction, ownership, sustainability, multi-lane review and
+publication gates remain unresolved; stable v1 must not be tagged or claimed.
