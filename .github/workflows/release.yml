@@ -93,7 +93,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
-            for asset in SHA256SUMS rareburden.cdx.json; do
+            for asset in SHA256SUMS rareburden.cdx.json \
+              attestation-evidence/profile.json \
+              attestation-evidence/provenance.sigstore.json \
+              attestation-evidence/sbom.sigstore.json \
+              attestation-evidence/trusted_root.jsonl \
+              attestation-evidence/verify_release_attestation.py \
+              attestation-evidence/SHA256SUMS; do
               gh release delete-asset "$GITHUB_REF_NAME" "$asset" --yes || true
             done
             gh release upload "$GITHUB_REF_NAME" \
