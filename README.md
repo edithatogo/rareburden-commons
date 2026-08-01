@@ -40,6 +40,7 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [Synthetic reference workflow tutorial](docs/tutorial-reference-workflow.md)
 - [Documentation quality and correction guidance](docs/documentation-guidance-017.md)
 - [Blocker-resolution plan](docs/blocker-resolution-plan.md)
+- [Remaining gates plan and panel recommendation](docs/remaining-gates-plan.md)
 
 ### Route to stable v1.0
 
