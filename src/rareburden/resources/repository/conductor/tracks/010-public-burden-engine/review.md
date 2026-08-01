@@ -57,6 +57,17 @@ products now fail closed rather than entering summaries.
 
 Keep Track 010 **blocked**. Do not activate burden calculations or freeze interfaces for Track 003 until the evidence and parameter ledger is complete.
 
+### Blocker re-audit — 2026-08-01
+
+Repository-owned burden-engine controls remain complete for the synthetic
+reference scope: deterministic estimands, compatibility guards, seeded
+uncertainty, bounded structural scenarios, non-estimability outputs, lineage,
+negative tests and benchmark coverage are implemented and locally validated.
+Track 010 remains blocked because Track 009 is not complete. Independent
+scientific-software review, patient/community interpretation review and the
+Track 003 alpha-interface freeze remain pending; no empirical burden analysis or
+downstream interface is activated by this checkpoint.
+
 ### External reviewer packet
 
 - **Scientific/statistical:** approve estimands, compatible units, distributions, dependence, scenarios and uncertainty interpretation.
