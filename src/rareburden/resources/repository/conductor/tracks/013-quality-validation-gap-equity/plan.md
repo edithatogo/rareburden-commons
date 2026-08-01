@@ -12,7 +12,10 @@
 - [x] Define parameter-by-geography sufficiency taxonomy. `[M-26]` Evidence: gap-map schema uses explicit `sufficiency: not_assessed` until empirical validation.
 - [x] Generate machine-readable gap map from source and ledger records. Evidence: `src/rareburden/gapmap.py` and reference gap-map workflow.
 - [ ] Add rendered coverage, missingness and controlled-data-ask products.
-- [ ] Add LMIC, underserved-population and Indigenous governance assessment.
+- [~] Add LMIC, underserved-population and Indigenous governance assessment.
+  Repository-owned metadata-only scaffold: `schemas/equity-gap-review.schema.json`,
+  `examples/quality/equity-gap-review-synthetic.yml` and its fail-closed test;
+  empirical coverage and governance review remain open.
 
 ## Phase 3 — Demonstrator validation
 
