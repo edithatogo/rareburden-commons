@@ -34,3 +34,11 @@ or `stop`, with residual risks and an owner.
 
 Two independent user runs, two clean release candidates, independent
 reproduction and named primary/backup owners are required before v1.0.0.
+
+## Accessibility preparation
+
+The repository-owned presentation rules and bounded fallback are in
+[`docs/accessibility-guidance.md`](accessibility-guidance.md). They provide
+text alternatives, explicit missingness and non-colour-only requirements for
+review; they do not replace the required accessibility review of rendered
+Track 014/017 products.
