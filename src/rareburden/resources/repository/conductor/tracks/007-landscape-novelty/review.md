@@ -88,3 +88,23 @@ The seed baseline is now preserved in [`docs/landscape-screening-007.md`](../../
 ### Authenticated OSF route check — 2026-07-29
 
 Using the installed `osf-cli-go` username/password authentication path, `osf auth whoami` and `osf projects list --json` succeeded. The CLI command `osf search "rare disease burden" --json` reached `/v2/search/?q=rare+disease+burden` but OSF returned HTTP 404. A documented API fallback query to `/v2/nodes/?filter[title]=rare%20disease%20burden&page[size]=10` returned HTTP 200 with `total=0`. This is an OSF endpoint-compatibility finding, not evidence that no relevant OSF work exists; broader search remains open. No library code was changed or submitted.
+
+### Bounded discovery rerun — 2026-08-01
+
+The four repository-native discovery routes were rerun with the versioned query
+`rare disease burden`, a descriptive user agent, and a 30-second timeout. These
+observations refresh the discovery log only; they do not screen records,
+establish novelty, or replace the required registered protocol and second
+reviewer.
+
+| Registry | Endpoint | HTTP | Result observation |
+| --- | --- | ---: | --- |
+| GitHub repositories | `https://api.github.com/search/repositories?q=rare%20disease%20burden&per_page=10` | 200 | `total_count=6`, 6 first-page items |
+| Zenodo records | `https://zenodo.org/api/records/?q=rare%20disease%20burden&size=10` | 200 | `hits.total=193121`, 10 first-page records |
+| OSF nodes | `https://api.osf.io/v2/nodes/?filter%5Btitle%5D=rare%20disease%20burden&page%5Bsize%5D=10` | 200 | `data=[]`; exact-title route returned no nodes |
+| Hugging Face datasets | `https://huggingface.co/api/datasets?search=rare%20disease%20burden&limit=10` | 200 | 0 datasets returned |
+
+The changed totals demonstrate why search counts are retrieval-date evidence,
+not fixed catalogue facts. Newly returned records remain unscreened and are not
+added to the initiative register until the registered eligibility workflow and
+independent resolution process are completed.
