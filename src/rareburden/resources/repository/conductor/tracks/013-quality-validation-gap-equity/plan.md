@@ -3,8 +3,8 @@
 ## Phase 1 — Assurance framework
 
 - [x] Define evidence quality, bias and transportability dimensions. `[M-21, S-07]` Evidence: evidence-assessment, transportability and quality-disposition schemas/validators; summary documented in `docs/quality-validation-013-reference.md`.
-- [ ] Define validation types, calibration thresholds and model criticism.
-- [ ] Define release-language rules by evidence maturity.
+- [x] Define validation types, calibration thresholds and model criticism. Evidence: repository-owned draft in `docs/quality-validation-013-protocol.md`; empirical calibration remains open.
+- [x] Define release-language rules by evidence maturity. Evidence: maturity/language matrix in `docs/quality-validation-013-protocol.md`; approval and release disposition remain open.
 - [x] Define GATHER-aligned reporting checklist. Evidence: `src/rareburden/reporting.py` and reporting checklist schema.
 
 ## Phase 2 — Gap and equity mapping

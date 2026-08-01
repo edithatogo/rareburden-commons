@@ -23,6 +23,14 @@ full validation gate passes. Track 013 remains blocked pending prerequisite
 demonstrators, independent reproduction, scientific assurance and
 patient/community, data-governance and programme review.
 
+### Repository-owned implementation slice — 2026-08-01
+
+The validation-type, calibration-rule, model-criticism and evidence-maturity
+definitions are now recorded in `docs/quality-validation-013-protocol.md`.
+They are explicitly non-empirical and fail-closed: missing independent evidence
+is `not_assessed`, and no language permits representativeness, endorsement or
+global validity without the corresponding external disposition.
+
 ## Disposition
 
 Keep Track 013 **blocked**. Do not assess, triangulate or approve atlas-beta outputs until the prerequisite demonstrators and burden-engine contracts are complete.
