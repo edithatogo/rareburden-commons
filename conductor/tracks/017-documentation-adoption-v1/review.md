@@ -39,52 +39,34 @@ passed with 429 tests. No external-gate claim was changed.
   or bounded interim ownership.
 - Multi-lane sign-off and public artefact verification before v1.0.0 tagging.
 
-## Preparation refresh — 2026-08-01
+### Implementation checkpoint — 2026-08-01
 
-`docs/track-017-v1-closeout-packet.md` defines the exact receipts and
-accountable decisions needed for agent usability, owner reproduction,
-operational ownership, cross-track governance and release integrity. It is
-preparatory only; no stable-v1 tag, support promise or publication authority is
-asserted.
+The repository-owned preparation now records role-based guide coverage,
+release-evidence lanes and a reproducible clean-environment checklist. The
+full local validation suite, including documentation links, schema, safety and
+synthetic reference checks, passes. These checks do not establish independent
+usability, institutional ownership, cost approval, or release authorization.
 
-## Bounded reconciliation review — 2026-08-16
+Track 017 remains **Planned**. Tracks 013–016 and the independent-user,
+independent-reproduction, ownership, sustainability, multi-lane review and
+publication gates remain unresolved; stable v1 must not be tagged or claimed.
 
-The manifest, validator and negative tests bind current Track 013–016 evidence,
-preserve the incomplete backup-continuity state, and prevent agent advice or
-repository checks from becoming independent/external approval or stable-v1
-claims. Repository preparation passes review. Track 016 is exactly bound at PR
-#104 merge `18910840fee787bbe2ae7d7eff40b944539a11f4`; execution,
-support-continuity, public-verification and stable-release gates stay open.
+### Review rerun — 2026-08-01
 
-## Exercise review — 2026-08-16
+The adoption scaffold was reviewed against the full Track 017 specification and
+the blocking v1 criteria. The role map, evidence lanes and reproducibility
+checklist are internally consistent, and the local documentation, schema,
+safety and synthetic-reference checks pass. No repository-owned defect was
+identified in this preparatory slice.
 
-Two role-separated advisory agent assessments, two clean locked candidate
-builds and one owner-operated clean-environment reproduction were executed
-against exact commit `3cfdf8dee5aa7440b936f03ac171fb95665b5f8b`.
-The first-time-user assessment found that the documented bare `python` command
-failed in the clean environment. The guides now use `uv run python` and include
-prerequisites, resource expectations, navigation and fail-closed
-troubleshooting. Repeated generation and verification passed; all three output
-manifests and verifier reports were identical. These are repository and agent
-advisory receipts only—not human accessibility conformance, independent
-reproduction, backup continuity, external approval or stable-release evidence.
+The remaining findings are substantive release gates: complete role guides and
+tutorials, accessibility and external usability review, independent operator
+and reproduction receipts, clean release candidates, named primary/backup
+owners, approved sustainability and institutional-host decisions, all
+multi-lane sign-offs, and public artefact verification. Dependencies 013–016
+are not complete. Track 017 remains **Planned** and is not archive-eligible;
+stable v1 must not be tagged or represented as released.
 
-## Evidence-index review — 2026-08-16
-
-All 67 stable-v1 acceptance criteria are now enumerated in a hash-bound index
-with evidence routes and explicit group gaps. The validator rejects omitted,
-duplicated or reordered criteria, hash drift, unbound evidence and release
-overclaims. Index completeness is an accounting property only: no criterion is
-promoted to satisfied, and stable acceptance remains incomplete. Qualifying
-backup continuity and post-decision public stable-artifact verification remain
-pending; the later exact-candidate owner disposition is bounded, not stable.
-
-## Owner bounded-disposition review — 2026-08-16
-
-The repository owner recorded an immutable GitHub receipt for exact candidate
-`ba92940572bd69e19d54447e59b8ba8f776e3d5b`: bounded synthetic/public preview,
-stable release deferred. The receipt accepts repository tests, advisory agent
-findings and owner-operated reproduction while retaining source-rights,
-coverage, continuity, external-authority and support exclusions. Its validator
-prevents promotion to production, stable release, a v1 tag, independent or
-external approval, backup continuity or public stable-artifact verification.
+The versioned register at `docs/v1-release-evidence-register-017.md` now makes
+the remaining evidence lanes, owners and bounded contingencies explicit. It
+does not alter the Planned disposition or authorize publication.
