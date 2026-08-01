@@ -46,3 +46,9 @@ continued synthetic implementation only. It does not close the upstream
 source/licence or landscape challenge gates, nor does it approve identifiers,
 naming or aggregation semantics. Track 008 therefore remains blocked and its
 contract remains non-binding.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-008-semantic-review-packet.md` records the exact semantic, clinical,
+patient/community and engineering decisions required before activation. It is
+repository-owned preparation and does not freeze the v0.4 contract.

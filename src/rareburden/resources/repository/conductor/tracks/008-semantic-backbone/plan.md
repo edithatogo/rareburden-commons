@@ -32,3 +32,10 @@
 
 - [x] Add a review record that captures the dependency block and prevents premature semantic-contract freeze. Evidence: `2e2a853`.
 - [x] Add non-binding semantic contract v0.1.0 draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the semantic review packet with decision fields, evidence links,
+  release requirements and fail-closed continuation rules. Evidence:
+  `docs/track-008-semantic-review-packet.md`; source-pinned release and external
+  clinical/patient-community review remain blocked.

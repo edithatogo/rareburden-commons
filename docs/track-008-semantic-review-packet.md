@@ -1,0 +1,42 @@
+# Track 008 semantic review packet
+
+**Status:** non-binding preparation; Track 008 remains blocked  
+**Contract draft:** semantic contract v0.1.0  
+**Activation rule:** no v0.4 contract freeze or source-pinned semantic release
+until Tracks 002 and 007 pass their gates.
+
+## Decisions required
+
+| Decision | Evidence to inspect | Accountable disposition |
+|---|---|---|
+| Source releases and licence states | Exact source-release records, hashes and terms from Track 002 | approve, revise, bounded or reject |
+| Stable identifiers and relation meanings | Mapping schema, loader, version diff and provenance fields | approve or revise |
+| Ambiguous/one-to-many handling | Fail-closed aggregation tests and unresolved mapping examples | approve or revise |
+| Burden-purpose hierarchy | Synthetic golden fixtures, conservation and overlap reports | approve, narrow or reject |
+| Naming/grouping harms | Patient/community review of labels, syndromes, aetiologies and categories | approve, revise or dissent |
+| Deprecation/migration | Version-diff fingerprints and affected-output invalidation rules | approve or revise |
+
+## Repository evidence
+
+- `schemas/ontology-mapping.schema.json` and related semantic schemas define
+  explicit relation, confidence, provenance and validity fields.
+- `src/rareburden/semantics.py` and mapping diff tooling preserve ambiguity and
+  produce deterministic release-impact information.
+- Synthetic golden fixtures cover monogenic diabetes, bronchiectasis and
+  paediatric examples; they are not clinical evidence.
+- Track 002 and Track 007 review records remain the upstream gate references.
+
+## Required release packet before activation
+
+The eventual semantic release must include a machine-readable mapping set,
+human-readable report, source release IDs/hashes, licence states, migration and
+deprecation notes, unresolved mapping list, overlap/conservation report,
+software/environment identity and the semantic/clinical, patient/community and
+engineering dispositions. Unknown or ambiguous mappings remain visible and fail
+closed where aggregation would double count.
+
+## Safe continuation
+
+Continue synthetic schema, migration and impact tests. Do not pin a production
+ontology release, publish a clinical naming claim, or freeze a v0.4 contract
+until the required reviewers and upstream evidence are present.
