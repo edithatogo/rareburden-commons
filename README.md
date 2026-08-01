@@ -39,6 +39,7 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [Quickstart](docs/guides/quickstart.md)
 - [Synthetic reference workflow tutorial](docs/tutorial-reference-workflow.md)
 - [Documentation quality and correction guidance](docs/documentation-guidance-017.md)
+- [Blocker-resolution plan](docs/blocker-resolution-plan.md)
 
 ### Route to stable v1.0
 
