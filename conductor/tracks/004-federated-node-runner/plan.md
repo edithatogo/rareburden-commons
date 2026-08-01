@@ -115,3 +115,10 @@
 ## Dependency review — 2026-07-27
 
 - [x] Record that Track 004 cannot activate until Tracks 009 and 010 are complete. Evidence: `f919b03`.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the federated-node review packet with common-analysis, disclosure,
+  custodian, patient/community, security and independent-operation decisions.
+  Evidence: `docs/track-004-node-review-packet.md`; dependency and external
+  gates remain open.
