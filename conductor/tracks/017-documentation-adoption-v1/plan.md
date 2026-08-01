@@ -40,3 +40,10 @@
 - [x] Define role-based documentation coverage, release-evidence lanes and clean
   reproduction checklist without activating v1 publication. Evidence:
   `docs/v1-adoption-017-reference.md` and review record.
+
+## Scope control — 2026-08-01
+
+- [x] Record the bounded public/synthetic release-candidate scope and the
+  rule that subagent reports do not replace authority-bound review. Evidence:
+  `docs/decisions/ADR-0006-bounded-release-candidate.md`; stable-v1 publication
+  remains gated.
