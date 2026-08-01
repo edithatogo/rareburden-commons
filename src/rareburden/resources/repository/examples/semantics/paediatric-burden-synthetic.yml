@@ -1,0 +1,62 @@
+schema_version: 0.1.0
+hierarchy_id: paediatric-burden-synthetic
+title: Synthetic paediatric burden-purpose hierarchy
+version: 0.1.0
+purpose: Demonstrate a bounded paediatric disease set with explicit residual coverage.
+entities:
+  - entity_id: paediatric-rare-envelope
+    preferred_label: Paediatric rare-disease envelope
+    entity_type: common_envelope
+    aggregation_role: root
+    parents: []
+    codes:
+      - system: SYNTHETIC
+        code: PAEDIATRIC-RARE
+    definition: Synthetic paediatric envelope for assurance only.
+    limitations:
+      - Not an empirical prevalence definition.
+  - entity_id: paediatric-monogenic
+    preferred_label: Paediatric monogenic conditions
+    entity_type: rare_disease_group
+    aggregation_role: leaf
+    parents: [paediatric-rare-envelope]
+    codes:
+      - system: SYNTHETIC
+        code: PAEDIATRIC-MONOGENIC
+    definition: Synthetic demonstrator subgroup.
+    limitations:
+      - Requires clinical and community review.
+  - entity_id: paediatric-structural
+    preferred_label: Paediatric structural conditions
+    entity_type: rare_disease_group
+    aggregation_role: leaf
+    parents: [paediatric-rare-envelope]
+    codes:
+      - system: SYNTHETIC
+        code: PAEDIATRIC-STRUCTURAL
+    definition: Synthetic demonstrator subgroup.
+    limitations:
+      - Classification boundaries are illustrative only.
+  - entity_id: paediatric-other
+    preferred_label: Other or unclassified paediatric conditions
+    entity_type: residual_group
+    aggregation_role: leaf
+    parents: [paediatric-rare-envelope]
+    codes:
+      - system: SYNTHETIC
+        code: PAEDIATRIC-OTHER
+    definition: Synthetic residual for conservation tests.
+    limitations:
+      - Not a clinical category.
+aggregation_sets:
+  - aggregation_id: paediatric-rare-composition
+    parent_entity_id: paediatric-rare-envelope
+    member_entity_ids: [paediatric-monogenic, paediatric-structural, paediatric-other]
+    strategy: mutually_exclusive_sum
+    exhaustive: true
+    unclassified_member_id: paediatric-other
+    rationale: Synthetic exhaustive split for assurance only.
+    limitations:
+      - Inputs must share population, period and ascertainment.
+limitations:
+  - All entities and counts are synthetic assurance artefacts.

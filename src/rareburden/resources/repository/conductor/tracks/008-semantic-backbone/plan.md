@@ -17,8 +17,8 @@
 ## Phase 3 — Implementation
 
 - [x] Implement mapping loader, query and version-diff tooling. Evidence: validated `diff_mapping_sets` release impact report and focused tests in `d93d55e`; source-release pinning remains external-gated.
-- [ ] Add hierarchy conservation, parent/child and ambiguity tests.
-- [ ] Add golden fixtures for monogenic diabetes, bronchiectasis and paediatric use.
+- [x] Add hierarchy conservation, parent/child and ambiguity tests. Evidence: `2e5224c`; golden demonstrator conservation tests cover the supported synthetic hierarchies.
+- [x] Add golden fixtures for monogenic diabetes, bronchiectasis and paediatric use. Evidence: `2e5224c`; all fixtures are synthetic and non-clinical.
 - [ ] Generate machine-readable and human-readable semantic releases.
 
 ## Phase 4 — Review and compatibility
