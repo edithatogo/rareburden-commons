@@ -2,17 +2,17 @@
 
 ## Phase 1 — Method and governance
 
-- [ ] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]`
+- [x] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]` Evidence: non-binding reference contract in `docs/economic-social-005-reference.md`; registration and co-design remain open.
 - [ ] Co-design component taxonomy with patient/family representatives. `[M-16]`
-- [ ] Define currency, price year, PPP, discounting and transfer-payment rules.
-- [ ] Define acceptable-use and burden-framing safeguards.
+- [x] Define currency, price year, PPP, discounting and transfer-payment rules. Evidence: explicit transformation and transfer rules in the non-binding reference contract; health-economic approval remains open.
+- [x] Define acceptable-use and burden-framing safeguards. Evidence: survey, remuneration, accessibility and no-collection safeguards in the non-binding reference contract; ethics and patient/community review remain open.
 
 ## Phase 2 — Data contracts
 
 - [ ] Add cost, time, productivity, education and social-burden parameter schemas. `[M-18]`
-- [ ] Define component overlap and missingness rules. `[M-05]`
+- [x] Define component overlap and missingness rules. `[M-05]` Evidence: explicit transfer/overlap and not-collected/not-permitted/not-comparable/not-estimable states in `docs/economic-social-005-reference.md`; implementation remains open.
 - [ ] Define survey core, adaptation, translation and remuneration requirements.
-- [ ] Define distributional subgroup and equity outputs.
+- [x] Define distributional subgroup and equity outputs. Evidence: subgroup reporting and local-category safeguards in the non-binding reference contract; equity co-design and empirical outputs remain open.
 
 ## Phase 3 — Reference implementation
 
