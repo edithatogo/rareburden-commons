@@ -63,6 +63,18 @@ been frozen.
 
 Keep Track 009 **blocked**. Do not freeze evidence-ledger contracts until source acquisition and semantic contracts are formally complete.
 
+### Blocker re-audit — 2026-08-01
+
+Repository-owned ledger controls remain internally complete for the preparatory
+scope: schemas, immutable revisions, provenance links, conflict/missingness
+guards, source-release impact tracing, portable export, compatibility checks and
+non-binding demonstrator profiles are present and locally validated. The track
+remains blocked because Track 002 source/licence evidence and Track 008 semantic
+release governance are not complete. Epidemiology, data-governance and
+engineering review, disposition of every blocking data-contract issue, and a
+v0.4 contract freeze therefore remain pending; no production analysis is
+authorised by this checkpoint.
+
 ### External reviewer packet
 
 - **Epidemiology/methods:** approve parameter identity, estimands, quality/bias/transportability and conflict rules.
