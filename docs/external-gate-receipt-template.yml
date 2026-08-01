@@ -1,0 +1,23 @@
+# Blank template: completion requires an accountable external submitter.
+receipt_schema_version: "0.1.0"
+gate: "scientific|patient_community|custodian_data_governance|independent_operator|operations|release"
+decision: "approve|pass|accept|bounded|revise|reject|fail|stop|defer"
+accountable:
+  person_or_body: ""
+  role: ""
+  independence_or_authority_basis: ""
+decision_date_utc: ""
+expiry_or_review_date_utc: ""
+subject:
+  repository: "edithatogo/rareburden-commons"
+  commit_or_tag: ""
+  input_manifest_sha256: ""
+evidence:
+  references: []
+  commands: []
+  environment: ""
+  retained_outputs: []
+  discrepancy_log: ""
+conditions: []
+dissent_or_limitations: []
+restricted_evidence_pointer: ""

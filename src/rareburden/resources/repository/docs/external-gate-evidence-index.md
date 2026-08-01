@@ -21,3 +21,6 @@ dissent, expiry/review date and any restricted evidence pointer.
 
 Drafts, synthetic fixtures, local CI, hosted CI and subagent panels remain
 repository preparation only. They must not be relabelled as external approval.
+
+Use `docs/external-gate-receipt-template.yml` as the starting shape for a
+submission; replace every blank with an accountable, digest-bound receipt.
