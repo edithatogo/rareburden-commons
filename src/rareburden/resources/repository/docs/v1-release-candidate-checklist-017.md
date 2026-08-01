@@ -5,7 +5,8 @@
 **Revision:** 2026-08-01
 
 Use this checklist for each candidate. Record the exact commit, environment,
-artefact digests, reviewer and decision in the v1 evidence register. A failed
+artefact digests, reviewer and decision in the external gate register
+(`docs/external-gate-register-017.md`) and linked receipt records. A failed
 or unavailable item blocks the candidate unless the unsupported capability is
 removed from scope.
 
@@ -23,13 +24,14 @@ removed from scope.
 - [ ] Confirm static, package and API outputs share one release fingerprint.
 - [ ] Confirm missingness, uncertainty, quality and limitations are visible.
 - [ ] Run two clean candidate builds and compare deterministic outputs.
-- [ ] Obtain an independent reproduction with equivalent reviewed outputs.
+- [ ] Complete an owner-operated clean-environment reproduction with equivalent
+      reviewed outputs and label it non-independent.
 - [ ] Complete accessibility and documentation-link review.
 
 ## Governance and operations
 
-- [ ] Attach scientific, patient/community, data-governance, engineering,
-      security, programme and release decisions.
+- [ ] Attach role-separated agent-panel recommendations and the exact
+      repository-owner disposition without implying unavailable authority.
 - [ ] Attach named primary/backup owners and sustainability decision.
 - [ ] Verify correction, withdrawal, rollback, backup/restore and incident
       procedures.
@@ -39,5 +41,5 @@ removed from scope.
 
 If external evidence is unavailable, mark the candidate `revise` or `bounded`,
 do not tag `v1.0.0`, and remove claims requiring the missing evidence. A
-maintainer-only build is preparation, not independent reproduction; a green
-local suite is not governance or publication approval.
+owner-operated build is repository evidence, not independent reproduction; a
+green local suite is not external governance or publication approval.
