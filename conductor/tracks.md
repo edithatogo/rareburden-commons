@@ -25,7 +25,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 014 | Atlas, API and reproducible release engineering | Planned | Must | v0.8.0 | Product, Data and Release Engineering Leads | 002, 009, 010, 013 |
 | 015 | Operational governance, partnerships and policy translation | Planned | Must | v0.9.0 | Programme Director and Patient Community Co-chair | 006, 007, 013 |
 | 016 | Security, reliability, performance and operations | Planned | Must | v0.9.0 | Security and Site Reliability Leads | 004, 014 |
-| 017 | Documentation, adoption, sustainability and stable v1 release | Active | Must | v1.0.0 | Product, Documentation and Programme Leads | 013, 014, 015, 016 |
+| 017 | Documentation, adoption, sustainability and stable v1 release | Planned | Must | v1.0.0 | Product, Documentation and Programme Leads | 013, 014, 015, 016 |
 
 ## Status definitions
 
