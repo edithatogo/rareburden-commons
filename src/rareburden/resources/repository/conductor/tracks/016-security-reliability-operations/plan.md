@@ -21,12 +21,15 @@
   dependency review with licence policy, scheduled hash-pinned `pip-audit` and
   pinned OpenSSF Scorecard workflow. Automated scanning is not independent
   security review.
-- [ ] Generate SBOM, checksums and build provenance.
-- [ ] Add release signing or verifiable attestation.
+- [x] Generate SBOM, checksums and build provenance. Evidence: canonical
+  prerelease run `30686643886` and retained release assets.
+- [x] Add release signing or verifiable attestation. Evidence: OIDC-backed
+  provenance/SBOM attestations, trusted root, profile and offline verifier in
+  the canonical prerelease.
 - [x] Configure fail-closed SBOM/checksum/provenance and keyless-attestation
   generation with retained offline verification evidence. Evidence: release
-  workflow, ADR-0004, schema/profile/verifier and PR #24. The two parent tasks
-  remain pending until a canonical tagged release produces a real receipt.
+  workflow, ADR-0004, schema/profile/verifier, PR #24 and canonical run
+  `30686643886`.
 
 ## Phase 3 — Operational controls
 

@@ -1,6 +1,6 @@
 # Track 016 dependency review — Security, reliability and operations
 
-**Review date:** 2026-07-29  
+**Review date:** 2026-08-01  
 **Decision:** Planned; hardening not activated
 
 ## Findings
@@ -52,8 +52,13 @@ score of 6.4. Its low or unavailable checks accurately reflect repository age,
 the solo-maintainer/no-review policy, absence of a canonical release, and
 external badge/ownership evidence; they are not silently treated as complete.
 
-No canonical tag has executed the release workflow, so build provenance and
-verifiable-attestation tasks remain pending despite their implementation. The
-same distinction applies to operational controls: configuration and synthetic
-tests are not backup/restore, incident, rollback or vulnerability table-top
-exercises. Track 016 remains planned and dependency-blocked.
+The canonical prerelease tag `v0.3.0-rc.2` executed the release workflow
+successfully in hosted run
+`https://github.com/edithatogo/rareburden-commons/actions/runs/30686643886`.
+The published prerelease retains the wheel, sdist, CycloneDX SBOM, checksums,
+OIDC provenance/SBOM attestations, trusted root, profile and offline verifier:
+`https://github.com/edithatogo/rareburden-commons/releases/tag/v0.3.0-rc.2`.
+This closes the repository-owned SBOM/checksum/provenance receipt gate for the
+release candidate. It does not constitute independent security review or an
+operational exercise: backup/restore, incident, rollback and vulnerability
+tabletop evidence, ownership, and Track 004/014 activation remain open.
