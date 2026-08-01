@@ -2,9 +2,9 @@
 
 ## Phase 1 — Protocol and semantic scope
 
-- [ ] Draft RBC-P003 and define bronchiectasis denominator populations.
-- [ ] Define included rare aetiologies and ontology versions. `[M-01, M-02]`
-- [ ] Define multi-aetiology, unclassified and overlapping categories. `[M-05]`
+- [x] Draft RBC-P003 and define bronchiectasis denominator populations. Evidence: non-binding protocol draft in `spec.md` and synthetic reference boundary in `docs/bronchiectasis-011-reference.md`; registration and clinical approval remain open.
+- [x] Define included rare aetiologies and ontology versions. `[M-01, M-02]` Evidence: preparatory category set (cystic fibrosis, primary ciliary dyskinesia, immunodeficiency, other/unclassified) is recorded in the reference boundary; pinned production ontology releases remain open.
+- [x] Define multi-aetiology, unclassified and overlapping categories. `[M-05]` Evidence: synthetic fixture explicitly refuses to collapse multi-aetiology/unclassified cases; empirical overlap rules remain open.
 - [ ] Obtain respiratory and patient/community review.
 
 ## Phase 2 — Evidence and transportability

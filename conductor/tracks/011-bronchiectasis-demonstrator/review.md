@@ -25,6 +25,14 @@ methods, patient/community and engineering review.
 
 Keep Track 011 **blocked**. Do not activate bronchiectasis analysis or freeze multi-aetiology contracts until the prerequisite tracks are complete.
 
+### Repository-owned implementation slice — 2026-08-01
+
+The plan now records the existing non-binding RBC-P003 draft, preparatory
+aetiology category set, and explicit multi-aetiology/unclassified boundary as
+repository contracts. The synthetic fixture remains assurance-only; no pinned
+clinical ontology, empirical fraction, respiratory review or activation is
+claimed.
+
 ### External reviewer packet
 
 - **Respiratory clinical:** approve denominator, aetiology categories, overlap and diagnostic-capacity framing.
