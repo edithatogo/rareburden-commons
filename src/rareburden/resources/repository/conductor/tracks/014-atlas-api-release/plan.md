@@ -34,3 +34,11 @@
   aggregate-only publication boundary and shared release-fingerprint requirement.
   Evidence: `docs/atlas-release-014-reference.md`; product activation remains
   blocked by upstream tracks and release gates.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepared `docs/track-014-atlas-api-review-packet.md` with exact
+  source-rights, semantic, accessibility, reproducibility and release-authority
+  evidence requests.
+- [ ] Keep atlas/API publication disabled until upstream review and accountable
+  dispositions are complete.
