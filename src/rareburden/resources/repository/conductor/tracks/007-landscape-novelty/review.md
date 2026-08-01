@@ -118,3 +118,11 @@ The changed totals demonstrate why search counts are retrieval-date evidence,
 not fixed catalogue facts. Newly returned records remain unscreened and are not
 added to the initiative register until the registered eligibility workflow and
 independent resolution process are completed.
+
+### Registration packet refresh — 2026-08-01
+
+`docs/track-007-registration-packet.md` now provides the versioned registration
+handoff, search-log schema, screening/exclusion fields, count reconciliation and
+reviewer decisions. It is repository-owned preparation only: no external
+protocol identifier, independent methods review or patient/community decision
+is inferred.

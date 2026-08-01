@@ -36,3 +36,10 @@
 - [x] Produce versioned draft search strings, eligibility rules, screening workflow and exclusions fields for external registration. Evidence: `RBC-LAND-007 v0.1.0` in review record, 2026-07-27; registration and independent review remain open.
 - [x] Record a preliminary 13-record seed-catalogue screening baseline with counts and explicit zero-exclusion caveat. Evidence: review record updated 2026-07-27; final screening and exclusions remain open.
 - [x] Check authenticated OSF CLI/API routes and record the `/v2/search/` 404 plus bounded nodes-title fallback. Evidence: review record updated 2026-07-29; broader OSF search remains open.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Add the registration handoff, search-log schema, screening/exclusion
+  fields and count-reconciliation rules. Evidence:
+  `docs/track-007-registration-packet.md`; external registration and independent
+  review remain open.
