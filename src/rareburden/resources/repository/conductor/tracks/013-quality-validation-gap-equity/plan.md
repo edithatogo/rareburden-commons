@@ -4,7 +4,7 @@
 
 - [x] Define evidence quality, bias and transportability dimensions. `[M-21, S-07]` Evidence: evidence-assessment, transportability and quality-disposition schemas/validators; summary documented in `docs/quality-validation-013-reference.md`.
 - [ ] Define validation types, calibration thresholds and model criticism.
-- [ ] Define release-language rules by evidence maturity.
+- [x] Define release-language rules by evidence maturity. Evidence: `release_language_for_maturity` and negative maturity tests in `cb8bc3d`; policy remains conservative and does not grant external approval.
 - [x] Define GATHER-aligned reporting checklist. Evidence: `src/rareburden/reporting.py` and reporting checklist schema.
 
 ## Phase 2 — Gap and equity mapping
