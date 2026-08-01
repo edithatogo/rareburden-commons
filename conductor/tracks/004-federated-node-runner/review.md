@@ -58,9 +58,10 @@ This evidence does not constitute an independent custodian run, controlled pilot
 external review, signing/attestation approval, or approval to process controlled
 data. Tracks 009 and 010 also remain dependency blockers.
 
-ADR-0003 retains the controlled-environment pilot as a blocking v1 gate and
-requires a bounded-scope reconsideration after Tracks 009 and 010 and before the
-first v1 release candidate. Synthetic evidence cannot satisfy V1-FED-04.
+ADR-0005 now bounds stable v1 to public and synthetic evidence and moves the
+controlled-environment pilot to a post-v1 milestone. This is the explicit
+bounded-scope decision permitted by V1-FED-04; synthetic evidence still cannot
+be represented as a pilot, custodian approval, or controlled-data capability.
 
 ### Remaining gate packet
 
