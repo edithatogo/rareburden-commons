@@ -43,3 +43,10 @@
 ## Blocker resolution — 2026-07-29
 
 - [x] Record local resolution and residual gates for estimands, uncertainty, prohibited shortcuts, unsupported correlation/scenario behaviour and Track 009 dependency. Evidence: blocker resolution matrix in `review.md`.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the burden-engine review packet with estimand, uncertainty,
+  dependence, structural-scenario, safety-boundary and alpha-freeze decisions.
+  Evidence: `docs/track-010-engine-review-packet.md`; Track 009 and external
+  scientific/engineering/patient-community review remain open.
