@@ -97,3 +97,5 @@ scientific and data-governance gates remain separate and pending.
   activation boundary in `tests/test_track_002_option_a_scope.py`.
 - [x] Add a fail-closed regression guard for the source-packet checklist and
   pending accountable dispositions in `tests/test_track_002_evidence_request.py`.
+- [x] Add a regression guard proving the external-gate receipt template remains
+  blank and non-approving in `tests/test_external_gate_receipt_template.py`.
