@@ -73,6 +73,9 @@ usability or reproduction gates.
 - [x] Add the dependency-ordered independent usability, reproduction,
   ownership and stable-release plan with options, contingencies and
   recommendation in `docs/track-017-v1-implementation-plan-2026-08-02.md`.
+- [x] Define the independent usability, reproduction and clean-build receipt
+  contract in `docs/track-017-independent-receipt-template.md`; no receipt is
+  claimed until an independent operator or user completes it.
 - [ ] Freeze and reproduce two clean release candidates from locked
   environments.
 - [ ] Obtain two independent usability receipts and one independent
