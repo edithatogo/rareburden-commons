@@ -4,7 +4,7 @@
 
 ## Phase 1 — Protocol and definitions
 
-- [ ] Draft and register RBC-P002 with explicit estimands and denominator options. `[M-01, M-03, S-05]`
+- [ ] Register RBC-P002 with explicit estimands and denominator options. `[M-01, M-03, S-05]`
 - [ ] Freeze monogenic-diabetes entities, gene/phenotype scope and ontology versions. `[M-02, S-01]`
 - [ ] Define diagnosed, undiagnosed and modelled population states. `[M-04]`
 - [ ] Obtain clinical and patient/community review of framing.
@@ -41,3 +41,5 @@
   transportability, outcome and framing decisions. Evidence:
   `docs/track-003-rbc-p002-review-packet.md`; dependencies and external clinical,
   methods, governance and patient/community review remain open.
+- [x] Prepare the non-binding RBC-P002 protocol draft with explicit estimand
+  and denominator decision fields; registration and freeze remain open.
