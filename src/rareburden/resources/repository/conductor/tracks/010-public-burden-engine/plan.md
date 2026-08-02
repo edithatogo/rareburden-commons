@@ -41,6 +41,10 @@
 
 - [x] Record that Track 010 cannot activate until Track 009 is complete. Evidence: `17b5c69`.
 - [x] Add non-binding burden engine contract v0.1.0 draft to the specification; activation and contract freeze remain blocked.
+- [x] Prepare the Track 003 interface handoff without freezing it. Evidence:
+  `docs/track-010-engine-review-packet.md` records the draft contract,
+  lineage/result requirements and explicit activation rule; alpha freeze remains
+  dependent on Track 009 and external review.
 
 ## Blocker resolution — 2026-07-29
 
