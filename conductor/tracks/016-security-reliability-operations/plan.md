@@ -84,3 +84,16 @@
   security, runtime, recovery, privacy, supply-chain and owner evidence.
 - [ ] Keep production pathways and support promises disabled until independent
   review and named-owner acceptance are recorded.
+
+## Implementation planning — 2026-08-02
+
+- [x] Add the dependency-ordered recovery, rollback, budget, retention/access
+  and ownership plan with options, contingencies and recommendation in
+  `docs/track-016-operations-implementation-plan-2026-08-02.md`.
+- [ ] Define and test the versioned resource-budget contract.
+- [ ] Define and validate the retention/access policy for operational records.
+- [ ] Implement and execute clean-environment backup, restore and rollback
+  exercises with redacted, hash-bound receipts.
+- [ ] Record named primary/backup operational owners and escalation acceptance.
+- [ ] Complete independent security/operator and release-authority gates before
+  production-hardening activation.
