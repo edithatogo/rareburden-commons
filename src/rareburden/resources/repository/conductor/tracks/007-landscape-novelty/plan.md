@@ -48,3 +48,11 @@
 - [x] Preserve the bounded 2026-08-01 discovery observations as a structured
   search log. Evidence: `docs/track-007-search-log-2026-08-01.yml`; screening,
   registration and independent review remain open.
+
+## Synthetic screening exercise — 2026-08-02
+
+- [x] Exercise count reconciliation, exclusion reasons and unresolved-record
+  handling with a deterministic fixture. Evidence:
+  `docs/track-007-panel-screening-exercise-2026-08-02.yml` and
+  `tests/test_landscape.py`; this is panel preparation only and does not close
+  registration or independent challenge gates.

@@ -15,6 +15,9 @@ from rareburden.schema import load_mapping
 ROOT = Path(__file__).resolve().parents[1]
 LANDSCAPE = load_mapping(ROOT / "catalog" / "initiatives.yml")
 SCHEMA = load_mapping(ROOT / "schemas" / "initiative-landscape.schema.json")
+SCREENING_EXERCISE = load_mapping(
+    ROOT / "docs" / "track-007-panel-screening-exercise-2026-08-02.yml"
+)
 
 
 def test_seed_landscape_is_valid() -> None:
@@ -75,3 +78,11 @@ def test_landscape_markdown_is_deterministic_and_complete() -> None:
     assert "WHO rare-disease global action plan mandate" in first
     assert "proceed_with_narrowed_scope" in first
     assert first.endswith("\n")
+
+
+def test_track_007_synthetic_screening_reconciles_without_closing_external_gates() -> None:
+    counts = SCREENING_EXERCISE["counts"]
+    assert counts["screened"] == counts["included"] + counts["excluded"] + counts["uncertain"]
+    assert SCREENING_EXERCISE["expected"]["uncertain_is_not_included"] is True
+    assert SCREENING_EXERCISE["expected"]["external_registration_required"] is True
+    assert SCREENING_EXERCISE["expected"]["independent_challenge_required"] is True

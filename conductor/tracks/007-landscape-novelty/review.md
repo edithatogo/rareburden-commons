@@ -130,3 +130,12 @@ is inferred.
 The 2026-08-01 discovery observations are also preserved in
 `docs/track-007-search-log-2026-08-01.yml`; each row is explicitly marked
 discovery-only/unscreened (or exact-title-only for OSF).
+
+### Synthetic screening exercise — 2026-08-02
+
+The deterministic fixture `docs/track-007-panel-screening-exercise-2026-08-02.yml`
+and its regression test exercise the count reconciliation rule and preserve an
+uncertain record without treating it as included. This is repository-owned
+panel preparation evidence only. External protocol registration, independent
+methods challenge and patient/community challenge remain open; no novelty,
+completeness, partnership or endorsement claim is upgraded by this exercise.
