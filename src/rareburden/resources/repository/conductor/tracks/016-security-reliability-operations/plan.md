@@ -37,7 +37,10 @@
 
 - [ ] Implement privacy-safe logging and metrics.
 - [ ] Implement backup, restore, rollback and correction runbooks.
-- [ ] Add benchmark and resource-regression tests.
+- [x] Add deterministic benchmark tests. Evidence: `tests/test_burden_benchmark.py`
+  covers reproducibility and fail-closed budget violations.
+- [ ] Add package-size and representative large-workload resource-regression
+  tests; the bounded runtime benchmark below does not close those budgets.
 - [x] Add a bounded runtime regression gate for the synthetic reference burden
   workload. Evidence: `scripts/check_burden_benchmark.py` runs in `make check`;
   memory, package-size and representative large-workload budgets remain open.
