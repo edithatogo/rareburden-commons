@@ -76,6 +76,9 @@ usability or reproduction gates.
 - [x] Define the independent usability, reproduction and clean-build receipt
   contract in `docs/track-017-independent-receipt-template.md`; no receipt is
   claimed until an independent operator or user completes it.
+- [x] Add a strict release-candidate receipt schema and synthetic non-authorizing
+  fixture in `schemas/release-candidate-receipt.schema.json` and
+  `tests/test_release_candidate_receipt.py`.
 - [ ] Freeze and reproduce two clean release candidates from locked
   environments.
 - [ ] Obtain two independent usability receipts and one independent
