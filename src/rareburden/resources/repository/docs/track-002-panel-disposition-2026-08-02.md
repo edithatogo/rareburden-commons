@@ -1,7 +1,8 @@
 # Track 002 panel disposition — bounded source posture
 
-**Decision state:** recommended preparation posture; not scientific approval,
-custodian approval, licence authorization, or production activation.
+**Decision state:** repository-owner approved bounded preparation posture
+(2026-08-02); not scientific approval, custodian approval, licence
+authorization, or production activation.
 
 ## Recommended posture (Option A)
 
@@ -18,6 +19,10 @@ custodian approval, licence authorization, or production activation.
 - **World Bank:** retain the bounded `SP.POP.TOTL` response as a probe and
   denominator cross-check. Do not silently mix it with WPP or activate it as a
   substitute without a precedence decision.
+
+The repository owner approved this bounded posture. That approval narrows
+implementation scope only; it does not satisfy the scientific, governance,
+operator or Track 007 release gates.
 
 ## Conditions before any activation
 

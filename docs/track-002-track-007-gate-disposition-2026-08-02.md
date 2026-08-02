@@ -1,7 +1,8 @@
 # Track 002 / Track 007 dependency disposition
 
-**Status:** panel recommendation; the Track 007 external challenge gate remains
-open and Track 002 remains `in_review`.
+**Status:** repository-owner approved bounded dependency posture (2026-08-02);
+the Track 007 external challenge gate remains open and Track 002 remains
+`in_review`.
 
 ## Recommended handling
 
@@ -20,6 +21,10 @@ to close Track 002 or release v0.3.0.
   remove novelty, completeness, partnership, endorsement and coverage claims.
 - **C (scope reduction):** drop landscape-derived claims entirely and retain a
   named-source inventory. Record this as a formal downstream scope decision.
+
+The repository owner approved Option A’s bounded handling. This authorizes
+scope and wording constraints only; it does not create protocol registration,
+independent challenge, patient/community authority, or release approval.
 
 ## Hard stops
 

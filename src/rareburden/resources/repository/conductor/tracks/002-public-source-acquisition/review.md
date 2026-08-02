@@ -213,3 +213,10 @@ Machine-readable candidate records are preserved in
 `docs/track-002-un-wpp-2024-candidate.yml` and
 `docs/track-002-who-ghe-2021-candidate.yml`. Their `candidate_only` decisions,
 conditional licence states and pending reviewer fields are intentional.
+
+### Repository-owner scope decision — 2026-08-02
+
+The repository owner approved the bounded Orphadata + UN WPP preparation
+posture, with WHO and World Bank candidate-only, no v0.3.0 activation, and the
+Track 007 challenge retained as a release dependency. This is a scope decision,
+not scientific, custodian, independent-operator or release-authority approval.
