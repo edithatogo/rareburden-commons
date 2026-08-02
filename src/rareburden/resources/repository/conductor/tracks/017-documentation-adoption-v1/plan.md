@@ -5,9 +5,17 @@
 ## Phase 1 — Documentation system
 
 - [x] Complete quickstart, user, developer, methods, operator, steward and release guides. `[V1-DOC-01]` Evidence: `docs/guides/README.md` and role-based guides; methods and quickstart links point to the existing protocol and analyst workflow. This is documentation preparation, not usability evidence.
-- [ ] Add tested tutorials and reference workflows.
+- [x] Add tested tutorials and reference workflows. Evidence: synthetic
+  reference workflow coverage in `tests/test_reference.py` and
+  `tests/test_cli_integration.py`; independent usability and reproduction
+  remain separate gates.
 - [x] Add accessibility, citation, licence and correction guidance. Evidence: `docs/documentation-guidance-017.md`; external accessibility review remains open.
 - [x] Verify all public examples and links automatically. Evidence: `uv run python scripts/check_markdown_links.py` passed on 2026-08-01; command execution remains subject to full validation.
+
+The synthetic reference workflow is exercised by `tests/test_reference.py`,
+`tests/test_cli_integration.py` and the installed-package check; this is
+repository-owned structural assurance only and does not close independent-user
+usability or reproduction gates.
 
 ## Phase 2 — External use and reproduction
 
