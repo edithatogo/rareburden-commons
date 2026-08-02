@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/qualifying-receipts-register.schema.json",
+  "title": "Qualifying accountable receipts register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "candidate", "gates"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit_or_tag", "manifest_id", "input_manifest_sha256"],
+      "properties": {
+        "repository": {"type": "string", "minLength": 1},
+        "commit_or_tag": {"type": "string", "minLength": 1},
+        "manifest_id": {"type": "string", "minLength": 1},
+        "input_manifest_sha256": {"type": "string", "minLength": 1}
+      }
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gate", "status", "receipt_id", "locator", "verified_at_utc"],
+        "properties": {
+          "gate": {
+            "type": "string",
+            "enum": [
+              "scientific",
+              "patient_community",
+              "custodian_data_governance",
+              "independent_operator",
+              "operational_owners",
+              "release"
+            ]
+          },
+          "status": {"type": "string", "enum": ["pending", "verified", "rejected", "superseded"]},
+          "receipt_id": {"type": "string"},
+          "locator": {"type": "string"},
+          "verified_at_utc": {"type": "string"},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}

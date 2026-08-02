@@ -73,5 +73,7 @@ in `docs/qualifying-accountable-receipts-plan-2026-08-03.md`.
 - [x] Add the non-registering receipt intake validator in
   `scripts/check_external_receipt.py` and
   `tests/test_external_receipt_validator.py`.
+- [x] Add the machine-readable pending receipt register and fail-closed
+  `qualifying-receipts-check` intake guard.
 - [ ] Validate and attach qualifying receipts; schema validity alone never
   constitutes an accountable decision.
