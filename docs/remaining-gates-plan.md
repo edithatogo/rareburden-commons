@@ -67,5 +67,8 @@ conflicting or digest-mismatched receipts remain pending.
 - [x] Add a machine-readable schema guard for the blank external receipt
   template in `schemas/external-gate-receipt.schema.json` and
   `tests/test_external_gate_receipt_schema.py`.
+- [x] Add the non-registering receipt intake validator in
+  `scripts/check_external_receipt.py` and
+  `tests/test_external_receipt_validator.py`.
 - [ ] Validate and attach qualifying receipts; schema validity alone never
   constitutes an accountable decision.
