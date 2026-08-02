@@ -89,7 +89,8 @@ automatic contingency when a receipt cannot be obtained.
 
 ## Closeout checklist
 
-- [ ] Candidate identity and input manifest frozen.
+- [x] Candidate identity and input manifest frozen as tag
+  `candidate-2026-08-03`, manifest `rel-b213c531a6b754940f80ab70`.
 - [ ] Scientific and custodian/source receipts received and verified.
 - [ ] Patient/community receipt received and verified where applicable.
 - [ ] Independent operator receipt received and verified.
@@ -98,4 +99,3 @@ automatic contingency when a receipt cannot be obtained.
 - [ ] Gate register updated with receipt IDs, locators and verification status.
 - [ ] Re-run full local validation and preserve the transcript.
 - [ ] Tag or publish only within the recorded release decision and scope.
-

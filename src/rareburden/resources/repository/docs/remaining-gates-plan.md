@@ -77,5 +77,7 @@ The candidate-freeze options and decision sequence are in
   `tests/test_external_receipt_validator.py`.
 - [x] Add the machine-readable pending receipt register and fail-closed
   `qualifying-receipts-check` intake guard.
+- [x] Freeze the bounded synthetic-assurance candidate as
+  `candidate-2026-08-03` with manifest `rel-b213c531a6b754940f80ab70`.
 - [ ] Validate and attach qualifying receipts; schema validity alone never
   constitutes an accountable decision.
