@@ -58,5 +58,9 @@
   is enabled.
 - [ ] Project the same release into a versioned aggregate package and read-only
   API with parity checks.
+- [x] Implement the versioned aggregate gap-package projection. Evidence:
+  `rareburden.atlas.build_gap_package` and `tests/test_atlas_package.py` bind
+  package identity to a source manifest, preserve missingness and enforce
+  aggregate-only output; API projection and publication remain open.
 - [ ] Complete accessibility, independent-operator and release-authority gates
   before beta publication.
