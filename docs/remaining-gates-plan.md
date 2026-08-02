@@ -26,7 +26,7 @@ Cancel or narrow a release and archive blocked tracks. This changes the
 programme roadmap and stable-v1 contract; it requires an explicit programme
 decision and is not recommended without new evidence.
 
-**Recommendation:** Option A, with Option B limited to non-binding synthetic
+**Recommendation (approved by repository owner 2026-08-03):** Option A, with Option B limited to non-binding synthetic
 fixtures and review packets. Do not choose Option C implicitly.
 
 ## Dependency sequence and contingencies

@@ -4,6 +4,21 @@
 **Decision owner:** repository owner  
 **Status:** approved repository scope; external/accountable receipts remain pending
 
+## Candidate and receipt workflow decision
+
+The repository owner approves **Option A — narrow, digest-bound release
+candidate** from
+`docs/frozen-candidate-and-receipts-decision-plan-2026-08-03.md`. The project
+will freeze a bounded synthetic/public-data candidate before requesting the
+six qualifying receipts, and will use the pending-register and fail-closed
+validators for intake. Option B is permitted only if the candidate is already
+frozen and every gate packet is independently scoped; Option C is the default
+fallback when an accountable authority or lawful evidence is unavailable.
+
+This is approval of the workflow and bounded preparation only. It does not
+freeze a commit, create a release manifest, or convert any pending receipt into
+an approved gate.
+
 The repository owner approves the recommended bounded defaults for the
 scientific, custodian/data-governance, Track 007 registration/challenge,
 independent-operator, operational-ownership and release lanes:
