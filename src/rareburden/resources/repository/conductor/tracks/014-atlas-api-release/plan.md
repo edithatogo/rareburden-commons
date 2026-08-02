@@ -65,5 +65,7 @@
 - [x] Implement a read-only API-shaped gap projection with package-fingerprint
   parity checks in `rareburden.atlas.build_gap_api_response` and
   `tests/test_atlas_package.py`; no network server or publication is enabled.
+- [x] Add a schema and synthetic parity test for the read-only response in
+  `schemas/atlas-api-response.schema.json` and `tests/test_atlas_api_schema.py`.
 - [ ] Complete accessibility, independent-operator and release-authority gates
   before beta publication.
