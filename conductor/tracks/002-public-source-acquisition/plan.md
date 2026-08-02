@@ -95,3 +95,5 @@ scientific and data-governance gates remain separate and pending.
   `tests/test_track_002_evidence_request.py`.
 - [x] Add a regression guard for the approved Option A scope and deferred-source
   activation boundary in `tests/test_track_002_option_a_scope.py`.
+- [x] Add a fail-closed regression guard for the source-packet checklist and
+  pending accountable dispositions in `tests/test_track_002_evidence_request.py`.
