@@ -63,3 +63,6 @@
   `docs/subagent-review-panel-policy.md`.
 - [ ] Keep scientific and data-governance dispositions as accountable external
   gates; panel findings prepare the packets but do not satisfy those gates.
+- [x] Record the panel’s bounded Option A source posture and contingencies in
+  `docs/track-002-panel-disposition-2026-08-02.md`; all candidates remain
+  inactive pending accountable receipts.

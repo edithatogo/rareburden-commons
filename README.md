@@ -49,6 +49,7 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [Subagent review-panel policy](docs/subagent-review-panel-policy.md)
 - [Track 002 external-evidence plan](docs/track-002-external-evidence-plan-2026-08-02.md)
 - [Track 002 source-packet checklist](docs/track-002-source-packet-checklist.yml)
+- [Track 002 panel disposition](docs/track-002-panel-disposition-2026-08-02.md)
 - [Track review and closeout packets](docs/track-014-atlas-api-review-packet.md),
   [015 governance](docs/track-015-governance-review-packet.md),
   [016 operations](docs/track-016-operations-review-packet.md),
