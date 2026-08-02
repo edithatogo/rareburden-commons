@@ -41,7 +41,12 @@
   retained.
 - [ ] Define and exercise privacy-safe operational metrics, retention and
   access controls.
-- [ ] Implement backup, restore, rollback and correction runbooks.
+- [ ] Execute backup, restore and rollback runbooks against a clean locked
+  environment.
+- [x] Prepare repository-owned correction, withdrawal, backup and rollback
+  runbook procedures. Evidence: `docs/synthetic-operations-016-exercise-protocol.md`,
+  `docs/release-policy.md` and `docs/security-operations-016-reference.md`;
+  production exercise and named-owner acceptance remain open.
 - [x] Add deterministic benchmark tests. Evidence: `tests/test_burden_benchmark.py`
   covers reproducibility and fail-closed budget violations.
 - [ ] Add package-size and representative large-workload resource-regression
