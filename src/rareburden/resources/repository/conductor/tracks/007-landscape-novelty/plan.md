@@ -56,3 +56,11 @@
   `docs/track-007-panel-screening-exercise-2026-08-02.yml` and
   `tests/test_landscape.py`; this is panel preparation only and does not close
   registration or independent challenge gates.
+
+## Closure plan — 2026-08-02
+
+- [x] Add the dependency-ordered closure plan shared with Track 002 in
+  `docs/track-002-007-closure-plan-2026-08-02.md`.
+- [ ] Obtain protocol registration, independent methods challenge and
+  patient/community interpretation; until then retain provisional landscape
+  claims and `in_review` status.
