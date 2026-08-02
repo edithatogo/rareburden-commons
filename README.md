@@ -46,6 +46,7 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [Track 017 external gate register](docs/external-gate-register-017.md)
 - [Track 017 external review request](docs/external-review-request-017.md)
 - [Conductor track review packets](docs/track-review-packets.md)
+- [Subagent review-panel policy](docs/subagent-review-panel-policy.md)
 - [Track 002 external-evidence plan](docs/track-002-external-evidence-plan-2026-08-02.md)
 - [Track 002 source-packet checklist](docs/track-002-source-packet-checklist.yml)
 - [Track review and closeout packets](docs/track-014-atlas-api-review-packet.md),

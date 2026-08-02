@@ -81,6 +81,8 @@ Documentation describing a future capability is not implementation evidence for 
 
 ## 7. Review gates
 
+Repository-owned review preparation uses the [subagent review-panel policy](../docs/subagent-review-panel-policy.md): panels draft findings and test evidence completeness. They do not replace accountable external authorities.
+
 - **Scientific:** estimand, definition, mapping, bias, uncertainty, validation and double counting.
 - **Data governance:** terms, authority, custodian conditions, disclosure and withdrawal.
 - **Patient/community:** relevance, acceptable use, equity, harms, interpretation and framing.

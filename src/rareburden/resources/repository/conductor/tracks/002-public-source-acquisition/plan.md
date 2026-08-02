@@ -55,3 +55,11 @@
 - [x] Remove duplicate exact-pin task and reconcile stale unresolved-route
   wording after the UN/WHO candidate hashes were recorded. Evidence: this
   plan and the corrected review section; full `uv run make check` passed.
+
+## Subagent panel preparation — 2026-08-02
+
+- [x] Route repository-owned source, terms and incident review preparation
+  through the subagent review-panel policy in
+  `docs/subagent-review-panel-policy.md`.
+- [ ] Keep scientific and data-governance dispositions as accountable external
+  gates; panel findings prepare the packets but do not satisfy those gates.
