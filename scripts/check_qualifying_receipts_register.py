@@ -32,6 +32,7 @@ def validate_register(path: Path) -> None:
         raise SchemaValidationError("register must contain each required gate exactly once")
     if len(gates) != len(names):
         raise SchemaValidationError("register contains duplicate gate entries")
+    candidate = document["candidate"]
     for entry in gates:
         if entry["status"] == "verified":
             required = (entry["receipt_id"], entry["locator"], entry["verified_at_utc"])
@@ -39,6 +40,15 @@ def validate_register(path: Path) -> None:
                 raise SchemaValidationError(
                     f"verified gate {entry['gate']} lacks receipt identity, "
                     "locator or verification time"
+                )
+            if any(
+                not isinstance(value, str)
+                or not value.strip()
+                or value.strip().lower() in {"pending", "pending-candidate-manifest"}
+                for value in candidate.values()
+            ):
+                raise SchemaValidationError(
+                    f"verified gate {entry['gate']} is bound to a placeholder candidate"
                 )
 
 

@@ -27,3 +27,19 @@ def test_verified_gate_requires_receipt_metadata(tmp_path: Path) -> None:
     path.write_text(yaml.safe_dump(document, sort_keys=False), encoding="utf-8")
     with pytest.raises(SchemaValidationError, match="lacks receipt identity"):
         validate_register(path)
+
+
+def test_verified_gate_rejects_placeholder_candidate(tmp_path: Path) -> None:
+    document = load_document(REGISTER)
+    document["gates"][0].update(
+        {
+            "status": "verified",
+            "receipt_id": "receipt-1",
+            "locator": "secure://receipt-1",
+            "verified_at_utc": "2026-08-03T00:00:00Z",
+        }
+    )
+    path = tmp_path / "register.yml"
+    path.write_text(yaml.safe_dump(document, sort_keys=False), encoding="utf-8")
+    with pytest.raises(SchemaValidationError, match="placeholder candidate"):
+        validate_register(path)
