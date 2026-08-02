@@ -56,3 +56,14 @@ def test_receipt_validator_rejects_unknown_gate_after_attribution(tmp_path: Path
     path.write_text(json.dumps(receipt), encoding="utf-8")
     with pytest.raises(SchemaValidationError, match="unsupported gate"):
         validate_receipt(path, require_attributable=True)
+
+    receipt["gate"] = "scientific"
+    valid_path = tmp_path / "valid-receipt.json"
+    valid_path.write_text(json.dumps(receipt), encoding="utf-8")
+    validate_receipt(valid_path, require_attributable=True)
+
+    receipt["decision"] = "unknown"
+    invalid_decision_path = tmp_path / "invalid-decision-receipt.json"
+    invalid_decision_path.write_text(json.dumps(receipt), encoding="utf-8")
+    with pytest.raises(SchemaValidationError, match="unsupported decision"):
+        validate_receipt(invalid_decision_path, require_attributable=True)
