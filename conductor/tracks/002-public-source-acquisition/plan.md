@@ -66,3 +66,6 @@
 - [x] Record the panel’s bounded Option A source posture and contingencies in
   `docs/track-002-panel-disposition-2026-08-02.md`; all candidates remain
   inactive pending accountable receipts.
+- [x] Record the panel’s bounded governance posture: ephemeral retrieval,
+  metadata/hash retention, no raw redistribution, and fail-closed terms or
+  checksum drift handling.

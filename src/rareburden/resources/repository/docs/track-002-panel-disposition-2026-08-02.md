@@ -31,6 +31,20 @@ custodian approval, licence authorization, or production activation.
 4. Receipts are bound to the exact source packet and manifest digest using the
    external gate receipt template.
 
+## Governance posture (panel recommendation)
+
+- Use ephemeral operator-side retrieval only while terms remain conditional;
+  retain hashes, metadata and redacted manifests, not raw source bytes.
+- Keep UN WPP and WHO GHE candidate-only until file/field-level terms permit
+  the intended cache and derived-output use.
+- Keep World Bank as a bounded probe; do not mirror or silently substitute it
+  for WPP.
+- Permit Orphadata-derived outputs only after confirming attribution,
+  change-notice, third-party exclusions, retention and withdrawal handling.
+- On terms or checksum drift, stop acquisition, emit a redacted
+  `review_required` incident, quarantine newly fetched bytes under the local
+  retention policy, and supersede the manifest rather than overwriting it.
+
 ## Contingencies
 
 - If UN WPP terms or scope remain unclear, keep it candidate-only and use

@@ -76,6 +76,10 @@ The prefilled routing checklist is `docs/track-002-source-packet-checklist.yml`.
 Its pending dispositions are intentional and must remain pending until the
 accountable receipts are returned.
 
+The governance panel recommends Option A: ephemeral retrieval with retained
+hashes/metadata only, no raw redistribution, WHO/UN deferred, World Bank
+probe-only, and Orphadata conditional on exact terms confirmation.
+
 ## Current external boundary
 
 The official WHO page describes GHE as downloadable country/region estimates
