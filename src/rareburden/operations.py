@@ -13,6 +13,10 @@ class OperationalMetricError(ValueError):
     """Raised when a metric would contain unsafe or invalid metadata."""
 
 
+class ResourceBudgetError(ValueError):
+    """Raised when an operational measurement violates the declared budget."""
+
+
 _NAME = re.compile(r"^[a-z][a-z0-9_.-]{1,63}$")
 _SENSITIVE = re.compile(
     r"(?:token|secret|password|credential|api[_-]?key|authorization|person|participant|subject|email|phone|address|name|identifier)",
@@ -50,4 +54,68 @@ def build_metric(
     }
 
 
-__all__ = ["OperationalMetricError", "build_metric"]
+def build_resource_budget(
+    *,
+    package_size_bytes: int,
+    install_disk_bytes: int,
+    peak_rss_bytes: int,
+    cpu_seconds: float,
+    workload_seconds: float,
+) -> dict[str, Any]:
+    """Return a versioned, explicit resource budget for synthetic exercises."""
+    values = {
+        "package_size_bytes": package_size_bytes,
+        "install_disk_bytes": install_disk_bytes,
+        "peak_rss_bytes": peak_rss_bytes,
+        "cpu_seconds": cpu_seconds,
+        "workload_seconds": workload_seconds,
+    }
+    if any(
+        isinstance(value, bool) or not isinstance(value, (int, float)) for value in values.values()
+    ):
+        raise ResourceBudgetError("resource budgets must be numeric")
+    if any(value <= 0 or not math.isfinite(float(value)) for value in values.values()):
+        raise ResourceBudgetError("resource budgets must be finite and positive")
+    return {"schema_version": "0.1.0", "budget_type": "synthetic_operations", **values}
+
+
+def check_resource_budget(budget: Mapping[str, Any], measurement: Mapping[str, Any]) -> None:
+    """Fail closed when a measured value exceeds its corresponding budget."""
+    required = (
+        "package_size_bytes",
+        "install_disk_bytes",
+        "peak_rss_bytes",
+        "cpu_seconds",
+        "workload_seconds",
+    )
+    if (
+        budget.get("schema_version") != "0.1.0"
+        or budget.get("budget_type") != "synthetic_operations"
+    ):
+        raise ResourceBudgetError("unsupported resource budget schema")
+    for key in required:
+        limit = budget.get(key)
+        observed = measurement.get(key)
+        if (
+            isinstance(limit, bool)
+            or not isinstance(limit, (int, float))
+            or not math.isfinite(float(limit))
+        ):
+            raise ResourceBudgetError(f"invalid budget for {key}")
+        if (
+            isinstance(observed, bool)
+            or not isinstance(observed, (int, float))
+            or not math.isfinite(float(observed))
+        ):
+            raise ResourceBudgetError(f"missing or invalid measurement for {key}")
+        if observed > limit:
+            raise ResourceBudgetError(f"resource budget exceeded for {key}")
+
+
+__all__ = [
+    "OperationalMetricError",
+    "ResourceBudgetError",
+    "build_metric",
+    "build_resource_budget",
+    "check_resource_budget",
+]

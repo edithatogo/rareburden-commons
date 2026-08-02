@@ -90,8 +90,13 @@
 - [x] Add the dependency-ordered recovery, rollback, budget, retention/access
   and ownership plan with options, contingencies and recommendation in
   `docs/track-016-operations-implementation-plan-2026-08-02.md`.
-- [ ] Define and test the versioned resource-budget contract.
-- [ ] Define and validate the retention/access policy for operational records.
+- [x] Define and test the versioned resource-budget contract. Evidence:
+  `rareburden.operations.build_resource_budget` and
+  `tests/test_operations_budget.py` fail closed on invalid or over-budget
+  measurements; production capacity claims remain disabled.
+- [x] Draft the retention/access policy for operational records. Evidence:
+  `docs/track-016-retention-access-policy.md`; it remains non-operative until
+  security, data-governance and named-owner acceptance.
 - [ ] Implement and execute clean-environment backup, restore and rollback
   exercises with redacted, hash-bound receipts.
 - [ ] Record named primary/backup operational owners and escalation acceptance.
