@@ -41,3 +41,10 @@
   transportability, outcome and framing decisions. Evidence:
   `docs/track-011-rbc-p003-review-packet.md`; dependencies and respiratory,
   methods, engineering and patient/community review remain open.
+
+## Preparation refresh — 2026-08-02
+
+- [x] Add a fixture contract check for synthetic-only intent, independent
+  dependence labelling and the no-extrapolation boundary. Evidence:
+  `tests/test_downstream_track_contracts.py`; respiratory, scientific and
+  patient/community gates remain open.

@@ -42,3 +42,10 @@
   replication decisions. Evidence:
   `docs/track-012-rbc-p004-review-packet.md`; dependencies and external gates
   remain open.
+
+## Preparation refresh — 2026-08-02
+
+- [x] Add a fixture contract check preserving multimorbidity rows and the
+  custodian small-cell disclosure boundary. Evidence:
+  `tests/test_downstream_track_contracts.py`; paediatric, privacy, custodian,
+  economic and patient/community gates remain open.

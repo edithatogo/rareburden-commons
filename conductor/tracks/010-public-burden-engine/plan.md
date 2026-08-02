@@ -52,3 +52,10 @@
   dependence, structural-scenario, safety-boundary and alpha-freeze decisions.
   Evidence: `docs/track-010-engine-review-packet.md`; Track 009 and external
   scientific/engineering/patient-community review remain open.
+
+## Preparation refresh — 2026-08-02
+
+- [x] Add a focused contract test proving the synthetic reference remains
+  explicitly bounded and non-empirical. Evidence:
+  `tests/test_downstream_track_contracts.py`; scientific and Track 009 gates
+  remain open.
