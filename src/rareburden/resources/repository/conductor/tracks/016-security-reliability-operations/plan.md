@@ -44,7 +44,10 @@
 - [x] Add a bounded runtime regression gate for the synthetic reference burden
   workload. Evidence: `scripts/check_burden_benchmark.py` runs in `make check`;
   memory, package-size and representative large-workload budgets remain open.
-- [ ] Verify source archives and Git clones with the same public command.
+- [x] Verify source archives and Git clones with the same public command.
+  Evidence: clean-clone, wheel and source-archive validation recorded in
+  `conductor/tracks/002-public-source-acquisition/review.md` (evidence `39a4b4d`).
+  Cross-platform hosted reproduction remains open.
 
 ## Phase 4 — Exercises and release candidate
 
