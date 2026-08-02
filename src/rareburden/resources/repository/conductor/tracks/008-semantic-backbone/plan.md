@@ -62,3 +62,9 @@
   release requirements and fail-closed continuation rules. Evidence:
   `docs/track-008-semantic-review-packet.md`; source-pinned release and external
   clinical/patient-community review remain blocked.
+
+## Repository-owned release preparation — 2026-08-03
+
+- [x] Implement deterministic human-readable semantic-release rendering for
+  validated synthetic mappings in `rareburden.semantics` with limitation
+  disclosure; production source-pinned release remains open.

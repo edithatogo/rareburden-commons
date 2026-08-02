@@ -12,6 +12,7 @@ from rareburden.semantics import (
     diff_mapping_sets,
     load_hierarchy,
     load_mapping_set,
+    render_mapping_release_markdown,
     validate_hierarchy,
     validate_mapping_set,
 )
@@ -40,6 +41,15 @@ def test_synthetic_hierarchy_and_mapping_are_valid_and_stable() -> None:
     assert mapping.fingerprint.startswith("map-")
     assert hierarchy.entity("mody")["preferred_label"].startswith("Maturity-onset")
     assert hierarchy.fingerprint == load_hierarchy(HIERARCHY_PATH, HIERARCHY_SCHEMA).fingerprint
+
+
+def test_mapping_release_markdown_is_deterministic_and_preserves_limitations() -> None:
+    mapping = load_mapping_set(MAPPING_PATH, MAPPING_SCHEMA)
+    rendered = render_mapping_release_markdown(mapping)
+    assert rendered == render_mapping_release_markdown(mapping)
+    assert mapping.fingerprint in rendered
+    assert "not a clinical terminology product" in rendered
+    assert "clinical semantic authority remain required" in rendered
 
 
 @pytest.mark.parametrize("hierarchy_path", GOLDEN_HIERARCHIES)
