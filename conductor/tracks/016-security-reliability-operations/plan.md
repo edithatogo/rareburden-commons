@@ -35,7 +35,12 @@
 
 ## Phase 3 — Operational controls
 
-- [ ] Implement privacy-safe logging and metrics.
+- [x] Implement privacy-safe log redaction. Evidence: recursive node-log and
+  acquisition URL redaction with negative tests in `tests/test_node.py` and
+  `tests/test_acquisition_security.py`; no participant or credential values are
+  retained.
+- [ ] Define and exercise privacy-safe operational metrics, retention and
+  access controls.
 - [ ] Implement backup, restore, rollback and correction runbooks.
 - [x] Add deterministic benchmark tests. Evidence: `tests/test_burden_benchmark.py`
   covers reproducibility and fail-closed budget violations.
