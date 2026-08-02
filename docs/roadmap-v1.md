@@ -96,10 +96,10 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 
 ### Programme control and discovery
 
-- **[001-foundation — Foundation and public-data protocol](../conductor/tracks/001-foundation/spec.md)** — complete founding scaffold.
+- **[001-foundation — Foundation and public-data protocol](../conductor/archive/001-foundation/spec.md)** — archived founding scaffold.
 - **[006-v1-delivery-system — v1 delivery system and foundation hardening](../conductor/archive/006-v1-delivery-system/spec.md)** — establishes this release system and automated validation.
 - **[007-landscape-novelty — Landscape, adjacency, novelty and partnership map](../conductor/tracks/007-landscape-novelty/spec.md)** — tests the white-space hypothesis and defines where to build, partner, narrow or stop.
-- **[018-scholarly-provenance-reproducibility — Scholarly provenance, protocol transparency and reproducibility](../conductor/tracks/018-scholarly-provenance-reproducibility/spec.md)** — distinguishes planned from executed work and packages exact source-to-result evidence without overstating external validation.
+- **[018-scholarly-provenance-reproducibility — Scholarly provenance, protocol transparency and reproducibility](../conductor/archive/018-scholarly-provenance-reproducibility/spec.md)** — archived scholarly assurance substrate distinguishing planned from executed work and packaging exact source-to-result evidence without overstating external validation.
 
 ### Data and semantics
 

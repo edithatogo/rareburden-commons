@@ -1,0 +1,19 @@
+{
+  "id": "001-foundation",
+  "title": "Foundation and public-data protocol",
+  "status": "archived",
+  "priority": "must",
+  "created": "2026-07-18",
+  "updated": "2026-08-02",
+  "target_release": "0.1.0",
+  "stage": "foundation",
+  "owner_role": "Founding team",
+  "dependencies": [],
+  "review_gates": [
+    "scientific",
+    "data_governance",
+    "patient_community",
+    "engineering"
+  ],
+  "v1_critical": true
+}
