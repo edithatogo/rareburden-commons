@@ -6,6 +6,10 @@ This packet turns the Track 014 contract into a bounded evidence request. It
 does not activate an atlas, API, beta release, archive, DOI, or redistribution
 of third-party data.
 
+The recommended implementation sequence is documented in
+`docs/track-014-implementation-plan-2026-08-02.md`: static-first, then a
+package and read-only API projection from one immutable release manifest.
+
 ## Decisions and accountable evidence
 
 | Decision | Required evidence | Accountable disposition |

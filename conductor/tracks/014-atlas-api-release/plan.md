@@ -44,3 +44,14 @@
   evidence requests.
 - [ ] Keep atlas/API publication disabled until upstream review and accountable
   dispositions are complete.
+
+## Implementation planning — 2026-08-02
+
+- [x] Add the dependency-ordered atlas/API implementation plan with options,
+  contingencies and recommendation in
+  `docs/track-014-implementation-plan-2026-08-02.md`.
+- [ ] Implement the recommended static-first reviewed-release slice.
+- [ ] Project the same release into a versioned aggregate package and read-only
+  API with parity checks.
+- [ ] Complete accessibility, independent-operator and release-authority gates
+  before beta publication.
