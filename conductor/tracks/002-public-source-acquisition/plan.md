@@ -97,6 +97,14 @@ scientific and data-governance gates remain separate and pending.
   activation boundary in `tests/test_track_002_option_a_scope.py`.
 - [x] Add a fail-closed regression guard for the source-packet checklist and
   pending accountable dispositions in `tests/test_track_002_evidence_request.py`.
+
+## Panel closure planning — 2026-08-02
+
+- [x] Add the joint Track 002/007 panel closure plan with options,
+  contingencies and dependency sequence in
+  `docs/track-002-007-panel-closure-plan-2026-08-02.md`.
+- [ ] Obtain separate accountable scientific and custodian/data-governance
+  receipts after panel preparation; panels cannot close these gates.
 - [x] Add a regression guard proving the external-gate receipt template remains
   blank and non-approving in `tests/test_external_gate_receipt_template.py`.
 - [x] Add a regression guard keeping deferred UN WPP and WHO manifests

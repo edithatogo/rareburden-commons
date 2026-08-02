@@ -66,3 +66,12 @@
 - [ ] Obtain protocol registration, independent methods challenge and
   patient/community interpretation; until then retain provisional landscape
   claims and `in_review` status.
+
+## Panel closure planning — 2026-08-02
+
+- [x] Add the joint Track 002/007 panel closure plan with options,
+  contingencies and dependency sequence in
+  `docs/track-002-007-panel-closure-plan-2026-08-02.md`.
+- [ ] Obtain protocol registration, independent methods challenge and
+  patient/community decision after panel preparation; panels cannot close
+  these gates.
