@@ -40,6 +40,7 @@ This directory is the persistent source of truth for the project's context-drive
 - [Repository-owner approval of bounded gate defaults](../docs/decisions/2026-08-03-owner-approval-external-gate-options.md)
 - [Qualifying accountable receipts plan](../docs/qualifying-accountable-receipts-plan-2026-08-03.md)
 - [Frozen candidate and receipts decision plan](../docs/frozen-candidate-and-receipts-decision-plan-2026-08-03.md)
+- [Receipt routing and response plan](../docs/receipt-routing-and-response-plan-2026-08-03.md)
 - [Remaining gates plan](../docs/remaining-gates-plan.md)
 - [Requirements traceability](../docs/requirements-traceability.md)
 - [Testing and assurance strategy](../docs/testing-strategy.md)
