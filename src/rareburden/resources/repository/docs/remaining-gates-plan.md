@@ -70,6 +70,9 @@ The candidate-freeze options and decision sequence are in
 `docs/frozen-candidate-and-receipts-decision-plan-2026-08-03.md`.
 The secure routing and response workflow is in
 `docs/receipt-routing-and-response-plan-2026-08-03.md`.
+Panel-only operation and agent input/output requirements are defined in
+`docs/subagent-review-panel-policy.md` and
+`docs/panel-agent-task-contract-2026-08-03.md`.
 
 - [x] Add a machine-readable schema guard for the blank external receipt
   template in `schemas/external-gate-receipt.schema.json` and

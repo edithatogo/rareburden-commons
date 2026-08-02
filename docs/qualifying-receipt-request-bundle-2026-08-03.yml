@@ -1,5 +1,7 @@
 schema_version: "0.1.0"
 status: "prepared_not_sent"
+operating_mode: "panel_only_assurance_when_external_participants_unavailable"
+panel_output_status: "panel_assurance_recommendation_only"
 candidate:
   repository: "edithatogo/rareburden-commons"
   tag: "candidate-2026-08-03"
@@ -13,7 +15,7 @@ requests:
   - gate: "scientific"
     packet_route: "tracks/002,003,005,007,008,009,010,011,012,013 review packets"
     decision_options: ["approve", "bounded", "revise", "stop"]
-    minimum_evidence: "sources, estimands, denominators, uncertainty, limitations, residual-risk owner"
+    minimum_evidence: "exact sources mapped to metrics/denominators, uncertainty, limitations, residual-risk owner"
   - gate: "patient_community"
     packet_route: "tracks/003,005,010,011,012,013,015,017 review packets"
     decision_options: ["approve", "bounded", "revise", "stop"]
@@ -21,7 +23,7 @@ requests:
   - gate: "custodian_data_governance"
     packet_route: "tracks/002,004,008,009,012,014,015 review packets"
     decision_options: ["approve", "bounded", "revise", "stop"]
-    minimum_evidence: "terms, retention, redistribution, withdrawal, disclosure thresholds and pilot boundaries"
+    minimum_evidence: "third-party licence/redistribution terms, retention, withdrawal, disclosure thresholds and pilot boundaries"
   - gate: "independent_operator"
     packet_route: "tracks/004,014,016,017 operator packets"
     decision_options: ["pass", "bounded", "revise", "fail"]
