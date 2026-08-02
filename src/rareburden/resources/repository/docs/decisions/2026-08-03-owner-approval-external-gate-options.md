@@ -47,3 +47,13 @@ does not itself constitute:
 Those receipts must still identify the applicable role/authority, conflicts or
 independence basis, exact commit or manifest digest, conditions, dissent and
 expiry. Until then, the affected tracks remain fail-closed and unreleased.
+
+## Routing decision
+
+The repository owner approves **Option A — secure role-separated routing** from
+`docs/receipt-routing-and-response-plan-2026-08-03.md`. Each gate request should
+be sent separately to its accountable authority/body, with raw or restricted
+responses returned through an agreed secure channel and only redacted locator
+metadata retained in Git. This approval does not identify recipients, create a
+secure channel, send a request, or convert silence, panel preparation or owner
+approval into a qualifying receipt.
