@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from rareburden.schema import load_mapping, validate_document_files
+from rareburden.schema import validate_document_files
 
 ROOT = Path(__file__).parents[1]
 SCHEMA = ROOT / "schemas/panel-review-packet.schema.json"
