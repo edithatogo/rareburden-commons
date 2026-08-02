@@ -39,7 +39,10 @@
   machine-readable mapping, human-readable report, source IDs/hashes, licence,
   migration and residual-risk fields; generation remains blocked until source
   releases are approved.
-- [ ] Document unsupported mappings and residual overlap risk.
+- [x] Document unsupported mappings and residual overlap risk. Evidence:
+  `docs/track-008-semantic-review-packet.md` records fail-closed handling for
+  unmapped, ambiguous and deprecated relations plus explicit residual overlap;
+  source-pinned semantic authority remains open.
 - [ ] Freeze v0.4 semantic contracts for dependent tracks.
 
 ## Review fixes — 2026-07-27

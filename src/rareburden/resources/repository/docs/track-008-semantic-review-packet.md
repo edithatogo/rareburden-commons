@@ -35,6 +35,14 @@ software/environment identity and the semantic/clinical, patient/community and
 engineering dispositions. Unknown or ambiguous mappings remain visible and fail
 closed where aggregation would double count.
 
+## Unsupported mappings and residual overlap boundary
+
+Mappings with `unmapped`, `ambiguous`, `deprecated`, or unsupported relation
+states remain visible in the source mapping set and are never silently promoted
+to an aggregate. Multi-aetiology and multi-diagnosis relationships are
+explicitly non-exclusive unless a conservation contract proves otherwise;
+residual overlap is reported as unresolved rather than removed by selection.
+
 ## Safe continuation
 
 Continue synthetic schema, migration and impact tests. Do not pin a production
