@@ -67,5 +67,8 @@
   `tests/test_atlas_package.py`; no network server or publication is enabled.
 - [x] Add a schema and synthetic parity test for the read-only response in
   `schemas/atlas-api-response.schema.json` and `tests/test_atlas_api_schema.py`.
+- [x] Add the bounded accessibility and disclosure checklist in
+  `docs/track-014-accessibility-checklist.md` with a regression guard; independent
+  accessibility/community review remains pending.
 - [ ] Complete accessibility, independent-operator and release-authority gates
   before beta publication.
