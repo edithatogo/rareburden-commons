@@ -35,3 +35,8 @@ def test_deferred_candidate_manifests_remain_conditional_and_unapproved() -> Non
         assert candidate["third_party_material"] == "pending_review"
         assert candidate["scientific_reviewer"] == "pending"
         assert candidate["data_governance_reviewer"] == "pending"
+        assert candidate["exact_url"].startswith("https://")
+        assert candidate["landing_page_url"].startswith("https://")
+        assert candidate["licence_or_terms_url"].startswith("https://")
+        assert len(candidate["sha256"]) == 64
+        assert candidate["size_bytes"] > 0
