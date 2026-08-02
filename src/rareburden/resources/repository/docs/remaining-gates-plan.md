@@ -64,6 +64,9 @@ conflicting or digest-mismatched receipts remain pending.
 
 ## Implementation checkpoint — 2026-08-03
 
+The executable receipt-collection workflow, gate matrix and contingencies are
+in `docs/qualifying-accountable-receipts-plan-2026-08-03.md`.
+
 - [x] Add a machine-readable schema guard for the blank external receipt
   template in `schemas/external-gate-receipt.schema.json` and
   `tests/test_external_gate_receipt_schema.py`.
