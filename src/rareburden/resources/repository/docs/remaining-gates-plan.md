@@ -84,5 +84,8 @@ The secure routing and response workflow is in
 - [x] Prepare the six digest-bound receipt requests in
   `docs/qualifying-receipt-request-bundle-2026-08-03.yml`; requests remain
   unsent until routed through the agreed secure channels.
+- [x] Add the unassigned routing template in
+  `docs/receipt-routing-assignment-template-2026-08-03.yml` without inventing
+  recipients or channels.
 - [ ] Validate and attach qualifying receipts; schema validity alone never
   constitutes an accountable decision.
