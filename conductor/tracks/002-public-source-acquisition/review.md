@@ -120,6 +120,14 @@ creates no destination bytes and prevents promotion. This demonstrates local
 control behavior only; it is not a live source-change or licence exercise and
 does not close the external gate.
 
+### Finding disposition panel — 2026-08-02
+
+`docs/track-002-finding-disposition-2026-08-02.md` classifies repository-owned
+findings as closable where evidence exists and assigns scientific, custodian,
+live-operator and Track 007 dependency findings to their accountable gates.
+The recommended bounded source posture does not authorize activation or
+archiving.
+
 ### Decision worksheet — non-binding candidate pins (v0.1.0, 2026-07-29)
 
 These are implementation-ready candidates for reviewer confirmation; they do not activate acquisition or freeze a contract.
