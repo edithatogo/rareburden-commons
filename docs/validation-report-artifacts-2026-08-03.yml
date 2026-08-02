@@ -1,0 +1,19 @@
+schema_version: "0.1.0"
+status: "repository_validation_evidence"
+source_commit: "e1b97c2f618f41772074b8c108503958953217a9"
+artifacts:
+  - path: coverage.json
+    sha256: a828829afe47f92ffcb1ef54ca03e809c08ff945374f1e79d6c4a6951761b157
+    kind: coverage_json
+  - path: coverage.xml
+    sha256: ca17325846ff371c7d13eba2b072b8b342ec7c7c7ac8960f92d3691eda3797d2
+    kind: coverage_xml
+  - path: junit.xml
+    sha256: 37140ecd885987d6476a95744df49258661b5f92eea9ddd15aae55daebc21b5b
+    kind: junit_xml
+  - path: rareburden.cdx.json
+    sha256: 740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3
+    kind: cyclonedx_sbom
+notes:
+  - These are repository validation artefacts, not external approval or release authority.
+  - The SBOM serial number and coverage timestamps are generated values; hashes bind this snapshot.
