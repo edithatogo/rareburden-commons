@@ -8,7 +8,11 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
 	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
-	offline-node-install offline-node-ci build package-check installed-package-check sbom check ci release-check clean
+	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check check ci release-check clean
+
+external-receipt-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_external_receipt.py \
+		docs/external-gate-receipt-template.yml
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -136,7 +140,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check release-identity node-reproducibility burden-benchmark \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility
