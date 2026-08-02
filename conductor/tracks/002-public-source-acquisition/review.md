@@ -128,6 +128,13 @@ live-operator and Track 007 dependency findings to their accountable gates.
 The recommended bounded source posture does not authorize activation or
 archiving.
 
+### Track 007 dependency panel — 2026-08-02
+
+`docs/track-002-track-007-gate-disposition-2026-08-02.md` keeps the Track 007
+challenge as an open release dependency, while allowing bounded repository
+preparation and manifest/synthetic fallbacks. No novelty or completeness claim
+is promoted and no v0.3.0 release decision follows from the panel.
+
 ### Decision worksheet — non-binding candidate pins (v0.1.0, 2026-07-29)
 
 These are implementation-ready candidates for reviewer confirmation; they do not activate acquisition or freeze a contract.
