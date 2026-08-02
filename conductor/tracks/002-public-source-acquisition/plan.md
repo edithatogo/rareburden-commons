@@ -107,6 +107,9 @@ scientific and data-governance gates remain separate and pending.
   scientific and custodian receipts in `examples/fixtures/track-002-panel-packet-synthetic.json`.
 - [x] Add a regression guard for exact candidate registration completeness and
   fail-closed pending terms/dispositions in `tests/test_track_002_source_candidates.py`.
+- [x] Add a machine-readable source terms/disposition matrix and fail-closed
+  regression test in `docs/track-002-source-terms-matrix.yml` and
+  `tests/test_track_002_terms_matrix.py`.
 - [ ] Obtain separate accountable scientific and custodian/data-governance
   receipts after panel preparation; panels cannot close these gates.
 - [x] Add a regression guard proving the external-gate receipt template remains
