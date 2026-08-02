@@ -35,6 +35,7 @@ This directory is the persistent source of truth for the project's context-drive
 - [Roadmap to stable v1.0](../docs/roadmap-v1.md)
 - [Maturity model](../docs/maturity-model.md)
 - [Stable v1 acceptance criteria](../docs/v1-acceptance-criteria.md)
+- [External-gate panel preparation plan](panel-gate-plan.md)
 - [Requirements traceability](../docs/requirements-traceability.md)
 - [Testing and assurance strategy](../docs/testing-strategy.md)
 - [Release and compatibility policy](../docs/release-policy.md)

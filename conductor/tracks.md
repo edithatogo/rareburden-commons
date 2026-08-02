@@ -47,3 +47,9 @@ Repository-owned review evidence for every track is produced by the subagent
 review panel under `docs/decisions/ADR-0008-single-developer-review-mode.md`.
 Track plans must not imply another maintainer or internal human reviewer. This
 does not waive qualifying external independence or accountable-authority gates.
+
+The dependency-ordered panel workflow for scientific/clinical, patient/community,
+custodian/data-governance, independent-operator and release gates is documented
+in [`panel-gate-plan.md`](panel-gate-plan.md). Panels prepare and challenge
+packets; the accountable receipts remain pending until supplied or the affected
+claim is explicitly bounded out of scope.
