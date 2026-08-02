@@ -97,6 +97,9 @@
 - [x] Draft the retention/access policy for operational records. Evidence:
   `docs/track-016-retention-access-policy.md`; it remains non-operative until
   security, data-governance and named-owner acceptance.
+- [x] Add a metadata-only synthetic recovery/rollback receipt primitive with
+  fail-closed identity and outcome checks in `rareburden.operations` and
+  `tests/test_operations_budget.py`; production exercise evidence remains open.
 - [ ] Implement and execute clean-environment backup, restore and rollback
   exercises with redacted, hash-bound receipts.
 - [ ] Record named primary/backup operational owners and escalation acceptance.

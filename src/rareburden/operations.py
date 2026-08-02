@@ -17,6 +17,50 @@ class ResourceBudgetError(ValueError):
     """Raised when an operational measurement violates the declared budget."""
 
 
+def build_exercise_receipt(
+    *,
+    exercise_id: str,
+    release_id: str,
+    commit: str,
+    outcome: str,
+    failure_cases: list[str],
+    input_hashes: list[str],
+    output_hashes: list[str],
+) -> dict[str, Any]:
+    """Build a metadata-only synthetic recovery/rollback exercise receipt."""
+    if not all(
+        isinstance(value, str) and value.strip() for value in (exercise_id, release_id, commit)
+    ):
+        raise OperationalMetricError("exercise identity fields are required")
+    if len(commit) != 40 or any(character not in "0123456789abcdef" for character in commit):
+        raise OperationalMetricError("exercise commit must be a hexadecimal Git commit")
+    if outcome not in {"pass", "qualified", "fail"}:
+        raise OperationalMetricError("exercise outcome is invalid")
+    if (
+        not isinstance(failure_cases, list)
+        or not isinstance(input_hashes, list)
+        or not isinstance(output_hashes, list)
+    ):
+        raise OperationalMetricError("exercise receipt collections must be lists")
+    if any(
+        not isinstance(value, str) or not value
+        for value in (*failure_cases, *input_hashes, *output_hashes)
+    ):
+        raise OperationalMetricError("exercise receipt collections must contain strings")
+    return {
+        "schema_version": "0.1.0",
+        "receipt_type": "synthetic_operations_exercise",
+        "exercise_id": exercise_id,
+        "release_id": release_id,
+        "commit": commit,
+        "outcome": outcome,
+        "failure_cases": list(failure_cases),
+        "input_hashes": list(input_hashes),
+        "output_hashes": list(output_hashes),
+        "production_authorized": False,
+    }
+
+
 _NAME = re.compile(r"^[a-z][a-z0-9_.-]{1,63}$")
 _SENSITIVE = re.compile(
     r"(?:token|secret|password|credential|api[_-]?key|authorization|person|participant|subject|email|phone|address|name|identifier)",
@@ -115,6 +159,7 @@ def check_resource_budget(budget: Mapping[str, Any], measurement: Mapping[str, A
 __all__ = [
     "OperationalMetricError",
     "ResourceBudgetError",
+    "build_exercise_receipt",
     "build_metric",
     "build_resource_budget",
     "check_resource_budget",
