@@ -1,0 +1,52 @@
+schema_version: "0.1.0"
+status: "requests_prepared_pending_receipts"
+scope_file: "docs/track-002-option-a-scope.yml"
+requests:
+  - request_id: "T002-SCI-ORPHA-UN"
+    gate: "scientific"
+    subjects:
+      - "orphadata-science"
+      - "un-world-population-prospects"
+    required_decision: "approve|bound|revise|reject"
+    required_fields:
+      - "estimand_and_intended_use"
+      - "metric_denominator_geography_time_scope"
+      - "units_coverage_bias_transportability"
+      - "update_cadence_and_limitations"
+    status: "pending"
+  - request_id: "T002-GOV-ORPHA-UN"
+    gate: "data_governance"
+    subjects:
+      - "orphadata-science"
+      - "un-world-population-prospects"
+    required_decision: "approve|bound|revise|reject"
+    required_fields:
+      - "lawful_purpose_and_authority"
+      - "raw_retention_and_cache_period"
+      - "derived_output_and_redistribution_rights"
+      - "third_party_material_and_attribution"
+      - "withdrawal_correction_and_expiry"
+    status: "pending"
+  - request_id: "T007-CHALLENGE"
+    gate: "landscape_challenge"
+    subjects:
+      - "RBC-LAND-007-v0.1.0"
+    required_decision: "accept|bound|revise|stop"
+    required_fields:
+      - "protocol_identifier_or_unregistered_status"
+      - "dated_search_logs_and_export_hashes"
+      - "deduplication_exclusions_and_adjudication"
+      - "independent_methods_challenge"
+      - "patient_community_interpretation"
+    status: "pending"
+  - request_id: "T002-OPERATOR-REPRO"
+    gate: "independent_operator"
+    subjects:
+      - "track-002-option-a-scope"
+    required_decision: "pass|qualified|fail"
+    required_fields:
+      - "clean_checkout_and_environment"
+      - "commit_and_manifest_digest"
+      - "commands_outputs_and_hash_comparison"
+      - "discrepancies_and_receipt_locator"
+    status: "pending"

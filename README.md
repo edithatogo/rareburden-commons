@@ -56,6 +56,7 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [Tracks 002/007 closure plan](docs/track-002-007-closure-plan-2026-08-02.md)
 - [Track 002 Option A scope](docs/track-002-option-a-scope.yml)
 - [Track 002 qualifying-evidence sourcing plan](docs/track-002-qualifying-evidence-sourcing-plan-2026-08-02.md)
+- [Track 002 qualifying-evidence request register](docs/track-002-qualifying-evidence-request.yml)
 - [Track review and closeout packets](docs/track-014-atlas-api-review-packet.md),
   [015 governance](docs/track-015-governance-review-packet.md),
   [016 operations](docs/track-016-operations-review-packet.md),

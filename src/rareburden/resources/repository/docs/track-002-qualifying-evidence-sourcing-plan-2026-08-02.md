@@ -61,3 +61,7 @@ decision, conditions, dissent, expiry/review date, and supersession pointer.
 
 Subagent panels can prepare and challenge these packets but cannot satisfy the
 qualifying authority or independent-operation requirement.
+
+The executable request register is
+`docs/track-002-qualifying-evidence-request.yml`; all requests intentionally
+remain `pending` until qualifying receipts are returned.

@@ -89,3 +89,7 @@ scientific and data-governance gates remain separate and pending.
   activation disabled.
 - [x] Add the qualifying-evidence sourcing sequence and contingencies in
   `docs/track-002-qualifying-evidence-sourcing-plan-2026-08-02.md`.
+- [x] Implement the machine-readable qualifying-evidence request register and
+  fail-closed regression test in
+  `docs/track-002-qualifying-evidence-request.yml` and
+  `tests/test_track_002_evidence_request.py`.
