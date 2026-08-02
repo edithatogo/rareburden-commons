@@ -72,6 +72,10 @@ by a durable locator and hash, never copied into the repository.
 - If scientific and custodian decisions conflict, narrow the supported claim or
   stop the source; do not average or override the decisions.
 
+The prefilled routing checklist is `docs/track-002-source-packet-checklist.yml`.
+Its pending dispositions are intentional and must remain pending until the
+accountable receipts are returned.
+
 ## Current external boundary
 
 The official WHO page describes GHE as downloadable country/region estimates

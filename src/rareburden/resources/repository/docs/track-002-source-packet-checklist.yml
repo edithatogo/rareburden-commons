@@ -1,0 +1,54 @@
+schema_version: "0.1.0"
+status: "preparation_only"
+activation: "disabled_until_accountable_dispositions"
+packet_requirements:
+  - exact_url_or_query
+  - landing_page_and_terms_snapshot
+  - release_or_version
+  - retrieved_at_utc
+  - mime_type_and_size_bytes
+  - sha256
+  - scope_and_measure
+  - attribution
+  - redistribution_and_third_party_position
+  - scientific_disposition
+  - data_governance_disposition
+  - source_change_exercise_receipt
+sources:
+  - source_id: "orphadata-science"
+    packet_status: "candidate_exact_route_recorded"
+    evidence_record: "conductor/tracks/002-public-source-acquisition/review.md"
+    exact_routes:
+      - "https://www.orphadata.com/data/xml/en_product9_prev.xml"
+      - "https://www.orphadata.com/data/xml/en_product1.xml"
+    sha256_recorded: true
+    scientific_disposition: "pending"
+    data_governance_disposition: "pending"
+    source_change_exercise: "pending"
+  - source_id: "un-world-population-prospects"
+    packet_status: "candidate_exact_route_recorded"
+    evidence_record: "docs/track-002-un-wpp-2024-candidate.yml"
+    exact_routes:
+      - "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx"
+    sha256_recorded: true
+    scientific_disposition: "pending"
+    data_governance_disposition: "pending"
+    source_change_exercise: "pending"
+  - source_id: "who-global-health-estimates"
+    packet_status: "candidate_exact_route_recorded"
+    evidence_record: "docs/track-002-who-ghe-2021-candidate.yml"
+    exact_routes:
+      - "https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/ghe2021_daly_bycountry_2000.xlsx?sfvrsn=23cd3c55_5"
+    sha256_recorded: true
+    scientific_disposition: "pending"
+    data_governance_disposition: "pending"
+    source_change_exercise: "pending"
+  - source_id: "world-bank-indicators-api"
+    packet_status: "candidate_query_manifest_recorded"
+    evidence_record: "conductor/tracks/002-public-source-acquisition/review.md"
+    exact_routes:
+      - "https://api.worldbank.org/v2/country/AUS;NZL/indicator/SP.POP.TOTL?date=2000:2021&format=json&per_page=100&source=2"
+    sha256_recorded: true
+    scientific_disposition: "pending"
+    data_governance_disposition: "pending"
+    source_change_exercise: "pending"
