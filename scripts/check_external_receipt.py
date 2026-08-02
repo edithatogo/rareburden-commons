@@ -8,6 +8,26 @@ from pathlib import Path
 
 from rareburden.schema import SchemaValidationError, load_document, load_mapping, validate_instance
 
+ALLOWED_GATES = {
+    "scientific",
+    "patient_community",
+    "custodian_data_governance",
+    "independent_operator",
+    "operational_owners",
+    "release",
+}
+ALLOWED_DECISIONS = {
+    "approve",
+    "pass",
+    "accept",
+    "bounded",
+    "revise",
+    "reject",
+    "fail",
+    "stop",
+    "defer",
+}
+
 
 def validate_receipt(path: Path, *, require_attributable: bool = False) -> None:
     """Validate receipt shape; optionally require accountable attribution fields."""
@@ -23,13 +43,21 @@ def validate_receipt(path: Path, *, require_attributable: bool = False) -> None:
         attestation = document["attestation"]
         subject = document["subject"]
         required = {
+            "receipt_id": document["receipt_id"],
+            "gate": document["gate"],
+            "decision": document["decision"],
+            "decision_date_utc": document["decision_date_utc"],
             "accountable.person_or_body": accountable["person_or_body"],
             "accountable.role": accountable["role"],
             "accountable.independence_or_authority_basis": accountable[
                 "independence_or_authority_basis"
             ],
+            "subject.repository": subject["repository"],
             "subject.commit_or_tag": subject["commit_or_tag"],
             "subject.manifest_id": subject["manifest_id"],
+            "subject.input_manifest_sha256": subject["input_manifest_sha256"],
+            "attestation.submitted_by": attestation["submitted_by"],
+            "attestation.submitted_at_utc": attestation["submitted_at_utc"],
             "attestation.signature_or_approval_record": attestation["signature_or_approval_record"],
         }
         missing = [
@@ -41,6 +69,10 @@ def validate_receipt(path: Path, *, require_attributable: bool = False) -> None:
             raise SchemaValidationError(
                 "receipt is not attributable; missing: " + ", ".join(missing)
             )
+        if document["gate"] not in ALLOWED_GATES:
+            raise SchemaValidationError(f"receipt has unsupported gate: {document['gate']}")
+        if document["decision"] not in ALLOWED_DECISIONS:
+            raise SchemaValidationError(f"receipt has unsupported decision: {document['decision']}")
 
 
 def main() -> int:
