@@ -93,3 +93,5 @@ scientific and data-governance gates remain separate and pending.
   fail-closed regression test in
   `docs/track-002-qualifying-evidence-request.yml` and
   `tests/test_track_002_evidence_request.py`.
+- [x] Add a regression guard for the approved Option A scope and deferred-source
+  activation boundary in `tests/test_track_002_option_a_scope.py`.
