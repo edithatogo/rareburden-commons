@@ -12,6 +12,33 @@ class AtlasPackageError(ValueError):
     """Raised when a static/package projection is not release-safe."""
 
 
+def build_gap_api_response(
+    package: Mapping[str, Any], *, endpoint: str = "/v1/gaps"
+) -> dict[str, Any]:
+    """Build a read-only API-shaped response without enabling a network server."""
+    if (
+        package.get("package_type") != "aggregate_gap_map"
+        or package.get("aggregate_only") is not True
+    ):
+        raise AtlasPackageError("API projection requires an aggregate gap package")
+    if not isinstance(endpoint, str) or not endpoint.startswith("/"):
+        raise AtlasPackageError("API endpoint must be a relative read-only path")
+    rows = package.get("rows")
+    if not isinstance(rows, list) or not rows:
+        raise AtlasPackageError("API projection requires package rows")
+    return {
+        "api_schema_version": "0.1.0",
+        "endpoint": endpoint,
+        "read_only": True,
+        "release_id": package.get("release_id"),
+        "source_manifest_id": package.get("source_manifest_id"),
+        "package_fingerprint": package.get("package_fingerprint"),
+        "missingness_policy": package.get("missingness_policy"),
+        "rows": [dict(row) for row in rows],
+        "limitations": list(package.get("limitations", [])),
+    }
+
+
 def build_gap_package(
     gap_map: Mapping[str, Any], *, release_id: str, source_manifest_id: str
 ) -> dict[str, Any]:
@@ -36,4 +63,4 @@ def build_gap_package(
     return {"package_fingerprint": content_id("atlas", payload), **payload}
 
 
-__all__ = ["AtlasPackageError", "build_gap_package"]
+__all__ = ["AtlasPackageError", "build_gap_api_response", "build_gap_package"]

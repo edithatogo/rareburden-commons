@@ -62,5 +62,8 @@
   `rareburden.atlas.build_gap_package` and `tests/test_atlas_package.py` bind
   package identity to a source manifest, preserve missingness and enforce
   aggregate-only output; API projection and publication remain open.
+- [x] Implement a read-only API-shaped gap projection with package-fingerprint
+  parity checks in `rareburden.atlas.build_gap_api_response` and
+  `tests/test_atlas_package.py`; no network server or publication is enabled.
 - [ ] Complete accessibility, independent-operator and release-authority gates
   before beta publication.
