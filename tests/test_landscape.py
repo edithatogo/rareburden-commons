@@ -19,6 +19,7 @@ SCREENING_EXERCISE = load_mapping(
     ROOT / "docs" / "track-007-panel-screening-exercise-2026-08-02.yml"
 )
 SEARCH_LOG = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-01.yml")
+REGISTRATION_PACKET = ROOT / "docs" / "track-007-registration-packet.md"
 
 
 def test_seed_landscape_is_valid() -> None:
@@ -114,3 +115,14 @@ def test_track_007_search_log_preserves_bounded_discovery_and_provisional_status
     assert any(
         "not a complete public search" in limitation for limitation in SEARCH_LOG["limitations"]
     )
+
+
+def test_track_007_registration_packet_is_versioned_and_fail_closed() -> None:
+    packet = REGISTRATION_PACKET.read_text(encoding="utf-8")
+    assert "RBC-LAND-007 v0.1.0" in packet
+    assert "versioned draft; not externally registered" in packet
+    for field in ("query_string", "endpoint_or_database", "export_sha256", "exclusion_reason"):
+        assert field in packet
+    assert "Methods reviewer" in packet
+    assert "patient/community reviewer" in packet.lower()
+    assert "Track 007 stays in review" in packet
