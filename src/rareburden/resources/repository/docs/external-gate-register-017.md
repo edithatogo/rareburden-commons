@@ -3,6 +3,12 @@
 **Status:** template; all gates are pending. This file is not evidence of
 approval, consent, independence, custody, operational acceptance, or release.
 
+**Candidate under consideration:** tag `candidate-2026-08-03`, manifest
+`rel-b213c531a6b754940f80ab70`, input-manifest SHA-256
+`d3aafd7367609050d6a4c9926a8ddca3013085362f78abd319dd582135612389`.
+This identity is frozen for receipt collection; it does not itself authorize
+publication or clear any gate.
+
 Bind every receipt to the exact candidate commit, manifest identifier, and
 artifact digest. A technical test or subagent report may support a receipt but
 cannot replace the accountable decision-maker.
