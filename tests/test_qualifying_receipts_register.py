@@ -31,6 +31,7 @@ def test_verified_gate_requires_receipt_metadata(tmp_path: Path) -> None:
 
 def test_verified_gate_rejects_placeholder_candidate(tmp_path: Path) -> None:
     document = load_document(REGISTER)
+    document["candidate"]["manifest_id"] = "pending-candidate-manifest"
     document["gates"][0].update(
         {
             "status": "verified",
