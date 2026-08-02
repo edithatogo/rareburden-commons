@@ -66,6 +66,8 @@ conflicting or digest-mismatched receipts remain pending.
 
 The executable receipt-collection workflow, gate matrix and contingencies are
 in `docs/qualifying-accountable-receipts-plan-2026-08-03.md`.
+The candidate-freeze options and decision sequence are in
+`docs/frozen-candidate-and-receipts-decision-plan-2026-08-03.md`.
 
 - [x] Add a machine-readable schema guard for the blank external receipt
   template in `schemas/external-gate-receipt.schema.json` and
