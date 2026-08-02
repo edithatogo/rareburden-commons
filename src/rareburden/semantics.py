@@ -148,14 +148,16 @@ def render_mapping_release_markdown(mapping: OntologyMappingSet) -> str:
     ]
     for row in document["mappings"]:
         lines.append(
-            f"| `{row['source_code']}` | `{row['target_code']}` | {row['relation']} | {row['confidence']} | {row['status']} |"
+            f"| `{row['source_code']}` | `{row['target_code']}` | {row['relation']} | "
+            f"{row['confidence']} | {row['status']} |"
         )
     lines.extend(["", "## Limitations", ""])
     lines.extend(f"- {limitation}" for limitation in document.get("limitations", []))
     lines.extend(
         [
             "",
-            "Source-release approval and clinical semantic authority remain required before production use.",
+            "Source-release approval and clinical semantic authority remain "
+            "required before production use.",
             "",
         ]
     )
