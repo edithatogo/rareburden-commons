@@ -21,7 +21,8 @@
 - [x] Implement mapping loader, query and version-diff tooling. Evidence: validated `diff_mapping_sets` release impact report and focused tests in `d93d55e`; source-release pinning remains external-gated.
 - [x] Add hierarchy conservation, parent/child and ambiguity tests. Evidence: `2e5224c`; golden demonstrator conservation tests cover the supported synthetic hierarchies.
 - [x] Add golden fixtures for monogenic diabetes, bronchiectasis and paediatric use. Evidence: `2e5224c`; all fixtures are synthetic and non-clinical.
-- [ ] Generate machine-readable and human-readable semantic releases.
+- [ ] Generate machine-readable and human-readable semantic releases from
+  source-pinned inputs.
 
 ## Phase 4 — Review and compatibility
 
@@ -33,6 +34,11 @@
 - [x] Add deterministic migration-receipt fingerprint coverage. Evidence:
   `test_mapping_diff_binds_both_release_fingerprints`; source-release approval
   and clinical semantic authority remain external gates.
+- [x] Prepare the release-content contract for future synthetic/source-pinned
+  outputs. Evidence: `docs/track-008-semantic-review-packet.md` defines the
+  machine-readable mapping, human-readable report, source IDs/hashes, licence,
+  migration and residual-risk fields; generation remains blocked until source
+  releases are approved.
 - [ ] Document unsupported mappings and residual overlap risk.
 - [ ] Freeze v0.4 semantic contracts for dependent tracks.
 
