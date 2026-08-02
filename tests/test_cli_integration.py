@@ -451,3 +451,73 @@ def test_fetch_release_records_redacted_source_change_incident(
     assert incident["status"] == "review_required"
     assert incident["requested_url"].endswith("token=REDACTED")
     assert "secret" not in json.dumps(incident)
+
+
+@pytest.mark.parametrize(
+    "source_id,release_id",
+    [
+        ("orphadata-science", "july-2026-pair"),
+        ("un-world-population-prospects", "wpp2024-f01"),
+        ("who-global-health-estimates", "ghe2021-daly-2000"),
+        ("world-bank-indicators-api", "sp-pop-totl-aus-nzl-2000-2021"),
+    ],
+)
+def test_source_change_matrix_keeps_all_track_002_candidates_fail_closed(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    monkeypatch: pytest.MonkeyPatch,
+    source_id: str,
+    release_id: str,
+) -> None:
+    """Synthetic candidate mutations never promote changed bytes."""
+    root = _repository_fixture(tmp_path)
+
+    def changed(**_kwargs: object) -> dict[str, object]:
+        raise SourceChangedError(
+            source_id=source_id,
+            release_id=release_id,
+            requested_url="https://example.org/candidate?token=secret",
+            expected_sha256="0" * 64,
+            observed_sha256="1" * 64,
+        )
+
+    monkeypatch.setattr("rareburden.cli.download_public_artifact", changed)
+    assert (
+        main(
+            [
+                "fetch-release",
+                "--root",
+                str(root),
+                "--source-id",
+                source_id,
+                "--release-id",
+                release_id,
+                "--url",
+                "https://example.org/candidate?token=secret",
+                "--destination",
+                "outputs/data.csv",
+                "--expected-sha256",
+                "0" * 64,
+                "--manifest",
+                "outputs/data.acquisition.json",
+                "--source-release-record",
+                "outputs/data.release.json",
+                "--source-change-report",
+                "outputs/data.source-change.json",
+                "--licence-state",
+                "verified",
+                "--licence-reference",
+                "https://example.org/terms",
+                "--allow-network",
+            ]
+        )
+        == 1
+    )
+    assert "Checksum mismatch" in capsys.readouterr().err
+    incident = json.loads((root / "outputs/data.source-change.json").read_text(encoding="utf-8"))
+    assert incident["status"] == "review_required"
+    assert incident["source_id"] == source_id
+    assert incident["release_id"] == release_id
+    assert incident["requested_url"].endswith("token=REDACTED")
+    assert not (root / "outputs/data.csv").exists()
+    assert "secret" not in json.dumps(incident)

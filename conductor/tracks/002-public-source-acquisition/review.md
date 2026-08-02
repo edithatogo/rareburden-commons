@@ -111,6 +111,15 @@ This inventory is complete as a candidate register for the Track 002 scope. A ca
 
 The inventory separates candidate discovery from production selection. The remaining Track 002 task is exact artifact/file selection and release hashing for the open-download sources, not further source discovery.
 
+### Synthetic source-change panel exercise — 2026-08-02
+
+The repository now runs a parametrized synthetic mutation across the Orphadata,
+UN WPP, WHO GHE and World Bank candidate IDs. Each changed-byte case produces a
+credential-redacted `review_required` incident, preserves the pinned release,
+creates no destination bytes and prevents promotion. This demonstrates local
+control behavior only; it is not a live source-change or licence exercise and
+does not close the external gate.
+
 ### Decision worksheet — non-binding candidate pins (v0.1.0, 2026-07-29)
 
 These are implementation-ready candidates for reviewer confirmation; they do not activate acquisition or freeze a contract.

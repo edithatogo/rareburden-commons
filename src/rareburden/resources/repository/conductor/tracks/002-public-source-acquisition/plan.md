@@ -69,3 +69,6 @@
 - [x] Record the panel’s bounded governance posture: ephemeral retrieval,
   metadata/hash retention, no raw redistribution, and fail-closed terms or
   checksum drift handling.
+- [x] Add a synthetic four-candidate source-change mutation matrix covering
+  checksum drift, redaction and non-promotion. Evidence: parametrized CLI
+  integration test in `tests/test_cli_integration.py`.
