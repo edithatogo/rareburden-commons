@@ -62,5 +62,8 @@ usability or reproduction gates.
 - [x] Prepared `docs/track-017-v1-closeout-packet.md` mapping independent
   usability, reproduction, ownership, governance and release receipts to the
   stable-v1 decision.
+- [x] Documented the clean-build and verification recipe for future release
+  candidates in `docs/v1-release-candidate-checklist-017.md`; actual duplicate
+  candidate builds remain open pending locked-environment execution.
 - [ ] Keep v1.0.0 tagging, stable-release claims and support promises disabled
   until every accountable lane is dispositioned.
