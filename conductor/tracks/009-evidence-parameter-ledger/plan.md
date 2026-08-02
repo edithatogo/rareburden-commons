@@ -34,6 +34,12 @@
 - [ ] Close or assign every blocking data-contract issue.
 - [ ] Freeze v0.4 ledger contracts.
 
+## Preparation refresh — 2026-08-02
+
+- [x] Add a negative regression for empty supersession receipts and retain
+  deterministic migration evidence. Evidence: `test_ledger_model.py`; this
+  strengthens the fail-closed contract without activating the ledger.
+
 ## Preparatory repository implementation — 2026-07-31
 
 - [x] Add a transactional append-only reference store for validated ledger

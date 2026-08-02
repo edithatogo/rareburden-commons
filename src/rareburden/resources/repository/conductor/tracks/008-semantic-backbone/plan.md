@@ -27,6 +27,9 @@
 
 - [ ] Run independent semantic/methods review.
 - [ ] Add schema migration and ontology-update impact tests.
+- [x] Add deterministic migration-receipt fingerprint coverage. Evidence:
+  `test_mapping_diff_binds_both_release_fingerprints`; source-release approval
+  and clinical semantic authority remain external gates.
 - [ ] Document unsupported mappings and residual overlap risk.
 - [ ] Freeze v0.4 semantic contracts for dependent tracks.
 

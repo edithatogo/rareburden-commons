@@ -216,3 +216,19 @@ def test_mapping_set_diff_is_deterministic_and_reports_impact() -> None:
     assert diff["removed_source_codes"]
     assert diff["changed_source_codes"] == ["552"]
     assert diff["impact_summary"] == {"added": 1, "removed": 1, "changed": 1}
+
+
+def test_mapping_diff_binds_both_release_fingerprints() -> None:
+    """A semantic migration receipt must identify both immutable releases."""
+    schema = load_mapping(MAPPING_SCHEMA)
+    previous = validate_mapping_set(load_mapping(MAPPING_PATH), schema)
+    current_document = load_mapping(MAPPING_PATH)
+    current_document["version"] = "0.2.0"
+    current_document["mappings"][0]["rationale"] = "Synthetic migration mutation"
+    current = validate_mapping_set(current_document, schema)
+
+    diff = diff_mapping_sets(previous, current)
+
+    assert diff["previous_fingerprint"] == previous.fingerprint
+    assert diff["current_fingerprint"] == current.fingerprint
+    assert diff["previous_fingerprint"] != diff["current_fingerprint"]

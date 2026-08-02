@@ -68,6 +68,16 @@ def test_ledger_rejects_duplicate_assumption_and_provenance_failures() -> None:
         validate_ledger(missing_source, schema)
 
 
+def test_ledger_rejects_revision_without_a_nonempty_supersession_receipt() -> None:
+    schema = load_mapping(LEDGER_SCHEMA)
+    missing_receipt = _ledger_document()
+    record = missing_receipt["parameters"][0]  # type: ignore[index]
+    record["parameter_revision"] = 2
+    record["supersedes_parameter_fingerprint"] = ""
+    with pytest.raises(LedgerError):
+        validate_ledger(missing_receipt, schema)
+
+
 def test_ledger_rejects_distribution_and_fraction_invariants() -> None:
     schema = load_mapping(LEDGER_SCHEMA)
 
