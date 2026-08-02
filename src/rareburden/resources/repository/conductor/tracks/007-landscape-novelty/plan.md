@@ -48,6 +48,8 @@
 - [x] Preserve the bounded 2026-08-01 discovery observations as a structured
   search log. Evidence: `docs/track-007-search-log-2026-08-01.yml`; screening,
   registration and independent review remain open.
+- [x] Add a regression guard for the versioned search-log schema and its
+  discovery-only/provisional boundary in `tests/test_landscape.py`.
 
 ## Synthetic screening exercise — 2026-08-02
 

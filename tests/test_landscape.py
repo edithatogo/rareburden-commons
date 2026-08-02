@@ -18,6 +18,7 @@ SCHEMA = load_mapping(ROOT / "schemas" / "initiative-landscape.schema.json")
 SCREENING_EXERCISE = load_mapping(
     ROOT / "docs" / "track-007-panel-screening-exercise-2026-08-02.yml"
 )
+SEARCH_LOG = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-01.yml")
 
 
 def test_seed_landscape_is_valid() -> None:
@@ -95,3 +96,21 @@ def test_track_007_synthetic_screening_reconciles_without_closing_external_gates
     assert SCREENING_EXERCISE["expected"]["uncertain_is_not_included"] is True
     assert SCREENING_EXERCISE["expected"]["external_registration_required"] is True
     assert SCREENING_EXERCISE["expected"]["independent_challenge_required"] is True
+
+
+def test_track_007_search_log_preserves_bounded_discovery_and_provisional_status() -> None:
+    assert SEARCH_LOG["protocol_version"] == "RBC-LAND-007-v0.1.0"
+    assert SEARCH_LOG["status"] == "discovery_only"
+    assert SEARCH_LOG["records"]
+    for record in SEARCH_LOG["records"]:
+        assert record["endpoint"].startswith("https://")
+        assert record["http_status"] in {200, "not_applicable"}
+        assert record["raw_export"] in {"not_retained", "retained_lawfully"}
+        assert record["screening_status"] in {
+            "unscreened",
+            "exact_title_only",
+            "screened",
+        }
+    assert any(
+        "not a complete public search" in limitation for limitation in SEARCH_LOG["limitations"]
+    )
