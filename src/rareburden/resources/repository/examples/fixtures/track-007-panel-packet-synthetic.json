@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1.0",
+  "track_id": "007-landscape-novelty",
+  "reviewed_commit": "0000000000000000000000000000000000000000",
+  "evidence_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "panel_roles": ["methods/search", "governance/security", "patient/community/usability"],
+  "findings": ["Protocol registration and independent challenge remain pending."],
+  "dissent": [],
+  "recommendation": "prepare",
+  "accountable_gate_status": "pending",
+  "requested_receipts": ["protocol registration", "independent methods challenge", "patient/community decision"]
+}

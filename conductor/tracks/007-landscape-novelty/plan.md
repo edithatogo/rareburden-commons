@@ -72,6 +72,8 @@
 - [x] Add the joint Track 002/007 panel closure plan with options,
   contingencies and dependency sequence in
   `docs/track-002-007-panel-closure-plan-2026-08-02.md`.
+- [x] Prepare a schema-valid synthetic Track 007 panel packet with pending
+  registration and challenge receipts in `examples/fixtures/track-007-panel-packet-synthetic.json`.
 - [ ] Obtain protocol registration, independent methods challenge and
   patient/community decision after panel preparation; panels cannot close
   these gates.
