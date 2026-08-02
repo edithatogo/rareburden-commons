@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1.0",
+  "status": "preparation_only",
+  "roles": [
+    {"role": "maintainer", "primary": "", "backup": "", "acceptance": "pending"},
+    {"role": "incident_owner", "primary": "", "backup": "", "acceptance": "pending"},
+    {"role": "release_owner", "primary": "", "backup": "", "acceptance": "pending"}
+  ],
+  "support_scope": "No support promise until accepted.",
+  "cost_model": "Pending accountable approval.",
+  "institutional_host": "Unconfirmed.",
+  "decision": "pending"
+}

@@ -79,6 +79,9 @@ usability or reproduction gates.
 - [x] Add a strict release-candidate receipt schema and synthetic non-authorizing
   fixture in `schemas/release-candidate-receipt.schema.json` and
   `tests/test_release_candidate_receipt.py`.
+- [x] Add a blank ownership/sustainability packet with pending acceptance in
+  `schemas/ownership-sustainability-packet.schema.json` and
+  `tests/test_ownership_sustainability_packet.py`.
 - [ ] Freeze and reproduce two clean release candidates from locked
   environments.
 - [ ] Obtain two independent usability receipts and one independent

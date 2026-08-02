@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/ownership-sustainability-packet.schema.json",
+  "title": "Ownership and sustainability preparation packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "roles", "support_scope", "cost_model", "institutional_host", "decision"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "status": {"const": "preparation_only"},
+    "roles": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["role", "primary", "backup", "acceptance"], "properties": {"role": {"type": "string"}, "primary": {"type": "string"}, "backup": {"type": "string"}, "acceptance": {"type": "string", "enum": ["pending", "accepted", "bounded", "declined"]}}}},
+    "support_scope": {"type": "string"},
+    "cost_model": {"type": "string"},
+    "institutional_host": {"type": "string"},
+    "decision": {"type": "string", "enum": ["pending", "accepted", "bounded", "deferred"]}
+  }
+}
