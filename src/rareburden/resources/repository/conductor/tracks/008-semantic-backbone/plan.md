@@ -4,16 +4,22 @@
 
 ## Phase 1 — Contracts and source releases
 
-- [ ] Define disease-definition and mapping schemas. `[M-01, M-02, M-18]`
+- [x] Define disease-definition and mapping schemas. `[M-01, M-02, M-18]`
+  Evidence: ontology-mapping and hierarchy schemas with strict semantic tests;
+  source release approval remains open.
 - [ ] Pin source ontology/coding releases and licence states.
-- [ ] Define stable internal identifiers and mapping provenance.
-- [ ] Define ambiguity, deprecation and migration representation.
+- [x] Define stable internal identifiers and mapping provenance. Evidence:
+  mapping schemas require stable entity IDs, source/version and evidence refs.
+- [x] Define ambiguity, deprecation and migration representation. Evidence:
+  relation enums, validity fields and deterministic mapping-diff receipts.
 
 ## Phase 2 — Burden-purpose hierarchy
 
-- [ ] Create supported demonstrator entity sets.
-- [ ] Define mutually exclusive aggregation nodes and non-tree relationships. `[M-05, S-02]`
-- [ ] Define syndrome/aetiology and multi-diagnosis rules.
+- [x] Create supported demonstrator entity sets. Evidence: synthetic
+  monogenic, bronchiectasis and paediatric semantic fixtures.
+- [x] Define mutually exclusive aggregation nodes and non-tree relationships. `[M-05, S-02]` Evidence: hierarchy conservation and aggregation-contract tests.
+- [x] Define syndrome/aetiology and multi-diagnosis rules. Evidence: explicit
+  relation and aggregation contracts in synthetic hierarchy fixtures.
 - [ ] Obtain clinical and patient/community naming review.
 
 ## Phase 3 — Implementation
