@@ -44,3 +44,24 @@ def test_track_002_source_packet_checklist_is_fail_closed() -> None:
         assert source["scientific_disposition"] == "pending"
         assert source["data_governance_disposition"] == "pending"
         assert source["source_change_exercise"] == "pending"
+
+
+def test_every_source_packet_candidate_has_pending_accountable_gates() -> None:
+    packet = yaml.safe_load(
+        (ROOT / "docs/track-002-source-packet-checklist.yml").read_text(encoding="utf-8")
+    )
+    assert {source["source_id"] for source in packet["sources"]} == {
+        "orphadata-science",
+        "un-world-population-prospects",
+        "who-global-health-estimates",
+        "world-bank-indicators-api",
+    }
+    for source in packet["sources"]:
+        assert source["packet_status"] in {
+            "candidate_exact_route_recorded",
+            "candidate_query_manifest_recorded",
+        }
+        assert source["sha256_recorded"] is True
+        assert source["scientific_disposition"] == "pending"
+        assert source["data_governance_disposition"] == "pending"
+        assert source["source_change_exercise"] == "pending"

@@ -46,11 +46,12 @@ decision_record_url: ""
 
 ## Current unresolved records
 
-The open candidates are the UN WPP 2024 workbook and one WHO Global Health
-Estimates aggregate file. Their landing pages and methodology/terms evidence
-are recorded in the Track 002 review, but stable exact file routes and
-hash-bound decisions are not yet recorded. Until this template is completed,
-the corresponding adapters remain synthetic/registration-only.
+The open candidates include the UN WPP 2024 workbook and one WHO Global Health
+Estimates aggregate file. Exact routes and hashes are now recorded in the
+candidate YAML records and Track 002 review. Hash-bound scientific scope,
+licensing/redistribution decisions and governance receipts remain open. Until
+this template is completed, the corresponding adapters remain
+synthetic/registration-only.
 
 ## Safe fallback
 
