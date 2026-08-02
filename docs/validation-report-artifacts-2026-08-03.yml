@@ -1,15 +1,15 @@
 schema_version: "0.1.0"
 status: "repository_validation_evidence"
-source_commit: "e1b97c2f618f41772074b8c108503958953217a9"
+source_commit: "2367e9fc3d653ba988deca2718faa074093f0608"
 artifacts:
   - path: coverage.json
-    sha256: a828829afe47f92ffcb1ef54ca03e809c08ff945374f1e79d6c4a6951761b157
+    sha256: 21f5053c49fa30c678ad050acc18035a26aca9a620bffb42dbbab778cf30942e
     kind: coverage_json
   - path: coverage.xml
-    sha256: ca17325846ff371c7d13eba2b072b8b342ec7c7c7ac8960f92d3691eda3797d2
+    sha256: ee44e3708bde1baf169944cad2fdd19fd46415f302b4b209cb2f718e88a0231d
     kind: coverage_xml
   - path: junit.xml
-    sha256: 37140ecd885987d6476a95744df49258661b5f92eea9ddd15aae55daebc21b5b
+    sha256: 4359e7b1d4a2976236ddded5c480970b0b32bcf0ff5cf4fdc893045b09109e82
     kind: junit_xml
   - path: rareburden.cdx.json
     sha256: 740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3
