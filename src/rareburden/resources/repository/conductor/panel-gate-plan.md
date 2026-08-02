@@ -69,3 +69,7 @@ Every panel packet records `track_id`, reviewed commit, evidence-manifest hash,
 panel roles, timestamp, findings, dissent, recommendation, unresolved gates and
 the requested accountable receipt. No credentials, personal data or raw
 restricted material may be included.
+
+The machine-readable contract is
+`schemas/panel-review-packet.schema.json`; the accompanying template and
+synthetic fixture are preparation aids only.

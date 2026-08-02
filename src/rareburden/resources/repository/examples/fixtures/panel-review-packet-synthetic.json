@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1.0",
+  "track_id": "017-documentation-adoption-v1",
+  "reviewed_commit": "0000000000000000000000000000000000000000",
+  "evidence_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "panel_roles": ["methods/technical", "governance/security", "patient/community/usability"],
+  "findings": ["Synthetic fixture demonstrates packet shape only."],
+  "dissent": [],
+  "recommendation": "prepare",
+  "accountable_gate_status": "pending",
+  "requested_receipts": ["independent operator receipt", "release authority decision"]
+}
