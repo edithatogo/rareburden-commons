@@ -80,6 +80,15 @@ def test_landscape_markdown_is_deterministic_and_complete() -> None:
     assert first.endswith("\n")
 
 
+def test_landscape_rendering_keeps_claims_provisional() -> None:
+    rendered = render_landscape_markdown(LANDSCAPE).lower()
+    assert "external review" in rendered
+    assert "preliminary novelty decision" in rendered
+    assert "not a completed systematic or scoping review" in rendered
+    assert "novelty remains provisional" in rendered
+    assert "partnership" not in rendered.split("## preliminary novelty decision", 1)[0]
+
+
 def test_track_007_synthetic_screening_reconciles_without_closing_external_gates() -> None:
     counts = SCREENING_EXERCISE["counts"]
     assert counts["screened"] == counts["included"] + counts["excluded"] + counts["uncertain"]
