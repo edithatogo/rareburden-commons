@@ -14,10 +14,13 @@ approval, consent, appointment, independent reproduction or release authority.
 
 ## Receipt minimum
 
-Every submission should identify the accountable person/body and role, decision
-date, quorum or independence basis, exact commit/tag and input digest,
-environment and commands, retained outputs, discrepancies, conditions,
-dissent, expiry/review date and any restricted evidence pointer.
+Every submission should identify a unique receipt ID, accountable person/body
+and role, organisation or constituency, decision date, quorum or independence
+basis, conflicts, exact commit/tag and manifest/input digest, environment and
+commands, retained outputs, discrepancies, conditions, dissent, expiry/review
+date, superseded receipt (if any), and any restricted evidence pointer. Return
+receipts through the agreed secure channel; record only the durable locator and
+digest-checked status in the repository register.
 
 Drafts, synthetic fixtures, local CI, hosted CI and subagent panels remain
 repository preparation only. They must not be relabelled as external approval.
