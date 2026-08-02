@@ -105,6 +105,8 @@ scientific and data-governance gates remain separate and pending.
   `docs/track-002-007-panel-closure-plan-2026-08-02.md`.
 - [x] Prepare a schema-valid synthetic Track 002 panel packet with pending
   scientific and custodian receipts in `examples/fixtures/track-002-panel-packet-synthetic.json`.
+- [x] Add a regression guard for exact candidate registration completeness and
+  fail-closed pending terms/dispositions in `tests/test_track_002_source_candidates.py`.
 - [ ] Obtain separate accountable scientific and custodian/data-governance
   receipts after panel preparation; panels cannot close these gates.
 - [x] Add a regression guard proving the external-gate receipt template remains
