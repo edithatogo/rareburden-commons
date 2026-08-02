@@ -9,6 +9,7 @@ evidence still required; none substitutes for accountable external authority.
 | 003 | [RBC-P002 review](track-003-rbc-p002-review-packet.md) |
 | 004 | [Federated-node review](track-004-node-review-packet.md) |
 | 005 | [Economic/social review](track-005-economic-review-packet.md) |
+| 006 | [V1 delivery-system review](../conductor/archive/006-v1-delivery-system/review.md) |
 | 007 | [Registration and screening](track-007-registration-packet.md) |
 | 008 | [Semantic review](track-008-semantic-review-packet.md) |
 | 009 | [Evidence-ledger review](track-009-ledger-review-packet.md) |
@@ -21,6 +22,7 @@ evidence still required; none substitutes for accountable external authority.
 | 016 | [Operations review](track-016-operations-review-packet.md) |
 | 017 | [Stable-v1 closeout](track-017-v1-closeout-packet.md) |
 
-Track 006 has no separate packet because its repository-owned preparation is
-covered by the programme and release evidence records referenced from its
-Conductor plan.
+Track 006 is complete and archived; its review is linked directly because the
+delivery-system work predates the later packet format. This keeps the index
+complete for the numbered Track 002–017 sequence without implying that an
+archived internal review satisfies any external gate.
