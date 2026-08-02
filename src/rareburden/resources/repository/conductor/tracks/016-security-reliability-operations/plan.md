@@ -41,6 +41,10 @@
   retained.
 - [ ] Define and exercise privacy-safe operational metrics, retention and
   access controls.
+- [x] Implement a metadata-only operational metric record primitive with
+  sensitive-label rejection. Evidence: `rareburden.operations` and
+  `tests/test_operations_metrics.py`; retention, access controls and production
+  ownership remain open.
 - [ ] Execute backup, restore and rollback runbooks against a clean locked
   environment.
 - [x] Prepare repository-owned correction, withdrawal, backup and rollback
