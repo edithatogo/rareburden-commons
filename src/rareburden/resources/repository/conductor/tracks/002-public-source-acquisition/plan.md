@@ -87,3 +87,5 @@ scientific and data-governance gates remain separate and pending.
 - [x] Encode the approved bounded Option A source scope in
   `docs/track-002-option-a-scope.yml` with WHO/World Bank deferred and
   activation disabled.
+- [x] Add the qualifying-evidence sourcing sequence and contingencies in
+  `docs/track-002-qualifying-evidence-sourcing-plan-2026-08-02.md`.
