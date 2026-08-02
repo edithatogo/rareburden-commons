@@ -1,5 +1,7 @@
 # Track 014 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; release, rights, accessibility and independent reproduction gates remain separate.
+
 ## Phase 1 — Product and information design
 
 - [ ] Define user journeys for patient, policy, research, custodian and funder users.

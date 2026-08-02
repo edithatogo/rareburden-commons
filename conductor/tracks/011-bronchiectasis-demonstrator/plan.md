@@ -1,5 +1,7 @@
 # Track 011 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; respiratory clinical and patient/community review remains separate.
+
 ## Phase 1 — Protocol and semantic scope
 
 - [ ] Draft RBC-P003 and define bronchiectasis denominator populations.

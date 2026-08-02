@@ -72,3 +72,8 @@
 - [x] Add a synthetic four-candidate source-change mutation matrix covering
   checksum drift, redaction and non-promotion. Evidence: parametrized CLI
   integration test in `tests/test_cli_integration.py`.
+
+## Single-developer review mode
+
+Repository-owned review tasks use the subagent panel; accountable external
+scientific and data-governance gates remain separate and pending.

@@ -1,5 +1,7 @@
 # Track 009 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; scientific and custodian evidence decisions remain separate.
+
 ## Phase 1 — Information model
 
 - [x] Define parameter, evidence-assessment, assumption and analysis-specification schemas. `[M-03, M-04, M-18]` Evidence: the four JSON Schemas, strict schema collection validation and synthetic fixtures; contracts remain non-binding pending review.

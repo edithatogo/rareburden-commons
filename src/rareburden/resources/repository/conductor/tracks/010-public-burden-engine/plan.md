@@ -1,5 +1,7 @@
 # Track 010 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; scientific, patient/community and engineering dispositions remain separate.
+
 ## Phase 1 — Analysis contracts
 
 - [x] Define supported estimands, inputs, outputs and invalid operations. `[M-03]` Evidence: synthetic reference contract in `docs/burden-engine-010-reference.md` and existing burden tests.

@@ -1,5 +1,7 @@
 # Track 016 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; independent security and named operational-owner acceptance remain separate.
+
 ## Phase 1 — Threat model and support scope
 
 - [x] Threat-model repository, acquisition, build, node, API and release boundaries. Evidence: `docs/security-operations-016-reference.md`; independent review remains open.

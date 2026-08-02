@@ -1,5 +1,7 @@
 # Track 015 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; constituted governance and patient/community authority remain separate.
+
 ## Phase 1 — Constitute governance
 
 - [ ] Draft and approve body charters, appointment and voting rules. `[M-16]`

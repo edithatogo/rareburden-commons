@@ -1,5 +1,7 @@
 # Track 008 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; clinical and patient/community semantic authority remains separate.
+
 ## Phase 1 — Contracts and source releases
 
 - [ ] Define disease-definition and mapping schemas. `[M-01, M-02, M-18]`

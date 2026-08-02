@@ -1,5 +1,7 @@
 # Track 017 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; independent usability, operational ownership and release authority remain separate.
+
 ## Phase 1 — Documentation system
 
 - [x] Complete quickstart, user, developer, methods, operator, steward and release guides. `[V1-DOC-01]` Evidence: `docs/guides/README.md` and role-based guides; methods and quickstart links point to the existing protocol and analyst workflow. This is documentation preparation, not usability evidence.

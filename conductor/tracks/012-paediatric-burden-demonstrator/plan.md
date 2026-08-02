@@ -1,5 +1,7 @@
 # Track 012 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; paediatric, privacy, custodian and patient/community authority remain separate.
+
 ## Phase 1 — Protocol and access pathways
 
 - [ ] Draft RBC-P004 with person-level and aggregate estimands.

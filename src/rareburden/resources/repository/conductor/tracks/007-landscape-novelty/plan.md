@@ -1,5 +1,7 @@
 # Track 007 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; independent methods and patient/community challenge remain separate release gates.
+
 ## Phase 1 — Register the review
 
 - [x] Define provisional questions, inclusion logic, sources and extraction fields.

@@ -1,5 +1,7 @@
 # Track 004 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; custodian, patient/community and independent-operation gates remain separate.
+
 ## Phase 1 — Node contracts and threat model
 
 - [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: four `schemas/node-*.schema.json` contracts and schema-valid synthetic fixtures.

@@ -1,5 +1,7 @@
 # Track 013 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; scientific, equity and patient/community assurance remain separate.
+
 ## Phase 1 — Assurance framework
 
 - [x] Define evidence quality, bias and transportability dimensions. `[M-21, S-07]` Evidence: evidence-assessment, transportability and quality-disposition schemas/validators; summary documented in `docs/quality-validation-013-reference.md`.

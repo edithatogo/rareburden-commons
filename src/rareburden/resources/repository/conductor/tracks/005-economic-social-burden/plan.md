@@ -1,5 +1,7 @@
 # Track 005 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; health-economics, ethics and patient/community authority remain separate gates.
+
 ## Phase 1 — Method and governance
 
 - [ ] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]`

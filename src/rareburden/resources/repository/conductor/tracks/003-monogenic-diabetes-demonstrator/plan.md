@@ -1,5 +1,7 @@
 # Track 003 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; external clinical and patient/community authority remains a separate gate.
+
 ## Phase 1 — Protocol and definitions
 
 - [ ] Draft and register RBC-P002 with explicit estimands and denominator options. `[M-01, M-03, S-05]`
