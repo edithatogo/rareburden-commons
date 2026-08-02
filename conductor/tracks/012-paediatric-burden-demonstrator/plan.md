@@ -4,7 +4,7 @@
 
 ## Phase 1 — Protocol and access pathways
 
-- [ ] Draft RBC-P004 with person-level and aggregate estimands.
+- [ ] Freeze RBC-P004 person-level and aggregate estimands.
 - [ ] Define Australian and New Zealand candidate data pathways and approvals.
 - [ ] Define paediatric disease/coding package and observation windows.
 - [ ] Obtain patient/family, Indigenous/data-governance and clinical review.
@@ -42,6 +42,8 @@
   replication decisions. Evidence:
   `docs/track-012-rbc-p004-review-packet.md`; dependencies and external gates
   remain open.
+- [x] Prepare the non-binding RBC-P004 protocol draft and estimand decision
+  fields; access approvals and contract freeze remain open.
 
 ## Preparation refresh — 2026-08-02
 

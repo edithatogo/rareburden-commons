@@ -4,7 +4,7 @@
 
 ## Phase 1 — Protocol and semantic scope
 
-- [ ] Draft RBC-P003 and define bronchiectasis denominator populations.
+- [ ] Define and freeze bronchiectasis denominator populations.
 - [ ] Define included rare aetiologies and ontology versions. `[M-01, M-02]`
 - [ ] Define multi-aetiology, unclassified and overlapping categories. `[M-05]`
 - [ ] Obtain respiratory and patient/community review.
@@ -41,6 +41,8 @@
   transportability, outcome and framing decisions. Evidence:
   `docs/track-011-rbc-p003-review-packet.md`; dependencies and respiratory,
   methods, engineering and patient/community review remain open.
+- [x] Prepare the non-binding RBC-P003 protocol draft and denominator decision
+  fields; clinical scope freeze and registration remain open.
 
 ## Preparation refresh — 2026-08-02
 
