@@ -24,3 +24,8 @@ repository preparation only. They must not be relabelled as external approval.
 
 Use `docs/external-gate-receipt-template.yml` as the starting shape for a
 submission; replace every blank with an accountable, digest-bound receipt.
+For the Track 017 candidate, maintain gate status in
+`docs/external-gate-register-017.md` and use
+`docs/external-review-request-017.md` when requesting a disposition. Neither
+document is evidence until an accountable submitter completes and signs the
+receipt.

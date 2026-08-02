@@ -43,6 +43,8 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [Remaining gates plan and panel recommendation](docs/remaining-gates-plan.md)
 - [External gate evidence index](docs/external-gate-evidence-index.md)
 - [External gate receipt template](docs/external-gate-receipt-template.yml)
+- [Track 017 external gate register](docs/external-gate-register-017.md)
+- [Track 017 external review request](docs/external-review-request-017.md)
 - [Conductor track review packets](docs/track-review-packets.md)
 - [Track review and closeout packets](docs/track-014-atlas-api-review-packet.md),
   [015 governance](docs/track-015-governance-review-packet.md),

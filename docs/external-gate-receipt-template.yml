@@ -1,6 +1,6 @@
 # Blank template: completion requires an accountable external submitter.
 receipt_schema_version: "0.1.0"
-gate: "scientific|patient_community|custodian_data_governance|independent_operator|operations|release"
+gate: "scientific|patient_community|custodian_data_governance|independent_operator|operational_owners|release"
 decision: "approve|pass|accept|bounded|revise|reject|fail|stop|defer"
 accountable:
   person_or_body: ""
