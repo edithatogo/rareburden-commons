@@ -61,3 +61,11 @@ conflicting or digest-mismatched receipts remain pending.
    tracks complete from local green tests.
 4. Re-run the full local validation after each evidence-bearing change and push
    focused commits.
+
+## Implementation checkpoint — 2026-08-03
+
+- [x] Add a machine-readable schema guard for the blank external receipt
+  template in `schemas/external-gate-receipt.schema.json` and
+  `tests/test_external_gate_receipt_schema.py`.
+- [ ] Validate and attach qualifying receipts; schema validity alone never
+  constitutes an accountable decision.

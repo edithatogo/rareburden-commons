@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/external-gate-receipt.schema.json",
+  "title": "External accountable gate receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["receipt_schema_version", "receipt_id", "gate", "decision", "accountable", "decision_date_utc", "subject", "evidence", "attestation"],
+  "properties": {
+    "receipt_schema_version": {"const": "0.1.0"},
+    "receipt_id": {"type": "string"},
+    "gate": {"type": "string", "minLength": 1},
+    "decision": {"type": "string", "minLength": 1},
+    "accountable": {"type": "object", "additionalProperties": false, "required": ["person_or_body", "role", "organisation_or_constituency", "independence_or_authority_basis"], "properties": {"person_or_body": {"type": "string"}, "role": {"type": "string"}, "organisation_or_constituency": {"type": "string"}, "contact_or_record_locator": {"type": "string"}, "independence_or_authority_basis": {"type": "string"}, "conflict_of_interest": {"type": "string"}, "quorum_or_selection_basis": {"type": "string"}}},
+    "decision_date_utc": {"type": "string"},
+    "expiry_or_review_date_utc": {"type": "string"},
+    "subject": {"type": "object", "additionalProperties": false, "required": ["repository", "commit_or_tag", "manifest_id", "input_manifest_sha256"], "properties": {"repository": {"type": "string"}, "commit_or_tag": {"type": "string"}, "manifest_id": {"type": "string"}, "input_manifest_sha256": {"type": "string"}}},
+    "evidence": {"type": "object", "additionalProperties": false, "required": ["references", "protocol_versions", "commands", "environment", "retained_outputs", "discrepancy_log"], "properties": {"references": {"type": "array"}, "protocol_versions": {"type": "array"}, "commands": {"type": "array"}, "environment": {"type": "string"}, "retained_outputs": {"type": "array"}, "discrepancy_log": {"type": "string"}}},
+    "conditions": {"type": "array"},
+    "dissent_or_limitations": {"type": "array"},
+    "restricted_evidence_pointer": {"type": "string"},
+    "attestation": {"type": "object", "additionalProperties": false, "required": ["submitted_by", "submitted_at_utc", "signature_or_approval_record", "supersedes_receipt_id"], "properties": {"submitted_by": {"type": "string"}, "submitted_at_utc": {"type": "string"}, "signature_or_approval_record": {"type": "string"}, "supersedes_receipt_id": {"type": "string"}}}
+  }
+}

@@ -38,6 +38,7 @@ This directory is the persistent source of truth for the project's context-drive
 - [External-gate panel preparation plan](panel-gate-plan.md)
 - [Tracks 002/007 panel closure plan](../docs/track-002-007-panel-closure-plan-2026-08-02.md)
 - [Repository-owner approval of bounded gate defaults](../docs/decisions/2026-08-03-owner-approval-external-gate-options.md)
+- [Remaining gates plan](../docs/remaining-gates-plan.md)
 - [Requirements traceability](../docs/requirements-traceability.md)
 - [Testing and assurance strategy](../docs/testing-strategy.md)
 - [Release and compatibility policy](../docs/release-policy.md)
