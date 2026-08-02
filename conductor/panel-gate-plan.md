@@ -73,3 +73,6 @@ restricted material may be included.
 The machine-readable contract is
 `schemas/panel-review-packet.schema.json`; the accompanying template and
 synthetic fixture are preparation aids only.
+
+The Track 017 register at `docs/external-gate-register-017.md` is guarded by a
+regression test and must remain pending until qualifying receipts are attached.
