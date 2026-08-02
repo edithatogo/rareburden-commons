@@ -99,3 +99,6 @@ scientific and data-governance gates remain separate and pending.
   pending accountable dispositions in `tests/test_track_002_evidence_request.py`.
 - [x] Add a regression guard proving the external-gate receipt template remains
   blank and non-approving in `tests/test_external_gate_receipt_template.py`.
+- [x] Add a regression guard keeping deferred UN WPP and WHO manifests
+  conditional, candidate-only and pending review in
+  `tests/test_track_002_option_a_scope.py`.
