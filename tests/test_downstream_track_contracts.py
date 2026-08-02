@@ -4,7 +4,6 @@ from pathlib import Path
 
 from rareburden.schema import load_mapping
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
