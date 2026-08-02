@@ -41,3 +41,7 @@
 
 Subagent panels implement and challenge repository-owned preparation. They do
 not satisfy external authority or independent-operation gates.
+
+The approved Option A scope is machine-readable in
+`docs/track-002-option-a-scope.yml`; its activation flag is intentionally
+disabled until the required receipts exist.

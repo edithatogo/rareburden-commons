@@ -84,3 +84,6 @@ scientific and data-governance gates remain separate and pending.
   `docs/track-002-007-closure-plan-2026-08-02.md`.
 - [ ] Obtain qualifying scientific, custodian and Track 007 challenge receipts;
   until then retain `in_review` and registration-only behavior.
+- [x] Encode the approved bounded Option A source scope in
+  `docs/track-002-option-a-scope.yml` with WHO/World Bank deferred and
+  activation disabled.
