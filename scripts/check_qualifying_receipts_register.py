@@ -7,6 +7,7 @@ import argparse
 from pathlib import Path
 
 from rareburden.schema import SchemaValidationError, load_document, load_mapping, validate_instance
+from scripts.check_external_receipt import validate_receipt
 
 REQUIRED_GATES = {
     "scientific",
@@ -52,12 +53,41 @@ def validate_register(path: Path) -> None:
                 )
 
 
+def validate_receipt_binding(register_path: Path, receipt_path: Path) -> None:
+    """Validate an attributable receipt against the register's frozen candidate."""
+    validate_register(register_path)
+    validate_receipt(receipt_path, require_attributable=True)
+    register = load_document(register_path)
+    receipt = load_document(receipt_path)
+    candidate = register["candidate"]
+    subject = receipt["subject"]
+    expected = {
+        "commit_or_tag": candidate["commit_or_tag"],
+        "manifest_id": candidate["manifest_id"],
+        "input_manifest_sha256": candidate["input_manifest_sha256"],
+    }
+    actual = {
+        "commit_or_tag": subject["commit_or_tag"],
+        "manifest_id": subject["manifest_id"],
+        "input_manifest_sha256": subject["input_manifest_sha256"],
+    }
+    mismatches = [key for key in expected if actual[key] != expected[key]]
+    if mismatches:
+        raise SchemaValidationError(
+            "receipt is not bound to the frozen candidate: " + ", ".join(mismatches)
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("register", type=Path)
+    parser.add_argument("--receipt", type=Path)
     args = parser.parse_args()
     try:
-        validate_register(args.register)
+        if args.receipt is None:
+            validate_register(args.register)
+        else:
+            validate_receipt_binding(args.register, args.receipt)
     except (OSError, KeyError, SchemaValidationError) as exc:
         print(f"Qualifying receipts register failed: {exc}")
         return 1
