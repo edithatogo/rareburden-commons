@@ -51,6 +51,11 @@
   contingencies and recommendation in
   `docs/track-014-implementation-plan-2026-08-02.md`.
 - [ ] Implement the recommended static-first reviewed-release slice.
+- [x] Implement the metadata-only static-first gap-product slice. Evidence:
+  `generate-gap-map`, `src/rareburden.gapmap.render_gap_map_markdown`, and
+  `tests/test_gapmap.py` produce schema-valid accessible Markdown/JSON with
+  explicit missingness, readiness and limitations; no API or beta publication
+  is enabled.
 - [ ] Project the same release into a versioned aggregate package and read-only
   API with parity checks.
 - [ ] Complete accessibility, independent-operator and release-authority gates
