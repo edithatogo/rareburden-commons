@@ -26,7 +26,10 @@
 ## Phase 4 — Review and compatibility
 
 - [ ] Run independent semantic/methods review.
-- [ ] Add schema migration and ontology-update impact tests.
+- [x] Add schema migration and ontology-update impact tests for synthetic
+  mapping releases. Evidence: `tests/test_semantics.py` covers deterministic
+  release diffs, added/removed/changed impact summaries and migration receipts;
+  live ontology release pinning remains open.
 - [x] Add deterministic migration-receipt fingerprint coverage. Evidence:
   `test_mapping_diff_binds_both_release_fingerprints`; source-release approval
   and clinical semantic authority remain external gates.
