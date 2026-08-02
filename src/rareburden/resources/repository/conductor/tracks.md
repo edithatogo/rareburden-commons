@@ -40,3 +40,10 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 ## Parallel work now permitted
 
 Tracks 002, 007 and 018 form the v0.3 release. Track 018 is internally complete; Tracks 002 and 007 remain in review pending external evidence. No downstream track should be marked Active until the validator confirms its dependencies are complete and its owner role is assigned.
+
+## Single-developer review mode
+
+Repository-owned review evidence for every track is produced by the subagent
+review panel under `docs/decisions/ADR-0008-single-developer-review-mode.md`.
+Track plans must not imply another maintainer or internal human reviewer. This
+does not waive qualifying external independence or accountable-authority gates.
