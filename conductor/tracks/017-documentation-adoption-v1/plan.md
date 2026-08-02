@@ -67,3 +67,17 @@ usability or reproduction gates.
   candidate builds remain open pending locked-environment execution.
 - [ ] Keep v1.0.0 tagging, stable-release claims and support promises disabled
   until every accountable lane is dispositioned.
+
+## Implementation planning — 2026-08-02
+
+- [x] Add the dependency-ordered independent usability, reproduction,
+  ownership and stable-release plan with options, contingencies and
+  recommendation in `docs/track-017-v1-implementation-plan-2026-08-02.md`.
+- [ ] Freeze and reproduce two clean release candidates from locked
+  environments.
+- [ ] Obtain two independent usability receipts and one independent
+  reproduction/equivalence report.
+- [ ] Record primary/backup ownership, succession, support boundaries and
+  approved sustainability costs.
+- [ ] Assemble the v1 evidence index and complete accountable release gates.
+- [ ] Verify public artefacts only after a release-authority decision.
