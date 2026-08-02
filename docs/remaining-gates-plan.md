@@ -79,5 +79,8 @@ The candidate-freeze options and decision sequence are in
   `qualifying-receipts-check` intake guard.
 - [x] Freeze the bounded synthetic-assurance candidate as
   `candidate-2026-08-03` with manifest `rel-b213c531a6b754940f80ab70`.
+- [x] Prepare the six digest-bound receipt requests in
+  `docs/qualifying-receipt-request-bundle-2026-08-03.yml`; requests remain
+  unsent until routed through the agreed secure channels.
 - [ ] Validate and attach qualifying receipts; schema validity alone never
   constitutes an accountable decision.

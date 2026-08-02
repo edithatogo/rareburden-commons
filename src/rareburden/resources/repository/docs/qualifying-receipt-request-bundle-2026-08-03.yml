@@ -1,0 +1,36 @@
+schema_version: "0.1.0"
+status: "prepared_not_sent"
+candidate:
+  repository: "edithatogo/rareburden-commons"
+  tag: "candidate-2026-08-03"
+  manifest_id: "rel-b213c531a6b754940f80ab70"
+  input_manifest_sha256: "d3aafd7367609050d6a4c9926a8ddca3013085362f78abd319dd582135612389"
+return_instructions:
+  channel: "secure_agreed_channel"
+  repository_retention: "redacted_locator_and_sha256_only"
+  do_not_send: "credentials, participant data, restricted source bytes"
+requests:
+  - gate: "scientific"
+    packet_route: "tracks/002,003,005,007,008,009,010,011,012,013 review packets"
+    decision_options: ["approve", "bounded", "revise", "stop"]
+    minimum_evidence: "sources, estimands, denominators, uncertainty, limitations, residual-risk owner"
+  - gate: "patient_community"
+    packet_route: "tracks/003,005,010,011,012,013,015,017 review packets"
+    decision_options: ["approve", "bounded", "revise", "stop"]
+    minimum_evidence: "acceptable use, harms, language, accessibility, equity, dissent and permitted wording"
+  - gate: "custodian_data_governance"
+    packet_route: "tracks/002,004,008,009,012,014,015 review packets"
+    decision_options: ["approve", "bounded", "revise", "stop"]
+    minimum_evidence: "terms, retention, redistribution, withdrawal, disclosure thresholds and pilot boundaries"
+  - gate: "independent_operator"
+    packet_route: "tracks/004,014,016,017 operator packets"
+    decision_options: ["pass", "bounded", "revise", "fail"]
+    minimum_evidence: "clean environment, commands, outputs, checksums, discrepancies and usability result"
+  - gate: "operational_owners"
+    packet_route: "tracks/016,017 ownership packets"
+    decision_options: ["accept", "bounded", "revise", "stop"]
+    minimum_evidence: "named primary/backup, support, incident, recovery, succession and capacity acceptance"
+  - gate: "release"
+    packet_route: "tracks/014,016,017 release packets"
+    decision_options: ["release", "bounded", "revise", "stop"]
+    minimum_evidence: "final audit, residual risks, exclusions, conditions and exact candidate decision"
