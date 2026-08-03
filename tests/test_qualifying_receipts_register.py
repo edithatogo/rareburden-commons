@@ -17,13 +17,14 @@ REGISTER = ROOT / "docs/qualifying-receipts-register.yml"
 def test_qualifying_receipts_register_is_complete_and_pending() -> None:
     document = load_document(REGISTER)
     validate_register(REGISTER)
-    assert {entry["status"] for entry in document["gates"]} == {"pending"}
+    assert document["gates"][0]["status"] == "verified"
+    assert {entry["status"] for entry in document["gates"][1:]} == {"pending"}
 
 
 def test_verified_gate_requires_receipt_metadata(tmp_path: Path) -> None:
     document = load_document(REGISTER)
     document = copy.deepcopy(document)
-    document["gates"][0]["status"] = "verified"
+    document["gates"][1]["status"] = "verified"
     path = tmp_path / "register.yml"
     path.write_text(yaml.safe_dump(document, sort_keys=False), encoding="utf-8")
     with pytest.raises(SchemaValidationError, match="lacks receipt identity"):
