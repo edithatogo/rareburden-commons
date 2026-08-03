@@ -18,6 +18,10 @@
   selectors, geography/year filters, transformations and fail-closed rules.
   Evidence: `docs/track-002-final-extraction-specification.yml` and
   `tests/test_track_002_extraction_spec.py`.
+- [x] Instantiate the coverage and representativeness matrix for every
+  estimand, including missingness, ascertainment, bias and transportability
+  limits. Evidence: `docs/track-002-coverage-matrix.yml` and
+  `tests/test_track_002_coverage_matrix.py`.
 
 ## Phase 2 — Common acquisition framework
 
