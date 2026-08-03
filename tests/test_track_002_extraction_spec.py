@@ -46,3 +46,10 @@ def test_extraction_source_manifest_paths_exist() -> None:
     for row in document["extractions"]:
         manifest_path = row["source_manifest"].split("#", 1)[0]
         assert (root / manifest_path).is_file(), manifest_path
+
+
+def test_extraction_activation_states_are_bounded() -> None:
+    document = yaml.safe_load(SPEC.read_text(encoding="utf-8"))
+    allowed = {"disabled_pending_receipts", "candidate_only", "probe_only"}
+    assert {row["activation"] for row in document["extractions"]} <= allowed
+    assert "active" not in {row["activation"] for row in document["extractions"]}
