@@ -25,3 +25,7 @@ mappings:
   - synthetic-fixture-orphadata-791
 limitations:
 - This mapping set is synthetic and not a clinical terminology product.
+- Source codes are synthetic assurance references, not production terminology identifiers.
+- Accepted mappings and mutually-exclusive examples are illustrative only; real-world overlap,
+  coverage and exhaustiveness have not been established.
+- Residual or unresolved categories must not be interpreted as a clinical diagnosis.
