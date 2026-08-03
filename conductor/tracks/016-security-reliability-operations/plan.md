@@ -53,8 +53,10 @@
   production exercise and named-owner acceptance remain open.
 - [x] Add deterministic benchmark tests. Evidence: `tests/test_burden_benchmark.py`
   covers reproducibility and fail-closed budget violations.
-- [ ] Add package-size resource-regression tests; package-size budgets remain
-  open pending a release-artifact policy.
+- [x] Add provisional package-size resource-regression policy and fail-closed
+  checker. Evidence: `docs/track-016-package-size-policy.yml`,
+  `scripts/check_package_size_policy.py` and `make package-size-check`.
+  Installed-footprint and wheelhouse budgets remain separately measured.
 - [x] Add a representative large-workload resource-regression test. Evidence:
   `tests/test_burden_benchmark.py` runs the 100,000-iteration synthetic
   workload under the bounded 15-second envelope; this remains synthetic

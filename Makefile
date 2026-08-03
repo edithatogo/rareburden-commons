@@ -8,7 +8,11 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
 	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
-	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check qualifying-receipts-check check ci release-check clean
+	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check qualifying-receipts-check package-size-check check ci release-check clean
+
+package-size-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_package_size_policy.py \
+		docs/track-016-package-size-policy.yml --root .
 
 external-receipt-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_external_receipt.py \
@@ -144,7 +148,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check release-identity node-reproducibility burden-benchmark \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check package-size-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility

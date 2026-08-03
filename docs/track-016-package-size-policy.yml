@@ -1,0 +1,20 @@
+schema_version: "0.1.0"
+policy_type: synthetic_release_package_size
+status: provisional_non_production
+candidate_tag: candidate-2026-08-03
+limits:
+  wheel_bytes: 2097152
+  sdist_bytes: 2097152
+  installed_package_bytes: 5242880
+  offline_runtime_wheelhouse_bytes: 10485760
+  temporary_install_disk_bytes: 26214400
+measurement:
+  archive_paths:
+    wheel: dist/rareburden-0.3.0rc2-py3-none-any.whl
+    sdist: dist/rareburden-0.3.0rc2.tar.gz
+  required_hashes:
+    wheel: 996c4e10aa17d283c295702ff164ab89daba55e15ae5e657e8a37f6c72e2c46d
+    sdist: 50a8a8f8d9cc4b513f24a82c48682d311a5cb4a914442e2c28919eee50f04358
+  method: regular-file-stat-and-sha256
+  platform_scope: macos-arm64-python-3.13-synthetic-rehearsal
+  notes: Limits are engineering guardrails, not service-level or real-world capacity claims.
