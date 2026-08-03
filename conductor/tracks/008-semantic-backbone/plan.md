@@ -81,6 +81,8 @@
 - [x] Prepare the panel-assurance semantic/methods challenge packet with
   quorum, role separation, dissent, required outputs and stop triggers.
   Evidence: `docs/track-008-semantic-challenge-panel-2026-08-03.yml`.
+- [x] Prepare the naming, grouping, accessibility and harm-review packet.
+  Evidence: `docs/track-008-naming-harm-review-packet-2026-08-03.yml`.
 - [ ] Execute the panel challenge and disposition findings.
 - [ ] Obtain accountable clinical/patient-community naming disposition.
 - [ ] Pin approved source releases and confirm licence/redistribution terms.

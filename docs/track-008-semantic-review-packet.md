@@ -30,6 +30,9 @@ until Tracks 002 and 007 pass their gates.
 - `docs/track-008-semantic-challenge-panel-2026-08-03.yml` defines the
   panel-assurance challenge, quorum, questions, dissent and stop triggers; it
   is not an external authority receipt.
+- `docs/track-008-naming-harm-review-packet-2026-08-03.yml` defines the
+  bounded label, grouping, accessibility and harm questions for panel advice;
+  contested terminology remains fail-closed.
 
 ## Required release packet before activation
 
