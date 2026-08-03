@@ -14,6 +14,10 @@
   `docs/track-002-coverage-representativeness-plan-2026-08-03.md`.
 - [x] Add the candidate-bound final extraction specification plan. Evidence:
   `docs/track-002-final-extraction-specification-plan-2026-08-03.md`.
+- [x] Instantiate the registration-only extraction specification with exact
+  selectors, geography/year filters, transformations and fail-closed rules.
+  Evidence: `docs/track-002-final-extraction-specification.yml` and
+  `tests/test_track_002_extraction_spec.py`.
 
 ## Phase 2 — Common acquisition framework
 
