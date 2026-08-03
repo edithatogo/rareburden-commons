@@ -115,6 +115,15 @@
 - [ ] Complete independent security/operator and release-authority gates before
   production-hardening activation.
 
+## Release disposition — 2026-08-03
+
+- [x] Record a time-limited bounded owner disposition for the frozen
+  synthetic/public candidate. Evidence:
+  `docs/decisions/2026-08-03-owner-bounded-release-disposition.md`.
+- [ ] Obtain a qualifying release-authority receipt before any stable-v1,
+  hosted, controlled-data or production claim; the owner disposition is not an
+  independent or external release approval.
+
 ## Clean-node rehearsal follow-up — 2026-08-03
 
 - [x] Re-run the normative Python 3.13 offline-node rehearsal with the locked
