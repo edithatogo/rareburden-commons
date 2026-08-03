@@ -1,6 +1,9 @@
 # Track 016 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; independent security and named operational-owner acceptance remain separate.
+> Single-developer repository: `edithatogo` is the sole developer, repository
+> owner and primary operator. Owner-operated evidence is allowed and labelled;
+> independent security, independent operator and qualifying backup-owner gates
+> remain separate.
 
 ## Phase 1 — Threat model and support scope
 

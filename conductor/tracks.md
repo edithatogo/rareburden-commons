@@ -48,6 +48,13 @@ review panel under `docs/decisions/ADR-0008-single-developer-review-mode.md`.
 Track plans must not imply another maintainer or internal human reviewer. This
 does not waive qualifying external independence or accountable-authority gates.
 
+The repository owner (`edithatogo`) is also the sole developer and primary
+operator. Owner-operated implementation, validation, support preparation and
+bounded release decisions are permitted and must be labelled as owner-operated.
+No backup owner, independent operator, independent security reviewer or
+external release authority is inferred from that role; unresolved gates remain
+pending until their qualifying evidence exists.
+
 The dependency-ordered panel workflow for scientific/clinical, patient/community,
 custodian/data-governance, independent-operator and release gates is documented
 in [`panel-gate-plan.md`](panel-gate-plan.md). Panels prepare and challenge
