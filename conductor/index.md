@@ -42,6 +42,7 @@ This directory is the persistent source of truth for the project's context-drive
 - [Frozen candidate and receipts decision plan](../docs/frozen-candidate-and-receipts-decision-plan-2026-08-03.md)
 - [Receipt routing and response plan](../docs/receipt-routing-and-response-plan-2026-08-03.md)
 - [Panel-agent task contract](../docs/panel-agent-task-contract-2026-08-03.md)
+- [Panel assurance report for frozen candidate](../docs/panel-assurance-report-candidate-2026-08-03.md)
 - [Remaining gates plan](../docs/remaining-gates-plan.md)
 - [Requirements traceability](../docs/requirements-traceability.md)
 - [Testing and assurance strategy](../docs/testing-strategy.md)

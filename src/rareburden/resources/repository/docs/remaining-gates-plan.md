@@ -73,6 +73,8 @@ The secure routing and response workflow is in
 Panel-only operation and agent input/output requirements are defined in
 `docs/subagent-review-panel-policy.md` and
 `docs/panel-agent-task-contract-2026-08-03.md`.
+The completed panel assurance and bounded follow-up options are recorded in
+`docs/panel-assurance-report-candidate-2026-08-03.md`.
 
 - [x] Add a machine-readable schema guard for the blank external receipt
   template in `schemas/external-gate-receipt.schema.json` and
