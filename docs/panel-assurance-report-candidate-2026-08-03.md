@@ -14,7 +14,7 @@ integrity; independent operator and operational ownership.
 
 | Gate | Panel recommendation | Permitted now | Prohibited claim |
 | --- | --- | --- | --- |
-| Scientific/source methods | `bound` | Methods-only and synthetic/public preparation; narrow Orphadata + UN WPP candidate posture | Validated prevalence/incidence, completeness, causal or broad cross-source claims |
+| Scientific/source methods | `bound` (owner-attributable receipt recorded) | Methods-only and synthetic/public preparation; narrow Orphadata + UN WPP candidate posture | Validated prevalence/incidence, completeness, causal or broad cross-source claims |
 | Custodian/data governance | `bound` | Metadata, URLs/releases/hashes and derived-aggregate design; no raw redistribution | Confirmed redistribution, archival, retention or third-party rights |
 | Patient/community | `bound` with revise trigger | Offline docs, synthetic fixtures, public methods and accessibility planning | Consent, endorsement, patient-facing deployment or Indigenous/LMIC conclusions |
 | Independent operator | `revise`/pending | Repository-owned clean-room rehearsal and synthetic recovery exercise | Independent reproduction or independent-release claim |
@@ -62,7 +62,9 @@ reproduction failure.
 
 ## Required follow-up
 
-1. Keep all six qualifying register entries `pending`.
+1. Keep the five external/independence-sensitive qualifying register entries
+   `pending`; the scientific entry now records an owner-attributable bounded
+   disposition and is not independent review.
 2. Execute the clean-room operator rehearsal and synthetic rollback exercise.
 3. Complete the panel wording/accessibility pass and remove endorsement or
    production implications.
