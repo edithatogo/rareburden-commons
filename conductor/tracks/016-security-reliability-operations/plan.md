@@ -125,6 +125,11 @@
   plan with panel and owner-operated boundaries. Evidence:
   `docs/track-016-independent-security-operator-plan-2026-08-03.md`; the
   qualifying independent receipts remain pending.
+- [x] Add the candidate-bound qualifying evidence matrix for independent
+  reproduction, security, continuity and recovery/rollback. Evidence:
+  `docs/track-016-qualifying-evidence-matrix-2026-08-03.yml` and
+  `tests/test_track_016_qualifying_matrix.py`; all qualifying statuses remain
+  pending.
 
 ## Release disposition — 2026-08-03
 
