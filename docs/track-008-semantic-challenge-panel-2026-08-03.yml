@@ -1,0 +1,34 @@
+schema_version: "0.1.0"
+track: "008-semantic-backbone"
+mode: "panel_assurance"
+status: "prepared_pending_execution"
+reviewed_candidate: "synthetic-public-semantic-preview"
+accountable_gate_boundary: "panel_cannot_replace_external_scientific_clinical_or_patient_community_authority"
+panel:
+  quorum: 3
+  roles:
+    - "methods_and_semantics"
+    - "data_governance_and_security"
+    - "patient_community_and_usability"
+questions:
+  - id: "SEM-01"
+    question: "Are identifiers, relations, hierarchy membership and aggregation contracts internally coherent?"
+  - id: "SEM-02"
+    question: "Could any mapping create double counting, silent exclusion, or unsupported clinical claims?"
+  - id: "SEM-03"
+    question: "Are labels, grouping choices and residual categories understandable and harm-aware?"
+  - id: "SEM-04"
+    question: "Do source-release, licence, migration and rollback fields support reproducible activation?"
+required_output:
+  - "candidate_commit"
+  - "evidence_manifest_digest"
+  - "findings_by_question"
+  - "uncertainty_and_conflicts"
+  - "dissent"
+  - "recommendation: accept|revise|bounded|reject"
+  - "external_receipts_still_required"
+stop_triggers:
+  - "critical semantic double counting or unsafe aggregation"
+  - "unresolved rights or redistribution restriction"
+  - "material naming or interpretation harm without a bounded mitigation"
+  - "candidate cannot be reconstructed from recorded inputs"

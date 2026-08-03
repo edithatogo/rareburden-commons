@@ -71,3 +71,18 @@
 - [x] Implement deterministic human-readable semantic-release rendering for
   validated synthetic mappings in `rareburden.semantics` with limitation
   disclosure; production source-pinned release remains open.
+
+## Bounded gate preparation — 2026-08-03
+
+- [x] Prepare the exact source-release/licence inventory with null-safe release,
+  checksum, terms and redistribution fields. Evidence:
+  `docs/track-008-source-release-inventory-2026-08-03.yml`; activation remains
+  disabled until accountable dispositions are recorded.
+- [x] Prepare the panel-assurance semantic/methods challenge packet with
+  quorum, role separation, dissent, required outputs and stop triggers.
+  Evidence: `docs/track-008-semantic-challenge-panel-2026-08-03.yml`.
+- [ ] Execute the panel challenge and disposition findings.
+- [ ] Obtain accountable clinical/patient-community naming disposition.
+- [ ] Pin approved source releases and confirm licence/redistribution terms.
+- [ ] Freeze v0.4 semantic contracts only after all blocking findings and
+  upstream Track 002/007 gates are closed.

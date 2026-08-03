@@ -25,6 +25,11 @@ until Tracks 002 and 007 pass their gates.
 - Synthetic golden fixtures cover monogenic diabetes, bronchiectasis and
   paediatric examples; they are not clinical evidence.
 - Track 002 and Track 007 review records remain the upstream gate references.
+- `docs/track-008-source-release-inventory-2026-08-03.yml` records candidate
+  sources, unresolved release/checksum/terms fields and fail-closed activation.
+- `docs/track-008-semantic-challenge-panel-2026-08-03.yml` defines the
+  panel-assurance challenge, quorum, questions, dissent and stop triggers; it
+  is not an external authority receipt.
 
 ## Required release packet before activation
 

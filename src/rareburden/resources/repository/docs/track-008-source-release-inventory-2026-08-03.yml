@@ -1,0 +1,47 @@
+schema_version: "0.1.0"
+track: "008-semantic-backbone"
+status: "preparation_only"
+activation: "disabled_until_source_terms_and_accountable_dispositions"
+candidate_scope: "synthetic_public_semantic_preview"
+records:
+  - source_id: "orphadata-science"
+    role: "identifier_alignment_candidate"
+    release: "not_pinned"
+    retrieval_url: "https://www.orphadata.com/"
+    content_sha256: null
+    licence_state: "candidate_cc_by_4_0_pending_confirmation"
+    redistribution: "derived_metadata_only_pending_confirmation"
+    mapping_use: "disabled"
+    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
+  - source_id: "un-world-population-prospects"
+    role: "denominator_candidate"
+    release: "2024_candidate_not_pinned"
+    retrieval_url: "https://population.un.org/wpp/"
+    content_sha256: null
+    licence_state: "conditional_pending_confirmation"
+    redistribution: "metadata_and_derived_aggregates_only_pending_confirmation"
+    mapping_use: "disabled"
+    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
+  - source_id: "who-global-health-estimates"
+    role: "burden_envelope_candidate"
+    release: "2021_candidate_not_pinned"
+    retrieval_url: "https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates"
+    content_sha256: null
+    licence_state: "conditional_pending_confirmation"
+    redistribution: "metadata_and_derived_aggregates_only_pending_confirmation"
+    mapping_use: "disabled"
+    required_receipts: ["scientific", "custodian_data_governance"]
+  - source_id: "world-bank-indicators-api"
+    role: "denominator_cross_check"
+    release: "endpoint_probe_only"
+    retrieval_url: "https://api.worldbank.org/v2/"
+    content_sha256: null
+    licence_state: "public_api_terms_pending_confirmation"
+    redistribution: "response_hash_only"
+    mapping_use: "disabled"
+    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
+fail_closed_rules:
+  - "null release or checksum prevents activation"
+  - "unresolved licence or third-party terms prevent redistribution"
+  - "source changes require a new release record and impact assessment"
+  - "synthetic fixtures do not satisfy source authority"
