@@ -53,8 +53,12 @@
   production exercise and named-owner acceptance remain open.
 - [x] Add deterministic benchmark tests. Evidence: `tests/test_burden_benchmark.py`
   covers reproducibility and fail-closed budget violations.
-- [ ] Add package-size and representative large-workload resource-regression
-  tests; the bounded runtime benchmark below does not close those budgets.
+- [ ] Add package-size resource-regression tests; package-size budgets remain
+  open pending a release-artifact policy.
+- [x] Add a representative large-workload resource-regression test. Evidence:
+  `tests/test_burden_benchmark.py` runs the 100,000-iteration synthetic
+  workload under the bounded 15-second envelope; this remains synthetic
+  evidence and makes no real-world capacity claim.
 - [x] Add a bounded runtime regression gate for the synthetic reference burden
   workload. Evidence: `scripts/check_burden_benchmark.py` runs in `make check`;
   memory, package-size and representative large-workload budgets remain open.
