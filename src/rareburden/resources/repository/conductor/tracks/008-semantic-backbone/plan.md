@@ -27,8 +27,11 @@
 - [x] Implement mapping loader, query and version-diff tooling. Evidence: validated `diff_mapping_sets` release impact report and focused tests in `d93d55e`; source-release pinning remains external-gated.
 - [x] Add hierarchy conservation, parent/child and ambiguity tests. Evidence: `2e5224c`; golden demonstrator conservation tests cover the supported synthetic hierarchies.
 - [x] Add golden fixtures for monogenic diabetes, bronchiectasis and paediatric use. Evidence: `2e5224c`; all fixtures are synthetic and non-clinical.
-- [ ] Generate machine-readable and human-readable semantic releases from
-  source-pinned inputs.
+- [x] Generate machine-readable and human-readable semantic releases from
+  validated synthetic inputs. Evidence: `examples/semantics/orpha-to-synthetic-mapping.yml`
+  and its deterministic rendered companion under
+  `examples/semantics/releases/`; source-pinned production generation remains
+  blocked until Track 002 source terms and semantic authority are approved.
 
 ## Phase 4 — Review and compatibility
 
