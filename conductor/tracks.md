@@ -60,3 +60,6 @@ custodian/data-governance, independent-operator and release gates is documented
 in [`panel-gate-plan.md`](panel-gate-plan.md). Panels prepare and challenge
 packets; the accountable receipts remain pending until supplied or the affected
 claim is explicitly bounded out of scope.
+
+The current candidate-bound ledger is maintained in
+[`docs/remaining-gates-current-state-2026-08-03.md`](../docs/remaining-gates-current-state-2026-08-03.md).
