@@ -6,6 +6,14 @@
 - [ ] Select and evidence exact production files/endpoints for each supported live source. `[M-03, M-09]`
 - [x] Add source-release, acquisition-manifest and normalisation-manifest schemas. `[M-11, M-18, M-20]`
 - [x] Extend geography, representativeness and verification fields in the source catalogue. `[M-07]`
+- [x] Add the source-specific estimand matrix with explicit numerator,
+  denominator, metric, geography/year scope and prohibited claims. Evidence:
+  `docs/track-002-estimand-matrix.yml`; activation remains conditional.
+- [x] Add the coverage and representativeness plan with options and
+  contingencies. Evidence:
+  `docs/track-002-coverage-representativeness-plan-2026-08-03.md`.
+- [x] Add the candidate-bound final extraction specification plan. Evidence:
+  `docs/track-002-final-extraction-specification-plan-2026-08-03.md`.
 
 ## Phase 2 — Common acquisition framework
 
