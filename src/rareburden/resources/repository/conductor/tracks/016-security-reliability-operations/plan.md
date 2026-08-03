@@ -108,3 +108,16 @@
 - [ ] Record named primary/backup operational owners and escalation acceptance.
 - [ ] Complete independent security/operator and release-authority gates before
   production-hardening activation.
+
+## Clean-node rehearsal follow-up — 2026-08-03
+
+- [ ] Re-run the normative Python 3.13 offline-node rehearsal after restoring a
+  matching `cp313` PyYAML wheel (or on the supported hosted runner). The local
+  arm64 wheelhouse currently exposes only a `cp314` wheel, so the 3.13 attempt
+  is blocked before installation.
+- [x] Run a supplemental network-disabled Python 3.14 rehearsal. Evidence:
+  `dist/offline-install-receipt.json`; this is local compatibility evidence,
+  not an independent operator receipt or release approval.
+- [ ] Keep the release runtime at Python 3.13 unless a separately recorded
+  compatibility decision changes the support matrix and refreshes the frozen
+  candidate.
