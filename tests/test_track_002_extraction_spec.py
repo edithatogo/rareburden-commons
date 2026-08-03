@@ -29,6 +29,7 @@ def test_extraction_spec_has_fail_closed_rules_and_exact_filters() -> None:
         assert row["geography_filter"]
         assert row["year_filter"]
         assert row["transformation"]
+        assert row["coverage_matrix_ref"].startswith("docs/track-002-coverage-matrix.yml#")
 
 
 def test_extraction_and_coverage_rows_have_one_to_one_estimand_identity() -> None:
