@@ -9,7 +9,7 @@ records:
     release: "not_pinned"
     retrieval_url: "https://www.orphadata.com/"
     content_sha256: null
-    licence_state: "candidate_cc_by_4_0_pending_confirmation"
+    licence_state: "cc_by_4_0_observed_exact_release_confirmation_pending"
     redistribution: "derived_metadata_only_pending_confirmation"
     mapping_use: "disabled"
     required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
