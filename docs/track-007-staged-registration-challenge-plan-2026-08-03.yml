@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+track: "007-landscape-novelty"
+decision: "repository_owner_approved_option_a"
+status: "registration_and_challenge_preparation"
+protocol:
+  protocol_id: "RBC-LAND-007"
+  version: "0.1.0"
+  search_log: "docs/track-007-search-log-2026-08-01.yml"
+  screening_workflow: "docs/landscape-screening-007.md"
+  registration_packet: "docs/track-007-registration-packet.md"
+  amendments: "new_version_required_for_material_change"
+gates:
+  external_registration:
+    status: "pending"
+    required: ["registry_identifier", "registration_timestamp", "frozen_protocol_hash", "search_strategy_hash"]
+  independent_methods_challenge:
+    status: "pending"
+    required: ["independent_identity", "frozen_protocol_binding", "findings", "dissent", "claim_revision"]
+  patient_community_interpretation:
+    status: "pending"
+    required: ["constituency_or_body", "acceptable_use", "harm_and_accessibility", "interpretation_limits", "dissent"]
+bounded_fallbacks:
+  panel_only: "panel_assurance; provisional methods and synthetic screening only"
+  registration_only: "protocol precedence without novelty or completeness claims"
+  preparation_only: "protocol, inventory, screening and exclusions templates only"
+  stop: "material methodological, safety or interpretation failure"
+claims_disabled_until_gates:
+  - "comprehensive landscape"
+  - "global completeness"
+  - "novelty confirmed by independent challenge"
+  - "partnership or endorsement"

@@ -72,6 +72,10 @@
 - [x] Add the joint Track 002/007 panel closure plan with options,
   contingencies and dependency sequence in
   `docs/track-002-007-panel-closure-plan-2026-08-02.md`.
+- [x] Record the approved staged registration, independent methods challenge
+  and patient/community interpretation plan with bounded fallbacks. Evidence:
+  `docs/track-007-staged-registration-challenge-plan-2026-08-03.yml` and
+  `tests/test_track_007_staged_plan.py`; external gates remain pending.
 - [x] Prepare a schema-valid synthetic Track 007 panel packet with pending
   registration and challenge receipts in `examples/fixtures/track-007-panel-packet-synthetic.json`.
 - [ ] Obtain protocol registration, independent methods challenge and
