@@ -112,6 +112,10 @@
 - [ ] Implement and execute clean-environment backup, restore and rollback
   exercises with redacted, hash-bound receipts.
 - [ ] Record named primary/backup operational owners and escalation acceptance.
+- [x] Record bounded repository-owner primary acceptance and explicit
+  unassigned-backup contingency. Evidence:
+  `docs/decisions/2026-08-03-owner-operated-operations-acceptance.md`; this
+  does not close the qualifying operational-owner gate.
 - [ ] Complete independent security/operator and release-authority gates before
   production-hardening activation.
 
