@@ -6,6 +6,7 @@ import yaml
 
 SPEC = Path(__file__).parents[1] / "docs/track-002-final-extraction-specification.yml"
 COVERAGE = Path(__file__).parents[1] / "docs/track-002-coverage-matrix.yml"
+TERMS = Path(__file__).parents[1] / "docs/track-002-source-terms-matrix.yml"
 
 
 def test_extraction_spec_is_candidate_bound_and_inactive() -> None:
@@ -53,3 +54,11 @@ def test_extraction_activation_states_are_bounded() -> None:
     allowed = {"disabled_pending_receipts", "candidate_only", "probe_only"}
     assert {row["activation"] for row in document["extractions"]} <= allowed
     assert "active" not in {row["activation"] for row in document["extractions"]}
+
+
+def test_extraction_sources_have_terms_records() -> None:
+    extraction = yaml.safe_load(SPEC.read_text(encoding="utf-8"))
+    terms = yaml.safe_load(TERMS.read_text(encoding="utf-8"))
+    extraction_sources = {row["source_id"] for row in extraction["extractions"]}
+    terms_sources = {row["source_id"] for row in terms["records"]}
+    assert extraction_sources <= terms_sources
