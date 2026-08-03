@@ -88,6 +88,10 @@
 - [x] Add a synthetic four-candidate source-change mutation matrix covering
   checksum drift, redaction and non-promotion. Evidence: parametrized CLI
   integration test in `tests/test_cli_integration.py`.
+- [x] Record a read-only live reachability probe for the pinned candidate URLs;
+  HTTP reachability is explicitly not treated as terms, scientific or
+  redistribution approval. Evidence:
+  `docs/track-002-live-reachability-probe-2026-08-03.md`.
 
 ## Single-developer review mode
 
