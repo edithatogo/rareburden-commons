@@ -63,3 +63,7 @@ claim is explicitly bounded out of scope.
 
 The current candidate-bound ledger is maintained in
 [`docs/remaining-gates-current-state-2026-08-03.md`](../docs/remaining-gates-current-state-2026-08-03.md).
+
+The dependency-ordered downstream preparation boundary for Tracks 008–017 is
+maintained in
+[`docs/downstream-bounded-preparation-plan-2026-08-03.yml`](../docs/downstream-bounded-preparation-plan-2026-08-03.yml).
