@@ -1,0 +1,21 @@
+schema_version: "0.1.0"
+status: "bounded_owner_disposition_recorded"
+candidate:
+  tag: "candidate-2026-08-03"
+  peeled_commit: "9e668ce9dc860daeb45dac135b58ba203d30b239"
+  manifest_id: "rel-b213c531a6b754940f80ab70"
+  input_manifest_sha256: "d3aafd7367609050d6a4c9926a8ddca3013085362f78abd319dd582135612389"
+owner_disposition:
+  role: "repository_owner_release_decider"
+  decision: "bounded"
+  record: "docs/decisions/2026-08-03-owner-bounded-release-disposition.md"
+  expiry_or_review: "2026-09-03"
+stable_release_receipt:
+  status: "pending"
+  required_gates: ["scientific", "patient_community", "custodian_data_governance", "independent_operator", "independent_security", "operational_owners"]
+  required_artifacts: ["exact_head_hosted_ci", "release_manifest", "sbom", "provenance", "rollback_receipt", "risk_register"]
+  decisions: ["release", "bounded", "revise", "stop"]
+candidate_change:
+  action: "supersede_and_reissue"
+  old_receipts: "immutable_and_not_reused"
+stop_triggers: ["critical_security", "rights_failure", "scientific_failure", "reproduction_mismatch", "recovery_failure", "unresolved_conflict"]

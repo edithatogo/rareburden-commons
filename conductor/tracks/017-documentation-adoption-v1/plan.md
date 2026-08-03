@@ -1,5 +1,13 @@
 # Track 017 plan
 
+## Release-authority preparation — 2026-08-03
+
+- [x] Record the candidate-bound bounded owner disposition and stable-release
+  receipt prerequisites. Evidence:
+  `docs/release-authority-receipt-plan-2026-08-03.yml` and
+  `tests/test_release_authority_receipt_plan.py`; stable release remains
+  pending.
+
 > Repository-owned review uses the subagent panel under ADR-0008; independent usability, operational ownership and release authority remain separate.
 
 ## Phase 1 — Documentation system
