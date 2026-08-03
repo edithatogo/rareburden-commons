@@ -38,3 +38,11 @@ def test_extraction_and_coverage_rows_have_one_to_one_estimand_identity() -> Non
     extraction_ids = {row["estimand_id"] for row in extraction["extractions"]}
     coverage_ids = {row["estimand_id"] for row in coverage["rows"]}
     assert extraction_ids == coverage_ids
+
+
+def test_extraction_source_manifest_paths_exist() -> None:
+    document = yaml.safe_load(SPEC.read_text(encoding="utf-8"))
+    root = SPEC.parents[1]
+    for row in document["extractions"]:
+        manifest_path = row["source_manifest"].split("#", 1)[0]
+        assert (root / manifest_path).is_file(), manifest_path
