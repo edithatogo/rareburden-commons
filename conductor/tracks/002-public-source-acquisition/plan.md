@@ -140,3 +140,8 @@ scientific and data-governance gates remain separate and pending.
 - [x] Add a regression guard keeping deferred UN WPP and WHO manifests
   conditional, candidate-only and pending review in
   `tests/test_track_002_option_a_scope.py`.
+- [x] Implement the per-estimand activation matrix and fail-closed findings
+  disposition register. Evidence: `docs/track-002-activation-matrix.yml`,
+  `docs/track-002-findings-disposition.yml` and
+  `tests/test_track_002_activation_matrix.py`; unresolved custodian and live
+  source findings remain non-active.

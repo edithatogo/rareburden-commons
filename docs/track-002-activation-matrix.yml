@@ -1,0 +1,33 @@
+schema_version: "0.1.0"
+status: "registration_only"
+activation_policy: "per_estimand_row"
+default_unresolved_posture: "metadata_hash_only"
+rows:
+  - estimand_id: "E-ORPHA-DESCRIPTIVE-01"
+    source_id: "orphadata-science"
+    activation: "conditional"
+    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
+    raw_bytes: "no_repository_redistribution"
+    permitted_output: "descriptive_metadata_and_identifier_alignment"
+    conditions: ["confirm_CC_BY_and_conditions_apply", "retain_attribution_and_change_notice", "exclude_denominator_and_burden_inference"]
+  - estimand_id: "E-WPP-POP-01"
+    source_id: "un-world-population-prospects"
+    activation: "conditional"
+    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
+    raw_bytes: "no_repository_redistribution_until_terms_confirmed"
+    permitted_output: "explicit_medium_variant_population_denominator"
+    conditions: ["approve_exact_geography_and_years", "confirm_workbook_terms", "no_age_sex_interpolation"]
+  - estimand_id: "E-WHO-COMP-2000"
+    source_id: "who-global-health-estimates"
+    activation: "candidate_only"
+    required_receipts: ["scientific", "custodian_data_governance"]
+    raw_bytes: "manual_or_metadata_only"
+    permitted_output: "none_until_receipts"
+    conditions: ["year_2000_only", "clear_third_party_fields", "confirm_workbook_terms"]
+  - estimand_id: "E-WB-POP-PROBE"
+    source_id: "world-bank-indicators-api"
+    activation: "probe_only"
+    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
+    raw_bytes: "response_hash_only"
+    permitted_output: "cross_check_only"
+    conditions: ["record_response_hash", "confirm_endpoint_and_terms", "no_silent_WPP_substitution"]
