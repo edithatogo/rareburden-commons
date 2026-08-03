@@ -5,6 +5,7 @@ from pathlib import Path
 import yaml
 
 SPEC = Path(__file__).parents[1] / "docs/track-002-final-extraction-specification.yml"
+COVERAGE = Path(__file__).parents[1] / "docs/track-002-coverage-matrix.yml"
 
 
 def test_extraction_spec_is_candidate_bound_and_inactive() -> None:
@@ -28,3 +29,11 @@ def test_extraction_spec_has_fail_closed_rules_and_exact_filters() -> None:
         assert row["geography_filter"]
         assert row["year_filter"]
         assert row["transformation"]
+
+
+def test_extraction_and_coverage_rows_have_one_to_one_estimand_identity() -> None:
+    extraction = yaml.safe_load(SPEC.read_text(encoding="utf-8"))
+    coverage = yaml.safe_load(COVERAGE.read_text(encoding="utf-8"))
+    extraction_ids = {row["estimand_id"] for row in extraction["extractions"]}
+    coverage_ids = {row["estimand_id"] for row in coverage["rows"]}
+    assert extraction_ids == coverage_ids
