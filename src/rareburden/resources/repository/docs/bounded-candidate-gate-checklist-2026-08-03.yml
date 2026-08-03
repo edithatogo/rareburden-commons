@@ -2,6 +2,7 @@ schema_version: "0.1.0"
 candidate: "candidate-2026-08-03"
 mode: "bounded_synthetic_public"
 activation: "disabled_for_unresolved_production_sources"
+binding_receipt: "docs/bounded-candidate-binding-receipt-2026-08-03.yml"
 gates:
   - gate: "track_002_source_terms"
     status: "pending"

@@ -1,0 +1,17 @@
+schema_version: "0.1.0"
+status: "owner_bound_preparation_only"
+candidate_tag: "candidate-2026-08-03"
+manifest_id: "rel-b213c531a6b754940f80ab70"
+peeled_commit: "1f67c0310f19e5bfef02ef5aba26df55af9f7d0c"
+tree_state: "clean_at_binding"
+binding_scope: "synthetic_public_preview"
+owner_authority_boundary: "This binds repository artefacts for reproducibility; it is not an independent or release-authority receipt."
+required_before_release:
+  - "rebuild artifact hashes at this exact commit"
+  - "exact source release and licence dispositions"
+  - "independent operator and security receipts"
+  - "release-authority decision"
+stop_triggers:
+  - "working-tree or artifact hash mismatch"
+  - "candidate cannot be reconstructed"
+  - "critical rights, safety or reproducibility failure"
