@@ -118,6 +118,10 @@
   does not close the qualifying operational-owner gate.
 - [ ] Complete independent security/operator and release-authority gates before
   production-hardening activation.
+- [x] Prepare the candidate-bound independent-operator and security evidence
+  plan with panel and owner-operated boundaries. Evidence:
+  `docs/track-016-independent-security-operator-plan-2026-08-03.md`; the
+  qualifying independent receipts remain pending.
 
 ## Release disposition — 2026-08-03
 
