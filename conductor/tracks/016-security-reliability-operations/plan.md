@@ -111,10 +111,9 @@
 
 ## Clean-node rehearsal follow-up — 2026-08-03
 
-- [ ] Re-run the normative Python 3.13 offline-node rehearsal after restoring a
-  matching `cp313` PyYAML wheel (or on the supported hosted runner). The local
-  arm64 wheelhouse currently exposes only a `cp314` wheel, so the 3.13 attempt
-  is blocked before installation.
+- [x] Re-run the normative Python 3.13 offline-node rehearsal with the locked
+  3.13 environment. Evidence: `dist/offline-install-receipt.json`; the
+  hash-bound wheelhouse installed successfully with network disabled.
 - [x] Run a supplemental network-disabled Python 3.14 rehearsal. Evidence:
   `dist/offline-install-receipt.json`; this is local compatibility evidence,
   not an independent operator receipt or release approval.

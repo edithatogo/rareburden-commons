@@ -74,24 +74,18 @@ reproduction failure.
 
 ## Offline clean-node rehearsal status — 2026-08-03
 
-The repository-owned rehearsal was attempted with the normative Python 3.13
-runtime and failed before installation: the local macOS arm64 wheelhouse
-contains a hash-pinned PyYAML 6.0.3 `cp314` wheel but no compatible `cp313`
-wheel. This is an environment/wheelhouse availability failure, not evidence of
-package incompatibility. A supplemental `PYTHON_VERSION=3.14` run completed
-with network disabled and produced `dist/offline-install-receipt.json`.
+The normative Python 3.13 rehearsal now passes with network disabled when the
+locked environment is selected explicitly (`uv sync --frozen --extra dev
+--python 3.13`, followed by `make offline-node-ci PYTHON_VERSION=3.13
+PYTHON=.venv/bin/python`). The resulting `dist/offline-install-receipt.json`
+records the hash-bound wheelhouse, installed output fingerprint and one
+successful validation row.
 
-The 3.14 receipt is useful local compatibility evidence only; it does not
-replace the Python 3.13 release-candidate rehearsal or an independent operator
-receipt. The release matrix therefore remains unchanged and the clean-node
-follow-up remains open.
+An earlier default-interpreter attempt selected a CPython 3.14-only wheelhouse
+and failed before installation. That was a local invocation error, not a
+package-compatibility finding. The successful 3.13 receipt supersedes that
+transient failure for repository-owned technical evidence.
 
-### Contingencies
-
-1. **Recommended:** obtain a matching `cp313` PyYAML wheel in the pinned
-   wheelhouse (or run the existing 3.13 job on the supported hosted Linux/macOS
-   runner), then rerun `make offline-node-ci PYTHON_VERSION=3.13`.
-2. Retain the successful 3.14 run as supplemental evidence while the 3.13
-   wheelhouse is repaired; do not relabel it as release or independent evidence.
-3. Do not move the normative release runtime to 3.14 without a separate
-   compatibility decision, workflow update and refreshed candidate manifest.
+This remains repository-owned evidence only; it does not become an independent
+operator receipt or release-authority approval. Hosted cross-platform and
+independent reproduction gates remain open.
