@@ -92,6 +92,9 @@
   HTTP reachability is explicitly not treated as terms, scientific or
   redistribution approval. Evidence:
   `docs/track-002-live-reachability-probe-2026-08-03.md`.
+- [x] Record current public-page terms observations without promoting any
+  source or inferring unrestricted rights. Evidence:
+  `docs/track-002-public-terms-observation-2026-08-03.md`.
 
 ## Single-developer review mode
 
