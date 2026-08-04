@@ -135,6 +135,11 @@
   Evidence: `docs/track-016-synthetic-recovery-security-checklist.yml` and
   `tests/test_track_016_synthetic_checklist.py`; independent operator,
   independent security and backup-owner receipts remain pending.
+- [x] Execute the owner-operated synthetic rehearsal and record a redacted,
+  hash-bound receipt. Evidence:
+  `docs/track-016-synthetic-rehearsal-receipt-2026-08-05.yml` and
+  `tests/test_track_016_synthetic_rehearsal_receipt.py`; the qualified receipt
+  remains non-independent and does not authorize production.
 
 ## Release disposition — 2026-08-03
 

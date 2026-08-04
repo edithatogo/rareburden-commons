@@ -1,0 +1,38 @@
+schema_version: "0.1.0"
+receipt_type: "synthetic_operations_exercise"
+exercise_id: "track-016-owner-operated-2026-08-05"
+release_id: "v0.3.0-rc.2-bounded"
+commit: "c8c1a7c4e04e754bc87389d7bfd1a1b7dadb6e0e"
+outcome: "qualified"
+operator_identity: "repository_owner_primary_operator"
+independence_basis: "owner_operated; not independent"
+environment:
+  platform: "macOS"
+  command_runner: "uv"
+commands:
+  - command: "uv run python scripts/check_node_reproducibility.py"
+    result: "Synthetic node reproducibility passed"
+  - command: "uv run python scripts/check_repository_safety.py"
+    result: "Repository safety check passed: 851 tracked files inspected"
+  - command: "uv run make reproducibility"
+    result: "Reference reproducibility passed: 481 files, 3280230 bytes, 14 verification checks across two isolated executions"
+failure_cases:
+  - "checksum_mismatch"
+  - "missing_artifact"
+  - "tampered_receipt"
+input_hashes:
+  - "5987fb43c351e2bae937f23d9ca6e1ba8050a99460ff6127f1fc873f3ed1dbd5"
+  - "a1c06e8557d26d59cb0a7d33abd719d91c39fbad91b274a9a2536026c8bb4e1c"
+  - "552e57cc551794f1b986821c41a50fd400c991537472f16113289639e6200a22"
+output_hashes:
+  - "09e2a6517e5b86aa5b5e6a017490173754e268addd588cebfd66197eca228554"
+production_authorized: false
+residual_findings:
+  - "No independent operator receipt"
+  - "No independent security receipt"
+  - "No named backup-owner acceptance"
+  - "No production or controlled-data exercise"
+stop_triggers_observed: []
+boundary:
+  - "This receipt is corroborating repository-owned synthetic evidence only."
+  - "It does not satisfy independent, security, backup-owner or release-authority gates."
