@@ -130,6 +130,11 @@
   `docs/track-016-qualifying-evidence-matrix-2026-08-03.yml` and
   `tests/test_track_016_qualifying_matrix.py`; all qualifying statuses remain
   pending.
+- [x] Package the repository-owned synthetic recovery/security rehearsal
+  checklist with explicit tamper, correction, rollback and scan stop triggers.
+  Evidence: `docs/track-016-synthetic-recovery-security-checklist.yml` and
+  `tests/test_track_016_synthetic_checklist.py`; independent operator,
+  independent security and backup-owner receipts remain pending.
 
 ## Release disposition — 2026-08-03
 

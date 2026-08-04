@@ -1,0 +1,40 @@
+schema_version: "0.1.0"
+track: "016-security-reliability-operations"
+status: "repository_owned_synthetic_rehearsal"
+candidate_scope: "synthetic_public_only"
+production_authorized: false
+independence: "not_independent"
+purpose: "Record the minimum repeatable checks before a synthetic recovery or security receipt is accepted as corroborating evidence."
+checks:
+  - id: "clean_environment_restore"
+    command: "uv run make node-reproducibility"
+    required_evidence: ["environment_identity", "input_hashes", "output_hashes", "transcript"]
+    stop_on: ["restore_failure", "reproduction_mismatch"]
+  - id: "tamper_detection"
+    procedure: "Alter one receipt, remove one artefact and alter one checksum; run the verifier for each case."
+    required_evidence: ["three_failure_outputs", "redacted_transcript"]
+    stop_on: ["tamper_accepted", "missing_artifact_accepted"]
+  - id: "correction_withdrawal"
+    procedure: "Apply a synthetic correction and withdrawal fixture without rewriting the superseded receipt."
+    required_evidence: ["supersession_hash", "prior_receipt_hash", "redacted_transcript"]
+    stop_on: ["prior_receipt_mutated", "withdrawal_not_represented"]
+  - id: "rollback"
+    procedure: "Restore the prior synthetic release and compare release, tool and fixture identities."
+    required_evidence: ["prior_release_id", "restored_hashes", "redacted_transcript"]
+    stop_on: ["rollback_failure", "hash_mismatch"]
+  - id: "security_scan_boundary"
+    procedure: "Run repository safety, dependency/licence and secret scans against the exact candidate tree."
+    required_evidence: ["scan_versions", "scan_outputs", "residual_risk_disposition"]
+    stop_on: ["critical_or_high_finding", "secret_exposure", "unresolved_rights_finding"]
+required_receipt_fields:
+  - "exercise_id"
+  - "release_id"
+  - "commit"
+  - "input_hashes"
+  - "output_hashes"
+  - "failure_cases"
+  - "production_authorized=false"
+boundary:
+  - "This checklist is not an independent operator or independent security receipt."
+  - "It does not assign a backup owner or authorize production, hosted, controlled-data or stable-v1 use."
+  - "A failed or incomplete check keeps the candidate bounded or synthetic-only."
