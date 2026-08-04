@@ -12,7 +12,8 @@ def test_track_007_readiness_packet_is_fail_closed() -> None:
     assert (
         packet["submission_readiness"]["status"] == "ready_for_owner_submission_but_not_registered"
     )
-    assert packet["protocol"]["frozen_protocol_hash"] == "pending_snapshot"
+    assert packet["protocol"]["frozen_protocol_hash"].startswith("sha256:")
+    assert packet["protocol"]["search_strategy_hash"].startswith("sha256:")
     assert packet["methods_challenge"]["status"].endswith("independent_receipt")
     assert packet["patient_community_interpretation"]["status"].endswith("accountable_receipt")
 

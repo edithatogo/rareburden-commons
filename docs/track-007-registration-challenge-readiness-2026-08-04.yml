@@ -7,8 +7,8 @@ protocol:
   source_packet: "docs/track-007-registration-packet.md"
   search_log: "docs/track-007-search-log-2026-08-01.yml"
   screening_register: "docs/landscape-screening-007.md"
-  frozen_protocol_hash: "pending_snapshot"
-  search_strategy_hash: "pending_snapshot"
+  frozen_protocol_hash: "sha256:9e0dafa6fb914e3ea8ebdddfe7b6974db495de94b7ab90a1fd9e3c13a3b5ab3a"
+  search_strategy_hash: "sha256:53f0061536504269f9afee7a7dd8a22400e16924959b454ce54ed30231bbfa28"
 submission_readiness:
   required_snapshot:
     - "protocol text and version"
