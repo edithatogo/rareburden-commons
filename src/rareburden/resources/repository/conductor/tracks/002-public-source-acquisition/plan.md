@@ -145,3 +145,14 @@ scientific and data-governance gates remain separate and pending.
   `docs/track-002-findings-disposition.yml` and
   `tests/test_track_002_activation_matrix.py`; unresolved custodian and live
   source findings remain non-active.
+
+## Exact retrieval observation refresh — 2026-08-05
+
+- [x] Consolidate the dated endpoint, HTTP, content-type, byte-count and
+  streamed SHA-256 observations into
+  `docs/track-002-exact-source-observations-2026-08-03.yml`, with explicit
+  unavailable-response and terms fail-closed rules.
+- [x] Add regression coverage proving hashes are observational only and that
+  an unavailable World Bank response cannot be promoted.
+- [ ] Re-probe changed or unavailable endpoints and obtain accountable terms,
+  scientific and custodian dispositions before activation.
