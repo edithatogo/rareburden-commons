@@ -67,6 +67,19 @@
   patient/community interpretation; until then retain provisional landscape
   claims and `in_review` status.
 
+## Registration/challenge readiness refresh — 2026-08-04
+
+- [x] Prepare a single versioned readiness packet binding the registration
+  snapshot, methods challenge questions, patient/community interpretation
+  questions, receipt fields and stop triggers. Evidence:
+  `docs/track-007-registration-challenge-readiness-2026-08-04.yml` and
+  `tests/test_track_007_readiness.py`.
+- [ ] Submit the frozen protocol and record an external registry identifier;
+  the readiness packet is not registration evidence.
+- [ ] Obtain an independent methods challenge and accountable
+  patient/community interpretation; repository tests and panels cannot replace
+  either receipt.
+
 ## Panel closure planning — 2026-08-02
 
 - [x] Add the joint Track 002/007 panel closure plan with options,
