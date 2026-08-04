@@ -1,6 +1,6 @@
 schema_version: "0.1.0"
 packet_id: "rc-evidence-reconciliation-2026-08-04"
-status: "reconciliation_preparation_only"
+status: "reconciliation_preparation_current_head"
 candidate_manifest: "docs/release-manifest-candidate-2026-08-03.yml"
 candidate_scope: "synthetic_assurance_only"
 release_authority: "pending"
@@ -20,27 +20,27 @@ required_bindings:
 artifacts:
   - path: "coverage.json"
     kind: "coverage"
-    sha256: "21f5053c49fa30c678ad050acc18035a26aca9a620bffb42dbbab778cf30942e"
+    sha256: "e9e065df6cee3e35e57f5356c2facf2a25d93246ea0d63728164495f4cae2e18"
     size_bytes: 498638
-    status: "repository_generated_unbound_commit"
+    status: "repository_generated_at_current_head_pending_hosted_binding"
     required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
   - path: "coverage.xml"
     kind: "coverage_xml"
-    sha256: "ee44e3708bde1baf169944cad2fdd19fd46415f302b4b209cb2f718e88a0231d"
+    sha256: "562964e3517a5b8fac1a0fd82dd34fb12f2ff622ddd2951feaf05c43833bf8df"
     size_bytes: 283752
-    status: "repository_generated_unbound_commit"
+    status: "repository_generated_at_current_head_pending_hosted_binding"
     required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
   - path: "junit.xml"
     kind: "junit"
-    sha256: "4359e7b1d4a2976236ddded5c480970b0b32bcf0ff5cf4fdc893045b09109e82"
-    size_bytes: 66141
-    status: "repository_generated_unbound_commit"
+    sha256: "f6df7cf39705683ece4cf3b934aad76a8044ea4371b323e587ec75da841007c2"
+    size_bytes: 72037
+    status: "repository_generated_at_current_head_pending_hosted_binding"
     required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
   - path: "rareburden.cdx.json"
     kind: "cyclonedx_sbom"
     sha256: "740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3"
     size_bytes: 18130
-    status: "repository_generated_unbound_commit"
+    status: "repository_generated_at_current_head_pending_hosted_binding"
     required_receipt: "security_or_release_authority_verification"
 reconciliation_steps:
   - "re-run uv run make coverage and compare hashes"

@@ -11,7 +11,7 @@ PACKET = ROOT / "docs/release-candidate-evidence-reconciliation-2026-08-04.yml"
 
 def test_reconciliation_packet_records_exact_generated_artifact_bytes() -> None:
     packet = load_mapping(PACKET)
-    assert packet["status"] == "reconciliation_preparation_only"
+    assert packet["status"] == "reconciliation_preparation_current_head"
     assert packet["release_authority"] == "pending"
     assert packet["candidate_scope"] == "synthetic_assurance_only"
     for artifact in packet["artifacts"]:
