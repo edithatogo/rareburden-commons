@@ -10,6 +10,8 @@ protocol:
   frozen_protocol_hash: "sha256:9e0dafa6fb914e3ea8ebdddfe7b6974db495de94b7ab90a1fd9e3c13a3b5ab3a"
   search_strategy_hash: "sha256:53f0061536504269f9afee7a7dd8a22400e16924959b454ce54ed30231bbfa28"
 submission_readiness:
+  selected_registry: "osf"
+  fallback_registry: "zenodo"
   required_snapshot:
     - "protocol text and version"
     - "exact search strings and endpoints"
@@ -21,7 +23,8 @@ submission_readiness:
     - "registration_timestamp"
     - "submitted_snapshot_hash"
     - "amendment_policy"
-  status: "ready_for_owner_submission_but_not_registered"
+  status: "blocked_missing_authenticated_route"
+  decision_record: "docs/decisions/2026-08-05-track-007-osf-submission-decision.md"
 methods_challenge:
   status: "packet_ready_pending_independent_receipt"
   questions:
