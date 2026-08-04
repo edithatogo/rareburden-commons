@@ -1,0 +1,56 @@
+schema_version: "0.1.0"
+packet_id: "rc-evidence-reconciliation-2026-08-04"
+status: "reconciliation_preparation_only"
+candidate_manifest: "docs/release-manifest-candidate-2026-08-03.yml"
+candidate_scope: "synthetic_assurance_only"
+release_authority: "pending"
+accountable_boundary: >-
+  This packet reconciles repository-generated evidence; it is not a release
+  authority receipt, independent security receipt, or external scientific,
+  clinical, patient/community, or custodian approval.
+required_bindings:
+  - "manifest repository.commit must equal the reviewed candidate head"
+  - "manifest tree_state must be clean"
+  - "every listed artifact must exist at its repository-relative path"
+  - "sha256 and size_bytes must match the exact bytes at review time"
+  - "coverage and JUnit reports must identify the same test invocation"
+  - "SBOM must be generated from the exact uv.lock used by the candidate"
+  - "provenance attestation must bind the same commit, environment and artifacts"
+  - "release decision must record residual risks, exclusions, expiry and rollback"
+artifacts:
+  - path: "coverage.json"
+    kind: "coverage"
+    sha256: "21f5053c49fa30c678ad050acc18035a26aca9a620bffb42dbbab778cf30942e"
+    size_bytes: 498638
+    status: "repository_generated_unbound_commit"
+    required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
+  - path: "coverage.xml"
+    kind: "coverage_xml"
+    sha256: "ee44e3708bde1baf169944cad2fdd19fd46415f302b4b209cb2f718e88a0231d"
+    size_bytes: 283752
+    status: "repository_generated_unbound_commit"
+    required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
+  - path: "junit.xml"
+    kind: "junit"
+    sha256: "4359e7b1d4a2976236ddded5c480970b0b32bcf0ff5cf4fdc893045b09109e82"
+    size_bytes: 66141
+    status: "repository_generated_unbound_commit"
+    required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
+  - path: "rareburden.cdx.json"
+    kind: "cyclonedx_sbom"
+    sha256: "740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3"
+    size_bytes: 18130
+    status: "repository_generated_unbound_commit"
+    required_receipt: "security_or_release_authority_verification"
+reconciliation_steps:
+  - "re-run uv run make coverage and compare hashes"
+  - "re-run uv run make sbom and compare hashes"
+  - "verify manifest and packet hashes on the exact candidate commit"
+  - "attach provenance.sigstore.json or record why it is unavailable"
+  - "record release-authority bounded|revise|stop decision"
+stop_triggers:
+  - "any hash or byte-count mismatch"
+  - "manifest commit is null, stale or differs from the reviewed head"
+  - "dirty tree or unreproducible report generation"
+  - "missing provenance, SBOM or test-result binding"
+  - "critical security, rights, semantic-integrity or reproducibility finding"
