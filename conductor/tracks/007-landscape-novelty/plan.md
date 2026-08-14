@@ -48,6 +48,12 @@
 - [x] Preserve the bounded 2026-08-01 discovery observations as a structured
   search log. Evidence: `docs/track-007-search-log-2026-08-01.yml`; screening,
   registration and independent review remain open.
+- [x] Refresh all five registered query families across GitHub, Zenodo,
+  Hugging Face datasets and Crossref with exact timestamps, result observations,
+  response hashes and bounded identifiers. Evidence:
+  `scripts/refresh_track_007_searches.py` and
+  `docs/track-007-search-log-2026-08-14.yml`; OSF remains deferred and all new
+  records remain unscreened.
 - [x] Add a regression guard for the versioned search-log schema and its
   discovery-only/provisional boundary in `tests/test_landscape.py`.
 

@@ -1,0 +1,85 @@
+protocol_version: RBC-LAND-007-v0.2.0
+status: discovery_only
+operator: repository_owner_automation
+method:
+  script: scripts/refresh_track_007_searches.py
+  page_size: 10
+  query_strings:
+    - rare disease burden
+    - rare disease registry
+    - rare disease ontology
+    - rare disease prevalence
+    - rare disease cost
+  active_sources:
+    - github
+    - zenodo
+    - huggingface_datasets
+    - crossref
+  excluded_active_sources:
+    osf: deferred_by_owner_historical_observations_only
+observations:
+  - registry: github
+    retrieved_at_utc: 2026-08-14T19:26:10Z
+    totals_by_query: [6, 23, 20, 5, 2]
+    response_sha256_by_query:
+      - sha256:81ff68aa29ea5331c38a243043e54fbd3e76a2938575423783b693bc2641097d
+      - sha256:fb4359e6403b06c7fcff5e8bf8120dd874de3ce1101c79a0f6afb5970452463e
+      - sha256:29e840e94973848891d90548ce7b1c4642dec197744ec15d54ac632f63812d38
+      - sha256:8d43097c00971b8d4abdd7b85910b82834aa6f252b91c58fbd392a84b09f6886
+      - sha256:d607d05d5e5045825e81a6bcb02474e77602c63308625b6ee82f4087adc2c166
+    bounded_first_page_ids:
+      - RayssaCarvalh/Genomic-Burden-Actionability-Atlas
+      - muccg/rdrf
+      - Orphanet/ORDO
+      - theodorejperkins/Monogenic_Prevalence_with_Severities
+      - Akshay-gurav-31/Hackathon-Reusable-Framework
+  - registry: zenodo
+    retrieved_at_utc: 2026-08-14T19:26:10Z
+    totals_by_query: [195332, 212716, 205336, 208904, 258036]
+    response_sha256_by_query:
+      - sha256:ab8b6e578cda9873fb22f56b2adcc7a29d0da935031e30e2f0bdd5ce49478ea6
+      - sha256:a31ca2eae7849cf429b343068e26d513bb2e221d6bda4262d6d1e7e8eac51c1a
+      - sha256:a1a5420534121d0faded511524e564863bd45a207640f318d5815c03354995ac
+      - sha256:0b90443d1cfa768b3d5d2218d0f0eb20b96657b39e7a78c97b6312f68e2bbffc
+      - sha256:cc34c53833155a4f7eddb5a4fddbb7eded16a6d8ff09b608d060da5f96889c1a
+    bounded_first_page_ids: ['11442985', '1321650', '10702445', '345747', '7961855']
+  - registry: huggingface_datasets
+    retrieved_at_utc: 2026-08-14T19:26:13Z
+    totals_by_query: [not_reported, not_reported, not_reported, not_reported, not_reported]
+    returned_items_by_query: [0, 0, 0, 0, 0]
+    response_sha256_by_query:
+      - sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+      - sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+      - sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+      - sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+      - sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+    bounded_first_page_ids: []
+  - registry: crossref
+    retrieved_at_utc: 2026-08-14T19:26:14Z
+    totals_by_query: [2836583, 2806919, 2795455, 3039934, 3170357]
+    response_sha256_by_query:
+      - sha256:8fdb2573416dfaf310cd38021f9493970a424385bd62f33e27b4680c251a21bf
+      - sha256:43de142e7d2d01240ad274752840d38714e4131bf629e325f0cd196882ba6933
+      - sha256:a3d63571b7fa68221d44194a21f515dbccb5500cb79d287152d167621b6f4f18
+      - sha256:62064b94747dfcb3f487b246e31fff0a47b136b7c41f8b659555ac276ba4562b
+      - sha256:8483d8b1882852ee8b9906375efc146bbcc1419df9e7344e6a02727816bc03c6
+    bounded_first_page_ids:
+      - 10.1186/s13023-022-02299-5
+      - 10.1186/s13023-024-03120-1
+      - 10.1093/jamiaopen/ooad007
+      - 10.1186/s13023-017-0611-7
+      - 10.1016/s0140-6736(15)60420-2
+screening:
+  status: unscreened
+  discovered_count: not_summable_across_overlapping_queries
+  exact_duplicates_removed: pending
+  entity_duplicates_removed: pending
+  excluded: pending
+  uncertain: pending
+  included: pending
+limitations:
+  - Counts are retrieval-time observations and are not fixed catalogue facts.
+  - Zenodo and Crossref broad full-text totals are not estimates of eligible records.
+  - Only one bounded first-page identifier per query is retained in this compact log; rerun the script for all first-page identifiers.
+  - Provider ranking, English/public-web bias and overlapping queries limit coverage and representativeness.
+  - No completeness, novelty, partnership, registration or external-review claim is implied.

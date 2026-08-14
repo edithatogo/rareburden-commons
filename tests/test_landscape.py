@@ -19,6 +19,7 @@ SCREENING_EXERCISE = load_mapping(
     ROOT / "docs" / "track-007-panel-screening-exercise-2026-08-02.yml"
 )
 SEARCH_LOG = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-01.yml")
+SEARCH_LOG_REFRESH = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-14.yml")
 REGISTRATION_PACKET = ROOT / "docs" / "track-007-registration-packet.md"
 
 
@@ -126,3 +127,24 @@ def test_track_007_registration_packet_is_versioned_and_fail_closed() -> None:
     assert "Methods reviewer" in packet
     assert "patient/community reviewer" in packet.lower()
     assert "Track 007 stays in review" in packet
+
+
+def test_track_007_search_refresh_covers_registered_queries_and_stays_unscreened() -> None:
+    assert SEARCH_LOG_REFRESH["protocol_version"] == "RBC-LAND-007-v0.2.0"
+    assert SEARCH_LOG_REFRESH["status"] == "discovery_only"
+    assert len(SEARCH_LOG_REFRESH["method"]["query_strings"]) == 5
+    assert set(SEARCH_LOG_REFRESH["method"]["active_sources"]) == {
+        "github",
+        "zenodo",
+        "huggingface_datasets",
+        "crossref",
+    }
+    assert SEARCH_LOG_REFRESH["method"]["excluded_active_sources"]["osf"].startswith(
+        "deferred_by_owner"
+    )
+    assert SEARCH_LOG_REFRESH["screening"]["status"] == "unscreened"
+    for observation in SEARCH_LOG_REFRESH["observations"]:
+        assert len(observation["totals_by_query"]) == 5
+        assert len(observation["response_sha256_by_query"]) == 5
+        assert all(value.startswith("sha256:") for value in observation["response_sha256_by_query"])
+    assert any("No completeness" in item for item in SEARCH_LOG_REFRESH["limitations"])

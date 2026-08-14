@@ -131,6 +131,23 @@ The 2026-08-01 discovery observations are also preserved in
 `docs/track-007-search-log-2026-08-01.yml`; each row is explicitly marked
 discovery-only/unscreened (or exact-title-only for OSF).
 
+### Five-query discovery refresh — 2026-08-14 UTC
+
+The five protocol query families were rerun against GitHub, Zenodo and Hugging
+Face dataset APIs, with Crossref added as a reproducible scholarly metadata
+index. `docs/track-007-search-log-2026-08-14.yml` records exact retrieval
+timestamps, provider totals (where reported), response hashes and bounded
+first-page identifiers; `scripts/refresh_track_007_searches.py` makes the
+request construction and metadata extraction repeatable. OSF was not queried
+because its active route is deferred by owner decision.
+
+The broad Zenodo and Crossref totals demonstrate retrieval and ranking behavior,
+not eligibility or coverage. The returned records are unscreened and do not
+alter the 13-record seed catalogue, provisional novelty claim or external-gate
+status. Cross-query deduplication, full eligibility screening, registration,
+independent methods challenge and accountable patient/community interpretation
+remain pending.
+
 ### Synthetic screening exercise — 2026-08-02
 
 The deterministic fixture `docs/track-007-panel-screening-exercise-2026-08-02.yml`
