@@ -50,6 +50,15 @@ def test_policy_accepts_hash_bound_artifacts(tmp_path: Path) -> None:
     assert result["artifacts"]["wheel"]["bytes"] == 5
 
 
+def test_policy_accepts_size_only_policy_with_external_hash_binding(tmp_path: Path) -> None:
+    policy = _policy(tmp_path)
+    text = policy.read_text()
+    start = text.index("  required_hashes:\n")
+    policy.write_text(text[:start])
+    result = CHECKER.validate_policy(policy, root=tmp_path)
+    assert result["artifacts"]["wheel"]["sha256"] == hashlib.sha256(b"wheel").hexdigest()
+
+
 def test_policy_rejects_stale_hash(tmp_path: Path) -> None:
     with pytest.raises(CHECKER.PackageSizePolicyError, match="sha256"):
         CHECKER.validate_policy(_policy(tmp_path, digest="f" * 64), root=tmp_path)

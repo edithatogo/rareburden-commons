@@ -12,7 +12,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
 	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check qualifying-receipts-check package-size-check check ci release-check clean
 
-package-size-check:
+package-size-check: build
 	PYTHONPATH=src:. $(PYTHON) scripts/check_package_size_policy.py \
 		docs/track-016-package-size-policy.yml --root .
 

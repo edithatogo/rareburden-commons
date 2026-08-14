@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed validation of hash-bound release artifact size budgets."""
+"""Fail-closed validation of release artifact size budgets and optional hashes."""
 
 from __future__ import annotations
 
@@ -35,28 +35,28 @@ def validate_policy(policy_path: Path, *, root: Path) -> dict[str, Any]:
         raise PackageSizePolicyError("policy limits and measurement are required")
     paths = measurement.get("archive_paths")
     hashes = measurement.get("required_hashes")
-    if not isinstance(paths, dict) or not isinstance(hashes, dict):
-        raise PackageSizePolicyError("archive paths and required hashes are required")
+    if not isinstance(paths, dict) or (hashes is not None and not isinstance(hashes, dict)):
+        raise PackageSizePolicyError("archive paths are required and hashes must be a mapping")
     results: dict[str, Any] = {
         "schema_version": "0.1.0",
         "policy": policy_path.name,
         "artifacts": {},
     }
     for kind, limit_key in (("wheel", "wheel_bytes"), ("sdist", "sdist_bytes")):
-        relative, expected, limit = paths.get(kind), hashes.get(kind), limits.get(limit_key)
-        if (
-            not isinstance(relative, str)
-            or not isinstance(expected, str)
-            or not isinstance(limit, int)
-        ):
+        relative = paths.get(kind)
+        expected = hashes.get(kind) if isinstance(hashes, dict) else None
+        limit = limits.get(limit_key)
+        if not isinstance(relative, str) or not isinstance(limit, int):
             raise PackageSizePolicyError(f"invalid {kind} policy entry")
+        if expected is not None and not isinstance(expected, str):
+            raise PackageSizePolicyError(f"invalid {kind} hash entry")
         path = (root / relative).resolve()
         try:
             path.relative_to(root.resolve())
         except ValueError as exc:
             raise PackageSizePolicyError(f"{kind} path escapes repository") from exc
         size, digest = _file(path, kind)
-        if digest != expected:
+        if expected is not None and digest != expected:
             raise PackageSizePolicyError(f"{kind} sha256 does not match policy")
         if size > limit:
             raise PackageSizePolicyError(f"{kind} exceeds package-size budget")
