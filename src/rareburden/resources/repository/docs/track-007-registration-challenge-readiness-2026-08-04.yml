@@ -10,7 +10,7 @@ protocol:
   frozen_protocol_hash: "sha256:9e0dafa6fb914e3ea8ebdddfe7b6974db495de94b7ab90a1fd9e3c13a3b5ab3a"
   search_strategy_hash: "sha256:53f0061536504269f9afee7a7dd8a22400e16924959b454ce54ed30231bbfa28"
 submission_readiness:
-  selected_registry: "deferred"
+  selected_registry: "registry_neutral"
   fallback_registry: "zenodo"
   required_snapshot:
     - "protocol text and version"

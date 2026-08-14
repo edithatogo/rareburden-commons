@@ -12,7 +12,7 @@
 ## Phase 2 — Search and screen
 
 - [x] Complete an initial search of cited scholarly and institutional infrastructures.
-- [x] Run repository-native GitHub, Zenodo, OSF and Hugging Face searches reproducibly. Evidence: dated API metadata recorded in review, 2026-07-27.
+- [x] Run repository-native GitHub, Zenodo and Hugging Face searches reproducibly. Evidence: dated API metadata recorded in review, 2026-07-27; historical OSF observations are retained only in the review archive.
 - [x] Seed registry, genomic, burden, policy and standards ecosystems in the landscape register.
 - [x] Complete seed-catalogue deduplication, screening and an auditable exclusions log. Evidence: `docs/landscape-screening-007.md` (`RBC-LAND-007-SCREEN v0.1.0`), 2026-07-29; broader discovery screening remains explicitly open.
 
@@ -33,11 +33,11 @@
 ## Review fixes — 2026-07-27
 
 - [x] Reconcile the internal review with the current 13-item catalogue and keep provisional and external gates distinct. Evidence: `a18cee0`.
-- [x] Run and record bounded GitHub, Zenodo, OSF and Hugging Face repository-native discovery searches with dated API metadata. Evidence: review record updated 2026-07-27; screening, deduplication, registration and external challenge remain open.
+- [x] Run and record bounded GitHub, Zenodo and Hugging Face repository-native discovery searches with dated API metadata. Evidence: review record updated 2026-07-27; screening, deduplication, registration and external challenge remain open.
 - [x] Run a mechanical duplicate check over the current 13-item catalogue (unique IDs and official URLs). Evidence: review record updated 2026-07-27; semantic screening and exclusions remain open.
 - [x] Produce versioned draft search strings, eligibility rules, screening workflow and exclusions fields for external registration. Evidence: `RBC-LAND-007 v0.1.0` in review record, 2026-07-27; registration and independent review remain open.
 - [x] Record a preliminary 13-record seed-catalogue screening baseline with counts and explicit zero-exclusion caveat. Evidence: review record updated 2026-07-27; final screening and exclusions remain open.
-- [x] Check authenticated OSF CLI/API routes and record the `/v2/search/` 404 plus bounded nodes-title fallback. Evidence: review record updated 2026-07-29; broader OSF search remains open.
+- [x] Record the historical registry-route observations without treating them as current registration work. The active registration route is now registry-neutral with Zenodo as the prepared fallback.
 
 ## Preparation refresh — 2026-08-01
 

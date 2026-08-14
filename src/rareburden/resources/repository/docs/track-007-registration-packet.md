@@ -24,7 +24,7 @@ only lawful metadata, hashes and bounded first-page identifiers.
 | Field | Required value |
 |---|---|
 | protocol_version | `RBC-LAND-007 v0.1.0` |
-| registry | GitHub, Zenodo, OSF, Hugging Face, scholarly or institutional source |
+| registry | Zenodo, GitHub, Hugging Face, scholarly or institutional source |
 | query_string | exact submitted string, including field filters |
 | endpoint_or_database | canonical URL or database name |
 | retrieved_at_utc | ISO-8601 timestamp |
