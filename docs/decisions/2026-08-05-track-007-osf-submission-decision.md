@@ -1,6 +1,6 @@
 # Track 007 registry decision — 2026-08-05
 
-**Decision:** OSF is the primary registration target; Zenodo is the fallback.
+**Decision:** OSF submission is deferred; Zenodo remains the documented fallback.
 
 The frozen protocol packet is prepared with these repository-owned hashes:
 
@@ -14,11 +14,12 @@ deposition receipt is required before registration is considered complete.
 
 ## Current attempt
 
-Status: `blocked_missing_authenticated_route`.
+Status: `deferred_by_owner`.
 
-The local OSF CLI reported that credentials are missing. No credential value is
-recorded here, and no submission was attempted. This is a routing failure, not
-evidence that OSF registration failed or succeeded.
+The OSF route was inspected, but no draft or submission was created. The owner
+has deferred OSF for the moment. No credential value is recorded here, and no
+submission was attempted. This is not evidence that OSF registration failed or
+succeeded.
 
 ## Claim and gate boundary
 
