@@ -1,7 +1,9 @@
 # Conductor and GitHub issue reconciliation
 
-Snapshot date: 2026-08-15  
-Repository revision audited: `3e746bc` (merged PR #49)  
+Snapshot date: 2026-08-15
+
+Repository revision audited: `3e746bc` (merged PR #49)
+
 Issue range: #2–#16
 
 ## Authoritative status
