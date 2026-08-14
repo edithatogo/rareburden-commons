@@ -31,4 +31,3 @@ def test_source_verification_records_current_world_bank_probe() -> None:
     assert world_bank["observations"] == 44
     assert world_bank["response_last_updated"] == "2026-07-13"
     assert len(world_bank["response_sha256"]) == 64
-

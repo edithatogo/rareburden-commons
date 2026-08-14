@@ -70,4 +70,3 @@ fail_closed_rules:
   - "Private archival does not activate a source for production or establish scientific fitness."
   - "Changed bytes, release identity, terms or intended use require a superseding observation and disposition."
   - "WPP and WHO raw bytes remain excluded from Hugging Face."
-
