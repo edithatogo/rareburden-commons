@@ -1,0 +1,61 @@
+{
+  "schema_version": "RBC-LAND-007-PAGES-v0.1.0",
+  "track": "007-landscape-novelty",
+  "status": "strategy_and_synthetic_fixture_only",
+  "production_capture_status": "not_run",
+  "supported_public_endpoints": ["github", "zenodo", "huggingface_datasets"],
+  "workflow": {
+    "script": "scripts/capture_track_007_pages.py",
+    "default_page_size": 25,
+    "default_page_budget_per_query": 4,
+    "queries": [
+      "rare disease burden",
+      "rare disease registry",
+      "rare disease ontology",
+      "rare disease prevalence",
+      "rare disease cost"
+    ],
+    "required_page_evidence": [
+      "request_url",
+      "final_url",
+      "http_status",
+      "response_sha256",
+      "item_count",
+      "identifiers"
+    ],
+    "stop_reasons": [
+      "provider_total_reached",
+      "short_page_observed",
+      "empty_page_observed",
+      "page_budget_reached"
+    ],
+    "fail_closed_conditions": [
+      "non_200_response",
+      "invalid_json",
+      "invalid_or_changed_provider_total",
+      "missing_stable_identifier",
+      "identifier_repeated_across_pages",
+      "missing_fixture_page"
+    ]
+  },
+  "claims": {
+    "captured_page_reproducibility": "supported",
+    "provider_total_capture": "supported_only_when_exact_unique_total_is_reached_without_provider_cap",
+    "ecosystem_completeness": "prohibited",
+    "representativeness": "prohibited",
+    "novelty": "provisional",
+    "external_review": "pending"
+  },
+  "contingencies": {
+    "rate_limit_or_outage": "record_failure_and_retry_in_a_new_dated_capture; do_not_fill_or_infer_pages",
+    "provider_cap": "record_provider_limited_and_treat_uncaptured_results_as_open",
+    "large_total": "retain_bounded_page_budget_and_report_page_budget_reached",
+    "unstable_total_or_duplicate_page": "stop_capture_and_start_a_new_timestamped_run"
+  },
+  "limitations": [
+    "A public endpoint can omit, rank or later change records.",
+    "Endpoint exhaustion is not proof of scholarly or ecosystem completeness.",
+    "The checked-in evidence is a deterministic synthetic exercise, not a live production capture.",
+    "External registration, independent methods challenge and patient/community interpretation remain pending."
+  ]
+}
