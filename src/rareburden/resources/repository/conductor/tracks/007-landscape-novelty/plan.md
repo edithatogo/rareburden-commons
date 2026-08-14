@@ -36,8 +36,15 @@
   `docs/track-007-fulltext-eligibility-2026-08-15.json`, schema and negative
   tests. The bounded HEAD-only observation found 61 reachable and 8 restricted
   locators; all remain pending content assessment or lawful access. Final
-  eligibility, novelty, pagination/completeness and external challenge remain
+  eligibility, novelty, completeness and external challenge remain
   open.
+- [x] Add a deterministic, fail-closed pagination strategy and executable
+  bounded capture workflow for GitHub, Zenodo and Hugging Face public endpoints.
+  Evidence: `scripts/capture_track_007_pages.py`,
+  `docs/track-007-pagination-strategy-2026-08-15.json`,
+  `docs/track-007-pagination-workflow.md` and
+  `tests/test_track_007_pagination.py`; no live multi-page capture or ecosystem
+  completeness claim is inferred.
 
 ## Phase 3 — Analyse adjacency
 

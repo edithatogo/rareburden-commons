@@ -14,7 +14,12 @@
 - [ ] Define release-manifest and public-output schemas.
 - [ ] Implement reviewed-artifact-only build boundary.
 - [ ] Implement citation, licence, checksum and provenance packaging.
-- [ ] Implement correction, withdrawal and supersession metadata.
+- [x] Implement correction, withdrawal and supersession metadata. Evidence:
+  `rareburden.atlas.build_atlas_release_notice`,
+  `rareburden.atlas.build_atlas_release_status`,
+  `schemas/atlas-release-status.schema.json` and lifecycle negative tests create
+  immutable, hash-bound, accessible fail-closed status projections without
+  authorizing publication.
 
 ## Phase 3 — Atlas and API
 
@@ -75,5 +80,9 @@
 - [x] Add the bounded accessibility and disclosure checklist in
   `docs/track-014-accessibility-checklist.md` with a regression guard; independent
   accessibility/community review remains pending.
+- [x] Add deterministic correction, withdrawal and supersession status metadata
+  shared by static and API consumers. Notices bind the affected candidate,
+  require a different exact replacement for corrections/supersessions, reject
+  tampering and expose a text alternative; repository state remains unpublished.
 - [ ] Complete accessibility, independent-operator and release-authority gates
   before beta publication.
