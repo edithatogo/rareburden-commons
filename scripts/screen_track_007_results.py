@@ -140,15 +140,51 @@ def screen(snapshot: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def apply_resolutions(screening: dict[str, Any], resolutions: dict[str, Any]) -> dict[str, Any]:
+    """Apply evidence-bound adjudications only to unresolved screening records."""
+    decisions = {item["canonical_key"]: item for item in screening["decisions"]}
+    for resolution in resolutions["resolutions"]:
+        key = resolution["canonical_key"]
+        if key not in decisions:
+            raise ValueError(f"resolution does not match a screening record: {key}")
+        decision = decisions[key]
+        if decision["decision"] != "uncertain":
+            raise ValueError(f"resolution targets a non-uncertain record: {key}")
+        disposition = resolution["disposition"]
+        if disposition not in {"include", "exclude"}:
+            raise ValueError(f"unsupported resolution disposition: {disposition}")
+        if not resolution.get("evidence", {}).get("response_sha256", "").startswith("sha256:"):
+            raise ValueError(f"resolution lacks response hash: {key}")
+        decision["decision"] = disposition
+        decision["reason"] = resolution["reason"]
+        decision["resolution"] = resolution["evidence"]
+
+    counts = screening["counts"]
+    counts["included"] = sum(item["decision"] == "include" for item in decisions.values())
+    counts["excluded"] = sum(item["decision"] == "exclude" for item in decisions.values())
+    counts["uncertain"] = sum(item["decision"] == "uncertain" for item in decisions.values())
+    screening["resolution_version"] = resolutions["resolution_version"]
+    screening["resolution_scope"] = resolutions["scope"]
+    return screening
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("snapshot", type=Path)
+    parser.add_argument("--resolutions", type=Path)
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     snapshot_bytes = args.snapshot.read_bytes()
     snapshot = json.loads(snapshot_bytes)
     result = screen(snapshot)
     result["source_snapshot_sha256"] = "sha256:" + hashlib.sha256(snapshot_bytes).hexdigest()
-    print(json.dumps(result, indent=2, sort_keys=False))
+    if args.resolutions:
+        result = apply_resolutions(result, json.loads(args.resolutions.read_text(encoding="utf-8")))
+    rendered = json.dumps(result, indent=2, sort_keys=False) + "\n"
+    if args.output:
+        args.output.write_text(rendered, encoding="utf-8")
+    else:
+        print(rendered, end="")
     return 0
 
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from collections.abc import Mapping
 from typing import Any
 
@@ -10,6 +11,92 @@ from rareburden.provenance import content_id
 
 class AtlasPackageError(ValueError):
     """Raised when a static/package projection is not release-safe."""
+
+
+_SHA256 = re.compile(r"^[0-9a-f]{64}$")
+
+
+def build_atlas_release_candidate(
+    package: Mapping[str, Any],
+    api_response: Mapping[str, Any],
+    *,
+    reviewed_artifacts: list[Mapping[str, Any]],
+    citation_id: str,
+    provenance_id: str,
+) -> dict[str, Any]:
+    """Bind reviewed aggregate projections into a non-publishable candidate.
+
+    This repository-owned boundary proves identity, parity and explicit rights
+    disposition. It deliberately cannot authorize publication or represent an
+    independent review.
+    """
+    if (
+        package.get("package_type") != "aggregate_gap_map"
+        or package.get("aggregate_only") is not True
+    ):
+        raise AtlasPackageError("release candidate requires an aggregate gap package")
+    if api_response.get("read_only") is not True:
+        raise AtlasPackageError("release candidate requires a read-only API projection")
+    parity_fields = (
+        "release_id",
+        "source_manifest_id",
+        "package_fingerprint",
+        "missingness_policy",
+        "rows",
+        "limitations",
+    )
+    if any(api_response.get(field) != package.get(field) for field in parity_fields):
+        raise AtlasPackageError("package and API projection differ")
+    if not citation_id.strip() or not provenance_id.strip():
+        raise AtlasPackageError("citation_id and provenance_id are required")
+    if not reviewed_artifacts:
+        raise AtlasPackageError("at least one reviewed artifact is required")
+
+    artifacts: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
+    for index, artifact in enumerate(reviewed_artifacts):
+        artifact_id = artifact.get("artifact_id")
+        receipt_id = artifact.get("review_receipt_id")
+        digest = artifact.get("sha256")
+        if not isinstance(artifact_id, str) or not artifact_id.strip():
+            raise AtlasPackageError(f"reviewed artifact {index} has no artifact_id")
+        if artifact_id in seen_ids:
+            raise AtlasPackageError(f"duplicate reviewed artifact_id: {artifact_id}")
+        if not isinstance(receipt_id, str) or not receipt_id.strip():
+            raise AtlasPackageError(f"reviewed artifact {artifact_id} has no review receipt")
+        if artifact.get("review_state") != "repository_reviewed_bounded":
+            raise AtlasPackageError(f"reviewed artifact {artifact_id} is not repository reviewed")
+        if artifact.get("licence_state") not in {"redistributable", "metadata_only"}:
+            raise AtlasPackageError(f"reviewed artifact {artifact_id} has unresolved licence state")
+        if artifact.get("package_fingerprint") != package.get("package_fingerprint"):
+            raise AtlasPackageError(f"reviewed artifact {artifact_id} targets another package")
+        if not isinstance(digest, str) or _SHA256.fullmatch(digest) is None:
+            raise AtlasPackageError(f"reviewed artifact {artifact_id} has invalid sha256")
+        seen_ids.add(artifact_id)
+        artifacts.append(dict(artifact))
+
+    payload = {
+        "schema_version": "0.1.0",
+        "release_status": "prepared",
+        "publication_authorized": False,
+        "review_boundary": "repository_reviewed_inputs_only",
+        "release_id": package["release_id"],
+        "source_manifest_id": package["source_manifest_id"],
+        "package_fingerprint": package["package_fingerprint"],
+        "citation_id": citation_id,
+        "provenance_id": provenance_id,
+        "missingness_policy": package["missingness_policy"],
+        "reviewed_artifacts": sorted(artifacts, key=lambda item: str(item["artifact_id"])),
+        "pending_gates": [
+            "accessibility",
+            "independent_reproduction",
+            "release_authority",
+        ],
+    }
+    return {
+        "release_surface_fingerprint": content_id("atlas-release", payload),
+        **payload,
+    }
 
 
 def build_gap_api_response(
@@ -63,4 +150,9 @@ def build_gap_package(
     return {"package_fingerprint": content_id("atlas", payload), **payload}
 
 
-__all__ = ["AtlasPackageError", "build_gap_api_response", "build_gap_package"]
+__all__ = [
+    "AtlasPackageError",
+    "build_atlas_release_candidate",
+    "build_gap_api_response",
+    "build_gap_package",
+]

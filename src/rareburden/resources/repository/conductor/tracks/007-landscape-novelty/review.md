@@ -147,12 +147,18 @@ preserved and title/public-metadata screened in
 `docs/track-007-search-results-2026-08-15.json` and
 `docs/track-007-screening-2026-08-15.json`. Across 133 returned occurrences, 13
 exact cross-query/DOI duplicates were removed and all 120 unique records were
-screened: 69 were retained for adjacency/full-text review, 50 were excluded,
-and one remained uncertain because its title was missing. Four exact-title
+screened: 69 were retained for adjacency/full-text review, 51 were excluded,
+and none remain uncertain after the sole missing-title DOI was resolved through
+hashed Crossref metadata as a grant without a rare-disease scope signal. Four exact-title
 clusters were flagged rather than automatically entity-merged. These counts do
 not alter the provisional novelty claim or external-gate status. Pagination,
 full-text eligibility, coverage, registration, independent methods challenge
 and accountable patient/community interpretation remain pending.
+
+The resolution is bounded to the committed first-page snapshot. Pagination,
+full-text eligibility, entity-level adjudication, coverage and final novelty
+remain repository-owned or external work as identified above; zero uncertainty
+in this snapshot is not a completeness claim.
 
 The refreshed files are hash-bound in
 `docs/track-007-registration-challenge-readiness-2026-08-15.yml`. The challenge

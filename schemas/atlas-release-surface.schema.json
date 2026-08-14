@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/atlas-release-surface.schema.json",
+  "title": "Bounded atlas release-surface candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "release_surface_fingerprint",
+    "schema_version",
+    "release_status",
+    "publication_authorized",
+    "review_boundary",
+    "release_id",
+    "source_manifest_id",
+    "package_fingerprint",
+    "citation_id",
+    "provenance_id",
+    "missingness_policy",
+    "reviewed_artifacts",
+    "pending_gates"
+  ],
+  "properties": {
+    "release_surface_fingerprint": {"type": "string", "pattern": "^atlas-release-[0-9a-f]+$"},
+    "schema_version": {"const": "0.1.0"},
+    "release_status": {"const": "prepared"},
+    "publication_authorized": {"const": false},
+    "review_boundary": {"const": "repository_reviewed_inputs_only"},
+    "release_id": {"type": "string", "minLength": 1},
+    "source_manifest_id": {"type": "string", "minLength": 1},
+    "package_fingerprint": {"type": "string", "pattern": "^atlas-[0-9a-f]+$"},
+    "citation_id": {"type": "string", "minLength": 1},
+    "provenance_id": {"type": "string", "minLength": 1},
+    "missingness_policy": {"const": "preserve_missing_not_zero"},
+    "reviewed_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artifact_id", "sha256", "package_fingerprint", "review_receipt_id", "review_state", "licence_state"],
+        "properties": {
+          "artifact_id": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "package_fingerprint": {"type": "string", "pattern": "^atlas-[0-9a-f]+$"},
+          "review_receipt_id": {"type": "string", "minLength": 1},
+          "review_state": {"const": "repository_reviewed_bounded"},
+          "licence_state": {"enum": ["redistributable", "metadata_only"]}
+        }
+      }
+    },
+    "pending_gates": {
+      "const": ["accessibility", "independent_reproduction", "release_authority"]
+    }
+  }
+}

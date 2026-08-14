@@ -4,7 +4,12 @@ import copy
 
 import pytest
 
-from rareburden.atlas import AtlasPackageError, build_gap_api_response, build_gap_package
+from rareburden.atlas import (
+    AtlasPackageError,
+    build_atlas_release_candidate,
+    build_gap_api_response,
+    build_gap_package,
+)
 from rareburden.gapmap import build_domain_gap_map
 from rareburden.schema import load_mapping
 
@@ -64,3 +69,77 @@ def test_gap_api_projection_rejects_non_relative_or_non_aggregate_inputs() -> No
         build_gap_api_response(package, endpoint="https://example.invalid/gaps")
     with pytest.raises(AtlasPackageError):
         build_gap_api_response({"rows": package["rows"]})
+
+
+def _reviewed_artifact(package: dict[str, object]) -> dict[str, object]:
+    return {
+        "artifact_id": "gap-package-json",
+        "sha256": "a" * 64,
+        "package_fingerprint": package["package_fingerprint"],
+        "review_receipt_id": "repository-review-gap-001",
+        "review_state": "repository_reviewed_bounded",
+        "licence_state": "redistributable",
+    }
+
+
+def test_atlas_release_candidate_binds_reviewed_package_and_api() -> None:
+    package = build_gap_package(
+        _gap_map(), release_id="synthetic-gap-v1", source_manifest_id="rel-1"
+    )
+    response = build_gap_api_response(package)
+    candidate = build_atlas_release_candidate(
+        package,
+        response,
+        reviewed_artifacts=[_reviewed_artifact(package)],
+        citation_id="citation-synthetic-gap-v1",
+        provenance_id="prov-synthetic-gap-v1",
+    )
+    assert candidate["publication_authorized"] is False
+    assert candidate["release_status"] == "prepared"
+    assert candidate["package_fingerprint"] == response["package_fingerprint"]
+    assert candidate["release_surface_fingerprint"].startswith("atlas-release-")
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("review_state", "draft"),
+        ("licence_state", "unknown"),
+        ("review_receipt_id", ""),
+        ("sha256", "not-a-digest"),
+    ],
+)
+def test_atlas_release_candidate_rejects_unreviewed_or_uncleared_artifacts(
+    field: str, value: str
+) -> None:
+    package = build_gap_package(
+        _gap_map(), release_id="synthetic-gap-v1", source_manifest_id="rel-1"
+    )
+    response = build_gap_api_response(package)
+    artifact = _reviewed_artifact(package)
+    artifact[field] = value
+    with pytest.raises(AtlasPackageError):
+        build_atlas_release_candidate(
+            package,
+            response,
+            reviewed_artifacts=[artifact],
+            citation_id="citation-synthetic-gap-v1",
+            provenance_id="prov-synthetic-gap-v1",
+        )
+
+
+def test_atlas_release_candidate_rejects_projection_or_fingerprint_drift() -> None:
+    package = build_gap_package(
+        _gap_map(), release_id="synthetic-gap-v1", source_manifest_id="rel-1"
+    )
+    response = build_gap_api_response(package)
+    drifted_response = copy.deepcopy(response)
+    drifted_response["rows"] = [dict(response["rows"][0], sufficiency="sufficient")]
+    with pytest.raises(AtlasPackageError):
+        build_atlas_release_candidate(
+            package,
+            drifted_response,
+            reviewed_artifacts=[_reviewed_artifact(package)],
+            citation_id="citation-synthetic-gap-v1",
+            provenance_id="prov-synthetic-gap-v1",
+        )

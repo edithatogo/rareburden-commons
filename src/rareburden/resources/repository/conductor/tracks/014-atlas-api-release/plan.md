@@ -50,14 +50,19 @@
 - [x] Add the dependency-ordered atlas/API implementation plan with options,
   contingencies and recommendation in
   `docs/track-014-implementation-plan-2026-08-02.md`.
-- [ ] Implement the recommended static-first reviewed-release slice.
+- [x] Implement the recommended static-first reviewed-release slice. Evidence:
+  `rareburden.atlas.build_atlas_release_candidate`,
+  `schemas/atlas-release-surface.schema.json`, and release-surface tests bind
+  aggregate package/API parity, reviewed-artifact receipts, rights disposition,
+  citation and provenance while keeping publication explicitly unauthorized.
 - [x] Implement the metadata-only static-first gap-product slice. Evidence:
   `generate-gap-map`, `src/rareburden.gapmap.render_gap_map_markdown`, and
   `tests/test_gapmap.py` produce schema-valid accessible Markdown/JSON with
   explicit missingness, readiness and limitations; no API or beta publication
   is enabled.
-- [ ] Project the same release into a versioned aggregate package and read-only
-  API with parity checks.
+- [x] Project the same release into a versioned aggregate package and read-only
+  API with parity checks. Evidence: package, API and prepared release-surface
+  fingerprints are tested together; no network service or publication is enabled.
 - [x] Implement the versioned aggregate gap-package projection. Evidence:
   `rareburden.atlas.build_gap_package` and `tests/test_atlas_package.py` bind
   package identity to a source manifest, preserve missingness and enforce

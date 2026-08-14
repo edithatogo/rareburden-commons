@@ -1,0 +1,28 @@
+{
+  "resolution_version": "RBC-LAND-007-RESOLVE-v0.2.1",
+  "scope": "bounded_first_page_uncertain_record_resolution",
+  "resolutions": [
+    {
+      "canonical_key": "doi:10.35802/104746",
+      "disposition": "exclude",
+      "reason": "persistent_identifier_metadata_identifies_grant_without_rare_disease_scope_signal",
+      "evidence": {
+        "provider": "crossref",
+        "endpoint": "https://api.crossref.org/works/10.35802%2F104746",
+        "retrieved_at_utc": "2026-08-14T20:14:24Z",
+        "http_status": 200,
+        "response_sha256": "sha256:9884f35dcebc5f5983e096f48b2ef71efd87ef914289204302fe40ce2c037d11",
+        "observed_doi": "10.35802/104746",
+        "observed_type": "grant",
+        "observed_publisher": "Wellcome",
+        "observed_title": null,
+        "raw_response_retained": false
+      }
+    }
+  ],
+  "limitations": [
+    "This resolves only the single uncertain record in the bounded first-page snapshot.",
+    "It does not establish pagination completeness, full-text eligibility or novelty.",
+    "It is repository-owned screening evidence, not external methods or patient/community review."
+  ]
+}

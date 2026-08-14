@@ -74,8 +74,8 @@ unresolved exact-title entity clusters in
 | Exact duplicate occurrences removed | 13 |
 | Unique records screened | 120 |
 | Included for adjacency/full-text review | 69 |
-| Excluded at title/public-metadata screen | 50 |
-| Uncertain due to missing title metadata | 1 |
+| Excluded after title/public-metadata screen and bounded identifier resolution | 51 |
+| Uncertain after bounded identifier resolution | 0 |
 | Potential exact-title entity clusters | 4 |
 
 The repository itself is excluded as a self-result. A shared DOI is the only
@@ -85,3 +85,13 @@ only an invitation to adjacency/full-text review, not a final eligibility,
 quality, novelty or partnership finding. This bounded screen does not cover
 later result pages, all languages, private or poorly indexed resources, or the
 full public web.
+
+The sole missing-title record, DOI `10.35802/104746`, was resolved through the
+Crossref persistent-identifier endpoint on 2026-08-14 UTC. The returned metadata
+identified a Wellcome grant, supplied no title or rare-disease scope signal,
+and was therefore excluded under the registered eligibility rules. The
+timestamp, endpoint, response hash and observed fields are recorded in
+`docs/track-007-screening-resolutions-2026-08-15.json`; the response bytes are
+not retained. This closes uncertainty only for the bounded first-page set. It
+does not complete pagination, full-text eligibility, entity resolution,
+coverage or novelty assessment.
