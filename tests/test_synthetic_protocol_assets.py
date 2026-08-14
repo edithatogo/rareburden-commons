@@ -43,6 +43,10 @@ def test_protocol_drafts_are_explicitly_non_binding(track: str) -> None:
             "schemas/analysis-specification.schema.json",
         ),
         (
+            "examples/analyses/monogenic-diabetes-synthetic.yml",
+            "schemas/analysis-specification.schema.json",
+        ),
+        (
             "examples/semantics/orpha-to-synthetic-mapping.yml",
             "schemas/ontology-mapping.schema.json",
         ),

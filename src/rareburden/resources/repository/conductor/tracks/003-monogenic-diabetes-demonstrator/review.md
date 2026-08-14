@@ -3,12 +3,22 @@
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 008, 009 and 010
 
+### Review rerun — 2026-08-01
+
+Repository-owned preparation now includes the non-binding
+`examples/analyses/monogenic-diabetes-synthetic.yml` fixture and schema test.
+The focused synthetic-protocol suite and full project validation pass. This
+does not approve RBC-P002, freeze clinical entities or estimands, or permit
+empirical or patient-facing use. The blocked disposition is unchanged.
+
 ## Findings
 
 - Track 008 is blocked by the unresolved Track 002 and Track 007 review gates.
 - Track 009 is planned and depends on Tracks 002 and 008.
 - Track 010 is planned and depends on Track 009.
-- Track 003 has no completed implementation tasks or approved RBC-P002 estimands, entity scope, evidence ledger, or burden-engine contract.
+- Track 003 has one completed repository-owned preparation task (the bounded
+  synthetic analysis fixture), but still has no approved RBC-P002 estimands,
+  entity scope, evidence ledger, or burden-engine contract.
 
 ## Disposition
 

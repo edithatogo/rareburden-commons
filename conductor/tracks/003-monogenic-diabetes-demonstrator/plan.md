@@ -18,7 +18,7 @@
 
 ## Phase 3 — Analysis implementation
 
-- [ ] Build public/synthetic analysis specification and fixtures. `[M-18, M-19]`
+- [x] Build a non-binding public/synthetic analysis specification and fixture. Evidence: `examples/analyses/monogenic-diabetes-synthetic.yml` and schema-validation test; empirical activation and contract freeze remain blocked. `[M-18, M-19]`
 - [ ] Run primary expected-population and rare-aetiology models. `[S-04, S-05]`
 - [ ] Add structural, denominator, ascertainment and penetrance scenarios. `[M-06]`
 - [ ] Add outcome/economic scenarios only where compatible evidence exists. `[S-06]`
