@@ -22,6 +22,11 @@
   `docs/track-007-screening-2026-08-15.json`,
   `scripts/screen_track_007_results.py` and `tests/test_landscape.py`; pagination,
   full-text eligibility, coverage, novelty and external challenge remain open.
+- [x] Resolve the bounded first-page screen's sole uncertain record through its
+  Crossref persistent identifier, preserve the response hash and observed
+  metadata, and keep broader coverage claims disabled. Evidence:
+  `docs/track-007-screening-resolutions-2026-08-15.json`; bounded counts are 69
+  included for full-text review, 51 excluded and 0 uncertain.
 
 ## Phase 3 — Analyse adjacency
 

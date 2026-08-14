@@ -24,6 +24,7 @@ SEARCH_LOG = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-01.yml")
 SEARCH_LOG_REFRESH = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-14.yml")
 SEARCH_RESULTS_REFRESH = ROOT / "docs" / "track-007-search-results-2026-08-15.json"
 SCREENING_REFRESH = ROOT / "docs" / "track-007-screening-2026-08-15.json"
+SCREENING_RESOLUTIONS = ROOT / "docs" / "track-007-screening-resolutions-2026-08-15.json"
 REGISTRATION_PACKET = ROOT / "docs" / "track-007-registration-packet.md"
 
 
@@ -177,6 +178,11 @@ def test_track_007_bounded_first_page_screen_is_complete_and_reconciled() -> Non
         screening["source_snapshot_sha256"]
         == "sha256:" + hashlib.sha256(snapshot_bytes).hexdigest()
     )
+    assert screening["counts"]["uncertain"] == 0
+    assert screening["resolution_version"] == "RBC-LAND-007-RESOLVE-v0.2.1"
+    resolution = json.loads(SCREENING_RESOLUTIONS.read_text(encoding="utf-8"))
+    assert resolution["scope"] == "bounded_first_page_uncertain_record_resolution"
+    assert resolution["resolutions"][0]["evidence"]["observed_type"] == "grant"
 
 
 def test_track_007_screening_is_fail_closed_and_does_not_overmerge_titles() -> None:

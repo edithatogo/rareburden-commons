@@ -17,8 +17,8 @@
     "exact_duplicate_occurrences_removed": 13,
     "screened": 120,
     "included": 69,
-    "excluded": 50,
-    "uncertain": 1,
+    "excluded": 51,
+    "uncertain": 0,
     "potential_entity_duplicate_groups": 4
   },
   "potential_entity_duplicates": [
@@ -827,15 +827,27 @@
       "identifier": "10.35802/104746",
       "title": "",
       "canonical_url": "https://doi.org/10.35802/104746",
-      "decision": "uncertain",
-      "reason": "missing_title_metadata",
+      "decision": "exclude",
+      "reason": "persistent_identifier_metadata_identifies_grant_without_rare_disease_scope_signal",
       "occurrences": [
         {
           "registry": "crossref",
           "query_string": "rare disease registry",
           "rank": 5
         }
-      ]
+      ],
+      "resolution": {
+        "provider": "crossref",
+        "endpoint": "https://api.crossref.org/works/10.35802%2F104746",
+        "retrieved_at_utc": "2026-08-14T20:14:24Z",
+        "http_status": 200,
+        "response_sha256": "sha256:9884f35dcebc5f5983e096f48b2ef71efd87ef914289204302fe40ce2c037d11",
+        "observed_doi": "10.35802/104746",
+        "observed_type": "grant",
+        "observed_publisher": "Wellcome",
+        "observed_title": null,
+        "raw_response_retained": false
+      }
     },
     {
       "canonical_key": "doi:10.4135/9781529796988",
@@ -1924,5 +1936,7 @@
     "Exact-title clusters are not automatically merged because releases and similarly titled works may differ.",
     "Provider ranking, query specificity, pagination, language and public-web bias remain unresolved.",
     "No completeness, novelty, external registration, independent methods review or patient/community interpretation is claimed."
-  ]
+  ],
+  "resolution_version": "RBC-LAND-007-RESOLVE-v0.2.1",
+  "resolution_scope": "bounded_first_page_uncertain_record_resolution"
 }
