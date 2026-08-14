@@ -15,5 +15,15 @@ The release boundary is:
 5. require static, package and API representations to share the same release
    fingerprint before publication.
 
+## Correction, withdrawal and supersession status
+
+`build_atlas_release_notice` creates an immutable notice bound to the exact
+prepared release-surface fingerprint. Correction and supersession notices must
+name a different exact replacement; withdrawal notices cannot imply a
+replacement. `build_atlas_release_status` revalidates every notice before it
+creates the shared machine-readable status and accessible text alternative.
+The status always keeps `publication_authorized: false`; it is suitable for
+static and API-shaped consumers but does not publish or authorize a release.
+
 Track 013 approval, independent reproduction, accessibility review and release
 authority remain mandatory before any v0.8 beta publication.

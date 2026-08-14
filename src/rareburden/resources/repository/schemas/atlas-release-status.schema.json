@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/atlas-release-status.schema.json",
+  "title": "Atlas release correction, withdrawal and supersession status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status_fingerprint", "schema_version", "release_id", "release_surface_fingerprint", "release_status", "availability", "publication_authorized", "notices", "text_alternative"],
+  "properties": {
+    "status_fingerprint": {"type": "string", "pattern": "^atlas-status-[0-9a-f]+$"},
+    "schema_version": {"const": "0.1.0"},
+    "release_id": {"type": "string", "minLength": 1},
+    "release_surface_fingerprint": {"type": "string", "pattern": "^atlas-release-[0-9a-f]+$"},
+    "release_status": {"enum": ["prepared", "correction", "withdrawal", "supersession"]},
+    "availability": {"enum": ["not_published", "do_not_use"]},
+    "publication_authorized": {"const": false},
+    "notices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["notice_fingerprint", "schema_version", "notice_id", "disposition", "effective_at", "reason", "affected_release_id", "affected_release_surface_fingerprint", "replacement_release_surface_fingerprint", "publication_authorized"],
+        "properties": {
+          "notice_fingerprint": {"type": "string", "pattern": "^atlas-notice-[0-9a-f]+$"},
+          "schema_version": {"const": "0.1.0"},
+          "notice_id": {"type": "string", "minLength": 1},
+          "disposition": {"enum": ["correction", "withdrawal", "supersession"]},
+          "effective_at": {"type": "string", "format": "date-time"},
+          "reason": {"type": "string", "minLength": 1},
+          "affected_release_id": {"type": "string", "minLength": 1},
+          "affected_release_surface_fingerprint": {"type": "string", "pattern": "^atlas-release-[0-9a-f]+$"},
+          "replacement_release_surface_fingerprint": {"type": ["string", "null"], "pattern": "^atlas-release-[0-9a-f]+$"},
+          "publication_authorized": {"const": false}
+        }
+      }
+    },
+    "text_alternative": {"type": "string", "minLength": 1}
+  }
+}
