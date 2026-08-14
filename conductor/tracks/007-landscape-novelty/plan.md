@@ -27,6 +27,17 @@
   metadata, and keep broader coverage claims disabled. Evidence:
   `docs/track-007-screening-resolutions-2026-08-15.json`; bounded counts are 69
   included for full-text review, 51 excluded and 0 uncertain.
+- [x] Implement and exercise a deterministic, fail-closed full-text eligibility
+  workflow for all 69 retained records without retaining abstracts or
+  copyrighted full text. Evidence:
+  `scripts/observe_track_007_locators.py`,
+  `scripts/assess_track_007_fulltext.py`,
+  `docs/track-007-fulltext-locator-observations-2026-08-15.json`,
+  `docs/track-007-fulltext-eligibility-2026-08-15.json`, schema and negative
+  tests. The bounded HEAD-only observation found 61 reachable and 8 restricted
+  locators; all remain pending content assessment or lawful access. Final
+  eligibility, novelty, pagination/completeness and external challenge remain
+  open.
 
 ## Phase 3 — Analyse adjacency
 

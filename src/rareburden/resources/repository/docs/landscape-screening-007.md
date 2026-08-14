@@ -95,3 +95,15 @@ timestamp, endpoint, response hash and observed fields are recorded in
 not retained. This closes uncertainty only for the bounded first-page set. It
 does not complete pagination, full-text eligibility, entity resolution,
 coverage or novelty assessment.
+
+## Bounded full-text workflow status — 2026-08-15
+
+All 69 records retained for the next stage are represented in
+`track-007-fulltext-locator-observations-2026-08-15.json` and the derived
+`track-007-fulltext-eligibility-2026-08-15.json`. The observation used HEAD
+requests only and retained no bodies, abstracts or copyrighted full text. It
+found 61 reachable and 8 access-restricted locators. These observations are
+locator evidence, not eligibility decisions: 61 records remain pending content
+assessment and 8 remain pending lawful access. Final exclusion requires a
+registered reason and hash-bound evidence. Final novelty and all external gates
+remain pending.

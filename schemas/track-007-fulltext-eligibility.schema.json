@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/track-007-fulltext-eligibility.schema.json",
+  "title": "Track 007 bounded full-text eligibility register",
+  "type": "object",
+  "required": [
+    "workflow_version",
+    "scope",
+    "source_screening_sha256",
+    "locator_observations_sha256",
+    "content_retention",
+    "counts",
+    "decisions",
+    "limitations"
+  ],
+  "properties": {
+    "workflow_version": {"const": "RBC-LAND-007-FULLTEXT-v0.1.0"},
+    "scope": {"const": "bounded_69_record_locator_and_full_text_eligibility_workflow"},
+    "source_screening_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "locator_observations_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "eligibility_resolutions_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "content_retention": {"const": "metadata_only_no_abstract_or_full_text_bytes"},
+    "state_machine": {"type": "object"},
+    "allowed_exclusion_reasons": {"type": "array", "items": {"type": "string"}},
+    "counts": {
+      "type": "object",
+      "required": ["retained_input", "locator_status", "eligibility_state", "final_decisions"],
+      "properties": {
+        "retained_input": {"const": 69},
+        "locator_status": {"type": "object"},
+        "eligibility_state": {"type": "object"},
+        "final_decisions": {"type": "integer", "minimum": 0, "maximum": 69}
+      },
+      "additionalProperties": false
+    },
+    "decisions": {
+      "type": "array",
+      "minItems": 69,
+      "maxItems": 69,
+      "items": {
+        "type": "object",
+        "required": [
+          "canonical_key", "identifier", "title", "canonical_url", "locator_status",
+          "checked_at", "eligibility_state", "reason"
+        ],
+        "properties": {
+          "canonical_key": {"type": "string", "minLength": 1},
+          "identifier": {"type": "string"},
+          "title": {"type": "string"},
+          "canonical_url": {"type": "string", "pattern": "^https://"},
+          "locator_status": {
+            "enum": ["reachable", "access_restricted", "not_found", "transient_failure", "observation_error", "unexpected_status"]
+          },
+          "http_status": {"type": ["integer", "null"]},
+          "final_url": {"type": ["string", "null"]},
+          "content_type": {"type": ["string", "null"]},
+          "checked_at": {"type": "string", "format": "date-time"},
+          "eligibility_state": {
+            "enum": ["pending_content_assessment", "pending_lawful_access", "pending_locator_resolution", "include", "exclude", "uncertain"]
+          },
+          "reason": {"type": "string", "minLength": 1},
+          "evidence_sha256": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
