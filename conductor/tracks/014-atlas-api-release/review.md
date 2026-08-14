@@ -33,3 +33,15 @@ accountable decisions required for the reviewed-artifact boundary, public
 output rights, semantic/accessibility controls, consistency, independent
 reproduction and release. This is non-binding preparation; no atlas, API,
 beta, archive or DOI has been activated.
+
+## Repository-owned release-surface review — 2026-08-15
+
+The static-first bounded slice now produces a schema-valid prepared release
+surface only when the aggregate package and read-only API projection agree and
+every input artifact carries an exact digest, repository review receipt and
+explicit redistributable or metadata-only disposition. Negative tests reject
+projection drift, unresolved rights, missing receipts and invalid digests.
+
+This closes the repository-owned construction task only. Accessibility,
+independent reproduction, upstream scientific/governance dependencies, release
+authority, archive/DOI creation and public beta activation remain pending.
