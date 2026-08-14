@@ -242,3 +242,18 @@ are in `docs/track-002-wpp-who-terms-audit-2026-08-15.yml`.
 
 External scientific and data-governance dispositions remain pending for both
 sources, and neither terms observation authorizes production activation.
+
+### Repository-owned frontier reconciliation — 2026-08-15
+
+The exact bounded source observations, candidate file selection and private
+archive dispositions are now reconciled across the activation matrix and
+Track 002 plan. Orphadata and WPP raw bytes are recorded as privately archived
+under their observed Creative Commons terms but excluded from the bounded
+candidate. WHO remains hash/metadata-only in the private archive manifest.
+Every row remains non-active.
+
+The remaining unchecked work is not source discovery or repository control
+implementation: it requires qualifying scientific and custodian receipts, a
+real changed/unavailable-source exercise where such a condition is observed,
+Track 007 gate satisfaction and an exact-candidate release decision. This
+reconciliation does not satisfy or waive any of those gates.
