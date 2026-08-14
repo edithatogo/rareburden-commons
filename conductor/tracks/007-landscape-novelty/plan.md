@@ -27,6 +27,13 @@
   metadata, and keep broader coverage claims disabled. Evidence:
   `docs/track-007-screening-resolutions-2026-08-15.json`; bounded counts are 69
   included for full-text review, 51 excluded and 0 uncertain.
+- [x] Add a deterministic, fail-closed pagination strategy and executable
+  bounded capture workflow for GitHub, Zenodo and Hugging Face public endpoints.
+  Evidence: `scripts/capture_track_007_pages.py`,
+  `docs/track-007-pagination-strategy-2026-08-15.json`,
+  `docs/track-007-pagination-workflow.md` and
+  `tests/test_track_007_pagination.py`; no live multi-page capture or ecosystem
+  completeness claim is inferred.
 
 ## Phase 3 — Analyse adjacency
 

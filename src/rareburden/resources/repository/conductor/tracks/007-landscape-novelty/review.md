@@ -31,6 +31,20 @@ challenge are external or human gates.
 
 Keep Track 007 **In review**. Use `proceed_with_narrowed_scope` as a provisional programme decision only. Complete registration, searches and external challenge before the final v0.3.0 gate.
 
+### Bounded pagination implementation — 2026-08-15
+
+Repository review result: **Pass for capture mechanics; broader gates remain
+open**. The pagination workflow records every request/final URL, response hash,
+item count and stable identifier, enforces a bounded page budget, rejects
+changing totals and repeated cross-page identifiers, and distinguishes provider
+totals/caps from observed page exhaustion. Deterministic fixtures exercise exact
+total capture, page-budget exhaustion, unstable totals, duplicate pages, invalid
+JSON and HTTP failure. This supports reproducibility of captured public pages;
+it does not establish search, ecosystem, scholarly, language or temporal
+completeness. Live multi-page capture, full-text eligibility, external protocol
+registration, independent methods challenge and patient/community
+interpretation remain open.
+
 ### External-gate panel synthesis — 2026-08-01
 
 The repository's preparatory panel review is recorded in
