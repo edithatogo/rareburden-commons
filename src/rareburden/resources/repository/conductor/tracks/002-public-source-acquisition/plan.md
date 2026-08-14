@@ -156,3 +156,23 @@ scientific and data-governance gates remain separate and pending.
   an unavailable World Bank response cannot be promoted.
 - [ ] Re-probe changed or unavailable endpoints and obtain accountable terms,
   scientific and custodian dispositions before activation.
+
+## Exact source and private-archive refresh — 2026-08-15
+
+- [x] Re-probe the exact Orphadata, WPP, WHO GHE and bounded World Bank routes;
+  record current page/response hashes, release identities and fail-closed
+  archival states in `docs/track-002-source-verification-2026-08-15.yml`.
+- [x] Confirm the exact Orphadata product-page evidence: the official July 2026
+  epidemiology and alignment pages name `en_product9_prev.xml` and
+  `en_product1.xml` respectively and state that all files are CC BY 4.0.
+- [x] Prepare the required Orphadata attribution, unchanged-file and
+  no-endorsement notice in
+  `docs/track-002-orphadata-attribution-2026-08-15.md`.
+- [x] Capture the bounded World Bank `AUS;NZL`, 2000–2021 response after the
+  earlier unavailable observation; retain it as probe-only and prohibit silent
+  WPP substitution.
+- [ ] Keep WPP and WHO bytes absent from Hugging Face until their remaining
+  workbook/third-party conditions are dispositioned; metadata and hashes are
+  sufficient for the bounded candidate.
+- [ ] Keep production activation and external scientific, patient/community,
+  custodian and independent-review claims disabled.

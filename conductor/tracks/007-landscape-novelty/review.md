@@ -148,6 +148,13 @@ status. Cross-query deduplication, full eligibility screening, registration,
 independent methods challenge and accountable patient/community interpretation
 remain pending.
 
+The refreshed files are hash-bound in
+`docs/track-007-registration-challenge-readiness-2026-08-15.yml`. The challenge
+packet adds explicit questions about low-specificity scholarly/repository
+results, ranking and pagination, cross-index deduplication, public-web and
+language bias, and exclusion of this repository as a self-result. It remains
+preparation evidence and cannot satisfy the external receipts it requests.
+
 ### Synthetic screening exercise — 2026-08-02
 
 The deterministic fixture `docs/track-007-panel-screening-exercise-2026-08-02.yml`
