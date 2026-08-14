@@ -1,0 +1,18 @@
+{
+  "observation_version": "RBC-LAND-007-LOCATORS-v0.1.0",
+  "checked_at": "2026-08-15T00:00:00+00:00",
+  "method": "synthetic negative fixture",
+  "observations": [
+    {
+      "canonical_key": "synthetic:copyrighted-record",
+      "requested_url": "https://example.invalid/article",
+      "method": "HEAD",
+      "checked_at": "2026-08-15T00:00:00+00:00",
+      "http_status": 200,
+      "final_url": "https://example.invalid/article",
+      "content_type": "text/html",
+      "error": null,
+      "full_text": "PROHIBITED SYNTHETIC CONTENT"
+    }
+  ]
+}

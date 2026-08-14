@@ -1,0 +1,701 @@
+{
+  "observation_version": "RBC-LAND-007-LOCATORS-v0.1.0",
+  "checked_at": "2026-08-14T20:26:58+00:00",
+  "method": "HEAD only; response bodies were not read or retained",
+  "observations": [
+    {
+      "canonical_key": "doi:10.1016/j.rare.2024.100046",
+      "requested_url": "https://doi.org/10.1016/j.rare.2024.100046",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://linkinghub.elsevier.com/retrieve/pii/S2950008724000292",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1016/j.rare.2025.100069",
+      "requested_url": "https://doi.org/10.1016/j.rare.2025.100069",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://linkinghub.elsevier.com/retrieve/pii/S2950008725000134",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1016/j.rare.2025.100075",
+      "requested_url": "https://doi.org/10.1016/j.rare.2025.100075",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://linkinghub.elsevier.com/retrieve/pii/S2950008725000195",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1016/s0140-6736(15)60420-2",
+      "requested_url": "https://doi.org/10.1016/s0140-6736(15)60420-2",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://linkinghub.elsevier.com/retrieve/pii/S0140673615604202",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1056/cat.19.1116",
+      "requested_url": "https://doi.org/10.1056/cat.19.1116",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 403,
+      "final_url": "https://catalyst.nejm.org/doi/10.1056/CAT.19.1116",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1097/01.ede.0000153643.88019.92",
+      "requested_url": "https://doi.org/10.1097/01.ede.0000153643.88019.92",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://www.ovid.com/jnls/epidem/fulltext/10.1097/01.ede.0000153643.88019.92~estimating-rare-disease-prevalence-from-administrative",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1109/bibm52615.2021.9669517",
+      "requested_url": "https://doi.org/10.1109/bibm52615.2021.9669517",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 202,
+      "final_url": "https://ieeexplore.ieee.org/document/9669517/",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1109/bibm55620.2022.9995614",
+      "requested_url": "https://doi.org/10.1109/bibm55620.2022.9995614",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 202,
+      "final_url": "https://ieeexplore.ieee.org/document/9995614/",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1109/cbms49503.2020.00039",
+      "requested_url": "https://doi.org/10.1109/cbms49503.2020.00039",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 202,
+      "final_url": "https://ieeexplore.ieee.org/document/9183079/",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1111/jep.12281",
+      "requested_url": "https://zenodo.org/records/18492100",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/18492100",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1177/2633004020902860",
+      "requested_url": "https://doi.org/10.1177/2633004020902860",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 403,
+      "final_url": "https://journals.sagepub.com/doi/10.1177/2633004020902860",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1177/26330040241307962",
+      "requested_url": "https://doi.org/10.1177/26330040241307962",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 403,
+      "final_url": "https://journals.sagepub.com/doi/10.1177/26330040241307962",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1177/26330040251359676",
+      "requested_url": "https://doi.org/10.1177/26330040251359676",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 403,
+      "final_url": "https://journals.sagepub.com/doi/10.1177/26330040251359676",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1186/s12874-021-01434-3",
+      "requested_url": "https://zenodo.org/records/5937460",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/5937460",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-015-0226-9",
+      "requested_url": "https://doi.org/10.1186/s13023-015-0226-9",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://link.springer.com/article/10.1186/s13023-015-0226-9?error=cookies_not_supported&code=8de8e85a-4a66-452b-b152-31b70ef10b7a",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-017-0597-1",
+      "requested_url": "https://zenodo.org/records/345747",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/345747",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-018-0836-0",
+      "requested_url": "https://zenodo.org/records/1412173",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/1412173",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-019-1146-x",
+      "requested_url": "https://doi.org/10.1186/s13023-019-1146-x",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://link.springer.com/article/10.1186/s13023-019-1146-x?error=cookies_not_supported&code=2133e90f-55f3-47a2-a895-756a5ac82dab",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-022-02299-5",
+      "requested_url": "https://doi.org/10.1186/s13023-022-02299-5",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://link.springer.com/article/10.1186/s13023-022-02299-5?error=cookies_not_supported&code=824c4efc-2dd7-46fc-9850-effcf88f828c",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-024-03120-1",
+      "requested_url": "https://doi.org/10.1186/s13023-024-03120-1",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://link.springer.com/article/10.1186/s13023-024-03120-1?error=cookies_not_supported&code=ed152e23-b442-4b40-bd34-55554b354205",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1186/s13326-016-0051-7",
+      "requested_url": "https://zenodo.org/records/59581",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/59581",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.1377/forefront.20220128.987667",
+      "requested_url": "https://doi.org/10.1377/forefront.20220128.987667",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 403,
+      "final_url": "https://www.healthaffairs.org/do/10.1377/forefront.20220128.987667/full/",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.18653/v1/2026.bionlp-1.41",
+      "requested_url": "https://doi.org/10.18653/v1/2026.bionlp-1.41",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://aclanthology.org/2026.bionlp-1.41/",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.20517/rdodj.2023.39",
+      "requested_url": "https://doi.org/10.20517/rdodj.2023.39",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://www.oaepublish.com/articles/rdodj.2023.39",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.21203/rs.3.rs-1046815/v1",
+      "requested_url": "https://doi.org/10.21203/rs.3.rs-1046815/v1",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://www.researchsquare.com/article/rs-1046815/v1",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.21203/rs.3.rs-6623705/v1",
+      "requested_url": "https://doi.org/10.21203/rs.3.rs-6623705/v1",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://www.researchsquare.com/article/rs-6623705/v1",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.2196/preprints.60665",
+      "requested_url": "https://doi.org/10.2196/preprints.60665",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 202,
+      "final_url": "http://preprints.jmir.org/preprint/60665",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.26226/morressier.5ada8a0dd462b8029238e56e",
+      "requested_url": "https://doi.org/10.26226/morressier.5ada8a0dd462b8029238e56e",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://www.morressier.com/o/event/5ada899cd462b8029238e49c/article/5ada8a0dd462b8029238e56e",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.3390/biomedicines14071439",
+      "requested_url": "https://doi.org/10.3390/biomedicines14071439",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 403,
+      "final_url": "https://www.mdpi.com/2227-9059/14/7/1439",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.3410/f.725602763.793528156",
+      "requested_url": "https://doi.org/10.3410/f.725602763.793528156",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 403,
+      "final_url": "https://facultyopinions.com/prime/725602763#eval793528156",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.4135/9781529796988",
+      "requested_url": "https://doi.org/10.4135/9781529796988",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://sk.sagepub.com/cases/a-rare-disease-patient-registry",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.10702445",
+      "requested_url": "https://zenodo.org/records/10702445",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/10702445",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1321650",
+      "requested_url": "https://zenodo.org/records/1321650",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/1321650",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1415398",
+      "requested_url": "https://zenodo.org/records/1415398",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/1415398",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.14907384",
+      "requested_url": "https://zenodo.org/records/14907384",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/14907384",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.14962863",
+      "requested_url": "https://zenodo.org/records/14962863",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/14962863",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20798055",
+      "requested_url": "https://zenodo.org/records/20798055",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/20798055",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.21384101",
+      "requested_url": "https://zenodo.org/records/21384101",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/21384101",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.3234097",
+      "requested_url": "https://zenodo.org/records/3234097",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/3234097",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.3478576",
+      "requested_url": "https://zenodo.org/records/3478576",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/3478576",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.557065",
+      "requested_url": "https://zenodo.org/records/557065",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/557065",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7102403",
+      "requested_url": "https://zenodo.org/records/7102403",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/7102403",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7125341",
+      "requested_url": "https://zenodo.org/records/7125341",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/7125341",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.837955",
+      "requested_url": "https://zenodo.org/records/837955",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://zenodo.org/records/837955",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.64898/2026.07.01.26357055",
+      "requested_url": "https://doi.org/10.64898/2026.07.01.26357055",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://www.medrxiv.org/content/10.64898/2026.07.01.26357055v1",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "doi:10.7326/0003-4819-123-4-199508150-00011",
+      "requested_url": "https://doi.org/10.7326/0003-4819-123-4-199508150-00011",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 403,
+      "final_url": "https://www.acpjournals.org/doi/10.7326/0003-4819-123-4-199508150-00011",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:acadtags/rare-disease-identification",
+      "requested_url": "https://github.com/acadTags/Rare-disease-identification",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/acadTags/Rare-disease-identification",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:akshay-gurav-31/hackathon-reusable-framework",
+      "requested_url": "https://github.com/Akshay-gurav-31/Hackathon-Reusable-Framework",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/Akshay-gurav-31/Hackathon-Reusable-Framework",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:ariadnavillam/radipo",
+      "requested_url": "https://github.com/ariadnavillam/RaDiPO",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/ariadnavillam/RaDiPO",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:atinak/rare-disease-detector",
+      "requested_url": "https://github.com/atinak/Rare-Disease-Detector",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/atinak/Rare-Disease-Detector",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:bhfdsc/ccu019_01",
+      "requested_url": "https://github.com/BHFDSC/CCU019_01",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/BHFDSC/CCU019_01",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:bih-cei/rd-cdm",
+      "requested_url": "https://github.com/BIH-CEI/rd-cdm",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/BIH-CEI/rd-cdm",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:deletexiumu/dar-ontology-reasoning",
+      "requested_url": "https://github.com/deletexiumu/dar-ontology-reasoning",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/deletexiumu/dar-ontology-reasoning",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:ebispot/ejp-ontology",
+      "requested_url": "https://github.com/EBISPOT/EJP-Ontology",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/EBISPOT/EJP-Ontology",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:honghan/ccu019_01",
+      "requested_url": "https://github.com/Honghan/CCU019_01",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/Honghan/CCU019_01",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:inutano/rare-disease-globe",
+      "requested_url": "https://github.com/inutano/rare-disease-globe",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/inutano/rare-disease-globe",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:khadgaa/rare-disease-ontology",
+      "requested_url": "https://github.com/KhadgaA/Rare-Disease-Ontology",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/KhadgaA/Rare-Disease-Ontology",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:malikalisha721-byte/rare-disease-registry-by-hamna",
+      "requested_url": "https://github.com/malikalisha721-byte/rare-disease-registry-by-hamna",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/malikalisha721-byte/rare-disease-registry-by-hamna",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:mira-jain/hackathon-reusable-framework",
+      "requested_url": "https://github.com/mira-jain/Hackathon-Reusable-Framework",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/mira-jain/Hackathon-Reusable-Framework",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:muccg/rdrf",
+      "requested_url": "https://github.com/muccg/rdrf",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/muccg/rdrf",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:orphanet/ordo",
+      "requested_url": "https://github.com/Orphanet/ORDO",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/Orphanet/ORDO",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:pavlidislab/rdp",
+      "requested_url": "https://github.com/PavlidisLab/rdp",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/PavlidisLab/rdp",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:prirai/rare-diseases-data-scraping",
+      "requested_url": "https://github.com/prirai/rare-diseases-data-scraping",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/prirai/rare-diseases-data-scraping",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:rayssacarvalh/genomic-burden-actionability-atlas",
+      "requested_url": "https://github.com/RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:renalreg/radar",
+      "requested_url": "https://github.com/renalreg/radar",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/renalreg/radar",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:robworth/radar",
+      "requested_url": "https://github.com/robworth/radar",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/robworth/radar",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:s-alex2022/rare-diseases-data-registry",
+      "requested_url": "https://github.com/S-Alex2022/Rare-Diseases-Data-Registry",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/S-Alex2022/Rare-Diseases-Data-Registry",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:tribby5/rare-disease-research",
+      "requested_url": "https://github.com/tribby5/rare-disease-research",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/tribby5/rare-disease-research",
+      "content_type": "text/html",
+      "error": null
+    },
+    {
+      "canonical_key": "github:wangjl99/okn-registry-temp",
+      "requested_url": "https://github.com/wangjl99/okn-registry-temp",
+      "method": "HEAD",
+      "checked_at": "2026-08-14T20:26:58+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/wangjl99/okn-registry-temp",
+      "content_type": "text/html",
+      "error": null
+    }
+  ],
+  "limitations": [
+    "A HEAD response is a bounded locator observation, not a full-text assessment.",
+    "Transient, restricted and unsupported-HEAD responses remain unresolved."
+  ]
+}

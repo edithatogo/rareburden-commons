@@ -189,3 +189,23 @@ uncertain record without treating it as included. This is repository-owned
 panel preparation evidence only. External protocol registration, independent
 methods challenge and patient/community challenge remain open; no novelty,
 completeness, partnership or endorsement claim is upgraded by this exercise.
+
+### Bounded full-text eligibility workflow — 2026-08-15
+
+The 69 records retained at title/public-metadata screening now have a complete,
+deterministic locator register and fail-closed eligibility state machine. A
+HEAD-only audit retained HTTP status, final URL and content type but no response
+body, abstract or copyrighted full text. At the recorded observation time, 61
+locators were reachable and 8 were access-restricted. Reachable records remain
+`pending_content_assessment`; restricted records remain
+`pending_lawful_access`. A failed or restricted locator is never automatically
+excluded.
+
+Final include/exclude/uncertain resolutions require an evidence SHA-256 and use
+a closed exclusion-reason vocabulary. Schema and negative tests reject missing
+observations, URL substitution, unsupported exclusion reasons, unbound
+resolutions and any locator observation containing abstract or full-text
+fields. This completes repository-owned workflow construction and locator
+observation only. Final eligibility, pagination/completeness, novelty,
+registration, independent methods challenge and accountable patient/community
+interpretation remain pending.

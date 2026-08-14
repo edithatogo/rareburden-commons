@@ -10,11 +10,17 @@ protocol:
   search_log: docs/track-007-search-log-2026-08-14.yml
   search_log_sha256: sha256:d6e6e3869fbe331b6e2a8839ebbc7fd095f5f7e9ed5c570800a34bcbaa9e7e8b
   screening_register: docs/landscape-screening-007.md
-  screening_register_sha256: sha256:3a285eeb2eda7a00b0192fca0416608ea8d1586129c81d500d93b5cc81fcd9c8
+  screening_register_sha256: sha256:93ab4227901467da82f5fe0c1854011363c1e8bb697573a3e69bbebbde3f761f
   screening_results: docs/track-007-screening-2026-08-15.json
   screening_results_sha256: sha256:a7585914c7c40c5df7769686c6e78f4f4ac7ceba06a6bf47b95bad77ed4247f3
   screening_resolutions: docs/track-007-screening-resolutions-2026-08-15.json
   screening_resolutions_sha256: sha256:2d80a7f033eab0da4ee21bb2e2d9928e1e7af97da6fc9e3111d5b53b3cde5d3b
+  fulltext_locator_observations: docs/track-007-fulltext-locator-observations-2026-08-15.json
+  fulltext_locator_observations_sha256: sha256:73a9cd02abcce31c5db3e6ff1fb97d86a7c0869aee1294b2c9031d9bc00db289
+  fulltext_eligibility_register: docs/track-007-fulltext-eligibility-2026-08-15.json
+  fulltext_eligibility_register_sha256: sha256:e8c9385a9dbd0c9692b0f4b568b17d73ec4e0bd8a13d2a03ea0a50a93de9b926
+  fulltext_eligibility_schema: schemas/track-007-fulltext-eligibility.schema.json
+  fulltext_eligibility_schema_sha256: sha256:400337059d11c364976fd84336e7a6bd3e4c7eb011f061b06e34dd358f3a6c99
   amendment_policy: material_changes_require_a_new_version_and_hash_set
 registration:
   status: pending_external_registration
