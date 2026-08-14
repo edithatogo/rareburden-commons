@@ -176,8 +176,15 @@ scientific and data-governance gates remain separate and pending.
 - [x] Capture the bounded World Bank `AUS;NZL`, 2000–2021 response after the
   earlier unavailable observation; retain it as probe-only and prohibit silent
   WPP substitution.
-- [ ] Keep WPP and WHO bytes absent from Hugging Face until their remaining
-  workbook/third-party conditions are dispositioned; metadata and hashes are
-  sufficient for the bounded candidate.
+- [ ] Keep WHO bytes absent from Hugging Face until its remaining field-level
+  third-party and modification conditions are dispositioned. WPP was archived
+  only after exact workbook CC BY 3.0 IGO evidence was recorded; neither source
+  is activated by archival.
+- [x] Audit the exact WPP workbook notice and WHO dataset terms. Evidence:
+  `docs/track-002-wpp-who-terms-audit-2026-08-15.yml`. WPP is CC BY 3.0 IGO
+  with attribution and notice preservation; WHO raw Hugging Face upload remains
+  withheld pending field-level third-party and modification review. The exact
+  WPP workbook is archived at private Hugging Face revision
+  `ae188ced2bced5e403e82af61990a28f975f5bc1`.
 - [ ] Keep production activation and external scientific, patient/community,
   custodian and independent-review claims disabled.

@@ -30,6 +30,21 @@ release remain disabled.
 | Source | Raw Hugging Face archival | Activation |
 |---|---|---|
 | Orphadata | Conditional on exact file-level licence and attribution | Disabled pending disposition |
-| WPP | No bytes until terms and third-party restrictions are documented | Disabled |
+| WPP | Archived at exact hash after the workbook's embedded CC BY 3.0 IGO notice and third-party classification boundary were documented | Disabled |
 | WHO GHE | No bytes until workbook and credited material terms are documented | Disabled |
 | World Bank | Query/hash metadata only | Probe-only |
+
+## Subsequent exact-workbook evidence
+
+The exact WPP workbook audit in
+`docs/track-002-wpp-who-terms-audit-2026-08-15.yml` recorded its embedded CC BY
+3.0 IGO notice, citation and third-party classification references. The exact
+unmodified workbook was then archived privately at Hugging Face revision
+`ae188ced2bced5e403e82af61990a28f975f5bc1`. This satisfies the bounded raw
+archival condition only; activation and denominator fitness remain separately
+disabled.
+
+WHO's publisher terms permit an unmodified private copy for public-health use,
+subject to attribution and withdrawal, but the exact workbook contains no
+file-level licence or field-level third-party credit register. Its Hugging Face
+raw upload therefore remains withheld and redistribution remains conditional.

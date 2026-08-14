@@ -9,15 +9,17 @@ mime_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 size_bytes: 12756114
 sha256: a051da530e7802ff6c084293b50e8de21cce0c36f02b76085568487f143246fe
 licence_or_terms_url: https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions
+terms_audit: docs/track-002-wpp-who-terms-audit-2026-08-15.yml
 licence_state: conditional
 attribution_text: "Global Health Estimates 2021: Disease burden by Cause, Age, Sex, by Country and by Region, 2000-2021. Geneva, World Health Organization; 2024."
-redistribution_position: pending_review
-third_party_material: pending_review
+private_archival_position: unmodified_copy_permitted_for_public_health_use_subject_to_attribution_and_withdrawal
+redistribution_position: conditional_pending_field_level_third_party_and_modification_review
+third_party_material: workbook_has_no_field_level_credit_register; WHO terms exclude credited third-party material
 intended_use: country DALY envelope and independent burden comparison
 geography_scope: country estimates; final countries pending scientific review
 time_scope: year 2000 workbook; broader release family covers 2000-2021
 measure_unit: DALY; final cause/age/sex dimensions pending review
 scientific_reviewer: pending
 data_governance_reviewer: pending
-decision: candidate_only
+decision: candidate_only_raw_hf_upload_withheld
 decision_record_url: conductor/tracks/002-public-source-acquisition/review.md
