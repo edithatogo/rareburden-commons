@@ -8,16 +8,18 @@ retrieved_at_utc: '2026-08-01'
 mime_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 size_bytes: 26142942
 sha256: 98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d
-licence_or_terms_url: https://population.un.org/wpp/
-licence_state: conditional
+licence_or_terms_url: https://creativecommons.org/licenses/by/3.0/igo/
+licence_evidence: exact workbook embedded copyright and CC BY 3.0 IGO notice
+terms_audit: docs/track-002-wpp-who-terms-audit-2026-08-15.yml
+licence_state: exact_workbook_cc_by_3_0_igo_observed
 attribution_text: United Nations, Department of Economic and Social Affairs, Population Division (2024), World Population Prospects 2024.
-redistribution_position: pending_review
-third_party_material: pending_review
+redistribution_position: permitted_with_attribution_and_preserved_notices
+third_party_material: aggregate classification references excluded from bounded national-total extraction unless separately dispositioned
 intended_use: country population denominators; medium-variant national totals
 geography_scope: 237 countries or areas; final geography codes pending review
 time_scope: 1950-2100 workbook; final extraction years pending review
 measure_unit: total population, thousands
 scientific_reviewer: pending
 data_governance_reviewer: pending
-decision: candidate_only
+decision: candidate_only_terms_observed_activation_disabled
 decision_record_url: conductor/tracks/002-public-source-acquisition/review.md

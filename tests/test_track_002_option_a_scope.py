@@ -22,17 +22,22 @@ def test_option_a_scope_remains_bounded_and_inactive() -> None:
     assert "no_raw_third_party_source_bytes_in_repository_or_release" in scope["exclusions"]
 
 
-def test_deferred_candidate_manifests_remain_conditional_and_unapproved() -> None:
-    for filename, source_id in (
-        ("track-002-un-wpp-2024-candidate.yml", "un-world-population-prospects"),
-        ("track-002-who-ghe-2021-candidate.yml", "who-global-health-estimates"),
-    ):
-        candidate = yaml.safe_load((ROOT / "docs" / filename).read_text(encoding="utf-8"))
-        assert candidate["source_id"] == source_id
-        assert candidate["licence_state"] == "conditional"
-        assert candidate["decision"] == "candidate_only"
-        assert candidate["redistribution_position"] == "pending_review"
-        assert candidate["third_party_material"] == "pending_review"
+def test_candidate_manifests_preserve_source_specific_terms_and_unapproved_state() -> None:
+    wpp = yaml.safe_load(
+        (ROOT / "docs/track-002-un-wpp-2024-candidate.yml").read_text(encoding="utf-8")
+    )
+    who = yaml.safe_load(
+        (ROOT / "docs/track-002-who-ghe-2021-candidate.yml").read_text(encoding="utf-8")
+    )
+
+    assert wpp["licence_state"] == "exact_workbook_cc_by_3_0_igo_observed"
+    assert wpp["decision"] == "candidate_only_terms_observed_activation_disabled"
+    assert wpp["redistribution_position"].startswith("permitted_with_attribution")
+    assert who["licence_state"] == "conditional"
+    assert who["decision"] == "candidate_only_raw_hf_upload_withheld"
+    assert who["redistribution_position"].startswith("conditional_pending_")
+
+    for candidate in (wpp, who):
         assert candidate["scientific_reviewer"] == "pending"
         assert candidate["data_governance_reviewer"] == "pending"
         assert candidate["exact_url"].startswith("https://")

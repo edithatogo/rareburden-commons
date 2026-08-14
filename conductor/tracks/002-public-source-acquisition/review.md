@@ -220,3 +220,25 @@ The repository owner approved the bounded Orphadata + UN WPP preparation
 posture, with WHO and World Bank candidate-only, no v0.3.0 activation, and the
 Track 007 challenge retained as a release dependency. This is a scope decision,
 not scientific, custodian, independent-operator or release-authority approval.
+
+### Exact WPP/WHO terms audit — 2026-08-15
+
+The exact WPP workbook embeds a United Nations copyright notice, CC BY 3.0 IGO
+licence URL and suggested citation. Its unmodified bytes are therefore archived
+in the private Hugging Face source archive at revision
+`ae188ced2bced5e403e82af61990a28f975f5bc1`, with attribution and notices
+preserved. The bounded extraction excludes aggregate classification fields
+referenced to third-party sources. This archival finding does not activate WPP
+or establish denominator fitness.
+
+WHO's official dataset terms grant public-health-purpose rights to use,
+reproduce, extract, download, copy and distribute covered datasets. They exclude
+credited third-party material, require WHO and underlying-country attribution,
+restrict non-minimal modification without written authorization and require a
+withdrawal capability. The exact GHE workbook has no embedded file-level
+licence or field-level third-party credit register, so its raw Hugging Face
+upload and redistribution remain withheld. Full evidence and fail-closed rules
+are in `docs/track-002-wpp-who-terms-audit-2026-08-15.yml`.
+
+External scientific and data-governance dispositions remain pending for both
+sources, and neither terms observation authorizes production activation.

@@ -11,5 +11,11 @@ def test_archival_policy_is_maximal_but_fail_closed() -> None:
     )
     assert policy["policy"] == "maximal_lawful_archival"
     assert policy["default"] == "metadata_hash_citation_manifest_only"
-    assert all(record["raw_upload_target"] is None for record in policy["records"])
+    records = {record["source_id"]: record for record in policy["records"]}
+    assert records["un-world-population-prospects"]["raw_upload_target"] == (
+        "private_huggingface_archive"
+    )
+    assert "preserve_attribution" in records["un-world-population-prospects"]["conditions"]
+    assert records["who-global-health-estimates"]["raw_upload_target"] is None
+    assert records["world-bank-indicators-api"]["raw_upload_target"] is None
     assert "private hosting is still a copy and third-party transfer" in policy["stop_rules"]

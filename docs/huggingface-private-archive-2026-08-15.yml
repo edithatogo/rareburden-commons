@@ -6,7 +6,7 @@ repository:
   repo_type: dataset
   visibility: private
   initial_commit: d5878e570d25efd604efde2dbe22f3d5d44a937c
-  latest_track_002_archival_commit: 70e406714e7a1693a0136bd01720757479e579f1
+  latest_track_002_archival_commit: ae188ced2bced5e403e82af61990a28f975f5bc1
   url: https://huggingface.co/datasets/edithatogo/rareburden-commons-source-archive
   catalog: edithatogo/dataset-estate-registry
 purpose: >-
@@ -29,8 +29,13 @@ archived_raw_sources:
     licence: CC BY 4.0
     sha256: df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb
     release: Orphanet knowledge base release of July 2026
+  - source_id: un-world-population-prospects
+    path: raw/wpp/2024/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx
+    licence: CC BY 3.0 IGO
+    sha256: 98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d
+    release: WPP 2024, 28th revision
+    conditions: attribution, preserved notices, no endorsement, no production activation
 excluded_raw_sources:
-  - un-world-population-prospects
   - who-global-health-estimates
   - world-bank-indicators-api
 external_gates:

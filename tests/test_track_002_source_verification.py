@@ -19,11 +19,15 @@ def test_exact_source_verification_preserves_fail_closed_boundaries() -> None:
 
     assert (
         records["un-world-population-prospects"]["archival"]
-        == "metadata_hash_and_extraction_manifest_only"
+        == "raw_copy_permitted_with_attribution_and_preserved_notices"
     )
+    assert records["un-world-population-prospects"]["licence"] == "CC BY 3.0 IGO"
     assert (
         records["who-global-health-estimates"]["archival"]
-        == "metadata_hash_and_lawful_derived_outputs_only"
+        == "unmodified_private_raw_copy_permitted_for_public_health_use_subject_to_withdrawal"
+    )
+    assert records["who-global-health-estimates"]["redistribution"].startswith(
+        "conditional_pending_"
     )
     assert records["world-bank-indicators-api"]["status"] == "probe_only"
     assert (

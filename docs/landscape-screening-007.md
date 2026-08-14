@@ -57,3 +57,31 @@ exclusion.
 - Cross-registry entity resolution and second-reviewer resolution remain open.
 - External protocol registration, independent methods review and patient/community
   challenge remain required before final novelty claims.
+
+## Bounded public-API first-page screen — v0.2.0
+
+The complete first pages returned by the five v0.2.0 query families on
+2026-08-14 UTC are preserved in
+`docs/track-007-search-results-2026-08-15.json`. The deterministic workflow in
+`scripts/screen_track_007_results.py` records exact DOI or registry-identifier
+deduplication, a public title/metadata scope screen, explicit exclusions and
+unresolved exact-title entity clusters in
+`docs/track-007-screening-2026-08-15.json`.
+
+| Stage | Count |
+|---|---:|
+| Returned first-page occurrences | 133 |
+| Exact duplicate occurrences removed | 13 |
+| Unique records screened | 120 |
+| Included for adjacency/full-text review | 69 |
+| Excluded at title/public-metadata screen | 50 |
+| Uncertain due to missing title metadata | 1 |
+| Potential exact-title entity clusters | 4 |
+
+The repository itself is excluded as a self-result. A shared DOI is the only
+automatic cross-index merge key; exact normalized titles are flagged but not
+merged because versions and similarly named entities may differ. “Include” is
+only an invitation to adjacency/full-text review, not a final eligibility,
+quality, novelty or partnership finding. This bounded screen does not cover
+later result pages, all languages, private or poorly indexed resources, or the
+full public web.

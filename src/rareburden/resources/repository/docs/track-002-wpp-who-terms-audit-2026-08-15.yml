@@ -1,0 +1,64 @@
+schema_version: "0.1.0"
+observed_at_utc: "2026-08-14T20:01:07Z"
+status: "repository_terms_observation"
+activation: "disabled"
+authority_boundary: >-
+  This audit records publisher terms and workbook notices. It does not establish
+  scientific fitness, patient/community acceptance, custodian approval,
+  independent review, production activation or release authority.
+records:
+  - source_id: "un-world-population-prospects"
+    artifact_name: "WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx"
+    artifact_url: "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx"
+    artifact_sha256: "98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d"
+    artifact_bytes: 26142942
+    terms_evidence:
+      location: "embedded in the exact workbook sharedStrings and NOTES sheet"
+      notice: "Copyright July 2024 by United Nations, made available under CC BY 3.0 IGO"
+      licence: "CC BY 3.0 IGO"
+      licence_url: "https://creativecommons.org/licenses/by/3.0/igo/"
+      suggested_citation: "United Nations, Department of Economic and Social Affairs, Population Division (2024)."
+    third_party_observations:
+      - "The NOTES sheet references World Bank income classifications."
+      - "The NOTES sheet references Wikipedia for the Americas grouping definition."
+      - "The approved national-total extraction does not require those aggregate classification definitions."
+    archival_disposition: "raw_copy_permitted_with_attribution_and_preserved_notices"
+    redistribution_disposition: "permitted_under_cc_by_3_0_igo_with_attribution_and_preserved_notices"
+    derived_use_conditions:
+      - "limit extraction to named national geographies, years and medium-variant total-population fields"
+      - "exclude third-party aggregate classification fields unless their terms are separately dispositioned"
+      - "preserve source, release, workbook hash, citation, licence and transformation manifest"
+      - "do not imply United Nations endorsement"
+    scientific_activation: "disabled_pending_track_gates"
+  - source_id: "who-global-health-estimates"
+    artifact_name: "ghe2021_daly_bycountry_2000.xlsx"
+    artifact_url: "https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/ghe2021_daly_bycountry_2000.xlsx?sfvrsn=23cd3c55_5"
+    artifact_sha256: "a051da530e7802ff6c084293b50e8de21cce0c36f02b76085568487f143246fe"
+    artifact_bytes: 12756114
+    workbook_notice_observation: >-
+      The exact workbook identifies WHO and the GHE 2021 summary tables but does
+      not contain a file-level licence or field-level third-party credit register.
+    terms_page: "https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions"
+    terms_page_sha256: "362af90b91a680b6d206a201961a22f563e74f35cab7cb4e58163d0fe96250cd"
+    terms_page_bytes: 85005
+    publisher_terms_observations:
+      - "WHO grants public-health-purpose rights to use, reproduce, extract, download, copy, distribute and display covered datasets."
+      - "Material credited to a source other than WHO is excluded and requires permission from that source."
+      - "WHO and underlying-country attribution is required."
+      - "Only minimal figure/table style changes are allowed without prior written WHO authorization."
+      - "No endorsement, commercial promotion, falsification or de-anonymisation is permitted."
+      - "WHO may terminate the licence and require destruction of copies within seven days after notice."
+    archival_disposition: "unmodified_private_raw_copy_permitted_for_public_health_use_subject_to_withdrawal"
+    redistribution_disposition: "conditional_pending_field_level_third_party_and_modification_review"
+    hf_raw_upload: "withheld"
+    derived_use_conditions:
+      - "retain candidate-only year-2000 comparator scope"
+      - "do not redistribute credited third-party material without separate permission"
+      - "do not publish a modified dataset without prior written WHO authorization"
+      - "preserve WHO and underlying-country attribution, exact hash and withdrawal capability"
+    scientific_activation: "disabled_pending_track_gates"
+fail_closed_rules:
+  - "WPP and WHO terms observations do not activate either source."
+  - "A changed workbook or terms-page hash requires a superseding audit."
+  - "WHO raw bytes remain absent from Hugging Face while field-level third-party and modification conditions are unresolved."
+  - "WPP-derived outputs must exclude third-party classification fields unless separately cleared."

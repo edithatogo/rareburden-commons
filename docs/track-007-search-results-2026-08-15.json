@@ -1,0 +1,1352 @@
+{
+  "protocol_version": "RBC-LAND-007-v0.2.0",
+  "status": "discovery_only",
+  "records": [
+    {
+      "registry": "github",
+      "query_string": "rare disease burden",
+      "endpoint": "https://api.github.com/search/repositories?q=rare+disease+burden&per_page=10",
+      "retrieved_at_utc": "2026-08-14T20:01:09Z",
+      "http_status": 200,
+      "result_total": 6,
+      "first_page_items": 6,
+      "first_page_ids": [
+        "RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+        "edithatogo/rareburden-commons",
+        "tribby5/rare-disease-research",
+        "gan-orlab/LRRK2_per_domain",
+        "mitchell-s17/ADNI1-GeneBurdenAnalysis",
+        "GP2code/WGS-E3-PD-EOPD"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+          "title": "Genomic-Burden-Actionability-Atlas",
+          "canonical_url": "https://github.com/RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+          "description": "A dashboard that helps researchers, clinicians, public-health teams, and rare-disease advocates explore links between global disease burden, population allele frequencies, rare diseases, genotype\u2013phenotype relationships, and clinically actionable variants. "
+        },
+        {
+          "identifier": "edithatogo/rareburden-commons",
+          "title": "rareburden-commons",
+          "canonical_url": "https://github.com/edithatogo/rareburden-commons",
+          "description": "Open, provenance-first infrastructure for measuring the collective burden of rare diseases"
+        },
+        {
+          "identifier": "tribby5/rare-disease-research",
+          "title": "rare-disease-research",
+          "canonical_url": "https://github.com/tribby5/rare-disease-research",
+          "description": "The repository represents the outcome of Duke University's Data+ Summer Research Program's project entitled: \"Quantifying the Burden of Rare Diseases in the Duke Health System\""
+        },
+        {
+          "identifier": "gan-orlab/LRRK2_per_domain",
+          "title": "LRRK2_per_domain",
+          "canonical_url": "https://github.com/gan-orlab/LRRK2_per_domain",
+          "description": "LRRK2 per-domain rare-variant burden analysis in Parkinson's Disease"
+        },
+        {
+          "identifier": "mitchell-s17/ADNI1-GeneBurdenAnalysis",
+          "title": "ADNI1-GeneBurdenAnalysis",
+          "canonical_url": "https://github.com/mitchell-s17/ADNI1-GeneBurdenAnalysis",
+          "description": "Notebook for rare variant burden testing in Alzheimer\u2019s Disease using ADNI data, following UK Biobank/DNAnexus gene burden analysis WES protocols."
+        },
+        {
+          "identifier": "GP2code/WGS-E3-PD-EOPD",
+          "title": "WGS-E3-PD-EOPD",
+          "canonical_url": "https://github.com/GP2code/WGS-E3-PD-EOPD",
+          "description": "This is the online repository for the manuscript titled \"Multi-ancestry rare variant burden analysis of E3 ubiquitin ligase genes in Parkinson\u2019s disease\"."
+        }
+      ],
+      "response_sha256": "sha256:320d4810d9abecd696c7d23e9f1df21fa4781c580725f0bb0197ca3161ea1e93",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "zenodo",
+      "query_string": "rare disease burden",
+      "endpoint": "https://zenodo.org/api/records/?q=rare+disease+burden&size=10",
+      "retrieved_at_utc": "2026-08-14T20:01:09Z",
+      "http_status": 200,
+      "result_total": 195334,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "11442985",
+        "13630086",
+        "4014414",
+        "7040390",
+        "20222385",
+        "20222393",
+        "20222391",
+        "20222387",
+        "20222395",
+        "20222389"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "11442985",
+          "title": "CYShapland/triangulate: First release",
+          "canonical_url": "https://zenodo.org/records/11442985",
+          "doi": "10.5281/zenodo.11442985",
+          "description": "<p>First draft of the software</p>"
+        },
+        {
+          "identifier": "13630086",
+          "title": "mcguinlu/triangulate: Initial release",
+          "canonical_url": "https://zenodo.org/records/13630086",
+          "doi": "10.5281/zenodo.13630086",
+          "description": "Generalised implementation of bias-/indirectness-adjusted meta-analysis in R"
+        },
+        {
+          "identifier": "4014414",
+          "title": "zychenfd/Wuhan-disease-burden: Wuhan-disease-burden",
+          "canonical_url": "https://zenodo.org/records/4014414",
+          "doi": "10.5281/zenodo.4014414",
+          "description": "No description provided."
+        },
+        {
+          "identifier": "7040390",
+          "title": "Why early treating hidradenitis suppurativa is also a moral issue",
+          "canonical_url": "https://zenodo.org/records/7040390",
+          "doi": "10.5281/zenodo.7040390",
+          "description": "<p>Hidradenitis suppurativa is a multifactorial, often autoimmune, chronic inflammatory disease of terminal follicles in skin envelope folds that can lead to marked scarring and disability and has a high disease burden. It manifests with very painful, deeply localized, sterile inflammatory skin nodules over sub-dermal caverns occurring in terminal follicle and apocrine gland-rich skin regions, most commonly in the axillae and inguinal, lower back and anogenital regions. The most common complication is superinfection with infectious agents. Our study group has tried to clarify the question of whether it makes economic sense to treat this disease, which is not so rare, free of charge, even in countries without general health insurance.</p>"
+        },
+        {
+          "identifier": "20222385",
+          "title": "Figure 2 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+          "canonical_url": "https://zenodo.org/records/20222385",
+          "doi": "10.5281/zenodo.20222385",
+          "description": "Figure 2. Trend for schistosomiasis in age subgroups from 1990 to 2021. (A) ASMR, ASDR, and ASPR. (B) Number of deaths, DALYs, and prevalence numbers."
+        },
+        {
+          "identifier": "20222393",
+          "title": "Figure 6 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+          "canonical_url": "https://zenodo.org/records/20222393",
+          "doi": "10.5281/zenodo.20222393",
+          "description": "Figure 6. Trend for schistosomiasis in national and territories subgroups from 1990 to 2021. (A) ASPR. (B) ASMR. (C) ASDR. (D) Prevalence number. (E) Number of deaths. (F) DALYs number."
+        },
+        {
+          "identifier": "20222391",
+          "title": "Figure 5 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+          "canonical_url": "https://zenodo.org/records/20222391",
+          "doi": "10.5281/zenodo.20222391",
+          "description": "Figure 5. Results of cluster analysis based on the EAPC values of the schistosomiasis-related age-standardized rates for deaths, DALYs, and prevalence from 1990 to 2021."
+        },
+        {
+          "identifier": "20222387",
+          "title": "Figure 3 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+          "canonical_url": "https://zenodo.org/records/20222387",
+          "doi": "10.5281/zenodo.20222387",
+          "description": "Figure 3. Trend for schistosomiasis in sex subgroups from 1990 to 2021. (A) ASMR, ASDR, and ASPR. (B) Number of deaths, DALYs, and prevalence numbers."
+        },
+        {
+          "identifier": "20222395",
+          "title": "Figure 7 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+          "canonical_url": "https://zenodo.org/records/20222395",
+          "doi": "10.5281/zenodo.20222395",
+          "description": "Figure 7. Predicted trends for global schistosomiasis in number of deaths and age-standardized mortality rate using the ARIMA model (A) and exponential smoothing model (D), predicted trends for global schistosomiasis in DALYs and age-standardized DALYs rates using the ARIMA model (B) and exponential smoothing model (E), predicted trends for global schistosomiasis in prevalence number and agestandardized prevalence rate using the ARIMA model (C) and exponential smoothing model (F)."
+        },
+        {
+          "identifier": "20222389",
+          "title": "Figure 4 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+          "canonical_url": "https://zenodo.org/records/20222389",
+          "doi": "10.5281/zenodo.20222389",
+          "description": "Figure 4. Trend for schistosomiasis in SDI subgroups from 1990 to 2021. (A) ASMR, ASDR, and ASPR. (B) Number of deaths, DALYs, and prevalence numbers."
+        }
+      ],
+      "response_sha256": "sha256:1f72a53546e1074bcaaab31e814da2e27e01dc6174ff96a4375a6055be7b1fd9",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease burden",
+      "endpoint": "https://huggingface.co/api/datasets?search=rare+disease+burden&limit=10",
+      "retrieved_at_utc": "2026-08-14T20:01:12Z",
+      "http_status": 200,
+      "result_total": "not_reported",
+      "first_page_items": 0,
+      "first_page_ids": [],
+      "first_page_records": [],
+      "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "crossref",
+      "query_string": "rare disease burden",
+      "endpoint": "https://api.crossref.org/works?query.bibliographic=rare+disease+burden&rows=10&select=DOI%2Ctitle%2Cpublisher%2Cpublished",
+      "retrieved_at_utc": "2026-08-14T20:01:12Z",
+      "http_status": 200,
+      "result_total": 2836590,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "10.1016/j.esmorc.2026.100293",
+        "10.1186/s13023-022-02299-5",
+        "10.64898/2026.04.04.26349768",
+        "10.1186/s13023-025-04176-3",
+        "10.2217/frd-2022-0018",
+        "10.1186/1750-1172-10-s1-p58",
+        "10.1377/forefront.20220128.987667",
+        "10.1186/1750-1172-9-39",
+        "10.1186/s13023-025-04185-2",
+        "10.21203/rs.3.rs-1046815/v1"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "10.1016/j.esmorc.2026.100293",
+          "title": "87ep Global burden of soft tissue sarcomas in North Africa and Middle East countries: Data from the global burden of disease study 2023",
+          "canonical_url": "https://doi.org/10.1016/j.esmorc.2026.100293",
+          "doi": "10.1016/j.esmorc.2026.100293",
+          "publisher": "Elsevier BV"
+        },
+        {
+          "identifier": "10.1186/s13023-022-02299-5",
+          "title": "The national economic burden of rare disease in the United States in 2019",
+          "canonical_url": "https://doi.org/10.1186/s13023-022-02299-5",
+          "doi": "10.1186/s13023-022-02299-5",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.64898/2026.04.04.26349768",
+          "title": "Rare-Variant Burden Analysis of Dystonia Genes in Parkinson\u2019s Disease",
+          "canonical_url": "https://doi.org/10.64898/2026.04.04.26349768",
+          "doi": "10.64898/2026.04.04.26349768",
+          "publisher": "openRxiv"
+        },
+        {
+          "identifier": "10.1186/s13023-025-04176-3",
+          "title": "Caregiver-reported disease burden in Krabbe disease: evaluating outcomes of hematopoietic stem cell transplantation",
+          "canonical_url": "https://doi.org/10.1186/s13023-025-04176-3",
+          "doi": "10.1186/s13023-025-04176-3",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.2217/frd-2022-0018",
+          "title": "Patient\u2013Dermatologist Gap in Perception of Disease Burden and Treatment of Generalized Pustular Psoriasis in Japan",
+          "canonical_url": "https://doi.org/10.2217/frd-2022-0018",
+          "doi": "10.2217/frd-2022-0018",
+          "publisher": "Informa UK Limited"
+        },
+        {
+          "identifier": "10.1186/1750-1172-10-s1-p58",
+          "title": "Patients with hereditary ATTR amyloidosis experience an increasing burden of illness as the disease progresses",
+          "canonical_url": "https://doi.org/10.1186/1750-1172-10-s1-p58",
+          "doi": "10.1186/1750-1172-10-s1-p58",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1377/forefront.20220128.987667",
+          "title": "The Economic Burden Of Rare Diseases: Quantifying The Sizeable Collective Burden And Offering Solutions",
+          "canonical_url": "https://doi.org/10.1377/forefront.20220128.987667",
+          "doi": "10.1377/forefront.20220128.987667",
+          "publisher": "Health Affairs Publishing, LLC"
+        },
+        {
+          "identifier": "10.1186/1750-1172-9-39",
+          "title": "The health and economic burden of haemophilia in Belgium: a rare, expensive and challenging disease",
+          "canonical_url": "https://doi.org/10.1186/1750-1172-9-39",
+          "doi": "10.1186/1750-1172-9-39",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1186/s13023-025-04185-2",
+          "title": "Global burden of Wilson disease: a comprehensive evidence synthesis",
+          "canonical_url": "https://doi.org/10.1186/s13023-025-04185-2",
+          "doi": "10.1186/s13023-025-04185-2",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.21203/rs.3.rs-1046815/v1",
+          "title": "The National Economic Burden of Rare Disease in United States in 2019",
+          "canonical_url": "https://doi.org/10.21203/rs.3.rs-1046815/v1",
+          "doi": "10.21203/rs.3.rs-1046815/v1",
+          "publisher": "Springer Science and Business Media LLC"
+        }
+      ],
+      "response_sha256": "sha256:47b4a6a7f16a41ab6317c088baa051209513077fe2749914c9ed2b9608850c78",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "github",
+      "query_string": "rare disease registry",
+      "endpoint": "https://api.github.com/search/repositories?q=rare+disease+registry&per_page=10",
+      "retrieved_at_utc": "2026-08-14T20:01:13Z",
+      "http_status": 200,
+      "result_total": 23,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "muccg/rdrf",
+        "PavlidisLab/rdp",
+        "robworth/radar",
+        "renalreg/radar",
+        "favourori/PatientsRegistryAPI",
+        "BIH-CEI/rd-cdm",
+        "favourori/PatientsRegistryFrontend",
+        "wangjl99/okn-registry-temp",
+        "malikalisha721-byte/rare-disease-registry-by-hamna",
+        "S-Alex2022/Rare-Diseases-Data-Registry"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "muccg/rdrf",
+          "title": "rdrf",
+          "canonical_url": "https://github.com/muccg/rdrf",
+          "description": "The Rare Disease Registry Framework (RDRF) is an open source tool for the creation of web-based patient registries."
+        },
+        {
+          "identifier": "PavlidisLab/rdp",
+          "title": "rdp",
+          "canonical_url": "https://github.com/PavlidisLab/rdp",
+          "description": "Researcher Gene Registry. Originally developed for the Canadian Rare Disease Models & Mechanisms Network"
+        },
+        {
+          "identifier": "robworth/radar",
+          "title": "radar",
+          "canonical_url": "https://github.com/robworth/radar",
+          "description": "Rare Disease Registry"
+        },
+        {
+          "identifier": "renalreg/radar",
+          "title": "radar",
+          "canonical_url": "https://github.com/renalreg/radar",
+          "description": "RADAR - Rare Disease Registry"
+        },
+        {
+          "identifier": "favourori/PatientsRegistryAPI",
+          "title": "PatientsRegistryAPI",
+          "canonical_url": "https://github.com/favourori/PatientsRegistryAPI",
+          "description": "\u201cHack the Rare\u201d, a hackathon to build open source software tools that will catalyze the development of treatments for rare devastating diseases affecting 400 million patients worldwide. This event is organized in collaboration with OpenTreatments Foundation."
+        },
+        {
+          "identifier": "BIH-CEI/rd-cdm",
+          "title": "rd-cdm",
+          "canonical_url": "https://github.com/BIH-CEI/rd-cdm",
+          "description": "Repo for the ontology-based rare disease common data model harmonising international registries, FHIR, and Phenopackets"
+        },
+        {
+          "identifier": "favourori/PatientsRegistryFrontend",
+          "title": "PatientsRegistryFrontend",
+          "canonical_url": "https://github.com/favourori/PatientsRegistryFrontend",
+          "description": "\u201cHack the Rare\u201d, a hackathon to build open source software tools that will catalyze the development of treatments for rare devastating diseases affecting 400 million patients worldwide. This event is organized in collaboration with OpenTreatments Foundation."
+        },
+        {
+          "identifier": "wangjl99/okn-registry-temp",
+          "title": "okn-registry-temp",
+          "canonical_url": "https://github.com/wangjl99/okn-registry-temp",
+          "description": "Rare disease proto-okn project"
+        },
+        {
+          "identifier": "malikalisha721-byte/rare-disease-registry-by-hamna",
+          "title": "rare-disease-registry-by-hamna",
+          "canonical_url": "https://github.com/malikalisha721-byte/rare-disease-registry-by-hamna",
+          "description": "Rare Disease Registry & Management Platform"
+        },
+        {
+          "identifier": "S-Alex2022/Rare-Diseases-Data-Registry",
+          "title": "Rare-Diseases-Data-Registry",
+          "canonical_url": "https://github.com/S-Alex2022/Rare-Diseases-Data-Registry",
+          "description": "This project is a data management pipeline that collects and extracts data on rare diseases from the Orphanet ORPHAcodes API. The data is cleaned, validated and transformed into a structured SQLite database to create a data registry."
+        }
+      ],
+      "response_sha256": "sha256:fb4359e6403b06c7fcff5e8bf8120dd874de3ce1101c79a0f6afb5970452463e",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "zenodo",
+      "query_string": "rare disease registry",
+      "endpoint": "https://zenodo.org/api/records/?q=rare+disease+registry&size=10",
+      "retrieved_at_utc": "2026-08-14T20:01:14Z",
+      "http_status": 200,
+      "result_total": 212718,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "1321650",
+        "21384101",
+        "1412173",
+        "10702445",
+        "1415398",
+        "14907384",
+        "20798055",
+        "5937460",
+        "11442985",
+        "13630086"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "1321650",
+          "title": "REPORT: Portfolio of ELIXIR data resources and tools for  the rare diseases communities",
+          "canonical_url": "https://zenodo.org/records/1321650",
+          "doi": "10.5281/zenodo.1321650",
+          "description": "<p>There is a wide range of data resources and analysis methods used in the rare-disease&nbsp;area. Deliverable 8.1 report the efforts undertaken from the ELIXIR-EXCELERATE&nbsp;WP8 rare disease use case to create a dynamic portfolio of ELIXIR data resources and&nbsp;analysis tools useful to the rare disease communities.&nbsp;Since the start of the project, we have reviewed the ELIXIR-EXCELERATE currentdata resources and evaluated their usability and potential impact on the rare disease&nbsp;community. One critical aspect of the development of the registry has been to engage&nbsp;the different communities in the submission and rating of the tools. For this task, we&nbsp;worked together with representatives of the major projects in the field of rare diseases&nbsp;to create a customized catalogue of ELIXIR tools and services devoted to assist them&nbsp;in the diagnosis of rare disease patients and the development of new therapies, which&nbsp;are the main goals established by the International Rare Diseases Research&nbsp;Consortium (http://www.irdirc.org).&nbsp;Through the elaboration and dissemination of a rare disease resource survey, we have&nbsp;started to deploy of a link between the end users and the tools developers that will help&nbsp;ELIXIR to understand better the problems that are actually facing the main actors in the&nbsp;rare diseases research and hence to better solutions.&nbsp;To publish and make available to the rare disease community our catalogue of&nbsp;resources, we have used the ELIXIR registry ( https://bio.tools/ ) in collaboration with&nbsp;ELIXIR- EXCELERATE WP1 and WP2. ELIXIR registry is intended to be a reference&nbsp;for the research community, as it will reflect the quality and the real-time status of theservices included on it. Displaying our catalogue of rare disease resources into the&nbsp;ELIXIR registry environment allow users from the different countries, communities and&nbsp;projects to discover which are the tools available for rare disease research at a given&nbsp;time and provide them with instructions for their correct use.&nbsp;Deliverable 8.1: &ldquo;Portfolio of ELIXIR data resources and tools for the rare diseases&nbsp;communities&rdquo; defines the outcome of this work.</p>"
+        },
+        {
+          "identifier": "21384101",
+          "title": "Semantic Mapping from MII Core Data Sets to NARSE and from NARSE to the ERDRI Core Data Set",
+          "canonical_url": "https://zenodo.org/records/21384101",
+          "doi": "10.5281/zenodo.21384101",
+          "description": "<p>Semantic Mapping from the Core Data Sets of the Medical Informatics Initiative (MII) to the German National Registry of Rare Diseases (\"Nationales Register f&uuml;r Seltene Erkrankungen\";&nbsp;<a href=\"https://www.narse.de/\">NARSE</a>) and from NARSE to the European Rare Disease Research Infrastructure (ERDRI) Core Data Set</p>\n<p>Data set used in \"<em>Strengthening Rare Disease Data Readiness: a semantic approach to cross-registry interoperability</em>\" &nbsp;</p>"
+        },
+        {
+          "identifier": "1412173",
+          "title": "Rare disease registries: potential applications towards impact on development of new drug treatments",
+          "canonical_url": "https://zenodo.org/records/1412173",
+          "doi": "10.1186/s13023-018-0836-0",
+          "description": "<p><strong>Background: </strong>Low prevalence, lack of knowledge about the disease course, and phenotype heterogeneity hamper the development of drugs for rare diseases. Rare disease registries (RDRs) can be helpful by playing a role in understanding the course of the disease, and providing information necessary for clinical trial design, if designed and maintained properly. We describe the potential applications of a RDR and what type of information should be incorporated to support the design of clinical trials in the process of drug development, based on a broad inventory of registry experience. We evaluated two existing RDRs in more detail to check the completeness of these RDRs for trial design.</p><p><strong>Results: </strong>Before and during the application for regulatory approval a RDR can improve the efficiency and quality in clinical trial design by informing the sample size calculation and expected disease course. In exceptional circumstances information from RDRs has been used as historical controls for a one-armed clinical trial, and high quality RDRs may be used for registry-based randomized controlled trials. In the post marketing phase of (conditional) drug approval a disease-specific RDR is likely to provide more relevant information than a product-specific registry.</p><p><strong>Conclusions: </strong>A RDR can be very helpful to improve the efficiency and quality of clinical trial design in several ways. To enable the applicability and optimal use of a RDR longitudinal data collection is indispensable, and specific data collection, prepared for repeated measurement, is needed. The developed checklist can help to define the appropriate variables to include. Attention should be paid to the inclusion of patient-relevant outcome measures in the RDR from the start. More research and experience is needed on the possibilities and limitations of combining RDR information with clinical trial data to maximize the availability of relevant evidence for regulatory decisions in rare diseases.</p>"
+        },
+        {
+          "identifier": "10702445",
+          "title": "Towards A Rare Disease Registry Standard: Semantic Mapping of Common Data Elements Between FAIRVASC and the European Joint Programme for Rare Disease",
+          "canonical_url": "https://zenodo.org/records/10702445",
+          "doi": "10.5281/zenodo.10702445",
+          "description": "<p>This paper describes the extension of the FAIRVASC rare disease ontology, with Joint Research Council Common Data Elements<br>(CDE), and mapping to the European Joint Programme on Rare Diseases (EJP RD) CDE ontology. We use the rare autoimmune condition<br>ANCA vasculitis as a model disease to illustrate this. Semantic modelling of CDE for Rare Diseases over registry data is important to represent<br>the specific concepts around these conditions. We describe the development of an ontology which facilitates the simultaneous uplift of tabular<br>data into a common RDF format from several registries. The ontology allows the data to be integrated across the registries and increases the<br>interoperability and standardisation among datasets, thus enhancing collaboration with external stakeholders. The ontology, therefore, creates an<br>effective rare disease research environment which enables the disease and its impact on the patient to be investigated in an effective manner across<br>national borders. This paper presents the methodology and road map to implement the CDE ontology for the health domain.</p>"
+        },
+        {
+          "identifier": "1415398",
+          "title": "RD-Connect: an integrated infrastructure for data sharing and analysis in rare disease research",
+          "canonical_url": "https://zenodo.org/records/1415398",
+          "doi": "10.5281/zenodo.1415398",
+          "description": "<p>RD-Connect is an infrastructure for rare disease research bringing together multiple data types in three systems: Genome-Phenome Analysis Platform (platform.rd-connect.eu), Sample Catalogue (samples.rd-connect.eu) and Registry &amp; Biobank Finder (catalogue.rd-connect.eu). All these systems are open to any rare disease and available free of charge.</p>\n\n<p>The Genome-Phenome Analysis Platform is a centralized data repository and a user-friendly online analysis system combining omics data (genomics, proteomics, transcriptomics) with clinical information at individual-patient, family or cohort level. Whole-genome, exome and gene panel datasets are submitted by the end-user and processed by RD-Connect&#39;s standardised analysis and annotation pipeline to make data from different sequencing providers comparable. Raw data is deposited at the European Genome-phenome Archive (EGA) for long-term storage. Clinical information is recorded in the PhenoTips system, which simplifies entry of clinical data using the Human Phenotype Ontology. Results are available to the submitter and authorised users through the highly configurable platform, which enables advanced filtering and prioritization of variants. Users can analyse their own patients and compare results with other submitted cohorts, including queries such as: &ldquo;Does this variant exist in this cohort?&rdquo; and &ldquo;Are there patients in other databases with matching phenotype and candidate variant in the same gene?&rdquo;. The Platform already includes thousands of datasets from partner projects such as NeurOmics (www.rd-neuromics.eu) and BBMRI-LPC (www.bbmri-lpc.org). In 2018, it became the primary data sharing and analysis platform for the new Solve-RD project, which will bring in 19,000 unsolved cases from European Reference Networks over 5 years. RD-Connect is free and open for contributions from individual research groups and other projects: contact platform@rd-connect.eu.</p>\n\n<p>The Sample Catalogue allows browsing biosample collections stored in rare disease biobanks using powerful filtering functions. It provides detailed information about individual biosamples, including disease, diagnosis type, sample type, sex, availability of genetic and registry data and of samples from the patient&rsquo;s relatives. Currently, the Sample Catalogue includes over 25,000 samples stored by rare disease biobanks in the EuroBioBank Network. The work is ongoing to make the Sample Catalogue interconnected with the Platform, to enable finding biosamples from patients with a specific genetic variant, and with the Registry &amp; Biobank Finder, to allow direct link from the global directory of rare disease databases to the sample collections.</p>"
+        },
+        {
+          "identifier": "14907384",
+          "title": "Critical Bottlenecks in Rare Disease Research and Care: A Community Perspective",
+          "canonical_url": "https://zenodo.org/records/14907384",
+          "doi": "10.5281/zenodo.14907384",
+          "description": "<p>This document details an impromptu community gathering following the cancelation of an ARPA-H proposer's day for the Rare Disease AI/ML for Precision Integrated Diagnostics&nbsp;<a href=\"https://arpa-h.gov/explore-funding/programs/rapid\">(RAPID) program</a>.</p>\n<p>The discussion became a powerful example of how shared commitment to improving patient outcomes can transcend institutional boundaries and administrative hurdles. This white paper synthesizes perspectives from healthcare providers, academic researchers, industry experts, registry providers, and people with lived experience to identify critical bottlenecks that must be addressed to accelerate progress in the rare disease field.&nbsp;</p>\n<p>Acknowledgement to the many contributors of the document are listed at the bottom.&nbsp;</p>"
+        },
+        {
+          "identifier": "20798055",
+          "title": "SYNTHEMA Newsletter 5",
+          "canonical_url": "https://zenodo.org/records/20798055",
+          "doi": "10.5281/zenodo.20798055",
+          "description": "<p>The SYNTHEMA project aims to dismantle healthcare data silos by developing a cross-border hub that utilizes AI for synthetic data generation in rare hematological diseases. During the May 2024 consortium meeting in Bologna, partners advanced key initiatives, including the creation of Europe&rsquo;s first Sickle Cell Disease (SCD) database and a central registry for Acute Myeloid Leukemia (AML). Work packages also reported major progress on secure platform design, synthetic data standardization, and the implementation of the ethical \"5S\" data security framework. Furthermore, SYNTHEMA has joined the newly launched HealthData4EU cluster, a Horizon Europe collaborative initiative focused on scaling privacy-preserving computation across the EU. Finally, the newsletter highlights a new project summary video designed to introduce viewers to the future of AI-driven rare disease research.</p>"
+        },
+        {
+          "identifier": "5937460",
+          "title": "Standardizing registry data to the OMOP Common Data Model: experience from three pulmonary hypertension databases",
+          "canonical_url": "https://zenodo.org/records/5937460",
+          "doi": "10.1186/s12874-021-01434-3",
+          "description": "<p>Background</p>\n\n<p>The Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) can be used to transform observational health data to a common format. CDM transformation allows for analysis across disparate databases for the generation of new, real-word evidence, which is especially important in rare disease where data are limited. Pulmonary hypertension (PH) is a progressive, life-threatening disease, with rare subgroups such as pulmonary arterial hypertension (PAH), for which generating real-world evidence is challenging. Our objective is to document the process and outcomes of transforming registry data in PH to the OMOP CDM, and highlight challenges and our potential solutions.</p>\n\n<p>Methods</p>\n\n<p>Three observational studies were transformed from the Clinical Data Interchange Standards Consortium study data tabulation model (SDTM) to OMOP CDM format. OPUS was a prospective, multi-centre registry (2014&ndash;2020) and OrPHeUS was a retrospective, multi-centre chart review (2013&ndash;2017); both enrolled patients newly treated with macitentan in the US. EXPOSURE is a prospective, multi-centre cohort study (2017&ndash;ongoing) of patients newly treated with selexipag or any PAH-specific therapy in Europe and Canada. OMOP CDM version 5.3.1 with recent OMOP CDM vocabulary was used. Imputation rules were defined and applied for missing dates to avoid exclusion of data. Custom target concepts were introduced when existing concepts did not provide sufficient granularity.</p>\n\n<p>Results</p>\n\n<p>Of the 6622 patients in the three registry studies, records were mapped for 6457. Custom target concepts were introduced for PAH subgroups (by combining SNOMED concepts or creating custom concepts) and World Health Organization functional class. Per the OMOP CDM convention, records about the absence of an event, or the lack of information, were not mapped. Excluding these non-event records, 4% (OPUS), 2% (OrPHeUS) and 1% (EXPOSURE) of records were not mapped.</p>\n\n<p>Conclusions</p>\n\n<p>SDTM data from three registries were transformed to the OMOP CDM with limited exclusion of data and deviation from the SDTM database content. Future researchers can apply our strategy and methods in different disease areas, with tailoring as necessary. Mapping registry data to the OMOP CDM facilitates more efficient collaborations between researchers and establishment of federated data networks, which is an unmet need in rare diseases.</p>"
+        },
+        {
+          "identifier": "11442985",
+          "title": "CYShapland/triangulate: First release",
+          "canonical_url": "https://zenodo.org/records/11442985",
+          "doi": "10.5281/zenodo.11442985",
+          "description": "<p>First draft of the software</p>"
+        },
+        {
+          "identifier": "13630086",
+          "title": "mcguinlu/triangulate: Initial release",
+          "canonical_url": "https://zenodo.org/records/13630086",
+          "doi": "10.5281/zenodo.13630086",
+          "description": "Generalised implementation of bias-/indirectness-adjusted meta-analysis in R"
+        }
+      ],
+      "response_sha256": "sha256:e063b04412840ee345ccb73ae258b6310928f1e4920ef8fc2f1993221432c4f0",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease registry",
+      "endpoint": "https://huggingface.co/api/datasets?search=rare+disease+registry&limit=10",
+      "retrieved_at_utc": "2026-08-14T20:01:18Z",
+      "http_status": 200,
+      "result_total": "not_reported",
+      "first_page_items": 0,
+      "first_page_ids": [],
+      "first_page_records": [],
+      "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "crossref",
+      "query_string": "rare disease registry",
+      "endpoint": "https://api.crossref.org/works?query.bibliographic=rare+disease+registry&rows=10&select=DOI%2Ctitle%2Cpublisher%2Cpublished",
+      "retrieved_at_utc": "2026-08-14T20:01:18Z",
+      "http_status": 200,
+      "result_total": 2806925,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "10.4135/9781529796988",
+        "10.26226/morressier.5ada8a0dd462b8029238e56e",
+        "10.1016/j.rare.2024.100046",
+        "10.1016/j.rare.2025.100075",
+        "10.35802/104746",
+        "10.1016/j.rare.2025.100069",
+        "10.1177/26330040251359676",
+        "10.1186/1750-1172-9-81",
+        "10.1186/s13023-024-03120-1",
+        "10.1186/s13023-019-1146-x"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "10.4135/9781529796988",
+          "title": "A Rare Disease Patient Registry",
+          "canonical_url": "https://doi.org/10.4135/9781529796988",
+          "doi": "10.4135/9781529796988",
+          "publisher": "Yale School of Management"
+        },
+        {
+          "identifier": "10.26226/morressier.5ada8a0dd462b8029238e56e",
+          "title": "PUMCH Biobank and National Rare Disease Registry System of China (NRDRS)",
+          "canonical_url": "https://doi.org/10.26226/morressier.5ada8a0dd462b8029238e56e",
+          "doi": "10.26226/morressier.5ada8a0dd462b8029238e56e",
+          "publisher": "Morressier"
+        },
+        {
+          "identifier": "10.1016/j.rare.2024.100046",
+          "title": "First year results and insights from the Mexican Rare Disease Patient Registry",
+          "canonical_url": "https://doi.org/10.1016/j.rare.2024.100046",
+          "doi": "10.1016/j.rare.2024.100046",
+          "publisher": "Elsevier BV"
+        },
+        {
+          "identifier": "10.1016/j.rare.2025.100075",
+          "title": "Author\u2019s response to \u201cCorrespondence on First year result and insights from the Mexican Rare Disease Patient Registry\u201d",
+          "canonical_url": "https://doi.org/10.1016/j.rare.2025.100075",
+          "doi": "10.1016/j.rare.2025.100075",
+          "publisher": "Elsevier BV"
+        },
+        {
+          "identifier": "10.35802/104746",
+          "title": "",
+          "canonical_url": "https://doi.org/10.35802/104746",
+          "doi": "10.35802/104746",
+          "publisher": "Wellcome"
+        },
+        {
+          "identifier": "10.1016/j.rare.2025.100069",
+          "title": "Erratum to \u201cFirst year results and insights from the Mexican Rare Disease Patient Registry\u201d [Rare 2 (2024) 100046]",
+          "canonical_url": "https://doi.org/10.1016/j.rare.2025.100069",
+          "doi": "10.1016/j.rare.2025.100069",
+          "publisher": "Elsevier BV"
+        },
+        {
+          "identifier": "10.1177/26330040251359676",
+          "title": "Updated demographics categories to capture the true diversity of an international registry of rare disease patients",
+          "canonical_url": "https://doi.org/10.1177/26330040251359676",
+          "doi": "10.1177/26330040251359676",
+          "publisher": "SAGE Publications"
+        },
+        {
+          "identifier": "10.1186/1750-1172-9-81",
+          "title": "The European Cystic Fibrosis Society Patient Registry: valuable lessons learned on how to sustain a disease registry",
+          "canonical_url": "https://doi.org/10.1186/1750-1172-9-81",
+          "doi": "10.1186/1750-1172-9-81",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1186/s13023-024-03120-1",
+          "title": "Methodological advances in patient-centered rare disease research: the UTHealth Houston Turner Syndrome Society of the United States research registry",
+          "canonical_url": "https://doi.org/10.1186/s13023-024-03120-1",
+          "doi": "10.1186/s13023-024-03120-1",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1186/s13023-019-1146-x",
+          "title": "Development of a pilot rare disease registry: a focus group study of initial steps towards the establishment of a rare disease ecosystem in Slovenia",
+          "canonical_url": "https://doi.org/10.1186/s13023-019-1146-x",
+          "doi": "10.1186/s13023-019-1146-x",
+          "publisher": "Springer Science and Business Media LLC"
+        }
+      ],
+      "response_sha256": "sha256:5f08d114c633c83a95513360b01b419c5cafcd481aa9112355a2ed442c49213e",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "github",
+      "query_string": "rare disease ontology",
+      "endpoint": "https://api.github.com/search/repositories?q=rare+disease+ontology&per_page=10",
+      "retrieved_at_utc": "2026-08-14T20:01:19Z",
+      "http_status": 200,
+      "result_total": 20,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "acadTags/Rare-disease-identification",
+        "deletexiumu/dar-ontology-reasoning",
+        "BIH-CEI/rd-cdm",
+        "EBISPOT/EJP-Ontology",
+        "prirai/rare-diseases-data-scraping",
+        "Orphanet/ORDO",
+        "ariadnavillam/RaDiPO",
+        "KhadgaA/Rare-Disease-Ontology",
+        "emcarthur/phecode-HPO-map",
+        "sunchang0124/RareDiseaseSelection"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "acadTags/Rare-disease-identification",
+          "title": "Rare-disease-identification",
+          "canonical_url": "https://github.com/acadTags/Rare-disease-identification",
+          "description": "Rare disease identification from free-text clinical notes with ontologies and weak supervision"
+        },
+        {
+          "identifier": "deletexiumu/dar-ontology-reasoning",
+          "title": "dar-ontology-reasoning",
+          "canonical_url": "https://github.com/deletexiumu/dar-ontology-reasoning",
+          "description": "Ontology-driven clinical reasoning for rare disease perioperative management. Tri-channel inference (Rule Engine + OWL + NLP) with Arbiter adjudication and multi-model LLM fusion. Built at Peking Union Medical College Hospital."
+        },
+        {
+          "identifier": "BIH-CEI/rd-cdm",
+          "title": "rd-cdm",
+          "canonical_url": "https://github.com/BIH-CEI/rd-cdm",
+          "description": "Repo for the ontology-based rare disease common data model harmonising international registries, FHIR, and Phenopackets"
+        },
+        {
+          "identifier": "EBISPOT/EJP-Ontology",
+          "title": "EJP-Ontology",
+          "canonical_url": "https://github.com/EBISPOT/EJP-Ontology",
+          "description": "An ontological model for describing resources for  Rare Diseases catalogs including registries, biobanks, research infrastructures, genomes-phenome repositories, method standards, etc.  "
+        },
+        {
+          "identifier": "prirai/rare-diseases-data-scraping",
+          "title": "rare-diseases-data-scraping",
+          "canonical_url": "https://github.com/prirai/rare-diseases-data-scraping",
+          "description": "This repository aims to be a central place for all data scraping and analysis related to rare diseases."
+        },
+        {
+          "identifier": "Orphanet/ORDO",
+          "title": "ORDO",
+          "canonical_url": "https://github.com/Orphanet/ORDO",
+          "description": "Orphanet Rare Diseases Ontology"
+        },
+        {
+          "identifier": "ariadnavillam/RaDiPO",
+          "title": "RaDiPO",
+          "canonical_url": "https://github.com/ariadnavillam/RaDiPO",
+          "description": "Rare Diseases' Proteins Ontology"
+        },
+        {
+          "identifier": "KhadgaA/Rare-Disease-Ontology",
+          "title": "Rare-Disease-Ontology",
+          "canonical_url": "https://github.com/KhadgaA/Rare-Disease-Ontology"
+        },
+        {
+          "identifier": "emcarthur/phecode-HPO-map",
+          "title": "phecode-HPO-map",
+          "canonical_url": "https://github.com/emcarthur/phecode-HPO-map",
+          "description": "Code, data and mappings for paper McArthur, Bastarache & Capra: \"Linking rare and common disease vocabularies by mapping between the Human Phenotype Ontology and phecodes\""
+        },
+        {
+          "identifier": "sunchang0124/RareDiseaseSelection",
+          "title": "RareDiseaseSelection",
+          "canonical_url": "https://github.com/sunchang0124/RareDiseaseSelection",
+          "description": "This repository shows a pipeline to select unseen disease for ontology enhanced unseen disease generation"
+        }
+      ],
+      "response_sha256": "sha256:29e840e94973848891d90548ce7b1c4642dec197744ec15d54ac632f63812d38",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "zenodo",
+      "query_string": "rare disease ontology",
+      "endpoint": "https://zenodo.org/api/records/?q=rare+disease+ontology&size=10",
+      "retrieved_at_utc": "2026-08-14T20:01:19Z",
+      "http_status": 200,
+      "result_total": 205338,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "10702445",
+        "3478576",
+        "7125341",
+        "17871108",
+        "7102403",
+        "1168737",
+        "59581",
+        "11442985",
+        "13630086",
+        "3234097"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "10702445",
+          "title": "Towards A Rare Disease Registry Standard: Semantic Mapping of Common Data Elements Between FAIRVASC and the European Joint Programme for Rare Disease",
+          "canonical_url": "https://zenodo.org/records/10702445",
+          "doi": "10.5281/zenodo.10702445",
+          "description": "<p>This paper describes the extension of the FAIRVASC rare disease ontology, with Joint Research Council Common Data Elements<br>(CDE), and mapping to the European Joint Programme on Rare Diseases (EJP RD) CDE ontology. We use the rare autoimmune condition<br>ANCA vasculitis as a model disease to illustrate this. Semantic modelling of CDE for Rare Diseases over registry data is important to represent<br>the specific concepts around these conditions. We describe the development of an ontology which facilitates the simultaneous uplift of tabular<br>data into a common RDF format from several registries. The ontology allows the data to be integrated across the registries and increases the<br>interoperability and standardisation among datasets, thus enhancing collaboration with external stakeholders. The ontology, therefore, creates an<br>effective rare disease research environment which enables the disease and its impact on the patient to be investigated in an effective manner across<br>national borders. This paper presents the methodology and road map to implement the CDE ontology for the health domain.</p>"
+        },
+        {
+          "identifier": "3478576",
+          "title": "Rare Disease analysis in Mondo",
+          "canonical_url": "https://zenodo.org/records/3478576",
+          "doi": "10.5281/zenodo.3478576",
+          "description": "<p>To answer the question of &#39;How many rare diseases are there?&#39; we analyzed terms in Mondo to get a total count of Rare Diseases as defined in Mondo Disease Ontology (Mondo).</p>\n\n<p>&nbsp;</p>\n\n<p>Methods</p>\n\n<p>This analysis was performed on the <a href=\"http://purl.obolibrary.org/obo/mondo/releases/2019-09-30/mondo.json\">Mondo 2019-09-30 release</a>.</p>\n\n<p><strong>1. Get all &#39;Disease&#39; terms from Mondo</strong></p>\n\n<p>First we get all the terms in Mondo that are a descendants of <code>MONDO:0000001 &#39;Disease&#39;</code>.</p>\n\n<p>There are <code>21633</code> Mondo disease terms.</p>\n\n<p><strong>2. Filter terms that are descendants of &#39;disease susceptibility&#39;</strong></p>\n\n<p>We then filter out terms that are descendants of <code>MONDO:0042489 &#39;disease susceptibility&#39;</code>, to avoid counting ambiguous terms that are related to disease susceptibility and not the actual disease itself.</p>\n\n<p>This gives us a list of <code>21563</code> Mondo rare disease terms.</p>\n\n<p><strong>3. Identify terms that are &#39;rare&#39;</strong></p>\n\n<p>Any disease term in Mondo is considered rare if the term, or its ancestor, has modifier <code>MONDO:0021136 &#39;Rare&#39;</code> in the ontology.</p>\n\n<p>There are <code>12914</code> Mondo rare disease terms.</p>\n\n<p><strong>4. Consider terms in &#39;gard_rare&#39; subset</strong></p>\n\n<p>There are <code>3176</code> Mondo disease terms that are in <code>gard_rare</code> subset which contains Mondo terms that are yet to be treated as &#39;rare&#39;.</p>\n\n<p>We add these terms to our set of Mondo rare disease terms.</p>\n\n<p>This increases the Mondo rare disease term count to <code>13866</code>.</p>\n\n<p>But for this analysis, we are interested in terms that are both rare and are leaf nodes in the ontology.</p>\n\n<p>After considering only leaf nodes, we get <code>10394</code> as the final count of Mondo rare disease terms.</p>\n\n<p>&nbsp;</p>\n\n<p>Results</p>\n\n<p>all-mondo-disease-terms.tsv: As part of our analysis, we generated a TSV containing 21633 Mondo disease terms, each with annotations that signifies whether the term is a rare disease term and whether that term is a leaf node in the ontology.</p>"
+        },
+        {
+          "identifier": "7125341",
+          "title": "Standardizing Rare Disease Data Collection:  It Takes an (Ontology) Village",
+          "canonical_url": "https://zenodo.org/records/7125341",
+          "doi": "10.5281/zenodo.7125341",
+          "description": "<p>Keynote talk at 4th U.S. Semantic Technologies Symposium (US2TS), East Lansing, MI,&nbsp;September 29, 2022.</p>\n\n<p>&nbsp;</p>"
+        },
+        {
+          "identifier": "17871108",
+          "title": "Epilepsy Disease Classification: A community effort to enhance the Mondo Disease Ontology",
+          "canonical_url": "https://zenodo.org/records/17871108",
+          "doi": "10.5281/zenodo.17871108",
+          "description": "<p>Workshop report from Mondo Epilepsy Workshop in 2024/2025. More details available here: https://mondo.monarchinitiative.org/pages/workshop/#Oct-2024</p>"
+        },
+        {
+          "identifier": "7102403",
+          "title": "Using the Mondo Disease Ontology to Standardize Rare Disease Nomenclature",
+          "canonical_url": "https://zenodo.org/records/7102403",
+          "doi": "10.5281/zenodo.7102403",
+          "description": "<p>Presentation to FDA&nbsp;Office of Orphan Products Development.</p>"
+        },
+        {
+          "identifier": "1168737",
+          "title": "Deep phenotyping for patients by patients: a plain-language medical  vocabulary for precision diagnosis",
+          "canonical_url": "https://zenodo.org/records/1168737",
+          "doi": "10.5281/zenodo.1168737",
+          "description": "<p>This paper describes an effort to increase accessibility of the Human Phenotype Ontology to patients and non-medical experts&nbsp;by adding lay-person synonyms and terminology.</p>"
+        },
+        {
+          "identifier": "59581",
+          "title": "Linking rare and common disease: mapping clinical disease-phenotypes to ontologies in therapeutic target validation",
+          "canonical_url": "https://zenodo.org/records/59581",
+          "doi": "10.1186/s13326-016-0051-7",
+          "description": "<p><strong>Background: </strong>The Centre for Therapeutic Target Validation (CTTV - https://www.targetvalidation.org/ ) was established to generate therapeutic target evidence from genome-scale experiments and analyses. CTTV aims to support the validity of therapeutic targets by integrating existing and newly-generated data. Data integration has been achieved in some resources by mapping metadata such as disease and phenotypes to the Experimental Factor Ontology (EFO). Additionally, the relationship between ontology descriptions of rare and common diseases and their phenotypes can offer insights into shared biological mechanisms and potential drug targets. Ontologies are not ideal for representing the <i>sometimes associated</i> type relationship required. This work addresses two challenges; annotation of diverse big data, and representation of complex, <i>sometimes associated</i> relationships between concepts.</p><p><strong>Methods: </strong>Semantic mapping uses a combination of custom scripting, our annotation tool \u2018Zooma\u2019, and expert curation. Disease-phenotype associations were generated using literature mining on Europe PubMed Central abstracts, which were manually verified by experts for validity. Representation of the disease-phenotype association was achieved by the Ontology of Biomedical AssociatioN (OBAN), a generic association representation model. OBAN represents associations between a subject and object <i>i.e.,</i> disease and its associated phenotypes and the source of evidence for that association. The indirect disease-to-disease associations are exposed through shared phenotypes. This was applied to the use case of linking rare to common diseases at the CTTV.</p><p><strong>Results: </strong>EFO yields an average of over 80\u00a0% of mapping coverage in all data sources. A 42\u00a0% precision is obtained from the manual verification of the text-mined disease-phenotype associations. This results in 1452 and 2810 disease-phenotype pairs for IBD and autoimmune disease and contributes towards 11,338 rare diseases associations (merged with existing published work [Am J Hum Genet 97:111-24, 2015]). An OBAN result file is downloadable at http://sourceforge.net/p/efo/code/HEAD/tree/trunk/src/efoassociations/ . Twenty common diseases are linked to 85 rare diseases by shared phenotypes. A generalizable OBAN model for association representation is presented in this study.</p><p><strong>Conclusions: </strong>Here we present solutions to large-scale annotation-ontology mapping in the CTTV knowledge base, a process for disease-phenotype mining, and propose a generic association model, \u2018OBAN\u2019, as a means to integrate disease using shared phenotypes.</p><p><strong>Availability: </strong>EFO is released monthly and available for download at http://www.ebi.ac.uk/efo/ .</p>"
+        },
+        {
+          "identifier": "11442985",
+          "title": "CYShapland/triangulate: First release",
+          "canonical_url": "https://zenodo.org/records/11442985",
+          "doi": "10.5281/zenodo.11442985",
+          "description": "<p>First draft of the software</p>"
+        },
+        {
+          "identifier": "13630086",
+          "title": "mcguinlu/triangulate: Initial release",
+          "canonical_url": "https://zenodo.org/records/13630086",
+          "doi": "10.5281/zenodo.13630086",
+          "description": "Generalised implementation of bias-/indirectness-adjusted meta-analysis in R"
+        },
+        {
+          "identifier": "3234097",
+          "title": "Representing glycophenotypes: semantic unification of glycobiology resources for disease discovery",
+          "canonical_url": "https://zenodo.org/records/3234097",
+          "doi": "10.5281/zenodo.3234097",
+          "description": "<p>While abnormalities related to carbohydrates (glycans) are frequent for patients with rare and undiagnosed diseases as well as in many common diseases, these glycan-related phenotypes (glycophenotypes) are not well represented in knowledge bases (KBs). If glycan related diseases were more robustly represented and curated with glycophenotypes, these could be used for molecular phenotyping to help realize the goals of precision medicine. Diagnosis of rare diseases by computational cross-species comparison of genotype-phenotype data has been facilitated by leveraging ontological representations of clinical phenotypes, using Human Phenotype Ontology (HPO), and model organism ontologies such as Mammalian Phenotype Ontology (MP) in the context of the Monarch Initiative. In this article, we discuss the importance and complexity of glycobiology, and review the structure of glycan-related content from existing KBs and biological ontologies. We show how semantically structuring knowledge about annotation of glycophenotypes could enhance disease diagnosis, and propose a solution to integrate glycophenotypes and related diseases into the Unified Phenotype Ontology (uPheno), HPO, Monarch, and other KBs. We encourage the community to practice good identifier hygiene for glycans in support of semantic analysis, and clinicians to add glycomics to their diagnostic analyses of rare diseases.&nbsp;</p>"
+        }
+      ],
+      "response_sha256": "sha256:8cba97cb9e029764aee1910ecbee17cc081610867c1452a3b618c2fcad05b687",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease ontology",
+      "endpoint": "https://huggingface.co/api/datasets?search=rare+disease+ontology&limit=10",
+      "retrieved_at_utc": "2026-08-14T20:01:22Z",
+      "http_status": 200,
+      "result_total": "not_reported",
+      "first_page_items": 0,
+      "first_page_ids": [],
+      "first_page_records": [],
+      "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "crossref",
+      "query_string": "rare disease ontology",
+      "endpoint": "https://api.crossref.org/works?query.bibliographic=rare+disease+ontology&rows=10&select=DOI%2Ctitle%2Cpublisher%2Cpublished",
+      "retrieved_at_utc": "2026-08-14T20:01:22Z",
+      "http_status": 200,
+      "result_total": 2795460,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "10.18653/v1/2026.bionlp-1.41",
+        "10.64898/2026.07.01.26357055",
+        "10.3390/biomedicines14071439",
+        "10.3410/f.725602763.793528156",
+        "10.1109/bibm52615.2021.9669517",
+        "10.1093/jamiaopen/ooad007",
+        "10.1109/cbms49503.2020.00039",
+        "10.1109/bibm55620.2022.9995614",
+        "10.2196/preprints.60665",
+        "10.15363/thinklab.d68"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "10.18653/v1/2026.bionlp-1.41",
+          "title": "When Does Retrieval Beat Direct LLM Diagnosis in Rare Disease? An Empirical Study of Ontology Coverage",
+          "canonical_url": "https://doi.org/10.18653/v1/2026.bionlp-1.41",
+          "doi": "10.18653/v1/2026.bionlp-1.41",
+          "publisher": "Association for Computational Linguistics"
+        },
+        {
+          "identifier": "10.64898/2026.07.01.26357055",
+          "title": "Developing a Specialized Dravet Syndrome Ontology for Rare Disease Informatics and AI Applications",
+          "canonical_url": "https://doi.org/10.64898/2026.07.01.26357055",
+          "doi": "10.64898/2026.07.01.26357055",
+          "publisher": "openRxiv"
+        },
+        {
+          "identifier": "10.3390/biomedicines14071439",
+          "title": "A Multimodal Biomedical Transformer Fusion Network for Disease-Level Rare-Disease-Inheritance Classification Using Ontology-Enriched Text, Metadata, and Gene Associations",
+          "canonical_url": "https://doi.org/10.3390/biomedicines14071439",
+          "doi": "10.3390/biomedicines14071439",
+          "publisher": "MDPI AG"
+        },
+        {
+          "identifier": "10.3410/f.725602763.793528156",
+          "title": "Faculty Opinions recommendation of The human phenotype ontology: semantic unification of common and rare disease.",
+          "canonical_url": "https://doi.org/10.3410/f.725602763.793528156",
+          "doi": "10.3410/f.725602763.793528156",
+          "publisher": "H1 Connect"
+        },
+        {
+          "identifier": "10.1109/bibm52615.2021.9669517",
+          "title": "Etiology context of rare diseases in the Human Disease Ontology",
+          "canonical_url": "https://doi.org/10.1109/bibm52615.2021.9669517",
+          "doi": "10.1109/bibm52615.2021.9669517",
+          "publisher": "IEEE"
+        },
+        {
+          "identifier": "10.1093/jamiaopen/ooad007",
+          "title": "Linking rare and common disease vocabularies by mapping between the human phenotype ontology and phecodes",
+          "canonical_url": "https://doi.org/10.1093/jamiaopen/ooad007",
+          "doi": "10.1093/jamiaopen/ooad007",
+          "publisher": "Oxford University Press (OUP)"
+        },
+        {
+          "identifier": "10.1109/cbms49503.2020.00039",
+          "title": "Subgrouping Rare Disease Patients Leveraging the Human Phenotype Ontology Embeddings",
+          "canonical_url": "https://doi.org/10.1109/cbms49503.2020.00039",
+          "doi": "10.1109/cbms49503.2020.00039",
+          "publisher": "IEEE"
+        },
+        {
+          "identifier": "10.1109/bibm55620.2022.9995614",
+          "title": "Identifying Missing IS-A Relations in Orphanet Rare Disease Ontology",
+          "canonical_url": "https://doi.org/10.1109/bibm55620.2022.9995614",
+          "doi": "10.1109/bibm55620.2022.9995614",
+          "publisher": "IEEE"
+        },
+        {
+          "identifier": "10.2196/preprints.60665",
+          "title": "AutoRD: An Automatic and End-to-End System for Rare Disease Knowledge Graph Construction Based on Ontology-enhanced Large Language Models (Preprint)",
+          "canonical_url": "https://doi.org/10.2196/preprints.60665",
+          "doi": "10.2196/preprints.60665",
+          "publisher": "JMIR Publications Inc."
+        },
+        {
+          "identifier": "10.15363/thinklab.d68",
+          "title": "Disease Ontology feature requests",
+          "canonical_url": "https://doi.org/10.15363/thinklab.d68",
+          "doi": "10.15363/thinklab.d68",
+          "publisher": "ThinkLab"
+        }
+      ],
+      "response_sha256": "sha256:bb24cb0eacd0011c1c7c64ebf446f26bcfd33824e76e2faaa9b06df5c847193f",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "github",
+      "query_string": "rare disease prevalence",
+      "endpoint": "https://api.github.com/search/repositories?q=rare+disease+prevalence&per_page=10",
+      "retrieved_at_utc": "2026-08-14T20:01:23Z",
+      "http_status": 200,
+      "result_total": 5,
+      "first_page_items": 5,
+      "first_page_ids": [
+        "theodorejperkins/Monogenic_Prevalence_with_Severities",
+        "inutano/rare-disease-globe",
+        "atinak/Rare-Disease-Detector",
+        "Honghan/CCU019_01",
+        "BHFDSC/CCU019_01"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "theodorejperkins/Monogenic_Prevalence_with_Severities",
+          "title": "Monogenic_Prevalence_with_Severities",
+          "canonical_url": "https://github.com/theodorejperkins/Monogenic_Prevalence_with_Severities",
+          "description": "Estimating prevalence of rare recessive monogenic diseases"
+        },
+        {
+          "identifier": "inutano/rare-disease-globe",
+          "title": "rare-disease-globe",
+          "canonical_url": "https://github.com/inutano/rare-disease-globe",
+          "description": "Interactive 3D globe visualization of rare disease prevalence data from Orphanet/Orphadata"
+        },
+        {
+          "identifier": "atinak/Rare-Disease-Detector",
+          "title": "Rare-Disease-Detector",
+          "canonical_url": "https://github.com/atinak/Rare-Disease-Detector",
+          "description": "An AI-powered rare disease diagnosis and prediction system. The goal is to train a machine learning model that predicts rare diseases (OrphaCode) based on symptoms, genetic factors, prevalence and other data found on Orphanet database. "
+        },
+        {
+          "identifier": "Honghan/CCU019_01",
+          "title": "CCU019_01",
+          "canonical_url": "https://github.com/Honghan/CCU019_01",
+          "description": "CVD-COVID-UK project: A nationwide study of 331 rare diseases among 58 million individuals: prevalence, demographics and COVID-19 outcomes"
+        },
+        {
+          "identifier": "BHFDSC/CCU019_01",
+          "title": "CCU019_01",
+          "canonical_url": "https://github.com/BHFDSC/CCU019_01",
+          "description": "CVD-COVID-UK project: Prevalence and demographics of 331 rare diseases and associated COVID-19-related mortality among 58 million individuals: a nationwide retrospective observational study"
+        }
+      ],
+      "response_sha256": "sha256:8d43097c00971b8d4abdd7b85910b82834aa6f252b91c58fbd392a84b09f6886",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "zenodo",
+      "query_string": "rare disease prevalence",
+      "endpoint": "https://zenodo.org/api/records/?q=rare+disease+prevalence&size=10",
+      "retrieved_at_utc": "2026-08-14T20:01:23Z",
+      "http_status": 200,
+      "result_total": 208905,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "345747",
+        "574924",
+        "18217486",
+        "14962863",
+        "21920649",
+        "837955",
+        "17147594",
+        "5021594",
+        "11442985",
+        "13630086"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "345747",
+          "title": "Does the low prevalence affect the sample size of interventional clinical trials of rare diseases? An analysis of data from the aggregate analysis of clinicaltrials.gov",
+          "canonical_url": "https://zenodo.org/records/345747",
+          "doi": "10.1186/s13023-017-0597-1",
+          "description": "<p><strong>Background: </strong>Clinical trials are typically designed using the classical frequentist framework to constrain type I and II error rates. Sample sizes required in such designs typically range from hundreds to thousands of patients which can be challenging for rare diseases. It has been shown that rare disease trials have smaller sample sizes than non-rare disease trials. Indeed some orphan drugs were approved by the European Medicines Agency based on studies with as few as 12 patients. However, some studies supporting marketing authorisation included several hundred patients. In this work, we explore the relationship between disease prevalence and other factors and the size of interventional phase 2 and 3 rare disease trials conducted in the US and/or EU. We downloaded all clinical trials from Aggregate Analysis of ClinialTrials.gov (AACT) and identified rare disease trials by cross-referencing MeSH terms in AACT with the list from Orphadata. We examined the effects of prevalence and phase of study in a multiple linear regression model adjusting for other statistically significant trial characteristics.</p><p><strong>Results: </strong>Of 186941 ClinicalTrials.gov trials only 1567 (0.8%) studied a single rare condition with prevalence information from Orphadata. There were 19 (1.2%) trials studying disease with prevalence &lt;1/1,000,000, 126 (8.0%) trials with 1\u20139/1,000,000, 791 (50.5%) trials with 1\u20139/100,000 and 631 (40.3%) trials with 1\u20135/10,000. Of the 1567 trials, 1160 (74%) were phase 2 trials. The fitted mean sample size for the rarest disease (prevalence &lt;1/1,000,000) in phase 2 trials was the lowest (mean, 15.7; 95% CI, 8.7\u201328.1) but were similar across all the other prevalence classes; mean, 26.2 (16.1\u201342.6), 33.8 (22.1\u201351.7) and 35.6 (23.3\u201354.3) for prevalence 1\u20139/1,000,000, 1\u20139/100,000 and 1\u20135/10,000, respectively. Fitted mean size of phase 3 trials of rarer diseases, &lt;1/1,000,000 (19.2, 6.9\u201353.2) and 1\u20139/1,000,000 (33.1, 18.6\u201358.9), were similar to those in phase 2 but were statistically significant lower than the slightly less rare diseases, 1\u20139/100,000 (75.3, 48.2\u2013117.6) and 1-5/10,000 (77.7, 49.6\u2013121.8), trials.</p><p><strong>Conclusions: </strong>We found that prevalence was associated with the size of phase 3 trials with trials of rarer diseases noticeably smaller than the less rare diseases trials where phase 3 rarer disease (prevalence &lt;1/100,000) trials were more similar in size to those for phase 2 but were larger than those for phase 2 in the less rare disease (prevalence \u22651/100,000) trials.</p>"
+        },
+        {
+          "identifier": "574924",
+          "title": "Drug-eluting Stents in Premature Coronary Disease in Young People with Homozygous Familial Hypercholesterolemia and Prior Liver Transplant. A Report of Two Cases",
+          "canonical_url": "https://zenodo.org/records/574924",
+          "doi": "10.19070/2470-4563-150004",
+          "description": "<p>Heterzygous FH is the most common form of the disease (prevalence of approximately 1 in 300 to 500 individuals worldwide, and which can be as high as 1 in 100 individuals in some special populations) [3-6]. Homozygous autosomal dominant FH is a very rare form of the disease (prevalence of 1 in 1 million individuals). Some populations, such as French Canadians, Ashkenazi Jews, Lebanese and Dutch of African origin, are at a higher risk for FH due to the increased prevalence of mutations associated with heterozygous FH</p>"
+        },
+        {
+          "identifier": "18217486",
+          "title": "Healthcare as a Drift-Amplifying System: Incentives, Suppression, and Termination Failure",
+          "canonical_url": "https://zenodo.org/records/18217486",
+          "doi": "10.5281/zenodo.18217486",
+          "description": "<p>Chronic disease prevalence continues to rise in high-income healthcare systems despite escalating expenditure, increasingly sophisticated biomedical interventions, and earlier detection. While acute outcomes have improved, durable disease resolution remains rare, and multimorbidity has become the norm rather than the exception. This paper proposes a systems-level explanation for this paradox. Building on a regulatory framework in which chronic disease reflects failure of adaptive response termination rather than failure of response initiation, the paper argues that modern healthcare systems are structurally optimized to suppress pathological outputs while remaining largely blind to termination reliability and recovery dynamics. By stabilizing biological compensation without restoring regulatory plasticity, healthcare systems unintentionally amplify regulatory drift, increasing disease prevalence while preventing collapse. This framework integrates biological regulation with institutional design, offering a coherent explanation for rising prevalence, escalating cost, stable average outcomes, and expanding multimorbidity without attributing failure to individual behavior or professional malfeasance.</p>"
+        },
+        {
+          "identifier": "14962863",
+          "title": "The Prevalence and Incidence of Interstitial Lung Disease among Patients with Systemic Lupus Erythematosus: A Protocol for a Systematic Review",
+          "canonical_url": "https://zenodo.org/records/14962863",
+          "doi": "10.5281/zenodo.14962863",
+          "description": "<div>\n<div>\n<div>\n<p>Systemic lupus erythematosus (SLE) is a chronic autoimmune disease, which can affect any organ systems and cause increased morbidity and mortality. Interstitial lung diseases (ILD) can manifest with heterogeneous radiological and pathological patterns in different categories of connective tissue diseases (CTD-ILD) including SLE. ILD is associated with reduced quality of life due to increased morbidity and mortality. Diagnosing SLE-ILD is challenging, and the prevalence and incidence of SLE-ILD vary depending on the applied study methodology and study population. Clarifying an estimate of the prevalence and incidence of SLE-ILD will help clinicians&rsquo; awareness of this rare disease presentation prompting an overall improved management including treatment plans.</p>\n</div>\n</div>\n</div>"
+        },
+        {
+          "identifier": "21920649",
+          "title": "Consensus statement for the diagnosis and treatment of lysosomal storage diseases with neurological manifestations. 2026",
+          "canonical_url": "https://zenodo.org/records/21920649",
+          "doi": "10.67667/NEU.v27iS6.237",
+          "description": "<p>Lysosomal storage diseases involve about 50 rare genetic metabolic diseases engaging &nbsp;various mutations/pathological variants that cause enzyme deficiency and lysosomal &nbsp;dysfunction due to accumulation of certain substrates in them: lipids, glycoproteins, and &nbsp;mucopolysaccharides. These diseases induce multiple organ involvement and have a &nbsp;progressive course. They are mainly inherited in an autosomal recessive (AR) manner, e.g. &nbsp;Niemann-Pick disease type C, and, in rare cases, in an X-recessive (XR) (Fabry disease and &nbsp;Hunter disease (MPS II)) or an autosomal dominant (AD) manner (neuronal ceroid &nbsp;lipofuscinosis type 4 (NCL4)). Disease incidence is about 1/7,700 births. Disease prevalence &nbsp;is about 1:100,000 but occasionally reaches 1:5,000&ndash;1:10,000. The onset is usually in &nbsp;childhood and infantile, late infantile, pediatric, adolescent, and adult disease forms have been &nbsp;characterized. Clinical syndromes in the presence of neurological manifestations depend on &nbsp;the site of substrate accumulation and most often impair the central nervous system as well as, &nbsp;less commonly, the peripheral nervous system, sometimes&mdash;the muscles, while multiple organ &nbsp;involvement (heart, vessels, kidneys, liver, spleen, etc.) is also possible.</p>"
+        },
+        {
+          "identifier": "837955",
+          "title": "KIKUCHI-FUJIMOTO DISEASE (KFD): A Rare Case Report",
+          "canonical_url": "https://zenodo.org/records/837955",
+          "doi": "10.5281/zenodo.837955",
+          "description": "<p><strong><em>Abstract\u2014</em></strong><em> Kikuchi-Fujimoto disease (KFD) is a rare disease. It has a worldwide distribution with a higher prevalence in Asians. KFD is usually a self limiting disease and benign in nature. Clinically it presents as regional cervical lymphadenopathy and sometimes may presents as generalized lymphadenopathy as well. Night sweats and low grade fever may also be associated in some cases. A case of a 36 year old female had attended in SMS Hospital. She presented with fever, weight loss and tender cervical lymph nodes. Diagnostic significance of KFD lies in that it may mimic some of the common diagnosis like SLE (Systemic Lupus Erythematosis), Tuberculosis, lymphoma and rarely adenocarcinoma. Diagnosis is usually made by biopsy of lymph node which shows fragmentation, necrosis and karyorrhexis. On thorough investigation this case was found of Kikuchi-Fujimoto disease (KFD) which is a rare disease. So case presenting with fever, weight loss and tender cervical lymph nodes should also be investigated for Kikuchi-Fujimoto disease (KFD).</em></p>"
+        },
+        {
+          "identifier": "17147594",
+          "title": "How common is hypertrophic cardiomyopathy\u2026 really?: Disease prevalence revisited 27 years after CARDIA",
+          "canonical_url": "https://zenodo.org/records/17147594",
+          "doi": "10.1016/j.ijcard.2023.04.005",
+          "description": "Hypertrophic cardiomyopathy (HCM) is a heterogeneous albeit treatable cardiac disease of variable severity, with the potential for heart failure, atrial fibrillation and arrhythmic sudden death, characterized by otherwise unexplained left ventricular (LV) hypertrophy and affecting all ages and races. Over the last 30 years, several studies have estimated the prevalence of HCM in the general population, employing echocardiography and cardiac magnetic resonance imaging (CMR), as well electronic health records and billing databases for clinical diagnosis. The estimated prevalence in the general population based on the disease phenotype of LV hypertrophy by imaging is 1:500 (0.2%). This prevalence was initially proposed in 1995 in the population-based CARDIA study employing echocardiography, and more recently confirmed by automated CMR analysis in the large UK Biobank cohort. The 1:500 prevalence appears most relevant to clinical assessment and management of HCM. These available data suggest that HCM is not a rare condition but likely underdiagnosed clinically and by extrapolation potentially affects about 700,000 Americans and possibly 15 million people worldwide."
+        },
+        {
+          "identifier": "5021594",
+          "title": "Data from: 28 year temporal sequence of epidemic dynamics in a natural rust \u2013 host plant metapopulation",
+          "canonical_url": "https://zenodo.org/records/5021594",
+          "doi": "10.5061/dryad.s5700",
+          "description": "A long-term study of disease dynamics caused by the rust Uromyces valerianae in 31 discrete populations of Valeriana salina provides a rare opportunity to explore extended temporal patterns in the epidemiology of a natural host-pathogen metapopulation.\nOver a 28-year period, pathogen population dynamics varied across the metapopulation with disease incidence (presence/absence), prevalence (% plants infected) and severity (% leaf area covered by lesions) all showing strong population and year effects, indicative of heterogeneity among years and host populations in the suitability of conditions for the pathogen.\nDisease incidence within individual host populations was significantly affected by host population size, disease prevalence the previous year and the proximity of neighbouring populations infected in the current year. After accounting for these variables there was still a marked temporal component with winter sea level having a significant effect; as did summer rainfall in the second part of the study period (1997-2011).\nDisease prevalence was also effected by host population size and disease prevalence in the previous year. However, it was less affected by spatial aspects of disease spread than was disease incidence. Winter sea level and June rainfall significantly affected disease prevalence.\nAssessment of disease impact on plant performance found strong variation in disease severity associated with the aspect and positioning of host populations. Plants growing in lower disease environments produced significantly more seeds than those growing in high disease sites.\nSignificant variation in reaction to infection by U. valerianae was detected among plants within four populations and between these different populations.\nSynthesis. The epidemiology of U. valerianae was highly influenced by host population size, previous disease and distance. After accounting for these factors, there was a clear temporal signal of change in disease incidence linked to winter sea level and summer rainfall. These patterns reinforce the importance of considering interactions in multiple populations over long periods of time in order to obtain a clear picture of the variability of disease-induced selection pressures across time and space. The behaviour of the pathogen fitted that predicted for a metapopulation with considerable asynchrony in epidemiological patterns among demes."
+        },
+        {
+          "identifier": "11442985",
+          "title": "CYShapland/triangulate: First release",
+          "canonical_url": "https://zenodo.org/records/11442985",
+          "doi": "10.5281/zenodo.11442985",
+          "description": "<p>First draft of the software</p>"
+        },
+        {
+          "identifier": "13630086",
+          "title": "mcguinlu/triangulate: Initial release",
+          "canonical_url": "https://zenodo.org/records/13630086",
+          "doi": "10.5281/zenodo.13630086",
+          "description": "Generalised implementation of bias-/indirectness-adjusted meta-analysis in R"
+        }
+      ],
+      "response_sha256": "sha256:5721367e27914adf0e65436c727bd673245003547fa9bb014d243c962cf27878",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease prevalence",
+      "endpoint": "https://huggingface.co/api/datasets?search=rare+disease+prevalence&limit=10",
+      "retrieved_at_utc": "2026-08-14T20:01:27Z",
+      "http_status": 200,
+      "result_total": "not_reported",
+      "first_page_items": 0,
+      "first_page_ids": [],
+      "first_page_records": [],
+      "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "crossref",
+      "query_string": "rare disease prevalence",
+      "endpoint": "https://api.crossref.org/works?query.bibliographic=rare+disease+prevalence&rows=10&select=DOI%2Ctitle%2Cpublisher%2Cpublished",
+      "retrieved_at_utc": "2026-08-14T20:01:27Z",
+      "http_status": 200,
+      "result_total": 3039940,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "10.2217/frd-2020-0004",
+        "10.1186/s13023-017-0611-7",
+        "10.1097/01.ede.0000153643.88019.92",
+        "10.21203/rs.3.rs-32979/v1",
+        "10.1183/13993003.congress-2018.pa3030",
+        "10.1186/1750-1172-9-98",
+        "10.1182/bloodadvances.2024015546",
+        "10.1177/26330040261471914",
+        "10.1016/0962-8479(94)90869-9",
+        "10.20517/rdodj.2023.39"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "10.2217/frd-2020-0004",
+          "title": "Dercum\u2019s Disease: Estimating the Prevalence of a Rare Painful Loose Connective Tissue Disease",
+          "canonical_url": "https://doi.org/10.2217/frd-2020-0004",
+          "doi": "10.2217/frd-2020-0004",
+          "publisher": "Informa UK Limited"
+        },
+        {
+          "identifier": "10.1186/s13023-017-0611-7",
+          "title": "Health technology assessment of new drugs for rare disorders in Canada: impact of disease prevalence and cost",
+          "canonical_url": "https://doi.org/10.1186/s13023-017-0611-7",
+          "doi": "10.1186/s13023-017-0611-7",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1097/01.ede.0000153643.88019.92",
+          "title": "Estimating Rare Disease Prevalence From Administrative Hospitalization Databases",
+          "canonical_url": "https://doi.org/10.1097/01.ede.0000153643.88019.92",
+          "doi": "10.1097/01.ede.0000153643.88019.92",
+          "publisher": "Ovid Technologies (Wolters Kluwer Health)"
+        },
+        {
+          "identifier": "10.21203/rs.3.rs-32979/v1",
+          "title": "Dercum\u2019s Disease: Estimating the prevalence of a rare painful loose connective tissue disease",
+          "canonical_url": "https://doi.org/10.21203/rs.3.rs-32979/v1",
+          "doi": "10.21203/rs.3.rs-32979/v1",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1183/13993003.congress-2018.pa3030",
+          "title": "Prevalence of progressive fibrosing interstitial lung disease",
+          "canonical_url": "https://doi.org/10.1183/13993003.congress-2018.pa3030",
+          "doi": "10.1183/13993003.congress-2018.pa3030",
+          "publisher": "European Respiratory Society"
+        },
+        {
+          "identifier": "10.1186/1750-1172-9-98",
+          "title": "The prevalence and epidemiology of genetic renal disease amongst adults with chronic kidney disease in Australia",
+          "canonical_url": "https://doi.org/10.1186/1750-1172-9-98",
+          "doi": "10.1186/1750-1172-9-98",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1182/bloodadvances.2024015546",
+          "title": "Estimating rare genetic disease prevalence: a challenging task",
+          "canonical_url": "https://doi.org/10.1182/bloodadvances.2024015546",
+          "doi": "10.1182/bloodadvances.2024015546",
+          "publisher": "American Society of Hematology"
+        },
+        {
+          "identifier": "10.1177/26330040261471914",
+          "title": "Cancer prevalence in primary mitochondrial disease patients and their families",
+          "canonical_url": "https://doi.org/10.1177/26330040261471914",
+          "doi": "10.1177/26330040261471914",
+          "publisher": "SAGE Publications"
+        },
+        {
+          "identifier": "10.1016/0962-8479(94)90869-9",
+          "title": "Tuberculosis: The rare clinical and diagnostically difficult manifestations of the imitator disease: In a high prevalence locality",
+          "canonical_url": "https://doi.org/10.1016/0962-8479(94)90869-9",
+          "doi": "10.1016/0962-8479(94)90869-9",
+          "publisher": "Elsevier BV"
+        },
+        {
+          "identifier": "10.20517/rdodj.2023.39",
+          "title": "Review of methods for estimating the prevalence of rare diseases",
+          "canonical_url": "https://doi.org/10.20517/rdodj.2023.39",
+          "doi": "10.20517/rdodj.2023.39",
+          "publisher": "OAE Publishing Inc."
+        }
+      ],
+      "response_sha256": "sha256:482824bae3737181386ec1c81c56a58348ad637fe3c8d6db2acbe281b991856f",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "github",
+      "query_string": "rare disease cost",
+      "endpoint": "https://api.github.com/search/repositories?q=rare+disease+cost&per_page=10",
+      "retrieved_at_utc": "2026-08-14T20:01:28Z",
+      "http_status": 200,
+      "result_total": 2,
+      "first_page_items": 2,
+      "first_page_ids": [
+        "Akshay-gurav-31/Hackathon-Reusable-Framework",
+        "mira-jain/Hackathon-Reusable-Framework"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "Akshay-gurav-31/Hackathon-Reusable-Framework",
+          "title": "Hackathon-Reusable-Framework",
+          "canonical_url": "https://github.com/Akshay-gurav-31/Hackathon-Reusable-Framework",
+          "description": "Zero\u2011cost, plug\u2011and\u2011play hackathon toolkit for rare\u2011disease communities: UI config generator, secure pre\u2011commit hooks, one\u2011click GitHub\u202fPages deploy, and ready\u2011made issue templates."
+        },
+        {
+          "identifier": "mira-jain/Hackathon-Reusable-Framework",
+          "title": "Hackathon-Reusable-Framework",
+          "canonical_url": "https://github.com/mira-jain/Hackathon-Reusable-Framework",
+          "description": "Zero\u2011cost, plug\u2011and\u2011play hackathon toolkit for rare\u2011disease communities: UI config generator, secure pre\u2011commit hooks, one\u2011click GitHub\u202fPages deploy, and ready\u2011made issue templates."
+        }
+      ],
+      "response_sha256": "sha256:d607d05d5e5045825e81a6bcb02474e77602c63308625b6ee82f4087adc2c166",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "zenodo",
+      "query_string": "rare disease cost",
+      "endpoint": "https://zenodo.org/api/records/?q=rare+disease+cost&size=10",
+      "retrieved_at_utc": "2026-08-14T20:01:28Z",
+      "http_status": 200,
+      "result_total": 258039,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "7961855",
+        "11442985",
+        "13630086",
+        "7460586",
+        "20696641",
+        "20391327",
+        "18492100",
+        "557065",
+        "3478576",
+        "18217486"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "7961855",
+          "title": "An annotated list of horizon scanned technologies with potential for application in alien species citizen science projects",
+          "canonical_url": "https://zenodo.org/records/7961855",
+          "doi": "10.5281/zenodo.7961855",
+          "description": "<p><strong>Context</strong></p>\n\n<p>The contribution of volunteers in recording invasive alien species (IAS) has been fostered by technological developments such as social media, apps, low-cost sensors, search engines and predictive analytics. These technology developments, an increased attention to citizen science and a cultural change towards collaboration and openness in research within the policy agenda should increase the contribution of volunteer recording.&nbsp;Within the framework of the&nbsp;COST Action CA17122&nbsp;<a href=\"https://www.ceh.ac.uk/our-science/projects/alien-csi\"><em>Increasing Understanding of Alien Species through Citizen Science</em></a>&nbsp;(<a href=\"https://doi.org/10.3897/rio.4.e31412\">Roy et al. 2018</a>) a group of researchers&nbsp;explored the value of emerging technologies for citizen science in the context of alien species, recognizing the contribution of volunteers and reviewing their&nbsp;potential to engage broad audiences, motivate volunteers, improve data collection, increase data quality&nbsp;etc.</p>\n\n<p><strong>Survey</strong></p>\n\n<p>The following criteria were then used to evaluate the potential of these technologies&nbsp;for alien species citizen science through a dedicated <a href=\"https://forms.gle/9GQJctnAbPLKyxDE7\">survey</a>:</p>\n\n<p>\u25cf <em><strong>Audience</strong></em>: the technology can attract new target audiences for IAS citizen science and/or&nbsp;support more inclusivity in IAS citizen science (can overcome inequalities in participation,&nbsp;attract under-privileged audiences/those underrepresented in the scientific enterprise, allow&nbsp;participation of sensory/cognitive/otherwise impaired...)<br>\n\u25cf <em><strong>Engagement </strong></em>with others: the technology supports better connections with other&nbsp;participants, helpful in building a community<br>\n\u25cf <em><strong>Engagement via feedback</strong></em>: the technology increases the quality, amount or rate of feedback&nbsp;(including supporting learning) to participants<br>\n\u25cf <strong><em>Application</em></strong>: the technology can be embedded in everyday life and therefore has the&nbsp;potential for wide, generic application</p>\n\n<p>\u25cf <em><strong>New data</strong></em>: the technology yields new types of data that would not be available without the&nbsp;technology (improved the detectability of IAS, new types of data, species interactions, new&nbsp;information sources)<br>\n\u25cf <strong><em>Extends data</em></strong>: the technology expands the scope of data collection or analysis (e.g. better&nbsp;coverage spatially, temporally)<br>\n\u25cf <strong><em>Improves data quality</em></strong>: the technology improves species ID, reduces uncertainty, improves&nbsp;validation<br>\n\u25cf <strong><em>Improves the flow of data</em></strong>: the technology increases the speed of record transmission (e.g.&nbsp;for early warning)<br>\n\u25cf <strong><em>Improves the curation of data</em></strong>: the technology itself allows for improved data curation&nbsp;(better metadata, sustainability and long term preservation data, open data, tracked&nbsp;provenance of data, FAIR data management, enable to better credit citizen scientists for their&nbsp;data contributions)</p>\n\n<p><strong>Dataset description</strong></p>\n\n<p>This dataset represents the list of technologies (in the broadest sense, including approaches) that were identified collectively by the experts as being relevant technologies in the framework of (alien species) citizen science. The dataset includes the following fields:</p>\n\n<ul>\n\t<li><em>Name</em>: name of the approach/technology</li>\n\t<li><em>Category</em>: broad categorisation of the&nbsp;approach/technology (Hardware and infrastructure, data collection and&nbsp;analysis tools, tools to improve user experience). If some approaches are combinations this is mentioned in description.</li>\n\t<li><em>Description</em>: a definition and/or description of the approach/technology</li>\n\t<li><em>Reference</em>: a reference on the approach/technology (e.g. paper, online reference), mostly with a doi</li>\n\t<li><em>Example</em>: an example of the approach/technology, mostly with reference to an (alien species) citizen science project that applied it</li>\n\t<li><em>Notes: </em>any further remarks</li>\n</ul>"
+        },
+        {
+          "identifier": "11442985",
+          "title": "CYShapland/triangulate: First release",
+          "canonical_url": "https://zenodo.org/records/11442985",
+          "doi": "10.5281/zenodo.11442985",
+          "description": "<p>First draft of the software</p>"
+        },
+        {
+          "identifier": "13630086",
+          "title": "mcguinlu/triangulate: Initial release",
+          "canonical_url": "https://zenodo.org/records/13630086",
+          "doi": "10.5281/zenodo.13630086",
+          "description": "Generalised implementation of bias-/indirectness-adjusted meta-analysis in R"
+        },
+        {
+          "identifier": "7460586",
+          "title": "NANDO and NanbyoData: a disease ontology for Japanese rare and intractable diseases (Nanbyo) and a portal website for providing centralized access to the latest and diverse knowledge of Nanbyo",
+          "canonical_url": "https://zenodo.org/records/7460586",
+          "doi": "10.5281/zenodo.7460586",
+          "description": "<p>We published this poseter at&nbsp;GA4GH 9th Plenary Meeting (2021).&nbsp;</p>\n\n<p>Nanbyo (\u96e3\u75c5) is rare and intractable diseases in Japan, which is covered by the medical expense subsidy systems. The Ministry of Health, Labour, and Welfare has published official documents about covered diseases written in Japanese.</p>\n\n<p>However<br>\n&bull;&nbsp;Hard to know covered diseases and subtypes&nbsp;by scrutinizing official documents<br>\n&bull;&nbsp;No established correspondence&nbsp;between Nanbyo and diseases in other databases &rarr;Difficult to get the latest knowledge and share Japanese medical data internationally</p>\n\n<p>Therefore, we constructed</p>\n\n<p>&bull;&nbsp;Nanbyo Disease Ontology (NANDO), a machine-readable dictionary&nbsp;&bull;&nbsp;NanbyoData, a portal website to the medical information on Nanbyo</p>"
+        },
+        {
+          "identifier": "20696641",
+          "title": "CiliaHub: an updated gold-standard catalogue of ciliary genes with integrated ciliopathy data",
+          "canonical_url": "https://zenodo.org/records/20696641",
+          "doi": "10.5281/zenodo.20696641",
+          "description": "<p>Source code and curated dataset for CiliaHub (https://ciliahub.org), a freely accessible static-JSON web application providing an expert-curated gold-standard catalogue of 2,790 human ciliary and cilia-associated genes integrated with cross-species orthology, large-scale functional screens, Pfam domains, ciliary-complex membership, ClinVar variants, mouse and cross-species phenotypes, and expression data, alongside a four-class ciliopathy framework with gene-disease-symptom search.</p>"
+        },
+        {
+          "identifier": "20391327",
+          "title": "Integrative modelling and in vivo analysis identify hypomorphic TMEM17 ciliopathy variants that reduce transition-zone abundance of TMEM-17",
+          "canonical_url": "https://zenodo.org/records/20391327",
+          "doi": "10.5281/zenodo.20391327",
+          "description": "<p>The study integrates computational pathogenicity prediction, structural modelling, and in vivo functional assays in <em>Caenorhabditis elegans</em> to evaluate the impact of clinically reported TMEM17 missense variants. A consensus multi-predictor framework, supported by evolutionary conservation and AlphaFold-based structural modelling, prioritizes deleterious substitutions and predicts disruption of transition-zone interaction interfaces.</p>\n<p>Functional validation using CRISPR-engineered endogenous <em>tmem-17</em> alleles demonstrates that p.Gly101Val and p.Pro123Arg act as hypomorphic variants, reducing TMEM-17 abundance at the ciliary transition zone without affecting basal body localization. Phenotypic consequences are minimal in a wild-type background but become pronounced in a sensitized <em>nphp-4</em> mutant context, revealing ciliary defects consistent with partial loss of function.</p>"
+        },
+        {
+          "identifier": "18492100",
+          "title": "General knowledge and opinion of future health care and non-health care professionals on rare diseases",
+          "canonical_url": "https://zenodo.org/records/18492100",
+          "doi": "10.1111/jep.12281",
+          "description": "<p>The debate about whether to dedicate funds to rare<br>diseases (RD) may hinge on the existence of a societal preference for prioritizing rarity.<br>There are scarce studies about the interest of doctors and general society in RD.</p>"
+        },
+        {
+          "identifier": "557065",
+          "title": "ELIXIR workshops organized with the Rare  Disease community",
+          "canonical_url": "https://zenodo.org/records/557065",
+          "doi": "10.5281/zenodo.557065",
+          "description": "<p>In this report we describe the past and planned future workshops for the rare disease (RD) domain within the context of the ELIXIR-EXCELERATE project with the aims (1) to identify key training contacts/subjects in the RD community, (2) to identify specific training<br>\nneeds in the RD community and (3) to spread specific knowledge needed in the RD community. An important mission of EXCELERATE WP8 \u2018ELIXIR infrastructure for Rare Disease research\u2019, defined at the kick-off meeting on November 24, 2015 in Leiden, is to help the rare disease community in different nodes to raise its infrastructure activities to the level of best practices in ELIXIR infrastructure, i.e. where rare disease data, metadata, tools, and catalogues are shared, interoperable, and sustainable at the source, conform a common set of principles and standards across participating countries/nodes and in agreement with the ELIXIR platforms. To achieve optimal knowledge exchange between the domains, workshops in this WP are typically co-organised with members from the rare<br>\ndisease community and co-sponsored by relevant projects such as RD-Connect.</p>\n\n<p>Events were either organised specifically with the Rare Disease (RD) community, or a separate stream/session for the RD community was co-organised around other events. Training workshops and courses were delivered in partnership with WP11 \u2018EXCELERATE Training Programme\u2019.<br>\nThe delivery of workshops was complemented by the ELIXIR implementation study/RDConnect<br>\nproof-of-concept to test interoperability backbone components for enabling<br>\nqueries across rare disease biobanks and registries.</p>"
+        },
+        {
+          "identifier": "3478576",
+          "title": "Rare Disease analysis in Mondo",
+          "canonical_url": "https://zenodo.org/records/3478576",
+          "doi": "10.5281/zenodo.3478576",
+          "description": "<p>To answer the question of &#39;How many rare diseases are there?&#39; we analyzed terms in Mondo to get a total count of Rare Diseases as defined in Mondo Disease Ontology (Mondo).</p>\n\n<p>&nbsp;</p>\n\n<p>Methods</p>\n\n<p>This analysis was performed on the <a href=\"http://purl.obolibrary.org/obo/mondo/releases/2019-09-30/mondo.json\">Mondo 2019-09-30 release</a>.</p>\n\n<p><strong>1. Get all &#39;Disease&#39; terms from Mondo</strong></p>\n\n<p>First we get all the terms in Mondo that are a descendants of <code>MONDO:0000001 &#39;Disease&#39;</code>.</p>\n\n<p>There are <code>21633</code> Mondo disease terms.</p>\n\n<p><strong>2. Filter terms that are descendants of &#39;disease susceptibility&#39;</strong></p>\n\n<p>We then filter out terms that are descendants of <code>MONDO:0042489 &#39;disease susceptibility&#39;</code>, to avoid counting ambiguous terms that are related to disease susceptibility and not the actual disease itself.</p>\n\n<p>This gives us a list of <code>21563</code> Mondo rare disease terms.</p>\n\n<p><strong>3. Identify terms that are &#39;rare&#39;</strong></p>\n\n<p>Any disease term in Mondo is considered rare if the term, or its ancestor, has modifier <code>MONDO:0021136 &#39;Rare&#39;</code> in the ontology.</p>\n\n<p>There are <code>12914</code> Mondo rare disease terms.</p>\n\n<p><strong>4. Consider terms in &#39;gard_rare&#39; subset</strong></p>\n\n<p>There are <code>3176</code> Mondo disease terms that are in <code>gard_rare</code> subset which contains Mondo terms that are yet to be treated as &#39;rare&#39;.</p>\n\n<p>We add these terms to our set of Mondo rare disease terms.</p>\n\n<p>This increases the Mondo rare disease term count to <code>13866</code>.</p>\n\n<p>But for this analysis, we are interested in terms that are both rare and are leaf nodes in the ontology.</p>\n\n<p>After considering only leaf nodes, we get <code>10394</code> as the final count of Mondo rare disease terms.</p>\n\n<p>&nbsp;</p>\n\n<p>Results</p>\n\n<p>all-mondo-disease-terms.tsv: As part of our analysis, we generated a TSV containing 21633 Mondo disease terms, each with annotations that signifies whether the term is a rare disease term and whether that term is a leaf node in the ontology.</p>"
+        },
+        {
+          "identifier": "18217486",
+          "title": "Healthcare as a Drift-Amplifying System: Incentives, Suppression, and Termination Failure",
+          "canonical_url": "https://zenodo.org/records/18217486",
+          "doi": "10.5281/zenodo.18217486",
+          "description": "<p>Chronic disease prevalence continues to rise in high-income healthcare systems despite escalating expenditure, increasingly sophisticated biomedical interventions, and earlier detection. While acute outcomes have improved, durable disease resolution remains rare, and multimorbidity has become the norm rather than the exception. This paper proposes a systems-level explanation for this paradox. Building on a regulatory framework in which chronic disease reflects failure of adaptive response termination rather than failure of response initiation, the paper argues that modern healthcare systems are structurally optimized to suppress pathological outputs while remaining largely blind to termination reliability and recovery dynamics. By stabilizing biological compensation without restoring regulatory plasticity, healthcare systems unintentionally amplify regulatory drift, increasing disease prevalence while preventing collapse. This framework integrates biological regulation with institutional design, offering a coherent explanation for rising prevalence, escalating cost, stable average outcomes, and expanding multimorbidity without attributing failure to individual behavior or professional malfeasance.</p>"
+        }
+      ],
+      "response_sha256": "sha256:5f2f599f686cf3d1322142584419060a1d6a9fb2638266bff4104499d636f9ae",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease cost",
+      "endpoint": "https://huggingface.co/api/datasets?search=rare+disease+cost&limit=10",
+      "retrieved_at_utc": "2026-08-14T20:01:32Z",
+      "http_status": 200,
+      "result_total": "not_reported",
+      "first_page_items": 0,
+      "first_page_ids": [],
+      "first_page_records": [],
+      "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    },
+    {
+      "registry": "crossref",
+      "query_string": "rare disease cost",
+      "endpoint": "https://api.crossref.org/works?query.bibliographic=rare+disease+cost&rows=10&select=DOI%2Ctitle%2Cpublisher%2Cpublished",
+      "retrieved_at_utc": "2026-08-14T20:01:33Z",
+      "http_status": 200,
+      "result_total": 3170365,
+      "first_page_items": 10,
+      "first_page_ids": [
+        "10.1016/s0140-6736(15)60420-2",
+        "10.1186/s13023-017-0611-7",
+        "10.21203/rs.3.rs-6623705/v1",
+        "10.1186/1750-1172-8-29",
+        "10.1186/1750-1172-9-51",
+        "10.1186/s13023-015-0226-9",
+        "10.1177/26330040241307962",
+        "10.7326/0003-4819-123-4-199508150-00011",
+        "10.1056/cat.19.1116",
+        "10.1177/2633004020902860"
+      ],
+      "first_page_records": [
+        {
+          "identifier": "10.1016/s0140-6736(15)60420-2",
+          "title": "Reducing the cost of rare disease drugs",
+          "canonical_url": "https://doi.org/10.1016/s0140-6736(15)60420-2",
+          "doi": "10.1016/s0140-6736(15)60420-2",
+          "publisher": "Elsevier BV"
+        },
+        {
+          "identifier": "10.1186/s13023-017-0611-7",
+          "title": "Health technology assessment of new drugs for rare disorders in Canada: impact of disease prevalence and cost",
+          "canonical_url": "https://doi.org/10.1186/s13023-017-0611-7",
+          "doi": "10.1186/s13023-017-0611-7",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.21203/rs.3.rs-6623705/v1",
+          "title": "PRICE: A Personalized Recursive Intelligent Cost Estimation Framework for Rare Disease Diagnosis",
+          "canonical_url": "https://doi.org/10.21203/rs.3.rs-6623705/v1",
+          "doi": "10.21203/rs.3.rs-6623705/v1",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1186/1750-1172-8-29",
+          "title": "Cost-effectiveness of enzyme replacement therapy for Fabry disease",
+          "canonical_url": "https://doi.org/10.1186/1750-1172-8-29",
+          "doi": "10.1186/1750-1172-8-29",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1186/1750-1172-9-51",
+          "title": "Cost-effectiveness of enzyme replacement therapy for type 1 Gaucher disease",
+          "canonical_url": "https://doi.org/10.1186/1750-1172-9-51",
+          "doi": "10.1186/1750-1172-9-51",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1186/s13023-015-0226-9",
+          "title": "Cost effective assay choice for rare disease study designs",
+          "canonical_url": "https://doi.org/10.1186/s13023-015-0226-9",
+          "doi": "10.1186/s13023-015-0226-9",
+          "publisher": "Springer Science and Business Media LLC"
+        },
+        {
+          "identifier": "10.1177/26330040241307962",
+          "title": "Advancing rare disease measurement through the Rare Disease Clinical Outcome Assessment Consortium",
+          "canonical_url": "https://doi.org/10.1177/26330040241307962",
+          "doi": "10.1177/26330040241307962",
+          "publisher": "SAGE Publications"
+        },
+        {
+          "identifier": "10.7326/0003-4819-123-4-199508150-00011",
+          "title": "Insulinoma: Cost-effective Care in Patients with a Rare Disease",
+          "canonical_url": "https://doi.org/10.7326/0003-4819-123-4-199508150-00011",
+          "doi": "10.7326/0003-4819-123-4-199508150-00011",
+          "publisher": "American College of Physicians"
+        },
+        {
+          "identifier": "10.1056/cat.19.1116",
+          "title": "Coordinated, Cost-effective Care for Rare Disease: The Cystinosis Outpatient Consultation Program at RoMed",
+          "canonical_url": "https://doi.org/10.1056/cat.19.1116",
+          "doi": "10.1056/cat.19.1116",
+          "publisher": "Massachusetts Medical Society"
+        },
+        {
+          "identifier": "10.1177/2633004020902860",
+          "title": "Introducing Therapeutic Advances in Rare Disease",
+          "canonical_url": "https://doi.org/10.1177/2633004020902860",
+          "doi": "10.1177/2633004020902860",
+          "publisher": "SAGE Publications"
+        }
+      ],
+      "response_sha256": "sha256:0e18fa8dde24a5cc5290f506a0802637630a4120141d07fc93d3c29b67360814",
+      "raw_export": "not_retained",
+      "screening_status": "unscreened"
+    }
+  ],
+  "limitations": [
+    "Counts are retrieval-time observations, not fixed catalogue facts.",
+    "Provider ranking and broad full-text matching require eligibility screening.",
+    "No completeness, novelty, partnership, registration, or external-review claim is implied.",
+    "OSF is excluded from this active refresh under the recorded owner deferral."
+  ]
+}

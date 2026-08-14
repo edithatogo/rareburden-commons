@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import copy
+import hashlib
+import json
 from pathlib import Path
 
 import pytest
@@ -20,6 +22,8 @@ SCREENING_EXERCISE = load_mapping(
 )
 SEARCH_LOG = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-01.yml")
 SEARCH_LOG_REFRESH = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-14.yml")
+SEARCH_RESULTS_REFRESH = ROOT / "docs" / "track-007-search-results-2026-08-15.json"
+SCREENING_REFRESH = ROOT / "docs" / "track-007-screening-2026-08-15.json"
 REGISTRATION_PACKET = ROOT / "docs" / "track-007-registration-packet.md"
 
 
@@ -148,3 +152,47 @@ def test_track_007_search_refresh_covers_registered_queries_and_stays_unscreened
         assert len(observation["response_sha256_by_query"]) == 5
         assert all(value.startswith("sha256:") for value in observation["response_sha256_by_query"])
     assert any("No completeness" in item for item in SEARCH_LOG_REFRESH["limitations"])
+
+
+def test_track_007_bounded_first_page_screen_is_complete_and_reconciled() -> None:
+    snapshot_bytes = SEARCH_RESULTS_REFRESH.read_bytes()
+    snapshot = json.loads(snapshot_bytes)
+    screening = json.loads(SCREENING_REFRESH.read_text(encoding="utf-8"))
+    assert snapshot["protocol_version"] == "RBC-LAND-007-v0.2.0"
+    assert len(snapshot["records"]) == 20
+    assert all(
+        record["first_page_items"] == len(record["first_page_records"])
+        for record in snapshot["records"]
+    )
+    counts = screening["counts"]
+    assert counts["discovered_occurrences"] == sum(
+        record["first_page_items"] for record in snapshot["records"]
+    )
+    assert counts["screened"] == counts["included"] + counts["excluded"] + counts["uncertain"]
+    assert counts["unique_after_exact_identifier_deduplication"] == counts["screened"]
+    assert counts["exact_duplicate_occurrences_removed"] == (
+        counts["discovered_occurrences"] - counts["screened"]
+    )
+    assert (
+        screening["source_snapshot_sha256"]
+        == "sha256:" + hashlib.sha256(snapshot_bytes).hexdigest()
+    )
+
+
+def test_track_007_screening_is_fail_closed_and_does_not_overmerge_titles() -> None:
+    screening = json.loads(SCREENING_REFRESH.read_text(encoding="utf-8"))
+    self_result = next(
+        item
+        for item in screening["decisions"]
+        if item["identifier"] == "edithatogo/rareburden-commons"
+    )
+    assert self_result["decision"] == "exclude"
+    assert self_result["reason"] == "self_result"
+    assert screening["counts"]["potential_entity_duplicate_groups"] == len(
+        screening["potential_entity_duplicates"]
+    )
+    assert all(
+        len(group["canonical_keys"]) > 1 for group in screening["potential_entity_duplicates"]
+    )
+    assert any("not automatically merged" in item.lower() for item in screening["limitations"])
+    assert any("No completeness" in item for item in screening["limitations"])
