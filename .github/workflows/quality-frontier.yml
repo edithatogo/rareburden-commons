@@ -1,0 +1,88 @@
+name: quality frontier
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "13 7 * * 4"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-frontier-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  workflow-lint:
+    name: Workflow security lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
+        with:
+          version: "0.10.0"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Install locked lint environment
+        run: |
+          uv python install "3.13"
+          uv sync --frozen --extra dev --python "3.13"
+      - name: Enforce repository workflow policy
+        run: uv run --python "3.13" make workflows
+      - name: Run blocking zizmor workflow audit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uv run --python "3.13" zizmor .github/workflows
+
+  secret-scan:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out complete history
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Scan committed history for secrets
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+  mutation:
+    name: Bounded burden mutation test
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
+        with:
+          version: "0.10.0"
+          enable-cache: false
+      - name: Install locked mutation environment
+        run: |
+          uv python install "3.13"
+          uv sync --frozen --extra dev --python "3.13"
+      - name: Run bounded mutation suite
+        run: uv run --python "3.13" make mutation
+      - name: Retain mutation evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: mutation-results
+          if-no-files-found: error
+          retention-days: 30
+          path: mutants/mutmut-cicd-stats.json

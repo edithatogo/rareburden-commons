@@ -8,12 +8,22 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
 	validation-artifacts validation-artifacts-check \
+	mutation mutation-score \
 	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
 	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check qualifying-receipts-check package-size-check check ci release-check clean
 
 package-size-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_package_size_policy.py \
 		docs/track-016-package-size-policy.yml --root .
+
+mutation:
+	$(PYTHON) -m mutmut run
+	$(PYTHON) -m mutmut export-cicd-stats
+	$(MAKE) mutation-score
+
+mutation-score:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_mutation_score.py \
+		mutants/mutmut-cicd-stats.json --minimum 65
 
 external-receipt-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_external_receipt.py \

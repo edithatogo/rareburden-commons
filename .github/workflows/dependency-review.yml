@@ -12,10 +12,12 @@ concurrency:
 
 jobs:
   review:
+    name: Dependency review
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
       contents: read
+      # Required to inspect pull-request dependency changes.
       pull-requests: read
     steps:
       - name: Check out repository

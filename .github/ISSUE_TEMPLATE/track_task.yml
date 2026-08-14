@@ -1,0 +1,31 @@
+name: Conductor task
+description: Propose or track a bounded, evidence-backed repository task.
+title: "[Track task] "
+body:
+  - type: input
+    id: track
+    attributes:
+      label: Conductor track and task
+      placeholder: "Track 002, task 2.3"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Bounded scope
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: List objective evidence, tests and fail-closed conditions.
+    validations:
+      required: true
+  - type: textarea
+    id: gates
+    attributes:
+      label: Dependencies and accountable gates
+      description: Distinguish repository-owned work from external or independent evidence.
+    validations:
+      required: true

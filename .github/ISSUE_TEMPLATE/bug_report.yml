@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a reproducible defect without including sensitive data.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: Do not include patient-level, controlled, credential or other sensitive material.
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Use synthetic data and include the exact command, version and platform.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and impact
+      description: Include logs after removing secrets and sensitive records.
+    validations:
+      required: true
