@@ -13,5 +13,7 @@ def test_bounded_candidate_manifest_is_schema_valid_and_non_release() -> None:
     manifest = validate_document_files(MANIFEST, SCHEMA)
     assert manifest["release_kind"] == "synthetic_assurance"
     assert manifest["repository"]["tag"] == "candidate-2026-08-03"
-    assert manifest["repository"]["commit"] is None
+    commit = manifest["repository"]["commit"]
+    assert isinstance(commit, str)
+    assert len(commit) == 40
     assert manifest["data_classification"] == "mixed_public_synthetic"

@@ -1,56 +1,55 @@
-schema_version: "0.1.0"
-packet_id: "rc-evidence-reconciliation-2026-08-04"
-status: "reconciliation_preparation_current_head"
-candidate_manifest: "docs/release-manifest-candidate-2026-08-03.yml"
-candidate_scope: "synthetic_assurance_only"
-release_authority: "pending"
-accountable_boundary: >-
-  This packet reconciles repository-generated evidence; it is not a release
-  authority receipt, independent security receipt, or external scientific,
+schema_version: 0.1.0
+packet_id: rc-evidence-reconciliation-2026-08-04
+status: reconciliation_preparation_current_head
+candidate_manifest: docs/release-manifest-candidate-2026-08-03.yml
+candidate_scope: synthetic_assurance_only
+release_authority: pending
+accountable_boundary: This packet reconciles repository-generated evidence; it is
+  not a release authority receipt, independent security receipt, or external scientific,
   clinical, patient/community, or custodian approval.
 required_bindings:
-  - "manifest repository.commit must equal the reviewed candidate head"
-  - "manifest tree_state must be clean"
-  - "every listed artifact must exist at its repository-relative path"
-  - "sha256 and size_bytes must match the exact bytes at review time"
-  - "coverage and JUnit reports must identify the same test invocation"
-  - "SBOM must be generated from the exact uv.lock used by the candidate"
-  - "provenance attestation must bind the same commit, environment and artifacts"
-  - "release decision must record residual risks, exclusions, expiry and rollback"
+- manifest repository.commit must equal the reviewed candidate head
+- manifest tree_state must be clean
+- every listed artifact must exist at its repository-relative path
+- sha256 and size_bytes must match the exact bytes at review time
+- coverage and JUnit reports must identify the same test invocation
+- SBOM must be generated from the exact uv.lock used by the candidate
+- provenance attestation must bind the same commit, environment and artifacts
+- release decision must record residual risks, exclusions, expiry and rollback
 artifacts:
-  - path: "coverage.json"
-    kind: "coverage"
-    sha256: "e9e065df6cee3e35e57f5356c2facf2a25d93246ea0d63728164495f4cae2e18"
-    size_bytes: 498638
-    status: "repository_generated_at_current_head_pending_hosted_binding"
-    required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
-  - path: "coverage.xml"
-    kind: "coverage_xml"
-    sha256: "562964e3517a5b8fac1a0fd82dd34fb12f2ff622ddd2951feaf05c43833bf8df"
-    size_bytes: 283752
-    status: "repository_generated_at_current_head_pending_hosted_binding"
-    required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
-  - path: "junit.xml"
-    kind: "junit"
-    sha256: "f6df7cf39705683ece4cf3b934aad76a8044ea4371b323e587ec75da841007c2"
-    size_bytes: 72037
-    status: "repository_generated_at_current_head_pending_hosted_binding"
-    required_receipt: "exact_head_hosted_ci_or_equivalent_reproducible_receipt"
-  - path: "rareburden.cdx.json"
-    kind: "cyclonedx_sbom"
-    sha256: "740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3"
-    size_bytes: 18130
-    status: "repository_generated_at_current_head_pending_hosted_binding"
-    required_receipt: "security_or_release_authority_verification"
+- path: coverage.json
+  kind: coverage
+  sha256: e48ff486ba8257f1b06ee1303b53112ebf6e17cc1b86c9bef38294f30d79f4cc
+  size_bytes: 498649
+  status: repository_generated_at_current_head_pending_hosted_binding
+  required_receipt: exact_head_hosted_ci_or_equivalent_reproducible_receipt
+- path: coverage.xml
+  kind: coverage_xml
+  sha256: ee370f25db2f1af3f46c988e0595eca0b40ce10d0adaf25bd213305008dfb4f5
+  size_bytes: 283774
+  status: repository_generated_at_current_head_pending_hosted_binding
+  required_receipt: exact_head_hosted_ci_or_equivalent_reproducible_receipt
+- path: junit.xml
+  kind: junit
+  sha256: e57261b990429a1bc84ea3ff40c8d54f050140345de78113e6c219ab5f9ff3e2
+  size_bytes: 73027
+  status: repository_generated_at_current_head_pending_hosted_binding
+  required_receipt: exact_head_hosted_ci_or_equivalent_reproducible_receipt
+- path: rareburden.cdx.json
+  kind: cyclonedx_sbom
+  sha256: 740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3
+  size_bytes: 18130
+  status: repository_generated_at_current_head_pending_hosted_binding
+  required_receipt: security_or_release_authority_verification
 reconciliation_steps:
-  - "re-run uv run make coverage and compare hashes"
-  - "re-run uv run make sbom and compare hashes"
-  - "verify manifest and packet hashes on the exact candidate commit"
-  - "attach provenance.sigstore.json or record why it is unavailable"
-  - "record release-authority bounded|revise|stop decision"
+- re-run uv run make coverage and compare hashes
+- re-run uv run make sbom and compare hashes
+- verify manifest and packet hashes on the exact candidate commit
+- attach provenance.sigstore.json or record why it is unavailable
+- record release-authority bounded|revise|stop decision
 stop_triggers:
-  - "any hash or byte-count mismatch"
-  - "manifest commit is null, stale or differs from the reviewed head"
-  - "dirty tree or unreproducible report generation"
-  - "missing provenance, SBOM or test-result binding"
-  - "critical security, rights, semantic-integrity or reproducibility finding"
+- any hash or byte-count mismatch
+- manifest commit is null, stale or differs from the reviewed head
+- dirty tree or unreproducible report generation
+- missing provenance, SBOM or test-result binding
+- critical security, rights, semantic-integrity or reproducibility finding

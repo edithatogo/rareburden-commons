@@ -32,3 +32,15 @@ def test_downstream_matrix_keeps_accountable_gates_open() -> None:
     rules = " ".join(matrix["non_closure_rules"])
     assert "panel outputs do not satisfy independent" in rules
     assert "upstream change" in rules
+
+
+def test_downstream_matrix_links_exact_repository_evidence_without_claiming_authority() -> None:
+    evidence = load_mapping(MATRIX)["repository_evidence"]
+    assert evidence["tracked_reports"] == [
+        "coverage.json",
+        "coverage.xml",
+        "junit.xml",
+        "rareburden.cdx.json",
+    ]
+    assert evidence["binding_check"] == "uv run make validation-artifacts-check"
+    assert evidence["authority"] == "repository_generated_not_external_or_release_authority"

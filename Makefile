@@ -7,6 +7,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 .PHONY: install sync validate validate-catalog validate-roadmap validate-landscape \
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
+	validation-artifacts validation-artifacts-check \
 	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
 	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check qualifying-receipts-check package-size-check check ci release-check clean
 
@@ -86,6 +87,12 @@ runtime-assets:
 
 runtime-assets-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_runtime_assets.py --root .
+
+validation-artifacts:
+	PYTHONPATH=src:. $(PYTHON) scripts/sync_validation_artifacts.py --root . --write
+
+validation-artifacts-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/sync_validation_artifacts.py --root .
 
 release-identity:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_release_identity.py --root . --no-git

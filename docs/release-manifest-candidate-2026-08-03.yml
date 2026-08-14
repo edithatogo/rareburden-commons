@@ -1,45 +1,45 @@
-schema_version: "0.1.0"
-release_manifest_id: "rel-b213c531a6b754940f80ab70"
-release_id: "0.3.0rc2-bounded-2026-08-03"
-software_version: "0.3.0rc2"
-created_at: "2026-08-03T00:00:00Z"
-release_kind: "synthetic_assurance"
-data_classification: "mixed_public_synthetic"
+schema_version: 0.1.0
+release_manifest_id: rel-b213c531a6b754940f80ab70
+release_id: 0.3.0rc2-bounded-2026-08-03
+software_version: 0.3.0rc2
+created_at: '2026-08-03T00:00:00Z'
+release_kind: synthetic_assurance
+data_classification: mixed_public_synthetic
 repository:
-  commit: null
-  tag: "candidate-2026-08-03"
-  tree_state: "clean"
+  commit: bd057a5e3c97b7f5e906309897735aba59a43661
+  tag: candidate-2026-08-03
+  tree_state: clean
 materials:
-  - path: "uv.lock"
-    sha256: "81e417642845bb83303c6b54564ab30e6a0fcb5408a1f596c007ec1e4d8f47d0"
-    size_bytes: 266515
-    media_type: "application/toml"
-  - path: "pyproject.toml"
-    sha256: "1b09f5114f53a7137b8e534762fd04cbcf294de2aa52276f7a17bb2a3e48adcf"
-    size_bytes: 2177
-    media_type: "application/toml"
-  - path: "docs/track-002-option-a-scope.yml"
-    sha256: "497edda47a3b9499c7117fd0a09927354639ee48f1516c4e7d88da7e0af87aa5"
-    size_bytes: 1038
-    media_type: "text/yaml"
+- path: uv.lock
+  sha256: 81e417642845bb83303c6b54564ab30e6a0fcb5408a1f596c007ec1e4d8f47d0
+  size_bytes: 266515
+  media_type: application/toml
+- path: pyproject.toml
+  sha256: 1b09f5114f53a7137b8e534762fd04cbcf294de2aa52276f7a17bb2a3e48adcf
+  size_bytes: 2177
+  media_type: application/toml
+- path: docs/track-002-option-a-scope.yml
+  sha256: 497edda47a3b9499c7117fd0a09927354639ee48f1516c4e7d88da7e0af87aa5
+  size_bytes: 1038
+  media_type: text/yaml
 artefacts:
-  - path: "coverage.json"
-    sha256: "21f5053c49fa30c678ad050acc18035a26aca9a620bffb42dbbab778cf30942e"
-    size_bytes: 498638
-    media_type: "application/json"
-  - path: "coverage.xml"
-    sha256: "ee44e3708bde1baf169944cad2fdd19fd46415f302b4b209cb2f718e88a0231d"
-    size_bytes: 283752
-    media_type: "application/xml"
-  - path: "junit.xml"
-    sha256: "4359e7b1d4a2976236ddded5c480970b0b32bcf0ff5cf4fdc893045b09109e82"
-    size_bytes: 66141
-    media_type: "application/xml"
-  - path: "rareburden.cdx.json"
-    sha256: "740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3"
-    size_bytes: 18130
-    media_type: "application/vnd.cyclonedx+json"
+- path: coverage.json
+  sha256: e48ff486ba8257f1b06ee1303b53112ebf6e17cc1b86c9bef38294f30d79f4cc
+  size_bytes: 498649
+  media_type: application/json
+- path: coverage.xml
+  sha256: ee370f25db2f1af3f46c988e0595eca0b40ce10d0adaf25bd213305008dfb4f5
+  size_bytes: 283774
+  media_type: application/xml
+- path: junit.xml
+  sha256: e57261b990429a1bc84ea3ff40c8d54f050140345de78113e6c219ab5f9ff3e2
+  size_bytes: 73027
+  media_type: application/xml
+- path: rareburden.cdx.json
+  sha256: 740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3
+  size_bytes: 18130
+  media_type: application/vnd.cyclonedx+json
 summary:
   artefact_count: 4
-  artefact_bytes: 866661
+  artefact_bytes: 873580
   material_count: 3

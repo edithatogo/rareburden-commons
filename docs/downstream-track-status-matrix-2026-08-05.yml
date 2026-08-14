@@ -5,6 +5,13 @@ upstream:
   track_002: "bounded_owner_disposition; source_terms_custodian_and_activation_pending"
   track_007: "protocol_and_panel_preparation; registration_challenge_and_patient_community_pending"
 activation_rule: "synthetic_public_only_until_upstream_and_accountable_receipts"
+repository_evidence:
+  candidate_manifest: "docs/release-manifest-candidate-2026-08-03.yml"
+  validation_artifacts: "docs/validation-report-artifacts-2026-08-03.yml"
+  reconciliation_packet: "docs/release-candidate-evidence-reconciliation-2026-08-04.yml"
+  tracked_reports: ["coverage.json", "coverage.xml", "junit.xml", "rareburden.cdx.json"]
+  binding_check: "uv run make validation-artifacts-check"
+  authority: "repository_generated_not_external_or_release_authority"
 tracks:
   - track: "008"
     state: "bounded_preparation"
