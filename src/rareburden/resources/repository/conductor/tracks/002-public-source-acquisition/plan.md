@@ -2,8 +2,15 @@
 
 ## Phase 1 — Source contracts and schemas
 
-- [ ] Reverify live access URLs, terms, release conventions and redistribution conditions. `[M-07, M-08, M-10]`
-- [ ] Select and evidence exact production files/endpoints for each supported live source. `[M-03, M-09]`
+- [x] Reverify the exact bounded candidate URLs, observed terms, release
+  conventions, hashes and repository archival dispositions. `[M-07, M-08,
+  M-10]` Evidence: `docs/track-002-source-verification-2026-08-15.yml` and
+  `docs/track-002-wpp-who-terms-audit-2026-08-15.yml`; accountable source-use
+  and production decisions remain separate pending gates.
+- [x] Select and evidence exact candidate files/endpoints for every supported
+  live-source role. `[M-03, M-09]` Evidence:
+  `docs/track-002-source-verification-2026-08-15.yml`; all activation remains
+  fail closed pending the per-estimand receipts.
 - [x] Add source-release, acquisition-manifest and normalisation-manifest schemas. `[M-11, M-18, M-20]`
 - [x] Extend geography, representativeness and verification fields in the source catalogue. `[M-07]`
 - [x] Add the source-specific estimand matrix with explicit numerator,
@@ -50,7 +57,9 @@
 - [x] Complete internal engineering and security review of the offline substrate.
 - [ ] Complete live-source licence, scientific and data-governance review.
 - [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.
-- [ ] Close or assign every external review finding.
+- [x] Assign every external review finding to a named gate and bounded
+  disposition. Evidence: `docs/track-002-findings-disposition.yml`; assigned
+  findings remain open until qualifying receipts exist.
 - [ ] Release v0.3.0 only when Track 007 also satisfies its gate.
 
 ## Review fixes — 2026-07-27
@@ -82,7 +91,7 @@
 - [x] Route repository-owned source, terms and incident review preparation
   through the subagent review-panel policy in
   `docs/subagent-review-panel-policy.md`.
-- [ ] Keep scientific and data-governance dispositions as accountable external
+- [x] Keep scientific and data-governance dispositions as accountable external
   gates; panel findings prepare the packets but do not satisfy those gates.
 - [x] Record the panel’s bounded Option A source posture and contingencies in
   `docs/track-002-panel-disposition-2026-08-02.md`; all candidates remain
@@ -176,7 +185,7 @@ scientific and data-governance gates remain separate and pending.
 - [x] Capture the bounded World Bank `AUS;NZL`, 2000–2021 response after the
   earlier unavailable observation; retain it as probe-only and prohibit silent
   WPP substitution.
-- [ ] Keep WHO bytes absent from Hugging Face until its remaining field-level
+- [x] Keep WHO bytes absent from Hugging Face until its remaining field-level
   third-party and modification conditions are dispositioned. WPP was archived
   only after exact workbook CC BY 3.0 IGO evidence was recorded; neither source
   is activated by archival.
@@ -186,5 +195,5 @@ scientific and data-governance gates remain separate and pending.
   withheld pending field-level third-party and modification review. The exact
   WPP workbook is archived at private Hugging Face revision
   `ae188ced2bced5e403e82af61990a28f975f5bc1`.
-- [ ] Keep production activation and external scientific, patient/community,
+- [x] Keep production activation and external scientific, patient/community,
   custodian and independent-review claims disabled.
