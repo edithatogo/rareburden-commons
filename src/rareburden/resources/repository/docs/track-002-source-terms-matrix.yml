@@ -1,6 +1,7 @@
 schema_version: "0.1.0"
 status: "bounded_owner_disposition_preparation_only"
 activation: "disabled_until_accountable_dispositions"
+archival_policy: "docs/track-002-lawful-archival-policy-2026-08-15.yml"
 records:
   - source_id: "orphadata-science"
     exact_record: "conductor/tracks/002-public-source-acquisition/review.md"

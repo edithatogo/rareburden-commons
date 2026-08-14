@@ -1,0 +1,37 @@
+schema_version: "0.1.0"
+status: "owner_approved_preparation_only"
+policy: "maximal_lawful_archival"
+default: "metadata_hash_citation_manifest_only"
+tiers:
+  raw_redistributable:
+    requires: ["exact_file_level_terms", "attribution", "change_notice", "no_endorsement_compliance"]
+    permitted: ["raw_bytes", "hash", "metadata", "lawful_derived_aggregates"]
+  private_authorized:
+    requires: ["documented_source_authority", "destination_access_control", "withdrawal_route"]
+    permitted: ["private_raw_bytes", "hash", "metadata", "lawful_derived_aggregates"]
+  reference_only:
+    requires: ["exact_hash", "release_metadata", "citation", "lawful_derived_outputs"]
+    permitted: ["hash", "metadata", "manifest", "lawful_derived_aggregates"]
+records:
+  - source_id: "orphadata-science"
+    archival_tier: "raw_redistributable_pending_file_level_confirmation"
+    raw_upload_target: null
+    attribution: "Orphanet/Orphadata attribution and change notice required"
+    no_endorsement: true
+  - source_id: "un-world-population-prospects"
+    archival_tier: "reference_only_pending_exact_workbook_terms"
+    raw_upload_target: null
+    permitted_now: ["hash", "metadata", "selected_sheet_column_manifest", "lawful_derived_denominators"]
+  - source_id: "who-global-health-estimates"
+    archival_tier: "reference_only_pending_workbook_and_third_party_terms"
+    raw_upload_target: null
+    permitted_now: ["hash", "metadata", "lawful_derived_outputs", "WHO_and_underlying_country_attribution"]
+  - source_id: "world-bank-indicators-api"
+    archival_tier: "probe_only"
+    raw_upload_target: null
+    permitted_now: ["query_parameters", "timestamp", "response_hash_when_captured", "terms_observation"]
+stop_rules:
+  - "public availability never infers redistribution rights"
+  - "private hosting is still a copy and third-party transfer"
+  - "conflicting or unclear terms force metadata_hash_citation_manifest_only"
+  - "no raw upload occurs without a verified destination and source-specific authority"
