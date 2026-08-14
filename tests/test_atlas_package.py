@@ -7,6 +7,8 @@ import pytest
 from rareburden.atlas import (
     AtlasPackageError,
     build_atlas_release_candidate,
+    build_atlas_release_notice,
+    build_atlas_release_status,
     build_gap_api_response,
     build_gap_package,
 )
@@ -142,4 +144,119 @@ def test_atlas_release_candidate_rejects_projection_or_fingerprint_drift() -> No
             reviewed_artifacts=[_reviewed_artifact(package)],
             citation_id="citation-synthetic-gap-v1",
             provenance_id="prov-synthetic-gap-v1",
+        )
+
+
+def _candidate() -> dict[str, object]:
+    package = build_gap_package(
+        _gap_map(), release_id="synthetic-gap-v1", source_manifest_id="rel-1"
+    )
+    return build_atlas_release_candidate(
+        package,
+        build_gap_api_response(package),
+        reviewed_artifacts=[_reviewed_artifact(package)],
+        citation_id="citation-synthetic-gap-v1",
+        provenance_id="prov-synthetic-gap-v1",
+    )
+
+
+def test_atlas_release_status_projects_immutable_withdrawal_notice() -> None:
+    candidate = _candidate()
+    original = copy.deepcopy(candidate)
+    notice = build_atlas_release_notice(
+        candidate,
+        notice_id="notice-withdraw-synthetic-1",
+        disposition="withdrawal",
+        effective_at="2026-08-15T10:00:00Z",
+        reason="Synthetic fixture exercises the fail-closed withdrawal path.",
+    )
+    status = build_atlas_release_status(candidate, [notice])
+    assert candidate == original
+    assert status["release_status"] == "withdrawal"
+    assert status["availability"] == "do_not_use"
+    assert status["publication_authorized"] is False
+    assert "Do not use" in status["text_alternative"]
+    assert status["status_fingerprint"].startswith("atlas-status-")
+
+
+def test_atlas_release_status_supports_hash_bound_supersession() -> None:
+    candidate = _candidate()
+    replacement = "atlas-release-" + "b" * 24
+    notice = build_atlas_release_notice(
+        candidate,
+        notice_id="notice-supersede-synthetic-1",
+        disposition="supersession",
+        effective_at="2026-08-15T11:00:00Z",
+        reason="A replacement synthetic candidate corrects the package projection.",
+        replacement_release_surface_fingerprint=replacement,
+    )
+    status = build_atlas_release_status(candidate, [notice])
+    assert status["notices"][0]["replacement_release_surface_fingerprint"] == replacement
+
+
+@pytest.mark.parametrize(
+    ("disposition", "replacement"),
+    [
+        ("correction", None),
+        ("supersession", None),
+        ("withdrawal", "atlas-release-" + "b" * 24),
+        ("unsupported", None),
+    ],
+)
+def test_atlas_release_notice_rejects_ambiguous_lifecycle(
+    disposition: str, replacement: str | None
+) -> None:
+    with pytest.raises(AtlasPackageError):
+        build_atlas_release_notice(
+            _candidate(),
+            notice_id="notice-invalid",
+            disposition=disposition,
+            effective_at="2026-08-15T11:00:00Z",
+            reason="invalid synthetic lifecycle",
+            replacement_release_surface_fingerprint=replacement,
+        )
+
+
+def test_atlas_release_status_rejects_tampering_and_cross_candidate_notice() -> None:
+    candidate = _candidate()
+    notice = build_atlas_release_notice(
+        candidate,
+        notice_id="notice-withdraw-synthetic-1",
+        disposition="withdrawal",
+        effective_at="2026-08-15T10:00:00Z",
+        reason="Synthetic fixture exercises the fail-closed withdrawal path.",
+    )
+    tampered = dict(notice, reason="silently changed")
+    with pytest.raises(AtlasPackageError):
+        build_atlas_release_status(candidate, [tampered])
+    wrong_target = dict(notice, affected_release_surface_fingerprint="atlas-release-" + "c" * 24)
+    with pytest.raises(AtlasPackageError):
+        build_atlas_release_status(candidate, [wrong_target])
+    second = build_atlas_release_notice(
+        candidate,
+        notice_id="notice-withdraw-synthetic-2",
+        disposition="withdrawal",
+        effective_at="2026-08-15T11:00:00Z",
+        reason="A second terminal notice would make the exact candidate status ambiguous.",
+    )
+    with pytest.raises(AtlasPackageError):
+        build_atlas_release_status(candidate, [notice, second])
+
+
+def test_atlas_release_status_rejects_malformed_candidate_without_notices() -> None:
+    candidate = _candidate()
+    candidate["publication_authorized"] = True
+    with pytest.raises(AtlasPackageError):
+        build_atlas_release_status(candidate, [])
+
+
+@pytest.mark.parametrize("effective_at", ["2026-08-15T10:00:00+10:00", "not-a-date"])
+def test_atlas_release_notice_requires_utc_timestamp(effective_at: str) -> None:
+    with pytest.raises(AtlasPackageError):
+        build_atlas_release_notice(
+            _candidate(),
+            notice_id="notice-invalid-time",
+            disposition="withdrawal",
+            effective_at=effective_at,
+            reason="invalid timestamp fixture",
         )

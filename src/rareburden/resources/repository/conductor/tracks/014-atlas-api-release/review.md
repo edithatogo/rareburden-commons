@@ -45,3 +45,17 @@ projection drift, unresolved rights, missing receipts and invalid digests.
 This closes the repository-owned construction task only. Accessibility,
 independent reproduction, upstream scientific/governance dependencies, release
 authority, archive/DOI creation and public beta activation remain pending.
+
+## Repository-owned lifecycle-metadata review — 2026-08-15
+
+The prepared surface now has a deterministic correction, withdrawal and
+supersession representation. Each notice binds the exact affected surface,
+preserves the original candidate, requires an exact different replacement for
+correction or supersession, forbids an implied replacement on withdrawal, and
+is revalidated before projection. Static and API consumers can use the same
+schema-valid status object and text alternative. Tampering, cross-candidate
+notices, duplicate identifiers and ambiguous lifecycle transitions fail closed.
+
+This is repository lifecycle evidence only. It does not show that a public
+release was corrected or withdrawn, and it does not satisfy accessibility,
+independent reproduction, upstream authority or release-authority gates.
