@@ -54,6 +54,11 @@
   `scripts/refresh_track_007_searches.py` and
   `docs/track-007-search-log-2026-08-14.yml`; OSF remains deferred and all new
   records remain unscreened.
+- [x] Bind the refreshed protocol, search log and screening register into a
+  versioned methods and patient/community challenge-readiness packet. Evidence:
+  `docs/track-007-registration-challenge-readiness-2026-08-15.yml`; receipts
+  remain pending and the packet records low-specificity, representativeness,
+  deduplication and self-result challenges explicitly.
 - [x] Add a regression guard for the versioned search-log schema and its
   discovery-only/provisional boundary in `tests/test_landscape.py`.
 

@@ -6,7 +6,7 @@ created_at: '2026-08-03T00:00:00Z'
 release_kind: synthetic_assurance
 data_classification: mixed_public_synthetic
 repository:
-  commit: bd057a5e3c97b7f5e906309897735aba59a43661
+  commit: 660df4bd58a52908d8004e78d116ca113e1eefb6
   tag: candidate-2026-08-03
   tree_state: clean
 materials:
@@ -24,16 +24,16 @@ materials:
   media_type: text/yaml
 artefacts:
 - path: coverage.json
-  sha256: e48ff486ba8257f1b06ee1303b53112ebf6e17cc1b86c9bef38294f30d79f4cc
+  sha256: 806879660f31b52d560acc184b8d558afbcd9c03b3935c72f88837282515a343
   size_bytes: 498649
   media_type: application/json
 - path: coverage.xml
-  sha256: ee370f25db2f1af3f46c988e0595eca0b40ce10d0adaf25bd213305008dfb4f5
+  sha256: fc4ba1768cc757a7b8696d67d7b94e73cdda8160c1f96c9203b11ebcd0e792ad
   size_bytes: 283774
   media_type: application/xml
 - path: junit.xml
-  sha256: e57261b990429a1bc84ea3ff40c8d54f050140345de78113e6c219ab5f9ff3e2
-  size_bytes: 73027
+  sha256: 74c0d2ec2da92a30b8160c484711999e17f4a97649da0e05fc5822591d254d38
+  size_bytes: 73778
   media_type: application/xml
 - path: rareburden.cdx.json
   sha256: 740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3
@@ -41,5 +41,5 @@ artefacts:
   media_type: application/vnd.cyclonedx+json
 summary:
   artefact_count: 4
-  artefact_bytes: 873580
+  artefact_bytes: 874331
   material_count: 3

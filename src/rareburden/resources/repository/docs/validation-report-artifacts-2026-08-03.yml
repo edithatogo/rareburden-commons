@@ -1,19 +1,24 @@
-schema_version: "0.1.0"
-status: "repository_validation_evidence"
-source_commit: "2367e9fc3d653ba988deca2718faa074093f0608"
+schema_version: 0.1.0
+status: repository_validation_evidence
+source_commit: 660df4bd58a52908d8004e78d116ca113e1eefb6
 artifacts:
-  - path: coverage.json
-    sha256: 21f5053c49fa30c678ad050acc18035a26aca9a620bffb42dbbab778cf30942e
-    kind: coverage_json
-  - path: coverage.xml
-    sha256: ee44e3708bde1baf169944cad2fdd19fd46415f302b4b209cb2f718e88a0231d
-    kind: coverage_xml
-  - path: junit.xml
-    sha256: 4359e7b1d4a2976236ddded5c480970b0b32bcf0ff5cf4fdc893045b09109e82
-    kind: junit_xml
-  - path: rareburden.cdx.json
-    sha256: 740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3
-    kind: cyclonedx_sbom
+- path: coverage.json
+  sha256: 806879660f31b52d560acc184b8d558afbcd9c03b3935c72f88837282515a343
+  kind: coverage_json
+  size_bytes: 498649
+- path: coverage.xml
+  sha256: fc4ba1768cc757a7b8696d67d7b94e73cdda8160c1f96c9203b11ebcd0e792ad
+  kind: coverage_xml
+  size_bytes: 283774
+- path: junit.xml
+  sha256: 74c0d2ec2da92a30b8160c484711999e17f4a97649da0e05fc5822591d254d38
+  kind: junit_xml
+  size_bytes: 73778
+- path: rareburden.cdx.json
+  sha256: 740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3
+  kind: cyclonedx_sbom
+  size_bytes: 18130
 notes:
-  - These are repository validation artefacts, not external approval or release authority.
-  - The SBOM serial number and coverage timestamps are generated values; hashes bind this snapshot.
+- These are repository validation artefacts, not external approval or release authority.
+- The SBOM serial number and coverage timestamps are generated values; hashes bind
+  this snapshot.

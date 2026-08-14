@@ -19,20 +19,20 @@ required_bindings:
 artifacts:
 - path: coverage.json
   kind: coverage
-  sha256: e48ff486ba8257f1b06ee1303b53112ebf6e17cc1b86c9bef38294f30d79f4cc
+  sha256: 806879660f31b52d560acc184b8d558afbcd9c03b3935c72f88837282515a343
   size_bytes: 498649
   status: repository_generated_at_current_head_pending_hosted_binding
   required_receipt: exact_head_hosted_ci_or_equivalent_reproducible_receipt
 - path: coverage.xml
   kind: coverage_xml
-  sha256: ee370f25db2f1af3f46c988e0595eca0b40ce10d0adaf25bd213305008dfb4f5
+  sha256: fc4ba1768cc757a7b8696d67d7b94e73cdda8160c1f96c9203b11ebcd0e792ad
   size_bytes: 283774
   status: repository_generated_at_current_head_pending_hosted_binding
   required_receipt: exact_head_hosted_ci_or_equivalent_reproducible_receipt
 - path: junit.xml
   kind: junit
-  sha256: e57261b990429a1bc84ea3ff40c8d54f050140345de78113e6c219ab5f9ff3e2
-  size_bytes: 73027
+  sha256: 74c0d2ec2da92a30b8160c484711999e17f4a97649da0e05fc5822591d254d38
+  size_bytes: 73778
   status: repository_generated_at_current_head_pending_hosted_binding
   required_receipt: exact_head_hosted_ci_or_equivalent_reproducible_receipt
 - path: rareburden.cdx.json
