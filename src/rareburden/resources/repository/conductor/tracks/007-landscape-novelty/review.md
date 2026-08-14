@@ -142,11 +142,17 @@ request construction and metadata extraction repeatable. OSF was not queried
 because its active route is deferred by owner decision.
 
 The broad Zenodo and Crossref totals demonstrate retrieval and ranking behavior,
-not eligibility or coverage. The returned records are unscreened and do not
-alter the 13-record seed catalogue, provisional novelty claim or external-gate
-status. Cross-query deduplication, full eligibility screening, registration,
-independent methods challenge and accountable patient/community interpretation
-remain pending.
+not eligibility or coverage. The complete bounded first pages were subsequently
+preserved and title/public-metadata screened in
+`docs/track-007-search-results-2026-08-15.json` and
+`docs/track-007-screening-2026-08-15.json`. Across 133 returned occurrences, 13
+exact cross-query/DOI duplicates were removed and all 120 unique records were
+screened: 69 were retained for adjacency/full-text review, 50 were excluded,
+and one remained uncertain because its title was missing. Four exact-title
+clusters were flagged rather than automatically entity-merged. These counts do
+not alter the provisional novelty claim or external-gate status. Pagination,
+full-text eligibility, coverage, registration, independent methods challenge
+and accountable patient/community interpretation remain pending.
 
 The refreshed files are hash-bound in
 `docs/track-007-registration-challenge-readiness-2026-08-15.yml`. The challenge

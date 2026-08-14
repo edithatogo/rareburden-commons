@@ -15,6 +15,13 @@
 - [x] Run repository-native GitHub, Zenodo and Hugging Face searches reproducibly. Evidence: dated API metadata recorded in review, 2026-07-27; historical OSF observations are retained only in the review archive.
 - [x] Seed registry, genomic, burden, policy and standards ecosystems in the landscape register.
 - [x] Complete seed-catalogue deduplication, screening and an auditable exclusions log. Evidence: `docs/landscape-screening-007.md` (`RBC-LAND-007-SCREEN v0.1.0`), 2026-07-29; broader discovery screening remains explicitly open.
+- [x] Preserve and screen every result on the bounded v0.2.0 public-API first
+  pages, reconcile exact cross-query/DOI duplicates, exclude the repository's
+  self-result and flag rather than over-merge exact-title entity candidates.
+  Evidence: `docs/track-007-search-results-2026-08-15.json`,
+  `docs/track-007-screening-2026-08-15.json`,
+  `scripts/screen_track_007_results.py` and `tests/test_landscape.py`; pagination,
+  full-text eligibility, coverage, novelty and external challenge remain open.
 
 ## Phase 3 — Analyse adjacency
 

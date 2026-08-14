@@ -1,0 +1,1928 @@
+{
+  "protocol_version": "RBC-LAND-007-v0.2.0",
+  "screening_version": "RBC-LAND-007-SCREEN-v0.2.0",
+  "scope": "bounded_first_pages_title_and_public_metadata",
+  "source_snapshot_sha256": "sha256:75c9e9bae6e4cbd179f568203b05d851f1413909c9ad6a086f645e6bbaef3fa3",
+  "rules": {
+    "exact_deduplication": "lower-cased DOI when present, otherwise registry plus identifier",
+    "cross_index_deduplication": "shared DOI only",
+    "entity_resolution": "exact normalized titles are flagged, not automatically merged",
+    "include": "public title, description or identifier contains a registered rare-disease scope term",
+    "exclude": "self-result or no rare-disease scope signal in public metadata",
+    "uncertain": "missing title metadata"
+  },
+  "counts": {
+    "discovered_occurrences": 133,
+    "unique_after_exact_identifier_deduplication": 120,
+    "exact_duplicate_occurrences_removed": 13,
+    "screened": 120,
+    "included": 69,
+    "excluded": 50,
+    "uncertain": 1,
+    "potential_entity_duplicate_groups": 4
+  },
+  "potential_entity_duplicates": [
+    {
+      "normalized_title": "ccu019 01",
+      "canonical_keys": [
+        "github:bhfdsc/ccu019_01",
+        "github:honghan/ccu019_01"
+      ]
+    },
+    {
+      "normalized_title": "dercum s disease estimating the prevalence of a rare painful loose connective tissue disease",
+      "canonical_keys": [
+        "doi:10.21203/rs.3.rs-32979/v1",
+        "doi:10.2217/frd-2020-0004"
+      ]
+    },
+    {
+      "normalized_title": "hackathon reusable framework",
+      "canonical_keys": [
+        "github:akshay-gurav-31/hackathon-reusable-framework",
+        "github:mira-jain/hackathon-reusable-framework"
+      ]
+    },
+    {
+      "normalized_title": "radar",
+      "canonical_keys": [
+        "github:renalreg/radar",
+        "github:robworth/radar"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "canonical_key": "doi:10.1016/0962-8479(94)90869-9",
+      "identifier": "10.1016/0962-8479(94)90869-9",
+      "title": "Tuberculosis: The rare clinical and diagnostically difficult manifestations of the imitator disease: In a high prevalence locality",
+      "canonical_url": "https://doi.org/10.1016/0962-8479(94)90869-9",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1016/j.esmorc.2026.100293",
+      "identifier": "10.1016/j.esmorc.2026.100293",
+      "title": "87ep Global burden of soft tissue sarcomas in North Africa and Middle East countries: Data from the global burden of disease study 2023",
+      "canonical_url": "https://doi.org/10.1016/j.esmorc.2026.100293",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1016/j.ijcard.2023.04.005",
+      "identifier": "17147594",
+      "title": "How common is hypertrophic cardiomyopathy\u2026 really?: Disease prevalence revisited 27 years after CARDIA",
+      "canonical_url": "https://zenodo.org/records/17147594",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1016/j.rare.2024.100046",
+      "identifier": "10.1016/j.rare.2024.100046",
+      "title": "First year results and insights from the Mexican Rare Disease Patient Registry",
+      "canonical_url": "https://doi.org/10.1016/j.rare.2024.100046",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1016/j.rare.2025.100069",
+      "identifier": "10.1016/j.rare.2025.100069",
+      "title": "Erratum to \u201cFirst year results and insights from the Mexican Rare Disease Patient Registry\u201d [Rare 2 (2024) 100046]",
+      "canonical_url": "https://doi.org/10.1016/j.rare.2025.100069",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1016/j.rare.2025.100075",
+      "identifier": "10.1016/j.rare.2025.100075",
+      "title": "Author\u2019s response to \u201cCorrespondence on First year result and insights from the Mexican Rare Disease Patient Registry\u201d",
+      "canonical_url": "https://doi.org/10.1016/j.rare.2025.100075",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1016/s0140-6736(15)60420-2",
+      "identifier": "10.1016/s0140-6736(15)60420-2",
+      "title": "Reducing the cost of rare disease drugs",
+      "canonical_url": "https://doi.org/10.1016/s0140-6736(15)60420-2",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1056/cat.19.1116",
+      "identifier": "10.1056/cat.19.1116",
+      "title": "Coordinated, Cost-effective Care for Rare Disease: The Cystinosis Outpatient Consultation Program at RoMed",
+      "canonical_url": "https://doi.org/10.1056/cat.19.1116",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1093/jamiaopen/ooad007",
+      "identifier": "10.1093/jamiaopen/ooad007",
+      "title": "Linking rare and common disease vocabularies by mapping between the human phenotype ontology and phecodes",
+      "canonical_url": "https://doi.org/10.1093/jamiaopen/ooad007",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1097/01.ede.0000153643.88019.92",
+      "identifier": "10.1097/01.ede.0000153643.88019.92",
+      "title": "Estimating Rare Disease Prevalence From Administrative Hospitalization Databases",
+      "canonical_url": "https://doi.org/10.1097/01.ede.0000153643.88019.92",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1109/bibm52615.2021.9669517",
+      "identifier": "10.1109/bibm52615.2021.9669517",
+      "title": "Etiology context of rare diseases in the Human Disease Ontology",
+      "canonical_url": "https://doi.org/10.1109/bibm52615.2021.9669517",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1109/bibm55620.2022.9995614",
+      "identifier": "10.1109/bibm55620.2022.9995614",
+      "title": "Identifying Missing IS-A Relations in Orphanet Rare Disease Ontology",
+      "canonical_url": "https://doi.org/10.1109/bibm55620.2022.9995614",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1109/cbms49503.2020.00039",
+      "identifier": "10.1109/cbms49503.2020.00039",
+      "title": "Subgrouping Rare Disease Patients Leveraging the Human Phenotype Ontology Embeddings",
+      "canonical_url": "https://doi.org/10.1109/cbms49503.2020.00039",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1111/jep.12281",
+      "identifier": "18492100",
+      "title": "General knowledge and opinion of future health care and non-health care professionals on rare diseases",
+      "canonical_url": "https://zenodo.org/records/18492100",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1177/2633004020902860",
+      "identifier": "10.1177/2633004020902860",
+      "title": "Introducing Therapeutic Advances in Rare Disease",
+      "canonical_url": "https://doi.org/10.1177/2633004020902860",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1177/26330040241307962",
+      "identifier": "10.1177/26330040241307962",
+      "title": "Advancing rare disease measurement through the Rare Disease Clinical Outcome Assessment Consortium",
+      "canonical_url": "https://doi.org/10.1177/26330040241307962",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1177/26330040251359676",
+      "identifier": "10.1177/26330040251359676",
+      "title": "Updated demographics categories to capture the true diversity of an international registry of rare disease patients",
+      "canonical_url": "https://doi.org/10.1177/26330040251359676",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1177/26330040261471914",
+      "identifier": "10.1177/26330040261471914",
+      "title": "Cancer prevalence in primary mitochondrial disease patients and their families",
+      "canonical_url": "https://doi.org/10.1177/26330040261471914",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1182/bloodadvances.2024015546",
+      "identifier": "10.1182/bloodadvances.2024015546",
+      "title": "Estimating rare genetic disease prevalence: a challenging task",
+      "canonical_url": "https://doi.org/10.1182/bloodadvances.2024015546",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1183/13993003.congress-2018.pa3030",
+      "identifier": "10.1183/13993003.congress-2018.pa3030",
+      "title": "Prevalence of progressive fibrosing interstitial lung disease",
+      "canonical_url": "https://doi.org/10.1183/13993003.congress-2018.pa3030",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/1750-1172-10-s1-p58",
+      "identifier": "10.1186/1750-1172-10-s1-p58",
+      "title": "Patients with hereditary ATTR amyloidosis experience an increasing burden of illness as the disease progresses",
+      "canonical_url": "https://doi.org/10.1186/1750-1172-10-s1-p58",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/1750-1172-8-29",
+      "identifier": "10.1186/1750-1172-8-29",
+      "title": "Cost-effectiveness of enzyme replacement therapy for Fabry disease",
+      "canonical_url": "https://doi.org/10.1186/1750-1172-8-29",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/1750-1172-9-39",
+      "identifier": "10.1186/1750-1172-9-39",
+      "title": "The health and economic burden of haemophilia in Belgium: a rare, expensive and challenging disease",
+      "canonical_url": "https://doi.org/10.1186/1750-1172-9-39",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/1750-1172-9-51",
+      "identifier": "10.1186/1750-1172-9-51",
+      "title": "Cost-effectiveness of enzyme replacement therapy for type 1 Gaucher disease",
+      "canonical_url": "https://doi.org/10.1186/1750-1172-9-51",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/1750-1172-9-81",
+      "identifier": "10.1186/1750-1172-9-81",
+      "title": "The European Cystic Fibrosis Society Patient Registry: valuable lessons learned on how to sustain a disease registry",
+      "canonical_url": "https://doi.org/10.1186/1750-1172-9-81",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/1750-1172-9-98",
+      "identifier": "10.1186/1750-1172-9-98",
+      "title": "The prevalence and epidemiology of genetic renal disease amongst adults with chronic kidney disease in Australia",
+      "canonical_url": "https://doi.org/10.1186/1750-1172-9-98",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s12874-021-01434-3",
+      "identifier": "5937460",
+      "title": "Standardizing registry data to the OMOP Common Data Model: experience from three pulmonary hypertension databases",
+      "canonical_url": "https://zenodo.org/records/5937460",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-015-0226-9",
+      "identifier": "10.1186/s13023-015-0226-9",
+      "title": "Cost effective assay choice for rare disease study designs",
+      "canonical_url": "https://doi.org/10.1186/s13023-015-0226-9",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-017-0597-1",
+      "identifier": "345747",
+      "title": "Does the low prevalence affect the sample size of interventional clinical trials of rare diseases? An analysis of data from the aggregate analysis of clinicaltrials.gov",
+      "canonical_url": "https://zenodo.org/records/345747",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-017-0611-7",
+      "identifier": "10.1186/s13023-017-0611-7",
+      "title": "Health technology assessment of new drugs for rare disorders in Canada: impact of disease prevalence and cost",
+      "canonical_url": "https://doi.org/10.1186/s13023-017-0611-7",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 2
+        },
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-018-0836-0",
+      "identifier": "1412173",
+      "title": "Rare disease registries: potential applications towards impact on development of new drug treatments",
+      "canonical_url": "https://zenodo.org/records/1412173",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-019-1146-x",
+      "identifier": "10.1186/s13023-019-1146-x",
+      "title": "Development of a pilot rare disease registry: a focus group study of initial steps towards the establishment of a rare disease ecosystem in Slovenia",
+      "canonical_url": "https://doi.org/10.1186/s13023-019-1146-x",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-022-02299-5",
+      "identifier": "10.1186/s13023-022-02299-5",
+      "title": "The national economic burden of rare disease in the United States in 2019",
+      "canonical_url": "https://doi.org/10.1186/s13023-022-02299-5",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-024-03120-1",
+      "identifier": "10.1186/s13023-024-03120-1",
+      "title": "Methodological advances in patient-centered rare disease research: the UTHealth Houston Turner Syndrome Society of the United States research registry",
+      "canonical_url": "https://doi.org/10.1186/s13023-024-03120-1",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-025-04176-3",
+      "identifier": "10.1186/s13023-025-04176-3",
+      "title": "Caregiver-reported disease burden in Krabbe disease: evaluating outcomes of hematopoietic stem cell transplantation",
+      "canonical_url": "https://doi.org/10.1186/s13023-025-04176-3",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-025-04185-2",
+      "identifier": "10.1186/s13023-025-04185-2",
+      "title": "Global burden of Wilson disease: a comprehensive evidence synthesis",
+      "canonical_url": "https://doi.org/10.1186/s13023-025-04185-2",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13326-016-0051-7",
+      "identifier": "59581",
+      "title": "Linking rare and common disease: mapping clinical disease-phenotypes to ontologies in therapeutic target validation",
+      "canonical_url": "https://zenodo.org/records/59581",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1377/forefront.20220128.987667",
+      "identifier": "10.1377/forefront.20220128.987667",
+      "title": "The Economic Burden Of Rare Diseases: Quantifying The Sizeable Collective Burden And Offering Solutions",
+      "canonical_url": "https://doi.org/10.1377/forefront.20220128.987667",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.15363/thinklab.d68",
+      "identifier": "10.15363/thinklab.d68",
+      "title": "Disease Ontology feature requests",
+      "canonical_url": "https://doi.org/10.15363/thinklab.d68",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.18653/v1/2026.bionlp-1.41",
+      "identifier": "10.18653/v1/2026.bionlp-1.41",
+      "title": "When Does Retrieval Beat Direct LLM Diagnosis in Rare Disease? An Empirical Study of Ontology Coverage",
+      "canonical_url": "https://doi.org/10.18653/v1/2026.bionlp-1.41",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.19070/2470-4563-150004",
+      "identifier": "574924",
+      "title": "Drug-eluting Stents in Premature Coronary Disease in Young People with Homozygous Familial Hypercholesterolemia and Prior Liver Transplant. A Report of Two Cases",
+      "canonical_url": "https://zenodo.org/records/574924",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.20517/rdodj.2023.39",
+      "identifier": "10.20517/rdodj.2023.39",
+      "title": "Review of methods for estimating the prevalence of rare diseases",
+      "canonical_url": "https://doi.org/10.20517/rdodj.2023.39",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.21203/rs.3.rs-1046815/v1",
+      "identifier": "10.21203/rs.3.rs-1046815/v1",
+      "title": "The National Economic Burden of Rare Disease in United States in 2019",
+      "canonical_url": "https://doi.org/10.21203/rs.3.rs-1046815/v1",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.21203/rs.3.rs-32979/v1",
+      "identifier": "10.21203/rs.3.rs-32979/v1",
+      "title": "Dercum\u2019s Disease: Estimating the prevalence of a rare painful loose connective tissue disease",
+      "canonical_url": "https://doi.org/10.21203/rs.3.rs-32979/v1",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.21203/rs.3.rs-6623705/v1",
+      "identifier": "10.21203/rs.3.rs-6623705/v1",
+      "title": "PRICE: A Personalized Recursive Intelligent Cost Estimation Framework for Rare Disease Diagnosis",
+      "canonical_url": "https://doi.org/10.21203/rs.3.rs-6623705/v1",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.2196/preprints.60665",
+      "identifier": "10.2196/preprints.60665",
+      "title": "AutoRD: An Automatic and End-to-End System for Rare Disease Knowledge Graph Construction Based on Ontology-enhanced Large Language Models (Preprint)",
+      "canonical_url": "https://doi.org/10.2196/preprints.60665",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.2217/frd-2020-0004",
+      "identifier": "10.2217/frd-2020-0004",
+      "title": "Dercum\u2019s Disease: Estimating the Prevalence of a Rare Painful Loose Connective Tissue Disease",
+      "canonical_url": "https://doi.org/10.2217/frd-2020-0004",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease prevalence",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.2217/frd-2022-0018",
+      "identifier": "10.2217/frd-2022-0018",
+      "title": "Patient\u2013Dermatologist Gap in Perception of Disease Burden and Treatment of Generalized Pustular Psoriasis in Japan",
+      "canonical_url": "https://doi.org/10.2217/frd-2022-0018",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.26226/morressier.5ada8a0dd462b8029238e56e",
+      "identifier": "10.26226/morressier.5ada8a0dd462b8029238e56e",
+      "title": "PUMCH Biobank and National Rare Disease Registry System of China (NRDRS)",
+      "canonical_url": "https://doi.org/10.26226/morressier.5ada8a0dd462b8029238e56e",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.3390/biomedicines14071439",
+      "identifier": "10.3390/biomedicines14071439",
+      "title": "A Multimodal Biomedical Transformer Fusion Network for Disease-Level Rare-Disease-Inheritance Classification Using Ontology-Enriched Text, Metadata, and Gene Associations",
+      "canonical_url": "https://doi.org/10.3390/biomedicines14071439",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.3410/f.725602763.793528156",
+      "identifier": "10.3410/f.725602763.793528156",
+      "title": "Faculty Opinions recommendation of The human phenotype ontology: semantic unification of common and rare disease.",
+      "canonical_url": "https://doi.org/10.3410/f.725602763.793528156",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.35802/104746",
+      "identifier": "10.35802/104746",
+      "title": "",
+      "canonical_url": "https://doi.org/10.35802/104746",
+      "decision": "uncertain",
+      "reason": "missing_title_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.4135/9781529796988",
+      "identifier": "10.4135/9781529796988",
+      "title": "A Rare Disease Patient Registry",
+      "canonical_url": "https://doi.org/10.4135/9781529796988",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease registry",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5061/dryad.s5700",
+      "identifier": "5021594",
+      "title": "Data from: 28 year temporal sequence of epidemic dynamics in a natural rust \u2013 host plant metapopulation",
+      "canonical_url": "https://zenodo.org/records/5021594",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.10702445",
+      "identifier": "10702445",
+      "title": "Towards A Rare Disease Registry Standard: Semantic Mapping of Common Data Elements Between FAIRVASC and the European Joint Programme for Rare Disease",
+      "canonical_url": "https://zenodo.org/records/10702445",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 4
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.11442985",
+      "identifier": "11442985",
+      "title": "CYShapland/triangulate: First release",
+      "canonical_url": "https://zenodo.org/records/11442985",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 1
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 9
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 8
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 9
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1168737",
+      "identifier": "1168737",
+      "title": "Deep phenotyping for patients by patients: a plain-language medical  vocabulary for precision diagnosis",
+      "canonical_url": "https://zenodo.org/records/1168737",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1321650",
+      "identifier": "1321650",
+      "title": "REPORT: Portfolio of ELIXIR data resources and tools for  the rare diseases communities",
+      "canonical_url": "https://zenodo.org/records/1321650",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.13630086",
+      "identifier": "13630086",
+      "title": "mcguinlu/triangulate: Initial release",
+      "canonical_url": "https://zenodo.org/records/13630086",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 2
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 10
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 9
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 10
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1415398",
+      "identifier": "1415398",
+      "title": "RD-Connect: an integrated infrastructure for data sharing and analysis in rare disease research",
+      "canonical_url": "https://zenodo.org/records/1415398",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.14907384",
+      "identifier": "14907384",
+      "title": "Critical Bottlenecks in Rare Disease Research and Care: A Community Perspective",
+      "canonical_url": "https://zenodo.org/records/14907384",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.14962863",
+      "identifier": "14962863",
+      "title": "The Prevalence and Incidence of Interstitial Lung Disease among Patients with Systemic Lupus Erythematosus: A Protocol for a Systematic Review",
+      "canonical_url": "https://zenodo.org/records/14962863",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.17871108",
+      "identifier": "17871108",
+      "title": "Epilepsy Disease Classification: A community effort to enhance the Mondo Disease Ontology",
+      "canonical_url": "https://zenodo.org/records/17871108",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.18217486",
+      "identifier": "18217486",
+      "title": "Healthcare as a Drift-Amplifying System: Incentives, Suppression, and Termination Failure",
+      "canonical_url": "https://zenodo.org/records/18217486",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 3
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222385",
+      "identifier": "20222385",
+      "title": "Figure 2 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222385",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222387",
+      "identifier": "20222387",
+      "title": "Figure 3 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222387",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222389",
+      "identifier": "20222389",
+      "title": "Figure 4 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222389",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222391",
+      "identifier": "20222391",
+      "title": "Figure 5 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222391",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222393",
+      "identifier": "20222393",
+      "title": "Figure 6 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222393",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222395",
+      "identifier": "20222395",
+      "title": "Figure 7 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222395",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20391327",
+      "identifier": "20391327",
+      "title": "Integrative modelling and in vivo analysis identify hypomorphic TMEM17 ciliopathy variants that reduce transition-zone abundance of TMEM-17",
+      "canonical_url": "https://zenodo.org/records/20391327",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20696641",
+      "identifier": "20696641",
+      "title": "CiliaHub: an updated gold-standard catalogue of ciliary genes with integrated ciliopathy data",
+      "canonical_url": "https://zenodo.org/records/20696641",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20798055",
+      "identifier": "20798055",
+      "title": "SYNTHEMA Newsletter 5",
+      "canonical_url": "https://zenodo.org/records/20798055",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.21384101",
+      "identifier": "21384101",
+      "title": "Semantic Mapping from MII Core Data Sets to NARSE and from NARSE to the ERDRI Core Data Set",
+      "canonical_url": "https://zenodo.org/records/21384101",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.3234097",
+      "identifier": "3234097",
+      "title": "Representing glycophenotypes: semantic unification of glycobiology resources for disease discovery",
+      "canonical_url": "https://zenodo.org/records/3234097",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.3478576",
+      "identifier": "3478576",
+      "title": "Rare Disease analysis in Mondo",
+      "canonical_url": "https://zenodo.org/records/3478576",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 2
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.4014414",
+      "identifier": "4014414",
+      "title": "zychenfd/Wuhan-disease-burden: Wuhan-disease-burden",
+      "canonical_url": "https://zenodo.org/records/4014414",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.557065",
+      "identifier": "557065",
+      "title": "ELIXIR workshops organized with the Rare  Disease community",
+      "canonical_url": "https://zenodo.org/records/557065",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7040390",
+      "identifier": "7040390",
+      "title": "Why early treating hidradenitis suppurativa is also a moral issue",
+      "canonical_url": "https://zenodo.org/records/7040390",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7102403",
+      "identifier": "7102403",
+      "title": "Using the Mondo Disease Ontology to Standardize Rare Disease Nomenclature",
+      "canonical_url": "https://zenodo.org/records/7102403",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7125341",
+      "identifier": "7125341",
+      "title": "Standardizing Rare Disease Data Collection:  It Takes an (Ontology) Village",
+      "canonical_url": "https://zenodo.org/records/7125341",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7460586",
+      "identifier": "7460586",
+      "title": "NANDO and NanbyoData: a disease ontology for Japanese rare and intractable diseases (Nanbyo) and a portal website for providing centralized access to the latest and diverse knowledge of Nanbyo",
+      "canonical_url": "https://zenodo.org/records/7460586",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7961855",
+      "identifier": "7961855",
+      "title": "An annotated list of horizon scanned technologies with potential for application in alien species citizen science projects",
+      "canonical_url": "https://zenodo.org/records/7961855",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.837955",
+      "identifier": "837955",
+      "title": "KIKUCHI-FUJIMOTO DISEASE (KFD): A Rare Case Report",
+      "canonical_url": "https://zenodo.org/records/837955",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.64898/2026.04.04.26349768",
+      "identifier": "10.64898/2026.04.04.26349768",
+      "title": "Rare-Variant Burden Analysis of Dystonia Genes in Parkinson\u2019s Disease",
+      "canonical_url": "https://doi.org/10.64898/2026.04.04.26349768",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease burden",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.64898/2026.07.01.26357055",
+      "identifier": "10.64898/2026.07.01.26357055",
+      "title": "Developing a Specialized Dravet Syndrome Ontology for Rare Disease Informatics and AI Applications",
+      "canonical_url": "https://doi.org/10.64898/2026.07.01.26357055",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease ontology",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.67667/neu.v27is6.237",
+      "identifier": "21920649",
+      "title": "Consensus statement for the diagnosis and treatment of lysosomal storage diseases with neurological manifestations. 2026",
+      "canonical_url": "https://zenodo.org/records/21920649",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.7326/0003-4819-123-4-199508150-00011",
+      "identifier": "10.7326/0003-4819-123-4-199508150-00011",
+      "title": "Insulinoma: Cost-effective Care in Patients with a Rare Disease",
+      "canonical_url": "https://doi.org/10.7326/0003-4819-123-4-199508150-00011",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "crossref",
+          "query_string": "rare disease cost",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:acadtags/rare-disease-identification",
+      "identifier": "acadTags/Rare-disease-identification",
+      "title": "Rare-disease-identification",
+      "canonical_url": "https://github.com/acadTags/Rare-disease-identification",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:akshay-gurav-31/hackathon-reusable-framework",
+      "identifier": "Akshay-gurav-31/Hackathon-Reusable-Framework",
+      "title": "Hackathon-Reusable-Framework",
+      "canonical_url": "https://github.com/Akshay-gurav-31/Hackathon-Reusable-Framework",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease cost",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:ariadnavillam/radipo",
+      "identifier": "ariadnavillam/RaDiPO",
+      "title": "RaDiPO",
+      "canonical_url": "https://github.com/ariadnavillam/RaDiPO",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:atinak/rare-disease-detector",
+      "identifier": "atinak/Rare-Disease-Detector",
+      "title": "Rare-Disease-Detector",
+      "canonical_url": "https://github.com/atinak/Rare-Disease-Detector",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:bhfdsc/ccu019_01",
+      "identifier": "BHFDSC/CCU019_01",
+      "title": "CCU019_01",
+      "canonical_url": "https://github.com/BHFDSC/CCU019_01",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:bih-cei/rd-cdm",
+      "identifier": "BIH-CEI/rd-cdm",
+      "title": "rd-cdm",
+      "canonical_url": "https://github.com/BIH-CEI/rd-cdm",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 6
+        },
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:deletexiumu/dar-ontology-reasoning",
+      "identifier": "deletexiumu/dar-ontology-reasoning",
+      "title": "dar-ontology-reasoning",
+      "canonical_url": "https://github.com/deletexiumu/dar-ontology-reasoning",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:ebispot/ejp-ontology",
+      "identifier": "EBISPOT/EJP-Ontology",
+      "title": "EJP-Ontology",
+      "canonical_url": "https://github.com/EBISPOT/EJP-Ontology",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:edithatogo/rareburden-commons",
+      "identifier": "edithatogo/rareburden-commons",
+      "title": "rareburden-commons",
+      "canonical_url": "https://github.com/edithatogo/rareburden-commons",
+      "decision": "exclude",
+      "reason": "self_result",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:emcarthur/phecode-hpo-map",
+      "identifier": "emcarthur/phecode-HPO-map",
+      "title": "phecode-HPO-map",
+      "canonical_url": "https://github.com/emcarthur/phecode-HPO-map",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:favourori/patientsregistryapi",
+      "identifier": "favourori/PatientsRegistryAPI",
+      "title": "PatientsRegistryAPI",
+      "canonical_url": "https://github.com/favourori/PatientsRegistryAPI",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:favourori/patientsregistryfrontend",
+      "identifier": "favourori/PatientsRegistryFrontend",
+      "title": "PatientsRegistryFrontend",
+      "canonical_url": "https://github.com/favourori/PatientsRegistryFrontend",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:gan-orlab/lrrk2_per_domain",
+      "identifier": "gan-orlab/LRRK2_per_domain",
+      "title": "LRRK2_per_domain",
+      "canonical_url": "https://github.com/gan-orlab/LRRK2_per_domain",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:gp2code/wgs-e3-pd-eopd",
+      "identifier": "GP2code/WGS-E3-PD-EOPD",
+      "title": "WGS-E3-PD-EOPD",
+      "canonical_url": "https://github.com/GP2code/WGS-E3-PD-EOPD",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:honghan/ccu019_01",
+      "identifier": "Honghan/CCU019_01",
+      "title": "CCU019_01",
+      "canonical_url": "https://github.com/Honghan/CCU019_01",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:inutano/rare-disease-globe",
+      "identifier": "inutano/rare-disease-globe",
+      "title": "rare-disease-globe",
+      "canonical_url": "https://github.com/inutano/rare-disease-globe",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:khadgaa/rare-disease-ontology",
+      "identifier": "KhadgaA/Rare-Disease-Ontology",
+      "title": "Rare-Disease-Ontology",
+      "canonical_url": "https://github.com/KhadgaA/Rare-Disease-Ontology",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:malikalisha721-byte/rare-disease-registry-by-hamna",
+      "identifier": "malikalisha721-byte/rare-disease-registry-by-hamna",
+      "title": "rare-disease-registry-by-hamna",
+      "canonical_url": "https://github.com/malikalisha721-byte/rare-disease-registry-by-hamna",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:mira-jain/hackathon-reusable-framework",
+      "identifier": "mira-jain/Hackathon-Reusable-Framework",
+      "title": "Hackathon-Reusable-Framework",
+      "canonical_url": "https://github.com/mira-jain/Hackathon-Reusable-Framework",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease cost",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:mitchell-s17/adni1-geneburdenanalysis",
+      "identifier": "mitchell-s17/ADNI1-GeneBurdenAnalysis",
+      "title": "ADNI1-GeneBurdenAnalysis",
+      "canonical_url": "https://github.com/mitchell-s17/ADNI1-GeneBurdenAnalysis",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:muccg/rdrf",
+      "identifier": "muccg/rdrf",
+      "title": "rdrf",
+      "canonical_url": "https://github.com/muccg/rdrf",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:orphanet/ordo",
+      "identifier": "Orphanet/ORDO",
+      "title": "ORDO",
+      "canonical_url": "https://github.com/Orphanet/ORDO",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:pavlidislab/rdp",
+      "identifier": "PavlidisLab/rdp",
+      "title": "rdp",
+      "canonical_url": "https://github.com/PavlidisLab/rdp",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:prirai/rare-diseases-data-scraping",
+      "identifier": "prirai/rare-diseases-data-scraping",
+      "title": "rare-diseases-data-scraping",
+      "canonical_url": "https://github.com/prirai/rare-diseases-data-scraping",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:rayssacarvalh/genomic-burden-actionability-atlas",
+      "identifier": "RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+      "title": "Genomic-Burden-Actionability-Atlas",
+      "canonical_url": "https://github.com/RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:renalreg/radar",
+      "identifier": "renalreg/radar",
+      "title": "radar",
+      "canonical_url": "https://github.com/renalreg/radar",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:robworth/radar",
+      "identifier": "robworth/radar",
+      "title": "radar",
+      "canonical_url": "https://github.com/robworth/radar",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:s-alex2022/rare-diseases-data-registry",
+      "identifier": "S-Alex2022/Rare-Diseases-Data-Registry",
+      "title": "Rare-Diseases-Data-Registry",
+      "canonical_url": "https://github.com/S-Alex2022/Rare-Diseases-Data-Registry",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:sunchang0124/rarediseaseselection",
+      "identifier": "sunchang0124/RareDiseaseSelection",
+      "title": "RareDiseaseSelection",
+      "canonical_url": "https://github.com/sunchang0124/RareDiseaseSelection",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:theodorejperkins/monogenic_prevalence_with_severities",
+      "identifier": "theodorejperkins/Monogenic_Prevalence_with_Severities",
+      "title": "Monogenic_Prevalence_with_Severities",
+      "canonical_url": "https://github.com/theodorejperkins/Monogenic_Prevalence_with_Severities",
+      "decision": "exclude",
+      "reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 1
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:tribby5/rare-disease-research",
+      "identifier": "tribby5/rare-disease-research",
+      "title": "rare-disease-research",
+      "canonical_url": "https://github.com/tribby5/rare-disease-research",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:wangjl99/okn-registry-temp",
+      "identifier": "wangjl99/okn-registry-temp",
+      "title": "okn-registry-temp",
+      "canonical_url": "https://github.com/wangjl99/okn-registry-temp",
+      "decision": "include",
+      "reason": "rare_disease_scope_signal_in_public_metadata",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 8
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "This screens only the bounded first pages returned by the recorded public APIs.",
+    "Inclusion is for adjacency/full-text review and is not evidence of eligibility, quality or novelty.",
+    "Exact-title clusters are not automatically merged because releases and similarly titled works may differ.",
+    "Provider ranking, query specificity, pagination, language and public-web bias remain unresolved.",
+    "No completeness, novelty, external registration, independent methods review or patient/community interpretation is claimed."
+  ]
+}
