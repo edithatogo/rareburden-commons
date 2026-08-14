@@ -52,6 +52,7 @@ This directory is the persistent source of truth for the project's context-drive
 ## Active work
 
 - [Track 002 — Public-source acquisition](tracks/002-public-source-acquisition/spec.md)
+- [Private Hugging Face archival destination](../docs/huggingface-private-archive-2026-08-15.yml)
 - [Track 007 — Landscape and novelty](tracks/007-landscape-novelty/spec.md)
 
 ## Completed work

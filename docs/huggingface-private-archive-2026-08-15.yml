@@ -1,0 +1,31 @@
+schema_version: '1.0'
+status: created_private_preparation_only
+repository:
+  platform: huggingface
+  repo_id: edithatogo/rareburden-commons-source-archive
+  repo_type: dataset
+  visibility: private
+  initial_commit: d5878e570d25efd604efde2dbe22f3d5d44a937c
+  url: https://huggingface.co/datasets/edithatogo/rareburden-commons-source-archive
+  catalog: edithatogo/dataset-estate-registry
+purpose: >-
+  Owner-operated private archival boundary for exact source observations,
+  provenance, manifests, hashes and lawful derived outputs.
+rights_posture:
+  raw_bytes: exact_file_terms_and_authority_required
+  unresolved_sources: metadata_hash_manifest_only
+  public_release: prohibited_without_new_exact_candidate_decision
+  source_authority: owner_asserted_but_not_a_substitute_for_file_level_terms
+activation: disabled
+external_gates:
+  custodian_terms: pending
+  independent_operator: pending
+  independent_security: pending
+  patient_community: pending
+  release_authority: pending
+stop_triggers:
+  - rights_restriction
+  - semantic_integrity_failure
+  - unreconstructable_artifact
+  - hash_mismatch
+  - recovery_or_withdrawal_failure
