@@ -71,6 +71,11 @@ def _filesystem_files() -> list[Path]:
         )
         current = Path(current_root)
         for name in sorted(file_names):
+            # Linked Git worktrees represent ``.git`` as a file rather than a
+            # directory. Treat it exactly like the directory form so a
+            # source-archive scan never includes repository metadata.
+            if name in IGNORED_DIRECTORIES:
+                continue
             path = current / name
             files.append(path.relative_to(ROOT))
     return files
