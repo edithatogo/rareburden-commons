@@ -1,5 +1,7 @@
 # Track 005 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; health-economics, ethics and patient/community authority remain separate gates.
+
 ## Phase 1 — Method and governance
 
 - [ ] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]`
@@ -19,7 +21,7 @@
 - [ ] Implement component calculations and declared-perspective validation.
 - [ ] Add price/currency conversion interfaces with provenance.
 - [ ] Add uncertainty and scenario propagation. `[M-06]`
-- [ ] Build synthetic examples and golden tests.
+- [x] Build a non-binding synthetic cost-ledger example and schema test. Evidence: `examples/ledger/economic-social-synthetic.yml`; perspective, price-year and valuation contracts remain unresolved. 
 
 ## Phase 4 — Demonstrator integration
 
@@ -32,3 +34,10 @@
 
 - [x] Record that Track 005 cannot activate until Tracks 009 and 010 are complete. Evidence: `749a434`.
 - [x] Add non-binding RBC-P001D v0.1.0 protocol draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the economic/social burden review packet with perspective,
+  valuation, overlap, missingness, distributional and co-design decisions.
+  Evidence: `docs/track-005-economic-review-packet.md`; dependencies and
+  health-economics, ethics, governance and patient/community review remain open.

@@ -30,3 +30,9 @@ Keep Track 003 **blocked**. Do not freeze clinical entities, estimands, denomina
 - **Methods:** inspect estimands, mapping, bias/transportability, uncertainty, validation and double-counting controls.
 - **Patient/community:** assess framing, harms, equity and acceptable outputs.
 - **Evidence required:** signed protocol/decision record, ledger IDs, reproducible synthetic report, independent review comments and dissent disposition.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-003-rbc-p002-review-packet.md` records the decisions and evidence
+needed before activation. It is repository-owned preparation and does not freeze
+RBC-P002 or claim clinical, empirical or patient/community approval.

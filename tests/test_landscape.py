@@ -15,6 +15,12 @@ from rareburden.schema import load_mapping
 ROOT = Path(__file__).resolve().parents[1]
 LANDSCAPE = load_mapping(ROOT / "catalog" / "initiatives.yml")
 SCHEMA = load_mapping(ROOT / "schemas" / "initiative-landscape.schema.json")
+SCREENING_EXERCISE = load_mapping(
+    ROOT / "docs" / "track-007-panel-screening-exercise-2026-08-02.yml"
+)
+SEARCH_LOG = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-01.yml")
+SEARCH_LOG_REFRESH = load_mapping(ROOT / "docs" / "track-007-search-log-2026-08-14.yml")
+REGISTRATION_PACKET = ROOT / "docs" / "track-007-registration-packet.md"
 
 
 def test_seed_landscape_is_valid() -> None:
@@ -75,3 +81,70 @@ def test_landscape_markdown_is_deterministic_and_complete() -> None:
     assert "WHO rare-disease global action plan mandate" in first
     assert "proceed_with_narrowed_scope" in first
     assert first.endswith("\n")
+
+
+def test_landscape_rendering_keeps_claims_provisional() -> None:
+    rendered = render_landscape_markdown(LANDSCAPE).lower()
+    assert "external review" in rendered
+    assert "preliminary novelty decision" in rendered
+    assert "not a completed systematic or scoping review" in rendered
+    assert "novelty remains provisional" in rendered
+    assert "partnership" not in rendered.split("## preliminary novelty decision", 1)[0]
+
+
+def test_track_007_synthetic_screening_reconciles_without_closing_external_gates() -> None:
+    counts = SCREENING_EXERCISE["counts"]
+    assert counts["screened"] == counts["included"] + counts["excluded"] + counts["uncertain"]
+    assert SCREENING_EXERCISE["expected"]["uncertain_is_not_included"] is True
+    assert SCREENING_EXERCISE["expected"]["external_registration_required"] is True
+    assert SCREENING_EXERCISE["expected"]["independent_challenge_required"] is True
+
+
+def test_track_007_search_log_preserves_bounded_discovery_and_provisional_status() -> None:
+    assert SEARCH_LOG["protocol_version"] == "RBC-LAND-007-v0.1.0"
+    assert SEARCH_LOG["status"] == "discovery_only"
+    assert SEARCH_LOG["records"]
+    for record in SEARCH_LOG["records"]:
+        assert record["endpoint"].startswith("https://")
+        assert record["http_status"] in {200, "not_applicable"}
+        assert record["raw_export"] in {"not_retained", "retained_lawfully"}
+        assert record["screening_status"] in {
+            "unscreened",
+            "exact_title_only",
+            "screened",
+        }
+    assert any(
+        "not a complete public search" in limitation for limitation in SEARCH_LOG["limitations"]
+    )
+
+
+def test_track_007_registration_packet_is_versioned_and_fail_closed() -> None:
+    packet = REGISTRATION_PACKET.read_text(encoding="utf-8")
+    assert "RBC-LAND-007 v0.1.0" in packet
+    assert "versioned draft; not externally registered" in packet
+    for field in ("query_string", "endpoint_or_database", "export_sha256", "exclusion_reason"):
+        assert field in packet
+    assert "Methods reviewer" in packet
+    assert "patient/community reviewer" in packet.lower()
+    assert "Track 007 stays in review" in packet
+
+
+def test_track_007_search_refresh_covers_registered_queries_and_stays_unscreened() -> None:
+    assert SEARCH_LOG_REFRESH["protocol_version"] == "RBC-LAND-007-v0.2.0"
+    assert SEARCH_LOG_REFRESH["status"] == "discovery_only"
+    assert len(SEARCH_LOG_REFRESH["method"]["query_strings"]) == 5
+    assert set(SEARCH_LOG_REFRESH["method"]["active_sources"]) == {
+        "github",
+        "zenodo",
+        "huggingface_datasets",
+        "crossref",
+    }
+    assert SEARCH_LOG_REFRESH["method"]["excluded_active_sources"]["osf"].startswith(
+        "deferred_by_owner"
+    )
+    assert SEARCH_LOG_REFRESH["screening"]["status"] == "unscreened"
+    for observation in SEARCH_LOG_REFRESH["observations"]:
+        assert len(observation["totals_by_query"]) == 5
+        assert len(observation["response_sha256_by_query"]) == 5
+        assert all(value.startswith("sha256:") for value in observation["response_sha256_by_query"])
+    assert any("No completeness" in item for item in SEARCH_LOG_REFRESH["limitations"])

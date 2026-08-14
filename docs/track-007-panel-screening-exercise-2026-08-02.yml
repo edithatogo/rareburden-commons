@@ -1,0 +1,28 @@
+schema_version: RBC-LAND-007-SYNTHETIC-SCREEN-v0.1.0
+status: synthetic_only
+purpose: >-
+  Exercise count reconciliation and exclusion handling for the Track 007
+  screening workflow without claiming a completed external review.
+records:
+  - record_id: synthetic-include-001
+    decision: include
+    reason: stable_public_landing_page_and_measurement_relevance
+  - record_id: synthetic-exclude-001
+    decision: exclude
+    reason: generic_mention_without_measurement_or_data_relevance
+  - record_id: synthetic-uncertain-001
+    decision: uncertain
+    reason: inaccessible_description_requires_resolution
+counts:
+  discovered: 3
+  exact_duplicate_removals: 0
+  entity_duplicate_removals: 0
+  screened: 3
+  included: 1
+  excluded: 1
+  uncertain: 1
+expected:
+  reconciliation: screened_equals_included_plus_excluded_plus_uncertain
+  uncertain_is_not_included: true
+  external_registration_required: true
+  independent_challenge_required: true

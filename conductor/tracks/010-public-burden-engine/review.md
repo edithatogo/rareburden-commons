@@ -70,3 +70,10 @@ The preparatory panel report (`docs/v1-subagent-panel-report-017.md`) does not
 replace scientific/statistical, patient/community or engineering review. The
 bounded synthetic engine may continue to be tested, but Track 010 remains
 blocked by Track 009 and no alpha interface or dependence contract is frozen.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-010-engine-review-packet.md` records the exact estimand,
+uncertainty, dependence, structural-scenario, prohibited-shortcut and alpha
+freeze decisions required before activation. It is repository-owned preparation
+and does not replace scientific, engineering or patient/community review.

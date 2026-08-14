@@ -1,0 +1,70 @@
+schema_version: "0.1.0"
+track: "007-landscape-novelty"
+status: "repository_owned_readiness_pending_external_receipts"
+protocol:
+  protocol_id: "RBC-LAND-007"
+  version: "0.1.0"
+  source_packet: "docs/track-007-registration-packet.md"
+  search_log: "docs/track-007-search-log-2026-08-01.yml"
+  screening_register: "docs/landscape-screening-007.md"
+  frozen_protocol_hash: "sha256:9e0dafa6fb914e3ea8ebdddfe7b6974db495de94b7ab90a1fd9e3c13a3b5ab3a"
+  search_strategy_hash: "sha256:53f0061536504269f9afee7a7dd8a22400e16924959b454ce54ed30231bbfa28"
+submission_readiness:
+  selected_registry: "registry_neutral"
+  fallback_registry: "zenodo"
+  required_snapshot:
+    - "protocol text and version"
+    - "exact search strings and endpoints"
+    - "eligibility, deduplication and exclusion rules"
+    - "screening and count-reconciliation fields"
+    - "known bias and limitation statement"
+  receipt_fields:
+    - "registry_identifier"
+    - "registration_timestamp"
+    - "submitted_snapshot_hash"
+    - "amendment_policy"
+  status: "deferred_by_owner"
+  decision_record: "docs/decisions/2026-08-05-track-007-osf-submission-decision.md"
+methods_challenge:
+  status: "packet_ready_pending_independent_receipt"
+  questions:
+    - id: "M-01"
+      question: "Are the question, scope and search strings fit for the intended adjacency claim?"
+      evidence: ["protocol text", "search log", "landscape-screening-007.md"]
+    - id: "M-02"
+      question: "Are eligibility, deduplication, exclusions and uncertain-record handling reproducible?"
+      evidence: ["registration packet", "synthetic screening exercise", "tests/test_landscape.py"]
+    - id: "M-03"
+      question: "Do API coverage, ranking, language and access limits bound the claims adequately?"
+      evidence: ["search log", "review.md evidence limitations"]
+    - id: "M-04"
+      question: "Are novelty, partnership, endorsement and completeness claims appropriately disabled?"
+      evidence: ["staged registration plan", "review.md disposition"]
+  required_receipt:
+    - "independent_identity"
+    - "candidate_protocol_hash"
+    - "findings_by_question"
+    - "dissent_or_no_dissent_record"
+    - "claim_revisions"
+patient_community_interpretation:
+  status: "packet_ready_pending_accountable_receipt"
+  questions:
+    - "Are labels and descriptions understandable without implying clinical advice?"
+    - "Could adjacency or gap language stigmatise, erase or misrepresent communities?"
+    - "Are equity, language, accessibility and acceptable-use limits explicit?"
+  required_receipt:
+    - "constituency_or_body"
+    - "acceptable_use_and_harm_decision"
+    - "interpretation_limits"
+    - "dissent_or_no_dissent_record"
+claim_boundary:
+  allowed: ["provisional bounded adjacency observations", "repository-owned search preparation"]
+  disabled_until_receipts:
+    - "comprehensive landscape"
+    - "global completeness"
+    - "independent novelty confirmation"
+    - "partnership or endorsement"
+  stop_triggers:
+    - "protocol cannot be reconstructed from the submitted snapshot"
+    - "material methodological flaw without bounded correction"
+    - "material interpretation or harm concern without mitigation"

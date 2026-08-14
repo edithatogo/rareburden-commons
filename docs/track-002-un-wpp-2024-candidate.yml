@@ -1,0 +1,23 @@
+source_id: un-world-population-prospects
+publisher: United Nations Department of Economic and Social Affairs Population Division
+title: WPP2024 compact demographic indicators
+exact_url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx
+landing_page_url: https://population.un.org/wpp/
+release_or_version: WPP 2024, 28th revision
+retrieved_at_utc: '2026-08-01'
+mime_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+size_bytes: 26142942
+sha256: 98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d
+licence_or_terms_url: https://population.un.org/wpp/
+licence_state: conditional
+attribution_text: United Nations, Department of Economic and Social Affairs, Population Division (2024), World Population Prospects 2024.
+redistribution_position: pending_review
+third_party_material: pending_review
+intended_use: country population denominators; medium-variant national totals
+geography_scope: 237 countries or areas; final geography codes pending review
+time_scope: 1950-2100 workbook; final extraction years pending review
+measure_unit: total population, thousands
+scientific_reviewer: pending
+data_governance_reviewer: pending
+decision: candidate_only
+decision_record_url: conductor/tracks/002-public-source-acquisition/review.md

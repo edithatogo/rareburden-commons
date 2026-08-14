@@ -1,5 +1,7 @@
 # Track 015 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; constituted governance and patient/community authority remain separate.
+
 ## Phase 1 — Constitute governance
 
 - [ ] Draft and approve body charters, appointment and voting rules. `[M-16]`
@@ -51,3 +53,11 @@
 - [ ] Run an authorised governance tabletop and record decisions; external
   facilitator, patient/community authority and governance appointments remain
   required.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepared `docs/track-015-governance-review-packet.md` with exact
+  constitution, patient/community, custodian, scientific-independence and
+  relationship evidence requirements.
+- [ ] Keep governance, partnership and endorsement states unactivated until
+  constituted dispositions are recorded.

@@ -129,6 +129,41 @@ class OntologyMappingSet:
     fingerprint: str
 
 
+def render_mapping_release_markdown(mapping: OntologyMappingSet) -> str:
+    """Render a deterministic mapping release summary with limitations."""
+    document = mapping.document
+    lines = [
+        f"# {document['title']}",
+        "",
+        f"- Mapping set: `{document['mapping_set_id']}`",
+        f"- Version: `{document['version']}`",
+        f"- Fingerprint: `{mapping.fingerprint}`",
+        f"- Source: `{document['source_system']} {document['source_version']}`",
+        f"- Target: `{document['target_system']} {document['target_version']}`",
+        "",
+        "## Mappings",
+        "",
+        "| Source | Target | Relation | Confidence | Status |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for row in document["mappings"]:
+        lines.append(
+            f"| `{row['source_code']}` | `{row['target_code']}` | {row['relation']} | "
+            f"{row['confidence']} | {row['status']} |"
+        )
+    lines.extend(["", "## Limitations", ""])
+    lines.extend(f"- {limitation}" for limitation in document.get("limitations", []))
+    lines.extend(
+        [
+            "",
+            "Source-release approval and clinical semantic authority remain "
+            "required before production use.",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def diff_mapping_sets(previous: OntologyMappingSet, current: OntologyMappingSet) -> dict[str, Any]:
     """Return a deterministic, reviewable diff between two validated mapping releases."""
     previous_rows = {str(row["source_code"]): row for row in previous.document["mappings"]}

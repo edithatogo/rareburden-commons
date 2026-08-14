@@ -1,0 +1,44 @@
+receipt_schema_version: "0.1.0"
+receipt_id: "scientific-owner-bounded-2026-08-03"
+gate: "scientific"
+decision: "bounded"
+accountable:
+  person_or_body: "edithatogo repository owner"
+  role: "repository_owner_scientific_authority"
+  organisation_or_constituency: "RareBurden Commons single-developer repository"
+  contact_or_record_locator: "repository owner decision record"
+  independence_or_authority_basis: "Owner-declared scientific authority; attributable bounded disposition"
+  conflict_of_interest: "Owner and developer; not independent of implementation"
+  quorum_or_selection_basis: "Single-developer repository owner decision"
+decision_date_utc: "2026-08-03T00:00:00Z"
+expiry_or_review_date_utc: "2026-09-03T00:00:00Z"
+subject:
+  repository: "edithatogo/rareburden-commons"
+  commit_or_tag: "candidate-2026-08-03"
+  manifest_id: "rel-b213c531a6b754940f80ab70"
+  input_manifest_sha256: "d3aafd7367609050d6a4c9926a8ddca3013085362f78abd319dd582135612389"
+evidence:
+  references:
+    - "docs/track-002-option-a-scope.yml"
+    - "docs/track-002-panel-disposition-2026-08-02.md"
+    - "docs/panel-assurance-report-candidate-2026-08-03.md"
+  protocol_versions: ["track-002-option-a-scope-0.1.0"]
+  commands: []
+  environment: "repository-owned bounded scientific disposition"
+  retained_outputs: ["docs/scientific-gate-receipt-candidate-2026-08-03.yml"]
+  discrepancy_log: "No discrepancy dispositioned; unresolved source rights remain a separate custodian gate."
+conditions:
+  - "Orphadata is limited to descriptive epidemiology metadata and identifier alignment; not a denominator, DALY, mortality or causal-burden source."
+  - "UN WPP is limited to explicit medium-variant national population denominators with bounded geography/year extraction; no age/sex interpolation."
+  - "WHO GHE remains candidate-only as a year-2000 comparator; World Bank remains probe-only."
+  - "No validated prevalence/incidence, completeness, causal, broad cross-source or disease-burden claim is approved."
+  - "Activation remains conditional on custodian terms, exact source packet and Track 007 challenge gates."
+dissent_or_limitations:
+  - "Owner is not independent of implementation; this receipt does not satisfy independent operator or external review requirements."
+  - "Coverage, update cadence, bias, uncertainty and transportability remain bounded limitations."
+restricted_evidence_pointer: ""
+attestation:
+  submitted_by: "edithatogo repository owner"
+  submitted_at_utc: "2026-08-03T00:00:00Z"
+  signature_or_approval_record: "Owner approval recorded in conversation and bound to the candidate decision record."
+  supersedes_receipt_id: ""

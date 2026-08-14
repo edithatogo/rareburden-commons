@@ -1,5 +1,7 @@
 # Track 010 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; scientific, patient/community and engineering dispositions remain separate.
+
 ## Phase 1 — Analysis contracts
 
 - [x] Define supported estimands, inputs, outputs and invalid operations. `[M-03]` Evidence: synthetic reference contract in `docs/burden-engine-010-reference.md` and existing burden tests.
@@ -39,7 +41,25 @@
 
 - [x] Record that Track 010 cannot activate until Track 009 is complete. Evidence: `17b5c69`.
 - [x] Add non-binding burden engine contract v0.1.0 draft to the specification; activation and contract freeze remain blocked.
+- [x] Prepare the Track 003 interface handoff without freezing it. Evidence:
+  `docs/track-010-engine-review-packet.md` records the draft contract,
+  lineage/result requirements and explicit activation rule; alpha freeze remains
+  dependent on Track 009 and external review.
 
 ## Blocker resolution — 2026-07-29
 
 - [x] Record local resolution and residual gates for estimands, uncertainty, prohibited shortcuts, unsupported correlation/scenario behaviour and Track 009 dependency. Evidence: blocker resolution matrix in `review.md`.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the burden-engine review packet with estimand, uncertainty,
+  dependence, structural-scenario, safety-boundary and alpha-freeze decisions.
+  Evidence: `docs/track-010-engine-review-packet.md`; Track 009 and external
+  scientific/engineering/patient-community review remain open.
+
+## Preparation refresh — 2026-08-02
+
+- [x] Add a focused contract test proving the synthetic reference remains
+  explicitly bounded and non-empirical. Evidence:
+  `tests/test_downstream_track_contracts.py`; scientific and Track 009 gates
+  remain open.

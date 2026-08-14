@@ -1,0 +1,45 @@
+schema_version: "0.1.0"
+mode: "dependency_ordered_bounded_preparation"
+upstream_gates: ["track_002", "track_007"]
+activation_rule: "synthetic_public_only_until_upstream_receipts"
+tracks:
+  - track: "008"
+    preparation: "semantic schemas, ontology pins, mappings and ambiguity fixtures"
+    blocked: ["clinical_naming_review", "patient_community_review", "v0.4_semantic_freeze"]
+  - track: "009"
+    preparation: "ledger IDs, provenance, uncertainty and synthetic parameter links"
+    blocked: ["production_contract_freeze", "controlled_source_integration"]
+  - track: "010"
+    preparation: "synthetic burden calculations, uncertainty and regression budgets"
+    blocked: ["alpha_interface_freeze", "scientific_release_claim"]
+  - track: "003"
+    preparation: "public/synthetic monogenic diabetes fixtures and bounded analysis spec"
+    blocked: ["clinical_review", "empirical_cohort_claims"]
+  - track: "011"
+    preparation: "public/synthetic bronchiectasis fixtures and limitations"
+    blocked: ["clinical_review", "registry_comparison_claims"]
+  - track: "005"
+    preparation: "synthetic economic/social burden schemas and scenarios"
+    blocked: ["patient_co_design", "health_economic_review"]
+  - track: "012"
+    preparation: "synthetic paediatric tables, suppression and node integration"
+    blocked: ["custodian_pathway", "controlled_data_pilot"]
+  - track: "013"
+    preparation: "gap maps, validation reports and evidence-language rules"
+    blocked: ["scientific_assurance", "patient_community_harm_review"]
+  - track: "014"
+    preparation: "reviewed-artifact boundaries and static demonstrator scaffolding"
+    blocked: ["production_api", "stable_data_package"]
+  - track: "015"
+    preparation: "draft policy, acceptable-use, harm and correction materials"
+    blocked: ["constituted_governance_body", "endorsement_claims"]
+  - track: "016"
+    preparation: "synthetic security, recovery, package and rollback evidence"
+    blocked: ["independent_security", "backup_owner", "production_operations"]
+  - track: "017"
+    preparation: "bounded documentation and release checklists"
+    blocked: ["stable_v1", "independent_reproduction", "final_release_receipt"]
+revalidation:
+  on_track_002_change: "rerun_downstream_checks_and_reconcile_source_links"
+  on_track_007_change: "rerun_landscape_claims_and_adjacency_outputs"
+  on_critical_finding: "stop_affected_track_and_preserve_evidence"

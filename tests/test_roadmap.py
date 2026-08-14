@@ -26,14 +26,16 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.track_count == 18
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
-    assert summary.track_status_counts["complete"] == 2
-    assert summary.track_status_counts["archived"] == 1
+    assert summary.track_status_counts.get("complete", 0) == 0
+    assert summary.track_status_counts["archived"] == 3
 
 
 def test_dependency_cycle_is_rejected(tmp_path: Path) -> None:
     tracks = tmp_path / "tracks"
     shutil.copytree(TRACKS, tracks)
-    metadata_path = tracks / "001-foundation" / "metadata.json"
+    archive = tmp_path / "archive"
+    shutil.copytree(ROOT / "conductor" / "archive", archive)
+    metadata_path = archive / "001-foundation" / "metadata.json"
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     metadata["dependencies"] = ["017-documentation-adoption-v1"]
     metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")

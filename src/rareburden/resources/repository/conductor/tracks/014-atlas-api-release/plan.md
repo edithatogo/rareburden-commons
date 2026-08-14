@@ -1,5 +1,7 @@
 # Track 014 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; release, rights, accessibility and independent reproduction gates remain separate.
+
 ## Phase 1 — Product and information design
 
 - [ ] Define user journeys for patient, policy, research, custodian and funder users.
@@ -34,3 +36,39 @@
   aggregate-only publication boundary and shared release-fingerprint requirement.
   Evidence: `docs/atlas-release-014-reference.md`; product activation remains
   blocked by upstream tracks and release gates.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepared `docs/track-014-atlas-api-review-packet.md` with exact
+  source-rights, semantic, accessibility, reproducibility and release-authority
+  evidence requests.
+- [ ] Keep atlas/API publication disabled until upstream review and accountable
+  dispositions are complete.
+
+## Implementation planning — 2026-08-02
+
+- [x] Add the dependency-ordered atlas/API implementation plan with options,
+  contingencies and recommendation in
+  `docs/track-014-implementation-plan-2026-08-02.md`.
+- [ ] Implement the recommended static-first reviewed-release slice.
+- [x] Implement the metadata-only static-first gap-product slice. Evidence:
+  `generate-gap-map`, `src/rareburden.gapmap.render_gap_map_markdown`, and
+  `tests/test_gapmap.py` produce schema-valid accessible Markdown/JSON with
+  explicit missingness, readiness and limitations; no API or beta publication
+  is enabled.
+- [ ] Project the same release into a versioned aggregate package and read-only
+  API with parity checks.
+- [x] Implement the versioned aggregate gap-package projection. Evidence:
+  `rareburden.atlas.build_gap_package` and `tests/test_atlas_package.py` bind
+  package identity to a source manifest, preserve missingness and enforce
+  aggregate-only output; API projection and publication remain open.
+- [x] Implement a read-only API-shaped gap projection with package-fingerprint
+  parity checks in `rareburden.atlas.build_gap_api_response` and
+  `tests/test_atlas_package.py`; no network server or publication is enabled.
+- [x] Add a schema and synthetic parity test for the read-only response in
+  `schemas/atlas-api-response.schema.json` and `tests/test_atlas_api_schema.py`.
+- [x] Add the bounded accessibility and disclosure checklist in
+  `docs/track-014-accessibility-checklist.md` with a regression guard; independent
+  accessibility/community review remains pending.
+- [ ] Complete accessibility, independent-operator and release-authority gates
+  before beta publication.

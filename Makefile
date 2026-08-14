@@ -7,8 +7,31 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 .PHONY: install sync validate validate-catalog validate-roadmap validate-landscape \
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
+	validation-artifacts validation-artifacts-check \
+	mutation mutation-score \
 	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
-	offline-node-install offline-node-ci build package-check installed-package-check sbom check ci release-check clean
+	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check qualifying-receipts-check package-size-check check ci release-check clean
+
+package-size-check: build
+	PYTHONPATH=src:. $(PYTHON) scripts/check_package_size_policy.py \
+		docs/track-016-package-size-policy.yml --root .
+
+mutation:
+	$(PYTHON) -m mutmut run
+	$(PYTHON) -m mutmut export-cicd-stats
+	$(MAKE) mutation-score
+
+mutation-score:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_mutation_score.py \
+		mutants/mutmut-cicd-stats.json --minimum 65
+
+external-receipt-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_external_receipt.py \
+		docs/external-gate-receipt-template.yml
+
+qualifying-receipts-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_qualifying_receipts_register.py \
+		docs/qualifying-receipts-register.yml
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -75,6 +98,12 @@ runtime-assets:
 runtime-assets-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_runtime_assets.py --root .
 
+validation-artifacts:
+	PYTHONPATH=src:. $(PYTHON) scripts/sync_validation_artifacts.py --root . --write
+
+validation-artifacts-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/sync_validation_artifacts.py --root .
+
 release-identity:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_release_identity.py --root . --no-git
 
@@ -136,7 +165,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check release-identity node-reproducibility burden-benchmark \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check package-size-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility

@@ -76,3 +76,9 @@ The preparatory panel report (`docs/v1-subagent-panel-report-017.md`) is
 technical evidence only; it does not provide epidemiology, custodian or
 engineering sign-off. Track 009 remains blocked on Tracks 002 and 008 and the
 v0.4 contract and migration path remain unfrozen.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-009-ledger-review-packet.md` records the required epidemiology,
+data-governance, engineering and operational-custody decisions. It is
+repository-owned preparation and does not freeze the v0.4 ledger contract.

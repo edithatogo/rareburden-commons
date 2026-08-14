@@ -81,6 +81,8 @@ Documentation describing a future capability is not implementation evidence for 
 
 ## 7. Review gates
 
+Repository-owned review preparation uses the [subagent review-panel policy](../docs/subagent-review-panel-policy.md): panels draft findings and test evidence completeness. They do not replace accountable external authorities.
+
 - **Scientific:** estimand, definition, mapping, bias, uncertainty, validation and double counting.
 - **Data governance:** terms, authority, custodian conditions, disclosure and withdrawal.
 - **Patient/community:** relevance, acceptable use, equity, harms, interpretation and framing.
@@ -104,4 +106,9 @@ A release is blocked when an assigned gate records an unresolved critical findin
 
 Material changes to product scope, disease inclusion, burden definitions, ontology relations, primary estimands, economic perspective, privacy boundary, supported interfaces or release gates require a decision record in `docs/decisions/`.
 
-Changes to `conductor/roadmap.yml`, dependencies or blocking v1 criteria require programme, scientific, patient/community and engineering review, plus data-governance or security review where affected.
+Changes to `conductor/roadmap.yml`, dependencies or blocking v1 criteria use the
+single-developer subagent review panel described in
+`docs/decisions/ADR-0008-single-developer-review-mode.md`. Any genuinely
+external scientific, patient/community, data-governance, security, operator or
+release-authority gate remains separately required where the acceptance
+criteria call for it.

@@ -17,11 +17,14 @@ concurrency:
 
 jobs:
   scorecard:
+    name: Scorecard analysis
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
       contents: read
+      # Required to upload the Scorecard SARIF result.
       security-events: write
+      # Required by Scorecard's signed result publication.
       id-token: write
     steps:
       - name: Check out repository

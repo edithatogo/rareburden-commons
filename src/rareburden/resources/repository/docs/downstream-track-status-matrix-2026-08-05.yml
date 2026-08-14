@@ -1,0 +1,70 @@
+schema_version: "0.1.0"
+status: "repository_owned_reconciliation"
+as_of: "2026-08-05"
+upstream:
+  track_002: "bounded_owner_disposition; source_terms_custodian_and_activation_pending"
+  track_007: "protocol_and_panel_preparation; registration_challenge_and_patient_community_pending"
+activation_rule: "synthetic_public_only_until_upstream_and_accountable_receipts"
+repository_evidence:
+  candidate_manifest: "docs/release-manifest-candidate-2026-08-03.yml"
+  validation_artifacts: "docs/validation-report-artifacts-2026-08-03.yml"
+  reconciliation_packet: "docs/release-candidate-evidence-reconciliation-2026-08-04.yml"
+  tracked_reports: ["coverage.json", "coverage.xml", "junit.xml", "rareburden.cdx.json"]
+  binding_check: "uv run make validation-artifacts-check"
+  authority: "repository_generated_not_external_or_release_authority"
+tracks:
+  - track: "008"
+    state: "bounded_preparation"
+    depends_on: ["002", "007"]
+    completed_scope: "synthetic semantic schemas, mappings, release rendering and harm packet"
+    remaining_blocks: ["source_release_terms", "clinical_patient_community_naming", "methods_challenge", "v0.4_freeze"]
+  - track: "009"
+    state: "bounded_preparation"
+    depends_on: ["002", "008"]
+    completed_scope: "synthetic ledger, provenance and uncertainty contracts"
+    remaining_blocks: ["production_source_integration", "contract_freeze", "upstream_008"]
+  - track: "010"
+    state: "bounded_preparation"
+    depends_on: ["009"]
+    completed_scope: "synthetic burden calculations and regression budgets"
+    remaining_blocks: ["alpha_freeze", "scientific_release_claim", "upstream_009"]
+  - track: "011"
+    state: "bounded_preparation"
+    depends_on: ["008", "009", "010"]
+    completed_scope: "synthetic bronchiectasis fixtures and limitation controls"
+    remaining_blocks: ["clinical_review", "registry_comparison_claims", "upstream_008_009_010"]
+  - track: "012"
+    state: "bounded_preparation"
+    depends_on: ["004", "005", "008", "009", "010"]
+    completed_scope: "synthetic paediatric tables, suppression and node integration"
+    remaining_blocks: ["custodian_pathway", "controlled_data_pilot", "upstream_dependencies"]
+  - track: "013"
+    state: "bounded_preparation"
+    depends_on: ["003", "005", "007", "010", "011", "012"]
+    completed_scope: "gap maps, validation reports and evidence-language controls"
+    remaining_blocks: ["scientific_assurance", "patient_community_harm_review", "upstream_dependencies"]
+  - track: "014"
+    state: "bounded_preparation"
+    depends_on: ["002", "009", "010", "013"]
+    completed_scope: "release manifest and reviewed-artifact boundaries"
+    remaining_blocks: ["production_api", "stable_data_package", "exact_release_receipt"]
+  - track: "015"
+    state: "bounded_preparation"
+    depends_on: ["006", "007", "013"]
+    completed_scope: "draft policy, acceptable-use, harm and correction materials"
+    remaining_blocks: ["constituted_governance", "endorsement_claims", "patient_community_receipt"]
+  - track: "016"
+    state: "bounded_preparation"
+    depends_on: ["004", "014"]
+    completed_scope: "synthetic security, recovery, package and rollback evidence"
+    remaining_blocks: ["independent_security", "independent_operator", "backup_owner", "production_operations"]
+  - track: "017"
+    state: "bounded_preparation"
+    depends_on: ["013", "014", "015", "016"]
+    completed_scope: "bounded documentation, candidate manifest and release checklists"
+    remaining_blocks: ["independent_reproduction", "stable_v1", "release_authority_receipt"]
+non_closure_rules:
+  - "bounded_preparation is not implementation completion or release readiness"
+  - "panel outputs do not satisfy independent, patient/community, custodian or release authority gates"
+  - "any upstream change requires downstream dependency revalidation"
+  - "critical safety, rights, semantic-integrity or reproducibility findings stop affected tracks"

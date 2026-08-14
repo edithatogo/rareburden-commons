@@ -25,3 +25,11 @@ release or publication authorization.
 - Reviewed source/parameter manifests and a release-content audit.
 - Accessible static/API consistency tests and independent reproduction.
 - Release authority approval for archive/DOI and public publication.
+
+## Preparation refresh — 2026-08-01
+
+`docs/track-014-atlas-api-review-packet.md` now records the exact evidence and
+accountable decisions required for the reviewed-artifact boundary, public
+output rights, semantic/accessibility controls, consistency, independent
+reproduction and release. This is non-binding preparation; no atlas, API,
+beta, archive or DOI has been activated.

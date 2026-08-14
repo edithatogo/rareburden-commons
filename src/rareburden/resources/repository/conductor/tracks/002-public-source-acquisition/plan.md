@@ -6,6 +6,22 @@
 - [ ] Select and evidence exact production files/endpoints for each supported live source. `[M-03, M-09]`
 - [x] Add source-release, acquisition-manifest and normalisation-manifest schemas. `[M-11, M-18, M-20]`
 - [x] Extend geography, representativeness and verification fields in the source catalogue. `[M-07]`
+- [x] Add the source-specific estimand matrix with explicit numerator,
+  denominator, metric, geography/year scope and prohibited claims. Evidence:
+  `docs/track-002-estimand-matrix.yml`; activation remains conditional.
+- [x] Add the coverage and representativeness plan with options and
+  contingencies. Evidence:
+  `docs/track-002-coverage-representativeness-plan-2026-08-03.md`.
+- [x] Add the candidate-bound final extraction specification plan. Evidence:
+  `docs/track-002-final-extraction-specification-plan-2026-08-03.md`.
+- [x] Instantiate the registration-only extraction specification with exact
+  selectors, geography/year filters, transformations and fail-closed rules.
+  Evidence: `docs/track-002-final-extraction-specification.yml` and
+  `tests/test_track_002_extraction_spec.py`.
+- [x] Instantiate the coverage and representativeness matrix for every
+  estimand, including missingness, ascertainment, bias and transportability
+  limits. Evidence: `docs/track-002-coverage-matrix.yml` and
+  `tests/test_track_002_coverage_matrix.py`.
 
 ## Phase 2 — Common acquisition framework
 
@@ -47,6 +63,121 @@
 - [x] Capture a content-addressed World Bank reference-query response. Evidence: 310-byte HTTP 200 response, SHA-256 `cf007aeb8ff4078b46a28861c022c678c22b6c115b255b0f8f0c6ce58de6c5cb`, 2026-07-29; production indicator approval remains open.
 - [x] Hash the public Orphadata terms catalogue, UN WPP methodology and WHO data-terms pages. Evidence: hashes and retrieval sizes recorded in `review.md`, 2026-07-29; exact production files and source approval remain open.
 - [x] Record the owner-approved candidate scope without activating production acquisition. Evidence: `review.md` scope decision, 2026-07-29.
-- [~] Pin exact Orphadata, UN WPP and WHO artifact URLs/releases and record hashes after the approved source pages expose stable download routes. Orphadata endpoints and hashes are recorded in `review.md` (2026-08-01); UN WPP and WHO remain open.
+- [x] Pin exact Orphadata, UN WPP and WHO artifact URLs/releases and record
+  observed hashes. Evidence: `review.md`,
+  `docs/track-002-source-verification-2026-08-15.yml` and the source
+  registration records; unresolved terms and production activation remain
+  separate fail-closed gates.
 - [x] Pin the July 2026 Orphadata English epidemiology and alignment XML endpoints and record byte counts and SHA-256 hashes. Evidence: exact endpoint table in `review.md`, 2026-08-01; production activation and reviewer approval remain gated.
 - [x] Bound the approved World Bank query to named geographies and years, then capture a final response manifest. Evidence: explicit `AUS;NZL`, 2000–2021 query, 8,826-byte HTTP 200 response and SHA-256 recorded in `review.md`, 2026-07-29.
+
+## Review fixes — 2026-08-01
+
+- [x] Remove duplicate exact-pin task and reconcile stale unresolved-route
+  wording after the UN/WHO candidate hashes were recorded. Evidence: this
+  plan and the corrected review section; full `uv run make check` passed.
+
+## Subagent panel preparation — 2026-08-02
+
+- [x] Route repository-owned source, terms and incident review preparation
+  through the subagent review-panel policy in
+  `docs/subagent-review-panel-policy.md`.
+- [ ] Keep scientific and data-governance dispositions as accountable external
+  gates; panel findings prepare the packets but do not satisfy those gates.
+- [x] Record the panel’s bounded Option A source posture and contingencies in
+  `docs/track-002-panel-disposition-2026-08-02.md`; all candidates remain
+  inactive pending accountable receipts.
+- [x] Record the panel’s bounded governance posture: ephemeral retrieval,
+  metadata/hash retention, no raw redistribution, and fail-closed terms or
+  checksum drift handling.
+- [x] Add a synthetic four-candidate source-change mutation matrix covering
+  checksum drift, redaction and non-promotion. Evidence: parametrized CLI
+  integration test in `tests/test_cli_integration.py`.
+- [x] Record a read-only live reachability probe for the pinned candidate URLs;
+  HTTP reachability is explicitly not treated as terms, scientific or
+  redistribution approval. Evidence:
+  `docs/track-002-live-reachability-probe-2026-08-03.md`.
+- [x] Record current public-page terms observations without promoting any
+  source or inferring unrestricted rights. Evidence:
+  `docs/track-002-public-terms-observation-2026-08-03.md`.
+
+## Single-developer review mode
+
+Repository-owned review tasks use the subagent panel; accountable external
+scientific and data-governance gates remain separate and pending.
+
+## Closure plan — 2026-08-02
+
+- [x] Add the dependency-ordered closure plan shared with Track 007 in
+  `docs/track-002-007-closure-plan-2026-08-02.md`.
+- [ ] Obtain qualifying scientific, custodian and Track 007 challenge receipts;
+  until then retain `in_review` and registration-only behavior.
+- [x] Encode the approved bounded Option A source scope in
+  `docs/track-002-option-a-scope.yml` with WHO/World Bank deferred and
+  activation disabled.
+- [x] Add the qualifying-evidence sourcing sequence and contingencies in
+  `docs/track-002-qualifying-evidence-sourcing-plan-2026-08-02.md`.
+- [x] Implement the machine-readable qualifying-evidence request register and
+  fail-closed regression test in
+  `docs/track-002-qualifying-evidence-request.yml` and
+  `tests/test_track_002_evidence_request.py`.
+- [x] Add a regression guard for the approved Option A scope and deferred-source
+  activation boundary in `tests/test_track_002_option_a_scope.py`.
+- [x] Add a fail-closed regression guard for the source-packet checklist and
+  pending accountable dispositions in `tests/test_track_002_evidence_request.py`.
+
+## Panel closure planning — 2026-08-02
+
+- [x] Add the joint Track 002/007 panel closure plan with options,
+  contingencies and dependency sequence in
+  `docs/track-002-007-panel-closure-plan-2026-08-02.md`.
+- [x] Prepare a schema-valid synthetic Track 002 panel packet with pending
+  scientific and custodian receipts in `examples/fixtures/track-002-panel-packet-synthetic.json`.
+- [x] Add a regression guard for exact candidate registration completeness and
+  fail-closed pending terms/dispositions in `tests/test_track_002_source_candidates.py`.
+- [x] Add a machine-readable source terms/disposition matrix and fail-closed
+  regression test in `docs/track-002-source-terms-matrix.yml` and
+  `tests/test_track_002_terms_matrix.py`.
+- [ ] Obtain separate accountable scientific and custodian/data-governance
+  receipts after panel preparation; panels cannot close these gates.
+- [x] Add a regression guard proving the external-gate receipt template remains
+  blank and non-approving in `tests/test_external_gate_receipt_template.py`.
+- [x] Add a regression guard keeping deferred UN WPP and WHO manifests
+  conditional, candidate-only and pending review in
+  `tests/test_track_002_option_a_scope.py`.
+- [x] Implement the per-estimand activation matrix and fail-closed findings
+  disposition register. Evidence: `docs/track-002-activation-matrix.yml`,
+  `docs/track-002-findings-disposition.yml` and
+  `tests/test_track_002_activation_matrix.py`; unresolved custodian and live
+  source findings remain non-active.
+
+## Exact retrieval observation refresh — 2026-08-05
+
+- [x] Consolidate the dated endpoint, HTTP, content-type, byte-count and
+  streamed SHA-256 observations into
+  `docs/track-002-exact-source-observations-2026-08-03.yml`, with explicit
+  unavailable-response and terms fail-closed rules.
+- [x] Add regression coverage proving hashes are observational only and that
+  an unavailable World Bank response cannot be promoted.
+- [ ] Re-probe changed or unavailable endpoints and obtain accountable terms,
+  scientific and custodian dispositions before activation.
+
+## Exact source and private-archive refresh — 2026-08-15
+
+- [x] Re-probe the exact Orphadata, WPP, WHO GHE and bounded World Bank routes;
+  record current page/response hashes, release identities and fail-closed
+  archival states in `docs/track-002-source-verification-2026-08-15.yml`.
+- [x] Confirm the exact Orphadata product-page evidence: the official July 2026
+  epidemiology and alignment pages name `en_product9_prev.xml` and
+  `en_product1.xml` respectively and state that all files are CC BY 4.0.
+- [x] Prepare the required Orphadata attribution, unchanged-file and
+  no-endorsement notice in
+  `docs/track-002-orphadata-attribution-2026-08-15.md`.
+- [x] Capture the bounded World Bank `AUS;NZL`, 2000–2021 response after the
+  earlier unavailable observation; retain it as probe-only and prohibit silent
+  WPP substitution.
+- [ ] Keep WPP and WHO bytes absent from Hugging Face until their remaining
+  workbook/third-party conditions are dispositioned; metadata and hashes are
+  sufficient for the bounded candidate.
+- [ ] Keep production activation and external scientific, patient/community,
+  custodian and independent-review claims disabled.

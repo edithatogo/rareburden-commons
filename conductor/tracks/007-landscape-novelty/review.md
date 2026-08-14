@@ -118,3 +118,48 @@ The changed totals demonstrate why search counts are retrieval-date evidence,
 not fixed catalogue facts. Newly returned records remain unscreened and are not
 added to the initiative register until the registered eligibility workflow and
 independent resolution process are completed.
+
+### Registration packet refresh — 2026-08-01
+
+`docs/track-007-registration-packet.md` now provides the versioned registration
+handoff, search-log schema, screening/exclusion fields, count reconciliation and
+reviewer decisions. It is repository-owned preparation only: no external
+protocol identifier, independent methods review or patient/community decision
+is inferred.
+
+The 2026-08-01 discovery observations are also preserved in
+`docs/track-007-search-log-2026-08-01.yml`; each row is explicitly marked
+discovery-only/unscreened (or exact-title-only for OSF).
+
+### Five-query discovery refresh — 2026-08-14 UTC
+
+The five protocol query families were rerun against GitHub, Zenodo and Hugging
+Face dataset APIs, with Crossref added as a reproducible scholarly metadata
+index. `docs/track-007-search-log-2026-08-14.yml` records exact retrieval
+timestamps, provider totals (where reported), response hashes and bounded
+first-page identifiers; `scripts/refresh_track_007_searches.py` makes the
+request construction and metadata extraction repeatable. OSF was not queried
+because its active route is deferred by owner decision.
+
+The broad Zenodo and Crossref totals demonstrate retrieval and ranking behavior,
+not eligibility or coverage. The returned records are unscreened and do not
+alter the 13-record seed catalogue, provisional novelty claim or external-gate
+status. Cross-query deduplication, full eligibility screening, registration,
+independent methods challenge and accountable patient/community interpretation
+remain pending.
+
+The refreshed files are hash-bound in
+`docs/track-007-registration-challenge-readiness-2026-08-15.yml`. The challenge
+packet adds explicit questions about low-specificity scholarly/repository
+results, ranking and pagination, cross-index deduplication, public-web and
+language bias, and exclusion of this repository as a self-result. It remains
+preparation evidence and cannot satisfy the external receipts it requests.
+
+### Synthetic screening exercise — 2026-08-02
+
+The deterministic fixture `docs/track-007-panel-screening-exercise-2026-08-02.yml`
+and its regression test exercise the count reconciliation rule and preserve an
+uncertain record without treating it as included. This is repository-owned
+panel preparation evidence only. External protocol registration, independent
+methods challenge and patient/community challenge remain open; no novelty,
+completeness, partnership or endorsement claim is upgraded by this exercise.

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/panel-review-packet.schema.json",
+  "title": "Panel review preparation packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "track_id", "reviewed_commit", "evidence_manifest_sha256", "panel_roles", "findings", "recommendation", "accountable_gate_status"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "track_id": {"type": "string", "pattern": "^[0-9]{3}-[a-z0-9-]+$"},
+    "reviewed_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "evidence_manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "panel_roles": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 3}},
+    "findings": {"type": "array", "items": {"type": "string"}},
+    "dissent": {"type": "array", "items": {"type": "string"}},
+    "recommendation": {"type": "string", "enum": ["prepare", "revise", "bound", "stop"]},
+    "accountable_gate_status": {"type": "string", "enum": ["pending", "receipt-attached"]},
+    "requested_receipts": {"type": "array", "items": {"type": "string"}}
+  }
+}

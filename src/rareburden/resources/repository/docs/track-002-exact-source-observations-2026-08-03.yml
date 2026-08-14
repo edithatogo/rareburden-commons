@@ -1,0 +1,55 @@
+schema_version: "0.1.0"
+status: "retrieval_observation_only"
+activation: "disabled_until_accountable_dispositions"
+source_evidence: "docs/track-002-live-reachability-probe-2026-08-03.md"
+interpretation: "Exact endpoint, byte count and streamed SHA-256 observations are recorded for reconciliation; they do not establish licence, scientific fitness, redistribution rights or custodian approval."
+records:
+  - source_id: "orphadata-science"
+    route: "https://www.orphadata.com/data/xml/en_product9_prev.xml"
+    retrieved_at_utc: "2026-08-03"
+    http_status: 200
+    content_type: "application/xml"
+    observed_bytes: 16178169
+    sha256: "6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0"
+    release_identity: "en_product9_prev.xml; release label not independently pinned"
+    terms_status: "pending_custodian_confirmation"
+  - source_id: "orphadata-science"
+    route: "https://www.orphadata.com/data/xml/en_product1.xml"
+    retrieved_at_utc: "2026-08-03"
+    http_status: 200
+    content_type: "application/xml"
+    observed_bytes: 54026799
+    sha256: "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb"
+    release_identity: "en_product1.xml; release label not independently pinned"
+    terms_status: "pending_custodian_confirmation"
+  - source_id: "un-world-population-prospects"
+    route: "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx"
+    retrieved_at_utc: "2026-08-03"
+    http_status: 200
+    content_type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    observed_bytes: 26142942
+    sha256: "98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d"
+    release_identity: "WPP2024 compact demographic indicators workbook"
+    terms_status: "pending_custodian_confirmation"
+  - source_id: "who-global-health-estimates"
+    route: "https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/ghe2021_daly_bycountry_2000.xlsx?sfvrsn=23cd3c55_5"
+    retrieved_at_utc: "2026-08-03"
+    http_status: 200
+    content_type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    observed_bytes: 12756114
+    sha256: "a051da530e7802ff6c084293b50e8de21cce0c36f02b76085568487f143246fe"
+    release_identity: "GHE 2021 DALY by-country workbook candidate"
+    terms_status: "pending_custodian_and_third_party_confirmation"
+  - source_id: "world-bank-indicators-api"
+    route: "https://api.worldbank.org/v2/country/AUS;NZL/indicator/SP.POP.TOTL?date=2000:2021&format=json&per_page=100&source=2"
+    retrieved_at_utc: "2026-08-03"
+    http_status: 0
+    content_type: "unavailable"
+    observed_bytes: 0
+    sha256: null
+    release_identity: "Versionless API query; response not captured"
+    terms_status: "pending_terms_and_reachability_recheck"
+fail_closed_rules:
+  - "null or unavailable response hashes cannot be promoted"
+  - "an observed hash binds retrieval bytes only, not source licence or scientific fitness"
+  - "contradictory terms or changed bytes require a superseding observation and re-review"

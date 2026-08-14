@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1.0",
+  "receipt_type": "synthetic_operations_exercise",
+  "exercise_id": "rollback-synthetic-01",
+  "release_id": "v0.3.0-rc.2",
+  "commit": "0000000000000000000000000000000000000000",
+  "outcome": "qualified",
+  "failure_cases": ["checksum_mismatch", "missing_artifact"],
+  "input_hashes": ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"],
+  "output_hashes": ["bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"],
+  "production_authorized": false
+}

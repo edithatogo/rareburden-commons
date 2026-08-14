@@ -1,0 +1,79 @@
+schema_version: '0.2.0'
+track: 007-landscape-novelty
+status: repository_owned_readiness_pending_external_receipts
+supersedes_preparation_packet: docs/track-007-registration-challenge-readiness-2026-08-04.yml
+protocol:
+  protocol_id: RBC-LAND-007
+  version: 0.2.0
+  source_packet: docs/track-007-registration-packet.md
+  source_packet_sha256: sha256:676047e954a710aecabf20041defe2e173777e147d23bdf389fdcb517fdd8954
+  search_log: docs/track-007-search-log-2026-08-14.yml
+  search_log_sha256: sha256:d6e6e3869fbe331b6e2a8839ebbc7fd095f5f7e9ed5c570800a34bcbaa9e7e8b
+  screening_register: docs/landscape-screening-007.md
+  screening_register_sha256: sha256:0c51da7dffdb280011affbca30e2e27631d53c698a15607d4f4502a5d0e3fca2
+  amendment_policy: material_changes_require_a_new_version_and_hash_set
+registration:
+  status: pending_external_registration
+  active_route: registry_neutral
+  osf: deferred_by_owner
+  prepared_fallback: zenodo
+  required_receipt:
+    - registry_identifier
+    - registration_timestamp
+    - submitted_snapshot_hash
+    - amendment_policy
+methods_challenge:
+  status: packet_ready_pending_independent_receipt
+  questions:
+    - id: M-01
+      question: Are the five query families and four active indexes fit for a bounded adjacency review?
+      concern: Crossref and Zenodo broad totals show low specificity and require fielded follow-up.
+    - id: M-02
+      question: Are provider ranking, pagination and retrieval-date drift handled reproducibly?
+      concern: The compact committed log preserves bounded identifiers, while the rerun script emits every first page.
+    - id: M-03
+      question: Are exact and entity-level deduplication rules sufficient across repositories, releases and mirrors?
+      concern: Cross-query and cross-index screening remain pending.
+    - id: M-04
+      question: Are coverage and representativeness limitations adequate for the intended claims?
+      concern: English, public-web, metadata-quality and inaccessible-system biases remain.
+    - id: M-05
+      question: Are self-results and generic rare-disease mentions excluded without hiding relevant comparators?
+      concern: The GitHub burden query currently returns this repository and must be marked self-result.
+    - id: M-06
+      question: Are completeness, novelty, superiority, partnership and endorsement claims fail-closed?
+      concern: Only provisional bounded adjacency observations are allowed.
+  required_receipt:
+    - independent_identity
+    - exact_protocol_hash_set
+    - findings_by_question
+    - dissent_or_no_dissent
+    - required_claim_revisions
+patient_community_interpretation:
+  status: packet_ready_pending_accountable_receipt
+  questions:
+    - Are initiative categories and gap language understandable and non-stigmatising?
+    - Could public-web omissions erase community-led, regional or non-English work?
+    - Are equity, accessibility, uncertainty and acceptable-use limitations prominent enough?
+    - Does the narrowed role avoid implying ownership of community knowledge or endorsement?
+  required_receipt:
+    - constituency_or_body
+    - acceptable_use_and_harm_decision
+    - interpretation_limits
+    - dissent_or_no_dissent
+claim_boundary:
+  allowed:
+    - provisional bounded adjacency observations
+    - repository-owned search and screening preparation
+    - retrieval-time public metadata observations
+  disabled_until_qualifying_receipts:
+    - completed systematic or scoping review
+    - comprehensive or globally representative landscape
+    - independently confirmed novelty
+    - patient or community approval
+    - partnership endorsement or access
+  stop_triggers:
+    - protocol or search cannot be reconstructed from the bound files
+    - critical methodological flaw without bounded remediation
+    - critical interpretation or harm finding without mitigation
+    - claim exceeds the recorded evidence boundary

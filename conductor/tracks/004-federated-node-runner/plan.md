@@ -1,5 +1,7 @@
 # Track 004 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; custodian, patient/community and independent-operation gates remain separate.
+
 ## Phase 1 — Node contracts and threat model
 
 - [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: four `schemas/node-*.schema.json` contracts and schema-valid synthetic fixtures.
@@ -115,3 +117,10 @@
 ## Dependency review — 2026-07-27
 
 - [x] Record that Track 004 cannot activate until Tracks 009 and 010 are complete. Evidence: `f919b03`.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the federated-node review packet with common-analysis, disclosure,
+  custodian, patient/community, security and independent-operation decisions.
+  Evidence: `docs/track-004-node-review-packet.md`; dependency and external
+  gates remain open.

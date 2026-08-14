@@ -1,5 +1,10 @@
 # Track 016 plan
 
+> Single-developer repository: `edithatogo` is the sole developer, repository
+> owner and primary operator. Owner-operated evidence is allowed and labelled;
+> independent security, independent operator and qualifying backup-owner gates
+> remain separate.
+
 ## Phase 1 — Threat model and support scope
 
 - [x] Threat-model repository, acquisition, build, node, API and release boundaries. Evidence: `docs/security-operations-016-reference.md`; independent review remains open.
@@ -33,13 +38,39 @@
 
 ## Phase 3 — Operational controls
 
-- [ ] Implement privacy-safe logging and metrics.
-- [ ] Implement backup, restore, rollback and correction runbooks.
-- [ ] Add benchmark and resource-regression tests.
+- [x] Implement privacy-safe log redaction. Evidence: recursive node-log and
+  acquisition URL redaction with negative tests in `tests/test_node.py` and
+  `tests/test_acquisition_security.py`; no participant or credential values are
+  retained.
+- [ ] Define and exercise privacy-safe operational metrics, retention and
+  access controls.
+- [x] Implement a metadata-only operational metric record primitive with
+  sensitive-label rejection. Evidence: `rareburden.operations` and
+  `tests/test_operations_metrics.py`; retention, access controls and production
+  ownership remain open.
+- [ ] Execute backup, restore and rollback runbooks against a clean locked
+  environment.
+- [x] Prepare repository-owned correction, withdrawal, backup and rollback
+  runbook procedures. Evidence: `docs/synthetic-operations-016-exercise-protocol.md`,
+  `docs/release-policy.md` and `docs/security-operations-016-reference.md`;
+  production exercise and named-owner acceptance remain open.
+- [x] Add deterministic benchmark tests. Evidence: `tests/test_burden_benchmark.py`
+  covers reproducibility and fail-closed budget violations.
+- [x] Add provisional package-size resource-regression policy and fail-closed
+  checker. Evidence: `docs/track-016-package-size-policy.yml`,
+  `scripts/check_package_size_policy.py` and `make package-size-check`.
+  Installed-footprint and wheelhouse budgets remain separately measured.
+- [x] Add a representative large-workload resource-regression test. Evidence:
+  `tests/test_burden_benchmark.py` runs the 100,000-iteration synthetic
+  workload under the bounded 15-second envelope; this remains synthetic
+  evidence and makes no real-world capacity claim.
 - [x] Add a bounded runtime regression gate for the synthetic reference burden
   workload. Evidence: `scripts/check_burden_benchmark.py` runs in `make check`;
   memory, package-size and representative large-workload budgets remain open.
-- [ ] Verify source archives and Git clones with the same public command.
+- [x] Verify source archives and Git clones with the same public command.
+  Evidence: clean-clone, wheel and source-archive validation recorded in
+  `conductor/tracks/002-public-source-acquisition/review.md` (evidence `39a4b4d`).
+  Cross-platform hosted reproduction remains open.
 
 ## Phase 4 — Exercises and release candidate
 
@@ -55,3 +86,78 @@
 
 - [x] Document threat boundaries, operational invariants and activation gates
   without activating production hardening. Evidence: reference and review records.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepared `docs/track-016-operations-review-packet.md` with exact
+  security, runtime, recovery, privacy, supply-chain and owner evidence.
+- [ ] Keep production pathways and support promises disabled until independent
+  review and named-owner acceptance are recorded.
+
+## Implementation planning — 2026-08-02
+
+- [x] Add the dependency-ordered recovery, rollback, budget, retention/access
+  and ownership plan with options, contingencies and recommendation in
+  `docs/track-016-operations-implementation-plan-2026-08-02.md`.
+- [x] Define and test the versioned resource-budget contract. Evidence:
+  `rareburden.operations.build_resource_budget` and
+  `tests/test_operations_budget.py` fail closed on invalid or over-budget
+  measurements; production capacity claims remain disabled.
+- [x] Draft the retention/access policy for operational records. Evidence:
+  `docs/track-016-retention-access-policy.md`; it remains non-operative until
+  security, data-governance and named-owner acceptance.
+- [x] Add a metadata-only synthetic recovery/rollback receipt primitive with
+  fail-closed identity and outcome checks in `rareburden.operations` and
+  `tests/test_operations_budget.py`; production exercise evidence remains open.
+- [x] Add a schema-validated synthetic operations receipt fixture and negative
+  boundary test in `schemas/synthetic-operations-receipt.schema.json` and
+  `tests/test_synthetic_operations_receipt.py`.
+- [ ] Implement and execute clean-environment backup, restore and rollback
+  exercises with redacted, hash-bound receipts.
+- [ ] Record named primary/backup operational owners and escalation acceptance.
+- [x] Record bounded repository-owner primary acceptance and explicit
+  unassigned-backup contingency. Evidence:
+  `docs/decisions/2026-08-03-owner-operated-operations-acceptance.md`; this
+  does not close the qualifying operational-owner gate.
+- [ ] Complete independent security/operator and release-authority gates before
+  production-hardening activation.
+- [x] Prepare the candidate-bound independent-operator and security evidence
+  plan with panel and owner-operated boundaries. Evidence:
+  `docs/track-016-independent-security-operator-plan-2026-08-03.md`; the
+  qualifying independent receipts remain pending.
+- [x] Add the candidate-bound qualifying evidence matrix for independent
+  reproduction, security, continuity and recovery/rollback. Evidence:
+  `docs/track-016-qualifying-evidence-matrix-2026-08-03.yml` and
+  `tests/test_track_016_qualifying_matrix.py`; all qualifying statuses remain
+  pending.
+- [x] Package the repository-owned synthetic recovery/security rehearsal
+  checklist with explicit tamper, correction, rollback and scan stop triggers.
+  Evidence: `docs/track-016-synthetic-recovery-security-checklist.yml` and
+  `tests/test_track_016_synthetic_checklist.py`; independent operator,
+  independent security and backup-owner receipts remain pending.
+- [x] Execute the owner-operated synthetic rehearsal and record a redacted,
+  hash-bound receipt. Evidence:
+  `docs/track-016-synthetic-rehearsal-receipt-2026-08-05.yml` and
+  `tests/test_track_016_synthetic_rehearsal_receipt.py`; the qualified receipt
+  remains non-independent and does not authorize production.
+
+## Release disposition — 2026-08-03
+
+- [x] Record a time-limited bounded owner disposition for the frozen
+  synthetic/public candidate. Evidence:
+  `docs/decisions/2026-08-03-owner-bounded-release-disposition.md`.
+- [ ] Obtain a qualifying release-authority receipt before any stable-v1,
+  hosted, controlled-data or production claim; the owner disposition is not an
+  independent or external release approval.
+
+## Clean-node rehearsal follow-up — 2026-08-03
+
+- [x] Re-run the normative Python 3.13 offline-node rehearsal with the locked
+  3.13 environment. Evidence: `dist/offline-install-receipt.json`; the
+  hash-bound wheelhouse installed successfully with network disabled.
+- [x] Run a supplemental network-disabled Python 3.14 rehearsal. Evidence:
+  `dist/offline-install-receipt.json`; this is local compatibility evidence,
+  not an independent operator receipt or release approval.
+- [ ] Keep the release runtime at Python 3.13 unless a separately recorded
+  compatibility decision changes the support matrix and refreshes the frozen
+  candidate.

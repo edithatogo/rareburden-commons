@@ -123,3 +123,10 @@ operator must produce their own receipt.
 ## Disposition
 
 Keep Track 004 **blocked**. Do not activate federated execution or controlled-environment pilot work until the evidence/parameter ledger and burden-engine dependencies are complete and the applicable external gates have documentary evidence.
+
+### Preparation refresh — 2026-08-01
+
+`docs/track-004-node-review-packet.md` records the exact governance, pilot,
+security, scientific, patient/community and independent-operation evidence
+required before activation. It is repository-owned preparation and does not
+authorize a controlled-data node or pilot.

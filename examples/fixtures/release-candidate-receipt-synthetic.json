@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "receipt_kind": "clean_build",
+  "candidate": {
+    "commit": "0000000000000000000000000000000000000000",
+    "release_manifest_id": "synthetic-manifest",
+    "artefact_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "environment": {"os": "synthetic", "runtime": "python-synthetic", "isolation": "clean-clone"},
+  "run": {
+    "commands": ["uv run make check"],
+    "task_ids": ["candidate-build"],
+    "outputs_sha256": [],
+    "outcome": "qualified",
+    "discrepancies": ["Synthetic fixture; not an independent reproduction."],
+    "intervention": "documented"
+  },
+  "review": {
+    "operator_role": "independent-operator",
+    "reviewer_role": "repository-preparation-panel",
+    "decision_expiry_utc": "",
+    "notes": "Shape validation only; stable-release authority remains pending."
+  }
+}

@@ -18,6 +18,50 @@ class QualityAssessmentError(ValueError):
     """Raised when a quality or transportability record is internally incoherent."""
 
 
+_RELEASE_MATURITY: dict[str, dict[str, tuple[str, ...]]] = {
+    "synthetic_assurance": {
+        "allowed_claims": ("demonstrates executable synthetic assurance only",),
+        "prohibited_claims": ("empirical estimate", "representativeness", "policy recommendation"),
+    },
+    "metadata_only": {
+        "allowed_claims": ("describes source metadata or access capability",),
+        "prohibited_claims": ("fitness for use", "empirical estimate", "representativeness"),
+    },
+    "internally_validated": {
+        "allowed_claims": ("passes internal validation for the declared scope",),
+        "prohibited_claims": (
+            "independent reproduction",
+            "external replication",
+            "global representativeness",
+        ),
+    },
+    "independently_reproduced": {
+        "allowed_claims": ("has an independent reproduction receipt for the declared scope",),
+        "prohibited_claims": ("external replication", "global representativeness"),
+    },
+    "externally_replicated": {
+        "allowed_claims": ("has documented external replication for the declared scope",),
+        "prohibited_claims": ("global representativeness",),
+    },
+}
+
+
+def release_language_for_maturity(maturity: str) -> dict[str, Any]:
+    """Return conservative allowed and prohibited claim language for a maturity state."""
+    try:
+        policy = _RELEASE_MATURITY[maturity]
+    except KeyError as exc:
+        raise QualityAssessmentError(f"Unsupported release maturity: {maturity!r}") from exc
+    return {
+        "maturity": maturity,
+        "allowed_claims": list(policy["allowed_claims"]),
+        "prohibited_claims": list(policy["prohibited_claims"]),
+        "note": (
+            "Claim language remains bounded by source rights, governance and named review gates."
+        ),
+    }
+
+
 _HIGH_RISK = {"high_concern", "unclear"}
 _MATERIAL_DIFFERENCES = {"moderate", "high", "unknown"}
 

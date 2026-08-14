@@ -1,0 +1,22 @@
+schema_version: "0.1.0"
+track: "008-semantic-backbone"
+mode: "panel_assurance"
+candidate: "synthetic-public-semantic-preview"
+recommendation: "bounded_with_revision"
+reviewers:
+  - role: "methods_and_semantics"
+    recommendation: "bounded"
+    findings: ["relation-direction review remains open", "exhaustiveness is declarative", "external naming authority pending"]
+  - role: "data_governance_and_security"
+    recommendation: "bounded"
+    findings: ["source releases and hashes unpinned", "licence and redistribution terms pending", "exact candidate binding required"]
+  - role: "patient_community_and_usability"
+    recommendation: "revise"
+    findings: ["residual labels need neutral wording", "synthetic provenance needs prominence", "plain-language definitions are required"]
+disposition:
+  remediated: ["added synthetic provenance and non-exhaustiveness limitations", "recorded bounded naming revisions"]
+  unresolved: ["external clinical and patient/community interpretation", "exact source releases, hashes and terms", "independent reconstruction and security evidence"]
+  dissent: "No panel dissent was reported; the patient/community role recommended revision before bounded preview."
+  authority_boundary: "Panel assurance is not independent scientific, clinical, patient/community, custodian or release-authority evidence."
+stop_triggers_not_observed: true
+stop_triggers: ["critical semantic double counting", "rights restriction", "material unmitigated naming harm", "unreconstructable candidate"]

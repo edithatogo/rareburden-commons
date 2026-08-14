@@ -35,6 +35,10 @@ def test_protocol_drafts_are_explicitly_non_binding(track: str) -> None:
             "schemas/parameter-ledger.schema.json",
         ),
         (
+            "examples/ledger/economic-social-synthetic.yml",
+            "schemas/parameter-ledger.schema.json",
+        ),
+        (
             "examples/analyses/expected-population-synthetic.yml",
             "schemas/analysis-specification.schema.json",
         ),

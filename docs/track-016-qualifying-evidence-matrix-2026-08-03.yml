@@ -1,0 +1,31 @@
+schema_version: "0.1.0"
+candidate:
+  tag: "candidate-2026-08-03"
+  peeled_commit: "9e668ce9dc860daeb45dac135b58ba203d30b239"
+  manifest_id: "rel-b213c531a6b754940f80ab70"
+  input_manifest_sha256: "d3aafd7367609050d6a4c9926a8ddca3013085362f78abd319dd582135612389"
+evidence:
+  - gate: "independent_operator"
+    status: "pending"
+    owner_fallback: "owner_operated_only"
+    required: ["fresh_environment", "locked_offline_install", "commands", "output_hashes", "discrepancy_log", "independence_basis"]
+    stop_on: ["reproduction_mismatch", "unexplained_discrepancy"]
+  - gate: "independent_security"
+    status: "pending"
+    owner_fallback: "panel_and_owner_scans_only"
+    required: ["threat_model", "secret_dependency_licence_static_scans", "sbom_provenance", "tamper_tests", "residual_risk_disposition", "independence_basis"]
+    stop_on: ["critical_or_high_finding", "secret_exposure"]
+  - gate: "backup_owner_continuity"
+    status: "pending"
+    owner_fallback: "backup_unassigned"
+    required: ["named_primary", "named_backup", "separate_acceptance", "handoff_exercise", "escalation_route", "expiry"]
+    stop_on: ["no_backup", "failed_handoff", "capacity_gap"]
+  - gate: "recovery_rollback"
+    status: "pending"
+    owner_fallback: "synthetic_owner_exercise"
+    required: ["backup_restore", "fault_injection", "correction_withdrawal", "release_rollback", "artifact_hashes", "redacted_receipt"]
+    stop_on: ["restore_failure", "rollback_failure", "hash_mismatch"]
+fallbacks:
+  hosted_rehearsal: "corroborating technical evidence only; not independent authority"
+  bounded_mode: "synthetic_public preparation; no production or stable-v1 claim"
+  critical_failure: "stop_and_preserve_immutable_evidence"

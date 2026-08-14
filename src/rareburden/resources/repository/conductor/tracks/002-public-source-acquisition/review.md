@@ -111,6 +111,30 @@ This inventory is complete as a candidate register for the Track 002 scope. A ca
 
 The inventory separates candidate discovery from production selection. The remaining Track 002 task is exact artifact/file selection and release hashing for the open-download sources, not further source discovery.
 
+### Synthetic source-change panel exercise — 2026-08-02
+
+The repository now runs a parametrized synthetic mutation across the Orphadata,
+UN WPP, WHO GHE and World Bank candidate IDs. Each changed-byte case produces a
+credential-redacted `review_required` incident, preserves the pinned release,
+creates no destination bytes and prevents promotion. This demonstrates local
+control behavior only; it is not a live source-change or licence exercise and
+does not close the external gate.
+
+### Finding disposition panel — 2026-08-02
+
+`docs/track-002-finding-disposition-2026-08-02.md` classifies repository-owned
+findings as closable where evidence exists and assigns scientific, custodian,
+live-operator and Track 007 dependency findings to their accountable gates.
+The recommended bounded source posture does not authorize activation or
+archiving.
+
+### Track 007 dependency panel — 2026-08-02
+
+`docs/track-002-track-007-gate-disposition-2026-08-02.md` keeps the Track 007
+challenge as an open release dependency, while allowing bounded repository
+preparation and manifest/synthetic fallbacks. No novelty or completeness claim
+is promoted and no v0.3.0 release decision follows from the panel.
+
 ### Decision worksheet — non-binding candidate pins (v0.1.0, 2026-07-29)
 
 These are implementation-ready candidates for reviewer confirmation; they do not activate acquisition or freeze a contract.
@@ -159,10 +183,40 @@ The publisher pages identify these as the July 2026 release and state CC BY
 does not activate production acquisition or substitute for the required live
 scientific/data-governance and redistribution review.
 
-### Remaining exact-file blocker
+### Remaining source-approval blocker
 
-UN WPP and WHO still expose download content through dynamic/static-site routes
-without stable data-file URLs in the retrieved HTML. No guessed URL is recorded
-and no bulk UN/WHO source bytes are downloaded. The next safe action is to record
-publisher-provided exact file URLs (or a custodian-approved manual registration)
-for those two sources and then run the existing checksum/manifest workflow.
+Exact UN WPP and WHO candidate routes and hashes are now recorded below. The
+remaining blocker is not route discovery: it is completion of the source
+registration fields, metric/scope confirmation, licensing/redistribution
+position, scientific review, data-governance review and live source-change
+exercise. No production acquisition is activated until those decisions are
+recorded.
+
+### Exact UN/WHO candidate pins — 2026-08-01
+
+Bounded read-only publisher-route checks identified stable candidate files and
+streamed each response directly to a local hash process; source bytes were not
+retained or committed. These are candidate pins, not production approval.
+
+| Source | Exact candidate URL | Bytes | SHA-256 | Evidence state |
+| --- | --- | ---: | --- | --- |
+| UN WPP 2024 compact demographic indicators | `https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx` | 26,142,942 | `98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d` | Exact route/hash candidate; variant, scope, terms and reviewer decision open |
+| WHO GHE 2021 country DALY estimates for 2000 | `https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/ghe2021_daly_bycountry_2000.xlsx?sfvrsn=23cd3c55_5` | 12,756,114 | `a051da530e7802ff6c084293b50e8de21cce0c36f02b76085568487f143246fe` | Exact route/hash candidate; metric scope, third-party fields, terms and reviewer decision open |
+
+The publisher pages identify WPP 2024 as the 28th revision and WHO GHE 2021
+as the 2000–2021 release family. The hash observations close the route-discovery
+subtask only. They do not authorize caching, redistribution, scientific use or
+production acquisition; complete the source-registration template and obtain
+the required scientific and data-governance dispositions first.
+
+Machine-readable candidate records are preserved in
+`docs/track-002-un-wpp-2024-candidate.yml` and
+`docs/track-002-who-ghe-2021-candidate.yml`. Their `candidate_only` decisions,
+conditional licence states and pending reviewer fields are intentional.
+
+### Repository-owner scope decision — 2026-08-02
+
+The repository owner approved the bounded Orphadata + UN WPP preparation
+posture, with WHO and World Bank candidate-only, no v0.3.0 activation, and the
+Track 007 challenge retained as a release dependency. This is a scope decision,
+not scientific, custodian, independent-operator or release-authority approval.

@@ -1,8 +1,10 @@
 # Track 012 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; paediatric, privacy, custodian and patient/community authority remain separate.
+
 ## Phase 1 — Protocol and access pathways
 
-- [ ] Draft RBC-P004 with person-level and aggregate estimands.
+- [ ] Freeze RBC-P004 person-level and aggregate estimands.
 - [ ] Define Australian and New Zealand candidate data pathways and approvals.
 - [ ] Define paediatric disease/coding package and observation windows.
 - [ ] Obtain patient/family, Indigenous/data-governance and clinical review.
@@ -32,3 +34,20 @@
 
 - [x] Record that Track 012 cannot activate until Tracks 004, 005, 008, 009 and 010 are complete. Evidence: `ff48477`.
 - [x] Add non-binding RBC-P004 v0.1.0 protocol draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the RBC-P004 review packet with estimand, coding, linkage,
+  custodian/Indigenous governance, privacy, economic, patient/family and
+  replication decisions. Evidence:
+  `docs/track-012-rbc-p004-review-packet.md`; dependencies and external gates
+  remain open.
+- [x] Prepare the non-binding RBC-P004 protocol draft and estimand decision
+  fields; access approvals and contract freeze remain open.
+
+## Preparation refresh — 2026-08-02
+
+- [x] Add a fixture contract check preserving multimorbidity rows and the
+  custodian small-cell disclosure boundary. Evidence:
+  `tests/test_downstream_track_contracts.py`; paediatric, privacy, custodian,
+  economic and patient/community gates remain open.

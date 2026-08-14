@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/synthetic-operations-receipt.schema.json",
+  "title": "Synthetic operations exercise receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "receipt_type", "exercise_id", "release_id", "commit", "outcome", "failure_cases", "input_hashes", "output_hashes", "production_authorized"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "receipt_type": {"const": "synthetic_operations_exercise"},
+    "exercise_id": {"type": "string", "minLength": 1},
+    "release_id": {"type": "string", "minLength": 1},
+    "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "outcome": {"type": "string", "enum": ["pass", "qualified", "fail"]},
+    "failure_cases": {"type": "array", "items": {"type": "string"}},
+    "input_hashes": {"type": "array", "items": {"type": "string"}},
+    "output_hashes": {"type": "array", "items": {"type": "string"}},
+    "production_authorized": {"const": false}
+  }
+}

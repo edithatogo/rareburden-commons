@@ -35,6 +35,15 @@ This directory is the persistent source of truth for the project's context-drive
 - [Roadmap to stable v1.0](../docs/roadmap-v1.md)
 - [Maturity model](../docs/maturity-model.md)
 - [Stable v1 acceptance criteria](../docs/v1-acceptance-criteria.md)
+- [External-gate panel preparation plan](panel-gate-plan.md)
+- [Tracks 002/007 panel closure plan](../docs/track-002-007-panel-closure-plan-2026-08-02.md)
+- [Repository-owner approval of bounded gate defaults](../docs/decisions/2026-08-03-owner-approval-external-gate-options.md)
+- [Qualifying accountable receipts plan](../docs/qualifying-accountable-receipts-plan-2026-08-03.md)
+- [Frozen candidate and receipts decision plan](../docs/frozen-candidate-and-receipts-decision-plan-2026-08-03.md)
+- [Receipt routing and response plan](../docs/receipt-routing-and-response-plan-2026-08-03.md)
+- [Panel-agent task contract](../docs/panel-agent-task-contract-2026-08-03.md)
+- [Panel assurance report for frozen candidate](../docs/panel-assurance-report-candidate-2026-08-03.md)
+- [Remaining gates plan](../docs/remaining-gates-plan.md)
 - [Requirements traceability](../docs/requirements-traceability.md)
 - [Testing and assurance strategy](../docs/testing-strategy.md)
 - [Release and compatibility policy](../docs/release-policy.md)
@@ -43,13 +52,14 @@ This directory is the persistent source of truth for the project's context-drive
 ## Active work
 
 - [Track 002 — Public-source acquisition](tracks/002-public-source-acquisition/spec.md)
+- [Private Hugging Face archival destination](../docs/huggingface-private-archive-2026-08-15.yml)
 - [Track 007 — Landscape and novelty](tracks/007-landscape-novelty/spec.md)
 
 ## Completed work
 
-- [Track 001 — Foundation](tracks/001-foundation/spec.md) and [review](tracks/001-foundation/review.md)
+- [Track 001 — Foundation](archive/001-foundation/spec.md) and [review](archive/001-foundation/review.md)
 - [Track 006 — v1 delivery system](archive/006-v1-delivery-system/spec.md) and [review](archive/006-v1-delivery-system/review.md)
-- [Track 018 — Scholarly provenance and reproducibility](tracks/018-scholarly-provenance-reproducibility/spec.md) and [review](tracks/018-scholarly-provenance-reproducibility/review.md)
+- [Track 018 — Scholarly provenance and reproducibility](archive/018-scholarly-provenance-reproducibility/spec.md) and [review](archive/018-scholarly-provenance-reproducibility/review.md)
 
 ## Lifecycle
 

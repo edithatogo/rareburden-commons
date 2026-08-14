@@ -1,5 +1,7 @@
 # Track 009 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; scientific and custodian evidence decisions remain separate.
+
 ## Phase 1 — Information model
 
 - [x] Define parameter, evidence-assessment, assumption and analysis-specification schemas. `[M-03, M-04, M-18]` Evidence: the four JSON Schemas, strict schema collection validation and synthetic fixtures; contracts remain non-binding pending review.
@@ -32,6 +34,12 @@
 - [ ] Close or assign every blocking data-contract issue.
 - [ ] Freeze v0.4 ledger contracts.
 
+## Preparation refresh — 2026-08-02
+
+- [x] Add a negative regression for empty supersession receipts and retain
+  deterministic migration evidence. Evidence: `test_ledger_model.py`; this
+  strengthens the fail-closed contract without activating the ledger.
+
 ## Preparatory repository implementation — 2026-07-31
 
 - [x] Add a transactional append-only reference store for validated ledger
@@ -52,3 +60,10 @@
 
 - [x] Record that Track 009 cannot activate until Tracks 002 and 008 are complete. Evidence: `ebca9a1`.
 - [x] Add non-binding ledger contract v0.1.0 draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the ledger review packet with evidence lanes, freeze decisions,
+  migration requirements and custody boundaries. Evidence:
+  `docs/track-009-ledger-review-packet.md`; upstream source/semantic and
+  external epidemiology/data-governance/engineering review remain open.

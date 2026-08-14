@@ -20,6 +20,7 @@ concurrency:
 
 jobs:
   audit:
+    name: Locked dependency audit
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

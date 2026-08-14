@@ -34,16 +34,24 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
       - name: Install supported Python and locked environment
+        env:
+          MATRIX_PYTHON_VERSION: ${{ matrix.python-version }}
         run: |
-          uv python install "${{ matrix.python-version }}"
-          uv sync --frozen --extra dev --python "${{ matrix.python-version }}"
+          uv python install "$MATRIX_PYTHON_VERSION"
+          uv sync --frozen --extra dev --python "$MATRIX_PYTHON_VERSION"
       - name: Run offline programme and unit checks
-        run: uv run --python "${{ matrix.python-version }}" make check
+        env:
+          MATRIX_PYTHON_VERSION: ${{ matrix.python-version }}
+        run: uv run --python "$MATRIX_PYTHON_VERSION" make check
 
   assurance:
     name: Coverage, reproducibility and distribution assurance
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    permissions:
+      contents: read
+      # Codecov exchanges this short-lived token; no long-lived upload secret is used.
+      id-token: write
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -61,6 +69,12 @@ jobs:
           uv sync --frozen --extra dev --python "3.13"
       - name: Run complete assurance harness
         run: uv run --python "3.13" make ci
+      - name: Upload branch-aware coverage
+        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
+        with:
+          files: coverage.xml
+          fail_ci_if_error: true
+          use_oidc: true
       - name: Build and inspect distributions
         run: uv run --python "3.13" make build package-check installed-package-check sbom
       - name: Upload test and distribution evidence

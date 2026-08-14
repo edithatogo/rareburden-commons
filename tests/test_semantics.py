@@ -12,12 +12,18 @@ from rareburden.semantics import (
     diff_mapping_sets,
     load_hierarchy,
     load_mapping_set,
+    render_mapping_release_markdown,
     validate_hierarchy,
     validate_mapping_set,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
 HIERARCHY_PATH = ROOT / "examples/semantics/rare-within-common-synthetic.yml"
+GOLDEN_HIERARCHIES = (
+    HIERARCHY_PATH,
+    ROOT / "examples/semantics/bronchiectasis-synthetic.yml",
+    ROOT / "examples/semantics/paediatric-burden-synthetic.yml",
+)
 HIERARCHY_SCHEMA = ROOT / "schemas/disease-hierarchy.schema.json"
 MAPPING_PATH = ROOT / "examples/semantics/orpha-to-synthetic-mapping.yml"
 MAPPING_SCHEMA = ROOT / "schemas/ontology-mapping.schema.json"
@@ -35,6 +41,26 @@ def test_synthetic_hierarchy_and_mapping_are_valid_and_stable() -> None:
     assert mapping.fingerprint.startswith("map-")
     assert hierarchy.entity("mody")["preferred_label"].startswith("Maturity-onset")
     assert hierarchy.fingerprint == load_hierarchy(HIERARCHY_PATH, HIERARCHY_SCHEMA).fingerprint
+
+
+def test_mapping_release_markdown_is_deterministic_and_preserves_limitations() -> None:
+    mapping = load_mapping_set(MAPPING_PATH, MAPPING_SCHEMA)
+    rendered = render_mapping_release_markdown(mapping)
+    assert rendered == render_mapping_release_markdown(mapping)
+    assert mapping.fingerprint in rendered
+    assert "not a clinical terminology product" in rendered
+    assert "clinical semantic authority remain required" in rendered
+
+
+@pytest.mark.parametrize("hierarchy_path", GOLDEN_HIERARCHIES)
+def test_golden_demonstrator_hierarchies_validate_and_conserve(hierarchy_path: Path) -> None:
+    hierarchy = load_hierarchy(hierarchy_path, HIERARCHY_SCHEMA)
+    for aggregation in hierarchy.aggregations.values():
+        members = aggregation["member_entity_ids"]
+        counts = {entity_id: float(index + 1) for index, entity_id in enumerate(members)}
+        result = hierarchy.aggregate_counts(aggregation["aggregation_id"], counts)
+        assert result["coverage"] == "complete"
+        assert result["value"] == sum(counts.values())
 
 
 def test_mutually_exclusive_aggregation_is_explicit_and_schema_valid() -> None:
@@ -200,3 +226,19 @@ def test_mapping_set_diff_is_deterministic_and_reports_impact() -> None:
     assert diff["removed_source_codes"]
     assert diff["changed_source_codes"] == ["552"]
     assert diff["impact_summary"] == {"added": 1, "removed": 1, "changed": 1}
+
+
+def test_mapping_diff_binds_both_release_fingerprints() -> None:
+    """A semantic migration receipt must identify both immutable releases."""
+    schema = load_mapping(MAPPING_SCHEMA)
+    previous = validate_mapping_set(load_mapping(MAPPING_PATH), schema)
+    current_document = load_mapping(MAPPING_PATH)
+    current_document["version"] = "0.2.0"
+    current_document["mappings"][0]["rationale"] = "Synthetic migration mutation"
+    current = validate_mapping_set(current_document, schema)
+
+    diff = diff_mapping_sets(previous, current)
+
+    assert diff["previous_fingerprint"] == previous.fingerprint
+    assert diff["current_fingerprint"] == current.fingerprint
+    assert diff["previous_fingerprint"] != diff["current_fingerprint"]

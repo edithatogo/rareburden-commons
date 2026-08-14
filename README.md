@@ -35,6 +35,32 @@ All executable examples are synthetic assurance fixtures. The repository does **
 - [System architecture](docs/design/architecture.md)
 - [Public-data-first protocol](docs/protocols/public-data-foundation.md)
 - [Current handoff status](docs/handoff/implementation-status.md)
+- [Role-based guides](docs/guides/README.md)
+- [Quickstart](docs/guides/quickstart.md)
+- [Synthetic reference workflow tutorial](docs/tutorial-reference-workflow.md)
+- [Documentation quality and correction guidance](docs/documentation-guidance-017.md)
+- [Blocker-resolution plan](docs/blocker-resolution-plan.md)
+- [Remaining gates plan and panel recommendation](docs/remaining-gates-plan.md)
+- [External gate evidence index](docs/external-gate-evidence-index.md)
+- [External gate receipt template](docs/external-gate-receipt-template.yml)
+- [Track 017 external gate register](docs/external-gate-register-017.md)
+- [Track 017 external review request](docs/external-review-request-017.md)
+- [Conductor track review packets](docs/track-review-packets.md)
+- [Subagent review-panel policy](docs/subagent-review-panel-policy.md)
+- [Single-developer review mode](docs/decisions/ADR-0008-single-developer-review-mode.md)
+- [Track 002 external-evidence plan](docs/track-002-external-evidence-plan-2026-08-02.md)
+- [Track 002 source-packet checklist](docs/track-002-source-packet-checklist.yml)
+- [Track 002 panel disposition](docs/track-002-panel-disposition-2026-08-02.md)
+- [Track 002 finding disposition](docs/track-002-finding-disposition-2026-08-02.md)
+- [Track 002 / Track 007 dependency disposition](docs/track-002-track-007-gate-disposition-2026-08-02.md)
+- [Tracks 002/007 closure plan](docs/track-002-007-closure-plan-2026-08-02.md)
+- [Track 002 Option A scope](docs/track-002-option-a-scope.yml)
+- [Track 002 qualifying-evidence sourcing plan](docs/track-002-qualifying-evidence-sourcing-plan-2026-08-02.md)
+- [Track 002 qualifying-evidence request register](docs/track-002-qualifying-evidence-request.yml)
+- [Track review and closeout packets](docs/track-014-atlas-api-review-packet.md),
+  [015 governance](docs/track-015-governance-review-packet.md),
+  [016 operations](docs/track-016-operations-review-packet.md),
+  [017 v1 closeout](docs/track-017-v1-closeout-packet.md)
 
 ### Route to stable v1.0
 

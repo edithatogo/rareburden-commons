@@ -5,7 +5,8 @@
 **Revision:** 2026-08-01
 
 Use this checklist for each candidate. Record the exact commit, environment,
-artefact digests, reviewer and decision in the v1 evidence register. A failed
+artefact digests, reviewer and decision in the external gate register
+(`docs/external-gate-register-017.md`) and linked receipt records. A failed
 or unavailable item blocks the candidate unless the unsupported capability is
 removed from scope.
 

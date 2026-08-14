@@ -14,12 +14,16 @@ concurrency:
 
 jobs:
   build-attest-release:
+    name: Build, attest and publish pre-release
     runs-on: ubuntu-latest
     timeout-minutes: 45
     environment: release
     permissions:
+      # Required to create the GitHub release and upload its assets.
       contents: write
+      # Required to obtain short-lived identity for attestations.
       id-token: write
+      # Required to publish GitHub artifact attestations.
       attestations: write
     steps:
       - name: Check out tagged source
@@ -31,8 +35,7 @@ jobs:
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
         with:
           version: "0.10.0"
-          enable-cache: true
-          cache-dependency-glob: uv.lock
+          enable-cache: false
       - name: Install locked release environment
         run: |
           uv python install "3.13"

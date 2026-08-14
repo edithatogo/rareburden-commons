@@ -1,8 +1,10 @@
 # Track 003 plan
 
+> Repository-owned review uses the subagent panel under ADR-0008; external clinical and patient/community authority remains a separate gate.
+
 ## Phase 1 — Protocol and definitions
 
-- [ ] Draft and register RBC-P002 with explicit estimands and denominator options. `[M-01, M-03, S-05]`
+- [ ] Register RBC-P002 with explicit estimands and denominator options. `[M-01, M-03, S-05]`
 - [ ] Freeze monogenic-diabetes entities, gene/phenotype scope and ontology versions. `[M-02, S-01]`
 - [ ] Define diagnosed, undiagnosed and modelled population states. `[M-04]`
 - [ ] Obtain clinical and patient/community review of framing.
@@ -32,3 +34,12 @@
 
 - [x] Record that Track 003 cannot activate until Tracks 008, 009 and 010 are complete. Evidence: `0cd41f3`.
 - [x] Add non-binding RBC-P002 v0.1.0 protocol draft to the specification; activation and contract freeze remain blocked.
+
+## Preparation refresh — 2026-08-01
+
+- [x] Prepare the RBC-P002 review packet with entity, denominator, state,
+  transportability, outcome and framing decisions. Evidence:
+  `docs/track-003-rbc-p002-review-packet.md`; dependencies and external clinical,
+  methods, governance and patient/community review remain open.
+- [x] Prepare the non-binding RBC-P002 protocol draft with explicit estimand
+  and denominator decision fields; registration and freeze remain open.
