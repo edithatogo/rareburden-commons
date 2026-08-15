@@ -19,7 +19,7 @@
     {"artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "f8e9ed508b241a234534ab05614a2e8e0c01994cd35e773c04cf0034a98fca8e"},
     {"artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json", "sha256": "a12ffd69c9b67e9999b9f6cbf4263387315ac67109cf1c0d6e1af793344bc8f3"},
     {"artifact": "manifests/release/track-017-bounded-exercises-2026-08-16.json", "sha256": "3c2d002426b64483f58a56b3344bf0264a251509d68e0f2c0090b65ed9def4b1"},
-    {"artifact": "manifests/release/track-017-bounded-readiness-2026-08-16.json", "sha256": "ccd4d4786011c8485751cdc8d7139d8176df3ac0cfad9150277b3172a049b36a"}
+    {"artifact": "manifests/release/track-017-bounded-readiness-2026-08-16.json", "sha256": "6dc90dcd031adf0d3ffa1fb60abb64fb7cf185eac9e32de073ea7317dd325110"}
   ],
   "criterion_groups": [
     {"prefix": "V1-PROD", "criteria": ["V1-PROD-01", "V1-PROD-02", "V1-PROD-03", "V1-PROD-04", "V1-PROD-05"], "evidence": ["docs/requirements-traceability.md", "conductor/roadmap.yml"], "release_gate_satisfied": false, "gap": "v1 scope freeze and all critical-track completion remain pending"},
@@ -35,6 +35,6 @@
     {"prefix": "V1-REL", "criteria": ["V1-REL-01", "V1-REL-02", "V1-REL-03"], "evidence": ["manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "manifests/release/track-017-bounded-exercises-2026-08-16.json"], "release_gate_satisfied": false, "gap": "no exact owner stable-release decision or public stable artifacts exist"},
     {"prefix": "V1-SUS", "criteria": ["V1-SUS-01", "V1-SUS-02", "V1-SUS-03", "V1-SUS-04"], "evidence": ["manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "manifests/operations/track-016-bounded-operations-2026-08-16.json"], "release_gate_satisfied": false, "gap": "backup continuity and funded sustainability remain incomplete"}
   ],
-  "pending_release_actions": ["qualifying backup continuity evidence", "exact owner v1 candidate decision", "public stable artifact publication and verification"],
+  "pending_release_actions": ["qualifying backup continuity evidence", "public stable artifact publication and verification"],
   "claims": {"all_v1_criteria_satisfied": false, "stable_release_authorized": false, "backup_continuity_complete": false, "public_stable_artifacts_verified": false, "independent_or_external_approval": false}
 }

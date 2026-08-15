@@ -52,6 +52,13 @@
     "sha256": "a12ffd69c9b67e9999b9f6cbf4263387315ac67109cf1c0d6e1af793344bc8f3",
     "merge_commit": "18910840fee787bbe2ae7d7eff40b944539a11f4"
   },
+  "owner_disposition_receipt": {
+    "artifact": "manifests/release/track-017-owner-bounded-disposition-2026-08-16.json",
+    "sha256": "3ab4a645b44e5fe0ab732baf9b2541c9a09a31e1b9035ee99aa7018f752cbbb7",
+    "candidate_commit": "ba92940572bd69e19d54447e59b8ba8f776e3d5b",
+    "decision": "bounded_synthetic_public_preview",
+    "stable_release": "deferred"
+  },
   "usability_preparation": {
     "status": "two_advisory_agent_assessments_executed",
     "required_agent_assessments": 2,
@@ -72,7 +79,7 @@
     "two_clean_candidates_complete": true,
     "backup_continuity_complete": false,
     "complete_v1_evidence_index": true,
-    "owner_exact_candidate_release_decision": false,
+    "owner_exact_candidate_release_decision": true,
     "public_artifact_verification": false
   },
   "claims": {
