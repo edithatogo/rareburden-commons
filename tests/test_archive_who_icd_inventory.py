@@ -9,7 +9,9 @@ import pytest
 from scripts.archive_who_icd_inventory import (
     ICDClient,
     Observation,
+    _remote_snapshot_complete,
     _retry_delay,
+    _snapshot_fingerprint,
     _trusted_url,
     enumerate_inventory,
 )
@@ -147,3 +149,38 @@ def test_checked_in_who_inventory_is_metadata_only_and_bounded():
         "icd11-icf",
         "icd10",
     }
+
+
+def test_snapshot_fingerprint_is_timestamp_independent_and_content_sensitive():
+    inventory, _ = enumerate_inventory(
+        FakeClient(),  # type: ignore[arg-type]
+        observed_at="2026-08-16T00:00:00+00:00",
+    )
+    later = json.loads(json.dumps(inventory))
+    later["observed_at"] = "2026-08-16T01:00:00+00:00"
+    assert _snapshot_fingerprint(inventory) == _snapshot_fingerprint(later)
+    later["observations"][0]["sha256"] = "0" * 64
+    assert _snapshot_fingerprint(inventory) != _snapshot_fingerprint(later)
+
+
+def test_snapshot_fingerprint_rejects_missing_or_invalid_observations():
+    with pytest.raises(ValueError, match="no observations"):
+        _snapshot_fingerprint({"observations": []})
+    with pytest.raises(ValueError, match="invalid observation"):
+        _snapshot_fingerprint({"observations": ["not-an-object"]})
+
+
+def test_remote_snapshot_reuse_requires_every_exact_observation():
+    inventory, _ = enumerate_inventory(
+        FakeClient(),  # type: ignore[arg-type]
+        observed_at="2026-08-16T00:00:00+00:00",
+    )
+    prefix = "licensed-private/who-icd/legacy"
+    sizes = {
+        f"{prefix}/{index:03d}.json": item["bytes"]
+        for index, item in enumerate(inventory["observations"])
+    }
+    sizes[f"{prefix}/manifest.json"] = 100
+    assert _remote_snapshot_complete(prefix, inventory, sizes)
+    sizes.pop(f"{prefix}/000.json")
+    assert not _remote_snapshot_complete(prefix, inventory, sizes)

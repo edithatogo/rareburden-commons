@@ -322,8 +322,8 @@ def _archive_private(
     observations: list[Observation],
     inventory: dict[str, Any],
     repo_id: str,
-) -> str:
-    from huggingface_hub import HfApi  # type: ignore[import-not-found]
+) -> dict[str, Any]:
+    from huggingface_hub import HfApi, hf_hub_download  # type: ignore[import-not-found]
 
     token = os.environ.get("HF_TOKEN")
     if not token:
@@ -332,16 +332,50 @@ def _archive_private(
     info = api.dataset_info(repo_id, files_metadata=True)
     if not info.private:
         raise RuntimeError("WHO raw observation destination must be private")
-    stamp = str(inventory["observed_at"]).replace(":", "-")
+    fingerprint = _snapshot_fingerprint(inventory)
+    remote_sizes = {item.rfilename: item.size for item in info.siblings}
+    existing_manifests = sorted(
+        item.rfilename
+        for item in info.siblings
+        if item.rfilename.startswith("licensed-private/who-icd/")
+        and item.rfilename.endswith("/manifest.json")
+    )
+    with tempfile.TemporaryDirectory(prefix="rareburden-who-icd-lookup-") as lookup:
+        for existing_path in existing_manifests:
+            local = hf_hub_download(
+                repo_id=repo_id,
+                filename=existing_path,
+                repo_type="dataset",
+                token=token,
+                local_dir=lookup,
+            )
+            try:
+                existing = json.loads(Path(local).read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
+            prefix = existing_path.rsplit("/", 1)[0]
+            if (
+                isinstance(existing, dict)
+                and _snapshot_fingerprint(existing) == fingerprint
+                and _remote_snapshot_complete(prefix, existing, remote_sizes)
+            ):
+                return {
+                    "status": "reused_equivalent_snapshot",
+                    "repository": repo_id,
+                    "repository_revision": info.sha,
+                    "path": prefix,
+                    "snapshot_sha256": fingerprint,
+                }
+    prefix = Path("licensed-private", "who-icd", "by-snapshot", fingerprint)
     expected: dict[str, int] = {}
     with tempfile.TemporaryDirectory(prefix="rareburden-who-icd-") as temporary:
         root = Path(temporary)
         for index, observation in enumerate(observations):
-            path = root / "licensed-private" / "who-icd" / stamp / f"{index:03d}.json"
+            path = root / prefix / f"{index:03d}.json"
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(observation.payload)
             expected[path.relative_to(root).as_posix()] = observation.size
-        manifest = root / "licensed-private" / "who-icd" / stamp / "manifest.json"
+        manifest = root / prefix / "manifest.json"
         manifest.write_text(json.dumps(inventory, indent=2) + "\n", encoding="utf-8")
         expected[manifest.relative_to(root).as_posix()] = manifest.stat().st_size
         commit = api.upload_folder(
@@ -355,7 +389,57 @@ def _archive_private(
     for remote_path, size in expected.items():
         if remote_sizes.get(remote_path) != size:
             raise RuntimeError(f"private WHO archive verification failed for {remote_path}")
-    return str(commit)
+    return {
+        "status": "uploaded_content_addressed_snapshot",
+        "repository": repo_id,
+        "repository_revision": str(commit),
+        "path": prefix.as_posix(),
+        "snapshot_sha256": fingerprint,
+    }
+
+
+def _remote_snapshot_complete(
+    prefix: str, inventory: dict[str, Any], remote_sizes: dict[str, int | None]
+) -> bool:
+    observations = inventory.get("observations")
+    if not isinstance(observations, list):
+        return False
+    for index, observation in enumerate(observations):
+        if not isinstance(observation, dict) or not isinstance(observation.get("bytes"), int):
+            return False
+        if remote_sizes.get(f"{prefix}/{index:03d}.json") != observation["bytes"]:
+            return False
+    return f"{prefix}/manifest.json" in remote_sizes
+
+
+def _snapshot_fingerprint(inventory: dict[str, Any]) -> str:
+    """Hash semantic observation identity while excluding retrieval timestamp."""
+    observations = inventory.get("observations")
+    if not isinstance(observations, list) or not observations:
+        raise ValueError("WHO inventory has no observations to fingerprint")
+    stable_observations = [
+        {
+            key: item.get(key)
+            for key in (
+                "endpoint",
+                "language",
+                "http_status",
+                "bytes",
+                "sha256",
+            )
+        }
+        for item in observations
+        if isinstance(item, dict)
+    ]
+    stable = {
+        "api_version": inventory.get("api_version"),
+        "scope": inventory.get("scope"),
+        "observations": stable_observations,
+    }
+    if len(stable_observations) != len(observations):
+        raise ValueError("WHO inventory contains an invalid observation")
+    payload = json.dumps(stable, sort_keys=True, separators=(",", ":")).encode()
+    return hashlib.sha256(payload).hexdigest()
 
 
 def main() -> int:
@@ -386,7 +470,7 @@ def main() -> int:
     observed_at = datetime.now(UTC).replace(microsecond=0).isoformat()
     inventory, observations = enumerate_inventory(client, observed_at=observed_at)
     if args.private_repo_id:
-        inventory["private_archive_commit"] = _archive_private(
+        inventory["private_archive"] = _archive_private(
             observations=observations,
             inventory=inventory,
             repo_id=args.private_repo_id,
