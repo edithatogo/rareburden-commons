@@ -47,9 +47,14 @@ def _load_family(manifest: Path, release_type: str) -> list[dict[str, Any]]:
             "downloadUrl",
             "releaseType",
             "product",
-            "current",
         }
-        if not isinstance(release, dict) or set(release) != required:
+        allowed = required | {"current"}
+        if (
+            not isinstance(release, dict)
+            or not required.issubset(release)
+            or not set(release).issubset(allowed)
+            or ("current" in release and not isinstance(release["current"], bool))
+        ):
             raise ValueError(f"release {index} has an unexpected shape")
         for field in ("fileName", "releaseVersion"):
             if not _SAFE_COMPONENT.fullmatch(str(release[field])):
