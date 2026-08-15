@@ -396,12 +396,18 @@ scientific and data-governance gates remain separate and pending.
   `scripts/discover_public_archive_frontier.py`. No payload bytes were fetched;
   Orphanet media exposed images only and ClinVar remains metadata-only.
 - [x] Add a cursor-bounded MONDO CC BY 4.0 materialization workflow for the
-  observed 1,916 assets (128.4 GB), with a 500 MB run ceiling, exact remote LFS
-  SHA-256 reuse verification and ephemeral cleanup; keep full frontier
+  observed 1,916 assets (128.4 GB), with a 500 MB run ceiling, exact remote
+  SHA-256 reuse verification for LFS and ordinary Git blobs, and ephemeral cleanup; keep full frontier
   materialization open until every receipt exists. Evidence:
   `.github/workflows/archive-mondo-release-batch.yml`,
   `scripts/archive_mondo_release_batch.py` and
   `docs/track-002-mondo-clinvar-materialization-2026-08-16.md`.
+- [x] Prove one post-canary hosted batch, record its exact receipt and commit a
+  resumable next cursor at release index 1 / asset index 3. Evidence: hosted run
+  `31900342354` and
+  `manifests/classifications/mondo-archive-cursor-2026-08-16.json`. The cursor
+  records only three observed archived assets and makes no frontier-completion
+  claim.
 - [x] Recursively enumerate 50 bounded official ClinVar directory observations
   and 6,410 metadata/checksum routes at depth two, retaining a six-directory
   continuation queue and metadata-only rights posture. Evidence:
