@@ -1,0 +1,38 @@
+name: sequential current UTS release set to Hugging Face
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-licensed-uts-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    name: Archive every current family sequentially
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Archive missing current releases
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          UMLS_API_KEY: ${{ secrets.UMLS_API_KEY }}
+        run: |
+          python3 scripts/archive_uts_current_set.py \
+            manifests/uts/all-release-families-2026-08-15.json \
+            --max-bytes-per-family 8000000000 \
+            --receipt uts-current-set-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: uts-current-set-receipt
+          path: uts-current-set-receipt.json
+          if-no-files-found: error
+          retention-days: 30
