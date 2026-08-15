@@ -236,9 +236,12 @@ reproduce, extract, download, copy and distribute covered datasets. They exclude
 credited third-party material, require WHO and underlying-country attribution,
 restrict non-minimal modification without written authorization and require a
 withdrawal capability. The exact GHE workbook has no embedded file-level
-licence or field-level third-party credit register, so its raw Hugging Face
-upload and redistribution remain withheld. Full evidence and fail-closed rules
-are in `docs/track-002-wpp-who-terms-audit-2026-08-15.yml`.
+licence or field-level third-party credit register. The owner-authorized exact,
+unmodified copy is now preserved in the private Hugging Face archive at commit
+`2f1014860cda849d86c895f722ef18c8d96b359b`; public redistribution,
+non-minimal modification and derived-field activation remain withheld. Full
+evidence and fail-closed rules are in
+`docs/track-002-wpp-who-terms-audit-2026-08-15.yml`.
 
 External scientific and data-governance dispositions remain pending for both
 sources, and neither terms observation authorizes production activation.
@@ -249,11 +252,40 @@ The exact bounded source observations, candidate file selection and private
 archive dispositions are now reconciled across the activation matrix and
 Track 002 plan. Orphadata and WPP raw bytes are recorded as privately archived
 under their observed Creative Commons terms but excluded from the bounded
-candidate. WHO remains hash/metadata-only in the private archive manifest.
-Every row remains non-active.
+candidate. WHO is privately preserved under its unmodified-copy and withdrawal
+conditions; the bounded World Bank response is retained as probe-only. MONDO
+`v2026-08-04` is pinned and all three canonical artifacts were verified against
+publisher digests and privately archived at commit
+`d5fcd47d39efe9cda57428caf0bcb4cc15c8c991`. Every estimand row remains
+non-active.
 
 The remaining unchecked work is not source discovery or repository control
 implementation: it requires qualifying scientific and custodian receipts, a
 real changed/unavailable-source exercise where such a condition is observed,
 Track 007 gate satisfaction and an exact-candidate release decision. This
 reconciliation does not satisfy or waive any of those gates.
+
+### Aggressive lawful archive decision matrix — 2026-08-15
+
+`docs/source-archive-decision-matrix-2026-08-15.yml` now assigns each current
+and planned source to a public-raw candidate, private-raw, metadata/hash-only,
+derived-only or controlled-environment-only route. GitHub remains the canonical
+code, governance and manifest surface; the private Hugging Face repository is
+the raw preservation surface; and the public dataset-estate registry contains
+metadata only. No raw public mirror was created by this work.
+
+The matrix makes the critical boundary explicit: permissively licensed files
+may be packaged for a later exact public release decision, ambiguous or
+third-party-bearing files remain private or metadata-only, and controlled
+All of Us or Genomics England Research Environment data must never be exported
+to either GitHub or Hugging Face.
+
+The archive now additionally contains the exact ClinVar 2026-08 monthly
+`variant_summary` snapshot, seven digest-verified HPO `v2026-06-23` core
+artifacts, and a complete five-page PanelApp listing with 433 panel/version
+rows. ClinVar remains non-diagnostic; HPO remains private until its embedded
+terms route yields an exact accessible record; and PanelApp remains private,
+non-commercial and non-diagnostic under its mixed third-party terms. The
+PanelApp listing is complete, but the per-version detail capture is explicitly
+incomplete after HTTP 429 (129 of 433 observed) and is not represented as a
+complete snapshot.

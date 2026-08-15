@@ -16,6 +16,15 @@ def test_archival_policy_is_maximal_but_fail_closed() -> None:
         "private_huggingface_archive"
     )
     assert "preserve_attribution" in records["un-world-population-prospects"]["conditions"]
-    assert records["who-global-health-estimates"]["raw_upload_target"] is None
-    assert records["world-bank-indicators-api"]["raw_upload_target"] is None
+    assert records["who-global-health-estimates"]["raw_upload_target"] == (
+        "private_huggingface_archive"
+    )
+    assert records["world-bank-indicators-api"]["raw_upload_target"] == (
+        "private_huggingface_archive"
+    )
+    assert records["mondo-disease-ontology"]["raw_upload_target"] == ("private_huggingface_archive")
+    assert records["ncbi-clinvar"]["raw_upload_target"] == ("private_huggingface_archive")
+    assert records["human-phenotype-ontology"]["raw_upload_target"] == (
+        "private_huggingface_archive"
+    )
     assert "private hosting is still a copy and third-party transfer" in policy["stop_rules"]
