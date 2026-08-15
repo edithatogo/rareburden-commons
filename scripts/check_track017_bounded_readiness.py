@@ -78,6 +78,21 @@ def validate_readiness(manifest: dict[str, Any], root: Path) -> dict[str, Any]:
     else:
         raise ReleaseReadinessError("Track 016 dependency status is invalid")
 
+    owner_receipt = manifest.get("owner_disposition_receipt", {})
+    owner_relative = Path(str(owner_receipt.get("artifact", "")))
+    if (
+        owner_relative.is_absolute()
+        or ".." in owner_relative.parts
+        or not (root / owner_relative).is_file()
+        or _sha256(root / owner_relative) != owner_receipt.get("sha256")
+    ):
+        raise ReleaseReadinessError("owner disposition receipt hash mismatch")
+    if (
+        owner_receipt.get("decision") != "bounded_synthetic_public_preview"
+        or owner_receipt.get("stable_release") != "deferred"
+    ):
+        raise ReleaseReadinessError("owner disposition must remain bounded and stable-deferred")
+
     unsafe_claims = sorted(
         key for key, value in manifest.get("claims", {}).items() if value is not False
     )
@@ -92,6 +107,7 @@ def validate_readiness(manifest: dict[str, Any], root: Path) -> dict[str, Any]:
         "owner_reproduction_complete",
         "two_clean_candidates_complete",
         "complete_v1_evidence_index",
+        "owner_exact_candidate_release_decision",
     }
     if {key for key, value in gates.items() if value is True} != expected_true_gates:
         raise ReleaseReadinessError("only executed repository-evidence gates may be true")

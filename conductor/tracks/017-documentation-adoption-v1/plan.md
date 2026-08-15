@@ -46,7 +46,12 @@ owner-operated reproduction gates.
 - [ ] Remove unsupported capabilities or close remaining gaps.
 - [ ] Complete agent-panel methods, community/harm, rights/data-use,
   engineering, security and programme recommendations and owner disposition.
-- [ ] Record final release, bounded exclusion, revise or stop decision.
+- [x] Record an exact-candidate bounded synthetic/public-preview owner decision
+  with stable release deferred. Evidence: immutable issue #16 comment
+  `5303792002` and
+  `manifests/release/track-017-owner-bounded-disposition-2026-08-16.json`.
+- [ ] Record a later stable release, revise or stop decision only for its exact
+  candidate; the current owner decision does not authorize stable release.
 
 ## Phase 5 — Publish and verify
 
@@ -103,8 +108,8 @@ owner-operated reproduction gates.
   `manifests/release/v1-evidence-index-2026-08-16.json`,
   `scripts/check_v1_evidence_index.py` and `tests/test_v1_evidence_index.py`.
 - [ ] Complete the remaining accountable release gates: qualifying backup
-  continuity, exact-candidate owner release decision, and post-decision public
-  stable-artifact verification.
+  continuity and public stable-artifact publication/verification after a
+  separate stable-release decision.
 - [ ] Verify public artefacts only after a release-authority decision.
 
 ## Bounded readiness reconciliation — 2026-08-16
