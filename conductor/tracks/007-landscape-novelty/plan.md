@@ -73,6 +73,32 @@
   three GitHub pairs remain separate repository records with initiative-level
   equivalence explicitly unresolved.
 
+## Substantive evidence continuation — 2026-08-16
+
+- [x] Reconcile all 306 bounded live-capture occurrences by exact provider
+  identifier. Evidence: `docs/track-007-live-reconciliation-2026-08-16.json`
+  records 215 unique identifiers, 91 exact duplicate occurrences, 71 exact
+  frozen-snapshot matches and 144 live-only identifiers.
+- [x] Observe every live-only identifier through its current public record
+  endpoint with rate limiting, retaining response hashes and minimal metadata
+  but no descriptions, abstracts, bodies or full text. Evidence:
+  `docs/track-007-live-metadata-observations-2026-08-16.json` records 51
+  candidates for content assessment and 93 uncertain metadata signals; none is
+  excluded.
+- [x] Apply the closed-vocabulary public-description rule to the frozen 69
+  records. Evidence: `docs/track-007-public-metadata-resolutions-2026-08-16.json`
+  and `docs/track-007-fulltext-eligibility-2026-08-16.json` record 35 bounded
+  metadata-supported includes, 26 pending content assessments and 8 pending
+  lawful-access cases, with zero new exclusions.
+- [ ] Resolve the remaining 26 reachable frozen records only when sufficient
+  lawful public content evidence is available; title-only or ambiguous evidence
+  remains pending.
+- [ ] Resolve the 8 restricted frozen records through a lawful access route or
+  an adequate public alternative; restriction is never exclusion evidence.
+- [ ] Complete content assessment for the 51 live-only candidates and resolve
+  the 93 ambiguous live-only metadata observations without inferring exclusion,
+  absence, coverage or novelty from missing evidence.
+
 ## Review fixes — 2026-08-15 title clusters
 
 - [x] Distinguish hashes of temporary `gh api` observation bytes from hashes of
