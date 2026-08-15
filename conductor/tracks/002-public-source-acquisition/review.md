@@ -3,6 +3,25 @@
 **Review date:** 2026-07-27  
 **Decision:** Internal implementation passes for autonomous handoff; production/live-source approval remains open
 
+## Private archive capacity decision review — 2026-08-16
+
+The storage decision packet binds the exact failed Hugging Face quota receipt,
+the manifest-derived 2,432-artifact historical backlog and the only observed
+historical byte total (2,233,759,449 bytes for five MRCONSO artifacts). It does
+not extrapolate that family to a total byte or cost estimate. The comparison
+records provider-pricing observations as dated and volatile, includes storage,
+request, retrieval, egress, migration, security, retention and withdrawal
+tradeoffs, and authorizes no purchase, bucket creation, upload or redownload.
+
+Review disposition: **pass for repository decision preparation**. Option C
+(metadata/hash-only pause) remains the enforced immediate state. Option A
+(bounded Hugging Face capacity increase) is recommended only after an exact
+quote and owner cost cap; Option B (private S3-compatible storage) is a
+conditional fallback when exact security, region, retention or price needs
+justify migration. Every resumption path remains blocked behind the checklist,
+dated expiring capacity evidence and a one-artifact canary. This review does not
+restore capacity or complete the licensed historical archive.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The full project gate
