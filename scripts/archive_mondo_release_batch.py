@@ -26,9 +26,47 @@ def resolve_cursor(release_index: int | None, asset_start: int | None) -> tuple[
     if release_index is not None and asset_start is not None:
         return release_index, asset_start
     cursor = json.loads(CURSOR.read_text(encoding="utf-8"))
-    if cursor["status"] != "bounded_resumable_cursor":
-        raise ValueError("MONDO archive cursor is not active")
+    validate_cursor(cursor)
     return int(cursor["next"]["release_index"]), int(cursor["next"]["asset_index"])
+
+
+def validate_cursor(cursor: dict[str, Any]) -> None:
+    """Reconcile the committed cursor with reviewed hosted receipt metadata."""
+    if cursor.get("status") != "bounded_resumable_cursor":
+        raise ValueError("MONDO archive cursor is not active")
+    if any(cursor.get("claims", {}).values()):
+        raise ValueError("MONDO cursor completeness claims must remain false")
+    assets = cursor.get("observed_archived_assets")
+    if not isinstance(assets, list) or not assets:
+        raise ValueError("MONDO cursor requires observed archived assets")
+    coordinates = [(item.get("release_index"), item.get("asset_index")) for item in assets]
+    if coordinates != [(1, index) for index in range(7)]:
+        raise ValueError("MONDO archived asset coordinates must be contiguous through asset 6")
+    if len({item.get("sha256") for item in assets}) != len(assets):
+        raise ValueError("MONDO archived asset digests must be unique")
+    receipts = cursor.get("hosted_receipts")
+    if not isinstance(receipts, list) or [item.get("asset_index") for item in receipts] != list(
+        range(3, 7)
+    ):
+        raise ValueError("MONDO hosted receipts must bind asset indices 3 through 6")
+    for item in receipts:
+        if not all(
+            isinstance(item.get(field), str) and len(item[field]) == length
+            for field, length in (
+                ("head_sha", 40),
+                ("receipt_sha256", 64),
+                ("artifact_digest_sha256", 64),
+            )
+        ):
+            raise ValueError("MONDO hosted receipt hashes are incomplete")
+    last = cursor.get("last_successful_run", {})
+    if (
+        last.get("run_id") != receipts[-1].get("run_id")
+        or last.get("head_sha") != receipts[-1].get("head_sha")
+        or last.get("receipt_sha256") != receipts[-1].get("receipt_sha256")
+        or cursor.get("next") != {"release_index": 1, "asset_index": 7}
+    ):
+        raise ValueError("MONDO next cursor does not follow the last hosted receipt")
 
 
 def mondo_releases(document: dict[str, Any]) -> list[dict[str, Any]]:

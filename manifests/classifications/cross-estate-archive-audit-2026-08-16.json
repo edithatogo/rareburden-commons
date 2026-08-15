@@ -9,6 +9,16 @@
     "private_licensed": "huggingface:edithatogo/hpo-licensed-ontology-archive",
     "project_metadata": "github:edithatogo/rareburden-commons"
   },
+  "archive_counts": {
+    "explicitly_counted_public_assets": 492,
+    "components": {
+      "hpo": 320,
+      "orphacode": 71,
+      "orphadata": 94,
+      "mondo": 7
+    },
+    "limitation": "Sum of explicitly reported archive asset/file/pack counts only; excludes uncounted and private objects and is not a completeness claim."
+  },
   "families": [
     {
       "id": "who-icd",
@@ -112,7 +122,7 @@
     {
       "id": "mondo",
       "evidence": "manifests/classifications/public-history-frontier-2026-08-16.json",
-      "observed": "120 releases across two official GitHub Releases API pages to the observed frontier; v2026-08-04 has three digest-pinned archived assets",
+      "observed": "120 releases across two official GitHub Releases API pages to the observed frontier; seven digest-pinned assets across v2026-08-04 and v2026-07-06 are archived (726,797,932 bytes)",
       "bytes_state": "existing_public_archive",
       "public_route": "existing_public_archive",
       "private_route": "existing_private_archive",
@@ -146,5 +156,5 @@
     "licensed_bytes_public": false,
     "duplication_eliminated_retroactively": false
   },
-  "audit_sha256": "a38562ef9b7a2d34fe05225615608719070956a3b3611fc525272f3f9d05c5ae"
+  "audit_sha256": "ccc5c8bc80586f5022e5dbda07e0d637397b277b671fdf91717e16d033e94b2d"
 }

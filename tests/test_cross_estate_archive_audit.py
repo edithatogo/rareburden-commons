@@ -22,6 +22,10 @@ def test_cross_estate_audit_covers_requested_scope_and_is_deterministic() -> Non
     assert len(first["audit_sha256"]) == 64
     assert all(len(record["evidence_sha256"]) == 64 for record in first["families"])
     assert not any(first["claims"].values())
+    assert first["archive_counts"]["explicitly_counted_public_assets"] == 492
+    assert sum(first["archive_counts"]["components"].values()) == 492
+    mondo = next(record for record in first["families"] if record["id"] == "mondo")
+    assert "seven digest-pinned assets" in mondo["observed"]
 
 
 def test_cross_estate_audit_keeps_licensed_families_metadata_only() -> None:
@@ -52,6 +56,11 @@ def test_cross_estate_audit_rejects_scope_and_claim_inflation() -> None:
     inflated["claims"]["all_versions_complete"] = True
     with pytest.raises(ValueError, match="claims must remain false"):
         render_audit(inflated, ROOT)
+
+    drifted_count = _document()
+    drifted_count["archive_counts"]["components"]["mondo"] = 1916
+    with pytest.raises(ValueError, match="count components"):
+        render_audit(drifted_count, ROOT)
 
 
 def test_cross_estate_audit_rejects_missing_evidence() -> None:
