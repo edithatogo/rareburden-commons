@@ -1,0 +1,76 @@
+schema_version: '1.0.0'
+task_id: RBC-LAND-007-AGENT-CHALLENGE-2026-08-16
+track: 007-landscape-novelty
+assurance: advisory_role_separated_agent_challenge
+candidate:
+  branch: track/007-closeout-20260816
+  minimum_commit: 524eeea
+  repository_registration:
+    path: docs/track-007-repository-registration-2026-08-16.yml
+    sha256: c9fffd556859e5569eab3c32cd460519da7710a0535ea15f8d3701132ef5f89a
+  protocol:
+    path: docs/track-007-protocol-v0.2.0.md
+    sha256: b83e9d9e64b7157f9319c15ec63cde29967646f34eb09cf447571866f0a1dc00
+  synthesis:
+    path: docs/track-007-bounded-evidence-synthesis-2026-08-16.md
+    sha256: 56e1f171272578a5a4966abdc208698351add66fe1614a3b1b9885cf216d33ab
+roles:
+- role_id: methods_coverage_challenger
+  remit:
+  - query and index fitness
+  - eligibility, deduplication and count reconciliation
+  - ranking, pagination, language, geography and temporal bias
+  - falsifiability and novelty claim boundaries
+  questions:
+  - Are the frozen sources and queries reconstructable from the bound evidence?
+  - Does any endpoint observation get overstated as ecosystem coverage or absence?
+  - Can the bounded adjacency conclusion survive the unresolved content-level eligibility state?
+  - What exact claim revisions or further evidence are required?
+- role_id: community_harm_equity_challenger
+  remit:
+  - non-stigmatising and accessible language
+  - regional, non-English and community-led work undercapture
+  - acceptable use, equity and erasure risks
+  - implied ownership, endorsement, partnership or authority
+  questions:
+  - Could the gap framing erase or devalue community-led or non-indexed work?
+  - Are uncertainty and coverage limitations prominent enough for public readers?
+  - Do initiative categories or relationship labels create a harm or endorsement risk?
+  - What exact framing revisions or stop triggers are required?
+- role_id: adversarial_claim_auditor
+  remit:
+  - trace each material synthesis statement to bound evidence
+  - identify contradictions, missing evidence and self-confirming logic
+  - enforce the ADR-0009 assurance boundary
+  - test proceed, narrow, revise, defer and stop alternatives
+  questions:
+  - Does the evidence support proceed_with_narrowed_scope rather than defer or stop?
+  - Are any findings incorrectly described as independent, human, community or external approval?
+  - Are unresolved findings and prohibited claims fail-closed?
+required_output:
+  per_role:
+  - role_id
+  - evidence_checked
+  - findings_with_severity
+  - uncertainties
+  - required_revisions
+  - stop_triggers
+  - recommendation
+  panel:
+  - composition
+  - exact_input_hashes
+  - consensus_and_dissent
+  - unresolved_findings
+  - recommendation
+allowed_recommendations:
+- accept
+- narrow
+- revise
+- defer
+- stop
+prohibited_actions:
+- claim independent, human, patient, community, institutional or external review
+- infer registration, partnership, endorsement, access, completeness or novelty
+- alter publisher rights or third-party facts
+- change the frozen evidence files during review
+owner_boundary: panel_advises_repository_owner_records_disposition

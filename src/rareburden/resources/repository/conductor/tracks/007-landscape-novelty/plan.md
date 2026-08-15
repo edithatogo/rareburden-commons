@@ -5,9 +5,19 @@
 ## Phase 1 — Register the review
 
 - [x] Define provisional questions, inclusion logic, sources and extraction fields.
-- [ ] Freeze and hash-register the protocol and complete search strategy in the repository; external registry submission is optional.
+- [x] Freeze and hash-register the protocol and complete search strategy in the
+  repository; external registry submission is optional. Evidence:
+  `docs/track-007-protocol-v0.2.0.md` and
+  `docs/track-007-repository-registration-2026-08-16.yml` bind the protocol and
+  evidence by SHA-256 and Git blob identifier; OSF is deferred and removed from
+  the active plan.
 - [x] Define initiative, dataset, software, standard, mandate and methodological-precedent fields.
-- [ ] Convene community/harm and methods agents and record the owner disposition.
+- [x] Obtain role-separated methods/coverage, community/harm,
+  governance/rights/reproducibility and scientific/search-reproducibility agent
+  findings bound to the repository registration. Evidence:
+  `docs/track-007-agent-panel-findings-2026-08-16.yml`. The advisory consensus
+  is `narrow_and_remediate`; agent advice is not independent, human or
+  constituted-community approval.
 
 ## Phase 2 — Search and screen
 
@@ -86,7 +96,9 @@
 ## Phase 4 — Decide and publish
 
 - [x] Draft the adjacency matrix and provisional landscape report.
-- [ ] Obtain methods and community/harm agent-panel challenge and revise claims through owner disposition.
+- [ ] Record the repository-owner `accept`, `narrow`, `revise`, `defer` or
+  `stop` disposition against the exact panel input and findings, including
+  claim revisions, unresolved findings and stop triggers.
 - [x] Record the provisional `proceed_with_narrowed_scope` decision.
 - [x] Update the roadmap and programme framing to avoid duplicating registries, ontologies or genomic platforms.
 
@@ -134,9 +146,10 @@
 
 - [x] Add the dependency-ordered closure plan shared with Track 002 in
   `docs/track-002-007-closure-plan-2026-08-02.md`.
-- [ ] Obtain repository hash-registration, agent methods challenge and
-  community/harm interpretation plus owner disposition; until then retain provisional landscape
-  claims and `in_review` status.
+- [x] Consolidate the duplicated closure wording into the canonical Phase 1
+  agent-challenge task and Phase 4 owner-disposition task. Repository
+  hash-registration is complete; until the two canonical tasks close, retain
+  provisional landscape claims and `in_review` status.
 
 ## Pagination screening-metadata contract — 2026-08-15
 
@@ -156,10 +169,11 @@
   questions, receipt fields and stop triggers. Evidence:
   `docs/track-007-registration-challenge-readiness-2026-08-04.yml` and
   `tests/test_track_007_readiness.py`.
-- [ ] Record the frozen protocol hash and immutable repository locator; an
-  external registry identifier is optional supplementary evidence.
-- [ ] Obtain role-separated methods and community/harm agent challenges and an
-  accountable owner disposition.
+- [x] Record the frozen protocol hash and immutable repository locator; an
+  external registry identifier is optional supplementary evidence. Evidence:
+  `docs/track-007-repository-registration-2026-08-16.yml`.
+- [x] Route challenge and disposition through the canonical Phase 1 and Phase 4
+  tasks instead of maintaining a second checklist gate.
 
 ## Panel closure planning — 2026-08-02
 
@@ -172,5 +186,6 @@
   `tests/test_track_007_staged_plan.py`; external gates remain pending.
 - [x] Prepare a schema-valid synthetic Track 007 panel packet with pending
   registration and challenge receipts in `examples/fixtures/track-007-panel-packet-synthetic.json`.
-- [ ] Obtain repository hash-registration, methods/community agent challenge
-  and owner disposition after panel preparation.
+- [x] Route repository registration, agent challenge and owner disposition
+  through the canonical Phase 1 and Phase 4 tasks; do not duplicate their
+  lifecycle state in this historical planning section.

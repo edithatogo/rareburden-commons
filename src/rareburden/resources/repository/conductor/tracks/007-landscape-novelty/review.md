@@ -1,7 +1,70 @@
 # Track 007 internal review — Landscape, adjacency and novelty
 
-**Review date:** 2026-07-27  
-**Decision:** Proceed with narrowed scope, subject to registered review and external challenge
+**Review date:** 2026-07-27; current closeout review 2026-08-16
+
+**Current decision:** In review. The protocol is repository hash-registered.
+Role-separated agent challenge and repository-owner disposition remain pending.
+External registry submission is optional, and OSF is deferred.
+
+## Current closeout evidence — 2026-08-16
+
+`docs/track-007-protocol-v0.2.0.md` freezes the review question, active search
+surface, five query families, eligibility, deduplication, count reconciliation,
+coverage limits, challenge rules and stop triggers. The content-addressed
+registration in `docs/track-007-repository-registration-2026-08-16.yml` binds
+the protocol and its evidence inputs by SHA-256 and Git blob identifier.
+
+`docs/track-007-bounded-evidence-synthesis-2026-08-16.md` reconciles the frozen
+first-page screen, locator workflow and separate live pagination exercise. It
+keeps all content-level decisions, broader coverage, representativeness and
+novelty claims fail-closed. `docs/track-007-agent-challenge-task-2026-08-16.yml`
+defines the exact input hashes, role remits, required findings and assurance
+boundary for the remaining advisory challenge.
+
+The dated sections below preserve the historical evidence state at the time
+they were written. Their former external or additional-person gate wording is
+superseded prospectively by ADR-0009; historical observations are not rewritten.
+
+### Methods and coverage challenge — 2026-08-16
+
+The role-separated methods and coverage challenger verified every input hash
+and Git blob binding, then recommended **narrow**. The full advisory findings
+are recorded in `docs/track-007-agent-panel-findings-2026-08-16.yml`.
+
+Three High findings remain: all 69 retained records lack final content-level
+eligibility decisions; the separate 306-occurrence live capture is unscreened
+and unreconciled; and scholarly coverage is limited to ranked Crossref first
+pages without executable pagination or database-specific bibliographic
+searches. Medium findings limit deduplication to the frozen snapshot, identify
+English and ranking bias, distinguish capture-mechanics reproducibility from
+exact response reproduction, and require institutional records to be labelled
+as curated seeds.
+
+The exact `133 occurrences -> 120 unique -> 69 retained / 51 excluded` snapshot
+counts remain valid. They do not satisfy the original broad landscape scope.
+The community/harm challenger also recommended **narrow and revise framing**.
+Every gap or niche statement must be bounded to the indexed English-language
+public evidence sampled; the 13 catalogue records are owner-curated examples,
+not a global inventory; inaccessible evidence is `not_assessable`, not absent
+or irrelevant; and no patient/community legitimacy or approval exists. Public
+framing must state that burden measurement does not value lives, rank
+conditions or justify rationing, and must preserve lived-impact, equity and
+accessibility limitations.
+
+The governance/rights/reproducibility and additional
+scientific/search-reproducibility challenges confirmed the narrow direction and
+required provider-terms, exact-candidate, retrospective-protocol, correction
+and withdrawal controls. Those repository remediations are recorded in:
+
+- `docs/track-007-provider-terms-matrix-2026-08-16.yml`;
+- `docs/track-007-correction-withdrawal-map-2026-08-16.yml`;
+- `docs/track-007-bounded-framing-addendum-2026-08-16.md`; and
+- `docs/track-007-owner-disposition-ready-2026-08-16.yml`.
+
+All challenge roles are complete and the panel consensus is **narrow and
+remediate**. The exact-candidate repository-owner disposition remains pending,
+so the track stays **In review** and the original publication-ready landscape
+acceptance is not claimed.
 
 ### Review rerun — 2026-07-29
 
