@@ -25,6 +25,9 @@ patient/community gates are complete.
   the semantic/ledger contracts.
 - Existing burden-engine structural-scenario and fail-closed compatibility
   tests; no empirical aetiology claims.
+- Exact Track 008–010 synthetic dependency hashes and a bounded receipt that
+  keeps multi-aetiology, unknown and unaccounted quantities visible. This is
+  repository assurance and supplies no empirical respiratory evidence.
 
 ## Required closure packet
 
