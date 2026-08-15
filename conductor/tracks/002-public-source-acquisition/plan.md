@@ -370,6 +370,14 @@ scientific and data-governance gates remain separate and pending.
   `scripts/render_cross_estate_archive_audit.py` and focused tests. Existing
   remote paths are referenced rather than duplicated; no licensed bytes are
   downloaded or published.
+- [x] Enumerate a bounded official history/product slice for ORPHAcode,
+  Orphadata, MONDO and ClinVar; reconcile the two current Orphanet surfaces
+  against existing Hugging Face receipts, keep ClinVar metadata-only, and add
+  deterministic, rate-limited automation with explicit no-completeness claims.
+  Evidence: `manifests/classifications/public-history-products-2026-08-16.json`,
+  `docs/track-002-public-history-products-2026-08-16.md`,
+  `scripts/discover_public_archive_history.py` and
+  `.github/workflows/discover-public-archive-history.yml`.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
