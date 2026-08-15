@@ -291,6 +291,16 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Materialize the complete WHO digital release matrix by classification,
   release, language and available artifact; publish unchanged bytes only where
   exact terms permit and otherwise retain private bytes or metadata only.
+- [x] Materialize the authenticated WHO ICD API subset as a rate-limited,
+  fail-closed Foundation/ICD-11 MMS/ICF/ICD-10 release and language inventory;
+  retain raw top-level observations privately and expose only hashes and
+  metadata publicly. Evidence:
+  `manifests/classifications/who-icd-api-inventory-2026-08-16.json`,
+  `docs/track-002-who-icd-api-archive-2026-08-16.md`,
+  `scripts/archive_who_icd_inventory.py` and
+  `.github/workflows/archive-who-icd-inventory-to-huggingface.yml`. ICHI,
+  derived/related classifications, historical ICD and national editions remain
+  explicit separate gaps.
 - [ ] Build the country-authority ledger for every discoverable ICD national
   modification and SNOMED CT national edition; preserve each native release
   independently of its possible UMLS representation.
