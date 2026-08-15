@@ -1,6 +1,9 @@
-# Track 016 retention and access policy (draft)
+# Track 016 bounded retention and access policy
 
-This repository-owned draft applies to synthetic operational exercises and
+**Status:** operative for repository-owned synthetic/public preparation only;
+production and controlled-data retention remain unauthorized.
+
+This repository-owned policy applies to synthetic operational exercises and
 offline release evidence. It does not authorise collection of participant,
 controlled, credential or custodian-restricted data.
 
@@ -21,6 +24,8 @@ Controls:
 - a custodian's stricter policy overrides this draft;
 - a named operational owner must approve any production retention exception.
 
-This is a proposed control boundary. It becomes operative only after security,
-data-governance and named-owner acceptance are recorded in the Track 016 review
-packet.
+The repository owner accepts this boundary for the bounded candidate. It does
+not apply to production, hosted-service, participant-level, custodian-controlled
+or controlled-data records. Those uses require a new exact-candidate policy and
+authority disposition. The private backup-owner handoff remains incomplete and
+cannot be inferred from this policy.
