@@ -8,6 +8,7 @@ import hashlib
 import json
 import os
 import tempfile
+import time
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -67,6 +68,7 @@ def archive_batch(
     max_bytes: int,
 ) -> list[dict[str, Any]]:
     from huggingface_hub import HfApi
+    from huggingface_hub.errors import HfHubHTTPError
 
     items = _load_manifest(manifest)[start : start + count]
     if sum(int(item["bytes"]) for item in items) > max_bytes:
@@ -89,12 +91,23 @@ def archive_batch(
             digest = _download(item, local)
             observed.append((index, item, digest))
 
-        commit = api.upload_folder(
-            folder_path=root,
-            repo_id=repo_id,
-            repo_type="dataset",
-            commit_message=f"Archive verified batch {start}:{start + len(items)}",
-        )
+        for attempt in range(12):
+            try:
+                commit = api.upload_folder(
+                    folder_path=root,
+                    repo_id=repo_id,
+                    repo_type="dataset",
+                    commit_message=f"Archive verified batch {start}:{start + len(items)}",
+                )
+                break
+            except HfHubHTTPError as error:
+                if error.response.status_code != 429 or attempt == 11:
+                    raise
+                retry_after = error.response.headers.get("Retry-After")
+                delay = int(retry_after) if retry_after and retry_after.isdigit() else 300
+                time.sleep(min(max(delay, 30), 900))
+        else:  # pragma: no cover - the final attempt either succeeds or raises
+            raise RuntimeError("archive upload retry loop exhausted")
         remote = api.dataset_info(repo_id, files_metadata=True)
         remote_files = {entry.rfilename: entry.size for entry in remote.siblings}
         for index, item, digest in observed:
