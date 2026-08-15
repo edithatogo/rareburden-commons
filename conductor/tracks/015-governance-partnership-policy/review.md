@@ -41,8 +41,8 @@ to independent or external authority, confirmation of unsupported
 relationships, governance overclaims, evidence drift and premature Track 014
 binding.
 
-Disposition: **pass for preparation; hold integration** until the exact merged
-Track 014 bounded release surface is hash-bound and the full gate is rerun.
+Disposition: **pass for bounded repository controls** after the exact Track 014
+merge and bounded release surface were hash-bound and the full gate was rerun.
 This work does not constitute governance bodies, community or Indigenous
 authority, remuneration, partnership, custodian approval, institutional
 hosting, global representativeness, production activation or stable release.

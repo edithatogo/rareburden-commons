@@ -46,6 +46,14 @@ bound.
 
 ## Remaining work
 
+Hosted run `31900342354` archived and remotely verified asset indices 1-2 for
+release index 1. Its receipt SHA-256 is
+`222051e2b36000a0af741784afecc1d16c745712ca1cf5f93d3d1a5ef46e1265`.
+The committed cursor resumes at release index 1, asset index 3 when workflow
+coordinates are empty. Explicit paired coordinates permit bounded replay. A
+hosted success does not mutate the cursor: each receipt requires review and a
+normal validated cursor update.
+
 - dispatch bounded MONDO batches incrementally and retain every exact receipt;
 - prioritize small provenance/checksum/diff assets before multi-hundred-MB
   ontology serializations, unless a downstream use justifies the storage;

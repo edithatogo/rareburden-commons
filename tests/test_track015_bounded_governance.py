@@ -25,7 +25,7 @@ def test_single_owner_agent_panel_model_is_bounded() -> None:
         "owner_count": 1,
         "relationship_count": 7,
         "pending_acceptance_count": 6,
-        "track_014_status": "pending_merge",
+        "track_014_status": "bound",
     }
 
 
@@ -64,6 +64,6 @@ def test_rights_evidence_and_withdrawal_triggers_cannot_drift() -> None:
 
 def test_track_014_cannot_be_marked_bound_without_exact_hash() -> None:
     payload = copy.deepcopy(_payload())
-    payload["integration_dependency"]["status"] = "bound"
+    payload["integration_dependency"]["sha256"] = "0" * 64
     with pytest.raises(GovernanceReconciliationError, match="Track 014 dependency hash mismatch"):
         validate_governance(payload, ROOT)

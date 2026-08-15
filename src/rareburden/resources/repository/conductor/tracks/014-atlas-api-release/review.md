@@ -59,3 +59,17 @@ notices, duplicate identifiers and ambiguous lifecycle transitions fail closed.
 This is repository lifecycle evidence only. It does not show that a public
 release was corrected or withdrawn, and it does not satisfy accessibility,
 independent reproduction, upstream authority or release-authority gates.
+
+## Bounded Track 008–013 reconciliation — 2026-08-16
+
+Repository review result: **Pass for a local synthetic/static projection**.
+The static model, aggregate package, read-only API shape and lifecycle status
+share exact identifiers, preserve missingness and `not_assessed` sufficiency,
+and remain publication-unauthorized. A withdrawal propagates `do_not_use` and
+an accessible text alternative without mutating the candidate. Negative tests
+reject dependency drift, surface mismatch, sufficiency upgrades and release
+overclaims.
+
+Track 014 remains **planned and non-public**. Accessibility, real-source
+activation, separately executed reproduction, release authority and explicit
+public/stable release decisions remain pending.

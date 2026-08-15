@@ -2,7 +2,7 @@
   "schema_version": "0.1.0",
   "track": "015",
   "scope": "single_owner_agent_panel_repository_governance",
-  "status": "prepared_awaiting_track_014_binding",
+  "status": "bounded_repository_controls_validated",
   "created_at": "2026-08-16T00:00:00Z",
   "operating_model": {
     "repository_owner_count": 1,
@@ -30,7 +30,7 @@
     {"id": "source_rights_routes", "artifact": "docs/source-archive-decision-matrix-2026-08-15.yml", "sha256": "af45b01b60cd9c2f3a25f2defe9da8d87fc85a034b6911110fcdc949b392486d"},
     {"id": "licensed_archive_capacity", "artifact": "docs/track-002-private-archive-capacity-decision-2026-08-16.yml", "sha256": "32aecc9c51b029e17d2a1e65db4b7867675b0fb60c00a49010b08eb4a7005653"}
   ],
-  "integration_dependency": {"track": "014", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "status": "pending_merge", "sha256": null},
+  "integration_dependency": {"track": "014", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "status": "bound", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0", "merge_commit": "22388a74e2d8f2c4ff1d59f828279ffabad3b5a7"},
   "authority_boundaries": {
     "owner_may": ["decide repository scope for an exact candidate", "accept narrow revise defer or stop agent recommendations", "operate correction withdrawal recovery and release controls"],
     "owner_and_agents_cannot": ["override publisher licences or third-party rights", "create patient community custodian or Indigenous authority", "create a partnership endorsement data-access agreement or registry event", "authorize controlled-data export contrary to custodian policy"]

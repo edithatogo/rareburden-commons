@@ -75,5 +75,7 @@
   correction/withdrawal triggers with negative overclaim, evidence-drift and
   dependency tests. Evidence: `scripts/check_track015_bounded_governance.py`
   and `tests/test_track015_bounded_governance.py`.
-- [ ] Bind the exact merged Track 014 release-surface artifact and re-run the
-  full gate before integrating this reconciliation.
+- [x] Bind the exact merged Track 014 release-surface artifact at merge
+  `22388a74e2d8f2c4ff1d59f828279ffabad3b5a7` and SHA-256
+  `dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0`,
+  then re-run the full gate before integration.

@@ -53,6 +53,8 @@ def validate_governance(manifest: dict[str, Any], root: Path) -> dict[str, Any]:
     dependency = manifest.get("integration_dependency", {})
     dependency_status = dependency.get("status")
     if dependency_status == "bound":
+        if manifest.get("status") != "bounded_repository_controls_validated":
+            raise GovernanceReconciliationError("bound Track 014 requires validated status")
         relative = Path(str(dependency.get("artifact", "")))
         if not (root / relative).is_file() or _sha256(root / relative) != dependency.get("sha256"):
             raise GovernanceReconciliationError("Track 014 dependency hash mismatch")

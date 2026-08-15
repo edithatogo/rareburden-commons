@@ -86,3 +86,16 @@
   tampering and expose a text alternative; repository state remains unpublished.
 - [ ] Complete accessibility-agent, owner-operated operator and repository-owner
   release gates before beta publication.
+
+## Bounded downstream reconciliation — 2026-08-16
+
+- [x] Bind exact Track 008–013 synthetic artifacts into a fail-closed release
+  manifest with real-source, accessibility, reproduction, release-authority and
+  public/stable release gates pending.
+- [x] Implement a schema-valid static atlas projection sharing exact identity
+  with the aggregate package, read-only API shape and lifecycle status.
+- [x] Add deterministic dependency, parity, lifecycle and negative checks that
+  reject hash drift, missingness/sufficiency upgrades, publication claims and
+  cross-surface identity mismatch.
+- [ ] Activate real sources or publish any beta/stable surface only after the
+  remaining gates are satisfied for an exact candidate.
