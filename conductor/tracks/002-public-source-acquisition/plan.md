@@ -357,6 +357,19 @@ scientific and data-governance gates remain separate and pending.
   retrieval events without deletion. Evidence:
   `docs/track-002-who-icd-duplicate-preservation-2026-08-16.md` and regression
   tests in `tests/test_archive_who_icd_inventory.py`.
+- [x] Reconcile the requested terminology/archive estate into a deterministic
+  rights, routing and completeness-gap matrix covering WHO ICD/WHO-FIC, UMLS,
+  HPO, SNOMED CT, MedDRA, ORPHAcode, Orphadata, PanelApp, MONDO and ClinVar.
+  Evidence: `docs/track-002-cross-estate-archive-audit-2026-08-16.yml` and
+  `manifests/classifications/cross-estate-archive-audit-2026-08-16.json`.
+  Every family retains explicit historical, language, country or rights gaps.
+- [x] Add credential-free automation for the public metadata audit, with
+  deterministic evidence hashes and tests rejecting licensed-byte publication
+  or completeness inflation. Evidence:
+  `.github/workflows/audit-cross-estate-terminology.yml`,
+  `scripts/render_cross_estate_archive_audit.py` and focused tests. Existing
+  remote paths are referenced rather than duplicated; no licensed bytes are
+  downloaded or published.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
