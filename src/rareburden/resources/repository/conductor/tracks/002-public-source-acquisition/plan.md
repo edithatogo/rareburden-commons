@@ -417,6 +417,14 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Materialize all exact MONDO assets in the observed 120-release frontier
   through receipt-verified bounded batches; do not infer completion from a
   canary or prepared workflow.
+- [x] Record the Digital CSIC MedLexSp and KIOM Traditional Korean Medicine
+  ontology evidence frontier without retaining payload bytes. MedLexSp remains
+  metadata/hash-only and is explicitly prohibited from Hugging Face or other
+  third-party cloud storage absent express processor/cloud permission; KIOM
+  retains DOI provenance and a failed-DNS receipt. TARA, OCMR, TCDO and KIOM
+  remain distinct identities rather than thematic duplicates. Evidence:
+  `docs/track-002-medlexsp-kiom-frontier-2026-08-16.json` and
+  `docs/track-002-medlexsp-kiom-frontier-2026-08-16.md`.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
