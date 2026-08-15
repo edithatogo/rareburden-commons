@@ -1,13 +1,13 @@
 # Track 007 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; independent methods and patient/community challenge remain separate release gates.
+> Review uses role-separated agent panels and repository-owner disposition under ADR-0009; no additional-person or independent review gate applies.
 
 ## Phase 1 — Register the review
 
 - [x] Define provisional questions, inclusion logic, sources and extraction fields.
-- [ ] Register the landscape-review protocol externally and version the complete search strategy.
+- [ ] Freeze and hash-register the protocol and complete search strategy in the repository; external registry submission is optional.
 - [x] Define initiative, dataset, software, standard, mandate and methodological-precedent fields.
-- [ ] Recruit patient/community and independent methods reviewers.
+- [ ] Convene community/harm and methods agents and record the owner disposition.
 
 ## Phase 2 — Search and screen
 
@@ -86,7 +86,7 @@
 ## Phase 4 — Decide and publish
 
 - [x] Draft the adjacency matrix and provisional landscape report.
-- [ ] Obtain external methodological and patient/community challenge and revise claims.
+- [ ] Obtain methods and community/harm agent-panel challenge and revise claims through owner disposition.
 - [x] Record the provisional `proceed_with_narrowed_scope` decision.
 - [x] Update the roadmap and programme framing to avoid duplicating registries, ontologies or genomic platforms.
 
@@ -134,8 +134,8 @@
 
 - [x] Add the dependency-ordered closure plan shared with Track 002 in
   `docs/track-002-007-closure-plan-2026-08-02.md`.
-- [ ] Obtain protocol registration, independent methods challenge and
-  patient/community interpretation; until then retain provisional landscape
+- [ ] Obtain repository hash-registration, agent methods challenge and
+  community/harm interpretation plus owner disposition; until then retain provisional landscape
   claims and `in_review` status.
 
 ## Pagination screening-metadata contract — 2026-08-15
@@ -156,11 +156,10 @@
   questions, receipt fields and stop triggers. Evidence:
   `docs/track-007-registration-challenge-readiness-2026-08-04.yml` and
   `tests/test_track_007_readiness.py`.
-- [ ] Submit the frozen protocol and record an external registry identifier;
-  the readiness packet is not registration evidence.
-- [ ] Obtain an independent methods challenge and accountable
-  patient/community interpretation; repository tests and panels cannot replace
-  either receipt.
+- [ ] Record the frozen protocol hash and immutable repository locator; an
+  external registry identifier is optional supplementary evidence.
+- [ ] Obtain role-separated methods and community/harm agent challenges and an
+  accountable owner disposition.
 
 ## Panel closure planning — 2026-08-02
 
@@ -173,6 +172,5 @@
   `tests/test_track_007_staged_plan.py`; external gates remain pending.
 - [x] Prepare a schema-valid synthetic Track 007 panel packet with pending
   registration and challenge receipts in `examples/fixtures/track-007-panel-packet-synthetic.json`.
-- [ ] Obtain protocol registration, independent methods challenge and
-  patient/community decision after panel preparation; panels cannot close
-  these gates.
+- [ ] Obtain repository hash-registration, methods/community agent challenge
+  and owner disposition after panel preparation.

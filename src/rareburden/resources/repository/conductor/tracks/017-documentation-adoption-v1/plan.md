@@ -8,7 +8,8 @@
   `tests/test_release_authority_receipt_plan.py`; stable release remains
   pending.
 
-> Repository-owned review uses the subagent panel under ADR-0008; independent usability, operational ownership and release authority remain separate.
+> Review uses role-separated agent panels and the repository-owner disposition
+> under ADR-0009. No independent or additional-person review is required.
 
 ## Phase 1 — Documentation system
 
@@ -25,12 +26,12 @@ The synthetic reference workflow is exercised by `tests/test_reference.py`,
 repository-owned structural assurance only and does not close independent-user
 usability or reproduction gates.
 
-## Phase 2 — External use and reproduction
+## Phase 2 — Agent usability and owner-operated reproduction
 
-- [ ] Recruit two independent users for reference-workflow usability testing.
-- [ ] Complete independent node-operator or analyst run.
+- [ ] Run two role-separated usability-agent assessments of the reference workflow.
+- [ ] Complete a separately executed owner-operated node/analyst run.
 - [ ] Build two clean release candidates from locked environments.
-- [ ] Complete one independent reproduction with equivalent reviewed outputs.
+- [ ] Complete one owner-operated clean-environment reproduction with equivalent reviewed outputs.
 
 ## Phase 3 — Sustainability and ownership
 
@@ -43,7 +44,8 @@ usability or reproduction gates.
 
 - [ ] Assemble evidence for every blocking v1 criterion.
 - [ ] Remove unsupported capabilities or close remaining gaps.
-- [ ] Complete scientific, patient/community, data-governance, engineering, security and programme sign-off.
+- [ ] Complete agent-panel methods, community/harm, rights/data-use,
+  engineering, security and programme recommendations and owner disposition.
 - [ ] Record final release, bounded exclusion, revise or stop decision.
 
 ## Phase 5 — Publish and verify
@@ -92,7 +94,7 @@ usability or reproduction gates.
   `tests/test_ownership_sustainability_packet.py`.
 - [ ] Freeze and reproduce two clean release candidates from locked
   environments.
-- [ ] Obtain two independent usability receipts and one independent
+- [ ] Obtain two agent usability reports and one owner-operated
   reproduction/equivalence report.
 - [ ] Record primary/backup ownership, succession, support boundaries and
   approved sustainability costs.

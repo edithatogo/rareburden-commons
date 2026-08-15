@@ -26,5 +26,11 @@ def test_track_002_terms_matrix_is_complete_and_fail_closed() -> None:
         assert record["scientific_disposition"] == "pending" or record[
             "scientific_disposition"
         ].startswith("owner_bounded_")
-        assert record["data_governance_disposition"] == "pending"
+        assert record["data_governance_disposition"].startswith("owner_")
         assert record["source_change_exercise"] == "pending"
+    who = next(
+        record
+        for record in matrix["records"]
+        if record["source_id"] == "who-global-health-estimates"
+    )
+    assert "publisher_third_party_rights_pending" in who["data_governance_disposition"]

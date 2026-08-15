@@ -7,7 +7,7 @@
 - [ ] Define and freeze bronchiectasis denominator populations.
 - [ ] Define included rare aetiologies and ontology versions. `[M-01, M-02]`
 - [ ] Define multi-aetiology, unclassified and overlapping categories. `[M-05]`
-- [ ] Obtain respiratory and patient/community review.
+- [ ] Obtain respiratory-methods and community/harm agent-panel review and owner disposition.
 
 ## Phase 2 — Evidence and transportability
 
@@ -26,7 +26,7 @@
 ## Phase 4 — Validation and release
 
 - [ ] Compare with independent registry/cohort evidence where possible.
-- [ ] Complete external scientific and language review.
+- [ ] Complete scientific and language agent-panel review and owner disposition.
 - [x] Produce reproducible synthetic reference report and limitations. Evidence: `docs/bronchiectasis-011-reference.md`.
 - [ ] Record approval, narrowing or redesign decision.
 
