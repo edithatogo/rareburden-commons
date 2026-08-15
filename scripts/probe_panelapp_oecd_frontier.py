@@ -15,6 +15,54 @@ from typing import Any
 USER_AGENT = "rareburden-metadata-frontier/1 (+https://github.com/edithatogo/rareburden-commons)"
 
 
+def rights_route(
+    source_id: str, *, exact_content_terms: bool = False, third_party_clear: bool = False
+) -> dict[str, Any]:
+    """Return the most permissive evidence route justified by recorded terms.
+
+    Public visibility, an API, a download control, and an open-source software
+    licence are deliberately not treated as content-redistribution grants.
+    """
+    if source_id == "genomics-england-panelapp":
+        return {
+            "route": "operator_triggered_publisher_download",
+            "automation": False,
+            "raw_redistribution": False,
+            "reason": "official UI permits panel/version TSV downloads; robots disallows /api/",
+        }
+    if source_id == "panelapp-australia":
+        if exact_content_terms:
+            return {
+                "route": "terms_scoped_download",
+                "automation": False,
+                "raw_redistribution": third_party_clear,
+                "reason": (
+                    "exact content terms recorded; third-party status controls redistribution"
+                ),
+            }
+        return {
+            "route": "metadata_hash_only",
+            "automation": False,
+            "raw_redistribution": False,
+            "reason": "public download/API availability is not an exact content-reuse grant",
+        }
+    if source_id == "oecd-health-statistics-dataflow":
+        if exact_content_terms and third_party_clear:
+            return {
+                "route": "bounded_data_export",
+                "automation": True,
+                "raw_redistribution": True,
+                "reason": "OECD data terms and exact source tab permit this selected export",
+            }
+        return {
+            "route": "metadata_hash_only",
+            "automation": True,
+            "raw_redistribution": False,
+            "reason": "exact source-tab ownership or additional restrictions remain unresolved",
+        }
+    raise ValueError("source_id has no rights route")
+
+
 def fetch(
     url: str, *, timeout: int = 60, max_bytes: int = 2_000_000
 ) -> tuple[bytes, dict[str, str], int, str]:
