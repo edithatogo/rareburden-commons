@@ -1,0 +1,39 @@
+schema_version: "1.0"
+status: enforced
+scope:
+  - UTS_release_and_download_APIs
+  - public_release_asset_downloads
+  - Hugging_Face_private_archive_commits
+principles:
+  - obey_documented_provider_limits_and_Retry_After
+  - never_bypass_or_parallelize_around_a_rate_limit
+  - use_one_source_download_at_a_time_per_archive_job
+  - use_one_atomic_Hugging_Face_commit_per_bounded_batch
+  - keep_archive_workflows_non_concurrent
+uts:
+  documented_numeric_limit: not_published_on_observed_official_download_API_page
+  policy_when_no_numeric_limit_is_published:
+    concurrency: 1
+    minimum_interval_between_download_requests_seconds: 2
+    retryable_statuses: [429, 502, 503, 504]
+    attempts: 6
+    backoff: Retry_After_else_exponential_2_to_300_seconds
+    byte_budget_per_job: 8000000000
+public_release_assets:
+  concurrency: 1
+  minimum_interval_between_requests_seconds: 1
+  retryable_statuses: [429, 502, 503, 504]
+  attempts: 6
+  backoff: Retry_After_else_exponential_2_to_300_seconds
+hugging_face:
+  workflow_concurrency: 1
+  commit_strategy: one_atomic_commit_per_batch
+  retry_status: 429
+  backoff: Retry_After_else_bounded_exponential
+  observed_service_limit: 128_repository_commits_per_hour
+prohibited:
+  - concurrent_jobs_against_the_same_archive_repository
+  - credential_rotation_to_evade_limits
+  - proxy_or_account_rotation_to_evade_limits
+  - ignoring_Retry_After
+  - treating_partial_transfer_as_archived

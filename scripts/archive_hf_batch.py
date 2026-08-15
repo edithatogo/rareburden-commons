@@ -9,6 +9,7 @@ import json
 import os
 import tempfile
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -35,20 +36,43 @@ def _load_manifest(path: Path) -> list[dict[str, Any]]:
     return value
 
 
+def _source_retry_delay(headers: Any, attempt: int) -> int:
+    retry_after = headers.get("Retry-After") if headers is not None else None
+    if retry_after and str(retry_after).isdigit():
+        retry_seconds = int(str(retry_after))
+        return min(max(retry_seconds, 1), 900)
+    return min(2 << max(attempt, 0), 300)
+
+
 def _download(item: dict[str, Any], destination: Path) -> str:
-    digest = hashlib.sha256()
-    total = 0
     request = urllib.request.Request(
         str(item["url"]), headers={"User-Agent": "rareburden-archive/1"}
     )
-    with (
-        urllib.request.urlopen(request, timeout=120) as response,
-        destination.open("wb") as output,
-    ):
-        while chunk := response.read(1024 * 1024):
-            output.write(chunk)
-            digest.update(chunk)
-            total += len(chunk)
+    for attempt in range(6):
+        digest = hashlib.sha256()
+        total = 0
+        try:
+            with (
+                urllib.request.urlopen(request, timeout=120) as response,
+                destination.open("wb") as output,
+            ):
+                while chunk := response.read(1024 * 1024):
+                    output.write(chunk)
+                    digest.update(chunk)
+                    total += len(chunk)
+            break
+        except urllib.error.HTTPError as error:
+            destination.unlink(missing_ok=True)
+            if error.code not in {429, 502, 503, 504} or attempt == 5:
+                raise RuntimeError(f"source download failed for {item['path']}") from None
+            time.sleep(_source_retry_delay(error.headers, attempt))
+        except (urllib.error.URLError, TimeoutError):
+            destination.unlink(missing_ok=True)
+            if attempt == 5:
+                raise RuntimeError(f"source download failed for {item['path']}") from None
+            time.sleep(_source_retry_delay(None, attempt))
+    else:  # pragma: no cover
+        raise RuntimeError("source download retry loop exhausted")
     if total != item["bytes"]:
         raise ValueError(f"size mismatch for {item['path']}: expected {item['bytes']}, got {total}")
     actual = digest.hexdigest()
@@ -67,8 +91,8 @@ def archive_batch(
     count: int,
     max_bytes: int,
 ) -> list[dict[str, Any]]:
-    from huggingface_hub import HfApi
-    from huggingface_hub.errors import HfHubHTTPError
+    from huggingface_hub import HfApi  # type: ignore[import-not-found]
+    from huggingface_hub.errors import HfHubHTTPError  # type: ignore[import-not-found]
 
     items = _load_manifest(manifest)[start : start + count]
     if sum(int(item["bytes"]) for item in items) > max_bytes:
@@ -86,6 +110,8 @@ def archive_batch(
         root = Path(temporary)
         observed: list[tuple[int, dict[str, Any], str]] = []
         for index, item in enumerate(items, start=start):
+            if observed:
+                time.sleep(1.0)
             local = root / str(item["path"])
             local.parent.mkdir(parents=True, exist_ok=True)
             digest = _download(item, local)
