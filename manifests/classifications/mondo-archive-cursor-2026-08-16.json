@@ -2,16 +2,50 @@
   "claims": {"all_assets_archived": false, "all_releases_archived": false},
   "destination": "edithatogo/rareburden-commons-open-source-snapshots",
   "last_successful_run": {
-    "head_sha": "9a6061a4d2616c3c45d0a845350214d2cc26ab8a",
-    "receipt_sha256": "222051e2b36000a0af741784afecc1d16c745712ca1cf5f93d3d1a5ef46e1265",
-    "run_id": 31900342354,
+    "head_sha": "8c14c5091b82b1806b0d17fbc412d12add7b0d17",
+    "receipt_sha256": "4fa8e3e0394855e7c036cf3d769c012501cff94b69760f46e310e8a87f81c40c",
+    "run_id": 31900862688,
     "source_manifest_sha256": "d6f9317203cd0cd7aa352e429fd0467e7758e328084f72c7e0237d86cb89e8d6"
   },
-  "next": {"asset_index": 3, "release_index": 1},
+  "next": {"asset_index": 7, "release_index": 1},
+  "hosted_receipts": [
+    {
+      "artifact_digest_sha256": "911a4f6c3a74dfa1a8b870dcbb76ee38d8aa1de7bc006f62a0571448dc056971",
+      "asset_index": 3,
+      "head_sha": "8c14c5091b82b1806b0d17fbc412d12add7b0d17",
+      "receipt_sha256": "3dfb3afb6f98c06ddf4f8b2657bac2fe87beaed9467268420ce2e7e500e6dd7b",
+      "run_id": 31900699822
+    },
+    {
+      "artifact_digest_sha256": "2321117b5b6cfe1bbd509799f90002393e4a63067caf6a03ca5be357279b37f6",
+      "asset_index": 4,
+      "head_sha": "8c14c5091b82b1806b0d17fbc412d12add7b0d17",
+      "receipt_sha256": "cc3004e776626ba8f93b86ab01b8e2e3dd0095f61270d9a1d7d54b9621b53ebf",
+      "run_id": 31900765481
+    },
+    {
+      "artifact_digest_sha256": "114b197a21171c968714b117af837bb5d088f01f64ee09ba6bd50250fd260b9d",
+      "asset_index": 5,
+      "head_sha": "8c14c5091b82b1806b0d17fbc412d12add7b0d17",
+      "receipt_sha256": "3d0c7a27c63ed040f8307c3befa430b6d8974b849965e7ae5fe8d34041c7621f",
+      "run_id": 31900812310
+    },
+    {
+      "artifact_digest_sha256": "dae3d8767c8eab11ab23bc44c6430d203aa9611b7bfadea9d95649468905d42f",
+      "asset_index": 6,
+      "head_sha": "8c14c5091b82b1806b0d17fbc412d12add7b0d17",
+      "receipt_sha256": "4fa8e3e0394855e7c036cf3d769c012501cff94b69760f46e310e8a87f81c40c",
+      "run_id": 31900862688
+    }
+  ],
   "observed_archived_assets": [
     {"asset_index": 0, "bytes": 4090, "release_index": 1, "sha256": "0d878d02b1720bab27fdb7db2575bd1758f5624a0fafb6657dce4819451b8368"},
     {"asset_index": 1, "bytes": 93837827, "release_index": 1, "sha256": "d43b5693728d8e7a416d3830869e637371241844d84ff34b6d1fab5d885481ab"},
-    {"asset_index": 2, "bytes": 49322038, "release_index": 1, "sha256": "04fe209f1501209d1cc7ddf9bb26bfc53deb44261cdfb1a09fc50ca63327ca05"}
+    {"asset_index": 2, "bytes": 49322038, "release_index": 1, "sha256": "04fe209f1501209d1cc7ddf9bb26bfc53deb44261cdfb1a09fc50ca63327ca05"},
+    {"asset_index": 3, "bytes": 238813864, "release_index": 1, "sha256": "5574e720226dcc6e0140707f1d34eb283134656b814062c2fa6ede8f161473a0"},
+    {"asset_index": 4, "bytes": 83272924, "release_index": 1, "sha256": "2a30e05bfd4309768294a5405be905c2c9b08ffbe735a5130e4d37a790f51e79"},
+    {"asset_index": 5, "bytes": 44954114, "release_index": 1, "sha256": "0aa405572e5168c9666f30ed94bfae6fd1f608fedb82dce7fe07729edaebbb6c"},
+    {"asset_index": 6, "bytes": 216593075, "release_index": 1, "sha256": "c5ac3099173e4c6ea780e0f74404ea179224682ff61bb191c7608552e7263bff"}
   ],
   "schema_version": "1.0",
   "status": "bounded_resumable_cursor"

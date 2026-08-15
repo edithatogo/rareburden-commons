@@ -29,6 +29,14 @@ def render_audit(document: dict[str, Any], root: Path) -> dict[str, Any]:
     claims = document.get("claims")
     if not isinstance(claims, dict) or any(claims.values()):
         raise ValueError("all global-completeness and public-licensing claims must remain false")
+    archive_counts = document.get("archive_counts", {})
+    components = archive_counts.get("components", {})
+    if components != {"hpo": 320, "orphacode": 71, "orphadata": 94, "mondo": 7}:
+        raise ValueError("cross-estate archive count components are incomplete or drifted")
+    if archive_counts.get("explicitly_counted_public_assets") != sum(components.values()):
+        raise ValueError("cross-estate archive count does not reconcile")
+    if "not a completeness claim" not in str(archive_counts.get("limitation", "")):
+        raise ValueError("cross-estate archive count requires a completeness limitation")
     records = document.get("families")
     if not isinstance(records, list):
         raise ValueError("families must be a list")
@@ -65,6 +73,7 @@ def render_audit(document: dict[str, Any], root: Path) -> dict[str, Any]:
         "status": document["status"],
         "scope_claim": document["scope_claim"],
         "destinations": document["destinations"],
+        "archive_counts": document["archive_counts"],
         "families": rendered,
         "routing_rules": document["routing_rules"],
         "claims": claims,
