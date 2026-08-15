@@ -200,3 +200,50 @@ scientific and data-governance gates remain separate and pending.
   `ae188ced2bced5e403e82af61990a28f975f5bc1`.
 - [x] Keep production activation and external scientific, patient/community,
   custodian and independent-review claims disabled.
+
+## Aggressive lawful source archival — 2026-08-15
+
+- [x] Classify every current and planned source by dataset type, exact licence
+  posture, private/public archive route, GitHub boundary and stop conditions in
+  `docs/source-archive-decision-matrix-2026-08-15.yml`.
+- [x] Archive the exact bounded World Bank response privately while retaining
+  its probe-only, no-WPP-substitution status.
+- [x] Archive the exact unmodified WHO GHE workbook privately with withdrawal
+  capability; keep public redistribution, derived-field activation and any
+  third-party-rights claim disabled.
+- [x] Pin MONDO `v2026-08-04`, verify all three canonical artifact hashes
+  against publisher-provided SHA-256 digests, and archive the exact artifacts
+  privately under CC BY 4.0.
+- [x] Keep GitHub as the canonical governance/code/manifest surface and the
+  public Hugging Face estate registry metadata-only. Raw public publication is
+  source-specific and requires an exact owner release decision.
+- [x] Select and pin the exact ClinVar monthly `variant_summary` 2026-08
+  snapshot, record its SHA-256 and archive it privately with NCBI/submitter
+  attribution and a no-direct-diagnostic-use boundary. Public mirroring remains
+  a separate exact release decision.
+- [x] Verify the December 2019 PanelApp terms: exact extracts may be retained
+  for non-commercial, non-diagnostic research with GEL/contributor attribution,
+  but mixed OMIM/Orphanet and output restrictions prohibit a public raw mirror
+  without a narrower field-level disposition.
+- [x] Capture and privately archive the complete five-page PanelApp current
+  panel listing (433 panel/version rows) with a SHA-256 manifest. A first
+  full-detail attempt captured 129 records before HTTP 429; do not claim a
+  complete detail snapshot and resume only with server-respecting backoff.
+- [ ] Complete the remaining PanelApp per-version detail capture using a
+  sequential resumable workflow with rate-limit backoff, then bind all 433
+  records to a replacement SHA-256 manifest.
+- [x] Verify the OECD general terms: data are reusable with attribution unless
+  dataset-specific or third-party restrictions apply; acquisition remains
+  dataset-specific and metadata-only until an exact OECD dataset is selected.
+- [x] Pin the HPO `v2026-06-23` core ontology and annotation artifacts and
+  verify all seven publisher digests. Preserve privately, but prohibit a public
+  mirror until the embedded HPO terms URL yields an exact accessible terms
+  record.
+- [x] Record fail-closed archival routes for ICD-10/11, OMIM and SNOMED CT:
+  exact licensed editions only, no credential circumvention, and no raw GitHub
+  or public Hugging Face redistribution without express rights.
+- [ ] Verify exact PanelApp, OECD and any future export-specific terms before
+  raw acquisition; default to metadata/hash-only.
+- [x] Prohibit export of All of Us Researcher Workbench and Genomics England
+  Research Environment controlled data; archive only synthetic code, schemas
+  and non-sensitive metadata outside those environments.

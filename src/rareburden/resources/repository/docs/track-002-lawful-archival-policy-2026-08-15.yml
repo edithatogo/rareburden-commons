@@ -24,13 +24,28 @@ records:
     permitted_now: ["raw_bytes", "hash", "metadata", "selected_sheet_column_manifest", "lawful_derived_denominators"]
     conditions: ["preserve_attribution", "preserve_workbook_notices", "exclude_third_party_classification_fields_from_derived_outputs"]
   - source_id: "who-global-health-estimates"
-    archival_tier: "private_unmodified_copy_permitted_but_hf_withheld_pending_third_party_review"
-    raw_upload_target: null
+    archival_tier: "private_unmodified_copy_permitted_with_withdrawal_route"
+    raw_upload_target: "private_huggingface_archive"
     permitted_now: ["hash", "metadata", "lawful_derived_outputs", "WHO_and_underlying_country_attribution"]
   - source_id: "world-bank-indicators-api"
     archival_tier: "probe_only"
-    raw_upload_target: null
-    permitted_now: ["query_parameters", "timestamp", "response_hash_when_captured", "terms_observation"]
+    raw_upload_target: "private_huggingface_archive"
+    permitted_now: ["exact_response_bytes", "query_parameters", "timestamp", "response_hash", "terms_observation"]
+  - source_id: "mondo-disease-ontology"
+    archival_tier: "raw_redistributable_exact_release_cc_by_4_0"
+    raw_upload_target: "private_huggingface_archive"
+    permitted_now: ["raw_bytes", "hash", "metadata", "ontology_mapping_inputs"]
+    conditions: ["preserve_attribution", "pin_exact_release", "verify_publisher_digests", "no_clinical_claim"]
+  - source_id: "ncbi-clinvar"
+    archival_tier: "exact_monthly_public_snapshot_with_submitter_caveats"
+    raw_upload_target: "private_huggingface_archive"
+    permitted_now: ["raw_bytes", "hash", "metadata", "non_diagnostic_research_inputs"]
+    conditions: ["acknowledge_NCBI_and_submitters", "pin_monthly_snapshot", "preserve_provenance", "no_direct_diagnostic_use"]
+  - source_id: "human-phenotype-ontology"
+    archival_tier: "exact_release_private_pending_accessible_terms_capture"
+    raw_upload_target: "private_huggingface_archive"
+    permitted_now: ["private_raw_bytes", "hash", "metadata", "non_diagnostic_research_inputs"]
+    conditions: ["HPO_attribution", "pin_exact_release", "verify_publisher_digests", "preserve_annotation_provenance", "no_public_mirror_until_terms_captured"]
 stop_rules:
   - "public availability never infers redistribution rights"
   - "private hosting is still a copy and third-party transfer"

@@ -4,6 +4,74 @@ status: "bounded_source_observation"
 activation: "disabled"
 purpose: "Reconcile exact public endpoints, release identities, terms pages and content hashes without inferring production fitness or external approval."
 records:
+  - source_id: "genomics-england-panelapp"
+    api_url: "https://panelapp.genomicsengland.co.uk/api/v1/panels/"
+    observed_at_utc: "2026-08-15T02:58:00Z"
+    terms_url: "https://prod-media-panelapp.genomicsengland.co.uk/media/files/GEL_-_PanelApp_Terms_of_Use_December_2019.pdf"
+    terms: "December 2019 terms permit extracts for non-commercial, non-diagnostic research with GEL/contributor attribution and mixed OMIM/Orphanet conditions."
+    listing_pages: 5
+    panel_version_rows: 433
+    sha256s_manifest: "b30a37164cf0153ed22937bb80e574954fe4d5fda161cc0cb91b36dd2663ad1a"
+    private_archive_path: "raw-private/panelapp/2026-08-15-listing/"
+    private_archive_commit: "edc127823e2574bc1ba4566f610e173e64217f57"
+    full_detail_attempt:
+      captured_before_rate_limit: 129
+      required: 433
+      result: "incomplete_not_archived_as_complete"
+      failure: "HTTP 429 from parallel detail requests"
+      retry_policy: "resume sequentially with server-respecting backoff; never infer completeness"
+    intended_use: "non-commercial semantic candidate discovery and version selection"
+    prohibited_use: "no diagnostic use, commercial use, complete-snapshot claim, public raw mirror or production activation"
+  - source_id: "human-phenotype-ontology"
+    artifact_base_url: "https://github.com/obophenotype/human-phenotype-ontology/releases/tag/v2026-06-23"
+    release: "v2026-06-23"
+    release_published_at: "2026-06-23T12:08:40Z"
+    embedded_terms_url: "https://hpo.jax.org/app/license"
+    terms_observation: "The exact release embeds the HPO licence URL, but that route did not return an accessible terms document during this observation."
+    private_archive_path: "raw-private/hpo/v2026-06-23/"
+    private_archive_commit: "f844b3f8b205b265df2ae1dd8a082fd29b264d90"
+    artifacts:
+      - {name: "genes_to_disease.txt", bytes: 1477762, sha256: "a247027ae9944e34545e0a91060243ff6c118681c06379b9721af1ee4f39286a"}
+      - {name: "genes_to_phenotype.txt", bytes: 20732778, sha256: "26cb7ee00c73b5777f6e5ad43323c941e1fcef1d191592f332d7929f3ea1ab3f"}
+      - {name: "hp.json", bytes: 23019454, sha256: "3b646565695329aa399e937883c68d5d424d0df5eaab2f22baa0e08d44fdbe87"}
+      - {name: "hp.obo", bytes: 11222341, sha256: "a5092cbdf605f568403cf7380d9173014015692433b2cc631bc5c1b053876b1b"}
+      - {name: "hp.owl", bytes: 77796135, sha256: "01851cf5121af28b2fd1d252d98977a565abf5c1fbc7901d10c8580d5996dfb4"}
+      - {name: "phenotype.hpoa", bytes: 35672303, sha256: "89004f85b253f980ffe84218d2c080665cbf67a57bbb322111d6a2db5eb31dff"}
+      - {name: "phenotype_to_genes.txt", bytes: 66907216, sha256: "1386a4dd3ea046f5a5971f4011a3711a9d7928d60961e2e7b757b6860c63c778"}
+    intended_use: "conditional phenotype ontology and disease-annotation research preparation"
+    prohibited_use: "no public mirror until exact terms are captured; no direct diagnostic or clinical-validity use"
+  - source_id: "ncbi-clinvar"
+    artifact_url: "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/archive/variant_summary_2026-08.txt.gz"
+    artifact_name: "variant_summary_2026-08.txt.gz"
+    release: "ClinVar monthly tab-delimited archive 2026-08"
+    bytes: 441792560
+    sha256: "230ba6d5ac0869bfb46fecb8d19bd8dbfa9a133bfda2e3f8f5b5b662ae7bf500"
+    terms_page: "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+    rights_observation: "ClinVar provides comprehensive public downloads and requests acknowledgement of NCBI and primary submitters."
+    private_archive_path: "raw/clinvar/2026-08/variant_summary_2026-08.txt.gz"
+    private_archive_commit: "c9dd573b979766acbb66b3ea52c0dba2e4b717f8"
+    intended_use: "non-diagnostic variant-to-condition research and semantic linkage preparation"
+    prohibited_use: "no direct diagnostic use, clinical-validity inference, production activation or disregard of submitter provenance"
+  - source_id: "mondo-disease-ontology"
+    artifact_base_url: "https://github.com/monarch-initiative/mondo/releases/tag/v2026-08-04"
+    release: "v2026-08-04"
+    release_published_at: "2026-08-04T18:57:33Z"
+    licence: "CC BY 4.0"
+    licence_evidence: "The official MONDO download page states that MONDO is licensed under CC BY 4.0."
+    private_archive_path: "raw/mondo/v2026-08-04/"
+    private_archive_commit: "d5fcd47d39efe9cda57428caf0bcb4cc15c8c991"
+    artifacts:
+      - name: "mondo-rare.owl"
+        bytes: 160016657
+        sha256: "87361d63636436611e27d408be53606f8e831a2fd6ab70a4969ec54d19cb66d3"
+      - name: "mondo.json"
+        bytes: 107497863
+        sha256: "7cf8f1df31185555a21f5ffaf36663ca420671a9bc234fc737eb9bfa977ecd60"
+      - name: "mondo.owl"
+        bytes: 254105311
+        sha256: "afb2e699abf77082253ef51cca5f8531c8e4023ea0acc32ff3709818d0788a88"
+    intended_use: "conditional ontology and semantic-alignment input"
+    prohibited_use: "no clinical-validity, comprehensive-coverage or production-activation inference"
   - source_id: "orphadata-science-epidemiology"
     artifact_url: "https://www.orphadata.com/data/xml/en_product9_prev.xml"
     artifact_name: "en_product9_prev.xml"
@@ -58,8 +126,10 @@ records:
     exact_terms_audit: "docs/track-002-wpp-who-terms-audit-2026-08-15.yml"
     archival: "unmodified_private_raw_copy_permitted_for_public_health_use_subject_to_withdrawal"
     redistribution: "conditional_pending_field_level_third_party_and_modification_review"
+    private_archive_path: "raw-private/who/ghe-2021/ghe2021_daly_bycountry_2000.xlsx"
+    private_archive_commit: "2f1014860cda849d86c895f722ef18c8d96b359b"
     status: "candidate_only"
-    blocker: "The workbook has no file-level licence or field-level third-party credit register; redistribution and non-minimal modification remain unresolved, so no workbook bytes uploaded."
+    blocker: "The workbook has no file-level licence or field-level third-party credit register; public redistribution and non-minimal modification remain unresolved despite the owner-authorized unmodified private preservation copy."
   - source_id: "world-bank-indicators-api"
     query: "https://api.worldbank.org/v2/country/AUS;NZL/indicator/SP.POP.TOTL?date=2000:2021&format=json&per_page=100&source=2"
     response_bytes: 8826
@@ -69,12 +139,14 @@ records:
     series_terms_page: "https://databank.worldbank.org/metadataglossary/jobs/series/SP.POP.TOTL"
     series_terms_page_sha256: "e115c7ae44ca80cd1c64d2abf68fb4ce49400976539db052ccb21e730e347634"
     observed_series_licence: "CC BY 4.0"
-    archival: "query_response_hash_and_metadata_only"
+    archival: "exact_private_probe_response_archived"
+    private_archive_path: "probe/world-bank/2026-08-15/SP.POP.TOTL-AUS-NZL-2000-2021.json"
+    private_archive_commit: "20aef0ea6f4e34c0095ccaf117c1130b495eb9f5"
     status: "probe_only"
     prohibited_use: "no silent substitution for WPP and no production denominator activation"
 fail_closed_rules:
   - "A page or content hash records only the bytes observed at the stated time."
   - "Private archival does not activate a source for production or establish scientific fitness."
   - "Changed bytes, release identity, terms or intended use require a superseding observation and disposition."
-  - "WHO raw bytes remain excluded from Hugging Face pending field-level third-party and modification review."
+  - "WHO raw bytes remain private and unmodified pending public redistribution, field-level third-party and modification review."
   - "WPP raw archival does not activate the source or broaden the approved estimand scope."
