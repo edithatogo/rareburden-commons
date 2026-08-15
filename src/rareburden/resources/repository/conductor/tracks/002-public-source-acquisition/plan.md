@@ -1,5 +1,18 @@
 # Track 002 plan
 
+## HPO rights frontier — 2026-08-16
+
+- [x] Bind the exact official predecessor HPO licence page by URL, response
+  hash, size and last-modified date, and preserve its attribution, version and
+  no-modification conditions.
+- [x] Disposition every one of the 707 observed release assets: 288 core
+  ontology assets may be archived as exact public bytes; 419 translation,
+  merged-import, annotation/mapping and build-report assets remain metadata-only
+  pending their specific embedded-source or current-repository terms.
+- [x] Add a resumable, remote-deduplicating, rate-limited manual Actions route
+  for the lawful core assets, bounded to ten artifacts, 1 GB and 60 minutes per
+  run, with exact-byte verification and ephemeral runner storage.
+
 ## HPO historical frontier — 2026-08-16
 
 - [x] Exhaustively paginate the official HPO GitHub releases endpoint and
