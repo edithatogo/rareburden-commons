@@ -34,6 +34,17 @@ Convert governance principles into constituted decision rights and create partne
 - storing relationship-sensitive operations material in the public repository when confidentiality is required;
 - criticising adjacent institutions to create a partnership case.
 
+## Current bounded repository operating model
+
+Until the future bodies in this specification are constituted, this
+single-developer repository uses the accountable owner plus role-separated
+advisory agent panels defined by ADR-0009. Agent findings inform owner
+disposition but are not independent, human, patient/community, custodian,
+Indigenous, institutional or partner authority. Publisher terms and controlled
+environment rules remain independently binding facts. This operating model
+implements repository controls only and does not satisfy acceptance criteria
+1, 2, 5 or 8 by relabelling agent advice.
+
 ## v1 contribution
 
 This track implements V1-GOV and provides the legitimacy and policy translation needed for a mature public-good platform.
