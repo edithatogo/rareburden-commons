@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+"""Download, verify, upload, verify, and discard a bounded archive batch."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import tempfile
+import urllib.request
+from pathlib import Path
+from typing import Any
+
+
+def _load_manifest(path: Path) -> list[dict[str, Any]]:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(value, list):
+        raise ValueError("manifest must be a JSON array")
+    required = {"url", "path", "bytes", "sha256"}
+    for index, item in enumerate(value):
+        if not isinstance(item, dict) or set(item) != required:
+            raise ValueError(f"manifest item {index} must contain exactly {sorted(required)}")
+        if not str(item["url"]).startswith("https://"):
+            raise ValueError(f"manifest item {index} URL must use HTTPS")
+        remote = Path(str(item["path"]))
+        if remote.is_absolute() or ".." in remote.parts:
+            raise ValueError(f"manifest item {index} has unsafe remote path")
+        if not isinstance(item["bytes"], int) or item["bytes"] < 0:
+            raise ValueError(f"manifest item {index} has invalid byte count")
+        digest = str(item["sha256"]).lower()
+        if len(digest) != 64 or any(char not in "0123456789abcdef" for char in digest):
+            raise ValueError(f"manifest item {index} has invalid SHA-256")
+    return value
+
+
+def _download(item: dict[str, Any], destination: Path) -> str:
+    digest = hashlib.sha256()
+    total = 0
+    request = urllib.request.Request(
+        str(item["url"]), headers={"User-Agent": "rareburden-archive/1"}
+    )
+    with (
+        urllib.request.urlopen(request, timeout=120) as response,
+        destination.open("wb") as output,
+    ):
+        while chunk := response.read(1024 * 1024):
+            output.write(chunk)
+            digest.update(chunk)
+            total += len(chunk)
+    if total != item["bytes"]:
+        raise ValueError(f"size mismatch for {item['path']}: expected {item['bytes']}, got {total}")
+    actual = digest.hexdigest()
+    if actual != item["sha256"]:
+        raise ValueError(
+            f"SHA-256 mismatch for {item['path']}: expected {item['sha256']}, got {actual}"
+        )
+    return actual
+
+
+def archive_batch(
+    manifest: Path,
+    repo_id: str,
+    *,
+    start: int,
+    count: int,
+    max_bytes: int,
+) -> list[dict[str, Any]]:
+    from huggingface_hub import HfApi
+
+    items = _load_manifest(manifest)[start : start + count]
+    if sum(int(item["bytes"]) for item in items) > max_bytes:
+        raise ValueError("selected batch exceeds --max-bytes")
+    token = os.environ.get("HF_TOKEN")
+    if not token:
+        raise RuntimeError("HF_TOKEN is required")
+    api = HfApi(token=token)
+    info = api.dataset_info(repo_id, files_metadata=True)
+    if not info.private:
+        raise RuntimeError("destination dataset must be private")
+
+    receipts: list[dict[str, Any]] = []
+    with tempfile.TemporaryDirectory(prefix="rareburden-archive-") as temporary:
+        root = Path(temporary)
+        for index, item in enumerate(items, start=start):
+            local = root / f"{index:06d}.bin"
+            digest = _download(item, local)
+            commit = api.upload_file(
+                path_or_fileobj=local,
+                path_in_repo=str(item["path"]),
+                repo_id=repo_id,
+                repo_type="dataset",
+                commit_message=f"Archive verified batch item {index}",
+            )
+            remote = api.dataset_info(repo_id, files_metadata=True)
+            sibling = next(
+                (entry for entry in remote.siblings if entry.rfilename == item["path"]),
+                None,
+            )
+            if sibling is None or sibling.size != item["bytes"]:
+                raise RuntimeError(f"remote verification failed for {item['path']}")
+            receipts.append(
+                {
+                    "index": index,
+                    "path": item["path"],
+                    "bytes": item["bytes"],
+                    "sha256": digest,
+                    "commit": str(commit),
+                }
+            )
+            local.unlink()
+    return receipts
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("manifest", type=Path)
+    parser.add_argument("--repo-id", required=True)
+    parser.add_argument("--start", type=int, default=0)
+    parser.add_argument("--count", type=int, default=1)
+    parser.add_argument("--max-bytes", type=int, default=5_000_000_000)
+    parser.add_argument("--receipt", type=Path, required=True)
+    args = parser.parse_args()
+    receipts = archive_batch(
+        args.manifest,
+        args.repo_id,
+        start=args.start,
+        count=args.count,
+        max_bytes=args.max_bytes,
+    )
+    args.receipt.write_text(json.dumps(receipts, indent=2) + "\n", encoding="utf-8")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
