@@ -38,6 +38,18 @@ def test_declared_total_requires_exact_unique_capture() -> None:
     assert capture["capture_complete_for_declared_total"] is True
     assert "does not establish landscape" in capture["claim_boundary"]
     assert all(page["response_sha256"].startswith("sha256:") for page in capture["pages"])
+    assert capture["pages"][0]["screening_records"] == [
+        {
+            "identifier": "org/a",
+            "title": "org/a",
+            "canonical_url": "",
+        },
+        {
+            "identifier": "org/b",
+            "title": "org/b",
+            "canonical_url": "",
+        },
+    ]
 
 
 def test_page_budget_is_explicitly_incomplete() -> None:
@@ -93,6 +105,19 @@ def test_invalid_json_and_http_status_fail_closed() -> None:
     with pytest.raises(CaptureError, match="HTTP 403"):
         capture_query(
             "zenodo", "fixture", page_size=2, max_pages=1, timeout=1, fetch_page=forbidden
+        )
+
+
+def test_malformed_screening_metadata_fails_closed() -> None:
+    def malformed(request: PageRequest, _timeout: int) -> tuple[bytes, int, str]:
+        body = json.dumps(
+            {"total_count": 1, "items": [{"full_name": "org/repo", "name": ["bad"]}]}
+        ).encode()
+        return body, 200, request.url
+
+    with pytest.raises(CaptureError, match="title is not text"):
+        capture_query(
+            "github", "fixture", page_size=2, max_pages=1, timeout=1, fetch_page=malformed
         )
 
 

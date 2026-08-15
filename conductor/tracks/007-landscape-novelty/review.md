@@ -174,6 +174,13 @@ full-text eligibility, entity-level adjudication, coverage and final novelty
 remain repository-owned or external work as identified above; zero uncertainty
 in this snapshot is not a completeness claim.
 
+The pagination capture workflow now emits a v0.2 record containing only each
+result's stable identifier, title and canonical URL in addition to page hashes.
+This closes the metadata-contract gap for future immutable captures while
+deliberately excluding abstracts, repository bodies, dataset cards and full
+text. The change does not retrofit or reinterpret earlier evidence and does not
+establish eligibility, coverage, representativeness or novelty.
+
 The refreshed files are hash-bound in
 `docs/track-007-registration-challenge-readiness-2026-08-15.yml`. The challenge
 packet adds explicit questions about low-specificity scholarly/repository

@@ -21,6 +21,11 @@ capture. Inspect the result for the exact query, timestamp, endpoints, hashes
 and stop reason before treating it as evidence. A failed HTTP response, invalid payload, changing declared total,
 missing identifier or repeated identifier across pages stops the run.
 
+Each captured page also retains only the minimal public metadata needed for
+deterministic follow-on screening: stable identifier, title and canonical URL.
+Malformed or overlong metadata fails closed. Abstracts, repository bodies,
+dataset cards and full text are deliberately not retained by this workflow.
+
 The output distinguishes:
 
 - `provider_total_reached`: the captured unique identifiers exactly equal the

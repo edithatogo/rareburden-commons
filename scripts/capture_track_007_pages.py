@@ -93,6 +93,44 @@ def _identifier(registry: str, record: dict[str, Any]) -> str:
     raise CaptureError(f"{registry} record lacks a stable identifier")
 
 
+def _optional_text(value: Any, *, field: str, maximum: int) -> str:
+    if value in (None, ""):
+        return ""
+    if not isinstance(value, str):
+        raise CaptureError(f"record {field} is not text")
+    value = " ".join(value.split())
+    if len(value) > maximum:
+        raise CaptureError(f"record {field} exceeds {maximum} characters")
+    return value
+
+
+def _screening_metadata(registry: str, record: dict[str, Any]) -> dict[str, str]:
+    """Retain only minimal public metadata needed for later title screening."""
+    identifier = _identifier(registry, record)
+    if registry == "github":
+        title = record.get("name") or record.get("full_name")
+        canonical_url = record.get("html_url")
+    elif registry == "zenodo":
+        metadata = record.get("metadata")
+        links = record.get("links")
+        if metadata is not None and not isinstance(metadata, dict):
+            raise CaptureError("zenodo record metadata is not an object")
+        if links is not None and not isinstance(links, dict):
+            raise CaptureError("zenodo record links is not an object")
+        title = (metadata or {}).get("title")
+        canonical_url = (links or {}).get("html")
+        if not canonical_url and record.get("doi"):
+            canonical_url = f"https://doi.org/{record['doi']}"
+    else:
+        title = record.get("title")
+        canonical_url = f"https://huggingface.co/datasets/{urllib.parse.quote(identifier)}"
+    return {
+        "identifier": identifier,
+        "title": _optional_text(title, field="title", maximum=1000),
+        "canonical_url": _optional_text(canonical_url, field="canonical_url", maximum=2000),
+    }
+
+
 def fetch(request: PageRequest, timeout: int) -> tuple[bytes, int, str]:
     req = urllib.request.Request(
         request.url,
@@ -136,7 +174,8 @@ def capture_query(
             declared_total = page_total
         elif page_total is not None and page_total != declared_total:
             raise CaptureError(f"{registry} declared total changed during capture")
-        identifiers = [_identifier(registry, record) for record in records]
+        screening_records = [_screening_metadata(registry, record) for record in records]
+        identifiers = [record["identifier"] for record in screening_records]
         duplicates = sorted(identifier for identifier in identifiers if identifier in seen)
         if duplicates:
             raise CaptureError(
@@ -152,6 +191,7 @@ def capture_query(
                 "response_sha256": "sha256:" + hashlib.sha256(body).hexdigest(),
                 "item_count": len(records),
                 "identifiers": identifiers,
+                "screening_records": screening_records,
             }
         )
         if not records:
@@ -245,13 +285,15 @@ def main() -> int:
     rendered = (
         json.dumps(
             {
-                "schema_version": "RBC-LAND-007-PAGES-v0.1.0",
+                "schema_version": "RBC-LAND-007-PAGES-v0.2.0",
                 "status": "bounded_capture_only",
                 "captures": captures,
                 "limitations": [
                     "Captured pages are not a claim of ecosystem completeness or "
                     "representativeness.",
                     "Provider totals, rankings and public metadata can change after retrieval.",
+                    "Only stable identifiers, titles and canonical URLs are retained; no "
+                    "abstracts, bodies or full text are archived by this workflow.",
                     "Page budgets and provider caps are reported as incomplete rather "
                     "than inferred complete.",
                     "External registration, methods challenge and patient/community "
