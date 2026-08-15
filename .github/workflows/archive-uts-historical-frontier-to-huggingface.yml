@@ -55,12 +55,14 @@ jobs:
           python3 scripts/archive_uts_historical_frontier.py \
             manifests/uts/all-release-families-2026-08-15.json \
             manifests/uts/historical-frontier-plan-2026-08-16.json \
+            --capacity-state manifests/uts/hf-private-capacity-state-2026-08-16.json \
             --family "$UTS_FAMILY" \
             --max-artifacts "$UTS_MAX_ARTIFACTS" \
             --max-bytes "$UTS_MAX_BYTES" \
             --max-minutes "$UTS_MAX_MINUTES" \
             --receipt uts-historical-frontier-receipt.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
         with:
           name: uts-historical-frontier-receipt
           path: uts-historical-frontier-receipt.json

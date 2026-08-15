@@ -290,6 +290,19 @@ PanelApp listing is complete, but the per-version detail capture is explicitly
 incomplete after HTTP 429 (129 of 433 observed) and is not represented as a
 complete snapshot.
 
+### Private archive capacity stop — 2026-08-16
+
+Historical UTS run `31897934633` did not create a remotely verified payload or
+receipt: the Hugging Face LFS batch endpoint returned HTTP 403 with an explicit
+private repository storage-limit message. The repository now records that
+state as blocked and checks it before authentication, remote cursor planning or
+UTS source download. A blocked invocation emits a redacted failure receipt and
+cannot advance a cursor or authorize a redownload.
+
+This is a repository-owned safety fix, not evidence that capacity has been
+restored. Resumption remains blocked until a dated, expiring authenticated
+capacity verification is reviewed and a one-artifact canary succeeds.
+
 ### PanelApp/OECD authoritative rights frontier — 2026-08-16
 
 The response-hashed matrix in
