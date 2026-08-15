@@ -4,6 +4,12 @@
 
 ## Phase 1 — Analysis contracts
 
+- [x] Reconcile the bounded engine against the exact merged Track 009
+  source-release binding set. The executable receipt validates every referenced
+  source release, permits `synthetic_assurance` only, and records both empirical
+  activation and contract freeze as false. Evidence:
+  `manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json`.
+
 - [x] Define supported estimands, inputs, outputs and invalid operations. `[M-03]` Evidence: synthetic reference contract in `docs/burden-engine-010-reference.md` and existing burden tests.
 - [x] Define supported distribution specification (seeded beta fraction propagation); correlation specifications remain out of scope pending contract review.
 - [x] Define bounded structural-scenario and fail-closed missingness outputs. Evidence: `rareburden.burden_assurance`, focused reproducibility/negative tests and `docs/burden-engine-010-reference.md`; scientific approval remains open.
@@ -29,6 +35,8 @@
 - [x] Add negative tests for incompatible DALY/cost shortcuts. Evidence: `tests/test_burden.py` and `tests/test_quality_edges.py`.
 - [x] Benchmark the bounded synthetic reference workload. Evidence: `scripts/check_burden_benchmark.py`, its fail-closed tests and the `make burden-benchmark` release gate; timing is an engineering guard, not scientific validation.
 - [ ] Run role-separated scientific-software agent-panel review and owner disposition.
+  The repository-owned bounded synthetic quality disposition is prepared, but
+  it is not an agent-panel or clinical disposition.
 
 ## Phase 5 — Release
 
@@ -63,3 +71,15 @@
   explicitly bounded and non-empirical. Evidence:
   `tests/test_downstream_track_contracts.py`; scientific and Track 009 gates
   remain open.
+
+## Track 009 reconciliation — 2026-08-16
+
+- [x] Replace the stale incomplete-Track-009 dependency statement with an exact
+  binding to the merged Track 009 manifest and its immutable source evidence.
+- [x] Add a deterministic renderer and committed receipt for the existing
+  synthetic analysis, including the Track 009 binding digest, quality
+  disposition ID, parameter fingerprints, deterministic seed and explicit
+  non-activation state.
+- [x] Add negative tests that reject primary use, empirical activation and a
+  frozen v0.4 contract. No empirical source, semantic, clinical, policy or
+  production activation follows from this reconciliation.

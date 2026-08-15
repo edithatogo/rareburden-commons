@@ -1,0 +1,44 @@
+{
+  "activation_state": "synthetic_only",
+  "analysis_id": "expected-population-synthetic",
+  "analysis_result_id": "ana-d9cb2e79322f92d5dfbc7ae2",
+  "contract_frozen": false,
+  "created_at": "2026-08-16T00:00:00Z",
+  "dependence": "independent",
+  "dependence_rationale": "The synthetic reference assumes independence solely to exercise a declared and reproducible dependence contract.",
+  "empirical_parameter_activation": false,
+  "estimand": "expected_affected_population",
+  "evidence_statuses": [
+    "observed",
+    "assumed"
+  ],
+  "interpretation": "repository-owned synthetic assurance; not an empirical burden estimate",
+  "ledger_id": "public-foundation-synthetic-ledger",
+  "left_parameter_fingerprint": "par-6f319b1a2dc6aad9c1db9839",
+  "left_parameter_id": "australia-population-synthetic",
+  "limitations": [
+    "Synthetic assurance only; no empirical interpretation or policy use is permitted."
+  ],
+  "output_unit": "people",
+  "quality_disposition_id": "qdp-track010-synthetic-20260816",
+  "right_parameter_fingerprint": "par-762e1bc676f8cef798688fcc",
+  "right_parameter_id": "rare-diabetes-fraction-synthetic",
+  "runtime": {
+    "python_implementation": "CPython",
+    "python_version": "3.14.5",
+    "random_engine": "rareburden.pcg32-box-muller-marsaglia-tsang.v1",
+    "software_version": "0.3.0rc2"
+  },
+  "schema_version": "1.0.0",
+  "source_release_binding_sha256": "166bd3d6ed2246c23fd455b498f8bb9ae0d63c1db8f61fc52ce287934fc23cca",
+  "summary": {
+    "interval_probability": 0.95,
+    "iterations": 10000,
+    "lower": 66342.91979677154,
+    "mean": 530108.1393056146,
+    "median": 443889.3061953435,
+    "seed": 20260719,
+    "standard_deviation": 371357.48381251725,
+    "upper": 1468776.3353750003
+  }
+}

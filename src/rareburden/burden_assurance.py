@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 from collections.abc import Mapping
 from typing import Any
 
@@ -33,6 +35,52 @@ def assess_analysis_estimability(
         "missing_parameter_ids": sorted(set(missing)),
         "reasons": reasons,
         "imputation_performed": False,
+    }
+
+
+def run_bounded_synthetic_analysis(
+    specification: dict[str, Any],
+    ledger: ParameterLedger,
+    source_release_bindings: Mapping[str, Any],
+    quality_disposition: dict[str, Any],
+    *,
+    created_at: str,
+) -> dict[str, Any]:
+    """Run only a synthetic analysis after validating Track 009 release links."""
+    if specification.get("intended_use") != "synthetic_assurance":
+        raise ModelError("bounded reconciliation permits synthetic_assurance only")
+    claims = source_release_bindings.get("claims")
+    if (
+        not isinstance(claims, Mapping)
+        or claims.get("empirical_parameter_activation") is not False
+        or claims.get("v0_4_contract_frozen") is not False
+    ):
+        raise ModelError("empirical source activation must remain explicitly false")
+    records = source_release_bindings.get("source_releases")
+    if not isinstance(records, list):
+        raise ModelError("source-release binding document is incomplete")
+    releases = {
+        str(record.get("source_release_id")): record
+        for record in records
+        if isinstance(record, Mapping)
+    }
+    ledger.validate_source_release_links(releases)
+    result = run_analysis_spec(
+        specification,
+        ledger,
+        created_at=created_at,
+        quality_disposition=quality_disposition,
+    )
+    binding_bytes = json.dumps(
+        source_release_bindings, sort_keys=True, separators=(",", ":")
+    ).encode()
+    return {
+        **result,
+        "source_release_binding_sha256": hashlib.sha256(binding_bytes).hexdigest(),
+        "activation_state": "synthetic_only",
+        "contract_frozen": False,
+        "empirical_parameter_activation": False,
+        "interpretation": "repository-owned synthetic assurance; not an empirical burden estimate",
     }
 
 
@@ -90,4 +138,8 @@ def run_structural_scenarios(
     }
 
 
-__all__ = ["assess_analysis_estimability", "run_structural_scenarios"]
+__all__ = [
+    "assess_analysis_estimability",
+    "run_bounded_synthetic_analysis",
+    "run_structural_scenarios",
+]
