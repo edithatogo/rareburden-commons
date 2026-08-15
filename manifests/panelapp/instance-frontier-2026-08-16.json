@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "observed_on": "2026-08-16",
+  "claims": {
+    "global_completeness": false,
+    "country_representativeness": false,
+    "historical_version_completeness": false
+  },
+  "instances": [
+    {
+      "source_id": "genomics-england-panelapp",
+      "jurisdiction": "GB",
+      "official_url": "https://panelapp.genomicsengland.co.uk/",
+      "api_url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/",
+      "robots_url": "https://panelapp.genomicsengland.co.uk/robots.txt",
+      "robots_observation": "User-agent: * disallows /api/",
+      "terms_url": "https://prod-media-panelapp.genomicsengland.co.uk/media/files/GEL_-_PanelApp_Terms_of_Use_December_2019.pdf",
+      "automated_api_capture": "disabled_by_robots",
+      "raw_archive": "existing_bounded_private_listing_only",
+      "detail_frontier": "manual_publisher_authorization_required"
+    },
+    {
+      "source_id": "panelapp-australia",
+      "jurisdiction": "AU",
+      "official_url": "https://panelapp-aus.org/",
+      "api_url": "https://panelapp-aus.org/api/v1/panels/?page=1",
+      "robots_url": "https://panelapp-aus.org/robots.txt",
+      "robots_observation": "HTTP 404; no affirmative machine-readable policy observed",
+      "terms_url": null,
+      "automated_api_capture": "bounded_metadata_probe_only",
+      "raw_archive": "disabled_pending_exact_content_reuse_terms",
+      "detail_frontier": "disabled_pending_exact_content_reuse_terms"
+    }
+  ]
+}
