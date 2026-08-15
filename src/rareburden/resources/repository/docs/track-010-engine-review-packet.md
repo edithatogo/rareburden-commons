@@ -1,10 +1,14 @@
 # Track 010 burden-engine review packet
 
-**Status:** non-binding preparation; Track 010 remains blocked  
+**Status:** dependency-bound synthetic preparation; empirical Track 010 remains blocked  
 **Contract draft:** burden engine contract v0.1.0  
 **Activation rule:** do not freeze alpha interfaces or bind Track 003 until
-Track 009 and the required scientific, engineering and patient/community gates
-are complete.
+the exact Track 009 binding permits the intended inputs and the required
+role-separated agent-panel/owner dispositions are complete.
+
+The merged Track 009 binding currently enables only the repository's synthetic
+source release. The deterministic Track 010 receipt records this binding and
+does not activate empirical inputs or freeze the alpha contract.
 
 ## Decisions required
 
