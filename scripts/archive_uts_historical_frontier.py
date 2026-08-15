@@ -16,6 +16,44 @@ from scripts.archive_uts_batch import _load_family, archive_uts_batch
 _RECEIPT = re.compile(r"^(\d{5})-(\d{5})\.json$")
 
 
+class CapacityBlockedError(RuntimeError):
+    """Raised before source download when private destination capacity is blocked."""
+
+    def __init__(self, receipt: dict[str, object]):
+        super().__init__("private Hugging Face storage capacity is not authorized")
+        self.receipt = receipt
+
+
+def capacity_preflight(state_path: Path, *, repository: str) -> dict[str, object]:
+    """Require an explicit, evidence-bound ready state before any source download."""
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    if not isinstance(state, dict) or state.get("schema_version") != "1.0":
+        raise ValueError("capacity state must use schema_version 1.0")
+    if state.get("repository") != repository:
+        raise ValueError("capacity state repository differs from frontier destination")
+    status = state.get("status")
+    if status not in {"blocked", "ready"}:
+        raise ValueError("capacity state must be blocked or ready")
+    evidence = state.get("evidence")
+    if not isinstance(evidence, dict) or not evidence.get("reference"):
+        raise ValueError("capacity state requires an evidence reference")
+    receipt: dict[str, object] = {
+        "schema_version": "1.0",
+        "status": "capacity_preflight_passed" if status == "ready" else "capacity_blocked",
+        "repository": repository,
+        "state_observed_at": state.get("observed_at"),
+        "evidence": evidence,
+        "cursor_advanced": False,
+        "source_download_started": False,
+        "redownload_permitted": status == "ready",
+    }
+    if status == "blocked":
+        raise CapacityBlockedError(receipt)
+    if not state.get("verified_at") or not state.get("expires_at"):
+        raise ValueError("ready capacity state requires verified_at and expires_at")
+    return receipt
+
+
 def _artifact_path(release_type: str, release: dict[str, Any]) -> str:
     return "/".join(
         (
@@ -108,6 +146,7 @@ def family_cursors(plan: list[dict[str, object]], family_order: list[str]) -> di
 def archive_frontier(
     manifest: Path,
     frontier: Path,
+    capacity_state: Path,
     *,
     only_family: str,
     max_artifacts: int,
@@ -115,11 +154,6 @@ def archive_frontier(
     max_minutes: int,
 ) -> dict[str, object]:
     """Advance a bounded number of items, refreshing remote state after each upload."""
-    from huggingface_hub import HfApi  # type: ignore[import-not-found]
-
-    token = os.environ.get("HF_TOKEN")
-    if not token or not os.environ.get("UMLS_API_KEY"):
-        raise RuntimeError("HF_TOKEN and UMLS_API_KEY are required")
     document = json.loads(frontier.read_text(encoding="utf-8"))
     family_order = document["family_order"]
     limits = document["run_limits"]
@@ -133,6 +167,13 @@ def archive_frontier(
         raise ValueError("max_minutes exceeds the frontier policy")
 
     repo_id = str(document["destination"])
+    preflight = capacity_preflight(capacity_state, repository=repo_id)
+
+    from huggingface_hub import HfApi  # type: ignore[import-not-found]
+
+    token = os.environ.get("HF_TOKEN")
+    if not token or not os.environ.get("UMLS_API_KEY"):
+        raise RuntimeError("HF_TOKEN and UMLS_API_KEY are required")
     api = HfApi(token=token)
     info = api.dataset_info(repo_id, files_metadata=True)
     if not info.private:
@@ -213,6 +254,7 @@ def archive_frontier(
         "initial_cursors": initial_cursors,
         "final_cursors": family_cursors(final_plan, cursor_families),
         "results": results,
+        "capacity_preflight": preflight,
         "claims": {
             "public_redistribution": False,
             "selected_family_complete": not any(item["status"] == "pending" for item in final_plan),
@@ -228,20 +270,26 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("manifest", type=Path)
     parser.add_argument("frontier", type=Path)
+    parser.add_argument("--capacity-state", type=Path, required=True)
     parser.add_argument("--family", default="auto")
     parser.add_argument("--max-artifacts", type=int, default=3)
     parser.add_argument("--max-bytes", type=int, default=8_000_000_000)
     parser.add_argument("--max-minutes", type=int, default=180)
     parser.add_argument("--receipt", type=Path, required=True)
     args = parser.parse_args()
-    receipt = archive_frontier(
-        args.manifest,
-        args.frontier,
-        only_family=args.family,
-        max_artifacts=args.max_artifacts,
-        max_bytes=args.max_bytes,
-        max_minutes=args.max_minutes,
-    )
+    try:
+        receipt = archive_frontier(
+            args.manifest,
+            args.frontier,
+            args.capacity_state,
+            only_family=args.family,
+            max_artifacts=args.max_artifacts,
+            max_bytes=args.max_bytes,
+            max_minutes=args.max_minutes,
+        )
+    except CapacityBlockedError as error:
+        args.receipt.write_text(json.dumps(error.receipt, indent=2) + "\n", encoding="utf-8")
+        return 2
     args.receipt.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
     return 0
 
