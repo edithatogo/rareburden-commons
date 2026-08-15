@@ -242,3 +242,33 @@ def test_alternative_parameter_selection_requires_explicit_rationale() -> None:
         rationale="Pre-specified synthetic sensitivity scenario.",
     )
     assert selected["parameter_id"] == "rare-diabetes-fraction-alternative"
+    selected["label"] = "detached mutation"
+    assert ledger.get("rare-diabetes-fraction-alternative")["label"] != "detached mutation"
+
+    with pytest.raises(LedgerError, match="at least two distinct"):
+        ledger.select_alternative(
+            [choices[0], choices[0]],
+            selected_parameter_id=choices[0],
+            rationale="invalid duplicate set",
+        )
+    with pytest.raises(LedgerError, match="complete conflict group"):
+        ledger.select_alternative(
+            ["australia-population-synthetic", choices[0]],
+            selected_parameter_id=choices[0],
+            rationale="invalid mixed set",
+        )
+
+
+def test_alternative_parameter_selection_rejects_incompatible_context() -> None:
+    document = deepcopy(_document())
+    alternative = deepcopy(document["parameters"][1])
+    alternative["parameter_id"] = "rare-diabetes-fraction-other-period"
+    alternative["period"] = {"start": "2024-01-01", "end": "2024-12-31"}
+    document["parameters"].append(alternative)
+    ledger = validate_ledger(document, load_mapping(SCHEMA))
+    with pytest.raises(LedgerError, match="incompatible parameter period"):
+        ledger.select_alternative(
+            ["rare-diabetes-fraction-synthetic", "rare-diabetes-fraction-other-period"],
+            selected_parameter_id="rare-diabetes-fraction-synthetic",
+            rationale="invalid incompatible set",
+        )
