@@ -12,8 +12,11 @@
   evidence by SHA-256 and Git blob identifier; OSF is deferred and removed from
   the active plan.
 - [x] Define initiative, dataset, software, standard, mandate and methodological-precedent fields.
-- [ ] Obtain role-separated community/harm and methods agent findings bound to
-  the repository registration. Agent advice is not independent or
+- [x] Obtain role-separated methods/coverage, community/harm,
+  governance/rights/reproducibility and scientific/search-reproducibility agent
+  findings bound to the repository registration. Evidence:
+  `docs/track-007-agent-panel-findings-2026-08-16.yml`. The advisory consensus
+  is `narrow_and_remediate`; agent advice is not independent, human or
   constituted-community approval.
 
 ## Phase 2 — Search and screen

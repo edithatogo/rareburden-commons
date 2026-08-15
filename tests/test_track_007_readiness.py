@@ -10,6 +10,7 @@ REFRESHED_PACKET = ROOT / "docs/track-007-registration-challenge-readiness-2026-
 REPOSITORY_REGISTRATION = ROOT / "docs/track-007-repository-registration-2026-08-16.yml"
 CHALLENGE_TASK = ROOT / "docs/track-007-agent-challenge-task-2026-08-16.yml"
 PANEL_FINDINGS = ROOT / "docs/track-007-agent-panel-findings-2026-08-16.yml"
+OWNER_READY = ROOT / "docs/track-007-owner-disposition-ready-2026-08-16.yml"
 
 
 def test_track_007_readiness_packet_is_fail_closed() -> None:
@@ -135,3 +136,25 @@ def test_complete_panel_findings_preserve_owner_gate_and_scope_blockers() -> Non
     )
     assert findings["panel_state"]["recommendation"] == "narrow_and_remediate"
     assert findings["panel_state"]["owner_disposition"] == "pending"
+
+
+def test_owner_ready_packet_binds_exact_candidate_and_retains_owner_decision() -> None:
+    packet = load_mapping(OWNER_READY)
+    assert packet["status"] == "awaiting_repository_owner_disposition"
+    commit = packet["candidate"]["commit"]
+    tree = packet["candidate"]["tree"]
+    observed_tree = subprocess.run(
+        ["git", "rev-parse", f"{commit}^{{tree}}"],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    assert observed_tree == tree
+    for record in packet["bound_evidence"]:
+        assert hashlib.sha256((ROOT / record["path"]).read_bytes()).hexdigest() == record["sha256"]
+    assert packet["recommended_decision"]["disposition"] == "narrow"
+    assert packet["decision_fields"]["selected_option"] == "pending"
+    assert (
+        "preregistered, prospective or confirmatory protocol claim"
+        in packet["recommended_decision"]["prohibited"]
+    )

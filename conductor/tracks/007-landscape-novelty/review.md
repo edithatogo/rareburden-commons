@@ -51,8 +51,20 @@ framing must state that burden measurement does not value lives, rank
 conditions or justify rationing, and must preserve lived-impact, equity and
 accessibility limitations.
 
-The adversarial claim-audit role, final panel synthesis and owner disposition
-remain pending, so the track stays **In review**.
+The governance/rights/reproducibility and additional
+scientific/search-reproducibility challenges confirmed the narrow direction and
+required provider-terms, exact-candidate, retrospective-protocol, correction
+and withdrawal controls. Those repository remediations are recorded in:
+
+- `docs/track-007-provider-terms-matrix-2026-08-16.yml`;
+- `docs/track-007-correction-withdrawal-map-2026-08-16.yml`;
+- `docs/track-007-bounded-framing-addendum-2026-08-16.md`; and
+- `docs/track-007-owner-disposition-ready-2026-08-16.yml`.
+
+All challenge roles are complete and the panel consensus is **narrow and
+remediate**. The exact-candidate repository-owner disposition remains pending,
+so the track stays **In review** and the original publication-ready landscape
+acceptance is not claimed.
 
 ### Review rerun — 2026-07-29
 
