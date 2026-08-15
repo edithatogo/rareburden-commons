@@ -25,6 +25,35 @@ The dated sections below preserve the historical evidence state at the time
 they were written. Their former external or additional-person gate wording is
 superseded prospectively by ADR-0009; historical observations are not rewritten.
 
+### Methods and coverage challenge — 2026-08-16
+
+The role-separated methods and coverage challenger verified every input hash
+and Git blob binding, then recommended **narrow**. The full advisory findings
+are recorded in `docs/track-007-agent-panel-findings-2026-08-16.yml`.
+
+Three High findings remain: all 69 retained records lack final content-level
+eligibility decisions; the separate 306-occurrence live capture is unscreened
+and unreconciled; and scholarly coverage is limited to ranked Crossref first
+pages without executable pagination or database-specific bibliographic
+searches. Medium findings limit deduplication to the frozen snapshot, identify
+English and ranking bias, distinguish capture-mechanics reproducibility from
+exact response reproduction, and require institutional records to be labelled
+as curated seeds.
+
+The exact `133 occurrences -> 120 unique -> 69 retained / 51 excluded` snapshot
+counts remain valid. They do not satisfy the original broad landscape scope.
+The community/harm challenger also recommended **narrow and revise framing**.
+Every gap or niche statement must be bounded to the indexed English-language
+public evidence sampled; the 13 catalogue records are owner-curated examples,
+not a global inventory; inaccessible evidence is `not_assessable`, not absent
+or irrelevant; and no patient/community legitimacy or approval exists. Public
+framing must state that burden measurement does not value lives, rank
+conditions or justify rationing, and must preserve lived-impact, equity and
+accessibility limitations.
+
+The adversarial claim-audit role, final panel synthesis and owner disposition
+remain pending, so the track stays **In review**.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The seed screening

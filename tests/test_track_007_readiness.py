@@ -9,6 +9,7 @@ PACKET = ROOT / "docs/track-007-registration-challenge-readiness-2026-08-04.yml"
 REFRESHED_PACKET = ROOT / "docs/track-007-registration-challenge-readiness-2026-08-15.yml"
 REPOSITORY_REGISTRATION = ROOT / "docs/track-007-repository-registration-2026-08-16.yml"
 CHALLENGE_TASK = ROOT / "docs/track-007-agent-challenge-task-2026-08-16.yml"
+PANEL_FINDINGS = ROOT / "docs/track-007-agent-panel-findings-2026-08-16.yml"
 
 
 def test_track_007_readiness_packet_is_fail_closed() -> None:
@@ -97,3 +98,40 @@ def test_agent_challenge_task_binds_inputs_and_separates_roles() -> None:
         "claim independent, human, patient, community, institutional or external review"
         in task["prohibited_actions"]
     )
+
+
+def test_complete_panel_findings_preserve_owner_gate_and_scope_blockers() -> None:
+    findings = load_mapping(PANEL_FINDINGS)
+    assert findings["status"] == "complete_agent_panel_findings_pending_owner_disposition"
+    assert findings["assurance"] == "advisory_agent_review_not_independent_or_human_approval"
+    assert set(findings["completed_roles"]) == {
+        "methods_coverage_challenger",
+        "community_harm_equity_challenger",
+        "adversarial_claim_auditor",
+    }
+    assert findings["pending_roles"] == []
+    assert findings["additional_challenges"] == ["scientific_search_reproducibility_challenger"]
+    high_methods = {
+        finding["id"]
+        for finding in findings["methods_coverage_challenger"]["findings"]
+        if finding["severity"] == "high"
+    }
+    assert high_methods == {"M-F1", "M-F2", "M-F3"}
+    high_community = {
+        finding["id"]
+        for finding in findings["community_harm_equity_challenger"]["findings"]
+        if finding["severity"] == "high"
+    }
+    assert high_community == {"C-F1", "C-F2"}
+    assert findings["methods_coverage_challenger"]["recommendation"] == "narrow"
+    assert (
+        findings["community_harm_equity_challenger"]["recommendation"]
+        == "narrow_and_revise_framing"
+    )
+    assert findings["adversarial_claim_auditor"]["recommendation"] == "narrow_and_remediate"
+    assert (
+        findings["scientific_search_reproducibility_challenger"]["recommendation"]
+        == "revise_then_narrow"
+    )
+    assert findings["panel_state"]["recommendation"] == "narrow_and_remediate"
+    assert findings["panel_state"]["owner_disposition"] == "pending"
