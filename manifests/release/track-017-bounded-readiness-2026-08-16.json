@@ -53,23 +53,23 @@
     "merge_commit": "18910840fee787bbe2ae7d7eff40b944539a11f4"
   },
   "usability_preparation": {
-    "status": "prepared_not_executed",
+    "status": "two_advisory_agent_assessments_executed",
     "required_agent_assessments": 2,
     "required_roles": ["first_time_user_accessibility", "node_operator_documentation"],
     "required_report_fields": ["candidate_commit", "environment", "tasks", "outcomes", "barriers", "accessibility_findings", "severity", "recommendation"],
     "owner_disposition_required": true
   },
   "reproduction_preparation": {
-    "status": "prepared_not_executed",
+    "status": "two_clean_candidates_and_owner_reproduction_executed",
     "clean_release_candidates_required": 2,
     "owner_operated_clean_environment_reproductions_required": 1,
     "required_receipt_fields": ["candidate_commit", "artifact_hashes", "locked_environment", "commands", "utc_timestamp", "outputs", "discrepancies", "equivalence_disposition"]
   },
   "stable_release_gates": {
     "track_016_bound": true,
-    "usability_agent_reports_complete": false,
-    "owner_reproduction_complete": false,
-    "two_clean_candidates_complete": false,
+    "usability_agent_reports_complete": true,
+    "owner_reproduction_complete": true,
+    "two_clean_candidates_complete": true,
     "backup_continuity_complete": false,
     "complete_v1_evidence_index": false,
     "owner_exact_candidate_release_decision": false,
