@@ -98,7 +98,13 @@ owner-operated reproduction gates.
   reproduction/equivalence report.
 - [ ] Record primary/backup ownership, succession, support boundaries and
   approved sustainability costs.
-- [ ] Assemble the v1 evidence index and complete accountable release gates.
+- [x] Assemble the complete v1 evidence index without treating indexing as
+  stable acceptance. Evidence:
+  `manifests/release/v1-evidence-index-2026-08-16.json`,
+  `scripts/check_v1_evidence_index.py` and `tests/test_v1_evidence_index.py`.
+- [ ] Complete the remaining accountable release gates: qualifying backup
+  continuity, exact-candidate owner release decision, and post-decision public
+  stable-artifact verification.
 - [ ] Verify public artefacts only after a release-authority decision.
 
 ## Bounded readiness reconciliation — 2026-08-16

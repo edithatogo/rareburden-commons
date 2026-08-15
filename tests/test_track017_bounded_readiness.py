@@ -20,7 +20,7 @@ def test_prepared_readiness_contract_is_bounded() -> None:
     assert validate_readiness(_payload(), ROOT) == {
         "status": "bounded_readiness_preparation_valid",
         "track_016_status": "bound",
-        "open_gate_count": 4,
+        "open_gate_count": 3,
         "prohibited_claim_count": 10,
     }
 

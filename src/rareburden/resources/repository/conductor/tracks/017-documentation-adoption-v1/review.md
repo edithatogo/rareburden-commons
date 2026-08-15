@@ -68,3 +68,13 @@ troubleshooting. Repeated generation and verification passed; all three output
 manifests and verifier reports were identical. These are repository and agent
 advisory receipts only—not human accessibility conformance, independent
 reproduction, backup continuity, external approval or stable-release evidence.
+
+## Evidence-index review — 2026-08-16
+
+All 67 stable-v1 acceptance criteria are now enumerated in a hash-bound index
+with evidence routes and explicit group gaps. The validator rejects omitted,
+duplicated or reordered criteria, hash drift, unbound evidence and release
+overclaims. Index completeness is an accounting property only: no criterion is
+promoted to satisfied, and stable acceptance remains incomplete. Qualifying
+backup continuity, an exact-candidate owner decision and post-decision public
+stable-artifact verification remain pending.
