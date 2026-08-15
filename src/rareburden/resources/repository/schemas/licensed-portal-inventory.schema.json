@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.example/schemas/licensed-portal-inventory.schema.json",
+  "title": "Licensed portal inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "portal", "observed_at_utc", "terms", "destination", "artifacts", "claims"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "portal": {"enum": ["meddra", "mlds"]},
+    "observed_at_utc": {"type": "string", "format": "date-time"},
+    "terms": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence_url", "agreement_id", "cloud_storage_decision", "decision_evidence"],
+      "properties": {
+        "evidence_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "agreement_id": {"type": "string", "minLength": 1},
+        "cloud_storage_decision": {"enum": ["pending", "permit_private_cloud", "prohibit_cloud"]},
+        "decision_evidence": {"type": ["string", "null"]}
+      }
+    },
+    "destination": {"const": "edithatogo/hpo-licensed-ontology-archive"},
+    "artifacts": {
+      "type": "array", "items": {"$ref": "#/$defs/artifact"}
+    },
+    "claims": {
+      "type": "object", "additionalProperties": false,
+      "required": ["portal_inventory_complete", "release_complete", "language_complete", "country_edition_complete", "public_redistribution"],
+      "properties": {
+        "portal_inventory_complete": {"const": false},
+        "release_complete": {"const": false},
+        "language_complete": {"const": false},
+        "country_edition_complete": {"const": false},
+        "public_redistribution": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["product_id", "release_version", "edition", "jurisdiction", "language", "file_name", "bytes", "sha256", "download_url", "archive_path", "access_state", "duplicate_of"],
+      "properties": {
+        "product_id": {"type": "string", "minLength": 1},
+        "release_version": {"type": "string", "minLength": 1},
+        "edition": {"type": "string", "minLength": 1},
+        "jurisdiction": {"type": "string", "minLength": 2},
+        "language": {"type": "string", "minLength": 2},
+        "file_name": {"type": "string", "pattern": "^[^/\\\\]+$"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "download_url": {"type": ["string", "null"], "pattern": "^https://"},
+        "archive_path": {"type": "string", "pattern": "^licensed-private/(meddra|snomed-ct)/"},
+        "access_state": {"enum": ["metadata_only", "approved_download", "already_archived"]},
+        "duplicate_of": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

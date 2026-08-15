@@ -101,7 +101,9 @@
       "route": "private_licensed_only",
       "licence": "subscriber_terms",
       "discovery": "https://www.meddra.org/",
-      "status": "authenticated_inventory_required"
+      "status": "authenticated_inventory_prepared",
+      "preparation": "manifests/classifications/meddra-mlds-frontier-2026-08-16.json",
+      "cloud_storage": "pending_exact_subscription_terms"
     },
     {
       "id": "orphacode-nomenclature-packs",
@@ -134,7 +136,9 @@
       "route": "private_licensed_only",
       "licence": "affiliate_and_member_territory_terms",
       "discovery": "https://mlds.ihtsdotools.org/",
-      "status": "authenticated_inventory_required"
+      "status": "authenticated_inventory_prepared",
+      "preparation": "manifests/classifications/meddra-mlds-frontier-2026-08-16.json",
+      "cloud_storage": "pending_exact_affiliate_and_national_terms"
     },
     {
       "id": "umls-knowledge-sources",
