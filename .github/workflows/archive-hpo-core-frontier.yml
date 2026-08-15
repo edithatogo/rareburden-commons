@@ -1,0 +1,48 @@
+name: bounded public HPO core archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: Zero-based candidate cursor in release-tag/name order
+        required: true
+        default: "0"
+        type: string
+      count:
+        description: Exact core assets to process (maximum 10)
+        required: true
+        default: "1"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-public-hpo-core-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Stream, verify, publish and discard exact source bytes
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          ARCHIVE_START: ${{ inputs.start }}
+          ARCHIVE_COUNT: ${{ inputs.count }}
+        run: |
+          python3 scripts/archive_hpo_core_frontier.py \
+            --matrix manifests/hpo/asset-rights-matrix-2026-08-16.json \
+            --start "$ARCHIVE_START" --count "$ARCHIVE_COUNT" \
+            --max-bytes 1000000000 --receipt hpo-core-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: hpo-core-archive-receipt
+          path: hpo-core-receipt.json
+          if-no-files-found: error
+          retention-days: 30
