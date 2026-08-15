@@ -1,0 +1,569 @@
+{
+  "resolution_version": "RBC-LAND-007-COMBINED-v0.1.0",
+  "scope": "combined_non_overlapping_hash_bound_public_metadata_resolutions",
+  "sources": [
+    {
+      "path": "docs/track-007-public-metadata-resolutions-2026-08-16.json",
+      "sha256": "sha256:1809d7a6da22d75245d21283bfa729d753b969224fbeee504926205a5ccf3c23"
+    },
+    {
+      "path": "docs/track-007-pending-public-content-2026-08-16.json",
+      "sha256": "sha256:9291f3f05a0241ed57af67ce845c46c3b50e834b457d1c34a6ee231e82bd9dfa"
+    }
+  ],
+  "resolutions": [
+    {
+      "canonical_key": "doi:10.1016/j.rare.2024.100046",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:ee7ee8d67eb1a3f46a4c87dd9fb1fdc24f565d7de821cd0fa2133956c52e3d66"
+    },
+    {
+      "canonical_key": "doi:10.1016/j.rare.2025.100069",
+      "decision": "exclude",
+      "reason": "duplicate_entity_or_release",
+      "exclusion_reason": "duplicate_entity_or_release",
+      "evidence_sha256": "sha256:175292b759017be93aecdaf70da5ec65165847f4dbf917bf69643ba886bc6c51"
+    },
+    {
+      "canonical_key": "doi:10.1016/j.rare.2025.100075",
+      "decision": "exclude",
+      "reason": "duplicate_entity_or_release",
+      "exclusion_reason": "duplicate_entity_or_release",
+      "evidence_sha256": "sha256:35253c084a3b0432cefc960cd07acf283bd77ea86ce2130fd3bc371dff3a708e"
+    },
+    {
+      "canonical_key": "doi:10.1016/s0140-6736(15)60420-2",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:46af66e221cf4a3337e61c20321d2ad738d574782d34eb524ca50a052b750ba4"
+    },
+    {
+      "canonical_key": "doi:10.1097/01.ede.0000153643.88019.92",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:365b679689b55a1a80cd8aa3b98f6ae2585598e7969378e11e2a020e15155044"
+    },
+    {
+      "canonical_key": "doi:10.1109/bibm52615.2021.9669517",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:2a7b4c9491ca975fa58822c4219ef1052d46f3567d3540fbee7129134239c06e"
+    },
+    {
+      "canonical_key": "doi:10.1109/bibm55620.2022.9995614",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:feb75c5cb9340c44cf88d1ec0002d058c084a61bbab13ddb57164e2d79507826"
+    },
+    {
+      "canonical_key": "doi:10.1109/cbms49503.2020.00039",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:bb2cb4d9a96a15dd755b5618b329c8a9ecdd4e4d50f2db8ea2abe2bb4b7f6764"
+    },
+    {
+      "canonical_key": "doi:10.1111/jep.12281",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:652b4c2d8a148becbfd79a3718d9086876eeee160d82fcd69ca80adfc62513ea"
+    },
+    {
+      "canonical_key": "doi:10.1186/s12874-021-01434-3",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:1eeb70b120dbae7d911cf93a8282ec93a56af73d39ac29391f24b719fef3d8e5",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease registry",
+        "rank": 8
+      }
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-015-0226-9",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:ba54afe32228011a784e269f9ed72c11fcfc320c92c6a77daae0a89d7bcad896"
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-017-0597-1",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:d2db7bd8a0fe877b60fb6b7df7ca5f772c3b9bbe25e535327c44be0cbf958b21",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease prevalence",
+        "rank": 1
+      }
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-018-0836-0",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:79a04f1508c87b3d512aeb90da713b0815c81c8db9766d9a7c27cdf3ba49ce24",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease registry",
+        "rank": 3
+      }
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-019-1146-x",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:98d597cd74178e4a092c4d487413fea98cd65edee2a94ccfd22cb611d52db676"
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-022-02299-5",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:9863a1cfd72ce0282abb9a7952974bc0e63b8df2e90aa80eaf9d5088f6dea96a"
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-024-03120-1",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:24f117b95987266100c5f66eb77e8ade094ae21e9444b5b8a5793534b39fff0f"
+    },
+    {
+      "canonical_key": "doi:10.1186/s13326-016-0051-7",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:ad88487bb115f2eb846401a1c78b93608d8c17d845068f063b7b7fb377045563",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease ontology",
+        "rank": 7
+      }
+    },
+    {
+      "canonical_key": "doi:10.18653/v1/2026.bionlp-1.41",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:da90056c70b4f3134f1bd7adea6c343c13cb5943d488efb3b8f16a3cd1efe0d3"
+    },
+    {
+      "canonical_key": "doi:10.20517/rdodj.2023.39",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:3c41c799200c79d698336afcb04fd1412ad4ead9a1960dbd177219264eeba67a"
+    },
+    {
+      "canonical_key": "doi:10.21203/rs.3.rs-1046815/v1",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:e55b23883c38c919de75c1f6b91f39446b9fffb572a5be1ce5eead7444a08270"
+    },
+    {
+      "canonical_key": "doi:10.21203/rs.3.rs-6623705/v1",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:54e05427b0cd5664549dbca7b65f76290e351ecea9bec21259c17726788f8ef5"
+    },
+    {
+      "canonical_key": "doi:10.2196/preprints.60665",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:3a5534340478d138aa9eb17de520f8d1e74f35fda1f269aa44e62ed207097afc"
+    },
+    {
+      "canonical_key": "doi:10.26226/morressier.5ada8a0dd462b8029238e56e",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:44265473340a8a65370d46f5d82e2eb42f9a55aef5862e3d10b85891d9965f14"
+    },
+    {
+      "canonical_key": "doi:10.4135/9781529796988",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:a6dab8c5fabbdcf63951715bd85280285000a5e3f40df6a979daf5df2c9c720d"
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.10702445",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:987de9452490ab577498b4370808b7fd6ed257b5f7fa5f2288ee30ca13dba8b9",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease registry",
+        "rank": 4
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1321650",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:c6c4afa562ab68ddf4b8d624611ae43b4cd0aa5e387639f87a7de406ae62a608",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease registry",
+        "rank": 1
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1415398",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:1f64c4b413aa6baafe3d9ce196a3d44207b73a85164a44170cc5c5bac297cc09",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease registry",
+        "rank": 5
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.14907384",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:943f34fd182acb4029e1d39915d2a2b555cbe5d4fb01447598c76c9d18c3a380",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease registry",
+        "rank": 6
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.14962863",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:7fd266841bb0792bae20c59c0dbb9bbabe6566bf19ca12fcadacc616ff5c2be7",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease prevalence",
+        "rank": 4
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20798055",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:cb3f34c1821ed8ca38ac7fdd67d8b208f76ea1aeb37fa28eaf1f11045caa9e51",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease registry",
+        "rank": 7
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.21384101",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:2eefd4fdd087a3b0d01c4a99422df2cde16015bc861d5baa0dce29ef5c7cccd6",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease registry",
+        "rank": 2
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.3234097",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:6f8b927f3ef55398b3b3da2844814801fd262d1247592a517cd0f0b13b56c051",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease ontology",
+        "rank": 10
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.3478576",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:c3c08be9c6f38949c256ae78e0542345513fcbdcf18d02c60035e465a797cf7e",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease ontology",
+        "rank": 2
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.557065",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:f467146872c5abe5b7a57604b47a59bfd3e7f9af27db305f93d8d6ed3523c51f",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease cost",
+        "rank": 8
+      }
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.837955",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:4ee3d64d2566200f2f277bdb94cacddeba6200318712adb6c23aa366d8aca853",
+      "evidence_locator": {
+        "registry": "zenodo",
+        "query_string": "rare disease prevalence",
+        "rank": 6
+      }
+    },
+    {
+      "canonical_key": "doi:10.64898/2026.07.01.26357055",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:709d7eabba524a9810ab8fe714622362f1c9b9834333a51aa28f7d501515adcb"
+    },
+    {
+      "canonical_key": "github:acadtags/rare-disease-identification",
+      "decision": "uncertain",
+      "reason": "public_metadata_insufficient_for_final_eligibility",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:0ed6bf1242d4e6235ce392bc178b7414278441101aa27ced0c1c2252b384f344"
+    },
+    {
+      "canonical_key": "github:akshay-gurav-31/hackathon-reusable-framework",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:db7a9286de2b08544b2e1fca01eeedcef6fa9cc596d514ff0a6cb2d21ca0c640",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease cost",
+        "rank": 1
+      }
+    },
+    {
+      "canonical_key": "github:ariadnavillam/radipo",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:2c5bdaf5e280fe88e6db8251d15cbdc839f83cd905fb8ed89fa5829aed2b370a",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease ontology",
+        "rank": 7
+      }
+    },
+    {
+      "canonical_key": "github:atinak/rare-disease-detector",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:61b57f2661c59a7562ef35d4230525e7c11c951b50db562a305cde8e0519b327",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease prevalence",
+        "rank": 3
+      }
+    },
+    {
+      "canonical_key": "github:bhfdsc/ccu019_01",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:89d6608c6ab31df07e5d4ddc14dc97fe8da79051f07ec85c70a6e7e2ebac5e54",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease prevalence",
+        "rank": 5
+      }
+    },
+    {
+      "canonical_key": "github:bih-cei/rd-cdm",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:138d084970bc7d1402d778d36f79e49e12114996a207cfa808cd5da18fc1c442",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease registry",
+        "rank": 6
+      }
+    },
+    {
+      "canonical_key": "github:deletexiumu/dar-ontology-reasoning",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:aefa784b1d292fa661e6d2be0cd346afd267df2c791f3eef9dd9cefb925cdcf8",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease ontology",
+        "rank": 2
+      }
+    },
+    {
+      "canonical_key": "github:ebispot/ejp-ontology",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:0575144df2fc8e1e47266544075c0a0e50cc99e754cea5b96810ca91a9daee08",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease ontology",
+        "rank": 4
+      }
+    },
+    {
+      "canonical_key": "github:honghan/ccu019_01",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:be37cf62a6397cac1c61b9b8c4a6bff712afdaa1643908824cc33155dc702403",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease prevalence",
+        "rank": 4
+      }
+    },
+    {
+      "canonical_key": "github:inutano/rare-disease-globe",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:8df0e06fa00c31a42949e056f3204c2ab3d17fe0f4b99c57c9149d11bf9690ca",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease prevalence",
+        "rank": 2
+      }
+    },
+    {
+      "canonical_key": "github:khadgaa/rare-disease-ontology",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:21ddaf2553e5f225371e25253214dbe898a940cb6cf6083c6fa4601412c357e9"
+    },
+    {
+      "canonical_key": "github:malikalisha721-byte/rare-disease-registry-by-hamna",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:ce55ff669243941fee1c818984de1abd8065123d826e7d6e5007aaef1d8c2e84",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease registry",
+        "rank": 9
+      }
+    },
+    {
+      "canonical_key": "github:mira-jain/hackathon-reusable-framework",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:821d2c76c305ea544998dc6f17b177dd0c6c85dadaa22a9055945658ca9402ab",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease cost",
+        "rank": 2
+      }
+    },
+    {
+      "canonical_key": "github:muccg/rdrf",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:2e68b6237efeefacf9d3099cc8c0f56b4cde2dd89f03b9fe6235edc3fe8e5342",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease registry",
+        "rank": 1
+      }
+    },
+    {
+      "canonical_key": "github:orphanet/ordo",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:c12505bd0dbb68aaf4b51c74af4313e250134598684ffa3ad4a8da02b1c057c6",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease ontology",
+        "rank": 6
+      }
+    },
+    {
+      "canonical_key": "github:pavlidislab/rdp",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:905dcb6130756f950594cb57e979533aada1423139f9ba78c42c7b0ce6984e69",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease registry",
+        "rank": 2
+      }
+    },
+    {
+      "canonical_key": "github:prirai/rare-diseases-data-scraping",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:4b6b6e55551a473c72d405f57f62ef88214ce53ef3d756071ed613c450947f37",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease ontology",
+        "rank": 5
+      }
+    },
+    {
+      "canonical_key": "github:rayssacarvalh/genomic-burden-actionability-atlas",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:ba314d9dc7f23b66b130922cf6a84af1f2dcdf3ff54c601b05a4c3ada9b7ff0e",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease burden",
+        "rank": 1
+      }
+    },
+    {
+      "canonical_key": "github:renalreg/radar",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:0e3842fa378527ebb18be1fa775555d5c00ec2f295fb8f8162f4afd90cd8f996",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease registry",
+        "rank": 4
+      }
+    },
+    {
+      "canonical_key": "github:robworth/radar",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:dee39ff408bda6e577ba87bb3d12090f7f82be3ffc7c7c02165a2aa2d33c6a65",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease registry",
+        "rank": 3
+      }
+    },
+    {
+      "canonical_key": "github:s-alex2022/rare-diseases-data-registry",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:416d8ac1502c16878f12a133ff0d21eeedc486e4951954e030ee5a2611392af5",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease registry",
+        "rank": 10
+      }
+    },
+    {
+      "canonical_key": "github:tribby5/rare-disease-research",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "evidence_sha256": "sha256:67051ab7ebb9f364b3e75f96e18d6e8b634ed8e51f3a072487830e15b1ab8c32",
+      "evidence_locator": {
+        "registry": "github",
+        "query_string": "rare disease burden",
+        "rank": 3
+      }
+    },
+    {
+      "canonical_key": "github:wangjl99/okn-registry-temp",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:d805cb7ca5ebeb5f4d0e30b87a545cad33388313bb105e663c30d7f636608e53"
+    }
+  ]
+}

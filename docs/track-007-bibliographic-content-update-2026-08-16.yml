@@ -1,0 +1,75 @@
+schema_version: '1.0.0'
+track: 007-landscape-novelty
+status: bounded_public_content_and_bibliographic_expansion_complete
+evidence:
+- path: docs/track-007-pending-public-content-2026-08-16.json
+  sha256: 9291f3f05a0241ed57af67ce845c46c3b50e834b457d1c34a6ee231e82bd9dfa
+- path: docs/track-007-combined-resolutions-2026-08-16.json
+  sha256: 90d222ae012f0fb1f56e67d28f1067596394eaba8cc2391cb44b7ac589cb5cd0
+- path: docs/track-007-fulltext-eligibility-v0.3.0-2026-08-16.json
+  sha256: 6d00061c3ffaeb1d16020000d364798936bbc3283280225ed554f88b7cf7a37a
+- path: docs/track-007-live-metadata-observations-2026-08-16.json
+  sha256: 97dd9e62b39a6a04cb3d9c0af694d5bb05296cb0e601cfd6f8ca22580d355951
+- path: docs/track-007-bibliographic-expansion-2026-08-16.json
+  sha256: 838587da6dd62ce25df7b8251f1eb3ab16becc8d90d890e37d81c9de38797578
+frozen_69_record_outcome:
+  include: 56
+  exclude: 2
+  uncertain: 1
+  pending_content_assessment: 2
+  pending_lawful_access: 8
+  exclusion_reasons:
+    duplicate_entity_or_release: 2
+  rule: >-
+    Public Crossref or GitHub metadata was inspected transiently. Include
+    required explicit rare-disease and contribution signals. Only explicit
+    erratum/response forms were excluded as duplicate or non-substantive
+    releases. Insufficient or unavailable evidence stayed uncertain or pending.
+live_only_screening:
+  identifiers_screened: 144
+  include_for_content_assessment: 51
+  uncertain_public_metadata_signal: 93
+  exclusions: 0
+  interpretation: >-
+    All live-only identifiers have hash-addressed current minimal metadata and
+    a closed-vocabulary screen. This is not final content eligibility and does
+    not reconstruct the capture-time response or ranking.
+bibliographic_expansion:
+  provider: Crossref
+  request_budget: 24
+  requests_made: 24
+  rows_per_page: 20
+  maximum_pages_per_query: 2
+  query_families:
+    frozen_english: 5
+    multilingual: 4
+    community: 2
+    community_multilingual: 1
+  declared_query_languages: [de, en, es, fr, pt]
+  ranked_doi_occurrences: 480
+  record_language:
+    not_reported: 480
+  geography_sampling: not_measured
+  interpretation: >-
+    This is a bounded ranked observation from one bibliographic index. Query
+    language is declared but record language and geography remain missing; no
+    language, geography, community-leadership or coverage inference is allowed.
+retention:
+  raw_responses: not_retained
+  abstracts_descriptions_bodies_full_text: inspected_transiently_or_not_requested_and_not_retained
+  retained: hashes_minimal_bibliographic_metadata_signal_booleans_counts_and_missingness
+remaining_boundaries:
+- 2 frozen records have no adequate current public metadata response
+- 1 frozen record remains uncertain on public metadata
+- 8 frozen records remain pending lawful access
+- 51 live-only candidates require final content assessment
+- 93 live-only records remain uncertain rather than excluded
+- provider-language fields are missing for all 480 ranked Crossref occurrences
+- geography, broader indexes, grey literature and community authority remain unmeasured
+claim_boundary:
+  prohibited:
+  - systematic, comprehensive, global or representative coverage
+  - confirmed novelty, gap or absence
+  - inferred language, geography or community leadership
+  - exclusion from restricted, unavailable, missing or ambiguous evidence
+  - quality, partnership, access or external approval claims

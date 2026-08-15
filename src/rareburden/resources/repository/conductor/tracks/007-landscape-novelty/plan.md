@@ -90,14 +90,27 @@
   and `docs/track-007-fulltext-eligibility-2026-08-16.json` record 35 bounded
   metadata-supported includes, 26 pending content assessments and 8 pending
   lawful-access cases, with zero new exclusions.
-- [ ] Resolve the remaining 26 reachable frozen records only when sufficient
-  lawful public content evidence is available; title-only or ambiguous evidence
-  remains pending.
+- [x] Observe the remaining 26 reachable frozen records through lawful public
+  Crossref or GitHub metadata and apply the exact closed-vocabulary rule.
+  Evidence: `docs/track-007-pending-public-content-2026-08-16.json` and the
+  combined v0.3.0 eligibility register record 21 additional includes, 2 explicit
+  duplicate/non-substantive-release exclusions, 1 uncertain record and 2
+  pending public-evidence records.
+- [ ] Resolve the remaining 2 public-evidence-pending and 1 uncertain frozen
+  records only when sufficient lawful evidence becomes available.
 - [ ] Resolve the 8 restricted frozen records through a lawful access route or
   an adequate public alternative; restriction is never exclusion evidence.
-- [ ] Complete content assessment for the 51 live-only candidates and resolve
-  the 93 ambiguous live-only metadata observations without inferring exclusion,
-  absence, coverage or novelty from missing evidence.
+- [x] Screen all 144 live-only records with the exact scope/contribution
+  vocabulary and response hashes. The result is 51 content-assessment
+  candidates and 93 uncertain records, with zero exclusions.
+- [ ] Complete final content assessment for the 51 live-only candidates and
+  resolve the 93 uncertain records without inferring exclusion, absence,
+  coverage or novelty from missing evidence.
+- [x] Execute a strict two-page, 20-row Crossref expansion for the five frozen
+  queries plus four multilingual and three community/community-multilingual
+  queries. Evidence: `docs/track-007-bibliographic-expansion-2026-08-16.json`
+  records 24 rate-limited requests and 480 ranked DOI occurrences, with record
+  language missing for all observations and geography explicitly unmeasured.
 
 ## Review fixes — 2026-08-15 title clusters
 
