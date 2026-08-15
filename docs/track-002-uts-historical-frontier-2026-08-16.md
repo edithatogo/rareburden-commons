@@ -63,3 +63,14 @@ after bounded retries, unsafe or changed manifest fields, payload/receipt
 mismatch, byte/time budget exhaustion, remote size-verification failure,
 licence change, or unexpected cost/storage growth. Preserve the last verified
 cursor and start a new bounded run after remediation; never infer completion.
+
+## Capacity stop recorded 2026-08-16
+
+Run `31897934633` stopped at the Hugging Face LFS batch request with an explicit
+private-storage-limit HTTP 403. It produced no verified remote artifact or
+receipt, so no family cursor advanced. The workflow now requires
+`manifests/uts/hf-private-capacity-state-2026-08-16.json` to be `ready` before
+authentication, remote planning or source download. While it is `blocked`, the
+runner writes a redacted receipt and exits without redownloading the failed
+artifact. Restoration requires dated, expiring evidence plus a one-artifact
+canary; public availability or token validity is not capacity evidence.

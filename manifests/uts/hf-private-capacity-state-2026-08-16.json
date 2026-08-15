@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "repository": "edithatogo/hpo-licensed-ontology-archive",
+  "status": "blocked",
+  "observed_at": "2026-08-15T17:21:05Z",
+  "verified_at": null,
+  "expires_at": null,
+  "evidence": {
+    "kind": "github_actions_failure",
+    "reference": "github-actions:31897934633",
+    "http_status": 403,
+    "classification": "private_repository_storage_limit_reached"
+  },
+  "requirements_to_mark_ready": [
+    "Restore or increase private Hugging Face storage capacity.",
+    "Record a new authenticated capacity verification receipt and timestamp.",
+    "Set a short expiry so later storage changes fail closed."
+  ],
+  "claims": {
+    "cursor_advanced_by_failed_run": false,
+    "source_bytes_archived_by_failed_run": false,
+    "safe_to_redownload": false
+  }
+}

@@ -425,3 +425,13 @@ scientific and data-governance gates remain separate and pending.
   explicit family cursors and cost ceilings in
   `docs/track-002-uts-historical-frontier-2026-08-16.md`, leaving 2,432
   historical artifacts pending at that observed checkpoint.
+- [x] Fail closed before any further historical UTS download after Hugging Face
+  run `31897934633` returned an explicit private-storage-limit HTTP 403. The
+  checked-in capacity state blocks cursor advancement and redownload, the
+  runner emits a redacted blocked receipt before authentication or source
+  access, and Actions preserves that receipt on failure. Evidence:
+  `manifests/uts/hf-private-capacity-state-2026-08-16.json` and
+  `docs/track-002-hf-capacity-blocker-2026-08-16.md`.
+- [ ] Restore or increase private destination capacity, record a short-lived
+  authenticated capacity verification, change the state through review and run
+  a one-artifact canary before resuming the historical cursor.
