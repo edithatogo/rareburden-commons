@@ -2,7 +2,7 @@ schema_version: '1.0.0'
 registration_id: RBC-LAND-007-REPO-2026-08-16
 track: 007-landscape-novelty
 status: repository_hash_registered
-registered_at_utc: '2026-08-16T00:00:00Z'
+registered_at_utc: '2026-08-15T15:39:56Z'
 repository:
   remote: https://github.com/edithatogo/rareburden-commons
   ref_policy: content_addressed_git_blobs
