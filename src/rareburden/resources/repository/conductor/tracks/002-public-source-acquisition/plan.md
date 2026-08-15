@@ -282,8 +282,12 @@ scientific and data-governance gates remain separate and pending.
   on the CC BY 4.0 nomenclature-pack page, hashes each exact file, uploads to
   the existing public archive, verifies the remote copy and discards runner
   storage.
-- [ ] Run the one-file ORPHAcode canary, then archive all discovered packs in
-  bounded sequential batches and retain the page hash and batch receipts.
+- [x] Run the one-file ORPHAcode canary, then archive all 71 packs discovered
+  on the exact page snapshot in bounded sequential batches and retain the page
+  hash and batch receipts. Evidence: GitHub Actions runs `31873102864` and
+  `31873123834`, summarized in
+  `docs/track-002-terminology-archive-receipts-2026-08-16.yml`; this bounded
+  snapshot does not prove historical completeness.
 - [ ] Materialize the complete WHO digital release matrix by classification,
   release, language and available artifact; publish unchanged bytes only where
   exact terms permit and otherwise retain private bytes or metadata only.
@@ -293,9 +297,14 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
-- [ ] Expand Orphadata from the two activated observations to every
+- [~] Expand Orphadata from the two activated observations to every
   discoverable scientific-file and nomenclature release/language under CC BY
-  4.0, preserving attribution, change notices and exact hashes.
+  4.0, preserving attribution, change notices and exact hashes. A strict,
+  bounded, sequential discovery/archive workflow and negative tests are now
+  implemented; hosted canary and remainder receipts are still required.
 - [ ] Execute the 14-family UTS inventory incrementally, respecting the
   sequential two-second request interval, byte budgets, retries and private-only
   visibility; never publish UMLS, RxNorm or SNOMED licensed payloads publicly.
+  The current release from all 14 families is now privately receipt-verified by
+  GitHub Actions run `31873729976`; 2,437 historical artifacts remain subject
+  to bounded sequential execution.
