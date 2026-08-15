@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "status": "manual_bounded_continuation",
+  "source_manifest": "manifests/uts/all-release-families-2026-08-15.json",
+  "destination": "edithatogo/hpo-licensed-ontology-archive",
+  "family_order": [
+    "umls-metathesaurus-mrconso-file",
+    "umls-metathesaurus-full-subset",
+    "umls-full-release",
+    "snomed-ct-core-problem-list-subset",
+    "snomed-ct-to-icd-10-cm-mapping-resources",
+    "snomed-ct-us-edition-transitive-closure-resources",
+    "snomed-ct-us-edition",
+    "snomed-ct-spanish-edition",
+    "snomed-ct-international-edition",
+    "rxnav-in-a-box",
+    "rxnorm-prescribable-content-monthly-release",
+    "rxnorm-full-monthly-release",
+    "rxnorm-prescribable-content-weekly-updates",
+    "rxnorm-weekly-updates"
+  ],
+  "minimum_historical_index": 1,
+  "observed_family_cursors": {
+    "umls-metathesaurus-mrconso-file": {
+      "next_index": 6,
+      "evidence": "github-actions:31893681893"
+    }
+  },
+  "run_limits": {
+    "default_max_artifacts": 3,
+    "maximum_max_artifacts": 10,
+    "default_max_bytes": 8000000000,
+    "maximum_max_bytes": 8000000000,
+    "default_max_minutes": 180,
+    "maximum_max_minutes": 210
+  },
+  "scheduling": {
+    "automatic_cron": false,
+    "recommended": "one manually dispatched run at a time; inspect its receipt and storage effect before dispatching the next run",
+    "reason": "historical artifacts vary substantially in size and unbounded scheduling could create unexpected Actions and private-storage cost"
+  },
+  "claims": {
+    "public_redistribution": false,
+    "historical_completeness": false,
+    "native_edition_completeness": false
+  }
+}
