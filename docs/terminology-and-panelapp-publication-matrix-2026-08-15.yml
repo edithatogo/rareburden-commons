@@ -1,0 +1,101 @@
+schema_version: "1.0"
+status: bounded_publication_plan
+as_of: "2026-08-15"
+policy:
+  public_full: exact_terms_affirmatively_allow_redistribution
+  public_metadata: raw_redistribution_unclear_or_restricted_but_factual_metadata_may_be_published
+  local_only: authenticated_or_mixed_rights_content_without_cloud_storage_authority
+  none: acquisition_or_retention_is_prohibited
+  no_duplicate: reuse_an_existing_owner_repository_or_reference_the_official_release_and_hash
+existing_owner_infrastructure:
+  - repository: huggingface:edithatogo/hpo-licensed-ontology-archive
+    visibility: private
+    role: canonical_cross_project_ontology_and_terminology_byte_archive
+    note: contains_mixed_rights_material_and_must_not_be_made_public_as_a_whole
+  - repository: huggingface:edithatogo/rareburden-commons-source-archive
+    visibility: private
+    role: project_specific_epidemiology_denominator_and_burden_archive
+  - repository: huggingface:edithatogo/dataset-estate-registry
+    visibility: public
+    role: metadata_hash_licence_and_locator_registry
+  - repository: github:edithatogo/human-phenotype-ontology
+    visibility: public
+    role: existing_HPO_code_or_content_fork_to_assess_before_any_new_public_mirror
+  - repository: github:edithatogo/hpo-translations
+    visibility: public
+    role: existing_translation_resource_to_assess_before_any_new_public_mirror
+publication_decisions:
+  - source_id: orphadata-science
+    route: public_full
+    licence: CC_BY_4_0
+    canonical_route: existing_private_canonical_archive_then_public_projection_or_official_release_reference
+    duplicate_status: identical_English_alignment_file_already_present_in_both_private_archives
+  - source_id: mondo-disease-ontology
+    route: public_full
+    licence: CC_BY_4_0
+    canonical_route: official_release_plus_public_manifest_unless_owner_archive_adds_preservation_value
+  - source_id: un-world-population-prospects
+    route: public_full_with_conditions
+    licence: CC_BY_3_0_IGO
+    canonical_route: project_source_archive
+    exclusions: [third_party_classifications]
+  - source_id: world-bank-indicators-api
+    route: public_full_bounded_response
+    licence: CC_BY_4_0_observed_for_series
+    canonical_route: project_source_archive
+    limitations: [probe_only, no_WPP_substitution]
+  - source_id: who-global-health-estimates
+    route: public_metadata
+    reason: exact_workbook_field_level_third_party_and_modification_rights_unresolved
+  - source_id: genomics-england-panelapp
+    route: public_metadata
+    reason: noncommercial_nondiagnostic_and_mixed_third_party_terms
+    jurisdiction: GB
+  - source_id: panelapp-australia
+    route: public_metadata
+    reason: public_API_observed_but_exact_content_reuse_terms_not_located
+    jurisdiction: AU
+  - source_id: umls-metathesaurus
+    route: local_only
+    reason: individual_licence_and_source_vocabulary_specific_restrictions
+    public_surface: release_metadata_official_checksums_source_list_and_acquisition_instructions_only
+  - source_id: omim
+    route: local_only
+    reason: proprietary_account_specific_terms
+  - source_id: snomed-ct
+    route: local_only
+    reason: affiliate_edition_and_territory_terms
+  - source_id: all-of-us-researcher-workbench
+    route: none
+    reason: controlled_environment_no_export
+panelapp_instances:
+  - source_id: genomics-england-panelapp
+    jurisdiction: GB
+    official_url: https://panelapp.genomicsengland.co.uk/
+    api_url: https://panelapp.genomicsengland.co.uk/api/v1/panels/
+    representation_warning: UK_NHS_and_100000_Genomes_curation_context
+  - source_id: panelapp-australia
+    jurisdiction: AU
+    official_url: https://panelapp-aus.org/
+    api_url: https://panelapp-aus.org/api/v1/panels/
+    observed_panel_count: 263
+    observed_at: "2026-08-15"
+    representation_warning: Australian_diagnostic_laboratory_and_clinical_curation_context
+coverage_rule: never_describe_one_or_both_national_instances_as_comprehensive_global_gene_panel_coverage
+umls:
+  incorporated_before_this_change: false
+  repository_search_result: no_catalogue_entry_no_pinned_release_no_payload
+  current_public_release_metadata:
+    release: 2026AA
+    released: "2026-05-04"
+    full_release_compressed_gb: 5.3
+    full_metathesaurus_subset_md5: cd7c371f14d7d83d185d10ba96a5c8bc
+    level_0_subset_md5: f84d1bd0afb404f68d67d586838ad446
+  authenticated_next_step: owner_signs_in_to_UTS_then_acquisition_records_exact_file_hash_locally
+  publication_next_step: classify_each_selected_source_vocabulary_by_its_UMLS_restriction_level_and_own_terms
+stop_conditions:
+  - public_raw_selected_without_affirmative_exact_redistribution_terms
+  - mixed_rights_archive_would_be_exposed_by_a_visibility_change
+  - duplicate_bytes_uploaded_without_a_documented_preservation_reason
+  - national_panel_data_described_as_global_or_representative
+  - UMLS_credentials_tokens_or_licensed_payloads_committed_or_uploaded

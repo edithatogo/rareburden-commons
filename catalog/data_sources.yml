@@ -409,6 +409,58 @@ sources:
   geographic_levels:
   - global
   maximum_geographic_resolution: global
+- source_id: panelapp-australia
+  name: PanelApp Australia
+  custodian: Genomics Australia and the Murdoch Children's Research Institute hosting team
+  domains:
+  - gene_disease
+  - coding
+  access_class: open_download_api
+  data_level: knowledge_base
+  geographic_scope: Australian diagnostic laboratory and clinical curation context
+  primary_uses:
+  - Australian gene-panel definitions
+  - cross-instance comparison with Genomics England PanelApp
+  access_url: https://panelapp-aus.org/
+  access_route: Browse or query versioned panels through the public API.
+  licence: Exact content reuse terms not yet located; metadata-only outside the source
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Pin instance, panel identifier, panel version, retrieval date and response hash.
+  limitations:
+  - Australian and UK PanelApp instances have distinct governance and panel repertoires.
+  - Panel membership does not measure burden or establish global representativeness.
+  status: candidate
+  last_verified: '2026-08-15'
+  geographic_levels:
+  - national
+  maximum_geographic_resolution: national
+- source_id: umls-metathesaurus
+  name: UMLS Metathesaurus
+  custodian: US National Library of Medicine
+  domains:
+  - ontology
+  - coding
+  access_class: public_web_registration
+  data_level: knowledge_base
+  geographic_scope: Multi-vocabulary; source-specific
+  primary_uses:
+  - identifier alignment
+  - terminology crosswalk discovery
+  access_url: https://www.nlm.nih.gov/research/umls/licensedcontent/umlsknowledgesources.html
+  access_route: Individual UTS licence and authenticated download; never share credentials.
+  licence: UMLS licence plus source-vocabulary-specific restriction levels and terms
+  redistribution: "no"
+  registration_required: true
+  version_strategy: Pin UMLS release, exact artifact hash and every selected source vocabulary/version.
+  limitations:
+  - The compilation includes vocabularies with different redistribution restrictions.
+  - A UMLS licence does not manufacture permission beyond each source vocabulary's terms.
+  status: candidate
+  last_verified: '2026-08-15'
+  geographic_levels:
+  - global
+  maximum_geographic_resolution: global
 - source_id: all-of-us-public-tier
   name: All of Us Public Tier
   custodian: US National Institutes of Health All of Us Research Program

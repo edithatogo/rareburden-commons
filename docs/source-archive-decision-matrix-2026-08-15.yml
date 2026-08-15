@@ -6,6 +6,9 @@ infrastructure:
   private_raw_archive: huggingface:edithatogo/rareburden-commons-source-archive
   public_metadata_catalogue: huggingface:edithatogo/dataset-estate-registry
   public_raw_release: requires_source_specific_owner_release_decision
+  public_rights_filtered_archive: huggingface:edithatogo/rareburden-commons-open-source-snapshots@795150a6b45937228023b97602e6b770ae7f192b
+  canonical_ontology_archive: huggingface:edithatogo/hpo-licensed-ontology-archive
+  duplication_policy: reference_existing_exact_hashes_instead_of_uploading_duplicate_bytes
 rules:
   - public_availability_does_not_establish_redistribution_rights
   - private_hosting_is_copying_and_requires_a_documented_basis
@@ -102,6 +105,25 @@ decisions:
     public_raw: prohibited_pending_mixed_OMIM_Orphanet_and_output_rights
     github: acquisition_code_and_metadata_only
     conditions: [panel_version_pin, GEL_and_contributor_attribution, noncommercial_only, nondiagnostic_only, no_commercialised_outputs, withdrawal_route, rate_limit_respect]
+    coverage_boundary: United_Kingdom_clinical_curation_context_not_global_representativeness
+  - source_id: panelapp-australia
+    dataset_type: public_gene_disease_panel_catalogue
+    licence: exact_content_reuse_terms_not_found_on_observed_public_site
+    exact_release: "current listing observed 2026-08-15; 263 panels"
+    private_archive: metadata_and_response_hashes_only_pending_exact_content_terms
+    public_raw: prohibited_until_exact_content_reuse_terms_are_recorded
+    github: country_registry_acquisition_code_hashes_and_metadata_only
+    conditions: [panel_version_pin, Australian_context, attribution, nondiagnostic_boundary, rate_limit_respect]
+    coverage_boundary: Australia_clinical_curation_context_not_global_representativeness
+  - source_id: umls-metathesaurus
+    dataset_type: licensed_multi_vocabulary_terminology_compilation
+    licence: individual_UMLS_licence_plus_source_vocabulary_restriction_levels
+    exact_release: "2026AA metadata observed; authenticated artifact not acquired"
+    private_archive: operator_local_only_until_exact_licence_and_each_source_vocabulary_route_are_dispositioned
+    public_raw: prohibited
+    github: release_metadata_checksums_acquisition_code_and_non_expressive_identifiers_only
+    conditions: [individual_UTS_licence, annual_report, source_vocabulary_terms, no_credential_sharing, no_unlicensed_redistribution]
+    public_subsets: vocabulary_by_vocabulary_only_after_source_specific_rights_review
   - source_id: ihme-gbd-results
     dataset_type: registered_results_export
     licence: dataset_and_user_agreement_specific
@@ -153,8 +175,11 @@ decisions:
 next_actions:
   - complete_private_mondo_upload_and_record_huggingface_commit
   - publish_metadata_only_catalogue_update
-  - prepare_public_release_packages_for_cc_licensed_sources_without_publishing_raw_bytes
+  - maintain_the_public_rights_filtered_projection_and_verify_its_hash_manifest
   - select_and_pin_clinvar_snapshot
   - capture_accessible_exact_HPO_terms_before_any_public_mirror
   - select_exact_ICD_OMIM_and_SNOMED_editions_only_after_licence_route_is_available
   - retain_controlled_environment_sources_as_code_and_metadata_only
+  - add_Australian_PanelApp_without_treating_UK_or_Australia_as_global_coverage
+  - authenticate_to_UTS_and_record_UMLS_release_metadata_without_uploading_licensed_bytes
+  - deduplicate_existing_Orphadata_and_ontology_snapshots_against_the_canonical_archive

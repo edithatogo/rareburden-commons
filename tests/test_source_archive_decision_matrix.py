@@ -26,6 +26,8 @@ def test_archive_matrix_covers_active_and_future_source_types() -> None:
         "snomed-ct",
         "ncbi-clinvar",
         "genomics-england-panelapp",
+        "panelapp-australia",
+        "umls-metathesaurus",
         "ihme-gbd-results",
         "ihme-ghdx",
         "oecd-data-explorer",
@@ -57,8 +59,62 @@ def test_controlled_environment_data_cannot_leave_its_environment() -> None:
 
 def test_licensed_terminologies_cannot_be_published_as_raw_data() -> None:
     records = {record["source_id"]: record for record in _matrix()["decisions"]}
-    for source_id in ("who-icd-10-11", "omim", "snomed-ct"):
+    for source_id in ("who-icd-10-11", "omim", "snomed-ct", "umls-metathesaurus"):
         assert records[source_id]["public_raw"].startswith("prohibited")
+
+
+def test_panelapp_instances_are_country_aware_and_fail_closed() -> None:
+    payload = yaml.safe_load(
+        (ROOT / "docs/terminology-and-panelapp-publication-matrix-2026-08-15.yml").read_text(
+            encoding="utf-8"
+        )
+    )
+    instances = {record["jurisdiction"]: record for record in payload["panelapp_instances"]}
+    assert set(instances) == {"AU", "GB"}
+    assert payload["coverage_rule"].startswith("never_describe")
+    decisions = {record["source_id"]: record for record in payload["publication_decisions"]}
+    assert decisions["genomics-england-panelapp"]["route"] == "public_metadata"
+    assert decisions["panelapp-australia"]["route"] == "public_metadata"
+
+
+def test_umls_is_local_only_and_was_not_previously_incorporated() -> None:
+    payload = yaml.safe_load(
+        (ROOT / "docs/terminology-and-panelapp-publication-matrix-2026-08-15.yml").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert payload["umls"]["incorporated_before_this_change"] is False
+    decisions = {record["source_id"]: record for record in payload["publication_decisions"]}
+    assert decisions["umls-metathesaurus"]["route"] == "local_only"
+    assert payload["umls"]["current_public_release_metadata"]["release"] == "2026AA"
+
+
+def test_mixed_rights_archive_is_not_made_public_as_a_whole() -> None:
+    payload = yaml.safe_load(
+        (ROOT / "docs/terminology-and-panelapp-publication-matrix-2026-08-15.yml").read_text(
+            encoding="utf-8"
+        )
+    )
+    repos = {record["repository"]: record for record in payload["existing_owner_infrastructure"]}
+    archive = repos["huggingface:edithatogo/hpo-licensed-ontology-archive"]
+    assert archive["visibility"] == "private"
+    assert "must_not_be_made_public" in archive["note"]
+
+
+def test_public_archive_receipt_is_exact_and_rights_filtered() -> None:
+    receipt = yaml.safe_load(
+        (ROOT / "docs/track-002-public-archive-receipt-2026-08-15.yml").read_text(encoding="utf-8")
+    )
+    assert receipt["repository"]["visibility"] == "public"
+    assert len(receipt["repository"]["commit"]) == 40
+    assert {record["source_id"] for record in receipt["contents"]} == {
+        "orphadata-science",
+        "mondo-disease-ontology",
+        "un-world-population-prospects",
+        "world-bank-indicators-api",
+    }
+    assert "UMLS_OMIM_and_SNOMED_CT_bytes" in receipt["excluded"]
+    assert "comprehensive_coverage" in receipt["claims_not_made"]
 
 
 def test_public_raw_eligibility_does_not_mean_publication() -> None:
