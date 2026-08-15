@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-15",
+  "policy": {
+    "completeness_target": "all_officially_discoverable_releases_languages_and_country_editions",
+    "public_rule": "exact_terms_affirmatively_permit_redistribution",
+    "private_rule": "licence_or_account_permits_owner_private_cloud_archival",
+    "metadata_rule": "retain_only_factual_metadata_hashes_and_source_locators_when_bytes_are_not_permitted",
+    "no_claim": "UMLS_inclusion_does_not_establish_native_release_or_country_edition_completeness"
+  },
+  "destinations": {
+    "public": "edithatogo/rareburden-commons-open-source-snapshots",
+    "private_licensed": "edithatogo/hpo-licensed-ontology-archive",
+    "project_metadata": "edithatogo/rareburden-commons-source-archive",
+    "catalog": "edithatogo/dataset-estate-registry"
+  },
+  "families": [
+    {
+      "id": "who-icd-11",
+      "authority": "WHO",
+      "versions": "all WHO release identifiers from 2018 onward",
+      "languages": "all released and prerelease languages per release",
+      "countries": "international release plus separately sourced national modifications",
+      "route": "public_exact_unmodified_or_private_if_endpoint_terms_require",
+      "licence": "CC BY-ND 3.0 IGO for the ICD-11 digital version; preserve exact release terms",
+      "discovery": "https://icd.who.int/browse/releases/all-releases/en",
+      "status": "inventory_required"
+    },
+    {
+      "id": "who-icd-10",
+      "authority": "WHO and national modification authorities",
+      "versions": "all WHO browser releases and official update archives",
+      "languages": "all official WHO and national editions",
+      "countries": "all discoverable national modifications, each independently licensed",
+      "route": "rights_by_artifact",
+      "licence": "edition_specific",
+      "discovery": "https://www.who.int/standards/classifications/classification-of-diseases",
+      "status": "inventory_required"
+    },
+    {
+      "id": "who-historical-icd",
+      "authority": "WHO and predecessor authorities",
+      "versions": "ICD revisions 1 through 9 and official update material",
+      "languages": "all lawfully digitized official languages",
+      "countries": "international editions and separately evidenced national modifications",
+      "route": "metadata_only_until_artifact_rights",
+      "licence": "artifact_specific_historical_rights",
+      "discovery": "https://www.who.int/standards/classifications/classification-of-diseases",
+      "status": "inventory_required"
+    },
+    {
+      "id": "who-fic-foundation",
+      "authority": "WHO",
+      "versions": "all published Foundation releases",
+      "languages": "all available and prerelease languages per release",
+      "countries": "international",
+      "route": "rights_by_release",
+      "licence": "WHO release terms",
+      "discovery": "https://icd.who.int/browse/releases/all-releases/en",
+      "status": "inventory_required"
+    },
+    {
+      "id": "who-icf",
+      "authority": "WHO",
+      "versions": "all digital and historical official releases including ICF-CY where separately issued",
+      "languages": "all official translations",
+      "countries": "international plus national translations",
+      "route": "rights_by_release",
+      "licence": "WHO release or publication terms",
+      "discovery": "https://icd.who.int/browse/releases/all-releases/en",
+      "status": "inventory_required"
+    },
+    {
+      "id": "who-ichi",
+      "authority": "WHO",
+      "versions": "all official and explicitly labelled development releases",
+      "languages": "all published languages",
+      "countries": "international plus separately governed national intervention classifications",
+      "route": "rights_by_release",
+      "licence": "WHO release terms",
+      "discovery": "https://www.who.int/standards/classifications/",
+      "status": "inventory_required"
+    },
+    {
+      "id": "who-fic-derived-related",
+      "authority": "WHO and named partner authorities",
+      "versions": "all official releases of ICD-O, mental and behavioural derivatives, SMoL, neurology, dentistry, ICPC, ATC/DDD, ICNP, ISO 9999 and verbal-autopsy standards",
+      "languages": "all official translations",
+      "countries": "international and national editions where published",
+      "route": "rights_by_product",
+      "licence": "mixed_WHO_partner_ISO_WONCA_and_other_terms",
+      "discovery": "https://www.who.int/standards/classifications/other-classifications",
+      "status": "inventory_required"
+    },
+    {
+      "id": "meddra",
+      "authority": "ICH/MSSO",
+      "versions": "all subscriber-accessible releases and supplemental files",
+      "languages": "all translations supplied for every release",
+      "countries": "global terminology; retain regional regulatory supplements separately",
+      "route": "private_licensed_only",
+      "licence": "subscriber_terms",
+      "discovery": "https://www.meddra.org/",
+      "status": "authenticated_inventory_required"
+    },
+    {
+      "id": "orphacode-nomenclature-packs",
+      "authority": "Orphanet/INSERM",
+      "versions": "all downloadable yearly and differential packs",
+      "languages": "all pack languages including archived and Orphadata-hosted additions",
+      "countries": "language editions are not country coverage",
+      "route": "public_exact_unmodified",
+      "licence": "CC BY 4.0",
+      "discovery": "https://www.orphacode.org/pack-nomenclature/",
+      "status": "automation_ready"
+    },
+    {
+      "id": "orphadata-scientific-files",
+      "authority": "Orphanet/INSERM",
+      "versions": "all discoverable July and December releases and change files",
+      "languages": "every published language for every product",
+      "countries": "international knowledge files; country-specific resources remain separately identified",
+      "route": "public_exact_unmodified",
+      "licence": "CC BY 4.0 for scientific files",
+      "discovery": "https://sciences.orphadata.com/orphanet-scientific-knowledge-files/",
+      "status": "inventory_required"
+    },
+    {
+      "id": "snomed-ct",
+      "authority": "SNOMED International and national release centres",
+      "versions": "all licensed international, national, extension, map and derivative releases",
+      "languages": "all description and language-reference-set releases",
+      "countries": "all MLDS-discoverable member and affiliate editions",
+      "route": "private_licensed_only",
+      "licence": "affiliate_and_member_territory_terms",
+      "discovery": "https://mlds.ihtsdotools.org/",
+      "status": "authenticated_inventory_required"
+    },
+    {
+      "id": "umls-knowledge-sources",
+      "authority": "US NLM",
+      "versions": "all 2451 currently inventoried UMLS, RxNorm and SNOMED release artifacts across 14 API families",
+      "languages": "all content supplied in each exact artifact",
+      "countries": "source-vocabulary coverage only; not a substitute for native national editions",
+      "route": "private_licensed_only",
+      "licence": "UMLS licence plus source-vocabulary restrictions",
+      "discovery": "https://documentation.uts.nlm.nih.gov/automating-downloads.html",
+      "status": "automation_active"
+    }
+  ]
+}
