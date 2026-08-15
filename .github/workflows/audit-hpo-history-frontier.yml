@@ -1,0 +1,36 @@
+name: bounded HPO history metadata audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-hpo-history-metadata-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Validate exact bounded inventories
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install 'huggingface-hub>=0.34,<2'
+          python3 scripts/audit_hpo_history.py \
+            --releases manifests/hpo/history-frontier-2026-08-16.json \
+            --translations manifests/hpo/translations-frontier-2026-08-16.json \
+            --publish-public-metadata \
+            > hpo-history-audit-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: hpo-history-audit-receipt
+          path: hpo-history-audit-receipt.json
+          if-no-files-found: error
+          retention-days: 30
