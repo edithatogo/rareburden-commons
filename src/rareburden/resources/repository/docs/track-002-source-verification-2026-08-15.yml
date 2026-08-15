@@ -20,6 +20,7 @@ records:
       result: "incomplete_not_archived_as_complete"
       failure: "HTTP 429 from parallel detail requests"
       retry_policy: "resume sequentially with server-respecting backoff; never infer completeness"
+    superseding_automation_boundary: "The 2026-08-16 robots observation disallows /api/ for all user agents; do not resume automatically without publisher authorization."
     intended_use: "non-commercial semantic candidate discovery and version selection"
     prohibited_use: "no diagnostic use, commercial use, complete-snapshot claim, public raw mirror or production activation"
   - source_id: "human-phenotype-ontology"

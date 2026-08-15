@@ -229,9 +229,11 @@ scientific and data-governance gates remain separate and pending.
   panel listing (433 panel/version rows) with a SHA-256 manifest. A first
   full-detail attempt captured 129 records before HTTP 429; do not claim a
   complete detail snapshot and resume only with server-respecting backoff.
-- [ ] Complete the remaining PanelApp per-version detail capture using a
-  sequential resumable workflow with rate-limit backoff, then bind all 433
-  records to a replacement SHA-256 manifest.
+- [ ] Complete the remaining PanelApp per-version detail capture only through
+  a publisher-authorized route. The current UK `robots.txt` disallows `/api/`;
+  automation is now fail-closed in
+  `docs/track-002-panelapp-oecd-frontier-2026-08-16.md`. Australian raw/detail
+  capture remains disabled pending exact content-reuse terms.
 - [x] Verify the OECD general terms: data are reusable with attribution unless
   dataset-specific or third-party restrictions apply; acquisition remains
   dataset-specific and metadata-only until an exact OECD dataset is selected.
@@ -242,8 +244,12 @@ scientific and data-governance gates remain separate and pending.
 - [x] Record fail-closed archival routes for ICD-10/11, OMIM and SNOMED CT:
   exact licensed editions only, no credential circumvention, and no raw GitHub
   or public Hugging Face redistribution without express rights.
-- [ ] Verify exact PanelApp, OECD and any future export-specific terms before
-  raw acquisition; default to metadata/hash-only.
+- [x] Verify exact PanelApp, OECD and future export-specific policy boundaries
+  before raw acquisition; default to metadata/hash-only. Evidence:
+  `manifests/panelapp/instance-frontier-2026-08-16.json`,
+  `manifests/oecd/export-frontier-2026-08-16.json` and
+  `docs/track-002-panelapp-oecd-frontier-2026-08-16.md`. Exact dataset/source
+  terms remain separately required before bytes.
 - [x] Correct the PanelApp scope from one nominally global source to a
   country-aware registry containing the distinct UK and Australian instances;
   prohibit claims that either instance, or their union, is globally
