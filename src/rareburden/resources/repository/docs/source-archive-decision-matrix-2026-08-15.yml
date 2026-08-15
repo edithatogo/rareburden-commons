@@ -89,6 +89,18 @@ decisions:
     public_raw: prohibited
     github: identifiers_mapping_code_hashes_and_non_licensed_metadata_only
     conditions: [affiliate_authorization, edition_pin, territory_terms, no_redistribution]
+    prepared_contract: docs/track-002-meddra-mlds-frontier-2026-08-16.md
+    cloud_storage_decision: pending_exact_affiliate_and_national_terms
+  - source_id: meddra
+    dataset_type: licensed_regulatory_medical_terminology
+    licence: ICH_MSSO_subscriber_terms
+    exact_release: pending_authenticated_portal_inventory
+    private_archive: prohibited_until_exact_subscription_permits_private_cloud
+    public_raw: prohibited
+    github: schemas_metadata_checksums_receipts_and_operator_instructions_only
+    conditions: [subscriber_authorization, release_pin, language_pin, no_credential_storage, no_redistribution]
+    prepared_contract: docs/track-002-meddra-mlds-frontier-2026-08-16.md
+    cloud_storage_decision: pending_exact_subscription_terms
   - source_id: ncbi-clinvar
     dataset_type: public_variant_archive
     licence: freely_available_public_database_with_submitter_attribution_and_usage_caveats

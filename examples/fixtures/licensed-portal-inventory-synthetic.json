@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "portal": "mlds",
+  "observed_at_utc": "2026-08-16T00:00:00Z",
+  "terms": {
+    "evidence_url": "https://docs.snomed.org/snomed-ct-user-guides/mlds-user-guide/downloading-releases",
+    "agreement_id": "SYNTHETIC-NOT-A-LICENCE",
+    "cloud_storage_decision": "pending",
+    "decision_evidence": null
+  },
+  "destination": "edithatogo/hpo-licensed-ontology-archive",
+  "artifacts": [
+    {
+      "product_id": "synthetic-snomed-edition",
+      "release_version": "2099-01-31",
+      "edition": "Synthetic International Edition",
+      "jurisdiction": "ZZ",
+      "language": "en",
+      "file_name": "synthetic-snomed.zip",
+      "bytes": 12,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "download_url": null,
+      "archive_path": "licensed-private/snomed-ct/synthetic/2099-01-31/synthetic-snomed.zip",
+      "access_state": "metadata_only",
+      "duplicate_of": null
+    }
+  ],
+  "claims": {
+    "portal_inventory_complete": false,
+    "release_complete": false,
+    "language_complete": false,
+    "country_edition_complete": false,
+    "public_redistribution": false
+  }
+}

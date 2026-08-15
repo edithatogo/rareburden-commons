@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "observed_on": "2026-08-16",
+  "destination": "edithatogo/hpo-licensed-ontology-archive",
+  "public_evidence": {
+    "meddra": {
+      "portal": "https://www.meddra.org/",
+      "subscription": "https://www.meddra.org/subscription/subscription-form",
+      "download_instructions": "https://files.meddra.org/www/Website%20Files/Fact%20Sheets/000256R3_user_port.pdf",
+      "observation": "Terminology downloads require MedDRA ID/password and a release-specific unzip password. Subscription includes English and available translations. Public v28.1 documentation reports 27 deployed languages; the official temporary site exposes v29.0 support documentation but terminology release files remain authenticated.",
+      "cloud_storage_decision": "pending_exact_subscription_terms"
+    },
+    "mlds": {
+      "portal": "https://mlds.ihtsdotools.org/",
+      "user_guide": "https://docs.snomed.org/snomed-ct-user-guides/mlds-user-guide",
+      "download_guide": "https://docs.snomed.org/snomed-ct-user-guides/mlds-user-guide/affiliate-user-guide-1/downloading-releases",
+      "licensing": "https://www.snomed.org/get-snomed",
+      "observation": "MLDS manages affiliate licensing and approved release packages. Each package requires licence acceptance; member/national centres may impose additional conditions and non-member use requires annual reporting.",
+      "cloud_storage_decision": "pending_exact_affiliate_and_national_terms"
+    }
+  },
+  "reuse": {
+    "existing_private_archive": "edithatogo/hpo-licensed-ontology-archive",
+    "uts_snomed_receipts": "docs/track-002-terminology-archive-receipts-2026-08-16.yml",
+    "rule": "reference an exact existing hash/path instead of uploading duplicate bytes"
+  },
+  "execution": {
+    "schedule": "none_manual_dispatch_only",
+    "max_artifacts_per_run": 3,
+    "max_bytes_per_run": 8000000000,
+    "minimum_request_interval_seconds": 2,
+    "allowed_download_hosts": ["www.meddra.org", "files.meddra.org", "alt.meddra.org", "mlds.ihtsdotools.org"],
+    "credentials": "GitHub encrypted secrets only; never manifests, logs, artifacts or repository files"
+  },
+  "claims": {
+    "authenticated_inventory_observed": false,
+    "download_performed": false,
+    "cloud_storage_authorized": false,
+    "release_language_or_edition_complete": false,
+    "public_redistribution": false
+  }
+}

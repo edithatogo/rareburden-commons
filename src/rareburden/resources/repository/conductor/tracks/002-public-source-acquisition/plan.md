@@ -313,6 +313,14 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
+- [x] Prepare the fail-closed MedDRA/MLDS inventory, private-archive and receipt
+  contracts, manual bounded workflow, credential-free operator procedure,
+  duplicate-reference route and negative tests. Evidence:
+  `docs/track-002-meddra-mlds-frontier-2026-08-16.md`,
+  `manifests/classifications/meddra-mlds-frontier-2026-08-16.json`,
+  `schemas/licensed-portal-inventory.schema.json` and
+  `schemas/licensed-archive-receipt.schema.json`. This does not claim portal
+  login, inventory completeness, cloud-storage permission or download.
 - [x] Expand Orphadata from the two activated observations to all 94 exact files
   exposed by the eight official scientific product pages in the bounded
   snapshot, preserving CC BY 4.0 attribution, change notices and exact hashes.
