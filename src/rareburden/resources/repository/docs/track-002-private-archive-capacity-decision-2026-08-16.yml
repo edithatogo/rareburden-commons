@@ -166,3 +166,14 @@ claims:
   total_backlog_bytes_known: false
   historical_archive_complete: false
   public_redistribution: false
+parallel_public_archive_boundary:
+  scope: mondo_public_release_assets
+  canary: github-actions:31900277331
+  outcome: success_after_exact_byte_reconciliation
+  receipt_sha256: a69f97827208a05290634be0701e3a82e03959a2ff1cd6b98ace2e2f0336b17d
+  reused_object_sha256: 0d878d02b1720bab27fdb7db2575bd1758f5624a0fafb6657dce4819451b8368
+  relevance: >-
+    This public-archive integrity result is separate from licensed UTS private
+    storage capacity. Publisher/remote identity was verified before reuse and
+    integrity conflicts remain independently fail-closed; the result does not
+    change Options A, B or C or authorize any licensed-byte operation.

@@ -29,6 +29,11 @@ more local: 12 verified and two pending at the blocked cursor. Failed run
 the consolidated checkpoint. A two-artifact continuation is only a proposed
 post-canary tranche, not an observed upload or authorization.
 
+The separate public MONDO canary `31900277331` succeeded only after the
+publisher and existing remote object were reconciled as exact identical bytes.
+That integrity path remains independently fail-closed and does not provide UTS
+capacity evidence or change the licensed-archive storage recommendation.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The full project gate

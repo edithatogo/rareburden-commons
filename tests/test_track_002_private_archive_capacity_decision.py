@@ -78,6 +78,13 @@ def test_options_have_tradeoffs_contingencies_and_fail_closed_default() -> None:
     tranche = decision["recommendation"]["proposed_first_tranche_after_unblock"]
     assert tranche["family"] == "umls-metathesaurus-full-subset"
     assert tranche["maximum_artifacts"] == 2
+    public_boundary = decision["parallel_public_archive_boundary"]
+    assert public_boundary["scope"] == "mondo_public_release_assets"
+    assert public_boundary["canary"] == "github-actions:31900277331"
+    assert public_boundary["receipt_sha256"] == (
+        "a69f97827208a05290634be0701e3a82e03959a2ff1cd6b98ace2e2f0336b17d"
+    )
+    assert "does not\nchange Options A, B or C" in public_boundary["relevance"]
 
 
 def test_checklist_cannot_authorize_download_or_cursor_advance() -> None:

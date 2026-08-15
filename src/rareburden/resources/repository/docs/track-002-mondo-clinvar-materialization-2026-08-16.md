@@ -1,0 +1,54 @@
+# Track 002 MONDO materialization and ClinVar metadata frontier
+
+## MONDO materialization contract
+
+The observed 120-release MONDO frontier contains 1,916 release assets with
+publisher-declared bytes totalling 128,438,860,575 (about 128.4 GB). The exact
+frontier is bound by
+`manifests/classifications/public-history-frontier-2026-08-16.json`.
+
+`.github/workflows/archive-mondo-release-batch.yml` therefore processes one
+explicit release/asset cursor at a time. Each run:
+
+- accepts only exact `github.com` HTTPS asset URLs from the pinned manifest;
+- caps selected and streamed bytes at 500 MB;
+- waits two seconds between assets;
+- computes SHA-256 while streaming to ephemeral runner storage;
+- uses `raw/mondo/<release>/<filename>` in the existing public archive;
+- reuses an existing object only when size and remote LFS SHA-256 both match;
+- fails on path, size or digest conflict;
+- verifies the remote object after upload, emits a receipt and deletes the
+  runner copy.
+
+MONDO's repository release assets are routed under CC BY 4.0. The workflow is
+incremental because the full frontier is too large for one safe job. A green
+canary proves only the exact selected asset receipt, not that 1,916 assets or
+120 releases have been archived. The existing three v2026-08-04 files retain
+their earlier paths and receipts and are never duplicated when their digests
+match.
+
+## ClinVar recursive metadata receipt
+
+`manifests/classifications/clinvar-recursive-metadata-2026-08-16.json` has
+inventory SHA-256
+`8bd91faf376f18d0fe9041dbf89a5ca0179350430e1e2a7f80d6deb24c34fa11`.
+It records 50 sequential official directory observations and 6,410 contained
+directory, product, data or checksum routes at depth no greater than two. Six
+queued directories remain at the fixed request frontier.
+
+The root index is observed but is not recursively followed into temporary or
+unselected products. Recursion is restricted to the six named product/archive
+seeds, exact `ftp.ncbi.nlm.nih.gov` HTTPS URLs and path-prefix containment.
+HTTP 403/404 and exhausted transient retries are recorded as unavailable and
+never bypassed. No ClinVar product bytes are fetched; every route remains
+metadata-only until product-specific rights and submitter provenance are
+bound.
+
+## Remaining work
+
+- dispatch bounded MONDO batches incrementally and retain every exact receipt;
+- prioritize small provenance/checksum/diff assets before multi-hundred-MB
+  ontology serializations, unless a downstream use justifies the storage;
+- continue ClinVar from the six-item queue in a new dated receipt if required;
+- do not claim complete historical materialization, comprehensive products,
+  clinical validity or unrestricted ClinVar redistribution.
