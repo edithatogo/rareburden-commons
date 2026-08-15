@@ -138,9 +138,19 @@ def archive_batch(
             if asset.get("bytes") is not None and size != int(asset["bytes"]):
                 raise RuntimeError("MONDO publisher size changed")
             existing = remote.get(archive_path)
-            existing_sha = remote_lfs_sha256(existing)
             if existing is not None:
-                if existing.size != size or existing_sha != sha256:
+                if not verify_remote_object(
+                    existing,
+                    expected_size=size,
+                    expected_sha256=sha256,
+                    download_non_lfs=lambda archive_path=archive_path: hf_hub_download(
+                        repo_id=DESTINATION,
+                        repo_type="dataset",
+                        filename=archive_path,
+                        token=token,
+                        local_dir=root / "existing-remote-verification",
+                    ),
+                ):
                     raise RuntimeError(
                         "existing MONDO archive object conflicts with publisher bytes"
                     )
