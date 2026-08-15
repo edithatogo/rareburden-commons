@@ -370,3 +370,20 @@ redistribution rights. No source bytes, bodies, abstracts or full text were
 retrieved or retained. Adding seeds, increasing traversal depth or activating a
 product byte route requires a new bounded protocol and product-specific rights
 evidence.
+
+### MedLexSp and KIOM evidence frontier — 2026-08-16
+
+The exact Digital CSIC observation identifies handle `10261/270429` as MedLexSp,
+not an ontology, and binds the sizes and SHA-256 digests of its three public
+documentation bitstreams. No lexicon payload was observed. The signed licence
+requires confidentiality and prohibits third-party access, so public and
+private-cloud byte routes remain disabled absent an express cloud/processor
+grant; metadata, citation and hashes remain available.
+
+The KIOM artifact retains authoritative publication provenance through DOI
+`10.1093/bioinformatics/btq424`, but its named host failed DNS resolution. No
+version, language inventory, bytes, checksum or redistribution licence is
+inferred. The identity map also prevents treating TARA, OCMR or TCDO as copies
+of KIOM merely because they concern traditional medicine. Five negative tests
+enforce these boundaries; this closes evidence preparation only, not payload
+acquisition, rights clearance, completeness or production activation.
