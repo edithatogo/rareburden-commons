@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+dependencies:
+  - track_id: "008"
+    artifact: examples/semantics/bronchiectasis-synthetic.yml
+    sha256: 497d3e19aef1f03b0a4a0b356b3129f813ec6a9a4d63490666965caf1882d144
+    scope: synthetic semantic hierarchy only
+  - track_id: "009"
+    artifact: manifests/ledger/track-009-source-release-bindings-2026-08-16.json
+    sha256: 84b1d8377a87c787a0ff624727a00a9bab6fdbf4851bf840e8157c61eee04376
+    scope: synthetic ledger source-link assurance only
+  - track_id: "010"
+    artifact: manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json
+    sha256: a8176c09e3824d603bf6cd839cfb34b1fd55b7644850d2ad5d7bd1da8713e4fc
+    scope: bounded synthetic burden-engine reconciliation only
+claims:
+  empirical_activation: false
+  clinical_interpretation: false
+  contract_frozen: false

@@ -1,0 +1,20 @@
+schema_version: 0.1.0
+analysis_id: rbc-p003-bounded-synthetic-composition
+intended_use: synthetic_assurance
+context:
+  geography: synthetic-jurisdiction
+  period: synthetic-period-01
+  age_band: synthetic-all-ages
+  setting: synthetic-community-and-referral-mixture
+  case_definition: synthetic-bronchiectasis-envelope-v0.1.0
+denominator: 1000
+mutually_exclusive_counts:
+  primary-bronchiectasis: 120
+  secondary-bronchiectasis: 310
+  other-bronchiectasis: 270
+multi_aetiology_count: 80
+unknown_count: 150
+limitations:
+  - All values and labels are synthetic assurance inputs, not bronchiectasis evidence.
+  - The multi-aetiology bucket is structural and is not attributed to any individual cause.
+  - No age, geography, setting, diagnostic-capacity or clinical inference is permitted.
