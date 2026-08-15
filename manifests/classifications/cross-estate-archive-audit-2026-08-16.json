@@ -116,20 +116,20 @@
       "bytes_state": "existing_public_archive",
       "public_route": "existing_public_archive",
       "private_route": "existing_private_archive",
-      "gap": "exact historical asset digest reconciliation, non-release tags and future releases",
-      "blocker": "potentially large historical assets require digest-first bounded archival",
+      "gap": "1,916 observed assets (128.4 GB) require cursor-bounded digest reconciliation; non-release tags and future releases remain outside scope",
+      "blocker": "full materialization requires many receipt-verified 500 MB-or-smaller batches",
       "evidence_sha256": "76237a764bf1838947640f25fe9911de91007e9b4ae2dd01c778269a5b0d0a85"
     },
     {
       "id": "clinvar",
-      "evidence": "manifests/classifications/public-history-frontier-2026-08-16.json",
-      "observed": "134 product, directory, data or checksum links across seven official FTP indices; 2026-08 variant_summary is digest-pinned privately",
+      "evidence": "manifests/classifications/clinvar-recursive-metadata-2026-08-16.json",
+      "observed": "6,410 directory, product, data or checksum routes across 50 bounded official directory observations; 2026-08 variant_summary is digest-pinned privately",
       "bytes_state": "existing_private_archive",
       "public_route": "metadata_only_with_submitter_caveats",
       "private_route": "existing_private_archive",
-      "gap": "recursive child-directory enumeration and product-specific historical reconciliation",
-      "blocker": "fixed index scope, submitter-provenance and redistribution review",
-      "evidence_sha256": "76237a764bf1838947640f25fe9911de91007e9b4ae2dd01c778269a5b0d0a85"
+      "gap": "six queued directories beyond the fixed request frontier and product-specific historical reconciliation",
+      "blocker": "fixed request/depth scope, submitter-provenance and redistribution review",
+      "evidence_sha256": "c1608ad5b5ddad072ec95dd3e26a0f0cea6089810d4a95cbbb66f9e75c7cefe8"
     }
   ],
   "routing_rules": [
@@ -146,5 +146,5 @@
     "licensed_bytes_public": false,
     "duplication_eliminated_retroactively": false
   },
-  "audit_sha256": "0836f1a4736d5ca7c701246791588cffc6b25648f1f77789ef41bbeb436f9be3"
+  "audit_sha256": "cd3ff1c2bcd8c23590bea042bf646d750667a5a0b74d4d5288196357c66ef90c"
 }

@@ -1,0 +1,54 @@
+name: bounded MONDO release archive to Hugging Face
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_index:
+        description: Zero-based release index in the pinned 120-release frontier
+        required: true
+        default: "0"
+        type: string
+      asset_start:
+        description: Zero-based asset cursor within the release
+        required: true
+        default: "0"
+        type: string
+      asset_count:
+        description: Sequential assets to process
+        required: true
+        default: "1"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-mondo-release-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Archive, digest, verify and discard
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python3 scripts/archive_mondo_release_batch.py \
+            --release-index "${{ inputs.release_index }}" \
+            --asset-start "${{ inputs.asset_start }}" \
+            --asset-count "${{ inputs.asset_count }}" \
+            --max-bytes 500000000 \
+            --receipt mondo-archive-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: mondo-archive-receipt
+          path: mondo-archive-receipt.json
+          if-no-files-found: error
+          retention-days: 30

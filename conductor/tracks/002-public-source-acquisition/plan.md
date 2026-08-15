@@ -386,6 +386,21 @@ scientific and data-governance gates remain separate and pending.
   `docs/track-002-public-history-frontier-2026-08-16.md` and
   `scripts/discover_public_archive_frontier.py`. No payload bytes were fetched;
   Orphanet media exposed images only and ClinVar remains metadata-only.
+- [x] Add a cursor-bounded MONDO CC BY 4.0 materialization workflow for the
+  observed 1,916 assets (128.4 GB), with a 500 MB run ceiling, exact remote LFS
+  SHA-256 reuse verification and ephemeral cleanup; keep full frontier
+  materialization open until every receipt exists. Evidence:
+  `.github/workflows/archive-mondo-release-batch.yml`,
+  `scripts/archive_mondo_release_batch.py` and
+  `docs/track-002-mondo-clinvar-materialization-2026-08-16.md`.
+- [x] Recursively enumerate 50 bounded official ClinVar directory observations
+  and 6,410 metadata/checksum routes at depth two, retaining a six-directory
+  continuation queue and metadata-only rights posture. Evidence:
+  `manifests/classifications/clinvar-recursive-metadata-2026-08-16.json` and
+  `scripts/discover_clinvar_recursive_metadata.py`.
+- [ ] Materialize all exact MONDO assets in the observed 120-release frontier
+  through receipt-verified bounded batches; do not infer completion from a
+  canary or prepared workflow.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
