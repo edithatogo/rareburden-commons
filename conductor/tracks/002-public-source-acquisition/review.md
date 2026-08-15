@@ -289,3 +289,24 @@ non-commercial and non-diagnostic under its mixed third-party terms. The
 PanelApp listing is complete, but the per-version detail capture is explicitly
 incomplete after HTTP 429 (129 of 433 observed) and is not represented as a
 complete snapshot.
+
+### PanelApp/OECD authoritative rights frontier — 2026-08-16
+
+The response-hashed matrix in
+`docs/track-002-panelapp-oecd-terms-matrix-2026-08-16.json` separates public
+access mechanics, automation policy, content reuse and redistribution. The UK
+publisher documents an operator-triggered panel-page TSV route for current and
+selected prior versions, so this is the only permitted continuation while its
+current robots policy disallows `/api/`. It is not a bulk-completeness route.
+PanelApp Australia exposes public download controls and an API but also warns
+of automated-client restrictions; no exact content licence was found, so its
+raw/detail route remains metadata/hash-only.
+
+OECD Health Statistics 2026 and dataflow
+`OECD.ELS.HD/DSD_HEALTH_STAT@DF_COM/1.0` are now exact dataset identities. OECD
+general terms permit reuse of OECD-owned data with attribution, but explicitly
+require series-level inspection for source ownership and additional
+restrictions. The public metadata index does not clear every series, so values
+remain disabled until selected source tabs are recorded. Tests enforce these
+fail-closed routes and prohibit treating public availability or an open-source
+software licence as a content-redistribution grant.

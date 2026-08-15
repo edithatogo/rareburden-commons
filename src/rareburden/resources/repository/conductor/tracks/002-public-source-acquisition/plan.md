@@ -262,9 +262,18 @@ scientific and data-governance gates remain separate and pending.
   automation is now fail-closed in
   `docs/track-002-panelapp-oecd-frontier-2026-08-16.md`. Australian raw/detail
   capture remains disabled pending exact content-reuse terms.
+- [x] Bind authoritative PanelApp UK/Australia access, automation and reuse
+  observations in a response-hashed terms matrix. Route UK continuation only
+  through operator-triggered official per-panel TSV downloads, keep `/api/`
+  automation disabled, and keep Australian content metadata/hash-only until an
+  exact content licence is recorded.
 - [x] Verify the OECD general terms: data are reusable with attribution unless
   dataset-specific or third-party restrictions apply; acquisition remains
   dataset-specific and metadata-only until an exact OECD dataset is selected.
+- [x] Bind OECD Health Statistics 2026, dataflow
+  `OECD.ELS.HD/DSD_HEALTH_STAT@DF_COM/1.0`, the 2026 metadata index and general
+  terms. Keep values fail-closed until every selected series' source-tab
+  ownership and additional restrictions are recorded.
 - [x] Pin the HPO `v2026-06-23` core ontology and annotation artifacts and
   verify all seven publisher digests. Preserve privately, but prohibit a public
   mirror until the embedded HPO terms URL yields an exact accessible terms
