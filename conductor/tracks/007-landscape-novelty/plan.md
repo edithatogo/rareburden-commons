@@ -138,6 +138,17 @@
   patient/community interpretation; until then retain provisional landscape
   claims and `in_review` status.
 
+## Pagination screening-metadata contract — 2026-08-15
+
+- [x] Retain stable identifiers, titles and canonical URLs alongside each
+  hash-addressed captured page so a later dated capture can enter deterministic
+  screening without retaining abstracts, bodies or full text. Malformed and
+  overlong metadata fail closed. Evidence:
+  `scripts/capture_track_007_pages.py`,
+  `tests/test_track_007_pagination.py`, and
+  `docs/track-007-pagination-workflow.md`. Existing captures are not rewritten;
+  this contract applies to subsequent immutable captures.
+
 ## Registration/challenge readiness refresh — 2026-08-04
 
 - [x] Prepare a single versioned readiness packet binding the registration
