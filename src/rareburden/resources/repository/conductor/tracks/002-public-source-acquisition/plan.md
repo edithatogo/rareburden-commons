@@ -456,3 +456,11 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Restore or increase private destination capacity, record a short-lived
   authenticated capacity verification, change the state through review and run
   a one-artifact canary before resuming the historical cursor.
+- [x] Compare a Hugging Face capacity increase, a private S3-compatible object
+  store and a metadata/hash-only pause without purchasing or creating paid
+  resources. Bind the exact 2,432-artifact backlog, unknown remaining byte
+  volume, quota receipt, migration/security/egress/retention tradeoffs,
+  recommendation and fail-closed implementation checklist. Evidence:
+  `docs/track-002-private-archive-capacity-decision-2026-08-16.yml`,
+  `docs/track-002-private-archive-capacity-checklist-2026-08-16.yml` and
+  `tests/test_track_002_private_archive_capacity_decision.py`.
