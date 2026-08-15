@@ -3,8 +3,10 @@
   "evidence_id": "track-016-bounded-owner-operated-2026-08-16",
   "scope": "repository_owned_synthetic_public_candidate_operations",
   "candidate": {
-    "commit": "22388a74e2d8f2c4ff1d59f828279ffabad3b5a7",
-    "tree": "c0e200a5e2871da7b71ea61e164309b707e4e004",
+    "commit": "abcf10813d9ad1dd88d8fac402622f65077558d4",
+    "tree": "ccc08ef01f5eb0fc973fac3541a0a5f4976f4944",
+    "track_015_manifest": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json",
+    "track_015_manifest_sha256": "f8e9ed508b241a234534ab05614a2e8e0c01994cd35e773c04cf0034a98fca8e",
     "track_014_manifest": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json",
     "track_014_manifest_sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"
   },
@@ -34,7 +36,7 @@
     {
       "kind": "retention_access_policy",
       "path": "docs/track-016-retention-access-policy.md",
-      "sha256": "a62e5309c3075f78b9c79bfaa43033c85ea73be0571f1229a7a2343737bf8ecb",
+      "sha256": "57f2148bcbb854870e8071a6db113c1c877dfaa91fb1a75c0e0cf53a8cf188ad",
       "status": "bounded_repository_policy"
     },
     {
@@ -42,15 +44,21 @@
       "path": "docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md",
       "sha256": "e6d95d03f8346be577caff6291af8f1808d33b765ba2b3b266973ef7c31f9257",
       "status": "owner_attested_handoff_incomplete"
+    },
+    {
+      "kind": "owner_operated_exact_candidate_exercises",
+      "path": "docs/track-016-owner-operated-exercise-receipt-2026-08-16.json",
+      "sha256": "b31435c60e2e3986eb1befaf33d2682fe9747e09ee416e423f7e62f754b95c58",
+      "status": "qualified_repository_evidence"
     }
   ],
   "exercise_results": {
-    "clean_environment_reproduction": "pending_exact_candidate_execution",
-    "repository_security_scan": "pending_exact_candidate_execution",
+    "clean_environment_reproduction": "pass",
+    "repository_security_scan": "pass",
     "sbom_integrity": "pass",
-    "backup_restore": "pending_exact_candidate_execution",
-    "release_rollback": "pending_exact_candidate_execution",
-    "resource_budget": "pending_exact_candidate_execution",
+    "backup_restore": "pass",
+    "release_rollback": "pass",
+    "resource_budget": "pass",
     "retention_access": "bounded_repository_policy"
   },
   "claims": {
@@ -62,7 +70,6 @@
     "controlled_data_authorized": false
   },
   "pending_gates": [
-    "exact_candidate_owner_operated_exercises",
     "backup_owner_handoff",
     "independent_operator",
     "independent_security",

@@ -7,6 +7,7 @@ import pytest
 from scripts.check_track016_bounded_operations import (
     OperationsEvidenceError,
     validate_bounded_operations,
+    validate_exercise_receipt,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,7 +22,7 @@ def test_bounded_operations_manifest_preserves_owner_and_independence_boundaries
     result = validate_bounded_operations(_payload(), ROOT)
     assert result["status"] == "bounded_operations_evidence_valid"
     assert result["independent_evidence"] is False
-    assert result["pending_gate_count"] == 6
+    assert result["pending_gate_count"] == 5
 
 
 @pytest.mark.parametrize(
@@ -65,6 +66,23 @@ def test_bounded_operations_rejects_duplicate_evidence_or_missing_gate() -> None
     with pytest.raises(OperationsEvidenceError, match="duplicate evidence path"):
         validate_bounded_operations(payload, ROOT)
 
+
+def test_bounded_operations_rejects_missing_evidence_kind_or_bad_exercise_result() -> None:
+    payload = _payload()
+    payload["evidence"] = payload["evidence"][:-1]
+    with pytest.raises(OperationsEvidenceError, match="evidence set is incomplete"):
+        validate_bounded_operations(payload, ROOT)
+
+    receipt_path = ROOT / "docs/track-016-owner-operated-exercise-receipt-2026-08-16.json"
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    receipt["results"][0]["outcome"] = "fail"
+    with pytest.raises(OperationsEvidenceError, match="results are incomplete"):
+        validate_exercise_receipt(
+            receipt,
+            "abcf10813d9ad1dd88d8fac402622f65077558d4",
+            "ccc08ef01f5eb0fc973fac3541a0a5f4976f4944",
+        )
+
     payload = _payload()
     payload["pending_gates"] = payload["pending_gates"][:-1]
     with pytest.raises(OperationsEvidenceError, match="must remain pending"):
@@ -80,10 +98,8 @@ def test_bounded_operations_rejects_duplicate_evidence_or_missing_gate() -> None
         ("backup_state", "complete"),
     ],
 )
-def test_bounded_operations_rejects_operator_model_overstatement(
-    field: str, value: object
-) -> None:
+def test_bounded_operations_rejects_operator_model_overstatement(field: str, value: object) -> None:
     payload = _payload()
     payload["operator_model"][field] = value
-    with pytest.raises(OperationsEvidenceError, match="operator model|backup limitation"):
+    with pytest.raises(OperationsEvidenceError, match=r"operator model|backup limitation"):
         validate_bounded_operations(payload, ROOT)

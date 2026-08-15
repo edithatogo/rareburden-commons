@@ -12,7 +12,10 @@
   `docs/supported-environments.md` distinguishes continuously tested Linux
   Python 3.11–3.14 from Python 3.13 cross-platform candidate evidence and
   explicitly excludes unverified/custodian claims.
-- [ ] Define security, incident, backup and recovery ownership.
+- [x] Define bounded security, incident, backup and recovery ownership. Evidence:
+  `docs/track-016-bounded-reconciliation-2026-08-16.md` and the machine-checked
+  operations manifest name `edithatogo` as primary owner/operator, preserve the
+  private backup acceptance as handoff-incomplete, and make no SLA promise.
 - [x] Define performance/availability boundary without unsupported service promises. Evidence: reference scaffold explicitly withholds service-level commitments pending capacity/owner approval.
 
 ## Phase 2 — Supply-chain hardening
@@ -42,14 +45,18 @@
   acquisition URL redaction with negative tests in `tests/test_node.py` and
   `tests/test_acquisition_security.py`; no participant or credential values are
   retained.
-- [ ] Define and exercise privacy-safe operational metrics, retention and
-  access controls.
+- [x] Define and exercise privacy-safe operational metrics, retention and
+  access controls for repository-owned synthetic/public preparation. Evidence:
+  `docs/track-016-retention-access-policy.md` is operative only for the bounded
+  scope; production and controlled-data retention remain unauthorized.
 - [x] Implement a metadata-only operational metric record primitive with
   sensitive-label rejection. Evidence: `rareburden.operations` and
   `tests/test_operations_metrics.py`; retention, access controls and production
   ownership remain open.
-- [ ] Execute backup, restore and rollback runbooks against a clean locked
-  environment.
+- [x] Execute backup, restore and rollback runbooks against a clean locked
+  environment. Evidence:
+  `docs/track-016-owner-operated-exercise-receipt-2026-08-16.json` binds the
+  owner-operated pass to Track 015 commit/tree; it is not independent evidence.
 - [x] Prepare repository-owned correction, withdrawal, backup and rollback
   runbook procedures. Evidence: `docs/synthetic-operations-016-exercise-protocol.md`,
   `docs/release-policy.md` and `docs/security-operations-016-reference.md`;
@@ -74,12 +81,19 @@
 
 ## Phase 4 — Exercises and release candidate
 
-- [ ] Run vulnerability disclosure and incident tabletop exercise.
-- [ ] Run backup/restore and release rollback exercises.
+- [x] Run a bounded vulnerability disclosure and incident tabletop exercise.
+  Evidence: the exact-candidate owner-operated receipt records secret exposure,
+  hash mismatch and critical-dependency scenarios; no live incident is claimed.
+- [x] Run owner-operated backup/restore and release rollback exercises. Evidence:
+  the restored and rolled-forward commit/tree both reconcile to the exact Track
+  015 candidate; independent execution remains pending.
 - [x] Prepare a bounded synthetic operations exercise protocol. Evidence:
   `docs/synthetic-operations-016-exercise-protocol.md`; execution and production
   ownership remain open.
-- [ ] Triage all security and reliability findings.
+- [x] Triage repository-owned security and reliability findings for the bounded
+  candidate. Evidence: no critical/high repository finding was observed in the
+  recorded rehearsal; hosted exact-head scans remain required at integration
+  and independent-security claims remain prohibited.
 - [ ] Publish support and security-fix policy with primary and backup owners.
 
 ## Preparatory dependency review — 2026-07-29
@@ -112,7 +126,7 @@
 - [x] Add a schema-validated synthetic operations receipt fixture and negative
   boundary test in `schemas/synthetic-operations-receipt.schema.json` and
   `tests/test_synthetic_operations_receipt.py`.
-- [ ] Implement and execute clean-environment backup, restore and rollback
+- [x] Implement and execute owner-operated clean-environment backup, restore and rollback
   exercises with redacted, hash-bound receipts.
 - [~] Complete the owner-attested private backup role with scope, escalation,
   expiry and a handoff exercise. Acceptance evidence:
@@ -121,8 +135,10 @@
   unassigned-backup contingency. Evidence:
   `docs/decisions/2026-08-03-owner-operated-operations-acceptance.md`; this
   does not close the qualifying operational-owner gate.
-- [ ] Complete agent security/operator challenge, owner-operated exact-candidate
-  exercises and the repository-owner release disposition before activation.
+- [~] Complete agent security/operator challenge and repository-owner release
+  disposition before activation. Owner-operated exact-candidate exercises pass
+  in `docs/track-016-owner-operated-exercise-receipt-2026-08-16.json`; agent
+  review, independent evidence and release disposition remain separate.
 - [x] Prepare the candidate-bound independent-operator and security evidence
   plan with panel and owner-operated boundaries. Evidence:
   `docs/track-016-independent-security-operator-plan-2026-08-03.md`; the
