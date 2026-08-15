@@ -26,6 +26,8 @@ def test_exact_bounded_receipt_is_synthetic_and_dependency_bound() -> None:
     committed = json.loads(
         (ROOT / "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json").read_text()
     )
+    assert result["runtime"].pop("python_version")
+    assert committed["runtime"].pop("python_version") == "3.14.5"
     assert result == committed
     assert result["activation_state"] == "synthetic_only"
     assert result["contract_frozen"] is False
