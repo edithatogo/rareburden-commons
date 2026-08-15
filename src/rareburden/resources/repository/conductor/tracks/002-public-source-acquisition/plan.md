@@ -310,6 +310,25 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Build the country-authority ledger for every discoverable ICD national
   modification and SNOMED CT national edition; preserve each native release
   independently of its possible UMLS representation.
+- [x] Build a bounded official-source country-authority seed ledger for eight
+  discoverable ICD modification, translation or adoption routes, with explicit
+  country, language, release, authority, terms and retrieval states. Evidence:
+  `manifests/classifications/who-fic-authority-sources-2026-08-16.json`,
+  `manifests/classifications/who-fic-authority-observations-2026-08-16.json`
+  and `docs/track-002-who-fic-country-authority-ledger-2026-08-16.md`. This
+  bounded seed is not the parent task's global or SNOMED national-edition
+  completion evidence.
+- [x] Record official WHO routes and fail-closed artifact states for ICF, the
+  retired/merged ICF-CY, ICHI, ICD-O and seven WHO-linked related
+  classifications. No classification bytes were acquired; partner, portal and
+  exact-artifact terms remain metadata-only gates. Evidence: the same source
+  ledger, dated observations, deterministic observer and tests.
+- [x] Correct WHO ICD private-archive idempotency by fingerprinting semantic
+  snapshot content, reusing equivalent private manifests and using
+  content-addressed paths for new snapshots. Preserve both earlier timestamped
+  retrieval events without deletion. Evidence:
+  `docs/track-002-who-icd-duplicate-preservation-2026-08-16.md` and regression
+  tests in `tests/test_archive_who_icd_inventory.py`.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
