@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "observed_at": "2026-08-16",
+  "publisher": "Federal Institute for Drugs and Medical Devices (BfArM)",
+  "source": {
+    "national_edition": "https://www.bfarm.de/EN/Code-systems/Terminologies/SNOMED-CT/National-Edition/_artikel.html",
+    "german_translations": "https://www.bfarm.de/EN/Code-systems/Terminologies/SNOMED-CT/German-Translations/_node.html",
+    "licensing": "https://www.bfarm.de/EN/Code-systems/Terminologies/SNOMED-CT/affiliate-licence/_artikel.html",
+    "faq": "https://www.bfarm.de/EN/Code-systems/Services/FAQ-Contact/_artikel.html",
+    "affiliate_agreement": "https://www.bfarm.de/SharedDocs/Downloads/DE/Kodiersysteme/SNOMED-CT/AFFILIATE_LICENSE_AGREEMENT_gueltig_20230731.pdf?__blob=publicationFile",
+    "portal": "https://mlds.ihtsdotools.org/#/landing"
+  },
+  "product": {
+    "name": "SNOMED CT National Edition Germany",
+    "composition": ["SNOMED_CT_International_Edition", "SNOMED_CT_German_National_Extension"],
+    "extension_content": ["German_translations", "Germany_specific_concepts", "mappings", "subsets"],
+    "format": "RF2",
+    "release_schedule": ["05-15", "11-15"],
+    "translation_scope": "use_case_based_not_quality_assured_complete_translation"
+  },
+  "release_events": [
+    {"date": "2024-05-15", "observation": "second_National_Edition_Germany"},
+    {"date": "2025-05-23", "observation": "updated_National_Edition_Germany"},
+    {"date": "2025-11-21", "observation": "fifth_National_Edition_Germany"}
+  ],
+  "release_identity": {
+    "exact_portal_products": "pending_authenticated_mlds_inventory",
+    "exact_filenames": "pending_authenticated_mlds_inventory",
+    "publisher_checksums": "pending_authenticated_mlds_inventory",
+    "historical_completeness": false
+  },
+  "rights": {
+    "affiliate_licence_required": true,
+    "german_member_use_scope": "territory_of_Federal_Republic_of_Germany",
+    "annual_use_declaration_required": true,
+    "national_extension_requires_member_agreement": true,
+    "private_cloud_storage_permission": "pending_exact_agreement_territory_and_storage_disposition",
+    "public_raw_redistribution": false,
+    "required_notice": "SNOMED_CT_attribution_notice_from_BfArM_FAQ"
+  },
+  "repository_route": {
+    "public": "metadata_checksums_and_receipts_only",
+    "private": "disabled_until_exact_mlds_agreement_territory_and_cloud_permission",
+    "destination_if_authorized": "huggingface:edithatogo/hpo-licensed-ontology-archive",
+    "raw_bytes_downloaded": false,
+    "raw_bytes_uploaded": false
+  },
+  "uts_overlap": {
+    "manifest": "manifests/uts/all-release-families-2026-08-15.json",
+    "observed_families": {
+      "snomed-ct-international-edition": 86,
+      "snomed-ct-spanish-edition": 30,
+      "snomed-ct-us-edition": 19,
+      "snomed-ct-core-problem-list-subset": 59,
+      "snomed-ct-to-icd-10-cm-mapping-resources": 26,
+      "snomed-ct-us-edition-transitive-closure-resources": 13
+    },
+    "german_label_matches": 0,
+    "gap": "German_National_Extension_and_native_German_Edition_releases",
+    "deduplication": "compare_exact_SHA256_and_existing_remote_path_before_upload"
+  },
+  "claims": {
+    "exact_package_inventory": false,
+    "complete_german_translation": false,
+    "historical_completeness": false,
+    "public_redistribution_authorized": false,
+    "private_cloud_storage_authorized": false,
+    "production_activation": false
+  }
+}
