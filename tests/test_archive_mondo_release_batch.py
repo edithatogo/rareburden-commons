@@ -69,3 +69,16 @@ def test_non_lfs_remote_object_mismatch_fails_closed(tmp_path: Path) -> None:
         expected_sha256="0" * 64,
         download_non_lfs=lambda: payload,
     )
+
+
+def test_non_lfs_existing_remote_object_can_be_reused(tmp_path: Path) -> None:
+    payload = tmp_path / "README.md"
+    payload.write_bytes(b"previously uploaded exact bytes")
+    expected = __import__("hashlib").sha256(payload.read_bytes()).hexdigest()
+    existing = type("Sibling", (), {"size": payload.stat().st_size, "lfs": None})()
+    assert verify_remote_object(
+        existing,
+        expected_size=payload.stat().st_size,
+        expected_sha256=expected,
+        download_non_lfs=lambda: payload,
+    )
