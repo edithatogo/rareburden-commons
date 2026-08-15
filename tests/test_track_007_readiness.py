@@ -93,6 +93,7 @@ def test_agent_challenge_task_binds_inputs_and_separates_roles() -> None:
         payload = (ROOT / record["path"]).read_bytes()
         assert hashlib.sha256(payload).hexdigest() == record["sha256"]
     assert task["owner_boundary"] == "panel_advises_repository_owner_records_disposition"
-    assert "claim independent, human, patient, community, institutional or external review" in task[
-        "prohibited_actions"
-    ]
+    assert (
+        "claim independent, human, patient, community, institutional or external review"
+        in task["prohibited_actions"]
+    )
