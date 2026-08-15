@@ -32,3 +32,17 @@ Keep Track 013 **blocked**. Do not assess, triangulate or approve atlas-beta out
 `docs/track-013-assurance-review-packet.md` records the decisions and evidence
 needed before activation. It is repository-owned preparation and does not
 constitute independent validation, equity approval or atlas release readiness.
+
+### Bounded downstream reconciliation — 2026-08-16
+
+Repository review result: **Pass for synthetic contract reconciliation only**.
+The exact Track 008–012 artifacts and non-activation assertions reconcile, and
+negative tests reject hash drift, empirical activation, representativeness
+claims and dropped equity/owner gates. Coverage accounting is explicit: there
+are no empirical population, real-geography or real-subgroup rows. The two
+Track 012 subgroup rows are synthetic and suppressed.
+
+Track 013 remains **blocked**. This evidence does not establish calibration,
+triangulation, coverage sufficiency, representativeness, equity adequacy,
+independent reproduction or atlas release readiness. Those gates remain
+pending and must not be inferred from the bounded pass.
