@@ -25,6 +25,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           UMLS_API_KEY: ${{ secrets.UMLS_API_KEY }}
+          PYTHONPATH: .
         run: |
           python3 scripts/archive_uts_current_set.py \
             manifests/uts/all-release-families-2026-08-15.json \
