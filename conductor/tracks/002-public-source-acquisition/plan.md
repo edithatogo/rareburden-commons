@@ -428,6 +428,14 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
+- [x] Record the BfArM National Edition Germany and German-translation surfaces
+  as a metadata-only MLDS frontier, including its RF2 composition, semiannual
+  schedule, bounded release-event observations, incomplete-translation warning,
+  exact UTS overlap/gap counts and a fail-closed private-byte gate. Evidence:
+  `docs/track-002-bfarm-german-snomed-frontier-2026-08-16.md` and
+  `manifests/classifications/bfarm-german-snomed-frontier-2026-08-16.json`.
+  No raw download or upload occurred; exact portal packages and permissions
+  remain part of the unchecked authenticated MLDS task above.
 - [x] Prepare the fail-closed MedDRA/MLDS inventory, private-archive and receipt
   contracts, manual bounded workflow, credential-free operator procedure,
   duplicate-reference route and negative tests. Evidence:
