@@ -34,6 +34,11 @@ software assurance, not scientific, clinical, rights, patient/community or relea
 - Renovate is the sole dependency-update bot. `renovate.json` inherits
   `github>edithatogo/renovate-config`; Dependabot configuration is intentionally absent.
   A Dependency Dashboard or Renovate PR is still required as hosted proof that app access works.
+  `scripts/check_renovate_readiness.py` now validates these repository-owned prerequisites
+  offline and explicitly reports `hosted_app_execution_observed: false`; passing that check is
+  configuration evidence only. A 2026-08-16 GitHub audit found no Renovate-authored event,
+  pull request or Dependency Dashboard across the repository's visible history, so issues #21
+  and #22 remain open rather than inferring app access from installation or configuration.
 - The repository is solo-maintained: zero mandatory human approvals, no CODEOWNERS gate, and
   protected automated checks. Owner self-review is not represented as independent review.
 
