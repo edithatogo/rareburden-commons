@@ -56,6 +56,18 @@
   live capture. Global representativeness, comprehensive coverage and upgraded
   novelty remain prohibited; language, geography, grey-literature and restricted
   material coverage remain unmeasured or incomplete.
+- [x] Adjudicate all four exact-title clusters at record level using hash-bound
+  GitHub and Crossref observations. Evidence:
+  `docs/track-007-title-cluster-adjudication-2026-08-15.json`. The reciprocal
+  preprint/article relation is linked as one work while preserving both records;
+  three GitHub pairs remain separate repository records with initiative-level
+  equivalence explicitly unresolved.
+
+## Review fixes — 2026-08-15 title clusters
+
+- [x] Distinguish hashes of temporary `gh api` observation bytes from hashes of
+  direct Crossref response bytes and state that raw payloads were not retained,
+  preventing the adjudication packet from implying a raw-response archive.
 
 ## Review fixes — 2026-08-15 live capture
 
