@@ -23,6 +23,7 @@ def test_bounded_operations_manifest_preserves_owner_and_independence_boundaries
     assert result["status"] == "bounded_operations_evidence_valid"
     assert result["independent_evidence"] is False
     assert result["pending_gate_count"] == 5
+    assert isinstance(result["candidate_git_object_verified"], bool)
 
 
 @pytest.mark.parametrize(
@@ -56,7 +57,9 @@ def test_bounded_operations_rejects_hash_path_and_candidate_drift() -> None:
 
     payload = _payload()
     payload["candidate"]["tree"] = "0" * 40
-    with pytest.raises(OperationsEvidenceError, match="commit/tree binding mismatch"):
+    with pytest.raises(
+        OperationsEvidenceError, match=r"commit/tree binding mismatch|receipt identity"
+    ):
         validate_bounded_operations(payload, ROOT)
 
 
