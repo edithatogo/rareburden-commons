@@ -32,6 +32,7 @@ def test_exact_bounded_receipt_is_synthetic_and_dependency_bound() -> None:
     assert result["activation_state"] == "synthetic_only"
     assert result["contract_frozen"] is False
     assert result["empirical_parameter_activation"] is False
+    assert result["summary_precision_decimal_places"] == 6
     assert len(result["source_release_binding_sha256"]) == 64
 
 

@@ -34,11 +34,12 @@
   "summary": {
     "interval_probability": 0.95,
     "iterations": 10000,
-    "lower": 66342.91979677154,
-    "mean": 530108.1393056146,
-    "median": 443889.3061953435,
+    "lower": 66342.919797,
+    "mean": 530108.139306,
+    "median": 443889.306195,
     "seed": 20260719,
-    "standard_deviation": 371357.48381251725,
-    "upper": 1468776.3353750003
-  }
+    "standard_deviation": 371357.483813,
+    "upper": 1468776.335375
+  },
+  "summary_precision_decimal_places": 6
 }

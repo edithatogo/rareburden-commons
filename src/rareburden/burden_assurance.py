@@ -71,6 +71,10 @@ def run_bounded_synthetic_analysis(
         created_at=created_at,
         quality_disposition=quality_disposition,
     )
+    result["summary"] = {
+        key: round(value, 6) if isinstance(value, float) else value
+        for key, value in result["summary"].items()
+    }
     binding_bytes = json.dumps(
         source_release_bindings, sort_keys=True, separators=(",", ":")
     ).encode()
@@ -81,6 +85,7 @@ def run_bounded_synthetic_analysis(
         "contract_frozen": False,
         "empirical_parameter_activation": False,
         "interpretation": "repository-owned synthetic assurance; not an empirical burden estimate",
+        "summary_precision_decimal_places": 6,
     }
 
 
