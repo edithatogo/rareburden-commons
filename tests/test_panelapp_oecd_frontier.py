@@ -16,7 +16,11 @@ def test_panelapp_registry_is_country_aware_and_blocks_uk_api() -> None:
     records = {item["jurisdiction"]: item for item in payload["instances"]}
     assert set(records) == {"AU", "GB"}
     assert records["GB"]["automated_api_capture"] == "disabled_by_robots"
+    assert records["GB"]["publisher_authorized_alternative"]["automation"] is False
+    assert records["GB"]["publisher_authorized_alternative"]["completeness_claim"] is False
     assert records["AU"]["raw_archive"].startswith("disabled_pending")
+    assert records["AU"]["content_licence_inference"] is False
+    assert payload["software_licence_is_content_licence"] is False
     assert payload["claims"] == {
         "global_completeness": False,
         "country_representativeness": False,
@@ -29,6 +33,45 @@ def test_oecd_bytes_fail_closed_until_dataset_disposition() -> None:
     assert payload["terms_disposition"]["dataset_bytes"].startswith("disabled_until")
     assert payload["metadata_canary"]["raw_archive"] is False
     assert payload["metadata_canary"]["production_activation"] is False
+    assert payload["terms_disposition"]["source_tab_third_party_disposition"].startswith(
+        "unresolved"
+    )
+
+
+def test_terms_matrix_separates_visibility_automation_and_reuse() -> None:
+    payload = json.loads(
+        (ROOT / "docs/track-002-panelapp-oecd-terms-matrix-2026-08-16.json").read_text()
+    )
+    records = {item["source_id"]: item for item in payload["records"]}
+    assert (
+        "content_redistribution_right" in records["panelapp-australia-home"]["does_not_establish"]
+    )
+    assert "all_series_OECD_owned" in records["oecd-health-statistics-2026"]["does_not_establish"]
+    assert all(value is False for value in payload["global_claims"].values())
+
+
+def test_rights_router_is_fail_closed() -> None:
+    uk = frontier.rights_route("genomics-england-panelapp")
+    au = frontier.rights_route("panelapp-australia")
+    oecd = frontier.rights_route("oecd-health-statistics-dataflow", exact_content_terms=True)
+    assert uk["route"] == "operator_triggered_publisher_download"
+    assert uk["automation"] is False
+    assert au["route"] == "metadata_hash_only"
+    assert au["raw_redistribution"] is False
+    assert oecd["route"] == "metadata_hash_only"
+    assert oecd["raw_redistribution"] is False
+
+
+def test_rights_router_requires_exact_oecd_third_party_clearance() -> None:
+    clear = frontier.rights_route(
+        "oecd-health-statistics-dataflow",
+        exact_content_terms=True,
+        third_party_clear=True,
+    )
+    assert clear["route"] == "bounded_data_export"
+    assert clear["raw_redistribution"] is True
+    with pytest.raises(ValueError, match="no rights route"):
+        frontier.rights_route("unknown")
 
 
 def test_probe_retains_only_hash_and_bounded_panel_metadata(
