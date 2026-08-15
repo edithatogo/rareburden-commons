@@ -128,6 +128,29 @@ for 51 live-only records; 93 remain uncertain and none is excluded. No response
 body, description, abstract or full text is retained, and neither result is a
 quality, novelty, community-authority or completeness finding.
 
+### Lawful alternatives and safe-metadata deepening — 2026-08-16
+
+Public Crossref citation metadata supplied an adequate alternative observation
+for all 8 publisher-restricted DOI records without fetching publisher locators.
+Seven have explicit title-level rare-disease and contribution signals and are
+bounded includes; one journal-introduction record remains uncertain. The frozen
+69 are now 66 includes, 2 explicit duplicate/non-substantive-release exclusions
+and 1 uncertain, with no record pending solely because its publisher locator is
+restricted.
+
+A fresh safe-field pass over the 144 live-only records retained GitHub topics,
+language, SPDX identifier, archived/fork flags and Zenodo keywords, resource
+type, language and access state. It preserved all 51 prior hash-bound includes,
+upgraded 3 records, and left 90 uncertain with zero exclusions. Descriptions,
+abstracts, response bodies and full text were not retained.
+
+No second bibliographic provider was activated. OpenAlex's current official
+authentication page requires an API key and its terms PDF returned 403 to the
+bounded direct observation. Europe PMC's public API and metadata-use pages were
+reachable, but the observed pages did not state an exact provider-specific
+numeric request ceiling. This is a provider-governance blocker, not evidence of
+absence or poor coverage.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The seed screening
