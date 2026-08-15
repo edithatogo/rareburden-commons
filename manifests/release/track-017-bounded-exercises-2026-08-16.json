@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "track": "017",
+  "candidate_commit": "3cfdf8dee5aa7440b936f03ac171fb95665b5f8b",
+  "executed_at_utc": "2026-08-15T18:49:18Z",
+  "environment": {"os": "macOS 26.5.2 build 25F84 arm64", "uv": "0.11.8", "python": "3.14.7", "isolation": "three clean clones at exact detached candidate commit"},
+  "usability_assessments": [
+    {"role": "first_time_user_accessibility_agent", "classification": "agent_advisory_non_independent", "outcome": "revise_then_pass_after_remediation", "initial_finding": "documented bare python command failed with exit 127", "severity": "high", "remediation": "use uv run python and add prerequisites resource expectations navigation and troubleshooting", "repeat_outcome": "passed", "authority_claimed": false},
+    {"role": "node_operator_documentation_agent", "classification": "agent_advisory_non_independent", "outcome": "passed_with_bounded_limitations", "tasks": ["locked dependency sync", "full repository validation", "synthetic generation", "reference verification", "output hash comparison"], "barriers": [], "limitations": ["single macOS environment", "synthetic workflow only", "no human accessibility conformance assessment"], "authority_claimed": false}
+  ],
+  "clean_candidates": [
+    {"id": "candidate-a", "initial_git_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "sync_log_sha256": "88256fdec6c1fa6defe118aa4116b241e02325d51df2d7ad03839fc81605b4d6", "check_log_sha256": "f2ba1208c6cb049191aff9374eae1e70581a56d0bd7550dda186e4ba427b8ae6", "verification_report_sha256": "e8adc401a1daea0cb9930af650d90ad11d83a9fb6b31ceecd88ffa0d2a46592f", "output_manifest_sha256": "bc6c8a4c9067dfb5a13099a1711bfebb64efc68023071bd00a9f6c3b89e0d062", "outcome": "passed"},
+    {"id": "candidate-b", "initial_git_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "sync_log_sha256": "a7e56e3e5eccc79b80e94ad6378f1b8eb76fca073d1c7daa99ddf4e93c292f35", "check_log_sha256": "b2426e8b3a772a1f85d27cfdc6098de71314c1254a91b2236513be9c17bf687f", "verification_report_sha256": "e8adc401a1daea0cb9930af650d90ad11d83a9fb6b31ceecd88ffa0d2a46592f", "output_manifest_sha256": "bc6c8a4c9067dfb5a13099a1711bfebb64efc68023071bd00a9f6c3b89e0d062", "outcome": "passed"}
+  ],
+  "owner_operated_reproduction": {"classification": "repository_owner_operated_non_independent", "initial_git_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "sync_log_sha256": "aeae262d0f94f566c04ad72307d9cf1e926d908f34de7177540dc21104b24aaf", "verification_report_sha256": "e8adc401a1daea0cb9930af650d90ad11d83a9fb6b31ceecd88ffa0d2a46592f", "output_manifest_sha256": "bc6c8a4c9067dfb5a13099a1711bfebb64efc68023071bd00a9f6c3b89e0d062", "equivalent_to_clean_candidates": true, "outcome": "passed"},
+  "commands": ["uv sync --frozen --extra dev", "uv run make check", "PYTHONPATH=src:. uv run python -m rareburden demo-public-foundation --root . --output outputs/public-foundation-synthetic --created-at 2026-07-27T00:00:00Z --overwrite --json", "PYTHONPATH=src:. uv run python -m rareburden verify-reference-release --root . --release outputs/public-foundation-synthetic --verified-at 2026-07-27T00:00:00Z --json"],
+  "claims": {"independent_usability": false, "human_accessibility_conformance": false, "patient_or_community_approval": false, "independent_reproduction": false, "external_approval": false, "backup_continuity": false, "stable_release_authorized": false, "public_stable_artifacts_verified": false},
+  "owner_disposition": "accept bounded repository exercise evidence; retain all stable and unavailable-authority gates"
+}

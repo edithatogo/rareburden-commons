@@ -1,6 +1,6 @@
-# Track 017 independent usability and reproduction receipt template
+# Track 017 usability and owner-reproduction receipt template
 
-**Status:** template only; completion requires an independent operator or user.
+**Status:** template only; legacy filename retained for compatibility.
 
 Copy this template once per run. Do not include credentials, participant data,
 raw private logs or uncontrolled source material.
@@ -25,7 +25,7 @@ run:
   discrepancies: []
   intervention: "none | documented"
 review:
-  operator_role: "independent-user | independent-operator"
+  operator_role: "advisory-usability-agent | repository-owner-operator"
   reviewer_role: "<role or panel reference>"
   decision_expiry_utc: "<timestamp>"
   notes: "<bounded findings and limitations>"
@@ -39,4 +39,6 @@ Acceptance rules:
   stable-release claim until dispositioned;
 - equivalence is assessed against reviewed output hashes and documented
   tolerances, never by visual similarity alone;
-- a repository test, CI result or subagent panel is not an independent receipt.
+- agent usability and owner-operated reproduction are bounded repository
+  evidence and must not be described as independent, human, community,
+  custodian, external or stable-release approval.

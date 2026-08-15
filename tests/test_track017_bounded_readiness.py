@@ -20,7 +20,7 @@ def test_prepared_readiness_contract_is_bounded() -> None:
     assert validate_readiness(_payload(), ROOT) == {
         "status": "bounded_readiness_preparation_valid",
         "track_016_status": "bound",
-        "open_gate_count": 7,
+        "open_gate_count": 4,
         "prohibited_claim_count": 10,
     }
 
@@ -65,5 +65,5 @@ def test_track_016_cannot_be_bound_prematurely() -> None:
 def test_stable_gate_cannot_close_during_preparation() -> None:
     payload = _payload()
     payload["stable_release_gates"]["public_artifact_verification"] = True
-    with pytest.raises(ReleaseReadinessError, match="cannot close"):
+    with pytest.raises(ReleaseReadinessError, match="only executed repository-evidence"):
         validate_readiness(payload, ROOT)

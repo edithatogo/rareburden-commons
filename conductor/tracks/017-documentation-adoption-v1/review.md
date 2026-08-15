@@ -55,3 +55,16 @@ repository checks from becoming independent/external approval or stable-v1
 claims. Repository preparation passes review. Track 016 is exactly bound at PR
 #104 merge `18910840fee787bbe2ae7d7eff40b944539a11f4`; execution,
 support-continuity, public-verification and stable-release gates stay open.
+
+## Exercise review — 2026-08-16
+
+Two role-separated advisory agent assessments, two clean locked candidate
+builds and one owner-operated clean-environment reproduction were executed
+against exact commit `3cfdf8dee5aa7440b936f03ac171fb95665b5f8b`.
+The first-time-user assessment found that the documented bare `python` command
+failed in the clean environment. The guides now use `uv run python` and include
+prerequisites, resource expectations, navigation and fail-closed
+troubleshooting. Repeated generation and verification passed; all three output
+manifests and verifier reports were identical. These are repository and agent
+advisory receipts only—not human accessibility conformance, independent
+reproduction, backup continuity, external approval or stable-release evidence.

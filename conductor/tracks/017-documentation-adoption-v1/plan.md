@@ -28,10 +28,10 @@ owner-operated reproduction gates.
 
 ## Phase 2 — Agent usability and owner-operated reproduction
 
-- [ ] Run two role-separated usability-agent assessments of the reference workflow.
-- [ ] Complete a separately executed owner-operated node/analyst run.
-- [ ] Build two clean release candidates from locked environments.
-- [ ] Complete one owner-operated clean-environment reproduction with equivalent reviewed outputs.
+- [x] Run two role-separated usability-agent assessments of the reference workflow. Evidence: `manifests/release/track-017-bounded-exercises-2026-08-16.json`; the first assessment found and verified remediation of the documented bare-`python` failure.
+- [x] Complete a separately executed owner-operated node/analyst run. Evidence: same bounded receipt; explicitly non-independent.
+- [x] Build two clean release candidates from locked environments. Evidence: exact candidate, check-log and output-manifest hashes in the bounded receipt.
+- [x] Complete one owner-operated clean-environment reproduction with equivalent reviewed outputs. Evidence: identical output-manifest and verifier hashes in the bounded receipt.
 
 ## Phase 3 — Sustainability and ownership
 
@@ -113,6 +113,11 @@ owner-operated reproduction gates.
   continuity, dependency and stable-release overclaims. Evidence:
   `scripts/check_track017_bounded_readiness.py` and
   `tests/test_track017_bounded_readiness.py`.
+- [x] Execute and validate bounded usability/build/reproduction exercises, apply
+  the high-severity documentation remediation, and retain non-independent and
+  non-stable claim boundaries. Evidence:
+  `scripts/check_track017_bounded_exercises.py` and
+  `tests/test_track017_bounded_exercises.py`.
 - [x] Bind the exact merged Track 016 evidence artifact and merge commit before
   integrating this bounded preparation. Evidence: PR #104 merge
   `18910840fee787bbe2ae7d7eff40b944539a11f4` and SHA-256
