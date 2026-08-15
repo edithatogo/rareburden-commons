@@ -1,0 +1,14 @@
+schema_version: "1.0"
+status: repository_owned_bounded_synthetic_disposition
+disposition_id: qdp-track010-synthetic-20260816
+analysis_id: expected-population-synthetic
+intended_use: synthetic_assurance
+eligible_for_synthetic_assurance: true
+eligible_for_primary_analysis: false
+contract_freeze: false
+source_activation: false
+clinical_interpretation: false
+limitations:
+  - The inputs and result are synthetic and must not be cited as empirical burden.
+  - Independence is an explicit test assumption, not a fitted dependence model.
+  - No clinical, policy, cost, DALY, YLD, YLL or production use is approved.

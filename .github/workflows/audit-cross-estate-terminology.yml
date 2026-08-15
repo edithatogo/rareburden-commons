@@ -1,0 +1,40 @@
+name: Cross-estate terminology metadata audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "docs/track-002-cross-estate-archive-audit-2026-08-16.yml"
+      - "manifests/**"
+      - "scripts/render_cross_estate_archive_audit.py"
+      - ".github/workflows/audit-cross-estate-terminology.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Render credential-free rights and gap metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
+        with:
+          version: "0.10.0"
+          enable-cache: false
+      - run: uv sync --frozen
+      - name: Render bounded public metadata audit
+        run: |
+          uv run python scripts/render_cross_estate_archive_audit.py \
+            docs/track-002-cross-estate-archive-audit-2026-08-16.yml \
+            cross-estate-terminology-audit.json \
+            --root .
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: cross-estate-terminology-audit
+          path: cross-estate-terminology-audit.json
+          if-no-files-found: error
+          retention-days: 30
