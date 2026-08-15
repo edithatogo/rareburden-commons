@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "observed_on": "2026-08-16",
   "claims": {
     "global_completeness": false,
@@ -17,7 +17,14 @@
       "terms_url": "https://prod-media-panelapp.genomicsengland.co.uk/media/files/GEL_-_PanelApp_Terms_of_Use_December_2019.pdf",
       "automated_api_capture": "disabled_by_robots",
       "raw_archive": "existing_bounded_private_listing_only",
-      "detail_frontier": "manual_publisher_authorization_required"
+      "detail_frontier": "operator_triggered_official_panel_page_tsv_download",
+      "publisher_authorized_alternative": {
+        "route": "panel_page_download_menu",
+        "scope": "current_or_selected_previous_panel_version_tsv",
+        "automation": false,
+        "completeness_claim": false,
+        "notes": "Official homepage documents current and previous-version TSV downloads. This does not override the /api/ robots prohibition or third-party field restrictions."
+      }
     },
     {
       "source_id": "panelapp-australia",
@@ -29,7 +36,11 @@
       "terms_url": null,
       "automated_api_capture": "bounded_metadata_probe_only",
       "raw_archive": "disabled_pending_exact_content_reuse_terms",
-      "detail_frontier": "disabled_pending_exact_content_reuse_terms"
+      "detail_frontier": "manual_download_metadata_hash_only_pending_exact_content_terms",
+      "public_download_observation": "official panel pages expose a Download control",
+      "traffic_notice": "official homepage reports restrictions on automated access by some clients and provides a contact route",
+      "content_licence_inference": false
     }
-  ]
+  ],
+  "software_licence_is_content_licence": false
 }

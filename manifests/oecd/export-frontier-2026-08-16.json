@@ -1,11 +1,16 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "observed_on": "2026-08-16",
   "terms_url": "https://www.oecd.org/en/about/terms-conditions.html",
   "api_guidance_url": "https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html",
   "terms_disposition": {
     "general_data_reuse": "permitted_with_attribution_unless_dataset_specific_or_third_party_restrictions_apply",
     "required_attribution": "OECD (year), dataset name, data source, DOI or URL, accessed date",
+    "exact_dataset_page": "https://www.oecd.org/en/data/datasets/oecd-health-statistics.html",
+    "exact_dataset_release_observed": "OECD Health Statistics 2026",
+    "exact_metadata_index": "https://www.oecd.org/content/dam/oecd/en/data/datasets/oecd-health-statistics/Table-of-Content-Metadata-OECD-Health-Statistics.pdf",
+    "dataflow_identity": "OECD.ELS.HD/DSD_HEALTH_STAT@DF_COM/1.0",
+    "source_tab_third_party_disposition": "unresolved_per_indicator_and_series",
     "dataset_bytes": "disabled_until_exact_dataflow_metadata_source_tab_and_restrictions_are_recorded",
     "derived_outputs": "disabled_until_exact_dataset_disposition",
     "api_requirements": ["current_api_version", "bounded_queries", "rate_limit_respect", "no_monitoring_interference"]
