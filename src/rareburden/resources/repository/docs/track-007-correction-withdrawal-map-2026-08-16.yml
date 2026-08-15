@@ -1,0 +1,61 @@
+schema_version: '1.0.0'
+track: 007-landscape-novelty
+status: active_fail_closed_mapping
+owner_role: repository_owner
+scope: bounded_track_007_public_metadata_and_claim_artifacts
+triggers:
+- id: rights_complaint
+  action: quarantine affected metadata or document, verify terms, withdraw prohibited bytes or claims, then supersede with a correction record
+- id: hash_mismatch
+  action: stop use, quarantine the affected evidence chain, reconstruct from content-addressed inputs and supersede the candidate
+- id: provider_terms_change
+  action: expire the affected disposition, reassess permitted fields and withdraw any newly prohibited material
+- id: harmful_or_inaccurate_description
+  action: mark the record not_assessable or corrected, preserve the prior decision in history and publish the correction rationale
+- id: implied_relationship_or_approval
+  action: withdraw the wording and replace it with potential complementarity and no relationship evidenced
+- id: critical_reproducibility_failure
+  action: stop the affected claim until request, hashes and counts reconcile
+artifact_map:
+- artifact_class: protocol_and_registration
+  paths:
+  - docs/track-007-protocol-v0.2.0.md
+  - docs/track-007-repository-registration-2026-08-16.yml
+  action: preserve immutable snapshot, mark superseded and issue a new version rather than overwrite
+- artifact_class: captured_metadata_and_screening
+  paths:
+  - docs/track-007-search-results-2026-08-15.json
+  - docs/track-007-screening-2026-08-15.json
+  - docs/track-007-screening-resolutions-2026-08-15.json
+  - docs/track-007-live-pages-github-2026-08-15.json
+  - docs/track-007-live-pages-zenodo-2026-08-15.json
+  - docs/track-007-live-pages-huggingface-2026-08-15.json
+  action: quarantine affected record or capture from public use, retain correction metadata and supersede with a new immutable capture
+- artifact_class: locator_and_eligibility
+  paths:
+  - docs/track-007-fulltext-locator-observations-2026-08-15.json
+  - docs/track-007-fulltext-eligibility-2026-08-15.json
+  action: revert the affected record to pending_lawful_access or not_assessable until authority and evidence are restored
+- artifact_class: catalogue_and_relationship_labels
+  paths:
+  - catalog/initiatives.yml
+  action: correct the owner-authored interpretation, state no relationship evidenced and preserve historical provenance
+- artifact_class: synthesis_and_public_claims
+  paths:
+  - docs/track-007-bounded-evidence-synthesis-2026-08-16.md
+  - docs/track-007-bounded-framing-addendum-2026-08-16.md
+  action: withdraw the affected claim, publish a correction note and create a superseding hash-bound synthesis
+receipt_fields:
+- trigger identifier
+- affected provider, record and artifact paths
+- detected_at_utc
+- evidence and prior hashes
+- quarantine or withdrawal action
+- corrected or superseding hashes
+- owner disposition
+- completed_at_utc
+stop_conditions:
+- affected bytes or claim cannot be isolated
+- rights or harm condition cannot be remediated
+- correction route cannot preserve an auditable history
+- withdrawal cannot be completed across every mapped public artifact

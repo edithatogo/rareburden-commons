@@ -39,7 +39,12 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 
 ## Parallel work now permitted
 
-Tracks 002, 007 and 018 form the v0.3 release. Track 018 is archived after internal completion; Tracks 002 and 007 remain in review pending external evidence. No downstream track should be marked Active until the validator confirms its dependencies are complete and its owner role is assigned.
+Tracks 002, 007 and 018 form the v0.3 release. Track 018 is archived after
+internal completion. Track 002 remains in review against its exact source and
+rights evidence. Track 007 remains in review pending its role-separated agent
+challenge and repository-owner disposition; external registry submission is
+optional. No downstream track should be marked Active until the validator
+confirms its dependencies are complete and its owner role is assigned.
 
 ## Single-developer review mode
 
