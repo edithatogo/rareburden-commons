@@ -71,6 +71,8 @@ def discover(
             seen.add(url)
             continue
         records = parse_clinvar_index(url, data)
+        for record in records:
+            record["artifact_name"] = record.pop("release_key")
         observations.append(
             {
                 "surface_url": url,

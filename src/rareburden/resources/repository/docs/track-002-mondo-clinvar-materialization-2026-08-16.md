@@ -31,7 +31,7 @@ match.
 
 `manifests/classifications/clinvar-recursive-metadata-2026-08-16.json` has
 inventory SHA-256
-`d6f4f1ee721f2548a618ac5f2070a7f5fb198a3792abec3bdcc9b299efec489d`.
+`8bd91faf376f18d0fe9041dbf89a5ca0179350430e1e2a7f80d6deb24c34fa11`.
 It records 50 sequential official directory observations and 6,410 contained
 directory, product, data or checksum routes at depth no greater than two. Six
 queued directories remain at the fixed request frontier.

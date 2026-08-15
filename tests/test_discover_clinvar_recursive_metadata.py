@@ -35,6 +35,11 @@ def test_recursive_inventory_is_deterministic_and_metadata_only() -> None:
     assert first["exhausted_within_scope"]
     assert first["byte_route"] == "metadata_only_submitter_provenance_review"
     assert not any(first["claims"].values())
+    assert all(
+        "release_key" not in record and "artifact_name" in record
+        for observation in first["observations"]
+        for record in observation["records"]
+    )
 
 
 def test_recursive_inventory_retains_frontier_at_request_budget() -> None:

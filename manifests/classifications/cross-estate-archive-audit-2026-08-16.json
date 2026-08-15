@@ -107,7 +107,7 @@
       "private_route": "existing_bounded_private_listing",
       "gap": "remaining countries/instances, GEL details/history and Australian content",
       "blocker": "GEL robots disallows API; Australian exact reuse terms absent",
-      "evidence_sha256": "393e71a4349f69522b3f0b349d9c55c570a0ab2242b2420c6f3d6a327bc0ca67"
+      "evidence_sha256": "45544d418ce2b120cba0cee3e3b15e68a6324bb2ce6ffca579250937b2488954"
     },
     {
       "id": "mondo",
@@ -129,7 +129,7 @@
       "private_route": "existing_private_archive",
       "gap": "six queued directories beyond the fixed request frontier and product-specific historical reconciliation",
       "blocker": "fixed request/depth scope, submitter-provenance and redistribution review",
-      "evidence_sha256": "c1608ad5b5ddad072ec95dd3e26a0f0cea6089810d4a95cbbb66f9e75c7cefe8"
+      "evidence_sha256": "39f595f1d24f020aa5213eadfd66a234997567bfc59a18865f966a966772fcbc"
     }
   ],
   "routing_rules": [
@@ -146,5 +146,5 @@
     "licensed_bytes_public": false,
     "duplication_eliminated_retroactively": false
   },
-  "audit_sha256": "cd3ff1c2bcd8c23590bea042bf646d750667a5a0b74d4d5288196357c66ef90c"
+  "audit_sha256": "a38562ef9b7a2d34fe05225615608719070956a3b3611fc525272f3f9d05c5ae"
 }
