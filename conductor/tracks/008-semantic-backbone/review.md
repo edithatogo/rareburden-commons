@@ -52,3 +52,20 @@ contract remains non-binding.
 `docs/track-008-semantic-review-packet.md` records the exact semantic, clinical,
 patient/community and engineering decisions required before activation. It is
 repository-owned preparation and does not freeze the v0.4 contract.
+
+### Bounded source-reconciliation review — 2026-08-16
+
+Repository review result: **Pass for bounded preparation with four unresolved
+medium findings**. Eight release records are now deterministically bound to
+merged Track 002 evidence. Exact public byte routes are restricted to observed
+CC BY 4.0 sources; HPO, UMLS, SNOMED CT and WHO ICD bytes remain private and
+their real-world semantic use remains disabled. Negative tests reject activation
+claims and unsafe public routing.
+
+The role-separated repository review in
+`docs/track-008-bounded-agent-review-2026-08-16.yml` recommends continued
+synthetic and metadata-only preparation. Its methods, rights and naming lanes
+identify no critical repository-semantic finding, but do not constitute
+clinical, scientific, patient/community, custodian or independent approval.
+No owner disposition is inferred. Track 008 remains blocked, the parent
+source-pinning and panel tasks remain open, and the v0.4 contract is not frozen.

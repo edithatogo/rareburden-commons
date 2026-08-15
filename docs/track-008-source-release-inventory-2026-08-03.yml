@@ -1,47 +1,111 @@
-schema_version: "0.1.0"
+schema_version: "0.2.0"
 track: "008-semantic-backbone"
-status: "preparation_only"
-activation: "disabled_until_source_terms_and_accountable_dispositions"
+as_of: "2026-08-16"
+status: "bounded_source_reconciliation"
+activation: "synthetic_and_metadata_only_no_v0_4_freeze"
 candidate_scope: "synthetic_public_semantic_preview"
+upstream_state:
+  track_002: "incomplete_bounded_receipts_only"
+  track_007: "incomplete"
 records:
-  - source_id: "orphadata-science"
-    role: "identifier_alignment_candidate"
-    release: "not_pinned"
-    retrieval_url: "https://www.orphadata.com/"
-    content_sha256: null
-    licence_state: "cc_by_4_0_observed_exact_release_confirmation_pending"
-    redistribution: "derived_metadata_only_pending_confirmation"
-    mapping_use: "disabled"
-    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
-  - source_id: "un-world-population-prospects"
-    role: "denominator_candidate"
-    release: "2024_candidate_not_pinned"
-    retrieval_url: "https://population.un.org/wpp/"
-    content_sha256: null
-    licence_state: "conditional_pending_confirmation"
-    redistribution: "metadata_and_derived_aggregates_only_pending_confirmation"
-    mapping_use: "disabled"
-    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
-  - source_id: "who-global-health-estimates"
-    role: "burden_envelope_candidate"
-    release: "2021_candidate_not_pinned"
-    retrieval_url: "https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates"
-    content_sha256: null
-    licence_state: "conditional_pending_confirmation"
-    redistribution: "metadata_and_derived_aggregates_only_pending_confirmation"
-    mapping_use: "disabled"
-    required_receipts: ["scientific", "custodian_data_governance"]
-  - source_id: "world-bank-indicators-api"
-    role: "denominator_cross_check"
-    release: "endpoint_probe_only"
-    retrieval_url: "https://api.worldbank.org/v2/"
-    content_sha256: null
-    licence_state: "public_api_terms_pending_confirmation"
-    redistribution: "response_hash_only"
-    mapping_use: "disabled"
-    required_receipts: ["scientific", "custodian_data_governance", "source_change_exercise"]
+  - source_id: "orphadata-science-alignments"
+    role: "conditional_identifier_alignment"
+    release: "Orphanet knowledge base release of July 2026"
+    artifact: "en_product1.xml"
+    artifact_sha256: "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb"
+    release_evidence: "docs/track-002-source-verification-2026-08-15.yml"
+    licence_state: "exact_file_cc_by_4_0_observed"
+    redistribution: "permitted_with_attribution_change_notice_and_no_endorsement"
+    byte_route: "public_rights_filtered_archive"
+    semantic_use: "conditional_identifier_alignment_only"
+    limitations: ["no_prevalence_or_burden_inference", "no_clinical_validity", "no_completeness_claim"]
+  - source_id: "orphadata-current-scientific-pages"
+    role: "bounded_release_discovery"
+    release: "eight official product pages observed 2026-08-16"
+    artifact: "94 exact currently exposed file links"
+    artifact_sha256: null
+    release_evidence: "docs/track-002-terminology-archive-receipts-2026-08-16.yml"
+    licence_state: "cc_by_4_0_observed_on_official_product_pages"
+    redistribution: "archived_publicly_with_attribution_and_change_notice"
+    byte_route: "public_rights_filtered_archive"
+    semantic_use: "metadata_only_discovery"
+    limitations: ["not_historical_completeness", "not_language_completeness", "not_clinically_validated"]
+  - source_id: "orphacode-nomenclature-packs"
+    role: "bounded_multilingual_nomenclature_discovery"
+    release: "71 packs exposed by official page snapshot 2026-08-16"
+    artifact: "official discovered ZIP set"
+    artifact_sha256: "858aca7c35ae147addb6a4fc9e59731b32ea6e9157fd56372dfb90cc7c5a1972"
+    release_evidence: "docs/track-002-terminology-archive-receipts-2026-08-16.yml"
+    licence_state: "cc_by_4_0_observed"
+    redistribution: "archived_publicly_with_attribution_and_change_notice"
+    byte_route: "public_rights_filtered_archive"
+    semantic_use: "metadata_only_pending_pack_level_mapping_review"
+    limitations: ["page_snapshot_not_historical_completeness", "not_language_or_country_representativeness"]
+  - source_id: "human-phenotype-ontology"
+    role: "phenotype_ontology_candidate"
+    release: "v2026-06-23"
+    artifact: "seven digest-pinned core ontology and annotation artifacts"
+    artifact_sha256: null
+    release_evidence: "docs/track-002-source-verification-2026-08-15.yml"
+    licence_state: "embedded_terms_route_inaccessible_exact_terms_unresolved"
+    redistribution: "public_mirror_disabled"
+    byte_route: "private_licensed_archive_only"
+    semantic_use: "disabled_pending_exact_terms_and_mapping_review"
+    limitations: ["no_public_bytes", "no_diagnostic_use", "annotation_provenance_required"]
+  - source_id: "mondo-disease-ontology"
+    role: "disease_ontology_alignment_candidate"
+    release: "v2026-08-04"
+    artifact: "mondo-rare.owl; mondo.json; mondo.owl"
+    artifact_sha256: null
+    release_evidence: "docs/track-002-source-verification-2026-08-15.yml"
+    licence_state: "exact_release_cc_by_4_0_observed"
+    redistribution: "permitted_with_attribution"
+    byte_route: "public_or_private_rights_filtered_archive"
+    semantic_use: "metadata_only_pending_mapping_review"
+    limitations: ["no_clinical_validity", "no_comprehensive_coverage", "no_production_activation"]
+  - source_id: "umls-2026aa"
+    role: "controlled_terminology_alignment_candidate"
+    release: "2026AA; full, Metathesaurus full subset and MRCONSO routes"
+    artifact: "current UTS release-family inventory"
+    artifact_sha256: null
+    release_evidence: "manifests/uts/all-release-families-2026-08-15.json"
+    licence_state: "umls_licence_and_source_vocabulary_restrictions"
+    redistribution: "public_redistribution_prohibited"
+    byte_route: "private_licensed_archive_only"
+    semantic_use: "disabled_public_candidate_metadata_only"
+    limitations: ["UMLS_inclusion_does_not_grant_source_vocabulary_rights", "not_native_release_completeness"]
+  - source_id: "snomed-ct-uts-current"
+    role: "controlled_clinical_terminology_candidate"
+    release: "UTS current observations: International 2026-08-01; Spanish 2026-08-10; US 2026-03-01; mapping 2026-03-01; core subset 2026-05"
+    artifact: "five current UTS SNOMED CT release families"
+    artifact_sha256: null
+    release_evidence: "manifests/uts/all-release-families-2026-08-15.json"
+    licence_state: "snomed_and_national_edition_terms_apply"
+    redistribution: "public_redistribution_prohibited"
+    byte_route: "private_licensed_archive_only"
+    semantic_use: "disabled_pending_native_edition_and_mapping_review"
+    limitations: ["UTS_not_native_authority_completeness", "national_editions_incomplete", "no_public_bytes"]
+  - source_id: "who-icd-api-observation"
+    role: "classification_release_discovery"
+    release: "WHO ICD API v2 observation 2026-08-15; 24 responses across foundation, ICD-11 MMS, ICF and ICD-10"
+    artifact: "metadata manifest plus private exact response observations"
+    artifact_sha256: "f174b234fe278ad2286ff3d583a508350517c5aa4c84078210aaef43bef65084"
+    release_evidence: "docs/track-002-who-icd-duplicate-preservation-2026-08-16.md"
+    licence_state: "WHO_API_terms_and_classification_specific_rights_unresolved_for_redistribution"
+    redistribution: "public_metadata_only"
+    byte_route: "private_licensed_archive_only"
+    semantic_use: "disabled_pending_exact_release_and_mapping_disposition"
+    limitations: ["bounded_endpoint_observation", "not_all_languages_or_releases", "no_production_activation"]
 fail_closed_rules:
-  - "null release or checksum prevents activation"
-  - "unresolved licence or third-party terms prevent redistribution"
-  - "source changes require a new release record and impact assessment"
-  - "synthetic fixtures do not satisfy source authority"
+  - "null artifact digest is permitted only when a release evidence file pins the bounded receipt"
+  - "unresolved terms or controlled terminology prevent public byte routing"
+  - "metadata discovery never activates a mapping or establishes clinical fitness"
+  - "source changes require a new release record and semantic impact assessment"
+  - "synthetic fixtures never become empirical because a source release is recorded"
+  - "Track 002 or Track 007 incompleteness prevents v0.4 contract freeze"
+claims:
+  exact_supported_source_inventory_complete: false
+  clinical_validity: false
+  community_approval: false
+  production_activation: false
+  v0_4_contract_frozen: false
