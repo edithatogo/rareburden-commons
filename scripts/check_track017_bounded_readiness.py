@@ -91,6 +91,7 @@ def validate_readiness(manifest: dict[str, Any], root: Path) -> dict[str, Any]:
         "usability_agent_reports_complete",
         "owner_reproduction_complete",
         "two_clean_candidates_complete",
+        "complete_v1_evidence_index",
     }
     if {key for key, value in gates.items() if value is True} != expected_true_gates:
         raise ReleaseReadinessError("only executed repository-evidence gates may be true")

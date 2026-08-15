@@ -71,7 +71,7 @@
     "owner_reproduction_complete": true,
     "two_clean_candidates_complete": true,
     "backup_continuity_complete": false,
-    "complete_v1_evidence_index": false,
+    "complete_v1_evidence_index": true,
     "owner_exact_candidate_release_decision": false,
     "public_artifact_verification": false
   },
