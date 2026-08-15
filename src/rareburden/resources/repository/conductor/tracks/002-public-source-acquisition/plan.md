@@ -465,3 +465,12 @@ scientific and data-governance gates remain separate and pending.
   `docs/track-002-private-archive-capacity-decision-2026-08-16.yml`,
   `docs/track-002-private-archive-capacity-checklist-2026-08-16.yml` and
   `tests/test_track_002_private_archive_capacity_decision.py`.
+- [x] Add a fail-closed ontology-portal frontier for BioPortal CDO, TARA, OCMR
+  and TCDO, bounded OLS4 inventory metadata, and HeTOP/Global Health
+  Informatics discovery-only records. Route duplicate portal observations to
+  canonical source/version identities, retain ambiguous bytes disabled, and
+  require a component-level rights matrix before any OCMR public byte action.
+  Evidence: `manifests/classifications/ontology-portal-frontier-2026-08-16.json`,
+  `docs/track-002-ontology-portal-frontier-2026-08-16.md`,
+  `scripts/discover_ontology_portal_frontier.py` and
+  `tests/test_ontology_portal_frontier.py`.
