@@ -1,10 +1,10 @@
 schema_version: '1.0.0'
 track: 007-landscape-novelty
-status: awaiting_repository_owner_disposition
+status: repository_owner_disposition_recorded
 candidate:
-  commit: 584e86957a72455c39cf8772fefff8aeaba6202b
-  tree: 22e95267dccfa2d4a8fe3915d0e15065603c40f3
-  branch: track/007-closeout-20260816
+  commit: 1f93f5862290e16d0e393834e35c282d187658e1
+  tree: 97bb9387053f4e8feb30d2310fbc849e5ecbb8da
+  branch: main
   candidate_kind: retrospective_bounded_repository_landscape_preparation
   review_expiry: '2026-09-03'
   expiry_rule: material_change_or_expiry_requires_a_new_exact_candidate_decision
@@ -73,15 +73,22 @@ stop_triggers:
 - implied partnership, consent, patient/community approval or external authority
 - correction or withdrawal cannot be completed across mapped artifacts
 decision_fields:
-  repository_owner: pending
-  decided_at_utc: pending
-  selected_option: pending
-  conditions_or_dissent: pending
-  owner_signature_or_attributable_record: pending
+  repository_owner: edithatogo
+  decided_at_utc: '2026-08-15T16:03:39Z'
+  selected_option: A
+  conditions_or_dissent: >-
+    Narrow and remediate. All prohibited claims, unresolved findings,
+    material-change rules, correction and withdrawal duties, expiry and stop
+    triggers in this packet remain binding. The original publication-ready
+    landscape acceptance is not met by this disposition.
+  owner_signature_or_attributable_record: >-
+    https://github.com/edithatogo/rareburden-commons/issues/6#issuecomment-5303053641
+    records the repository owner's Option A narrow disposition against the
+    immutable merged candidate commit and tree above.
 recommended_owner_wording: >-
   For the exact Track 007 candidate at commit
-  584e86957a72455c39cf8772fefff8aeaba6202b and tree
-  22e95267dccfa2d4a8fe3915d0e15065603c40f3, I select Option A and narrow the
+  1f93f5862290e16d0e393834e35c282d187658e1 and tree
+  97bb9387053f4e8feb30d2310fbc849e5ecbb8da, I select Option A and narrow the
   disposition through 2026-09-03. I accept the frozen retrospective repository
   protocol, exact bounded snapshot counts, content-addressed observation
   metadata and capture-mechanics evidence, and the falsifiable complementary
