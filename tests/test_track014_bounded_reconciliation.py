@@ -99,6 +99,72 @@ def test_static_projection_rejects_identity_drift_and_sufficiency_upgrade() -> N
         build_static_gap_projection(package, drifted_candidate, status)
 
 
+@pytest.mark.parametrize("page_id", ["", "   ", None])
+def test_static_projection_requires_nonempty_string_page_id(page_id: object) -> None:
+    package, _api, candidate, _static = _surface()
+    status = build_atlas_release_status(candidate, [])
+    with pytest.raises(AtlasPackageError, match="requires a page_id"):
+        build_static_gap_projection(package, candidate, status, page_id=page_id)  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [("package_type", "raw_records"), ("aggregate_only", False)],
+)
+def test_static_projection_rejects_nonaggregate_packages(field: str, value: object) -> None:
+    package, _api, candidate, _static = _surface()
+    status = build_atlas_release_status(candidate, [])
+    unsafe = dict(package, **{field: value})
+    with pytest.raises(AtlasPackageError, match="aggregate gap package"):
+        build_static_gap_projection(unsafe, candidate, status)
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("package_fingerprint", "atlas-other"),
+        ("release_id", "another-release"),
+        ("publication_authorized", True),
+        ("release_status", "published"),
+    ],
+)
+def test_static_projection_rejects_candidate_identity_or_authority_drift(
+    field: str, value: object
+) -> None:
+    package, _api, candidate, _static = _surface()
+    status = build_atlas_release_status(candidate, [])
+    unsafe = dict(candidate, **{field: value})
+    with pytest.raises(AtlasPackageError, match="candidate differs from package"):
+        build_static_gap_projection(package, unsafe, status)
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("release_surface_fingerprint", "atlas-release-other"),
+        ("release_id", "another-release"),
+        ("publication_authorized", True),
+    ],
+)
+def test_static_projection_rejects_status_identity_or_authority_drift(
+    field: str, value: object
+) -> None:
+    package, _api, candidate, _static = _surface()
+    status = build_atlas_release_status(candidate, [])
+    unsafe = dict(status, **{field: value})
+    with pytest.raises(AtlasPackageError, match="status differs from candidate"):
+        build_static_gap_projection(package, candidate, unsafe)
+
+
+@pytest.mark.parametrize("rows", [None, [], "not-a-row-list"])
+def test_static_projection_requires_nonempty_row_list(rows: object) -> None:
+    package, _api, candidate, _static = _surface()
+    status = build_atlas_release_status(candidate, [])
+    unsafe = dict(package, rows=rows)
+    with pytest.raises(AtlasPackageError, match="requires rows"):
+        build_static_gap_projection(unsafe, candidate, status)
+
+
 def test_release_surface_manifest_binds_dependencies_and_gates() -> None:
     payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
     result = validate_release_surface_manifest(payload, ROOT)
@@ -114,4 +180,31 @@ def test_release_surface_manifest_rejects_hash_or_release_claim_drift() -> None:
     payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
     payload["claims"]["public_release"] = True
     with pytest.raises(ReleaseSurfaceError, match="must remain false"):
+        validate_release_surface_manifest(payload, ROOT)
+
+
+def test_release_surface_manifest_rejects_scope_dependency_and_gate_drift() -> None:
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["scope"] = "real_source_release"
+    with pytest.raises(ReleaseSurfaceError, match="scope must remain synthetic"):
+        validate_release_surface_manifest(payload, ROOT)
+
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["dependency_artifacts"].append(copy.deepcopy(payload["dependency_artifacts"][0]))
+    with pytest.raises(ReleaseSurfaceError, match="duplicate dependency"):
+        validate_release_surface_manifest(payload, ROOT)
+
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["dependency_artifacts"][0]["artifact"] = "../outside.json"
+    with pytest.raises(ReleaseSurfaceError, match="unsafe dependency path"):
+        validate_release_surface_manifest(payload, ROOT)
+
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["dependency_artifacts"] = payload["dependency_artifacts"][1:]
+    with pytest.raises(ReleaseSurfaceError, match="Tracks 008 through 013 exactly"):
+        validate_release_surface_manifest(payload, ROOT)
+
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["pending_gates"] = payload["pending_gates"][:-1]
+    with pytest.raises(ReleaseSurfaceError, match="all release gates must remain pending"):
         validate_release_surface_manifest(payload, ROOT)
