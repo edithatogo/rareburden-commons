@@ -16,6 +16,19 @@ from typing import Any
 
 DESTINATION = "edithatogo/rareburden-commons-open-source-snapshots"
 MANIFEST = Path("manifests/classifications/public-history-frontier-2026-08-16.json")
+CURSOR = Path("manifests/classifications/mondo-archive-cursor-2026-08-16.json")
+
+
+def resolve_cursor(release_index: int | None, asset_start: int | None) -> tuple[int, int]:
+    """Use explicit coordinates together or resume the committed receipt cursor."""
+    if (release_index is None) != (asset_start is None):
+        raise ValueError("release-index and asset-start must be supplied together")
+    if release_index is not None and asset_start is not None:
+        return release_index, asset_start
+    cursor = json.loads(CURSOR.read_text(encoding="utf-8"))
+    if cursor["status"] != "bounded_resumable_cursor":
+        raise ValueError("MONDO archive cursor is not active")
+    return int(cursor["next"]["release_index"]), int(cursor["next"]["asset_index"])
 
 
 def mondo_releases(document: dict[str, Any]) -> list[dict[str, Any]]:
@@ -210,15 +223,16 @@ def archive_batch(
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--release-index", type=int, required=True)
-    parser.add_argument("--asset-start", type=int, required=True)
+    parser.add_argument("--release-index", type=int)
+    parser.add_argument("--asset-start", type=int)
     parser.add_argument("--asset-count", type=int, default=1)
     parser.add_argument("--max-bytes", type=int, default=500_000_000)
     parser.add_argument("--receipt", type=Path, required=True)
     args = parser.parse_args()
+    release_index, asset_start = resolve_cursor(args.release_index, args.asset_start)
     receipt = archive_batch(
-        release_index=args.release_index,
-        asset_start=args.asset_start,
+        release_index=release_index,
+        asset_start=asset_start,
         asset_count=args.asset_count,
         max_bytes=args.max_bytes,
     )

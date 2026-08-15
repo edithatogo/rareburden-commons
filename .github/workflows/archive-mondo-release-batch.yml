@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       release_index:
-        description: Zero-based release index in the pinned 120-release frontier
-        required: true
-        default: "0"
+        description: Optional release index; empty resumes the committed cursor
+        required: false
+        default: ""
         type: string
       asset_start:
-        description: Zero-based asset cursor within the release
-        required: true
-        default: "0"
+        description: Optional asset index; empty resumes the committed cursor
+        required: false
+        default: ""
         type: string
       asset_count:
         description: Sequential assets to process
@@ -43,12 +43,18 @@ jobs:
           MONDO_ASSET_START: ${{ inputs.asset_start }}
           MONDO_ASSET_COUNT: ${{ inputs.asset_count }}
         run: |
-          python3 scripts/archive_mondo_release_batch.py \
-            --release-index "$MONDO_RELEASE_INDEX" \
-            --asset-start "$MONDO_ASSET_START" \
-            --asset-count "$MONDO_ASSET_COUNT" \
-            --max-bytes 500000000 \
+          args=(
+            --asset-count "$MONDO_ASSET_COUNT"
+            --max-bytes 500000000
             --receipt mondo-archive-receipt.json
+          )
+          if [[ -n "$MONDO_RELEASE_INDEX" ]]; then
+            args+=(--release-index "$MONDO_RELEASE_INDEX")
+          fi
+          if [[ -n "$MONDO_ASSET_START" ]]; then
+            args+=(--asset-start "$MONDO_ASSET_START")
+          fi
+          python3 scripts/archive_mondo_release_batch.py "${args[@]}"
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: mondo-archive-receipt

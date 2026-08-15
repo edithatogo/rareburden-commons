@@ -8,6 +8,7 @@ import pytest
 from scripts.archive_mondo_release_batch import (
     mondo_releases,
     remote_lfs_sha256,
+    resolve_cursor,
     select_assets,
     verify_remote_object,
 )
@@ -29,6 +30,13 @@ def test_selection_rejects_empty_or_out_of_range() -> None:
         select_assets(releases, release_index=120, asset_start=0, asset_count=1)
     with pytest.raises(ValueError, match="positive"):
         select_assets(releases, release_index=0, asset_start=0, asset_count=0)
+
+
+def test_committed_cursor_resumes_after_hosted_batch() -> None:
+    assert resolve_cursor(None, None) == (1, 3)
+    assert resolve_cursor(4, 5) == (4, 5)
+    with pytest.raises(ValueError, match="together"):
+        resolve_cursor(1, None)
 
 
 def test_frontier_rejects_missing_release() -> None:
