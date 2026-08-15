@@ -1,0 +1,208 @@
+{
+  "schema_version": "RBC-LAND-007-PAGES-v0.1.0",
+  "status": "bounded_capture_only",
+  "captures": [
+    {
+      "registry": "github",
+      "query_string": "rare disease burden",
+      "retrieved_at_utc": "2026-08-15T01:38:15Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 6,
+      "unique_identifiers_captured": 6,
+      "provider_declared_total": 6,
+      "provider_capture_ceiling": 6,
+      "provider_limited": false,
+      "stop_reason": "provider_total_reached",
+      "capture_complete_for_declared_total": true,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://api.github.com/search/repositories?q=rare+disease+burden&page=1&per_page=25",
+          "final_url": "https://api.github.com/search/repositories?q=rare+disease+burden&page=1&per_page=25",
+          "http_status": 200,
+          "response_sha256": "sha256:d438f9fbf879fb39fc06e012b555939dad07a873d334d263b84841f2cbe641e1",
+          "item_count": 6,
+          "identifiers": [
+            "RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+            "edithatogo/rareburden-commons",
+            "tribby5/rare-disease-research",
+            "gan-orlab/LRRK2_per_domain",
+            "mitchell-s17/ADNI1-GeneBurdenAnalysis",
+            "GP2code/WGS-E3-PD-EOPD"
+          ]
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    },
+    {
+      "registry": "github",
+      "query_string": "rare disease registry",
+      "retrieved_at_utc": "2026-08-15T01:38:16Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 23,
+      "unique_identifiers_captured": 23,
+      "provider_declared_total": 23,
+      "provider_capture_ceiling": 23,
+      "provider_limited": false,
+      "stop_reason": "provider_total_reached",
+      "capture_complete_for_declared_total": true,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://api.github.com/search/repositories?q=rare+disease+registry&page=1&per_page=25",
+          "final_url": "https://api.github.com/search/repositories?q=rare+disease+registry&page=1&per_page=25",
+          "http_status": 200,
+          "response_sha256": "sha256:7f91b6cad62ea137580a7936e79af2d99a0e2177b7eea8efca2fbd3e13eac237",
+          "item_count": 23,
+          "identifiers": [
+            "muccg/rdrf",
+            "PavlidisLab/rdp",
+            "robworth/radar",
+            "renalreg/radar",
+            "favourori/PatientsRegistryAPI",
+            "BIH-CEI/rd-cdm",
+            "favourori/PatientsRegistryFrontend",
+            "wangjl99/okn-registry-temp",
+            "malikalisha721-byte/rare-disease-registry-by-hamna",
+            "S-Alex2022/Rare-Diseases-Data-Registry",
+            "bruise-88/Rare-Disease-Web-Registry",
+            "kyamasam/Rare-Disease-Registry---Noveltek",
+            "rclanan/radar",
+            "enowpg001/Decentralized-Rare-Disease-Patient-Registry",
+            "EBISPOT/EJP-Ontology",
+            "focuzisaac1/Rare-Disease-Research-and-Patient-Registry-System",
+            "sebmate/Docker-OSSE",
+            "fnuvrinda/Lysosomal-Registry",
+            "favourori/PatientsRegistryLanding",
+            "EBISPOT/ejprarediseases.github.io",
+            "Bekmuhammad-Devoloper/orfan.uz",
+            "ejp-rd-vp/resource-metadata-schema-ontology",
+            "ejp-rd-vp/resource-metadata-schema-instances"
+          ]
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    },
+    {
+      "registry": "github",
+      "query_string": "rare disease ontology",
+      "retrieved_at_utc": "2026-08-15T01:38:17Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 20,
+      "unique_identifiers_captured": 20,
+      "provider_declared_total": 20,
+      "provider_capture_ceiling": 20,
+      "provider_limited": false,
+      "stop_reason": "provider_total_reached",
+      "capture_complete_for_declared_total": true,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://api.github.com/search/repositories?q=rare+disease+ontology&page=1&per_page=25",
+          "final_url": "https://api.github.com/search/repositories?q=rare+disease+ontology&page=1&per_page=25",
+          "http_status": 200,
+          "response_sha256": "sha256:8bbf194d1c30408f9fdd05d6577cc4db73e26a8a2dc7d8b6d9cc7598de8250aa",
+          "item_count": 20,
+          "identifiers": [
+            "acadTags/Rare-disease-identification",
+            "deletexiumu/dar-ontology-reasoning",
+            "BIH-CEI/rd-cdm",
+            "EBISPOT/EJP-Ontology",
+            "prirai/rare-diseases-data-scraping",
+            "Orphanet/ORDO",
+            "ariadnavillam/RaDiPO",
+            "KhadgaA/Rare-Disease-Ontology",
+            "emcarthur/phecode-HPO-map",
+            "sunchang0124/RareDiseaseSelection",
+            "akabago/Rare_Disease_Ontology_SemTech",
+            "pallavidasaraju/ehr-nlp-rare-disease-poc",
+            "imrobintomar/GemmaRare",
+            "ivanwilliammd/iderare-pheno",
+            "walu2/squirro-demo",
+            "johnlbellamy/Interactive-KMeans-Rare-Disease-Article-Cluster-and-JENA-Semantic-Model",
+            "malav-250/Harvard-Rare-Disease-Hackathon-2025",
+            "ejp-rd-vp/resource-metadata-schema-ontology",
+            "berntpopp/orphanet-link",
+            "RohitDeshmukh-1/GANs-for-synthetic-medical-data-generation"
+          ]
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    },
+    {
+      "registry": "github",
+      "query_string": "rare disease prevalence",
+      "retrieved_at_utc": "2026-08-15T01:38:18Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 5,
+      "unique_identifiers_captured": 5,
+      "provider_declared_total": 5,
+      "provider_capture_ceiling": 5,
+      "provider_limited": false,
+      "stop_reason": "provider_total_reached",
+      "capture_complete_for_declared_total": true,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://api.github.com/search/repositories?q=rare+disease+prevalence&page=1&per_page=25",
+          "final_url": "https://api.github.com/search/repositories?q=rare+disease+prevalence&page=1&per_page=25",
+          "http_status": 200,
+          "response_sha256": "sha256:8d43097c00971b8d4abdd7b85910b82834aa6f252b91c58fbd392a84b09f6886",
+          "item_count": 5,
+          "identifiers": [
+            "theodorejperkins/Monogenic_Prevalence_with_Severities",
+            "inutano/rare-disease-globe",
+            "atinak/Rare-Disease-Detector",
+            "Honghan/CCU019_01",
+            "BHFDSC/CCU019_01"
+          ]
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    },
+    {
+      "registry": "github",
+      "query_string": "rare disease cost",
+      "retrieved_at_utc": "2026-08-15T01:38:18Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 2,
+      "unique_identifiers_captured": 2,
+      "provider_declared_total": 2,
+      "provider_capture_ceiling": 2,
+      "provider_limited": false,
+      "stop_reason": "provider_total_reached",
+      "capture_complete_for_declared_total": true,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://api.github.com/search/repositories?q=rare+disease+cost&page=1&per_page=25",
+          "final_url": "https://api.github.com/search/repositories?q=rare+disease+cost&page=1&per_page=25",
+          "http_status": 200,
+          "response_sha256": "sha256:d607d05d5e5045825e81a6bcb02474e77602c63308625b6ee82f4087adc2c166",
+          "item_count": 2,
+          "identifiers": [
+            "Akshay-gurav-31/Hackathon-Reusable-Framework",
+            "mira-jain/Hackathon-Reusable-Framework"
+          ]
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    }
+  ],
+  "limitations": [
+    "Captured pages are not a claim of ecosystem completeness or representativeness.",
+    "Provider totals, rankings and public metadata can change after retrieval.",
+    "Page budgets and provider caps are reported as incomplete rather than inferred complete.",
+    "External registration, methods challenge and patient/community interpretation remain pending."
+  ]
+}

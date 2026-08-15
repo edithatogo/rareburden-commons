@@ -227,6 +227,7 @@ def main() -> int:
     parser.add_argument("--timeout", type=int, default=30)
     parser.add_argument("--fixture-dir", type=Path)
     parser.add_argument("--retrieved-at-utc")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     fetch_page = _fixture_fetcher(args.fixture_dir) if args.fixture_dir else fetch
     captures = [
@@ -241,7 +242,7 @@ def main() -> int:
         )
         for query in (args.queries or QUERIES)
     ]
-    print(
+    rendered = (
         json.dumps(
             {
                 "schema_version": "RBC-LAND-007-PAGES-v0.1.0",
@@ -259,7 +260,18 @@ def main() -> int:
             },
             indent=2,
         )
+        + "\n"
     )
+    if args.output:
+        try:
+            with args.output.open("x", encoding="utf-8") as stream:
+                stream.write(rendered)
+        except FileExistsError as exc:
+            raise CaptureError(f"refusing to overwrite capture: {args.output}") from exc
+        except OSError as exc:
+            raise CaptureError(f"cannot write capture: {args.output}: {exc}") from exc
+    else:
+        print(rendered, end="")
     return 0
 
 

@@ -1,0 +1,65 @@
+{
+  "schema_version": "RBC-LAND-007-COVERAGE-v0.1.0",
+  "track": "007-landscape-novelty",
+  "status": "bounded_live_capture_complete",
+  "protocol_queries": 5,
+  "page_size": 25,
+  "page_budget_per_query": 2,
+  "captures": [
+    {
+      "registry": "github",
+      "evidence_path": "docs/track-007-live-pages-github-2026-08-15.json",
+      "sha256": "23378daf2ad4ce12a924f8577ad32db2457e51e8c3bcba779f639e0cf5224b27",
+      "retrieval_window_utc": ["2026-08-15T01:38:15Z", "2026-08-15T01:38:18Z"],
+      "occurrences_captured": 56,
+      "query_runs_at_provider_total": 5,
+      "query_runs_at_page_budget": 0,
+      "interpretation": "Exact endpoint totals were reached for all five frozen queries at the recorded retrieval times. This is endpoint-query exhaustion only."
+    },
+    {
+      "registry": "zenodo",
+      "evidence_path": "docs/track-007-live-pages-zenodo-2026-08-15.json",
+      "sha256": "4cdce0ed263a2002f043b667a77472643cd4f03b5abd45e45910b87be41c7ee6",
+      "retrieval_window_utc": ["2026-08-15T01:38:24Z", "2026-08-15T01:38:51Z"],
+      "occurrences_captured": 250,
+      "query_runs_at_provider_total": 0,
+      "query_runs_at_page_budget": 5,
+      "interpretation": "Two pages were captured for every query. Large provider totals and broad matching make every query explicitly incomplete."
+    },
+    {
+      "registry": "huggingface_datasets",
+      "evidence_path": "docs/track-007-live-pages-huggingface-2026-08-15.json",
+      "sha256": "32527737c89bd9219dbf95d2726ce0082fa3e2c7aa91815ac49f12e7dc50ac3d",
+      "retrieval_window_utc": ["2026-08-15T01:38:59Z", "2026-08-15T01:39:00Z"],
+      "occurrences_captured": 0,
+      "query_runs_at_provider_total": 0,
+      "query_runs_at_page_budget": 0,
+      "interpretation": "The public endpoint returned empty first pages for the exact frozen queries. No absence-of-datasets or ecosystem-coverage inference is permitted."
+    }
+  ],
+  "coverage_disposition": {
+    "repository_endpoint_coverage": "bounded_observed",
+    "scholarly_coverage": "incomplete",
+    "grey_literature_coverage": "incomplete",
+    "language_coverage": "english_query_bias_unmeasured",
+    "geographic_coverage": "unmeasured",
+    "temporal_coverage": "single_retrieval_window",
+    "restricted_or_unindexed_material": "not_observed",
+    "global_representativeness": "prohibited",
+    "comprehensive_landscape_claim": "prohibited",
+    "novelty_claim": "provisional"
+  },
+  "next_actions": [
+    "Screen newly captured records and reconcile them with the existing bounded register.",
+    "Adjudicate exact-title clusters at work, repository and initiative levels.",
+    "Add scholarly database and non-English search evidence before any broader coverage claim.",
+    "Retain external methods and patient/community challenge as pending."
+  ],
+  "stop_triggers": [
+    "capture hash mismatch",
+    "unstable or contradictory provider totals within one capture",
+    "unreported provider or page-budget limitation",
+    "claim of global representativeness or comprehensive coverage",
+    "novelty upgrade before eligibility and challenge are complete"
+  ]
+}
