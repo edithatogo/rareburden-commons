@@ -2,8 +2,10 @@
 
 **Review date:** 2026-07-27; current closeout review 2026-08-16
 
-**Current decision:** In review. The protocol is repository hash-registered.
-Role-separated agent challenge and repository-owner disposition remain pending.
+**Current decision:** Narrow; track remains in review. The protocol is
+repository hash-registered, the role-separated advisory agent challenge is
+complete, and the repository owner selected Option A against the exact merged
+candidate. The original publication-ready landscape acceptance remains unmet.
 External registry submission is optional, and OSF is deferred.
 
 ## Current closeout evidence — 2026-08-16
@@ -62,9 +64,12 @@ and withdrawal controls. Those repository remediations are recorded in:
 - `docs/track-007-owner-disposition-ready-2026-08-16.yml`.
 
 All challenge roles are complete and the panel consensus is **narrow and
-remediate**. The exact-candidate repository-owner disposition remains pending,
-so the track stays **In review** and the original publication-ready landscape
-acceptance is not claimed.
+remediate**. The repository owner selected Option A `narrow` against commit
+`1f93f5862290e16d0e393834e35c282d187658e1` and tree
+`97bb9387053f4e8feb30d2310fbc849e5ecbb8da`, through 2026-09-03. The track
+stays **In review** because the original publication-ready landscape acceptance
+is not met; the attributable owner receipt is GitHub issue comment
+`5303053641`. No external, independent or patient/community approval is claimed.
 
 ### Review rerun — 2026-07-29
 

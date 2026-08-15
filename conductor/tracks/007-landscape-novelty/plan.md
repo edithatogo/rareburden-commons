@@ -96,9 +96,14 @@
 ## Phase 4 — Decide and publish
 
 - [x] Draft the adjacency matrix and provisional landscape report.
-- [ ] Record the repository-owner `accept`, `narrow`, `revise`, `defer` or
+- [x] Record the repository-owner `accept`, `narrow`, `revise`, `defer` or
   `stop` disposition against the exact panel input and findings, including
-  claim revisions, unresolved findings and stop triggers.
+  claim revisions, unresolved findings and stop triggers. Evidence:
+  `docs/track-007-owner-disposition-ready-2026-08-16.yml` records Option A
+  `narrow` against merged candidate commit `1f93f5862290e16d0e393834e35c282d187658e1`
+  and tree `97bb9387053f4e8feb30d2310fbc849e5ecbb8da`, while preserving the original
+  publication-ready acceptance as unmet. The attributable owner receipt is
+  GitHub issue comment `5303053641`.
 - [x] Record the provisional `proceed_with_narrowed_scope` decision.
 - [x] Update the roadmap and programme framing to avoid duplicating registries, ontologies or genomic platforms.
 

@@ -139,9 +139,9 @@ def test_complete_panel_findings_preserve_owner_gate_and_scope_blockers() -> Non
     assert findings["panel_state"]["owner_disposition"] == "pending"
 
 
-def test_owner_ready_packet_binds_exact_candidate_and_retains_owner_decision() -> None:
+def test_owner_disposition_binds_exact_candidate_and_retains_narrow_limits() -> None:
     packet = load_mapping(OWNER_READY)
-    assert packet["status"] == "awaiting_repository_owner_disposition"
+    assert packet["status"] == "repository_owner_disposition_recorded"
     commit = packet["candidate"]["commit"]
     tree = packet["candidate"]["tree"]
     # Hosted shallow checkouts may contain only the PR head, not this bound
@@ -153,7 +153,12 @@ def test_owner_ready_packet_binds_exact_candidate_and_retains_owner_decision() -
     for record in packet["bound_evidence"]:
         assert hashlib.sha256((ROOT / record["path"]).read_bytes()).hexdigest() == record["sha256"]
     assert packet["recommended_decision"]["disposition"] == "narrow"
-    assert packet["decision_fields"]["selected_option"] == "pending"
+    assert packet["decision_fields"]["repository_owner"] == "edithatogo"
+    assert packet["decision_fields"]["selected_option"] == "A"
+    assert (
+        "publication-ready landscape acceptance is not met"
+        in packet["decision_fields"]["conditions_or_dissent"]
+    )
     assert (
         "preregistered, prospective or confirmatory protocol claim"
         in packet["recommended_decision"]["prohibited"]
