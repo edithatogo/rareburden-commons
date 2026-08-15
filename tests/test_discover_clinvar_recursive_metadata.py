@@ -1,10 +1,15 @@
 from __future__ import annotations
 
+import copy
+import json
 import urllib.parse
+from pathlib import Path
 
 import pytest
 
-from scripts.discover_clinvar_recursive_metadata import discover
+from scripts.discover_clinvar_recursive_metadata import discover, validate_inventory
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def _loader(url: str) -> bytes:
@@ -57,3 +62,56 @@ def test_recursive_inventory_retains_frontier_at_request_budget() -> None:
 def test_recursive_inventory_rejects_invalid_budget() -> None:
     with pytest.raises(ValueError, match="budgets"):
         discover(observed_at="x", max_requests=1, max_depth=0, delay_seconds=0, loader=_loader)
+
+
+def test_committed_inventory_exhausts_only_the_bounded_depth_two_frontier() -> None:
+    document = json.loads(
+        (ROOT / "manifests/classifications/clinvar-recursive-metadata-2026-08-16.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    summary = validate_inventory(document)
+    assert summary == {
+        "observations": 56,
+        "records": 6410,
+        "exhausted_within_scope": True,
+    }
+    assert document["frontier_queue_count"] == 0
+    assert not any(document["claims"].values())
+
+
+def test_committed_inventory_rejects_claim_content_and_hash_drift() -> None:
+    document = json.loads(
+        (ROOT / "manifests/classifications/clinvar-recursive-metadata-2026-08-16.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    unsafe = copy.deepcopy(document)
+    unsafe["claims"]["product_completeness"] = True
+    with pytest.raises(ValueError, match="claims must remain false"):
+        validate_inventory(unsafe)
+
+    unsafe = copy.deepcopy(document)
+    unsafe["observations"][0]["records"][0]["body"] = "not permitted"
+    with pytest.raises(ValueError, match="retained content"):
+        validate_inventory(unsafe)
+
+    unsafe = copy.deepcopy(document)
+    unsafe["observations"][0]["surface_url"] = "https://example.org/pub/clinvar/"
+    with pytest.raises(ValueError, match="unsafe or duplicated"):
+        validate_inventory(unsafe)
+
+    unsafe = copy.deepcopy(document)
+    unsafe["observations"][0]["records"][0]["byte_route"] = "raw_public"
+    with pytest.raises(ValueError, match="byte route drifted"):
+        validate_inventory(unsafe)
+
+    unsafe = copy.deepcopy(document)
+    unsafe["observations"][0]["records"][0]["source_url"] = "https://example.org/raw"
+    with pytest.raises(ValueError, match="record URL is unsafe"):
+        validate_inventory(unsafe)
+
+    unsafe = copy.deepcopy(document)
+    unsafe["inventory_sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="fingerprint mismatch"):
+        validate_inventory(unsafe)

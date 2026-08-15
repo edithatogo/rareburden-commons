@@ -31,13 +31,13 @@ match.
 
 `manifests/classifications/clinvar-recursive-metadata-2026-08-16.json` has
 inventory SHA-256
-`8bd91faf376f18d0fe9041dbf89a5ca0179350430e1e2a7f80d6deb24c34fa11`.
-It records 50 sequential official directory observations and 6,410 contained
-directory, product, data or checksum routes at depth no greater than two. Six
-queued directories remain at the fixed request frontier.
+`160450482c80fd8756c78aa51e3eebda38e92960c61f956f024f1dc1330250d4`.
+It records 56 sequential official directory observations and 6,410 contained
+directory, product, data or checksum routes at depth no greater than two. The
+queue is exhausted within this exact seven-seed, depth-two scope only.
 
 The root index is observed but is not recursively followed into temporary or
-unselected products. Recursion is restricted to the six named product/archive
+unselected products. Recursion is restricted to the seven named product/archive
 seeds, exact `ftp.ncbi.nlm.nih.gov` HTTPS URLs and path-prefix containment.
 HTTP 403/404 and exhausted transient retries are recorded as unavailable and
 never bypassed. No ClinVar product bytes are fetched; every route remains
@@ -62,6 +62,7 @@ normal validated cursor update.
 - dispatch bounded MONDO batches incrementally and retain every exact receipt;
 - prioritize small provenance/checksum/diff assets before multi-hundred-MB
   ontology serializations, unless a downstream use justifies the storage;
-- continue ClinVar from the six-item queue in a new dated receipt if required;
+- version a new ClinVar protocol before adding seeds, increasing depth or
+  interpreting submitter-derived product rights;
 - do not claim complete historical materialization, comprehensive products,
   clinical validity or unrestricted ClinVar redistribution.

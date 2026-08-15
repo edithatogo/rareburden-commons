@@ -354,3 +354,19 @@ restrictions. The public metadata index does not clear every series, so values
 remain disabled until selected source tabs are recorded. Tests enforce these
 fail-closed routes and prohibit treating public availability or an open-source
 software licence as a content-redistribution grant.
+
+### Bounded ClinVar metadata queue — 2026-08-16
+
+The committed recursive observation now validates 56 sequential official
+directory observations containing 6,410 directory, product, data or checksum
+routes. The exact seven-seed, depth-two queue is exhausted and its inventory
+fingerprint is verified before commit. The validator rejects unsafe hosts,
+duplicate observation URLs, retained content, byte-route drift, claim upgrades,
+fingerprint drift and inconsistent exhaustion state.
+
+This closes only that fixed metadata queue. It does not establish product,
+historical or global completeness, clinical validity, submitter authority or
+redistribution rights. No source bytes, bodies, abstracts or full text were
+retrieved or retained. Adding seeds, increasing traversal depth or activating a
+product byte route requires a new bounded protocol and product-specific rights
+evidence.

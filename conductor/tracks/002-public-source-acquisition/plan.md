@@ -408,9 +408,10 @@ scientific and data-governance gates remain separate and pending.
   `manifests/classifications/mondo-archive-cursor-2026-08-16.json`. The cursor
   records only three observed archived assets and makes no frontier-completion
   claim.
-- [x] Recursively enumerate 50 bounded official ClinVar directory observations
-  and 6,410 metadata/checksum routes at depth two, retaining a six-directory
-  continuation queue and metadata-only rights posture. Evidence:
+- [x] Recursively enumerate 56 bounded official ClinVar directory observations
+  and 6,410 metadata/checksum routes at depth two, exhausting only the exact
+  seven-seed, depth-two queue while retaining a metadata-only rights posture.
+  This is not product, history or global completeness evidence. Evidence:
   `manifests/classifications/clinvar-recursive-metadata-2026-08-16.json` and
   `scripts/discover_clinvar_recursive_metadata.py`.
 - [ ] Materialize all exact MONDO assets in the observed 120-release frontier

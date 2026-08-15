@@ -133,13 +133,13 @@
     {
       "id": "clinvar",
       "evidence": "manifests/classifications/clinvar-recursive-metadata-2026-08-16.json",
-      "observed": "6,410 directory, product, data or checksum routes across 50 bounded official directory observations; 2026-08 variant_summary is digest-pinned privately",
+      "observed": "6,410 directory, product, data or checksum routes across 56 bounded official directory observations; the exact seven-seed depth-two queue is exhausted; 2026-08 variant_summary is digest-pinned privately",
       "bytes_state": "existing_private_archive",
       "public_route": "metadata_only_with_submitter_caveats",
       "private_route": "existing_private_archive",
-      "gap": "six queued directories beyond the fixed request frontier and product-specific historical reconciliation",
-      "blocker": "fixed request/depth scope, submitter-provenance and redistribution review",
-      "evidence_sha256": "39f595f1d24f020aa5213eadfd66a234997567bfc59a18865f966a966772fcbc"
+      "gap": "routes beyond the seven fixed seeds or depth two, plus product-specific historical reconciliation",
+      "blocker": "fixed seed/depth scope, submitter-provenance and redistribution review",
+      "evidence_sha256": "d8571db2d94449333bc6810c440e986d4ee9cd30965696a20269c0c294bc384c"
     }
   ],
   "routing_rules": [
@@ -156,5 +156,5 @@
     "licensed_bytes_public": false,
     "duplication_eliminated_retroactively": false
   },
-  "audit_sha256": "ccc5c8bc80586f5022e5dbda07e0d637397b277b671fdf91717e16d033e94b2d"
+  "audit_sha256": "710fe0d4061b587f2e81ca0935473c79f5c2a23b221b4aabee827e16a5cf499c"
 }
