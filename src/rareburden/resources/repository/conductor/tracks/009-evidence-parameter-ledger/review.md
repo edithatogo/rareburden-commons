@@ -82,3 +82,15 @@ v0.4 contract and migration path remain unfrozen.
 `docs/track-009-ledger-review-packet.md` records the required epidemiology,
 data-governance, engineering and operational-custody decisions. It is
 repository-owned preparation and does not freeze the v0.4 ledger contract.
+
+### Bounded source-ledger review — 2026-08-16
+
+Repository result: **Pass for bounded preparation with three unresolved medium
+findings**. Source bindings are fingerprinted to Track 008 and current Track 002
+evidence. The ledger rejects private, disabled, unusable-licence and mutable
+links, and alternative parameters require explicit selection and rationale.
+
+The role-separated repository challenge is advisory and owner-ready, not an
+external epidemiology, custodian or independent approval. Track 008 remains
+blocked; therefore Track 009 remains blocked, empirical activation stays false,
+and the v0.4 ledger contract is not frozen.
