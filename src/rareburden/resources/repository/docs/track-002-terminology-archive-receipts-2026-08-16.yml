@@ -41,7 +41,38 @@ uts_current_release_set:
     historical_release_completeness: false
     native_country_edition_completeness: false
     production_activation: false
+orphadata_current_scientific_pages:
+  archive: huggingface:edithatogo/rareburden-commons-open-source-snapshots
+  licence: CC_BY_4_0
+  discovered_file_count: 94
+  product_page_count: 8
+  batches:
+    - github_actions_run: 31893447909
+      start: 0
+      count: 1
+      status: success
+      artifact_receipt_sha256: 682cddba7e6f584804b7f4a28d556160d6735ab29d8286557da009c3a64aad32
+    - github_actions_run: 31893485877
+      start: 1
+      count: 93
+      status: success
+      artifact_receipt_sha256: 13e5f8a8fca3f1ba68ea64bbc8d7d54def2d31f78ea5a913acc82ff01ba60a3c
+  coverage:
+    alignments: 24
+    classifications: 34
+    linearisation: 1
+    genes: 1
+    phenotypes: 7
+    functional_consequences: 9
+    epidemiology: 9
+    natural_history: 9
+  claims:
+    exact_discovered_page_snapshot_archived: true
+    language_completeness: false
+    historical_release_completeness: false
+    clinical_validation: false
 limitations:
   - GitHub Actions artifact receipts expire; canonical per-batch receipts are retained with the remote payloads.
   - Publisher-page discovery is a bounded observation and does not prove historical completeness.
   - UTS inclusion does not replace native national-edition inventory or licensing.
+  - The 94 Orphadata files exhaust only the exact links exposed by eight official product pages at the recorded snapshot; they do not establish unavailable historical-release or language completeness.

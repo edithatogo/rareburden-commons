@@ -307,14 +307,22 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
-- [~] Expand Orphadata from the two activated observations to every
-  discoverable scientific-file and nomenclature release/language under CC BY
-  4.0, preserving attribution, change notices and exact hashes. A strict,
-  bounded, sequential discovery/archive workflow and negative tests are now
-  implemented; hosted canary and remainder receipts are still required.
+- [x] Expand Orphadata from the two activated observations to all 94 exact files
+  exposed by the eight official scientific product pages in the bounded
+  snapshot, preserving CC BY 4.0 attribution, change notices and exact hashes.
+  The canary and 93-file remainder succeeded in Actions runs `31893447909` and
+  `31893485877`; `docs/track-002-terminology-archive-receipts-2026-08-16.yml`
+  binds both receipts. This does not establish unavailable historical-release
+  or language completeness; the separately discovered 71 ORPHAcode
+  nomenclature packs retain their own receipts.
 - [ ] Execute the 14-family UTS inventory incrementally, respecting the
   sequential two-second request interval, byte budgets, retries and private-only
   visibility; never publish UMLS, RxNorm or SNOMED licensed payloads publicly.
   The current release from all 14 families is now privately receipt-verified by
-  GitHub Actions run `31873729976`; 2,437 historical artifacts remain subject
-  to bounded sequential execution.
+  GitHub Actions run `31873729976`; 2,437 historical artifacts entered bounded
+  sequential execution. MRCONSO historical indices 1–5 were
+  receipt-verified by run `31893681893`; the next safe frontier is implemented
+  as a remote-checkpointed, idempotent, manually dispatched workflow with
+  explicit family cursors and cost ceilings in
+  `docs/track-002-uts-historical-frontier-2026-08-16.md`, leaving 2,432
+  historical artifacts pending at that observed checkpoint.
