@@ -27,6 +27,11 @@ backlog:
     The official inventory records release identities and download URLs but not
     content lengths. Estimating total cost from five MRCONSO artifacts would be
     invalid because the fourteen product families differ substantially in size.
+  scope_note: >-
+    The 2,432 count is the checked cross-family historical-frontier snapshot
+    after the five MRCONSO receipts. It is not the immediate upload tranche.
+    The later family-specific remote observation below must be reconciled into
+    a new consolidated checkpoint before changing the cross-family count.
   remaining_by_family:
     rxnav-in-a-box: 2
     rxnorm-full-monthly-release: 254
@@ -42,6 +47,18 @@ backlog:
     umls-full-release: 57
     umls-metathesaurus-full-subset: 14
     umls-metathesaurus-mrconso-file: 9
+  latest_family_cursor:
+    family: umls-metathesaurus-full-subset
+    observed_verified: 12
+    observed_pending: 2
+    failed_run: github-actions:31897934633
+    failed_run_max_artifacts: 1
+    cursor_advanced_by_failed_run: false
+    interpretation: >-
+      Only the two pending artifacts in this family are immediately behind the
+      blocked cursor. The failed run attempted a one-artifact tranche and did
+      not advance it. This family observation is distinct from the 2,432-item
+      cross-family backlog snapshot.
 observed_provider_evidence:
   hugging_face:
     storage_limits_url: https://huggingface.co/docs/hub/main/en/storage-limits
@@ -130,6 +147,13 @@ recommendation:
     - Creating an object-store account or bucket.
     - Uploading, migrating or redownloading licensed bytes.
     - Changing the checked-in capacity state to ready.
+  proposed_first_tranche_after_unblock:
+    family: umls-metathesaurus-full-subset
+    maximum_artifacts: 2
+    prerequisites:
+      - Reconcile the exact remote family cursor into a reviewed checkpoint.
+      - Pass the dated expiring capacity preflight and one-artifact canary first.
+      - Keep the existing 8 GB and serialized-run ceilings.
 stop_conditions:
   - Any licence or cloud-storage term does not permit the selected private destination.
   - A destination is not private or least-privilege access cannot be enforced.

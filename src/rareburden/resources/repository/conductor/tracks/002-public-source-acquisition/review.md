@@ -22,6 +22,13 @@ justify migration. Every resumption path remains blocked behind the checklist,
 dated expiring capacity evidence and a one-artifact canary. This review does not
 restore capacity or complete the licensed historical archive.
 
+The 2,432 count is the consolidated cross-family snapshot after those five
+MRCONSO receipts. The latest full-Metathesaurus-subset family observation is
+more local: 12 verified and two pending at the blocked cursor. Failed run
+`31897934633` was bounded to one artifact and advanced neither the cursor nor
+the consolidated checkpoint. A two-artifact continuation is only a proposed
+post-canary tranche, not an observed upload or authorization.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The full project gate

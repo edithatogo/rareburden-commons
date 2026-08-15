@@ -33,6 +33,12 @@ def test_backlog_is_derived_from_exact_uts_manifest_and_checkpoint() -> None:
         == 2432
     )
     assert decision["backlog"]["remaining_bytes"] == "unknown"
+    family_cursor = decision["backlog"]["latest_family_cursor"]
+    assert family_cursor["family"] == "umls-metathesaurus-full-subset"
+    assert family_cursor["observed_verified"] == 12
+    assert family_cursor["observed_pending"] == 2
+    assert family_cursor["failed_run_max_artifacts"] == 1
+    assert family_cursor["cursor_advanced_by_failed_run"] is False
 
 
 def test_decision_preserves_exact_quota_failure_and_no_paid_action() -> None:
@@ -69,6 +75,9 @@ def test_options_have_tradeoffs_contingencies_and_fail_closed_default() -> None:
     assert decision["recommendation"]["preferred_resumption"] == "A"
     assert decision["claims"]["historical_archive_complete"] is False
     assert decision["claims"]["public_redistribution"] is False
+    tranche = decision["recommendation"]["proposed_first_tranche_after_unblock"]
+    assert tranche["family"] == "umls-metathesaurus-full-subset"
+    assert tranche["maximum_artifacts"] == 2
 
 
 def test_checklist_cannot_authorize_download_or_cursor_advance() -> None:
