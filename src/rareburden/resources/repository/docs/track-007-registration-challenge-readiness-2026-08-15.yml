@@ -1,12 +1,12 @@
 schema_version: '0.2.0'
 track: 007-landscape-novelty
-status: repository_owned_readiness_pending_external_receipts
+status: repository_protocol_registered_pending_agent_challenge_and_owner_disposition
 supersedes_preparation_packet: docs/track-007-registration-challenge-readiness-2026-08-04.yml
 protocol:
   protocol_id: RBC-LAND-007
   version: 0.2.0
   source_packet: docs/track-007-registration-packet.md
-  source_packet_sha256: sha256:676047e954a710aecabf20041defe2e173777e147d23bdf389fdcb517fdd8954
+  source_packet_sha256: sha256:38bede394535489d3b45c1189bd087fcf5fe4ae4db15b5c8aa7fbbd515dde31e
   search_log: docs/track-007-search-log-2026-08-14.yml
   search_log_sha256: sha256:d6e6e3869fbe331b6e2a8839ebbc7fd095f5f7e9ed5c570800a34bcbaa9e7e8b
   screening_register: docs/landscape-screening-007.md
@@ -22,18 +22,16 @@ protocol:
   fulltext_eligibility_schema: schemas/track-007-fulltext-eligibility.schema.json
   fulltext_eligibility_schema_sha256: sha256:400337059d11c364976fd84336e7a6bd3e4c7eb011f061b06e34dd358f3a6c99
   amendment_policy: material_changes_require_a_new_version_and_hash_set
+  canonical_protocol: docs/track-007-protocol-v0.2.0.md
+  canonical_protocol_sha256: sha256:b83e9d9e64b7157f9319c15ec63cde29967646f34eb09cf447571866f0a1dc00
+  repository_registration: docs/track-007-repository-registration-2026-08-16.yml
 registration:
-  status: pending_external_registration
-  active_route: registry_neutral
+  status: repository_hash_registered
+  active_route: repository_content_addressing
   osf: deferred_by_owner
-  prepared_fallback: zenodo
-  required_receipt:
-    - registry_identifier
-    - registration_timestamp
-    - submitted_snapshot_hash
-    - amendment_policy
+  external_registry: optional_supplementary_evidence
 methods_challenge:
-  status: packet_ready_pending_independent_receipt
+  status: packet_ready_pending_role_separated_agent_findings
   questions:
     - id: M-01
       question: Are the five query families and four active indexes fit for a bounded adjacency review?
@@ -54,29 +52,30 @@ methods_challenge:
       question: Are completeness, novelty, superiority, partnership and endorsement claims fail-closed?
       concern: Only provisional bounded adjacency observations are allowed.
   required_receipt:
-    - independent_identity
+    - agent_role
     - exact_protocol_hash_set
     - findings_by_question
     - dissent_or_no_dissent
     - required_claim_revisions
 patient_community_interpretation:
-  status: packet_ready_pending_accountable_receipt
+  status: packet_ready_pending_community_harm_agent_findings
   questions:
     - Are initiative categories and gap language understandable and non-stigmatising?
     - Could public-web omissions erase community-led, regional or non-English work?
     - Are equity, accessibility, uncertainty and acceptable-use limitations prominent enough?
     - Does the narrowed role avoid implying ownership of community knowledge or endorsement?
   required_receipt:
-    - constituency_or_body
+    - agent_role
     - acceptable_use_and_harm_decision
     - interpretation_limits
     - dissent_or_no_dissent
+  assurance_boundary: advisory_perspective_not_patient_or_community_approval
 claim_boundary:
   allowed:
     - provisional bounded adjacency observations
     - repository-owned search and screening preparation
     - retrieval-time public metadata observations
-  disabled_until_qualifying_receipts:
+  disabled_after_owner_disposition:
     - completed systematic or scoping review
     - comprehensive or globally representative landscape
     - independently confirmed novelty

@@ -1,19 +1,22 @@
 # Track 007 registration and screening packet
 
-**Protocol:** `RBC-LAND-007 v0.1.0`  
-**Status:** versioned draft; not externally registered  
-**Owner:** Programme and Evidence Synthesis Leads  
+**Protocol:** `RBC-LAND-007 v0.2.0`
+**Status:** frozen and hash-registered in the repository; no external registry
+event is claimed
+
+**Owner:** Programme and Evidence Synthesis Leads
 **Scope:** public rare-disease burden, registry, ontology, genomic, policy,
 standards and methods infrastructure relevant to a provenance-first burden
 layer.
 
-## Registration handoff
+## Repository registration
 
-Submit the versioned protocol in `conductor/tracks/007-landscape-novelty/review.md`
-and this packet to the chosen registration service. Preserve the submitted
-snapshot, public identifier, submission timestamp and any requested amendments.
-If registration is unavailable, publish the draft and logs locally but do not
-call it registered.
+The canonical protocol is `docs/track-007-protocol-v0.2.0.md`. Its SHA-256,
+Git blob identifier and bound evidence set are recorded in
+`docs/track-007-repository-registration-2026-08-16.yml`. This content-addressed
+repository registration is the normative Track 007 snapshot. External registry
+submission is optional supplementary evidence; OSF is deferred and removed
+from the active plan.
 
 ## Search-log schema
 
@@ -23,7 +26,7 @@ only lawful metadata, hashes and bounded first-page identifiers.
 
 | Field | Required value |
 |---|---|
-| protocol_version | `RBC-LAND-007 v0.1.0` |
+| protocol_version | `RBC-LAND-007 v0.2.0` |
 | registry | Zenodo, GitHub, Hugging Face, scholarly or institutional source |
 | query_string | exact submitted string, including field filters |
 | endpoint_or_database | canonical URL or database name |
@@ -58,14 +61,17 @@ excluded, uncertain and awaiting-second-review counts. Counts are tied to the
 protocol version and retrieval window; changed API totals require a new search
 log row, not an overwrite.
 
-## Required external decisions
+## Required advisory challenges and decision
 
-- Methods reviewer: accept, revise or reject the question, strings, eligibility,
-  deduplication and exclusion rules.
-- Patient/community reviewer: assess relevance, harms, language, equity and
-  acceptable interpretation.
-- Programme/release decision: allow only bounded adjacency and gap claims;
-  prohibit partnership, endorsement or data-access claims without evidence.
+- Role-separated methods agents recommend accept, narrow, revise, defer or stop
+  after challenging the question, strings, eligibility, deduplication,
+  exclusions and coverage limits.
+- Role-separated community/harm agents challenge relevance, harms, language,
+  equity and acceptable interpretation. Their advice is not patient/community
+  consent or constituted-community approval.
+- The repository owner records the attributable disposition and claim boundary.
 
-Until these records exist, `proceed_with_narrowed_scope` remains provisional and
-Track 007 stays in review.
+Until the agent challenges and owner disposition are bound to the exact
+repository registration, `proceed_with_narrowed_scope` remains provisional and
+Track 007 stays in review. No additional-person or independent review gate
+applies under ADR-0009.

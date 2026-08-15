@@ -1,0 +1,57 @@
+schema_version: '1.0.0'
+registration_id: RBC-LAND-007-REPO-2026-08-16
+track: 007-landscape-novelty
+status: repository_hash_registered
+registered_at_utc: '2026-08-16T00:00:00Z'
+repository:
+  remote: https://github.com/edithatogo/rareburden-commons
+  ref_policy: content_addressed_git_blobs
+  retrieval_command: git cat-file blob <git_blob_oid>
+  external_registry: optional_deferred
+  osf: removed_from_active_plan
+protocol:
+  id: RBC-LAND-007
+  version: 0.2.0
+  path: docs/track-007-protocol-v0.2.0.md
+  sha256: b83e9d9e64b7157f9319c15ec63cde29967646f34eb09cf447571866f0a1dc00
+  git_blob_oid: d43b5f9d47031c00d27047a960546893c6f7ddf0
+  amendment_policy: material_change_requires_new_version_and_hash_set
+evidence:
+- path: docs/track-007-search-log-2026-08-14.yml
+  sha256: d6e6e3869fbe331b6e2a8839ebbc7fd095f5f7e9ed5c570800a34bcbaa9e7e8b
+  git_blob_oid: 4476dbacaf299a9c39c5645f326005064858b03e
+- path: docs/track-007-search-results-2026-08-15.json
+  sha256: 75c9e9bae6e4cbd179f568203b05d851f1413909c9ad6a086f645e6bbaef3fa3
+  git_blob_oid: 81913b3ef4b449ae2883c4dd8c4518767caf700f
+- path: docs/track-007-screening-2026-08-15.json
+  sha256: a7585914c7c40c5df7769686c6e78f4f4ac7ceba06a6bf47b95bad77ed4247f3
+  git_blob_oid: 43f6645717fb2dbb8ff945ad1cc370c9cff76a9c
+- path: docs/track-007-screening-resolutions-2026-08-15.json
+  sha256: 2d80a7f033eab0da4ee21bb2e2d9928e1e7af97da6fc9e3111d5b53b3cde5d3b
+  git_blob_oid: 10fdde51a5511cfa902002160e306ed07ed20ffe
+- path: docs/track-007-fulltext-locator-observations-2026-08-15.json
+  sha256: 73a9cd02abcce31c5db3e6ff1fb97d86a7c0869aee1294b2c9031d9bc00db289
+  git_blob_oid: 8462f193b561bce9746bf17e8e488b96bedabd43
+- path: docs/track-007-fulltext-eligibility-2026-08-15.json
+  sha256: e8c9385a9dbd0c9692b0f4b568b17d73ec4e0bd8a13d2a03ea0a50a93de9b926
+  git_blob_oid: cdf680a1c4ad7663876a185699772a89d6f3b4f0
+- path: docs/track-007-live-capture-coverage-2026-08-15.json
+  sha256: 27df87334479e259e02575b02da6a681f0d1d380aa5734408cf02087d09487aa
+  git_blob_oid: 42d4594cf4a552b0a3ad55effd1605d1b8b6825d
+- path: docs/track-007-title-cluster-adjudication-2026-08-15.json
+  sha256: d70174ead4afe143d9aba43e238a16fd6d33446f8e9072b8e286f0d25f573eb3
+  git_blob_oid: b0af139720b5264ab211dd38084138911c3454b0
+- path: catalog/initiatives.yml
+  sha256: 24862850048d75b07f93e1f158f8ff1138316851c7ffdc988b82e647d4d1e916
+  git_blob_oid: f7b8e2c9eac39fcca8a9a26dbff3f066c6022262
+claim_boundary:
+  permitted:
+  - bounded retrieval-time adjacency observations
+  - repository-owned protocol, capture, screening and challenge evidence
+  prohibited:
+  - externally registered protocol
+  - completed systematic or scoping review
+  - comprehensive or globally representative coverage
+  - independent novelty confirmation
+  - patient or community approval
+  - partnership, endorsement or data-access claims
