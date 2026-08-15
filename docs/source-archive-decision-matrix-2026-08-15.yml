@@ -106,6 +106,7 @@ decisions:
     github: acquisition_code_and_metadata_only
     conditions: [panel_version_pin, GEL_and_contributor_attribution, noncommercial_only, nondiagnostic_only, no_commercialised_outputs, withdrawal_route, rate_limit_respect]
     coverage_boundary: United_Kingdom_clinical_curation_context_not_global_representativeness
+    automation_boundary: current_robots_txt_disallows_api_so_no_automated_detail_continuation
   - source_id: panelapp-australia
     dataset_type: public_gene_disease_panel_catalogue
     licence: exact_content_reuse_terms_not_found_on_observed_public_site
@@ -115,6 +116,7 @@ decisions:
     github: country_registry_acquisition_code_hashes_and_metadata_only
     conditions: [panel_version_pin, Australian_context, attribution, nondiagnostic_boundary, rate_limit_respect]
     coverage_boundary: Australia_clinical_curation_context_not_global_representativeness
+    automation_boundary: bounded_nonretained_metadata_hash_probe_only_pending_exact_reuse_terms
   - source_id: umls-metathesaurus
     dataset_type: licensed_multi_vocabulary_terminology_compilation
     licence: individual_UMLS_licence_plus_source_vocabulary_restriction_levels
@@ -148,6 +150,7 @@ decisions:
     public_raw: prohibited_until_dataset_terms_verified
     github: query_export_manifest_hashes_and_code_only
     conditions: [dataset_specific_terms, attribution, API_export_behaviour_review]
+    metadata_canary: OECD.ELS.HD_DSD_HEALTH_STAT_DF_COM_1.0_structure_hash_only
   - source_id: all-of-us-public-tier
     dataset_type: public_aggregate_browser_outputs
     licence: output_specific_terms_pending

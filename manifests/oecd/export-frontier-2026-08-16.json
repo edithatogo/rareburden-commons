@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "observed_on": "2026-08-16",
+  "terms_url": "https://www.oecd.org/en/about/terms-conditions.html",
+  "api_guidance_url": "https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html",
+  "terms_disposition": {
+    "general_data_reuse": "permitted_with_attribution_unless_dataset_specific_or_third_party_restrictions_apply",
+    "required_attribution": "OECD (year), dataset name, data source, DOI or URL, accessed date",
+    "dataset_bytes": "disabled_until_exact_dataflow_metadata_source_tab_and_restrictions_are_recorded",
+    "derived_outputs": "disabled_until_exact_dataset_disposition",
+    "api_requirements": ["current_api_version", "bounded_queries", "rate_limit_respect", "no_monitoring_interference"]
+  },
+  "metadata_canary": {
+    "source_id": "oecd-health-statistics-dataflow",
+    "url": "https://sdmx.oecd.org/public/rest/dataflow/OECD.ELS.HD/DSD_HEALTH_STAT@DF_COM/1.0?references=none",
+    "capture": "response_hash_size_content_type_only",
+    "raw_archive": false,
+    "production_activation": false
+  }
+}
