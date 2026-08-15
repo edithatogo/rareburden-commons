@@ -1,0 +1,50 @@
+name: bounded public ORPHAcode archive to Hugging Face
+
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: Zero-based first pack discovered on the official page
+        required: true
+        default: "0"
+        type: string
+      count:
+        description: Number of sequential packs
+        required: true
+        default: "1"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-public-orphacode-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Discover, archive, verify and discard
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          ARCHIVE_START: ${{ inputs.start }}
+          ARCHIVE_COUNT: ${{ inputs.count }}
+        run: |
+          python3 scripts/archive_orphacode_batch.py \
+            --start "$ARCHIVE_START" \
+            --count "$ARCHIVE_COUNT" \
+            --max-bytes 2000000000 \
+            --receipt orphacode-archive-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: orphacode-archive-receipt
+          path: orphacode-archive-receipt.json
+          if-no-files-found: error
+          retention-days: 30

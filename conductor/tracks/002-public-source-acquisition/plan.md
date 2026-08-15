@@ -264,3 +264,38 @@ scientific and data-governance gates remain separate and pending.
 - [x] Prohibit export of All of Us Researcher Workbench and Genomics England
   Research Environment controlled data; archive only synthetic code, schemas
   and non-sensitive metadata outside those environments.
+
+## Comprehensive classification and terminology preservation — 2026-08-15
+
+- [x] Define a non-duplicating, rights-routed inventory covering ICD revisions
+  1–11, WHO-FIC Foundation, ICF, ICHI, WHO derived/related classifications,
+  MedDRA, ORPHAcode, Orphadata, SNOMED CT and all UMLS knowledge-source
+  release families. Evidence:
+  `manifests/classifications/archive-catalog-2026-08-15.json`.
+- [x] Treat version, language and country/national-edition coverage as separate
+  completeness axes; prohibit inferring native national-edition completeness
+  from UMLS inclusion.
+- [x] Verify the GitHub-to-private-Hugging-Face UTS canary for current RxNorm:
+  authenticated download, exact hash receipt, remote size verification and
+  runner cleanup completed in Actions run `31872790862`.
+- [x] Add a bounded public ORPHAcode workflow that discovers every official ZIP
+  on the CC BY 4.0 nomenclature-pack page, hashes each exact file, uploads to
+  the existing public archive, verifies the remote copy and discards runner
+  storage.
+- [ ] Run the one-file ORPHAcode canary, then archive all discovered packs in
+  bounded sequential batches and retain the page hash and batch receipts.
+- [ ] Materialize the complete WHO digital release matrix by classification,
+  release, language and available artifact; publish unchanged bytes only where
+  exact terms permit and otherwise retain private bytes or metadata only.
+- [ ] Build the country-authority ledger for every discoverable ICD national
+  modification and SNOMED CT national edition; preserve each native release
+  independently of its possible UMLS representation.
+- [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
+  their available release/language/edition inventories, and archive licensed
+  bytes privately only when the applicable terms permit cloud storage.
+- [ ] Expand Orphadata from the two activated observations to every
+  discoverable scientific-file and nomenclature release/language under CC BY
+  4.0, preserving attribution, change notices and exact hashes.
+- [ ] Execute the 14-family UTS inventory incrementally, respecting the
+  sequential two-second request interval, byte budgets, retries and private-only
+  visibility; never publish UMLS, RxNorm or SNOMED licensed payloads publicly.
