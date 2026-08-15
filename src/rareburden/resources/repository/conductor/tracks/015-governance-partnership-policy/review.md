@@ -30,3 +30,19 @@ and does not constitute appointments, consultation, consent or partnership.
 `docs/track-015-governance-review-packet.md` provides a bounded decision and
 receipt contract. It does not create appointments, consent, remuneration,
 partnerships, endorsements or release authority.
+
+## Bounded repository reconciliation review — 2026-08-16
+
+Repository-owned governance is now executable and fail-closed: one accountable
+owner, role-separated advisory agent panels, exact evidence hashes,
+non-confirming relationship states, immutable publisher/custodian boundaries,
+and correction/withdrawal triggers. Negative tests reject promotion of agents
+to independent or external authority, confirmation of unsupported
+relationships, governance overclaims, evidence drift and premature Track 014
+binding.
+
+Disposition: **pass for preparation; hold integration** until the exact merged
+Track 014 bounded release surface is hash-bound and the full gate is rerun.
+This work does not constitute governance bodies, community or Indigenous
+authority, remuneration, partnership, custodian approval, institutional
+hosting, global representativeness, production activation or stable release.

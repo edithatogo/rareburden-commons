@@ -61,3 +61,19 @@
   relationship evidence requirements.
 - [ ] Keep governance, partnership and endorsement states unactivated until
   constituted dispositions are recorded.
+
+## Bounded repository reconciliation — 2026-08-16
+
+- [x] Implement the single-owner plus role-separated advisory agent-panel
+  operating model without claiming independent, patient/community, custodian,
+  Indigenous, institutional or partner authority. Evidence:
+  `manifests/governance/track-015-bounded-reconciliation-2026-08-16.json`.
+- [x] Bind exact Track 007/013, source-rights, archive-capacity and ADR-0009
+  evidence; keep the Track 014 release-surface dependency pending until its
+  dependency-safe merge.
+- [x] Encode relationship claim states, source/rights boundaries and exact
+  correction/withdrawal triggers with negative overclaim, evidence-drift and
+  dependency tests. Evidence: `scripts/check_track015_bounded_governance.py`
+  and `tests/test_track015_bounded_governance.py`.
+- [ ] Bind the exact merged Track 014 release-surface artifact and re-run the
+  full gate before integrating this reconciliation.
