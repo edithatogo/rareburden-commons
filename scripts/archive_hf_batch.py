@@ -82,22 +82,23 @@ def archive_batch(
     receipts: list[dict[str, Any]] = []
     with tempfile.TemporaryDirectory(prefix="rareburden-archive-") as temporary:
         root = Path(temporary)
+        observed: list[tuple[int, dict[str, Any], str]] = []
         for index, item in enumerate(items, start=start):
-            local = root / f"{index:06d}.bin"
+            local = root / str(item["path"])
+            local.parent.mkdir(parents=True, exist_ok=True)
             digest = _download(item, local)
-            commit = api.upload_file(
-                path_or_fileobj=local,
-                path_in_repo=str(item["path"]),
-                repo_id=repo_id,
-                repo_type="dataset",
-                commit_message=f"Archive verified batch item {index}",
-            )
-            remote = api.dataset_info(repo_id, files_metadata=True)
-            sibling = next(
-                (entry for entry in remote.siblings if entry.rfilename == item["path"]),
-                None,
-            )
-            if sibling is None or sibling.size != item["bytes"]:
+            observed.append((index, item, digest))
+
+        commit = api.upload_folder(
+            folder_path=root,
+            repo_id=repo_id,
+            repo_type="dataset",
+            commit_message=f"Archive verified batch {start}:{start + len(items)}",
+        )
+        remote = api.dataset_info(repo_id, files_metadata=True)
+        remote_files = {entry.rfilename: entry.size for entry in remote.siblings}
+        for index, item, digest in observed:
+            if remote_files.get(item["path"]) != item["bytes"]:
                 raise RuntimeError(f"remote verification failed for {item['path']}")
             receipts.append(
                 {
@@ -108,7 +109,6 @@ def archive_batch(
                     "commit": str(commit),
                 }
             )
-            local.unlink()
     return receipts
 
 
