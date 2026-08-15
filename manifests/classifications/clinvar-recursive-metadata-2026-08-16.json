@@ -1,7 +1,7 @@
 {
   "budgets": {
     "max_depth": 2,
-    "max_requests": 50,
+    "max_requests": 80,
     "minimum_delay_seconds": 1.0,
     "sequential": true
   },
@@ -10,9 +10,9 @@
     "product_completeness": false,
     "redistribution_rights": false
   },
-  "exhausted_within_scope": false,
-  "frontier_queue_count": 6,
-  "inventory_sha256": "8bd91faf376f18d0fe9041dbf89a5ca0179350430e1e2a7f80d6deb24c34fa11",
+  "exhausted_within_scope": true,
+  "frontier_queue_count": 0,
+  "inventory_sha256": "160450482c80fd8756c78aa51e3eebda38e92960c61f956f024f1dc1330250d4",
   "observations": [
     {
       "depth": 0,
@@ -45274,9 +45274,51 @@
       "root_product": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/",
       "surface_sha256": "c5634dbf1d27fc287dd11755f053a81dcbcc896fbf4edc147b0d41ab41727404",
       "surface_url": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/release_archives/2019releases/"
+    },
+    {
+      "depth": 2,
+      "records": [],
+      "root_product": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/",
+      "surface_sha256": "5d301623fe8ca85153f18144babed169ba8929f3c16b5a4b713ef502037fd266",
+      "surface_url": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/release_archives/2020releases/"
+    },
+    {
+      "depth": 2,
+      "records": [],
+      "root_product": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/",
+      "surface_sha256": "ebbfb66f7c271106d71e258c0ae0dce6442699e18957694cbebfa7586c593da0",
+      "surface_url": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/release_archives/2021releases/"
+    },
+    {
+      "depth": 2,
+      "records": [],
+      "root_product": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/",
+      "surface_sha256": "3fee373a98f328e2a5212c47447e729b1a884202e6fee4d24bc5d5151ab9d6e1",
+      "surface_url": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/release_archives/2022releases/"
+    },
+    {
+      "depth": 2,
+      "records": [],
+      "root_product": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/",
+      "surface_sha256": "2f6ee3e9b7581353468601215737d3a327f878364dfa883e2a57be0505b5cd47",
+      "surface_url": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/release_archives/2023releases/"
+    },
+    {
+      "depth": 2,
+      "records": [],
+      "root_product": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/",
+      "surface_sha256": "2d996abb3f5c0202eaeee64228281449cc1583ba05fd7ca241c9378676668216",
+      "surface_url": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/release_archives/2024releases/"
+    },
+    {
+      "depth": 2,
+      "records": [],
+      "root_product": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/",
+      "surface_sha256": "68fe9668b76e298d8dd97268907da6ab04a7e0b71d1beaece63261d188adc971",
+      "surface_url": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/release_notes/release_archives/2025releases/"
     }
   ],
-  "observed_at": "2026-08-16T03:35:00+10:00",
+  "observed_at": "2026-08-16T05:00:00+10:00",
   "schema_version": "1.0",
   "status": "bounded_recursive_clinvar_metadata"
 }
