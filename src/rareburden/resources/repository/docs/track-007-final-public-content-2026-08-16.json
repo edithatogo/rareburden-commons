@@ -1,0 +1,86 @@
+{
+  "workflow_version": "RBC-LAND-007-PENDING-PUBLIC-v0.1.0",
+  "eligibility_input_sha256": "sha256:6d00061c3ffaeb1d16020000d364798936bbc3283280225ed554f88b7cf7a37a",
+  "observed_at_utc": "2026-08-15T16:39:54Z",
+  "content_retention": "minimal_metadata_and_hashes_only_no_abstract_description_body_or_full_text",
+  "counts": {
+    "include": 3
+  },
+  "observations": [
+    {
+      "canonical_key": "doi:10.5281/zenodo.7102403",
+      "provider": "zenodo",
+      "request_url": "https://zenodo.org/api/records/7102403",
+      "final_url": "https://zenodo.org/api/records/7102403",
+      "http_status": 200,
+      "response_sha256": "sha256:fd8d6510396a48e0969d80640a8c0bf41da929f2ee5c79b442d107a9b6faea95",
+      "observed_at_utc": "2026-08-15T16:39:54Z",
+      "abstract_or_description_retained": false,
+      "title": "Using the Mondo Disease Ontology to Standardize Rare Disease Nomenclature",
+      "canonical_url": "",
+      "work_type": "presentation",
+      "scope_signal": true,
+      "contribution_signal": true,
+      "decision": "include"
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7125341",
+      "provider": "zenodo",
+      "request_url": "https://zenodo.org/api/records/7125341",
+      "final_url": "https://zenodo.org/api/records/7125341",
+      "http_status": 200,
+      "response_sha256": "sha256:8247f3f53e96d7ba0eaec8d761b24fdb085c94521d138f53ac63c67e0a48eb10",
+      "observed_at_utc": "2026-08-15T16:39:54Z",
+      "abstract_or_description_retained": false,
+      "title": "Standardizing Rare Disease Data Collection:  It Takes an (Ontology) Village",
+      "canonical_url": "",
+      "work_type": "presentation",
+      "scope_signal": true,
+      "contribution_signal": true,
+      "decision": "include"
+    },
+    {
+      "canonical_key": "github:acadtags/rare-disease-identification",
+      "provider": "github",
+      "request_url": "https://api.github.com/repos/acadTags/Rare-disease-identification",
+      "final_url": "https://api.github.com/repos/acadTags/Rare-disease-identification",
+      "http_status": 200,
+      "response_sha256": "sha256:0ed6bf1242d4e6235ce392bc178b7414278441101aa27ced0c1c2252b384f344",
+      "observed_at_utc": "2026-08-15T16:39:54Z",
+      "abstract_or_description_retained": false,
+      "title": "Rare-disease-identification",
+      "canonical_url": "https://github.com/acadTags/Rare-disease-identification",
+      "work_type": "software",
+      "scope_signal": true,
+      "contribution_signal": true,
+      "decision": "include"
+    }
+  ],
+  "resolutions": [
+    {
+      "canonical_key": "doi:10.5281/zenodo.7102403",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:fd8d6510396a48e0969d80640a8c0bf41da929f2ee5c79b442d107a9b6faea95"
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7125341",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:8247f3f53e96d7ba0eaec8d761b24fdb085c94521d138f53ac63c67e0a48eb10"
+    },
+    {
+      "canonical_key": "github:acadtags/rare-disease-identification",
+      "decision": "include",
+      "reason": "public_metadata_explicitly_describes_in_scope_contribution",
+      "exclusion_reason": null,
+      "evidence_sha256": "sha256:0ed6bf1242d4e6235ce392bc178b7414278441101aa27ced0c1c2252b384f344"
+    }
+  ],
+  "limitations": [
+    "Unreachable evidence remains pending, never excluded.",
+    "Metadata decisions do not establish quality, novelty, or coverage."
+  ]
+}

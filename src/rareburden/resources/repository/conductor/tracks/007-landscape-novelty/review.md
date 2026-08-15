@@ -118,6 +118,16 @@ in `docs/track-007-bibliographic-content-update-2026-08-16.yml`. The bounded
 expansion reduces the earlier single-page Crossref limitation but does not make
 the search systematic, comprehensive, representative or publication-ready.
 
+### Final minimal-metadata pass — 2026-08-16
+
+Exact Zenodo and GitHub public metadata resolved the last 3 non-restricted
+frozen records as includes. The frozen set is now 59 includes, 2 explicit
+duplicate/non-substantive-release exclusions and 8 lawful-access records still
+pending. The same exact signal contract supports bounded adjacency eligibility
+for 51 live-only records; 93 remain uncertain and none is excluded. No response
+body, description, abstract or full text is retained, and neither result is a
+quality, novelty, community-authority or completeness finding.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The seed screening
