@@ -1,0 +1,56 @@
+schema_version: "1.0"
+decision_id: track-002-private-archive-capacity-2026-08-16
+status: not_authorized
+steps:
+  - id: exact_quote
+    status: pending
+    required_evidence:
+      - provider and account plan
+      - region and billing currency
+      - included capacity and current stored bytes
+      - storage, request, retrieval, egress and minimum-duration charges
+      - owner-approved recurring cost cap
+  - id: rights_and_retention
+    status: pending
+    required_evidence:
+      - current UTS licence/account remains valid
+      - selected provider is permitted for private licensed storage
+      - retention, deletion, withdrawal and legal-hold policy
+      - no public redistribution or cross-account exposure
+  - id: security_design
+    status: pending
+    required_evidence:
+      - private-by-default resource policy
+      - least-privilege workload identity or scoped secret
+      - encryption in transit and at rest
+      - logging, credential rotation and incident response
+      - versioning/object-lock decision with deletion consequences
+  - id: checkpoint_design
+    status: pending
+    required_evidence:
+      - content-addressed object keys and SHA-256 sidecars
+      - payload plus receipt atomicity rule
+      - remote size and hash verification
+      - no cursor advance on partial or mismatched upload
+      - no redownload while existing destination state is unresolved
+  - id: bounded_canary
+    status: pending
+    required_evidence:
+      - dated expiring capacity verification
+      - one historical artifact maximum
+      - exact source, destination, size and SHA-256 receipt
+      - ephemeral runner cleanup
+      - recovery/read-back verification
+  - id: reviewed_resumption
+    status: pending
+    required_evidence:
+      - reviewed capacity-state change to ready
+      - approved per-run byte, time and artifact limits
+      - concurrency remains serialized
+      - rollback to blocked on quota or integrity failure
+fail_closed_until_all_steps_pass: true
+current_behavior:
+  capacity_state: blocked
+  source_download_allowed: false
+  cursor_advance_allowed: false
+  paid_resource_creation_allowed: false
