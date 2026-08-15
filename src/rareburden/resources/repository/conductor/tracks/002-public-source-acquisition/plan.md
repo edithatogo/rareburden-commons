@@ -1,5 +1,20 @@
 # Track 002 plan
 
+## HPO historical frontier — 2026-08-16
+
+- [x] Exhaustively paginate the official HPO GitHub releases endpoint and
+  partition 64 observed releases/707 assets against the existing
+  15-release/320-asset manifest. Record the 49 missing release tags as
+  metadata-only while exact asset redistribution rights remain unresolved.
+- [x] Exhaustively paginate the official HPO translations tag and commit
+  endpoints, recording 128 commits, zero tags, the exact head and 16
+  discoverable language codes. Reuse the owner fork and reported existing Git
+  bundle rather than duplicating them; bytes remain fail-closed because the
+  upstream repository exposes no exact licence file.
+- [x] Add deterministic manifests, validation/negative tests, documentation and
+  a manual five-minute Actions audit receipt. No historical, language or
+  external-repository completeness is claimed beyond the recorded API bounds.
+
 ## Phase 1 — Source contracts and schemas
 
 - [x] Reverify the exact bounded candidate URLs, observed terms, release

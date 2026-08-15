@@ -1,0 +1,48 @@
+schema_version: "1.0"
+track: "008-semantic-backbone"
+reviewed_scope: "source-release reconciliation and synthetic semantic-preview boundaries"
+candidate_inventory: "manifests/semantics/track-008-source-release-provenance-2026-08-16.json"
+mode: "role_separated_repository_agent_review"
+independence_boundary: "self-contained repository review; not clinical, scientific, patient/community, custodian or independent approval"
+lanes:
+  - role: "semantic_methods"
+    questions: ["release identity is distinguishable from mapping fitness", "conditional uses cannot imply clinical equivalence", "source drift requires impact review"]
+    findings:
+      - severity: "medium"
+        finding: "Exact releases are now pinned where receipts support them, but source-specific mapping fitness remains unreviewed."
+        remediation: "Keep all real-world mappings absent; use recorded releases only as provenance candidates."
+      - severity: "low"
+        finding: "ORPHAcode and Orphadata snapshots are bounded observations rather than historical or language-complete corpora."
+        remediation: "Retain explicit completeness limitations in every downstream semantic release."
+    recommendation: "bounded"
+  - role: "rights_and_governance"
+    questions: ["public and private byte routes match observed rights", "controlled terminology stays fail-closed", "redistribution is not inferred from access"]
+    findings:
+      - severity: "medium"
+        finding: "HPO exact terms remain inaccessible and WHO classification redistribution remains unresolved."
+        remediation: "Keep HPO and WHO bytes private and semantic activation disabled."
+      - severity: "medium"
+        finding: "UMLS and SNOMED rights are source-vocabulary and edition specific."
+        remediation: "Expose only release metadata publicly; preserve controlled bytes in the private licensed archive."
+    recommendation: "bounded"
+  - role: "naming_harm_and_accessibility"
+    questions: ["synthetic labels cannot be mistaken for diagnoses", "unresolved categories remain visible", "source authority is not represented as endorsement"]
+    findings:
+      - severity: "medium"
+        finding: "No real labels or groupings have received clinical or community authority."
+        remediation: "Retain synthetic/non-diagnostic labels and explicit unresolved status; do not claim community approval."
+      - severity: "low"
+        finding: "Multilingual pack availability does not establish language representativeness or culturally acceptable naming."
+        remediation: "Keep language and country representativeness claims false."
+    recommendation: "bounded"
+disposition:
+  recommendation: "continue_bounded_synthetic_and_metadata_preparation"
+  critical_findings: 0
+  unresolved_medium_findings: 4
+  owner_decision: "not_recorded_by_this_review"
+  v0_4_contract_freeze: false
+stop_triggers:
+  - "controlled or unresolved-rights bytes enter a public release"
+  - "a source release is treated as proof of mapping or clinical fitness"
+  - "synthetic labels are presented as clinical or community-approved"
+  - "Track 002 or Track 007 incompleteness is hidden"
