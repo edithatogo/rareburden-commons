@@ -96,8 +96,10 @@
   combined v0.3.0 eligibility register record 21 additional includes, 2 explicit
   duplicate/non-substantive-release exclusions, 1 uncertain record and 2
   pending public-evidence records.
-- [ ] Resolve the remaining 2 public-evidence-pending and 1 uncertain frozen
-  records only when sufficient lawful evidence becomes available.
+- [x] Resolve the remaining 2 public-evidence-pending and 1 uncertain frozen
+  records through exact Zenodo/GitHub public metadata. Evidence:
+  `docs/track-007-fulltext-eligibility-v0.3.1-2026-08-16.json` records 59
+  includes, 2 exclusions and only the 8 lawful-access cases pending.
 - [ ] Resolve the 8 restricted frozen records through a lawful access route or
   an adequate public alternative; restriction is never exclusion evidence.
 - [x] Screen all 144 live-only records with the exact scope/contribution
@@ -106,6 +108,10 @@
 - [ ] Complete final content assessment for the 51 live-only candidates and
   resolve the 93 uncertain records without inferring exclusion, absence,
   coverage or novelty from missing evidence.
+- [x] Record bounded adjacency eligibility for the 51 live-only records with
+  both exact public scope and contribution signals; retain all 93 other records
+  as uncertain, never excluded. Evidence:
+  `docs/track-007-live-final-eligibility-2026-08-16.json`.
 - [x] Execute a strict two-page, 20-row Crossref expansion for the five frozen
   queries plus four multilingual and three community/community-multilingual
   queries. Evidence: `docs/track-007-bibliographic-expansion-2026-08-16.json`
