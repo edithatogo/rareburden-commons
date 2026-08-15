@@ -39,11 +39,14 @@ jobs:
       - name: Archive, digest, verify and discard
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          MONDO_RELEASE_INDEX: ${{ inputs.release_index }}
+          MONDO_ASSET_START: ${{ inputs.asset_start }}
+          MONDO_ASSET_COUNT: ${{ inputs.asset_count }}
         run: |
           python3 scripts/archive_mondo_release_batch.py \
-            --release-index "${{ inputs.release_index }}" \
-            --asset-start "${{ inputs.asset_start }}" \
-            --asset-count "${{ inputs.asset_count }}" \
+            --release-index "$MONDO_RELEASE_INDEX" \
+            --asset-start "$MONDO_ASSET_START" \
+            --asset-count "$MONDO_ASSET_COUNT" \
             --max-bytes 500000000 \
             --receipt mondo-archive-receipt.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
