@@ -85,8 +85,16 @@ def validate_readiness(manifest: dict[str, Any], root: Path) -> dict[str, Any]:
         raise ReleaseReadinessError(
             "release-readiness claims must remain false: " + ", ".join(unsafe_claims)
         )
+    expected_track_016_gate = status == "bound"
+    if (
+        manifest.get("stable_release_gates", {}).get("track_016_bound")
+        is not expected_track_016_gate
+    ):
+        raise ReleaseReadinessError("Track 016 gate must match its exact binding state")
     unsafe_gates = sorted(
-        key for key, value in manifest.get("stable_release_gates", {}).items() if value is not False
+        key
+        for key, value in manifest.get("stable_release_gates", {}).items()
+        if key != "track_016_bound" and value is not False
     )
     if unsafe_gates:
         raise ReleaseReadinessError(
@@ -101,7 +109,9 @@ def validate_readiness(manifest: dict[str, Any], root: Path) -> dict[str, Any]:
     return {
         "status": "bounded_readiness_preparation_valid",
         "track_016_status": status,
-        "open_gate_count": len(manifest["stable_release_gates"]),
+        "open_gate_count": sum(
+            value is False for value in manifest["stable_release_gates"].values()
+        ),
         "prohibited_claim_count": len(manifest["claims"]),
     }
 

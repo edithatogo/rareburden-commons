@@ -113,5 +113,7 @@ owner-operated reproduction gates.
   continuity, dependency and stable-release overclaims. Evidence:
   `scripts/check_track017_bounded_readiness.py` and
   `tests/test_track017_bounded_readiness.py`.
-- [ ] Bind the exact merged Track 016 evidence artifact and merge commit before
-  integrating this bounded preparation.
+- [x] Bind the exact merged Track 016 evidence artifact and merge commit before
+  integrating this bounded preparation. Evidence: PR #104 merge
+  `18910840fee787bbe2ae7d7eff40b944539a11f4` and SHA-256
+  `a12ffd69c9b67e9999b9f6cbf4263387315ac67109cf1c0d6e1af793344bc8f3`.

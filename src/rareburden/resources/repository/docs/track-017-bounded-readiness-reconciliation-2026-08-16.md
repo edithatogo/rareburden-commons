@@ -1,6 +1,6 @@
 # Track 017 bounded release-readiness reconciliation
 
-**Status:** repository preparation only; held for exact Track 016 binding.
+**Status:** bounded repository contract validated; stable release remains disabled.
 
 ## Current operating model
 
@@ -25,8 +25,9 @@ recorded.
   environment, hashes, timestamps, outputs and discrepancies are required.
 - Track 013 quality, Track 014 release-surface and Track 015 governance
   evidence are hash-bound in the machine-readable readiness manifest.
-- Track 016 remains an explicit dependency. This branch cannot bind or close it
-  before the exact Track 016 artifact and merge commit exist on `main`.
+- Track 016 is bound to its exact merged operations artifact (PR #104, merge
+  `18910840fee787bbe2ae7d7eff40b944539a11f4`). This closes only the dependency
+  binding, not the remaining stable-release gates.
 
 ## Stable-release boundary
 

@@ -2,7 +2,7 @@
   "schema_version": "0.1.0",
   "track": "017",
   "scope": "single_owner_agent_panel_release_readiness",
-  "status": "prepared_awaiting_track_016_binding",
+  "status": "bounded_readiness_contract_validated",
   "created_at": "2026-08-16T00:00:00Z",
   "operating_model": {
     "repository_owner_count": 1,
@@ -47,10 +47,10 @@
   ],
   "integration_dependency": {
     "track": "016",
-    "artifact": null,
-    "status": "pending_merge",
-    "sha256": null,
-    "merge_commit": null
+    "artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json",
+    "status": "bound",
+    "sha256": "a12ffd69c9b67e9999b9f6cbf4263387315ac67109cf1c0d6e1af793344bc8f3",
+    "merge_commit": "18910840fee787bbe2ae7d7eff40b944539a11f4"
   },
   "usability_preparation": {
     "status": "prepared_not_executed",
@@ -66,7 +66,7 @@
     "required_receipt_fields": ["candidate_commit", "artifact_hashes", "locked_environment", "commands", "utc_timestamp", "outputs", "discrepancies", "equivalence_disposition"]
   },
   "stable_release_gates": {
-    "track_016_bound": false,
+    "track_016_bound": true,
     "usability_agent_reports_complete": false,
     "owner_reproduction_complete": false,
     "two_clean_candidates_complete": false,

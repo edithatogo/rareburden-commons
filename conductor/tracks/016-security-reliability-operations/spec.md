@@ -4,6 +4,12 @@
 
 Harden RareBurden Commons and its release/node pathways so the supported v1 scope can be operated, monitored, recovered and maintained safely.
 
+This is a single-developer repository. The owner may produce clearly labelled
+owner-operated repository evidence; that evidence never becomes independent
+operator or independent-security evidence by relabelling. A privately
+identified backup role may remain privacy-preserving, but acceptance criterion
+8 is not complete until its scope and handoff evidence are bound.
+
 ## Required outputs
 
 - threat model for repository, acquisition, build, node, API and release boundaries;

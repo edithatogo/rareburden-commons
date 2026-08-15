@@ -49,10 +49,9 @@ asserted.
 
 ## Bounded reconciliation review — 2026-08-16
 
-The manifest, validator and negative tests bind current Track 013–015 evidence,
+The manifest, validator and negative tests bind current Track 013–016 evidence,
 preserve the incomplete backup-continuity state, and prevent agent advice or
 repository checks from becoming independent/external approval or stable-v1
-claims. Repository preparation passes review. Integration remains held until
-the exact merged Track 016 evidence artifact and merge commit are bound. All
-execution, support-continuity, public-verification and stable-release gates stay
-open.
+claims. Repository preparation passes review. Track 016 is exactly bound at PR
+#104 merge `18910840fee787bbe2ae7d7eff40b944539a11f4`; execution,
+support-continuity, public-verification and stable-release gates stay open.

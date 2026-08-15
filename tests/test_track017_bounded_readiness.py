@@ -19,8 +19,8 @@ def _payload() -> dict:
 def test_prepared_readiness_contract_is_bounded() -> None:
     assert validate_readiness(_payload(), ROOT) == {
         "status": "bounded_readiness_preparation_valid",
-        "track_016_status": "pending_merge",
-        "open_gate_count": 8,
+        "track_016_status": "bound",
+        "open_gate_count": 7,
         "prohibited_claim_count": 10,
     }
 
@@ -57,8 +57,8 @@ def test_evidence_drift_fails_closed() -> None:
 
 def test_track_016_cannot_be_bound_prematurely() -> None:
     payload = copy.deepcopy(_payload())
-    payload["integration_dependency"]["artifact"] = "manifests/operations/not-yet-merged.json"
-    with pytest.raises(ReleaseReadinessError, match="must not imply"):
+    payload["integration_dependency"]["sha256"] = "0" * 64
+    with pytest.raises(ReleaseReadinessError, match="dependency hash mismatch"):
         validate_readiness(payload, ROOT)
 
 
