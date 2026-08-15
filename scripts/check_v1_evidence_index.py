@@ -54,7 +54,7 @@ def validate_v1_index(index: dict[str, Any], root: Path) -> dict[str, Any]:
         artifact = root / relative
         if not artifact.is_file() or _sha256(artifact) != binding.get("sha256"):
             raise V1EvidenceIndexError(f"evidence hash mismatch: {relative}")
-        bound_paths.add(str(relative))
+        bound_paths.add(relative.as_posix())
     for group in index.get("criterion_groups", []):
         if not group.get("evidence") or not group.get("gap"):
             raise V1EvidenceIndexError("every criterion group needs evidence and an explicit gap")
