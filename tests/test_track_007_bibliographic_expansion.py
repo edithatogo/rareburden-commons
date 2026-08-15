@@ -118,3 +118,17 @@ def test_bibliographic_content_update_binds_exact_evidence_and_missingness() -> 
     assert update["frozen_69_record_outcome"]["pending_lawful_access"] == 8
     assert update["bibliographic_expansion"]["record_language"] == {"not_reported": 480}
     assert update["bibliographic_expansion"]["geography_sampling"] == "not_measured"
+
+
+def test_final_metadata_pass_preserves_lawful_access_and_uncertainty() -> None:
+    frozen = json.loads(
+        (ROOT / "docs/track-007-fulltext-eligibility-v0.3.1-2026-08-16.json").read_text()
+    )
+    live = json.loads((ROOT / "docs/track-007-live-final-eligibility-2026-08-16.json").read_text())
+    assert frozen["counts"]["eligibility_state"] == {
+        "exclude": 2,
+        "include": 59,
+        "pending_lawful_access": 8,
+    }
+    assert live["counts"] == {"include": 51, "uncertain": 93}
+    assert all(item["decision"] != "exclude" for item in live["decisions"])

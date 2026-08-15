@@ -31,7 +31,7 @@ CONTRIBUTION = (
     "economic",
     "estimate",
     "method",
-    "ontology",
+    "ontolog",
     "prevalence",
     "registry",
     "standard",
@@ -45,6 +45,9 @@ def _normalize(value: str) -> str:
 
 def _request(record: dict[str, Any]) -> tuple[str, str]:
     key = record["canonical_key"]
+    if "zenodo.org/records/" in record.get("canonical_url", ""):
+        identifier = record["canonical_url"].rstrip("/").rsplit("/", 1)[-1]
+        return "zenodo", f"https://zenodo.org/api/records/{identifier}"
     if key.startswith("doi:"):
         doi = key.removeprefix("doi:")
         return "crossref", "https://api.crossref.org/works/" + urllib.parse.quote(doi, safe="")
@@ -78,6 +81,17 @@ def _fields(provider: str, payload: Any) -> tuple[str, str, str, str]:
         title = titles[0] if isinstance(titles, list) and titles else ""
         hidden = str(message.get("abstract") or "")
         return str(title), str(message.get("URL") or ""), str(message.get("type") or ""), hidden
+    if provider == "zenodo":
+        metadata = payload.get("metadata")
+        links = payload.get("links")
+        if not isinstance(metadata, dict) or not isinstance(links, dict):
+            raise ValueError("Zenodo response lacks metadata or links")
+        return (
+            str(metadata.get("title") or ""),
+            str(links.get("html") or ""),
+            str(metadata.get("resource_type", {}).get("type") or ""),
+            str(metadata.get("description") or ""),
+        )
     title = str(payload.get("name") or payload.get("full_name") or "")
     return (
         title,
@@ -99,7 +113,7 @@ def resolve(
     pending = [
         d
         for d in eligibility["decisions"]
-        if d["eligibility_state"] == "pending_content_assessment"
+        if d["eligibility_state"] in {"pending_content_assessment", "uncertain"}
     ]
     observed_at_utc = observed_at_utc or dt.datetime.now(dt.UTC).replace(
         microsecond=0
