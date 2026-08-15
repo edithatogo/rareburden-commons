@@ -10,6 +10,7 @@ from scripts.archive_mondo_release_batch import (
     remote_lfs_sha256,
     resolve_cursor,
     select_assets,
+    validate_cursor,
     verify_remote_object,
 )
 
@@ -33,10 +34,45 @@ def test_selection_rejects_empty_or_out_of_range() -> None:
 
 
 def test_committed_cursor_resumes_after_hosted_batch() -> None:
-    assert resolve_cursor(None, None) == (1, 3)
+    assert resolve_cursor(None, None) == (1, 7)
     assert resolve_cursor(4, 5) == (4, 5)
     with pytest.raises(ValueError, match="together"):
         resolve_cursor(1, None)
+
+
+def test_cursor_binds_contiguous_hosted_receipts_fail_closed() -> None:
+    cursor = json.loads(
+        (ROOT / "manifests/classifications/mondo-archive-cursor-2026-08-16.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    validate_cursor(cursor)
+    assert len(cursor["observed_archived_assets"]) == 7
+    assert sum(item["bytes"] for item in cursor["observed_archived_assets"]) == 726_797_932
+
+    cursor["hosted_receipts"][2]["asset_index"] = 8
+    with pytest.raises(ValueError, match="indices 3 through 6"):
+        validate_cursor(cursor)
+
+
+def test_cursor_rejects_completeness_or_noncontiguous_archive_claims() -> None:
+    cursor = json.loads(
+        (ROOT / "manifests/classifications/mondo-archive-cursor-2026-08-16.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    cursor["claims"]["all_assets_archived"] = True
+    with pytest.raises(ValueError, match="claims must remain false"):
+        validate_cursor(cursor)
+
+    cursor = json.loads(
+        (ROOT / "manifests/classifications/mondo-archive-cursor-2026-08-16.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    cursor["observed_archived_assets"].pop(4)
+    with pytest.raises(ValueError, match="contiguous through asset 6"):
+        validate_cursor(cursor)
 
 
 def test_frontier_rejects_missing_release() -> None:

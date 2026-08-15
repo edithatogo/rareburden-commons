@@ -49,7 +49,12 @@ bound.
 Hosted run `31900342354` archived and remotely verified asset indices 1-2 for
 release index 1. Its receipt SHA-256 is
 `222051e2b36000a0af741784afecc1d16c745712ca1cf5f93d3d1a5ef46e1265`.
-The committed cursor resumes at release index 1, asset index 3 when workflow
+Four subsequent hosted runs archived and verified asset indices 3–6 for release
+index 1 without any new source retrieval during this reconciliation. Their run
+IDs, artifact digests and receipt-file hashes are committed in the cursor. The
+seven observed archived assets total 726,797,932 bytes.
+
+The committed cursor resumes at release index 1, asset index 7 when workflow
 coordinates are empty. Explicit paired coordinates permit bounded replay. A
 hosted success does not mutate the cursor: each receipt requires review and a
 normal validated cursor update.
