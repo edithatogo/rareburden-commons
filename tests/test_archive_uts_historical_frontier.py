@@ -5,7 +5,12 @@ from pathlib import Path
 
 import pytest
 
-from scripts.archive_uts_historical_frontier import family_cursors, plan_frontier
+from scripts.archive_uts_historical_frontier import (
+    CapacityBlockedError,
+    capacity_preflight,
+    family_cursors,
+    plan_frontier,
+)
 
 
 def _write_manifest(path: Path) -> None:
@@ -97,3 +102,39 @@ def test_checked_frontier_covers_every_manifest_family_once():
         "next_index": 6,
         "evidence": "github-actions:31893681893",
     }
+
+
+def test_checked_capacity_state_blocks_before_download_and_preserves_cursor():
+    with pytest.raises(CapacityBlockedError) as caught:
+        capacity_preflight(
+            Path("manifests/uts/hf-private-capacity-state-2026-08-16.json"),
+            repository="edithatogo/hpo-licensed-ontology-archive",
+        )
+    receipt = caught.value.receipt
+    assert receipt["status"] == "capacity_blocked"
+    assert receipt["cursor_advanced"] is False
+    assert receipt["source_download_started"] is False
+    assert receipt["redownload_permitted"] is False
+    assert receipt["evidence"]["reference"] == "github-actions:31897934633"
+
+
+def test_capacity_preflight_accepts_only_exact_evidence_bound_ready_state(tmp_path):
+    ready = {
+        "schema_version": "1.0",
+        "repository": "edithatogo/hpo-licensed-ontology-archive",
+        "status": "ready",
+        "observed_at": "2026-08-16T00:00:00Z",
+        "verified_at": "2026-08-16T00:00:00Z",
+        "expires_at": "2026-08-17T00:00:00Z",
+        "evidence": {"reference": "synthetic:test"},
+    }
+    path = tmp_path / "capacity.json"
+    path.write_text(json.dumps(ready), encoding="utf-8")
+    receipt = capacity_preflight(path, repository="edithatogo/hpo-licensed-ontology-archive")
+    assert receipt["status"] == "capacity_preflight_passed"
+    assert receipt["redownload_permitted"] is True
+
+    ready["repository"] = "wrong/repository"
+    path.write_text(json.dumps(ready), encoding="utf-8")
+    with pytest.raises(ValueError, match="repository differs"):
+        capacity_preflight(path, repository="edithatogo/hpo-licensed-ontology-archive")
