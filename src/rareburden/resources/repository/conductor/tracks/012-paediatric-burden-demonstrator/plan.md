@@ -51,3 +51,20 @@
   custodian small-cell disclosure boundary. Evidence:
   `tests/test_downstream_track_contracts.py`; paediatric, privacy, custodian,
   economic and patient/community gates remain open.
+
+## Bounded dependency reconciliation — 2026-08-16
+
+- [x] Bind the synthetic linked-data exercise to exact Track 004, 005 and
+  008–011 repository artifacts while keeping controlled-data, clinical, policy
+  and contract activation false. Evidence:
+  `docs/track-012-dependency-bindings-2026-08-16.yml`.
+- [x] Produce a deterministic synthetic receipt for deduplicated people,
+  multimorbidity, utilisation, missing mortality/cost fields, suppressed
+  jurisdiction breakdowns and explicit non-imputation. Evidence:
+  `manifests/demonstrators/track-012-bounded-synthetic-receipt-2026-08-16.json`.
+- [x] Add fail-closed tests for activation, referential-integrity failures,
+  duplicate people and unsafe disclosure thresholds. Evidence:
+  `tests/test_track012_bounded_reconciliation.py`.
+- [ ] Activate or freeze RBC-P004 only after approved real-data pathways,
+  coding and estimands, transportability evidence, panel findings and owner
+  disposition exist; synthetic reconciliation does not satisfy those gates.

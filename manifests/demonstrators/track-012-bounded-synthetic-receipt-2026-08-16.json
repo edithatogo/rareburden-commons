@@ -1,0 +1,85 @@
+{
+  "activation_state": "synthetic_only",
+  "analysis_id": "rbc-p004-bounded-synthetic-linkage",
+  "clinical_interpretation": false,
+  "contract_frozen": false,
+  "controlled_data_activation": false,
+  "cost": {
+    "currency": "SYN",
+    "missing_people": 1,
+    "observed_people": 1,
+    "total": 500.0
+  },
+  "created_at": "2026-08-16T00:00:00Z",
+  "dependency_bindings": [
+    {
+      "artifact": "docs/federated-node-004-independent-synthetic-run.md",
+      "sha256": "1f2b3774e2948e6eafc56d2408ae7d9bd5c865d3c839d07cd12294b5be88bb81",
+      "track_id": "004"
+    },
+    {
+      "artifact": "examples/ledger/economic-social-synthetic.yml",
+      "sha256": "4d773a9cac101b722d98a5364a279fc5c8c1740b24f8c1c02f7894217b97b29b",
+      "track_id": "005"
+    },
+    {
+      "artifact": "examples/semantics/paediatric-burden-synthetic.yml",
+      "sha256": "8544bd1af1550e74287328b4584449deb1bd2449ff92227a9f3a959d8fdead4e",
+      "track_id": "008"
+    },
+    {
+      "artifact": "manifests/ledger/track-009-source-release-bindings-2026-08-16.json",
+      "sha256": "84b1d8377a87c787a0ff624727a00a9bab6fdbf4851bf840e8157c61eee04376",
+      "track_id": "009"
+    },
+    {
+      "artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",
+      "sha256": "a8176c09e3824d603bf6cd839cfb34b1fd55b7644850d2ad5d7bd1da8713e4fc",
+      "track_id": "010"
+    },
+    {
+      "artifact": "manifests/demonstrators/track-011-bounded-synthetic-receipt-2026-08-16.json",
+      "sha256": "4a225f04add7098121419178a1a7f9ef1d8f01b4536608086ac01af3139c492f",
+      "track_id": "011"
+    }
+  ],
+  "disclosure_threshold": 2,
+  "equity_breakdown": [
+    {
+      "count": null,
+      "jurisdiction": "synthetic-au",
+      "suppressed": true
+    },
+    {
+      "count": null,
+      "jurisdiction": "synthetic-nz",
+      "suppressed": true
+    }
+  ],
+  "limitations": [
+    "All values, codes and jurisdictions are invented for offline tests.",
+    "This fixture does not authorise linkage, re-identification or controlled-data access."
+  ],
+  "mortality": {
+    "known_deaths": 0,
+    "unknown_death_status": 2
+  },
+  "policy_interpretation": false,
+  "population": {
+    "deduplicated_people": 2,
+    "people_with_diagnosis": 2,
+    "people_with_multiple_diagnoses": 1
+  },
+  "receipt_id": "demo-97e9e29d4b5a075459266948",
+  "schema_version": "0.1.0",
+  "uncertainty": {
+    "cost_missing_people": 1,
+    "death_status_missing_people": 2,
+    "imputation_performed": false,
+    "modelled_values": 0
+  },
+  "utilisation": {
+    "admissions": 3,
+    "people_with_admission": 2
+  }
+}
