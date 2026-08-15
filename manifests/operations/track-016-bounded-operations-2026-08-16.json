@@ -1,0 +1,81 @@
+{
+  "schema_version": "0.1.0",
+  "evidence_id": "track-016-bounded-owner-operated-2026-08-16",
+  "scope": "repository_owned_synthetic_public_candidate_operations",
+  "candidate": {
+    "commit": "22388a74e2d8f2c4ff1d59f828279ffabad3b5a7",
+    "tree": "c0e200a5e2871da7b71ea61e164309b707e4e004",
+    "track_014_manifest": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json",
+    "track_014_manifest_sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"
+  },
+  "operator_model": {
+    "primary": "edithatogo",
+    "primary_role": "repository_owner_primary_operator",
+    "backup_state": "owner_attested_private_acceptance_handoff_incomplete",
+    "backup_identity_public": false,
+    "single_developer_repository": true,
+    "independent_operator": false,
+    "independent_security": false,
+    "service_level_commitment": false
+  },
+  "evidence": [
+    {
+      "kind": "owner_operated_synthetic_rehearsal",
+      "path": "docs/track-016-synthetic-rehearsal-receipt-2026-08-05.yml",
+      "sha256": "443795f17254234f6caba344d171667670ba69d14a9f4a6169474d5427004e51",
+      "status": "qualified_repository_evidence"
+    },
+    {
+      "kind": "cyclonedx_sbom",
+      "path": "rareburden.cdx.json",
+      "sha256": "740b953c898794d043e9c4e533424de162b70bb908b6ab2248d314ade1c79be3",
+      "status": "verified_repository_evidence"
+    },
+    {
+      "kind": "retention_access_policy",
+      "path": "docs/track-016-retention-access-policy.md",
+      "sha256": "a62e5309c3075f78b9c79bfaa43033c85ea73be0571f1229a7a2343737bf8ecb",
+      "status": "bounded_repository_policy"
+    },
+    {
+      "kind": "backup_owner_disposition",
+      "path": "docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md",
+      "sha256": "e6d95d03f8346be577caff6291af8f1808d33b765ba2b3b266973ef7c31f9257",
+      "status": "owner_attested_handoff_incomplete"
+    }
+  ],
+  "exercise_results": {
+    "clean_environment_reproduction": "pending_exact_candidate_execution",
+    "repository_security_scan": "pending_exact_candidate_execution",
+    "sbom_integrity": "pass",
+    "backup_restore": "pending_exact_candidate_execution",
+    "release_rollback": "pending_exact_candidate_execution",
+    "resource_budget": "pending_exact_candidate_execution",
+    "retention_access": "bounded_repository_policy"
+  },
+  "claims": {
+    "production_authorized": false,
+    "stable_release_authorized": false,
+    "independent_operator_evidence": false,
+    "independent_security_evidence": false,
+    "backup_handoff_complete": false,
+    "controlled_data_authorized": false
+  },
+  "pending_gates": [
+    "exact_candidate_owner_operated_exercises",
+    "backup_owner_handoff",
+    "independent_operator",
+    "independent_security",
+    "release_authority",
+    "production_operations"
+  ],
+  "stop_triggers": [
+    "critical_security_finding",
+    "secret_or_sensitive_value_in_evidence",
+    "hash_mismatch",
+    "restore_failure",
+    "rollback_failure",
+    "resource_budget_breach",
+    "owner_capacity_loss"
+  ]
+}
