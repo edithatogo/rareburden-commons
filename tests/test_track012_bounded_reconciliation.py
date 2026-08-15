@@ -67,3 +67,57 @@ def test_referential_integrity_duplicates_and_disclosure_floor_fail_closed() -> 
         _run(duplicate)
     with pytest.raises(DemonstratorError, match="at least two"):
         _run(threshold=1)
+
+
+def test_fixture_and_dependency_shape_fail_closed() -> None:
+    not_synthetic = deepcopy(FIXTURE)
+    not_synthetic["status"] = "controlled"
+    with pytest.raises(DemonstratorError, match="synthetic_only"):
+        _run(not_synthetic)
+
+    no_tables = deepcopy(FIXTURE)
+    no_tables["tables"] = None
+    with pytest.raises(DemonstratorError, match="linked tables"):
+        _run(no_tables)
+
+    bindings = deepcopy(BINDINGS)
+    bindings["dependencies"] = bindings["dependencies"][:-1]
+    with pytest.raises(DemonstratorError, match="exact Track"):
+        _run(bindings=bindings)
+
+
+@pytest.mark.parametrize("table", ["person", "diagnosis", "admission", "death", "cost"])
+def test_malformed_tables_fail_closed(table: str) -> None:
+    fixture = deepcopy(FIXTURE)
+    fixture["tables"][table] = None
+    expected = "person table" if table == "person" else f"{table} table"
+    with pytest.raises(DemonstratorError, match=expected):
+        _run(fixture)
+
+
+def test_missing_identifiers_jurisdiction_and_duplicate_admission_fail_closed() -> None:
+    missing_person_id = deepcopy(FIXTURE)
+    missing_person_id["tables"]["person"][0].pop("person_id")
+    with pytest.raises(DemonstratorError, match="require person_id"):
+        _run(missing_person_id)
+
+    missing_jurisdiction = deepcopy(FIXTURE)
+    missing_jurisdiction["tables"]["person"][0]["jurisdiction"] = ""
+    with pytest.raises(DemonstratorError, match="requires a jurisdiction"):
+        _run(missing_jurisdiction)
+
+    duplicate_admission = deepcopy(FIXTURE)
+    duplicate_admission["tables"]["admission"][1]["admission_id"] = "A001"
+    with pytest.raises(DemonstratorError, match="admission identifiers"):
+        _run(duplicate_admission)
+
+
+def test_threshold_releases_only_qualifying_synthetic_group_and_observed_death() -> None:
+    fixture = deepcopy(FIXTURE)
+    fixture["tables"]["person"][1]["jurisdiction"] = "synthetic-au"
+    fixture["tables"]["death"][0]["year"] = 2022
+    result = _run(fixture)
+    assert result["equity_breakdown"] == [
+        {"jurisdiction": "synthetic-au", "count": 2, "suppressed": False}
+    ]
+    assert result["mortality"] == {"known_deaths": 1, "unknown_death_status": 1}
