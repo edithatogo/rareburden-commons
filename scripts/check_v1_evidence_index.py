@@ -69,7 +69,6 @@ def validate_v1_index(index: dict[str, Any], root: Path) -> dict[str, Any]:
         raise V1EvidenceIndexError("v1 release and authority claims must remain false")
     required_pending = {
         "qualifying backup continuity evidence",
-        "exact owner v1 candidate decision",
         "public stable artifact publication and verification",
     }
     if set(index.get("pending_release_actions", [])) != required_pending:

@@ -21,7 +21,7 @@ def test_all_v1_criteria_are_indexed_without_release_acceptance() -> None:
         "group_count": 12,
         "index_complete": True,
         "release_acceptance_complete": False,
-        "pending_release_action_count": 3,
+        "pending_release_action_count": 2,
     }
 
 

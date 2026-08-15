@@ -76,5 +76,15 @@ with evidence routes and explicit group gaps. The validator rejects omitted,
 duplicated or reordered criteria, hash drift, unbound evidence and release
 overclaims. Index completeness is an accounting property only: no criterion is
 promoted to satisfied, and stable acceptance remains incomplete. Qualifying
-backup continuity, an exact-candidate owner decision and post-decision public
-stable-artifact verification remain pending.
+backup continuity and post-decision public stable-artifact verification remain
+pending; the later exact-candidate owner disposition is bounded, not stable.
+
+## Owner bounded-disposition review — 2026-08-16
+
+The repository owner recorded an immutable GitHub receipt for exact candidate
+`ba92940572bd69e19d54447e59b8ba8f776e3d5b`: bounded synthetic/public preview,
+stable release deferred. The receipt accepts repository tests, advisory agent
+findings and owner-operated reproduction while retaining source-rights,
+coverage, continuity, external-authority and support exclusions. Its validator
+prevents promotion to production, stable release, a v1 tag, independent or
+external approval, backup continuity or public stable-artifact verification.

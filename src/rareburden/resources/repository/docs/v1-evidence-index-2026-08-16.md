@@ -11,13 +11,14 @@ criterion remains fail-closed for the exact v1 release decision because the
 repository has bounded synthetic/repository evidence rather than a frozen v1
 candidate disposition.
 
-Three actions remain outside this indexing task:
+The repository owner has now recorded a bounded synthetic/public-preview
+decision for exact candidate `ba92940572bd69e19d54447e59b8ba8f776e3d5b`;
+stable release is explicitly deferred. Two actions remain outside this indexing
+task:
 
 1. qualifying backup-continuity evidence beyond the owner's private-role
    attestation;
-2. an exact-candidate owner decision after reviewing the completed criterion
-   statuses and exclusions; and
-3. publication and verification of stable public artifacts, which can occur
+2. publication and verification of stable public artifacts, which can occur
    only after that decision.
 
 The index validator rejects missing, duplicated or reordered criteria, stale

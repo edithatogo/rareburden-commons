@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1.0",
+  "receipt_kind": "repository_owner_exact_candidate_disposition",
+  "candidate_commit": "ba92940572bd69e19d54447e59b8ba8f776e3d5b",
+  "decision": "bounded_synthetic_public_preview",
+  "stable_release_disposition": "deferred",
+  "github_receipt": {
+    "repository": "edithatogo/rareburden-commons",
+    "issue": 16,
+    "comment_id": 5303792002,
+    "node_id": "IC_kwDOTk3YyM8AAAABPCFxgg",
+    "url": "https://github.com/edithatogo/rareburden-commons/issues/16#issuecomment-5303792002",
+    "author": "edithatogo",
+    "author_association": "OWNER",
+    "created_at": "2026-08-15T19:09:10Z",
+    "updated_at": "2026-08-15T19:09:10Z",
+    "observed_body_sha256": "a2784ba585902ac4917462b9eff15fd0314f0b94f50add9dad0b6e5ab8d23629"
+  },
+  "accepted_repository_evidence": [
+    "repository tests",
+    "role-separated advisory agent findings",
+    "two clean candidate builds",
+    "owner-operated clean-environment reproduction",
+    "bounded source and rights records",
+    "complete v1 evidence index"
+  ],
+  "binding_exclusions": [
+    "stable release",
+    "production activation",
+    "clinical product or validity",
+    "comprehensive coverage",
+    "independent validation",
+    "external approval",
+    "support continuity",
+    "unresolved source rights",
+    "unrecorded source metric geography or denominator",
+    "controlled data",
+    "partnership or endorsement"
+  ],
+  "stop_triggers": [
+    "critical safety failure",
+    "rights failure",
+    "semantic-integrity failure",
+    "security failure",
+    "reproducibility failure",
+    "recovery failure",
+    "withdrawal-route failure",
+    "candidate or artifact hash failure"
+  ],
+  "claims": {
+    "stable_release_authorized": false,
+    "production_activated": false,
+    "independent_or_external_approval": false,
+    "backup_continuity_complete": false,
+    "public_stable_artifacts_verified": false,
+    "v1_tag_created": false
+  },
+  "next_actions": [
+    "retain qualifying backup continuity gate",
+    "prepare but do not publish stable artifacts",
+    "require a new exact-candidate disposition after material change"
+  ]
+}
