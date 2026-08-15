@@ -78,25 +78,25 @@
     },
     {
       "id": "orphacode",
-      "evidence": "docs/track-002-terminology-archive-receipts-2026-08-16.yml",
+      "evidence": "manifests/classifications/public-history-products-2026-08-16.json",
       "observed": "71 packs exposed by the recorded official page snapshot",
       "bytes_state": "public_archive_complete_for_observed_page_snapshot",
       "public_route": "existing_public_archive",
       "private_route": "not_needed",
       "gap": "historical packs, unavailable languages and future publisher changes",
       "blocker": "bounded page discovery cannot prove history or representativeness",
-      "evidence_sha256": "134a071efa7e44216879c1aef8e7587eb73df9898d5922c3764faf8a5835828c"
+      "evidence_sha256": "3e14b870c5ffe4a451cb103831fc6d16ee227625008fa0a0bd557aec5fe06c00"
     },
     {
       "id": "orphadata",
-      "evidence": "docs/track-002-terminology-archive-receipts-2026-08-16.yml",
+      "evidence": "manifests/classifications/public-history-products-2026-08-16.json",
       "observed": "94 files across 8 current official scientific product pages",
       "bytes_state": "public_archive_complete_for_observed_page_snapshot",
       "public_route": "existing_public_archive",
       "private_route": "not_needed",
       "gap": "historical July/December releases, unavailable languages and change files",
       "blocker": "current pages do not expose a complete historical index",
-      "evidence_sha256": "134a071efa7e44216879c1aef8e7587eb73df9898d5922c3764faf8a5835828c"
+      "evidence_sha256": "3e14b870c5ffe4a451cb103831fc6d16ee227625008fa0a0bd557aec5fe06c00"
     },
     {
       "id": "panelapp",
@@ -111,25 +111,25 @@
     },
     {
       "id": "mondo",
-      "evidence": "docs/track-002-source-verification-2026-08-15.yml",
-      "observed": "v2026-08-04 exact release with three digest-pinned assets",
+      "evidence": "manifests/classifications/public-history-products-2026-08-16.json",
+      "observed": "100 releases on the bounded first official GitHub Releases API page; v2026-08-04 has three digest-pinned archived assets",
       "bytes_state": "existing_public_archive",
       "public_route": "existing_public_archive",
       "private_route": "existing_private_archive",
-      "gap": "historical releases not reconciled",
-      "blocker": "bounded current-release receipt only",
-      "evidence_sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"
+      "gap": "releases beyond the bounded first 100 and exact asset digest reconciliation",
+      "blocker": "bounded one-page observation and potentially large historical assets",
+      "evidence_sha256": "3e14b870c5ffe4a451cb103831fc6d16ee227625008fa0a0bd557aec5fe06c00"
     },
     {
       "id": "clinvar",
-      "evidence": "docs/track-002-source-verification-2026-08-15.yml",
-      "observed": "2026-08 variant_summary monthly archive",
+      "evidence": "manifests/classifications/public-history-products-2026-08-16.json",
+      "observed": "80 links on the bounded official tab-delimited archive index; 2026-08 variant_summary is digest-pinned privately",
       "bytes_state": "existing_private_archive",
       "public_route": "metadata_only_with_submitter_caveats",
       "private_route": "existing_private_archive",
-      "gap": "historical monthly releases and other ClinVar products",
-      "blocker": "scope expansion and submitter-provenance review",
-      "evidence_sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"
+      "gap": "other ClinVar product directories and product-specific historical reconciliation",
+      "blocker": "scope expansion, submitter-provenance and redistribution review",
+      "evidence_sha256": "3e14b870c5ffe4a451cb103831fc6d16ee227625008fa0a0bd557aec5fe06c00"
     }
   ],
   "routing_rules": [
@@ -146,5 +146,5 @@
     "licensed_bytes_public": false,
     "duplication_eliminated_retroactively": false
   },
-  "audit_sha256": "752a01c04a3ce47d89135a281258193cc5d4aab40bcde2e058ea32b8ad60e64c"
+  "audit_sha256": "bc070753aa6a59019952754d2299cc19276af456af8adec46cdd065391015cdd"
 }
