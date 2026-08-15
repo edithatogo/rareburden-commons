@@ -45,6 +45,24 @@
   `docs/track-007-pagination-workflow.md` and
   `tests/test_track_007_pagination.py`; no live multi-page capture or ecosystem
   completeness claim is inferred.
+- [x] Execute the bounded live pagination workflow across the five frozen queries
+  for GitHub, Zenodo and Hugging Face, preserving exact request/final URLs,
+  retrieval windows, response hashes, provider totals and stop reasons. Evidence:
+  `docs/track-007-live-capture-coverage-2026-08-15.json` and its three bound
+  provider capture files. GitHub endpoint totals were reached, Zenodo remained
+  page-budget limited, and empty Hugging Face results were not interpreted as
+  absence or completeness. Screening of newly captured records remains open.
+- [x] Record a fail-closed coverage and representativeness disposition for the
+  live capture. Global representativeness, comprehensive coverage and upgraded
+  novelty remain prohibited; language, geography, grey-literature and restricted
+  material coverage remain unmeasured or incomplete.
+
+## Review fixes — 2026-08-15 live capture
+
+- [x] Make dated capture creation atomic and fail closed with exclusive file
+  creation, preventing a concurrent writer from bypassing the no-overwrite
+  evidence contract. Evidence: CLI overwrite regression test in
+  `tests/test_track_007_pagination.py`.
 
 ## Phase 3 — Analyse adjacency
 

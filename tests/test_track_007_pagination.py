@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -98,7 +101,45 @@ def test_capture_schema_fixture_is_fail_closed() -> None:
         (ROOT / "docs" / "track-007-pagination-strategy-2026-08-15.json").read_text()
     )
     assert evidence["schema_version"] == "RBC-LAND-007-PAGES-v0.1.0"
-    assert evidence["status"] == "strategy_and_synthetic_fixture_only"
-    assert evidence["production_capture_status"] == "not_run"
+    assert evidence["status"] == "strategy_exercised_with_bounded_live_capture"
+    assert evidence["production_capture_status"] == "bounded_live_run_complete"
+    assert evidence["live_capture_evidence"].endswith("2026-08-15.json")
     assert evidence["claims"]["ecosystem_completeness"] == "prohibited"
     assert evidence["claims"]["captured_page_reproducibility"] == "supported"
+
+
+def test_cli_writes_new_capture_but_refuses_overwrite(tmp_path: Path) -> None:
+    output = tmp_path / "capture.json"
+    command = [
+        sys.executable,
+        str(ROOT / "scripts" / "capture_track_007_pages.py"),
+        "--registry",
+        "github",
+        "--query",
+        "fixture query",
+        "--page-size",
+        "2",
+        "--max-pages",
+        "3",
+        "--fixture-dir",
+        str(FIXTURES),
+        "--retrieved-at-utc",
+        "2026-08-15T00:00:00Z",
+        "--output",
+        str(output),
+    ]
+    # The CLI fixture naming contract uses a query hash, so use the checked-in
+    # registry-prefixed fixtures through a temporary exact-name projection.
+    slug = hashlib.sha256(b"fixture query").hexdigest()[:12]
+    fixture_dir = tmp_path / "fixtures"
+    fixture_dir.mkdir()
+    for page in (1, 2):
+        (fixture_dir / f"github-{slug}-page-{page}.json").write_bytes(
+            (FIXTURES / f"github-complete-page-{page}.json").read_bytes()
+        )
+    command[command.index(str(FIXTURES))] = str(fixture_dir)
+    subprocess.run(command, check=True)
+    assert json.loads(output.read_text())["captures"][0]["pages_captured"] == 2
+    repeated = subprocess.run(command, capture_output=True, text=True)
+    assert repeated.returncode != 0
+    assert "refusing to overwrite capture" in repeated.stderr
