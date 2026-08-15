@@ -96,6 +96,28 @@ claims are consolidated in
 **In review** pending the explicitly unchecked content and lawful-access tasks
 and the original publication-ready landscape acceptance.
 
+### Public-content and bibliographic continuation — 2026-08-16
+
+Lawful minimal Crossref and GitHub metadata advanced the frozen 69-record set
+to 56 includes and 2 explicit duplicate/non-substantive-release exclusions.
+One record remains uncertain, 2 remain pending adequate public evidence, and
+the 8 restricted records remain pending lawful access. Abstracts, descriptions,
+bodies and full text were not retained. The 144 live-only records now all have
+an exact closed-vocabulary screen: 51 are candidates for content assessment and
+93 remain uncertain; none was excluded.
+
+A strict Crossref expansion used 24 rate-limited requests: two pages of 20 rows
+for each of five frozen English, four multilingual and three community or
+community-multilingual queries. It records 480 ranked DOI occurrences. Crossref
+did not report record language for any occurrence, query language is not treated
+as record language, and geography remains unmeasured. Community query terms do
+not establish community leadership, authority, legitimacy or approval.
+
+The exact hashes, outcome counts, missingness and claim boundary are recorded
+in `docs/track-007-bibliographic-content-update-2026-08-16.yml`. The bounded
+expansion reduces the earlier single-page Crossref limitation but does not make
+the search systematic, comprehensive, representative or publication-ready.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The seed screening
