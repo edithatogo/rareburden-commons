@@ -28,8 +28,8 @@
 
 ## Phase 4 — Independent assurance
 
-- [ ] Commission independent reproduction of at least one analysis. `[S-10]`
-- [ ] Complete patient/community harm and interpretation review.
+- [ ] Run a separately executed owner-operated clean-environment reproduction of at least one analysis. `[S-10]`
+- [ ] Complete community/harm agent-panel interpretation review and owner disposition.
 - [ ] Complete scientific assurance report and disposition log.
 - [ ] Block, narrow or approve outputs for the atlas beta.
 

@@ -32,7 +32,7 @@
 
 - [ ] Add immutable archive/DOI and research-object workflow. `[S-09]`
 - [ ] Build and verify from a clean environment.
-- [ ] Complete independent reproduction and release-content audit.
+- [ ] Complete owner-operated clean-environment reproduction and agent-panel release-content audit.
 - [ ] Publish v0.8 beta only after Track 013 approval.
 
 ## Preparatory dependency review — 2026-07-29
@@ -84,5 +84,5 @@
   shared by static and API consumers. Notices bind the affected candidate,
   require a different exact replacement for corrections/supersessions, reject
   tampering and expose a text alternative; repository state remains unpublished.
-- [ ] Complete accessibility, independent-operator and release-authority gates
-  before beta publication.
+- [ ] Complete accessibility-agent, owner-operated operator and repository-owner
+  release gates before beta publication.

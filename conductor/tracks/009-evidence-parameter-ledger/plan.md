@@ -25,7 +25,7 @@
 
 ## Phase 4 — Review
 
-- [ ] Complete epidemiology, data-governance and engineering review.
+- [ ] Complete epidemiology, rights/data-use and engineering agent-panel review and owner disposition.
 - [x] Validate ledger use with all three demonstrator specifications. Evidence:
   schema-validated non-binding profiles for RBC-P002, RBC-P003 and RBC-P004,
   plus fail-closed binding checks in `rareburden.demonstrator_readiness`. The

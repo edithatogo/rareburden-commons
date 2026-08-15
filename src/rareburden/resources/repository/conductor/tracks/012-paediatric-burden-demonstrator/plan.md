@@ -7,7 +7,7 @@
 - [ ] Freeze RBC-P004 person-level and aggregate estimands.
 - [ ] Define Australian and New Zealand candidate data pathways and approvals.
 - [ ] Define paediatric disease/coding package and observation windows.
-- [ ] Obtain patient/family, Indigenous/data-governance and clinical review.
+- [ ] Obtain community/harm, Indigenous/data-use perspective and clinical-methods agent-panel review and owner disposition.
 
 ## Phase 2 — Synthetic linked-data model
 
@@ -28,7 +28,7 @@
 - [ ] Complete synthetic end-to-end execution.
 - [ ] Seek approved local pilot or publish a pilot-ready protocol only.
 - [ ] Specify replication in a differently governed country/node.
-- [ ] Complete scientific, economic, privacy and patient/community review.
+- [ ] Complete scientific, economic, privacy and community/harm agent-panel review and owner disposition.
 
 ## Dependency review — 2026-07-27
 

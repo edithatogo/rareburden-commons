@@ -55,7 +55,9 @@
 ## Phase 5 — Review and release
 
 - [x] Complete internal engineering and security review of the offline substrate.
-- [ ] Complete live-source licence, scientific and data-governance review.
+- [ ] Complete the live source-change exercise and agent-methods challenge;
+  publisher rights remain fail-closed and the owner data-use disposition is
+  recorded in `docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md`.
 - [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.
 - [x] Assign every external review finding to a named gate and bounded
   disposition. Evidence: `docs/track-002-findings-disposition.yml`; assigned
@@ -91,8 +93,9 @@
 - [x] Route repository-owned source, terms and incident review preparation
   through the subagent review-panel policy in
   `docs/subagent-review-panel-policy.md`.
-- [x] Keep scientific and data-governance dispositions as accountable external
-  gates; panel findings prepare the packets but do not satisfy those gates.
+- [x] Route methods and data-use review through agent-panel advice and owner
+  disposition under ADR-0009; preserve publisher licences and third-party
+  rights as immutable evidence constraints.
 - [x] Record the panel’s bounded Option A source posture and contingencies in
   `docs/track-002-panel-disposition-2026-08-02.md`; all candidates remain
   inactive pending accountable receipts.

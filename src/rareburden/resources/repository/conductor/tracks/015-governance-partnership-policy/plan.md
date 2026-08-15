@@ -5,8 +5,8 @@
 ## Phase 1 — Constitute governance
 
 - [ ] Draft and approve body charters, appointment and voting rules. `[M-16]`
-- [ ] Establish patient/community remuneration and agenda rights.
-- [ ] Establish scientific, data-governance/ethics and node review roles.
+- [ ] Establish community/harm agent-panel remit, dissent rules and owner decision rights.
+- [ ] Establish methods, rights/data-use and node agent-panel review roles.
 - [ ] Publish conflicts, minutes and reserved-decision process. `[M-17]`
 
 ## Phase 2 — Operating policies
@@ -26,7 +26,7 @@
 ## Phase 4 — Policy translation
 
 - [x] Define policy-product claim boundaries and relationship-state crosswalk. `[C-09]` Evidence: `docs/governance-015-reference.md`; indicator approval remains open.
-- [ ] Test framing with patient/community and policy users.
+- [ ] Test framing with community/harm and policy-user perspective agents.
 - [x] Define confirmed/proposed relationship register states. Evidence: relationship claim-state contract in `docs/governance-015-reference.md`; no relationships are confirmed.
 - [ ] Approve geographic and “global” claims for v1 scope.
 

@@ -1,58 +1,47 @@
-# Subagent review-panel policy
+# Agent review-panel policy
 
 ## Default
 
-For every Conductor track, repository-owned review preparation is performed by
-a panel of independent subagents. The panel may inspect the specification and
-diff, run tests, challenge assumptions, produce dissent, draft dispositions,
-and identify missing evidence. Panel outputs are recorded as preparation
-evidence and linked from the relevant track review.
+For every Conductor track, review is performed by a panel of role-separated
+agents. The panel may inspect the specification and diff, run tests, challenge
+assumptions, produce dissent, draft dispositions and identify missing evidence.
+The accountable repository owner adjudicates the panel recommendation.
 
-## Panel-only assurance mode
+## Evidence contract
 
-When no external participants are available, the repository may operate in
-**panel-only assurance mode**. The panel may produce a bounded internal
-methods, governance, usability, operations or release recommendation. Every
-result must say `panel_assurance`, identify composition and quorum, preserve
-dissent, and state what it does not authorize. It may support a bounded
-synthetic preview, but must not be relabelled as independent external review,
-constituted community consent, custodian authority or stable-release approval.
+Each panel result records `panel_assurance`, composition, scope, exact candidate
+commit and manifest, evidence references, findings, uncertainty, dissent, stop
+triggers and an accept, narrow, revise, defer or stop recommendation. Agent
+outputs are advisory and must never be described as independent, human,
+constituted-community, institutional, custodian, licensor or external approval.
 
-Each agent task must receive the exact candidate tag/commit, manifest and input
-digest, scope and exclusions, question, required evidence fields, output format,
-deadline and prohibited actions. Each agent returns findings, references,
-uncertainty, conflicts, dissent and a recommendation only.
+Each agent task receives the exact candidate identity and input digest, scope
+and exclusions, question, required evidence fields, output format and
+prohibited actions. At least three perspectives are used for material risk:
+methods/technical, rights/data-use or security, and community/harm or usability.
 
-## Panel composition
+## Accountable-owner boundary
 
-Use at least three perspectives when the track has material scientific,
-governance, security or release risk: methods/technical, data-governance or
-security, and patient/community or usability. Record each panel role, scope,
-independence within the repository task, findings, dissent and proposed
-contingency.
+The repository owner is the accountable methods, data-use, operations and
+release decision-maker. The owner may accept, narrow, revise, defer or stop an
+exact candidate after considering panel findings. Panels cannot self-authorise
+a decision.
 
-## Accountable-gate boundary
-
-The panel must not be described as, or used to replace, an accountable
-scientific reviewer, constituted patient/community authority, data custodian,
-independent operator, named operational owner, or release authority when the
-track or v1 acceptance criteria require that role. In panel-only assurance mode,
-those gates remain labelled `panel_assurance` and are not claimed as external
-authority. A panel can make the best available bounded recommendation and test
-completeness, but cannot self-authorise an external gate.
+Publisher licences, third-party rights, registry events and any future
+controlled-data custodian policy remain evidence-bound facts rather than review
+roles. Agents and the owner may interpret and operationalise those facts but
+cannot manufacture permission.
 
 ## Track-plan amendment rule
 
-Where a plan says “recruit”, “obtain review”, or “complete review”, interpret the
-repository-owned portion as: run the subagent panel, record its draft findings,
-and prepare the exact external receipt request. Keep the original accountable
-gate task pending unless the project contract explicitly classifies it as
-internal engineering review.
+Where an active plan says recruit, obtain review, independent review, human
+review or external review, amend it to require the role-separated agent panel
+and repository-owner disposition. Historical evidence is not rewritten.
 
-## Receipt and fail-closed rules
+## Fail-closed rules
 
-Panel outputs must be bound to the reviewed commit and evidence manifest. They
-must record dissent and unresolved findings. They cannot authorize production
-acquisition, controlled-data processing, publication, release, or claims of
-independence. Missing or conflicting external receipts keep the track blocked or
-in review.
+Panel outputs must be bound to the reviewed commit and evidence manifest and
+preserve dissent and unresolved findings. Conflicting or missing rights evidence
+fails closed. Critical safety, rights, semantic-integrity, security,
+reproducibility, recovery, withdrawal or hash failures require narrowing,
+revision or stop.
