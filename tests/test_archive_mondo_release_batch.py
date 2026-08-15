@@ -5,7 +5,12 @@ from pathlib import Path
 
 import pytest
 
-from scripts.archive_mondo_release_batch import mondo_releases, remote_lfs_sha256, select_assets
+from scripts.archive_mondo_release_batch import (
+    mondo_releases,
+    remote_lfs_sha256,
+    select_assets,
+    verify_remote_object,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests/classifications/public-history-frontier-2026-08-16.json"
@@ -39,3 +44,28 @@ def test_remote_lfs_digest_supports_client_shapes() -> None:
     object_shape = type("Sibling", (), {"lfs": type("Lfs", (), {"sha256": "b" * 64})()})()
     assert remote_lfs_sha256(mapping_shape) == "a" * 64
     assert remote_lfs_sha256(object_shape) == "b" * 64
+
+
+def test_non_lfs_remote_object_is_redownloaded_and_hashed(tmp_path: Path) -> None:
+    payload = tmp_path / "README.md"
+    payload.write_bytes(b"exact publisher bytes")
+    expected = __import__("hashlib").sha256(payload.read_bytes()).hexdigest()
+    item = type("Sibling", (), {"size": payload.stat().st_size, "lfs": None})()
+    assert verify_remote_object(
+        item,
+        expected_size=payload.stat().st_size,
+        expected_sha256=expected,
+        download_non_lfs=lambda: payload,
+    )
+
+
+def test_non_lfs_remote_object_mismatch_fails_closed(tmp_path: Path) -> None:
+    payload = tmp_path / "README.md"
+    payload.write_bytes(b"different bytes")
+    item = type("Sibling", (), {"size": payload.stat().st_size, "lfs": None})()
+    assert not verify_remote_object(
+        item,
+        expected_size=payload.stat().st_size,
+        expected_sha256="0" * 64,
+        download_non_lfs=lambda: payload,
+    )

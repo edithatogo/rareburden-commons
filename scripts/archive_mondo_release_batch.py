@@ -73,10 +73,34 @@ def remote_lfs_sha256(item: Any) -> str | None:
     return str(value) if value else None
 
 
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        while chunk := source.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def verify_remote_object(
+    item: Any,
+    *,
+    expected_size: int,
+    expected_sha256: str,
+    download_non_lfs: Any,
+) -> bool:
+    """Verify LFS by server digest and ordinary Git blobs by bounded re-download."""
+    if item is None or item.size != expected_size:
+        return False
+    remote_sha = remote_lfs_sha256(item)
+    if remote_sha is None:
+        remote_sha = sha256_file(Path(download_non_lfs()))
+    return remote_sha == expected_sha256
+
+
 def archive_batch(
     *, release_index: int, asset_start: int, asset_count: int, max_bytes: int
 ) -> dict[str, Any]:
-    from huggingface_hub import HfApi  # type: ignore[import-not-found]
+    from huggingface_hub import HfApi, hf_hub_download  # type: ignore[import-not-found]
 
     token = os.environ.get("HF_TOKEN")
     if not token:
@@ -148,11 +172,22 @@ def archive_batch(
 
     verified = api.dataset_info(DESTINATION, files_metadata=True)
     remote_after = {item.rfilename: item for item in verified.siblings}
-    for receipt in receipts:
-        item = remote_after.get(receipt["archive_path"])
-        remote_sha = remote_lfs_sha256(item)
-        if item is None or item.size != receipt["bytes"] or remote_sha != receipt["sha256"]:
-            raise RuntimeError("remote MONDO digest verification failed")
+    with tempfile.TemporaryDirectory(prefix="rareburden-mondo-verify-") as verification_root:
+        for receipt in receipts:
+            item = remote_after.get(receipt["archive_path"])
+            if not verify_remote_object(
+                item,
+                expected_size=receipt["bytes"],
+                expected_sha256=receipt["sha256"],
+                download_non_lfs=lambda receipt=receipt: hf_hub_download(
+                    repo_id=DESTINATION,
+                    repo_type="dataset",
+                    filename=receipt["archive_path"],
+                    token=token,
+                    local_dir=verification_root,
+                ),
+            ):
+                raise RuntimeError("remote MONDO digest verification failed")
     return {
         "schema_version": "1.0",
         "status": "bounded_public_exact_archive",
