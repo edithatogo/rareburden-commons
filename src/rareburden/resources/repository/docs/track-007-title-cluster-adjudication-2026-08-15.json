@@ -1,0 +1,129 @@
+{
+  "schema_version": "RBC-LAND-007-TITLE-CLUSTERS-v0.1.0",
+  "track": "007-landscape-novelty",
+  "retrieved_at_utc": "2026-08-15T01:48:29Z",
+  "status": "record_level_adjudication_complete",
+  "raw_responses_retained": false,
+  "hash_scope": {
+    "github": "SHA-256 of the exact gh api JSON observation bytes saved temporarily for adjudication; not an archived HTTP response body",
+    "crossref": "SHA-256 of the exact direct API response bytes saved temporarily for adjudication; response body not retained"
+  },
+  "source_screening": "docs/track-007-screening-2026-08-15.json",
+  "clusters": [
+    {
+      "normalized_title": "ccu019 01",
+      "canonical_keys": ["github:bhfdsc/ccu019_01", "github:honghan/ccu019_01"],
+      "disposition": "keep_separate_repository_records",
+      "entity_equivalence": "unresolved",
+      "rationale": "GitHub assigns different immutable repository and node identifiers, and neither record declares a fork, parent or source relationship. Similar project descriptions are insufficient to infer repository or initiative equivalence.",
+      "observations": [
+        {
+          "endpoint": "https://api.github.com/repos/bhfdsc/ccu019_01",
+          "response_sha256": "17b455739530934d6b321c216f311ae2c166db44703e7fee75bcb9f2c087b079",
+          "repository_id": 602168287,
+          "node_id": "R_kgDOI-Rb3w",
+          "fork": false,
+          "parent": null,
+          "source": null
+        },
+        {
+          "endpoint": "https://api.github.com/repos/honghan/ccu019_01",
+          "response_sha256": "ac1eaeec4e0ede84a931794c5eef59c3dd96e1e5116a94661674be4882c3aa30",
+          "repository_id": 914817862,
+          "node_id": "R_kgDONocDRg",
+          "fork": false,
+          "parent": null,
+          "source": null
+        }
+      ]
+    },
+    {
+      "normalized_title": "dercum s disease estimating the prevalence of a rare painful loose connective tissue disease",
+      "canonical_keys": ["doi:10.21203/rs.3.rs-32979/v1", "doi:10.2217/frd-2020-0004"],
+      "disposition": "link_versions_single_work",
+      "entity_equivalence": "confirmed_by_reciprocal_crossref_relation",
+      "canonical_work_key": "doi:10.2217/frd-2020-0004",
+      "rationale": "Crossref records the posted content as a preprint of the journal article and the journal article as having that preprint. Both records remain preserved while work-level counts use the version-of-work link.",
+      "observations": [
+        {
+          "endpoint": "https://api.crossref.org/works/10.21203/rs.3.rs-32979/v1",
+          "response_sha256": "02001e66874724dd42785380e3e628bd54bb5a26aff31ff51e594e5d97112416",
+          "doi": "10.21203/rs.3.rs-32979/v1",
+          "type": "posted-content",
+          "relation": "is-preprint-of",
+          "related_doi": "10.2217/frd-2020-0004"
+        },
+        {
+          "endpoint": "https://api.crossref.org/works/10.2217/frd-2020-0004",
+          "response_sha256": "252456d458c0e5dfbe52c9718d8e926b74d64282a7fa75560f24d0d7257e516a",
+          "doi": "10.2217/frd-2020-0004",
+          "type": "journal-article",
+          "relation": "has-preprint",
+          "related_doi": "10.21203/rs.3.rs-32979/v1"
+        }
+      ]
+    },
+    {
+      "normalized_title": "hackathon reusable framework",
+      "canonical_keys": ["github:akshay-gurav-31/hackathon-reusable-framework", "github:mira-jain/hackathon-reusable-framework"],
+      "disposition": "keep_separate_repository_records",
+      "entity_equivalence": "unresolved",
+      "rationale": "GitHub assigns different immutable repository and node identifiers, and neither record declares a fork, parent or source relationship. Matching descriptions alone do not prove a shared repository lineage or initiative.",
+      "observations": [
+        {
+          "endpoint": "https://api.github.com/repos/akshay-gurav-31/hackathon-reusable-framework",
+          "response_sha256": "31e7fc2c3ba5cf58d8f783195b69166b2ea9588bf9c80030ec86edc1acf02a47",
+          "repository_id": 1313723727,
+          "node_id": "R_kgDOTk3VTw",
+          "fork": false,
+          "parent": null,
+          "source": null
+        },
+        {
+          "endpoint": "https://api.github.com/repos/mira-jain/hackathon-reusable-framework",
+          "response_sha256": "a2fbc7c7a9c3be5894397ab3106c69d4b8eeaaa65e4049293a4e06411ee8a447",
+          "repository_id": 1320570920,
+          "node_id": "R_kgDOTrZQKA",
+          "fork": false,
+          "parent": null,
+          "source": null
+        }
+      ]
+    },
+    {
+      "normalized_title": "radar",
+      "canonical_keys": ["github:renalreg/radar", "github:robworth/radar"],
+      "disposition": "keep_separate_repository_records",
+      "entity_equivalence": "unresolved",
+      "rationale": "GitHub assigns different immutable repository and node identifiers, and neither record declares a fork, parent or source relationship. Shared naming and subject matter do not justify automatic repository or initiative merging.",
+      "observations": [
+        {
+          "endpoint": "https://api.github.com/repos/renalreg/radar",
+          "response_sha256": "856de57c2592eff533a244aa6d5171b76b46a1ffc838443c0eed307eb89bed26",
+          "repository_id": 54977522,
+          "node_id": "MDEwOlJlcG9zaXRvcnk1NDk3NzUyMg==",
+          "fork": false,
+          "parent": null,
+          "source": null
+        },
+        {
+          "endpoint": "https://api.github.com/repos/robworth/radar",
+          "response_sha256": "549ba4ad3a95c0f55fefebd9c98836f349bb5140b4ebfa604051bc90ea1ef1fd",
+          "repository_id": 5123308,
+          "node_id": "MDEwOlJlcG9zaXRvcnk1MTIzMzA4",
+          "fork": false,
+          "parent": null,
+          "source": null
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "flagged_clusters": 4,
+    "record_level_adjudicated": 4,
+    "version_linked_work_clusters": 1,
+    "separate_repository_record_clusters": 3,
+    "initiative_equivalence_unresolved": 3
+  },
+  "claim_boundary": "All flagged title clusters have a record-level handling rule. Three GitHub clusters retain unresolved initiative equivalence; this evidence must not be used to claim distinct initiatives or deduplicate them at initiative level."
+}

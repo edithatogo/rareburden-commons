@@ -226,3 +226,17 @@ keeps scholarly, grey-literature, language, geography, temporal and restricted
 material coverage incomplete or unmeasured. Comprehensive coverage, global
 representativeness and upgraded novelty claims remain prohibited. Newly captured
 record screening and the external challenge gates remain open.
+
+### Exact-title cluster adjudication — 2026-08-15
+
+All four title clusters flagged by bounded screening now have record-level rules
+backed by exact GitHub or Crossref response hashes. Reciprocal Crossref relations
+link the Dercum's disease preprint and journal article as versions of one work
+without deleting either record. The three GitHub pairs have distinct immutable
+repository/node identifiers and no declared fork, parent or source relation, so
+they remain separate repository records.
+
+This does not establish that the GitHub pairs are distinct initiatives. Their
+initiative-level equivalence remains unresolved because shared names or
+descriptions are insufficient evidence. The adjudication removes silent
+record-level merging risk without narrowing external challenge requirements.
