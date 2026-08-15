@@ -1,0 +1,63 @@
+schema_version: '1.0.0'
+track: 007-landscape-novelty
+status: bounded_reconciliation_and_public_metadata_assessment_complete
+evidence:
+- path: docs/track-007-live-reconciliation-2026-08-16.json
+  sha256: 78af7ee089ef4312e5823dcd1d2ca67aec3725194430e575350f4dcac7a56089
+- path: docs/track-007-live-metadata-observations-2026-08-16.json
+  sha256: 97dd9e62b39a6a04cb3d9c0af694d5bb05296cb0e601cfd6f8ca22580d355951
+- path: docs/track-007-public-metadata-resolutions-2026-08-16.json
+  sha256: 1809d7a6da22d75245d21283bfa729d753b969224fbeee504926205a5ccf3c23
+- path: docs/track-007-fulltext-eligibility-2026-08-16.json
+  sha256: a7dc21b2c5a19bde408a6e5c37465a91957a7b934000ea80a21d671e14ac112e
+live_capture_reconciliation:
+  captured_occurrences: 306
+  unique_registry_identifiers: 215
+  exact_duplicate_occurrences_removed: 91
+  reconciled_to_frozen_snapshot: 71
+  live_only_identifiers_observed: 144
+  current_metadata_observation:
+    include_for_content_assessment: 51
+    uncertain_public_metadata_signal: 93
+    pending_observation_retry: 0
+  interpretation: >-
+    Every retained live occurrence is accounted for by exact provider identifier.
+    Exact snapshot matches retain their frozen decision. Live-only identifiers
+    have current hash-addressed minimal metadata observations, but these do not
+    reconstruct capture-time ranking or establish content eligibility.
+bounded_69_record_eligibility:
+  final_metadata_supported_include: 35
+  pending_content_assessment: 26
+  pending_lawful_access: 8
+  exclusions_added: 0
+  interpretation: >-
+    Thirty-five records have an adjacency-eligibility include supported by an
+    already-retained public description containing both a registered
+    rare-disease scope signal and contribution signal. The decision is not a
+    quality or novelty finding. Title-only, description-insufficient and
+    restricted records remain pending rather than excluded.
+retention:
+  raw_live_metadata_responses: not_retained
+  descriptions_from_live_metadata: inspected_transiently_not_retained
+  abstracts_or_full_text: not_fetched_or_retained
+  retained: identifiers_titles_canonical_urls_response_hashes_signal_booleans_and_counts
+claim_boundary:
+  allowed:
+  - exact bounded occurrence and identifier reconciliation counts
+  - exact missingness and pending-state counts
+  - metadata-supported adjacency eligibility for the 35 resolved records
+  - candidates for later content assessment among 51 current live-only observations
+  prohibited:
+  - comprehensive, representative, systematic or global landscape
+  - confirmed novelty, gap or absence
+  - exact capture-time response reconstruction
+  - quality inference from metadata screening
+  - exclusion from missing, ambiguous, inaccessible or restricted evidence
+  - patient/community, external, independent, partnership or access approval
+genuine_remaining_boundaries:
+- 26 reachable frozen records lack sufficient retained public content evidence
+- 8 frozen records require lawful access or another public evidence route
+- 93 live-only identifiers have ambiguous current public metadata signals
+- 51 live-only identifiers still require content assessment before final eligibility
+- cross-provider entity equivalence beyond exact identifiers remains unresolved
+- broader bibliographic, multilingual, regional, grey-literature and community-led coverage remains unmeasured
