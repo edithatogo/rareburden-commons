@@ -1,7 +1,29 @@
 # Track 007 internal review — Landscape, adjacency and novelty
 
-**Review date:** 2026-07-27  
-**Decision:** Proceed with narrowed scope, subject to registered review and external challenge
+**Review date:** 2026-07-27; current closeout review 2026-08-16
+
+**Current decision:** In review. The protocol is repository hash-registered.
+Role-separated agent challenge and repository-owner disposition remain pending.
+External registry submission is optional, and OSF is deferred.
+
+## Current closeout evidence — 2026-08-16
+
+`docs/track-007-protocol-v0.2.0.md` freezes the review question, active search
+surface, five query families, eligibility, deduplication, count reconciliation,
+coverage limits, challenge rules and stop triggers. The content-addressed
+registration in `docs/track-007-repository-registration-2026-08-16.yml` binds
+the protocol and its evidence inputs by SHA-256 and Git blob identifier.
+
+`docs/track-007-bounded-evidence-synthesis-2026-08-16.md` reconciles the frozen
+first-page screen, locator workflow and separate live pagination exercise. It
+keeps all content-level decisions, broader coverage, representativeness and
+novelty claims fail-closed. `docs/track-007-agent-challenge-task-2026-08-16.yml`
+defines the exact input hashes, role remits, required findings and assurance
+boundary for the remaining advisory challenge.
+
+The dated sections below preserve the historical evidence state at the time
+they were written. Their former external or additional-person gate wording is
+superseded prospectively by ADR-0009; historical observations are not rewritten.
 
 ### Review rerun — 2026-07-29
 
