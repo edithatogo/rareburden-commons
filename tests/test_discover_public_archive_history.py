@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import urllib.parse
 
 import pytest
 
@@ -10,7 +11,7 @@ from scripts.discover_public_archive_history import SURFACES, build_inventory, d
 def _loader(url: str) -> bytes:
     if url == SURFACES["orphacode"]:
         return b'<a href="https://www.orphacode.org/files/en-2026.zip">pack</a>'
-    if "sciences.orphadata.com" in url:
+    if urllib.parse.urlsplit(url).hostname == "sciences.orphadata.com":
         return b'<a href="https://www.orphadata.com/data/en_product1.xml">file</a>'
     if url == SURFACES["mondo"]:
         return json.dumps(
