@@ -71,6 +71,31 @@ stays **In review** because the original publication-ready landscape acceptance
 is not met; the attributable owner receipt is GitHub issue comment
 `5303053641`. No external, independent or patient/community approval is claimed.
 
+### Substantive evidence continuation — 2026-08-16
+
+The historical panel findings above correctly described the candidate reviewed
+at that time. Subsequent repository work now accounts for all 306 live-capture
+occurrences: 215 exact provider identifiers remain after removing 91 duplicate
+occurrences; 71 match the frozen snapshot and all 144 live-only identifiers
+have a current public-record observation. Of those live-only observations, 51
+have explicit scope and contribution signals suitable for later content
+assessment and 93 remain uncertain. No live-only record was excluded.
+
+For the frozen 69-record eligibility set, an exact, closed-vocabulary rule over
+already-retained public descriptions supports 35 adjacency-eligibility includes.
+The updated register keeps 26 reachable records pending content assessment and
+8 restricted records pending lawful access, with zero new exclusions. The
+decision does not establish quality, novelty or representativeness. Current
+record observations retain response hashes, identifiers, titles and canonical
+URLs; descriptions were inspected transiently and not retained, and no
+abstract, body or full-text bytes were fetched.
+
+The exact hashes, missingness counts, lawful-evidence boundary and prohibited
+claims are consolidated in
+`docs/track-007-substantive-evidence-update-2026-08-16.yml`. Track 007 remains
+**In review** pending the explicitly unchecked content and lawful-access tasks
+and the original publication-ready landscape acceptance.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The seed screening
