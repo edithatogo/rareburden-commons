@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "track": "009-evidence-parameter-ledger",
+  "upstream_inventory_sha256": "eb2d4935d4e7a9dd0f91634fabd96e3a61fa03ae2b2b2da12225411f450f9f5c",
+  "source_releases": [
+    {
+      "source_release_id": "orphadata-science-alignments",
+      "licence_state": "permitted",
+      "visibility": "public",
+      "activation_state": "disabled_semantic_only",
+      "evidence": "track_008",
+      "provenance_manifest_sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"
+    },
+    {
+      "source_release_id": "orphadata-current-scientific-pages",
+      "licence_state": "permitted",
+      "visibility": "public",
+      "activation_state": "disabled_discovery_only",
+      "evidence": "track_008",
+      "provenance_manifest_sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"
+    },
+    {
+      "source_release_id": "orphacode-nomenclature-packs",
+      "licence_state": "permitted",
+      "visibility": "public",
+      "activation_state": "disabled_mapping_review",
+      "evidence": "track_008",
+      "provenance_manifest_sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"
+    },
+    {
+      "source_release_id": "human-phenotype-ontology",
+      "licence_state": "unknown",
+      "visibility": "private",
+      "activation_state": "disabled_rights",
+      "evidence": "track_008",
+      "provenance_manifest_sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"
+    },
+    {
+      "source_release_id": "mondo-disease-ontology",
+      "licence_state": "permitted",
+      "visibility": "public",
+      "activation_state": "disabled_mapping_review",
+      "evidence": "track_008",
+      "provenance_manifest_sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"
+    },
+    {
+      "source_release_id": "umls-2026aa",
+      "licence_state": "restricted",
+      "visibility": "private",
+      "activation_state": "disabled_controlled",
+      "evidence": "track_008",
+      "provenance_manifest_sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"
+    },
+    {
+      "source_release_id": "snomed-ct-uts-current",
+      "licence_state": "restricted",
+      "visibility": "private",
+      "activation_state": "disabled_controlled",
+      "evidence": "track_008",
+      "provenance_manifest_sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"
+    },
+    {
+      "source_release_id": "who-icd-api-observation",
+      "licence_state": "restricted",
+      "visibility": "private",
+      "activation_state": "disabled_rights",
+      "evidence": "track_008",
+      "provenance_manifest_sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"
+    },
+    {
+      "source_release_id": "orphadata-science-epidemiology-july-2026",
+      "licence_state": "permitted",
+      "visibility": "public",
+      "activation_state": "disabled_estimand_review",
+      "evidence": "docs/track-002-source-verification-2026-08-15.yml",
+      "provenance_manifest_sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"
+    },
+    {
+      "source_release_id": "wpp-2024-28th-revision",
+      "licence_state": "permitted",
+      "visibility": "public",
+      "activation_state": "disabled_denominator_review",
+      "evidence": "docs/track-002-source-verification-2026-08-15.yml",
+      "provenance_manifest_sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"
+    },
+    {
+      "source_release_id": "who-ghe-2021-country-daly-2000",
+      "licence_state": "restricted",
+      "visibility": "private",
+      "activation_state": "disabled_third_party_rights",
+      "evidence": "docs/track-002-source-verification-2026-08-15.yml",
+      "provenance_manifest_sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"
+    },
+    {
+      "source_release_id": "world-bank-sp-pop-totl-aus-nzl-2000-2021",
+      "licence_state": "permitted",
+      "visibility": "public",
+      "activation_state": "disabled_probe_only",
+      "evidence": "docs/track-002-source-verification-2026-08-15.yml",
+      "provenance_manifest_sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"
+    },
+    {
+      "source_release_id": "synthetic-un-wpp-2026-07",
+      "licence_state": "not_applicable",
+      "visibility": "public",
+      "activation_state": "synthetic_only",
+      "evidence": "examples/ledger/public-foundation-synthetic.yml",
+      "provenance_manifest_sha256": "b0aef6e12893fb469f4993285f4d5d9621f810af3e08f686ec3235d0cfd51a76"
+    }
+  ],
+  "claims": {
+    "empirical_parameter_activation": false,
+    "private_source_use": false,
+    "v0_4_contract_frozen": false,
+    "epidemiology_approval": false,
+    "rights_approval": false
+  },
+  "binding_set_sha256": "af377a760c7b1bbca033f6a1925ee0f29dcb7f610dd7beaa4c80ca3372e0295c"
+}

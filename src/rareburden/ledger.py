@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import re
 from collections.abc import Mapping
 from copy import deepcopy
 from dataclasses import dataclass
@@ -120,7 +121,7 @@ class ParameterLedger:
     def validate_source_release_links(
         self, source_releases: Mapping[str, Mapping[str, Any]]
     ) -> None:
-        """Require every referenced Track 002 release to exist and be usable."""
+        """Require immutable, public and explicitly enabled source-release links."""
         errors: list[str] = []
         for parameter_id, record in self.records.items():
             for release_id in record["source_release_ids"]:
@@ -133,8 +134,40 @@ class ParameterLedger:
                     errors.append(
                         f"{parameter_id}: source release {release_id} has unusable licence state"
                     )
+                if release.get("visibility") != "public":
+                    errors.append(f"{parameter_id}: source release {release_id} is not public")
+                if release.get("activation_state") not in {
+                    "enabled_for_bounded_ledger",
+                    "synthetic_only",
+                }:
+                    errors.append(f"{parameter_id}: source release {release_id} is disabled")
+                digest = release.get("provenance_manifest_sha256")
+                if not isinstance(digest, str) or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+                    errors.append(
+                        f"{parameter_id}: source release {release_id} lacks immutable provenance"
+                    )
         if errors:
             raise LedgerError("Source-release link validation failed:\n- " + "\n- ".join(errors))
+
+    def select_alternative(
+        self,
+        parameter_ids: list[str],
+        *,
+        selected_parameter_id: str | None,
+        rationale: str | None,
+    ) -> dict[str, Any]:
+        """Return one explicit alternative; never choose from a conflict silently."""
+        if len(set(parameter_ids)) < 2:
+            raise LedgerError("alternative selection requires at least two distinct parameters")
+        self.require_compatible_context(parameter_ids, fields=("population", "period"))
+        known_group = set(parameter_ids)
+        if not any(known_group == set(group) for group in self.conflict_groups()):
+            raise LedgerError("parameters do not form one complete conflict group")
+        if selected_parameter_id not in known_group:
+            raise LedgerError("an explicit selected alternative is required")
+        if not rationale or not rationale.strip():
+            raise LedgerError("alternative selection requires a rationale")
+        return deepcopy(self.get(selected_parameter_id))
 
     def render_markdown(self) -> str:
         """Render a deterministic human-readable evidence and assumption report."""
