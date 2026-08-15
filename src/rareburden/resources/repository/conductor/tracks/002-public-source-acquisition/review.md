@@ -370,3 +370,21 @@ redistribution rights. No source bytes, bodies, abstracts or full text were
 retrieved or retained. Adding seeds, increasing traversal depth or activating a
 product byte route requires a new bounded protocol and product-specific rights
 evidence.
+
+### BfArM German SNOMED CT metadata frontier — 2026-08-16
+
+Official BfArM evidence now identifies the National Edition Germany as an RF2
+bundle of the International Edition and German National Extension, released on
+a semiannual schedule through authenticated MLDS. The repository records three
+bounded publication events and explicitly rejects treating them as exact
+package identities or complete history. It also preserves BfArM's warning that
+the use-case-based German translation is not quality-assured and complete.
+
+The UTS inventory contains 233 observed artifacts across six International,
+Spanish, US, subset and mapping families but no German-labelled family. The
+German extension is therefore an unresolved native-edition gap; its bundled
+International content still requires exact-hash deduplication. Tests require
+metadata-only public routing and prohibit private bytes until exact agreement,
+territory and cloud-storage permission are all affirmative. No raw bytes were
+downloaded or uploaded, and no licence, completeness or activation claim was
+upgraded.
