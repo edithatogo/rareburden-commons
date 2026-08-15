@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKET = ROOT / "docs/track-007-registration-challenge-readiness-2026-08-04.yml"
 REFRESHED_PACKET = ROOT / "docs/track-007-registration-challenge-readiness-2026-08-15.yml"
 REPOSITORY_REGISTRATION = ROOT / "docs/track-007-repository-registration-2026-08-16.yml"
+CHALLENGE_TASK = ROOT / "docs/track-007-agent-challenge-task-2026-08-16.yml"
 
 
 def test_track_007_readiness_packet_is_fail_closed() -> None:
@@ -76,3 +77,22 @@ def test_frozen_protocol_keeps_claims_and_osf_fail_closed() -> None:
         "independent novelty confirmation",
         "patient or community approval",
     } <= prohibited
+
+
+def test_agent_challenge_task_binds_inputs_and_separates_roles() -> None:
+    task = load_mapping(CHALLENGE_TASK)
+    assert task["assurance"] == "advisory_role_separated_agent_challenge"
+    assert {role["role_id"] for role in task["roles"]} == {
+        "methods_coverage_challenger",
+        "community_harm_equity_challenger",
+        "adversarial_claim_auditor",
+    }
+    for record in task["candidate"].values():
+        if not isinstance(record, dict) or "path" not in record:
+            continue
+        payload = (ROOT / record["path"]).read_bytes()
+        assert hashlib.sha256(payload).hexdigest() == record["sha256"]
+    assert task["owner_boundary"] == "panel_advises_repository_owner_records_disposition"
+    assert "claim independent, human, patient, community, institutional or external review" in task[
+        "prohibited_actions"
+    ]
