@@ -1,0 +1,61 @@
+version: RBC-LAND-007-LAWFUL-ALTERNATIVES-UPDATE-v0.1.0
+status: bounded_public_metadata_assessment_complete
+observed_at_utc: '2026-08-15T16:56:07Z'
+evidence:
+  - path: docs/track-007-lawful-public-alternatives-2026-08-16.json
+    sha256: fbaefb6a1313d867c0923dabd76b2e83352be148b0b6922603b7ca697f60c9ad
+  - path: docs/track-007-final-all-resolutions-2026-08-16.json
+    sha256: 45b0970dee2fb5754c74391b4b71e4843b13e9d519a416d74ac34500e0c9e3a9
+  - path: docs/track-007-fulltext-eligibility-v0.3.2-2026-08-16.json
+    sha256: 2762a15cd472c92ee106442b7f87811f321d47f0cd2622b767e3e2ddbf5d1a93
+  - path: docs/track-007-live-safe-metadata-2026-08-16.json
+    sha256: 744218f089b4b7ec453b7053fc3ec7f67a84c40d0cd07ce85e24950e56ed7abb
+  - path: docs/track-007-live-safe-metadata-final-2026-08-16.json
+    sha256: 7ee32a6bc3e701aca3b5d0bda22dc2618dd65b2e75b27636cab4372a6ed6f40c
+frozen_69_outcome:
+  include: 66
+  exclude: 2
+  uncertain: 1
+  pending_lawful_access: 0
+  public_alternative:
+    provider: Crossref
+    request_count: 8
+    retained: citation_fields_response_hashes_and_closed_vocabulary_signals
+    publisher_locator_fetched: false
+live_144_outcome:
+  include: 54
+  uncertain: 90
+  exclude: 0
+  newly_supported_from_safe_fields: 3
+  safe_fields:
+    github: [topics, language, license_spdx_id, archived, fork]
+    zenodo: [keywords, resource_type, language, access_right]
+additional_bibliographic_provider:
+  activated: false
+  candidates:
+    - provider: OpenAlex
+      disposition: blocked
+      reason: current official authentication documentation requires an API key; no login-free governed route was available
+      observations:
+        - url: https://developers.openalex.org/api-reference/authentication
+          http_status: 200
+          response_sha256: d99c3b61998780a22911e377b93f80d0208a0340d200b5b38501101cc11dc11a
+        - url: https://openalex.org/OpenAlex_termsofservice.pdf
+          http_status: 403
+          response_sha256: 2bc7facf9513ac7780220e5bbd818a261cefd66b08c9de634774c9c22068141f
+    - provider: Europe PMC
+      disposition: blocked
+      reason: public API and metadata-use guidance were observed, but no exact provider-specific numeric rate ceiling was found in the bound pages
+      observations:
+        - url: https://europepmc.org/RestfulWebService
+          http_status: 200
+          response_sha256: 50045e01a1f5f27e601a91628816eb6d6583262b9ca66e3b2ad4013ee30b5bb9
+        - url: https://europepmc.org/developers
+          http_status: 200
+          response_sha256: 4110cd63fe98ff34b37024d12d4c6c014790aad7978fac54abbb145a5a4eadf1
+boundaries:
+  - the single uncertain frozen record is not excluded and requires additional lawful content evidence
+  - 90 live-only records remain uncertain and are not excluded
+  - metadata-supported inclusion is bounded adjacency evidence, not content quality, novelty or completeness
+  - no description, abstract, body or full text was retained
+  - no second bibliographic provider was activated without both terms and a bound rate policy

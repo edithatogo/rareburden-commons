@@ -100,14 +100,19 @@
   records through exact Zenodo/GitHub public metadata. Evidence:
   `docs/track-007-fulltext-eligibility-v0.3.1-2026-08-16.json` records 59
   includes, 2 exclusions and only the 8 lawful-access cases pending.
-- [ ] Resolve the 8 restricted frozen records through a lawful access route or
-  an adequate public alternative; restriction is never exclusion evidence.
+- [x] Resolve the 8 restricted frozen records through an adequate public
+  Crossref citation-metadata alternative without fetching publisher locators.
+  Evidence: `docs/track-007-lawful-public-alternatives-2026-08-16.json` and the
+  v0.3.2 eligibility register record 7 bounded includes and 1 uncertain record;
+  restriction or insufficient metadata is never exclusion evidence.
 - [x] Screen all 144 live-only records with the exact scope/contribution
   vocabulary and response hashes. The result is 51 content-assessment
   candidates and 93 uncertain records, with zero exclusions.
-- [ ] Complete final content assessment for the 51 live-only candidates and
-  resolve the 93 uncertain records without inferring exclusion, absence,
-  coverage or novelty from missing evidence.
+- [ ] Complete any deeper content assessment for 54 live-only bounded adjacency
+  records and resolve the remaining 90 uncertain records without inferring
+  exclusion, absence, coverage or novelty from missing evidence. Safe public
+  topics/keywords and repository facts upgraded 3 records; no prohibited
+  content was retained.
 - [x] Record bounded adjacency eligibility for the 51 live-only records with
   both exact public scope and contribution signals; retain all 93 other records
   as uncertain, never excluded. Evidence:
@@ -117,6 +122,12 @@
   queries. Evidence: `docs/track-007-bibliographic-expansion-2026-08-16.json`
   records 24 rate-limited requests and 480 ranked DOI occurrences, with record
   language missing for all observations and geography explicitly unmeasured.
+- [x] Assess login-free candidates for a second bibliographic provider against
+  exact public terms and rate-policy evidence. OpenAlex currently requires an
+  API key and its terms capture returned 403; Europe PMC exposed public API and
+  metadata-use guidance but no exact provider-specific numeric rate ceiling was
+  found in the bound pages. No provider was activated. Evidence:
+  `docs/track-007-lawful-alternatives-update-2026-08-16.yml`.
 
 ## Review fixes — 2026-08-15 title clusters
 
