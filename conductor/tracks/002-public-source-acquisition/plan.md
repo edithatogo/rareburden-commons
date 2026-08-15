@@ -244,6 +244,23 @@ scientific and data-governance gates remain separate and pending.
   or public Hugging Face redistribution without express rights.
 - [ ] Verify exact PanelApp, OECD and any future export-specific terms before
   raw acquisition; default to metadata/hash-only.
+- [x] Correct the PanelApp scope from one nominally global source to a
+  country-aware registry containing the distinct UK and Australian instances;
+  prohibit claims that either instance, or their union, is globally
+  representative.
+- [x] Audit existing owner infrastructure before creating any archive. Reuse
+  `hpo-licensed-ontology-archive` as the canonical mixed-rights terminology
+  archive, keep RareBurden's archive project-specific, and record known exact
+  duplicate hashes rather than uploading another copy.
+- [x] Add UMLS as a candidate terminology-alignment source with public release
+  metadata, but keep authenticated artifacts operator-local and public raw
+  redistribution prohibited until every selected source vocabulary is
+  separately dispositioned.
+- [x] Publish the exact rights-filtered Orphadata, Mondo, WPP and bounded World
+  Bank payloads to the public Hugging Face dataset
+  `edithatogo/rareburden-commons-open-source-snapshots`, bound to commit
+  `795150a6b45937228023b97602e6b770ae7f192b`; keep every mixed, unclear,
+  authenticated or controlled payload excluded.
 - [x] Prohibit export of All of Us Researcher Workbench and Genomics England
   Research Environment controlled data; archive only synthetic code, schemas
   and non-sensitive metadata outside those environments.
