@@ -1,0 +1,147 @@
+{
+  "schema_version": "RBC-LAND-007-PAGES-v0.1.0",
+  "status": "bounded_capture_only",
+  "captures": [
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease burden",
+      "retrieved_at_utc": "2026-08-15T01:38:59Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 0,
+      "unique_identifiers_captured": 0,
+      "provider_declared_total": "not_reported",
+      "provider_capture_ceiling": "not_reported",
+      "provider_limited": false,
+      "stop_reason": "empty_page_observed",
+      "capture_complete_for_declared_total": false,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://huggingface.co/api/datasets?search=rare+disease+burden&limit=25&skip=0",
+          "final_url": "https://huggingface.co/api/datasets?search=rare+disease+burden&limit=25&skip=0",
+          "http_status": 200,
+          "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "item_count": 0,
+          "identifiers": []
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease registry",
+      "retrieved_at_utc": "2026-08-15T01:38:59Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 0,
+      "unique_identifiers_captured": 0,
+      "provider_declared_total": "not_reported",
+      "provider_capture_ceiling": "not_reported",
+      "provider_limited": false,
+      "stop_reason": "empty_page_observed",
+      "capture_complete_for_declared_total": false,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://huggingface.co/api/datasets?search=rare+disease+registry&limit=25&skip=0",
+          "final_url": "https://huggingface.co/api/datasets?search=rare+disease+registry&limit=25&skip=0",
+          "http_status": 200,
+          "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "item_count": 0,
+          "identifiers": []
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease ontology",
+      "retrieved_at_utc": "2026-08-15T01:39:00Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 0,
+      "unique_identifiers_captured": 0,
+      "provider_declared_total": "not_reported",
+      "provider_capture_ceiling": "not_reported",
+      "provider_limited": false,
+      "stop_reason": "empty_page_observed",
+      "capture_complete_for_declared_total": false,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://huggingface.co/api/datasets?search=rare+disease+ontology&limit=25&skip=0",
+          "final_url": "https://huggingface.co/api/datasets?search=rare+disease+ontology&limit=25&skip=0",
+          "http_status": 200,
+          "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "item_count": 0,
+          "identifiers": []
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease prevalence",
+      "retrieved_at_utc": "2026-08-15T01:39:00Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 0,
+      "unique_identifiers_captured": 0,
+      "provider_declared_total": "not_reported",
+      "provider_capture_ceiling": "not_reported",
+      "provider_limited": false,
+      "stop_reason": "empty_page_observed",
+      "capture_complete_for_declared_total": false,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://huggingface.co/api/datasets?search=rare+disease+prevalence&limit=25&skip=0",
+          "final_url": "https://huggingface.co/api/datasets?search=rare+disease+prevalence&limit=25&skip=0",
+          "http_status": 200,
+          "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "item_count": 0,
+          "identifiers": []
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    },
+    {
+      "registry": "huggingface_datasets",
+      "query_string": "rare disease cost",
+      "retrieved_at_utc": "2026-08-15T01:39:00Z",
+      "page_size": 25,
+      "max_pages": 2,
+      "pages_captured": 1,
+      "occurrences_captured": 0,
+      "unique_identifiers_captured": 0,
+      "provider_declared_total": "not_reported",
+      "provider_capture_ceiling": "not_reported",
+      "provider_limited": false,
+      "stop_reason": "empty_page_observed",
+      "capture_complete_for_declared_total": false,
+      "pages": [
+        {
+          "page_number": 1,
+          "request_url": "https://huggingface.co/api/datasets?search=rare+disease+cost&limit=25&skip=0",
+          "final_url": "https://huggingface.co/api/datasets?search=rare+disease+cost&limit=25&skip=0",
+          "http_status": 200,
+          "response_sha256": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "item_count": 0,
+          "identifiers": []
+        }
+      ],
+      "claim_boundary": "Evidence covers only the recorded public endpoint pages at this retrieval time; it does not establish landscape, scholarly, repository, language, or temporal completeness."
+    }
+  ],
+  "limitations": [
+    "Captured pages are not a claim of ecosystem completeness or representativeness.",
+    "Provider totals, rankings and public metadata can change after retrieval.",
+    "Page budgets and provider caps are reported as incomplete rather than inferred complete.",
+    "External registration, methods challenge and patient/community interpretation remain pending."
+  ]
+}

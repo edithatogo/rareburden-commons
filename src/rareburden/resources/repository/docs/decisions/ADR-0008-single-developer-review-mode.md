@@ -1,6 +1,6 @@
 # ADR-0008: Single-developer review mode
 
-**Status:** accepted by repository owner — 2026-08-02
+**Status:** superseded by ADR-0009 — 2026-08-15
 
 ## Context
 
@@ -32,3 +32,7 @@ The repository can continue autonomously through synthetic tests, panel review,
 documentation, and bounded scope decisions. If an external gate is unavailable,
 the affected claim or capability remains provisional, is narrowed, or is
 removed; the track is not falsely completed.
+
+ADR-0009 replaces person-based future review requirements with role-separated
+agent-panel advice and an accountable repository-owner disposition. Historical
+evidence boundaries remain accurate.

@@ -65,7 +65,7 @@ releases:
   exit_gates:
   - Deterministic and simulation reference analyses reproduce from release artefacts.
   - Unsupported metric or envelope combinations fail safely.
-  - Independent scientific review of the reference analysis is complete.
+  - Agent-panel scientific challenge and repository-owner disposition are complete.
 - version: 0.6.0
   name: Federated methods alpha
   status: planned
@@ -75,7 +75,7 @@ releases:
   - 011-bronchiectasis-demonstrator
   exit_gates:
   - Synthetic node execution and disclosure tests pass.
-  - A second operator can run the node from documentation.
+  - An owner-operated clean-environment run reproduces the documented node workflow.
   - Bronchiectasis analysis validates overlapping and unclassified aetiology handling.
 - version: 0.7.0
   name: Economic and paediatric beta
@@ -97,7 +97,7 @@ releases:
   - 014-atlas-api-release
   exit_gates:
   - Machine-readable and human-readable public-data gap maps are released.
-  - At least one analysis has been independently reproduced.
+  - At least one analysis has been reproduced in a clean owner-operated environment.
   - Atlas and API outputs expose provenance, uncertainty, quality and missingness.
 - version: 0.9.0
   name: Release candidate
@@ -113,12 +113,12 @@ releases:
 - version: 1.0.0
   name: Stable public infrastructure
   status: planned
-  objective: Demonstrate independent usability, reproducibility, sustainable ownership and complete the stable release
+  objective: Demonstrate agent-challenged usability, owner-operated reproducibility, sustainable ownership and complete the stable release
     contract.
   tracks:
   - 017-documentation-adoption-v1
   exit_gates:
   - Every blocking criterion in docs/v1-acceptance-criteria.md has linked evidence.
-  - Two clean release-candidate builds and one independent reproduction agree.
+  - Two clean release-candidate builds and one separately executed owner-operated reproduction agree.
   - Supported scope, maintainers, support, succession and sustainability are approved.
-  - A formal multi-lane release decision authorises the v1.0.0 tag.
+  - Agent-panel lane recommendations and an exact-candidate owner decision authorise the v1.0.0 tag.

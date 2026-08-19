@@ -49,7 +49,7 @@ A track may enter Ready only when:
 5. review gates are proportionate to risk;
 6. the target release has valid entry conditions.
 
-A named individual need not appear publicly, but the programme must know who holds the role before activation.
+A stable accountable role identifier may be private, but its scope and acceptance must be recorded before activation.
 
 ## 5. Definition of done
 
@@ -74,22 +74,24 @@ Documentation describing a future capability is not implementation evidence for 
 4. Extract or derive evidence and parameters with provenance.
 5. Assess bias, representativeness, transportability, overlap and uncertainty.
 6. Run primary, sensitivity and structural analyses.
-7. Validate with independent sources, implementations and domain/community review.
-8. Apply local disclosure and data-governance review.
+7. Challenge with role-separated agent panels and owner-operated reproductions.
+8. Apply agent-panel disclosure/data-use challenge and owner disposition.
 9. Release code, lawful aggregate inputs, metadata, diagnostics and reproducible outputs.
 10. Monitor, correct and supersede without rewriting history.
 
 ## 7. Review gates
 
-Repository-owned review preparation uses the [subagent review-panel policy](../docs/subagent-review-panel-policy.md): panels draft findings and test evidence completeness. They do not replace accountable external authorities.
+Review uses [ADR-0009](../docs/decisions/ADR-0009-agent-panel-owner-governance.md)
+and the [agent review-panel policy](../docs/subagent-review-panel-policy.md).
+Panels advise; the repository owner decides.
 
-- **Scientific:** estimand, definition, mapping, bias, uncertainty, validation and double counting.
-- **Data governance:** terms, authority, custodian conditions, disclosure and withdrawal.
-- **Patient/community:** relevance, acceptable use, equity, harms, interpretation and framing.
+- **Methods/scientific panel:** estimand, definition, mapping, bias, uncertainty, validation and double counting.
+- **Rights/data-use panel:** observed terms, disclosure, retention and withdrawal; publisher rights remain facts.
+- **Community/harm panel:** relevance, acceptable use, equity, harms, interpretation and framing.
 - **Engineering:** correctness, tests, compatibility, performance, reproducibility and maintainability.
 - **Security:** threats, dependencies, secrets, logs, supply chain, incidents and recovery.
 - **Programme:** scope, resourcing, partner claims and sustainability.
-- **Release:** traceability, evidence pack, support, corrections and bounded claims.
+- **Release panel and owner:** traceability, evidence pack, support, corrections, bounded claims and exact-candidate disposition.
 
 A release is blocked when an assigned gate records an unresolved critical finding.
 
@@ -107,8 +109,6 @@ A release is blocked when an assigned gate records an unresolved critical findin
 Material changes to product scope, disease inclusion, burden definitions, ontology relations, primary estimands, economic perspective, privacy boundary, supported interfaces or release gates require a decision record in `docs/decisions/`.
 
 Changes to `conductor/roadmap.yml`, dependencies or blocking v1 criteria use the
-single-developer subagent review panel described in
-`docs/decisions/ADR-0008-single-developer-review-mode.md`. Any genuinely
-external scientific, patient/community, data-governance, security, operator or
-release-authority gate remains separately required where the acceptance
-criteria call for it.
+single-developer agent-panel and owner model described in
+`docs/decisions/ADR-0009-agent-panel-owner-governance.md`. Third-party rights,
+registry events and controlled-data policies remain separately evidence-bound.

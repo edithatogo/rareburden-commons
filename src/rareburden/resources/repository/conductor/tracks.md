@@ -39,27 +39,33 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 
 ## Parallel work now permitted
 
-Tracks 002, 007 and 018 form the v0.3 release. Track 018 is archived after internal completion; Tracks 002 and 007 remain in review pending external evidence. No downstream track should be marked Active until the validator confirms its dependencies are complete and its owner role is assigned.
+Tracks 002, 007 and 018 form the v0.3 release. Track 018 is archived after
+internal completion. Track 002 remains in review against its exact source and
+rights evidence. Track 007 remains in review pending its role-separated agent
+challenge and repository-owner disposition; external registry submission is
+optional. No downstream track should be marked Active until the validator
+confirms its dependencies are complete and its owner role is assigned.
 
 ## Single-developer review mode
 
-Repository-owned review evidence for every track is produced by the subagent
-review panel under `docs/decisions/ADR-0008-single-developer-review-mode.md`.
-Track plans must not imply another maintainer or internal human reviewer. This
-does not waive qualifying external independence or accountable-authority gates.
+Review evidence for every track is produced by a role-separated agent panel
+under `docs/decisions/ADR-0009-agent-panel-owner-governance.md`. Track plans
+must not imply another maintainer, human reviewer or independent review. Panels
+advise and the repository owner records the accountable disposition.
 
 The repository owner (`edithatogo`) is also the sole developer and primary
 operator. Owner-operated implementation, validation, support preparation and
 bounded release decisions are permitted and must be labelled as owner-operated.
-No backup owner, independent operator, independent security reviewer or
-external release authority is inferred from that role; unresolved gates remain
-pending until their qualifying evidence exists.
+A privacy-preserving backup-owner role is owner-attested as accepted but remains
+conditional until its scope, escalation, expiry and handoff evidence are
+recorded. Owner-operated operator/security evidence and owner release decisions
+must be labelled accurately and bound to the exact candidate.
 
-The dependency-ordered panel workflow for scientific/clinical, patient/community,
-custodian/data-governance, independent-operator and release gates is documented
+The dependency-ordered panel workflow for methods, community/harm,
+rights/data-use, operator/security and release advice is documented
 in [`panel-gate-plan.md`](panel-gate-plan.md). Panels prepare and challenge
-packets; the accountable receipts remain pending until supplied or the affected
-claim is explicitly bounded out of scope.
+packets; the repository owner adjudicates them. Publisher rights and future
+controlled-data custodian policies remain factual constraints.
 
 The current candidate-bound ledger is maintained in
 [`docs/remaining-gates-current-state-2026-08-03.md`](../docs/remaining-gates-current-state-2026-08-03.md).

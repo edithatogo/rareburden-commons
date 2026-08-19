@@ -1,0 +1,64 @@
+name: bounded source archive to Hugging Face
+
+on:
+  workflow_dispatch:
+    inputs:
+      manifest:
+        description: Repository-relative JSON manifest path
+        required: true
+        type: string
+      start:
+        description: Zero-based first manifest item
+        required: true
+        default: "0"
+        type: string
+      count:
+        description: Number of sequential items
+        required: true
+        default: "1"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-hf-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    name: Download, verify, upload, verify, discard
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Archive bounded batch
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          ARCHIVE_MANIFEST: ${{ inputs.manifest }}
+          ARCHIVE_START: ${{ inputs.start }}
+          ARCHIVE_COUNT: ${{ inputs.count }}
+        run: |
+          case "$ARCHIVE_MANIFEST" in
+            manifests/*.json) ;;
+            *) echo "manifest must be under manifests/" >&2; exit 2 ;;
+          esac
+          python3 scripts/archive_hf_batch.py \
+            "$ARCHIVE_MANIFEST" \
+            --repo-id edithatogo/hpo-licensed-ontology-archive \
+            --start "$ARCHIVE_START" \
+            --count "$ARCHIVE_COUNT" \
+            --max-bytes 5000000000 \
+            --receipt archive-receipt.json
+      - name: Preserve redacted receipt
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: archive-receipt
+          path: archive-receipt.json
+          if-no-files-found: error
+          retention-days: 30

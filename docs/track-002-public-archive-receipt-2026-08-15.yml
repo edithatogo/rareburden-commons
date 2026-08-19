@@ -1,0 +1,48 @@
+schema_version: "1.0"
+status: published_bounded_rights_filtered_projection
+published_at: "2026-08-15T04:11:24Z"
+repository:
+  id: edithatogo/rareburden-commons-open-source-snapshots
+  url: https://huggingface.co/datasets/edithatogo/rareburden-commons-open-source-snapshots
+  visibility: public
+  commit: 795150a6b45937228023b97602e6b770ae7f192b
+  payload_bytes: 618000000
+contents:
+  - source_id: orphadata-science
+    release: "July 2026"
+    licence: CC_BY_4_0
+    files: [en_product1.xml, en_product9_prev.xml]
+  - source_id: mondo-disease-ontology
+    release: v2026-08-04
+    licence: CC_BY_4_0
+    files: [mondo-rare.owl, mondo.json, mondo.owl]
+  - source_id: un-world-population-prospects
+    release: "WPP 2024, 28th revision"
+    licence: CC_BY_3_0_IGO
+    files: [WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx]
+    exclusions: [third_party_classifications]
+  - source_id: world-bank-indicators-api
+    release: "SP.POP.TOTL AUS/NZL 2000-2021; lastupdated 2026-07-13"
+    licence: CC_BY_4_0_observed_for_series
+    files: [SP.POP.TOTL-AUS-NZL-2000-2021.json]
+    limitations: [probe_only, no_WPP_substitution]
+excluded:
+  - WHO_GHE_bytes
+  - HPO_bytes_pending_accessible_exact_terms
+  - UK_and_Australian_PanelApp_bytes
+  - UMLS_OMIM_and_SNOMED_CT_bytes
+  - controlled_environment_data
+claims_not_made:
+  - clinical_validity
+  - comprehensive_coverage
+  - global_representativeness
+  - production_activation
+  - source_endorsement
+verification:
+  hash_manifest: SHA256SUMS
+  public_unauthenticated_API_confirmed: true
+  public_repository_commit_confirmed: true
+estate_registry:
+  repository: edithatogo/dataset-estate-registry
+  commit: 00fb77303fb5b243ddc330b34129f4795202fc22
+  note: registry_contains_the_new_projection_but_has_pre_existing_unregistered_owner_datasets

@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "observed_at": "2026-08-16T05:24:22+10:00",
+  "purpose": "Bounded rights and identity observations; no lexicon or ontology payload bytes are retained",
+  "sources": [
+    {
+      "source_id": "digital-csic-medlexsp",
+      "artifact_identity": {
+        "title": "Medical Lexicon for Spanish (MedLexSp) [DATASET]",
+        "handle": "10261/270429",
+        "doi": "10.20350/digitalCSIC/14656",
+        "author": "Campillos-Llanos, Leonardo",
+        "publication_date": "2022-05-25",
+        "language": ["es"],
+        "artifact_kind": "medical_lexicon_not_ontology"
+      },
+      "authoritative_landing_page": "https://digital.csic.es/handle/10261/270429",
+      "observed_public_bitstreams": [
+        {
+          "name": "Medical_Lexicon_Spanish_MedLexSp.pdf",
+          "role": "instructions",
+          "size_bytes": 3273,
+          "sha256": "4c29465e333a6996ffac26377598c50b04d9e4f51baaef9534e4ec620790b005"
+        },
+        {
+          "name": "MedLexSp_License_2022.pdf",
+          "role": "usage_licence",
+          "size_bytes": 145693,
+          "sha256": "0f3af55f11bcd69b4c1958af96f78bfdc76e21a9ab7d197b4825b0619dea3fc8"
+        },
+        {
+          "name": "README.txt",
+          "role": "documentation",
+          "size_bytes": 11125,
+          "sha256": "ccf8aa464e5a50c1bcebe7b7ad9a9696ecc1d6c5e639140681b17ef8d6feb6a7"
+        }
+      ],
+      "dataset_payload_observed": false,
+      "licence_disposition": {
+        "signed_agreement_required": true,
+        "permitted_purpose": "non-commercial_non-profit_research_only",
+        "modification_permitted": false,
+        "confidentiality_required": true,
+        "copy_publish_distribute_or_third_party_access_permitted": false,
+        "transfer_permitted": false,
+        "public_byte_route": "prohibited",
+        "private_hugging_face_or_cloud_route": "prohibited_absent_express_processor_and_cloud_permission",
+        "public_metadata_hash_citation_route": "permitted"
+      },
+      "limitations": [
+        "openAccess metadata does not override the signed licence restrictions",
+        "the README statement about a restriction-filtered version is not a cloud or redistribution grant",
+        "no dataset payload was among the three observed public bitstreams"
+      ]
+    },
+    {
+      "source_id": "kiom-traditional-korean-medicine-ontology",
+      "artifact_identity": {
+        "title": "Ontology for medicinal materials based on traditional Korean medicine",
+        "doi": "10.1093/bioinformatics/btq424",
+        "citation": "Jang et al. Bioinformatics 2010;26(18):2359-2360",
+        "publisher_named_url": "http://tkm.kiom.re.kr/ontology/TraditionalKoreanMedicine.rdf-xml.owl",
+        "artifact_kind": "traditional_korean_medicine_medicinal_materials_ontology"
+      },
+      "access_observation": {
+        "observed_at": "2026-08-16T05:24:22+10:00",
+        "requested_url": "https://tkm.kiom.re.kr/ontology/TraditionalKoreanMedicine.rdf-xml.owl",
+        "outcome": "dns_resolution_failed",
+        "response_bytes_observed": 0,
+        "artifact_sha256": null
+      },
+      "licence_disposition": {
+        "explicit_redistribution_grant_observed": false,
+        "public_byte_route": "prohibited_pending_exact_licence_and_recovered_authoritative_artifact",
+        "private_cloud_route": "prohibited_pending_exact_licence_and_cloud_permission",
+        "public_metadata_citation_failed_access_route": "permitted"
+      },
+      "limitations": [
+        "publication provenance identifies a URL but does not grant redistribution rights",
+        "version, exact language coverage, bytes and checksum remain unobserved",
+        "availability in a 2010 publication does not prove current availability"
+      ]
+    }
+  ],
+  "identity_map": [
+    {"source_id": "kiom-traditional-korean-medicine-ontology", "domain": "Korean medicinal materials", "languages": "unverified", "duplicate_of_kiom": false},
+    {"source_id": "tara", "domain": "acupoints and anatomical mappings", "languages": "English", "duplicate_of_kiom": false},
+    {"source_id": "ocmr", "domain": "anti-rheumatism traditional Chinese medicines", "languages": "English; Chinese", "duplicate_of_kiom": false},
+    {"source_id": "tcdo", "domain": "traditional Chinese drugs", "languages": "English; Chinese", "duplicate_of_kiom": false}
+  ],
+  "global_claims": {
+    "payload_archived": false,
+    "redistribution_rights_inferred_from_public_access": false,
+    "private_cloud_permission_inferred": false,
+    "traditional_medicine_ontology_completeness": false,
+    "thematic_overlap_treated_as_artifact_duplication": false
+  }
+}

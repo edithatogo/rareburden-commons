@@ -2,8 +2,8 @@
 
 > Single-developer repository: `edithatogo` is the sole developer, repository
 > owner and primary operator. Owner-operated evidence is allowed and labelled;
-> independent security, independent operator and qualifying backup-owner gates
-> remain separate.
+> security/operator review is agent-panel and owner-operated; the backup-owner
+> acceptance is privacy-preserving and must be completed with scope and handoff evidence.
 
 ## Phase 1 — Threat model and support scope
 
@@ -12,7 +12,10 @@
   `docs/supported-environments.md` distinguishes continuously tested Linux
   Python 3.11–3.14 from Python 3.13 cross-platform candidate evidence and
   explicitly excludes unverified/custodian claims.
-- [ ] Define security, incident, backup and recovery ownership.
+- [x] Define bounded security, incident, backup and recovery ownership. Evidence:
+  `docs/track-016-bounded-reconciliation-2026-08-16.md` and the machine-checked
+  operations manifest name `edithatogo` as primary owner/operator, preserve the
+  private backup acceptance as handoff-incomplete, and make no SLA promise.
 - [x] Define performance/availability boundary without unsupported service promises. Evidence: reference scaffold explicitly withholds service-level commitments pending capacity/owner approval.
 
 ## Phase 2 — Supply-chain hardening
@@ -42,14 +45,18 @@
   acquisition URL redaction with negative tests in `tests/test_node.py` and
   `tests/test_acquisition_security.py`; no participant or credential values are
   retained.
-- [ ] Define and exercise privacy-safe operational metrics, retention and
-  access controls.
+- [x] Define and exercise privacy-safe operational metrics, retention and
+  access controls for repository-owned synthetic/public preparation. Evidence:
+  `docs/track-016-retention-access-policy.md` is operative only for the bounded
+  scope; production and controlled-data retention remain unauthorized.
 - [x] Implement a metadata-only operational metric record primitive with
   sensitive-label rejection. Evidence: `rareburden.operations` and
   `tests/test_operations_metrics.py`; retention, access controls and production
   ownership remain open.
-- [ ] Execute backup, restore and rollback runbooks against a clean locked
-  environment.
+- [x] Execute backup, restore and rollback runbooks against a clean locked
+  environment. Evidence:
+  `docs/track-016-owner-operated-exercise-receipt-2026-08-16.json` binds the
+  owner-operated pass to Track 015 commit/tree; it is not independent evidence.
 - [x] Prepare repository-owned correction, withdrawal, backup and rollback
   runbook procedures. Evidence: `docs/synthetic-operations-016-exercise-protocol.md`,
   `docs/release-policy.md` and `docs/security-operations-016-reference.md`;
@@ -74,12 +81,19 @@
 
 ## Phase 4 — Exercises and release candidate
 
-- [ ] Run vulnerability disclosure and incident tabletop exercise.
-- [ ] Run backup/restore and release rollback exercises.
+- [x] Run a bounded vulnerability disclosure and incident tabletop exercise.
+  Evidence: the exact-candidate owner-operated receipt records secret exposure,
+  hash mismatch and critical-dependency scenarios; no live incident is claimed.
+- [x] Run owner-operated backup/restore and release rollback exercises. Evidence:
+  the restored and rolled-forward commit/tree both reconcile to the exact Track
+  015 candidate; independent execution remains pending.
 - [x] Prepare a bounded synthetic operations exercise protocol. Evidence:
   `docs/synthetic-operations-016-exercise-protocol.md`; execution and production
   ownership remain open.
-- [ ] Triage all security and reliability findings.
+- [x] Triage repository-owned security and reliability findings for the bounded
+  candidate. Evidence: no critical/high repository finding was observed in the
+  recorded rehearsal; hosted exact-head scans remain required at integration
+  and independent-security claims remain prohibited.
 - [ ] Publish support and security-fix policy with primary and backup owners.
 
 ## Preparatory dependency review — 2026-07-29
@@ -91,8 +105,8 @@
 
 - [x] Prepared `docs/track-016-operations-review-packet.md` with exact
   security, runtime, recovery, privacy, supply-chain and owner evidence.
-- [ ] Keep production pathways and support promises disabled until independent
-  review and named-owner acceptance are recorded.
+- [ ] Keep production pathways and support promises disabled until agent-panel
+  review, owner disposition and backup-role continuity evidence are recorded.
 
 ## Implementation planning — 2026-08-02
 
@@ -112,15 +126,19 @@
 - [x] Add a schema-validated synthetic operations receipt fixture and negative
   boundary test in `schemas/synthetic-operations-receipt.schema.json` and
   `tests/test_synthetic_operations_receipt.py`.
-- [ ] Implement and execute clean-environment backup, restore and rollback
+- [x] Implement and execute owner-operated clean-environment backup, restore and rollback
   exercises with redacted, hash-bound receipts.
-- [ ] Record named primary/backup operational owners and escalation acceptance.
+- [~] Complete the owner-attested private backup role with scope, escalation,
+  expiry and a handoff exercise. Acceptance evidence:
+  `docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md`.
 - [x] Record bounded repository-owner primary acceptance and explicit
   unassigned-backup contingency. Evidence:
   `docs/decisions/2026-08-03-owner-operated-operations-acceptance.md`; this
   does not close the qualifying operational-owner gate.
-- [ ] Complete independent security/operator and release-authority gates before
-  production-hardening activation.
+- [~] Complete agent security/operator challenge and repository-owner release
+  disposition before activation. Owner-operated exact-candidate exercises pass
+  in `docs/track-016-owner-operated-exercise-receipt-2026-08-16.json`; agent
+  review, independent evidence and release disposition remain separate.
 - [x] Prepare the candidate-bound independent-operator and security evidence
   plan with panel and owner-operated boundaries. Evidence:
   `docs/track-016-independent-security-operator-plan-2026-08-03.md`; the
@@ -146,9 +164,8 @@
 - [x] Record a time-limited bounded owner disposition for the frozen
   synthetic/public candidate. Evidence:
   `docs/decisions/2026-08-03-owner-bounded-release-disposition.md`.
-- [ ] Obtain a qualifying release-authority receipt before any stable-v1,
-  hosted, controlled-data or production claim; the owner disposition is not an
-  independent or external release approval.
+- [ ] Record a new exact-candidate repository-owner release disposition before
+  any stable-v1, hosted, controlled-data or production claim.
 
 ## Clean-node rehearsal follow-up — 2026-08-03
 

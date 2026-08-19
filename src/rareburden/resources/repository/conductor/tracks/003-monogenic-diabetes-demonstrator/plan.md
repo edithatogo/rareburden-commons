@@ -7,7 +7,7 @@
 - [ ] Register RBC-P002 with explicit estimands and denominator options. `[M-01, M-03, S-05]`
 - [ ] Freeze monogenic-diabetes entities, gene/phenotype scope and ontology versions. `[M-02, S-01]`
 - [ ] Define diagnosed, undiagnosed and modelled population states. `[M-04]`
-- [ ] Obtain clinical and patient/community review of framing.
+- [ ] Obtain clinical-methods and community/harm agent-panel review of framing and owner disposition.
 
 ## Phase 2 — Evidence ledger
 
@@ -26,7 +26,7 @@
 ## Phase 4 — Validation and reporting
 
 - [ ] Compare with independent cohort or registry evidence where lawful. `[S-10]`
-- [ ] Complete numerical, scientific and language review.
+- [ ] Complete numerical, scientific and language agent-panel review and owner disposition.
 - [ ] Produce reproducible report, data package and limitations summary.
 - [ ] Record review findings and approve, narrow, revise or stop.
 

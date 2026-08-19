@@ -28,8 +28,8 @@
 
 ## Phase 4 — Independent assurance
 
-- [ ] Commission independent reproduction of at least one analysis. `[S-10]`
-- [ ] Complete patient/community harm and interpretation review.
+- [ ] Run a separately executed owner-operated clean-environment reproduction of at least one analysis. `[S-10]`
+- [ ] Complete community/harm agent-panel interpretation review and owner disposition.
 - [ ] Complete scientific assurance report and disposition log.
 - [ ] Block, narrow or approve outputs for the atlas beta.
 
@@ -43,3 +43,20 @@
   gap, equity, release-language and independent-assurance decisions. Evidence:
   `docs/track-013-assurance-review-packet.md`; prerequisite and external gates
   remain open.
+
+## Bounded downstream reconciliation — 2026-08-16
+
+- [x] Bind the merged Track 008–012 synthetic assurance chain to exact artifact
+  hashes and verify non-activation, non-clinical and unfrozen contract states.
+  Evidence: `manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json`.
+- [x] Add deterministic validation and negative tests for hash drift, empirical
+  activation, representativeness overclaim and removal of equity/owner gates.
+  Evidence: `scripts/check_track013_bounded_reconciliation.py` and
+  `tests/test_track013_bounded_reconciliation.py`.
+- [x] Record bounded coverage accounting: five synthetic dependency tracks,
+  zero empirical population rows, zero assessed real geographies, zero assessed
+  real subgroups and two suppressed synthetic subgroup rows. Sufficiency remains
+  `not_assessed`.
+- [ ] Obtain real coverage/representativeness and subgroup/equity evidence,
+  owner quality disposition and separately executed reproduction. The bounded
+  reconciliation cannot satisfy these gates.

@@ -26,7 +26,8 @@ The review covers academic literature, burden-estimation initiatives, rare-disea
 3. The review distinguishes an unavailable product from an unavailable public interface.
 4. Novelty claims are specific and falsifiable rather than rhetorical.
 5. Existing reusable work is incorporated into later track plans.
-6. Patient/community and external methods reviewers can challenge the proposed gap.
+6. Role-separated community/harm and methods agents challenge the proposed gap,
+   and the repository owner records the disposition.
 7. The programme records a formal proceed, narrow, combine, revise or stop decision.
 
 ## Non-goals

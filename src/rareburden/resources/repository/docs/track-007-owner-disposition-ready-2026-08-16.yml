@@ -1,0 +1,103 @@
+schema_version: '1.0.0'
+track: 007-landscape-novelty
+status: repository_owner_disposition_recorded
+candidate:
+  commit: 1f93f5862290e16d0e393834e35c282d187658e1
+  tree: 97bb9387053f4e8feb30d2310fbc849e5ecbb8da
+  branch: main
+  candidate_kind: retrospective_bounded_repository_landscape_preparation
+  review_expiry: '2026-09-03'
+  expiry_rule: material_change_or_expiry_requires_a_new_exact_candidate_decision
+bound_evidence:
+- path: docs/track-007-repository-registration-2026-08-16.yml
+  sha256: c9fffd556859e5569eab3c32cd460519da7710a0535ea15f8d3701132ef5f89a
+- path: docs/track-007-agent-panel-findings-2026-08-16.yml
+  sha256: 721e606a21bb4ce7d2c9028d0e8266a9ade43893f5d415352b75cff7d7f25cb6
+- path: docs/track-007-bounded-framing-addendum-2026-08-16.md
+  sha256: ecad8efc7f1487c885dc000a004bb66bac4dca01695ec55010a2ad0ae8bf1f3e
+- path: docs/track-007-provider-terms-matrix-2026-08-16.yml
+  sha256: b488a1e5cce5e6c555a9fc29464013782fd7815302dda0523f6c075a6f41a96c
+- path: docs/track-007-correction-withdrawal-map-2026-08-16.yml
+  sha256: 5b89e2dc87f54c1f1a77d04e57b6a20dc1c595836edce8ceea67792f9afbcdf1
+panel_recommendation: narrow_and_remediate
+recommended_decision:
+  option: A
+  disposition: narrow
+  allowed:
+  - repository protocol and request reconstruction
+  - content-addressed observation metadata and capture-mechanics evidence
+  - exact 133 occurrence, 120 unique, 69 retained and 51 excluded bounded snapshot counts
+  - a falsifiable complementary provenance and federated-measurement design hypothesis within the indexed English-language public evidence sampled
+  - owner-curated examples with potential complementarity and no relationship evidenced
+  prohibited:
+  - preregistered, prospective or confirmatory protocol claim
+  - completed systematic, scoping or publication-ready landscape claim
+  - comprehensive, global or representative coverage claim
+  - established white-space gap or confirmed novelty
+  - exact response-byte or retrieval-time ranking reproducibility
+  - patient/community legitimacy, consent or approval
+  - partnership, endorsement, access, licensor, publisher or external-registry authority
+  - worth-ranking, clinical-validity or mechanical rationing interpretation
+  unresolved:
+  - 69 final content-level eligibility decisions
+  - screening and reconciliation of 306 live-capture occurrences
+  - bibliographic, multilingual, regional, grey-literature and community-led coverage
+  - three GitHub initiative-level entity equivalence decisions
+  - eight lawful-access locator outcomes
+  - plain-language translation and broader accessibility exercise
+  owner_authority: repository_claim_scope_and_release_disposition_only
+alternatives:
+- option: B
+  disposition: revise
+  tradeoff: Retain the original broad scope in review and complete eligibility, live-set reconciliation and expanded scholarly, multilingual and community-aware searching before deciding.
+- option: C
+  disposition: defer
+  tradeoff: Preserve the packet as methods preparation and make no landscape conclusion.
+- option: D
+  disposition: stop
+  tradeoff: Stop Track 007 if critical duplication, harm, rights or reproducibility failure cannot be remediated.
+material_change_triggers:
+- protocol, query, provider, terms or API change
+- ranking, pagination, rate-cap or authentication-class change
+- eligibility, deduplication or count change
+- new rights, withdrawal, naming or community-harm finding
+- relationship, complementarity or use-label change
+- hash, commit or tree mismatch
+- broader claim, source, language, geography or report surface
+stop_triggers:
+- hash or count non-reconciliation
+- rights exceeded or restricted access treated as permission
+- absence inferred from unobserved or inaccessible evidence
+- systematic, global, confirmed-novelty or preregistration claim
+- worth-ranking, rationing or unresolved cultural-governance harm
+- implied partnership, consent, patient/community approval or external authority
+- correction or withdrawal cannot be completed across mapped artifacts
+decision_fields:
+  repository_owner: edithatogo
+  decided_at_utc: '2026-08-15T16:03:39Z'
+  selected_option: A
+  conditions_or_dissent: >-
+    Narrow and remediate. All prohibited claims, unresolved findings,
+    material-change rules, correction and withdrawal duties, expiry and stop
+    triggers in this packet remain binding. The original publication-ready
+    landscape acceptance is not met by this disposition.
+  owner_signature_or_attributable_record: >-
+    https://github.com/edithatogo/rareburden-commons/issues/6#issuecomment-5303053641
+    records the repository owner's Option A narrow disposition against the
+    immutable merged candidate commit and tree above.
+recommended_owner_wording: >-
+  For the exact Track 007 candidate at commit
+  1f93f5862290e16d0e393834e35c282d187658e1 and tree
+  97bb9387053f4e8feb30d2310fbc849e5ecbb8da, I select Option A and narrow the
+  disposition through 2026-09-03. I accept the frozen retrospective repository
+  protocol, exact bounded snapshot counts, content-addressed observation
+  metadata and capture-mechanics evidence, and the falsifiable complementary
+  provenance/federated-measurement design hypothesis only within the indexed
+  English-language public evidence sampled. I do not approve preregistration,
+  prospective or confirmatory status, a completed systematic or publication-ready
+  landscape, comprehensive or representative coverage, confirmed novelty,
+  exact response reproduction, patient/community legitimacy, partnership,
+  endorsement, access, third-party rights or external registration. The
+  unresolved items, material-change rules, correction and withdrawal map and
+  stop triggers in this packet remain binding. My authority is limited to
+  repository claim scope and release disposition.

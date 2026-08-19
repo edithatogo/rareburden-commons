@@ -9,7 +9,8 @@ Prove that the supported platform can be understood, reproduced, operated and ma
 - role-based quickstart, user, developer, methods, node-operator, data-steward and release guides;
 - tested tutorials and reference workflows;
 - accessibility and usability review;
-- independent user and node-operator validation;
+- two role-separated usability-agent assessments and a separately recorded
+  owner-operated node/analyst run;
 - maintainer, reviewer and incident-owner roster with backups;
 - contribution, succession, deprecation and support processes;
 - costed sustainability and institutional-host plan;
@@ -20,8 +21,11 @@ Prove that the supported platform can be understood, reproduced, operated and ma
 ## Acceptance criteria
 
 1. All blocking v1 criteria have linked evidence or the unsupported capability is removed from scope.
-2. Two independent users complete the reference workflow without maintainer intervention.
-3. Two clean release-candidate builds and one independent reproduction produce equivalent reviewed outputs.
+2. Two role-separated usability agents assess the reference workflow and the
+   owner records the disposition without representing the reports as human,
+   community or independent approval.
+3. Two clean release-candidate builds and one separately recorded owner-operated
+   clean-environment reproduction produce equivalent reviewed outputs.
 4. Documentation examples and links pass automated checks.
 5. Maintainer, review, incident and succession roles have primary and backup owners.
 6. Ongoing infrastructure and release costs have an approved operating model.
@@ -38,3 +42,12 @@ Prove that the supported platform can be understood, reproduced, operated and ma
 ## v1 contribution
 
 This track closes the complete release contract and is the only track authorised to create the stable v1.0.0 release decision.
+
+## Bounded single-owner operating model
+
+Under ADR-0009, role-separated agent panels provide advisory challenge and the
+repository owner is the accountable release authority. Agent reports never
+constitute independent, human, patient/community, custodian, licensor,
+institutional or external approval. Publisher rights and controlled-data rules
+remain evidence-bound facts. Stable release remains fail-closed until every
+criterion above has exact candidate-bound evidence.

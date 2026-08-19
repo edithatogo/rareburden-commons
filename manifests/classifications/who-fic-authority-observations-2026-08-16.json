@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "observed_at": "2026-08-15T16:01:07+00:00",
+  "source_manifest": "manifests/classifications/who-fic-authority-sources-2026-08-16.json",
+  "source_manifest_sha256": "dc8dc0a2815142c5847791acd172658cd900908bc6b7d73e5f15430f7270d046",
+  "status": "bounded_official_landing_page_observation",
+  "observations": [
+    {
+      "id": "who-fic-family",
+      "source_url": "https://www.who.int/standards/classifications/",
+      "final_url": "https://www.who.int/standards/classifications/",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 112020,
+      "sha256": "137c02f168f69321234bd168259a3e0158b68684a580e711f4106cdc0d936241",
+      "body_retained": false
+    },
+    {
+      "id": "who-icf",
+      "source_url": "https://www.who.int/classifications/international-classification-of-functioning-disability-and-health",
+      "final_url": "https://www.who.int/classifications/international-classification-of-functioning-disability-and-health",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 93107,
+      "sha256": "986acfff2d9ac7a4ccd910b3a57aa98a88f52823970b21c8cd6a405d9019c6de",
+      "body_retained": false
+    },
+    {
+      "id": "who-icf-cy",
+      "source_url": "https://www.who.int/classifications/international-classification-of-functioning-disability-and-health",
+      "final_url": "https://www.who.int/classifications/international-classification-of-functioning-disability-and-health",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 93107,
+      "sha256": "986acfff2d9ac7a4ccd910b3a57aa98a88f52823970b21c8cd6a405d9019c6de",
+      "body_retained": false
+    },
+    {
+      "id": "who-ichi",
+      "source_url": "https://www.who.int/standards/classifications/international-classification-of-health-interventions",
+      "final_url": "https://www.who.int/standards/classifications/international-classification-of-health-interventions",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 93064,
+      "sha256": "af5e3d28a1132d5495a5ffc44667b005e22900344df2d110f328549a29f2b349",
+      "body_retained": false
+    },
+    {
+      "id": "who-icd-o",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-diseases-for-oncology",
+      "final_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-diseases-for-oncology",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 83249,
+      "sha256": "cbcdb8541e0db76cf5f5c72937b53302c3567dda427bc35f7720b9d8e3329513",
+      "body_retained": false
+    },
+    {
+      "id": "who-icpc",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-primary-care",
+      "final_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-primary-care",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 82295,
+      "sha256": "41e2d0a7695b6e9e8bab5f4fa8a0ca0f8cce48fa68de2f99121b63aa7ba370e7",
+      "body_retained": false
+    },
+    {
+      "id": "who-iceci",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-external-causes-of-injury",
+      "final_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-external-causes-of-injury",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 83212,
+      "sha256": "fc6f8df5baf02833196b1b5189f10505b63b3950d6e34868f5d28e6c4217a323",
+      "body_retained": false
+    },
+    {
+      "id": "who-iso-9999",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/technical-aids-for-persons-with-disabilities",
+      "final_url": "https://www.who.int/standards/classifications/other-classifications/technical-aids-for-persons-with-disabilities",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 81628,
+      "sha256": "6fe022821ec87e1f909e02b90c3187ea74e4d22547e6a749acc32c52abaa71fb",
+      "body_retained": false
+    },
+    {
+      "id": "who-atc-ddd",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/the-anatomical-therapeutic-chemical-classification-system-with-defined-daily-doses",
+      "final_url": "https://www.who.int/standards/classifications/other-classifications/the-anatomical-therapeutic-chemical-classification-system-with-defined-daily-doses",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 83822,
+      "sha256": "3f7efd032e9085ffd1a962636a3d1fcc7f63d08ed851ec15c4dfa55348f979d0",
+      "body_retained": false
+    },
+    {
+      "id": "who-icnp",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-for-nursing-practice",
+      "final_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-for-nursing-practice",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 82699,
+      "sha256": "319ce39db1712dcf0097b551245df45b4e44c98d6863852f28f040cfec668d99",
+      "body_retained": false
+    },
+    {
+      "id": "who-verbal-autopsy",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/verbal-autopsy-standards-ascertaining-and-attributing-causes-of-death-tool",
+      "final_url": "https://www.who.int/standards/classifications/other-classifications/verbal-autopsy-standards-ascertaining-and-attributing-causes-of-death-tool",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 170378,
+      "sha256": "8e58ef9cd7b985536a9d783d3461004856c1ff33d9ecc4df09e0ddb97f24945f",
+      "body_retained": false
+    },
+    {
+      "id": "who-icd10-smol",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/the-startup-mortality-list-%28icd-10-smol%29",
+      "final_url": "https://www.who.int/standards/classifications/other-classifications/the-startup-mortality-list-%28icd-10-smol%29",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 80835,
+      "sha256": "667eeb9c1e55f404e991390a77ddf5141360d78ba0691eafe5e7adbf181f5328",
+      "body_retained": false
+    },
+    {
+      "id": "us-icd10-cm",
+      "source_url": "https://www.cdc.gov/nchs/icd/icd-10-cm/files.html",
+      "final_url": "https://www.cdc.gov/nchs/icd/icd-10-cm/files.html",
+      "http_status": 403,
+      "content_type": "text/html",
+      "bytes_observed": 0,
+      "sha256": null,
+      "body_retained": false
+    },
+    {
+      "id": "au-icd10-am",
+      "source_url": "https://www.ihacpa.gov.au/health-care/products-and-licenses",
+      "final_url": "https://www.ihacpa.gov.au/health-care/products-and-licenses",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_observed": 160075,
+      "sha256": "4aecfdfe26e4c0b0f11e3da8d22008ef2ed33b37b841c791fc72f02c1d5caec5",
+      "body_retained": false
+    },
+    {
+      "id": "ca-icd10-ca",
+      "source_url": "https://www.cihi.ca/en/submit-data-and-view-standards/codes-classifications-and-terminologies/classification-resources",
+      "final_url": "https://www.cihi.ca/en/submit-data-and-view-standards/codes-classifications-and-terminologies/classification-resources",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_observed": 104638,
+      "sha256": "b9f3f82302435712f0cbe1bb6bc9d932c62555d3f4fdd190f312c2ba4be67b87",
+      "body_retained": false
+    },
+    {
+      "id": "de-icd10-gm",
+      "source_url": "https://www.bfarm.de/DE/Kodiersysteme/Klassifikationen/ICD/ICD-10-GM/_node.html",
+      "final_url": "https://www.bfarm.de/DE/Kodiersysteme/Klassifikationen/ICD/ICD-10-GM/_node.html",
+      "http_status": 200,
+      "content_type": "text/html;charset=utf-8",
+      "bytes_observed": 348461,
+      "sha256": "d1e971eb55afd432c5dbca20b8cfb6ffc95d30a57166d68a7e743973d75d13bd",
+      "body_retained": false
+    },
+    {
+      "id": "gb-england-icd10",
+      "source_url": "https://classbrowser.nhs.uk/resources.html",
+      "final_url": "https://classbrowser.nhs.uk/resources.html",
+      "http_status": 200,
+      "content_type": "text/html",
+      "bytes_observed": 5193,
+      "sha256": "f59cca9d3a6f3b62bee3bd906650666107b8028ffed5d102d83b7c5bf3221ae8",
+      "body_retained": false
+    },
+    {
+      "id": "nl-icd10-translation",
+      "source_url": "https://www.rivm.nl/en/who-collaborating-centre-for-family-of-international-classifications-fic",
+      "final_url": "https://www.rivm.nl/en/who-collaborating-centre-for-family-of-international-classifications-fic",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_observed": 45312,
+      "sha256": "718682b43e86159472f0cbf6184a0a44495389354699a09ba363605d6995bd0d",
+      "body_retained": false
+    },
+    {
+      "id": "se-icd10-se",
+      "source_url": "https://www.socialstyrelsen.se/publikationer/anvisningar-for-diagnos--och-atgardskodning-med-icd-10-se-och-kva-version-1.1-2024-1-8487/",
+      "final_url": "https://www.socialstyrelsen.se/publikationer/anvisningar-for-diagnos--och-atgardskodning-med-icd-10-se-och-kva-version-1.1-2024-1-8487/",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_observed": 378055,
+      "sha256": "60b78ab7fcabc9ad130f42887151fe9c2dc7cf068f06bf02dbc894f261beccb5",
+      "body_retained": false
+    },
+    {
+      "id": "nz-icd10-am-adoption",
+      "source_url": "https://www.health.govt.nz/monitoring-statistics/statistics-and-data-sets/mortality",
+      "final_url": "https://www.health.govt.nz/monitoring-statistics/statistics-and-data-sets/mortality",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_observed": 113130,
+      "sha256": "584aeb633577f80283e5964e8eea0b9d4ca3591bb22032709222a260c4979c56",
+      "body_retained": false
+    }
+  ],
+  "claims": {
+    "global_completeness": false,
+    "language_completeness": false,
+    "artifact_rights": false,
+    "source_bytes_archived": false,
+    "production_activation": false
+  }
+}

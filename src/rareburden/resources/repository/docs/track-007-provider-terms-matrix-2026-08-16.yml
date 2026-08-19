@@ -1,0 +1,95 @@
+schema_version: '1.0.0'
+track: 007-landscape-novelty
+status: bounded_metadata_use_only
+observed_at_utc: '2026-08-15T15:48:38Z'
+assurance: repository_terms_observation_not_legal_or_provider_approval
+default_decision: retain_and_publish_only_minimal_metadata_hashes_and_citations
+providers:
+- provider: github
+  endpoint_class: public_repository_search_api
+  access_class: unauthenticated_public_request
+  terms_url: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
+  http_status: 200
+  final_url: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
+  response_sha256: 29e4812ce10b0b5245921b605fd64fba3b8fb32dec9dc51d2960e883e1ce96a7
+  observed_boundary: GitHub API terms govern collection; repository content remains subject to its owner and applicable licence.
+  permitted_repository_evidence:
+  - request and final URLs
+  - timestamps, response hashes, totals and stop reasons
+  - stable repository identifiers, titles and canonical URLs
+  prohibited_without_record_level_terms:
+  - repository body or file redistribution
+  - inferred licence, endorsement, partnership or absence
+- provider: zenodo
+  endpoint_class: public_records_api
+  access_class: unauthenticated_public_request
+  terms_url: https://about.zenodo.org/terms/
+  http_status: 200
+  final_url: https://about.zenodo.org/terms/
+  response_sha256: bbfc65e42c81063b3ffa3b679bd6a712227b048b37888e39a5670cee14b9f659
+  observed_boundary: Zenodo states metadata may be reused under CC0 unless specified otherwise; deposited content retains its record-level licence.
+  permitted_repository_evidence:
+  - minimal record metadata, stable identifiers, citations and hashes
+  - request context, totals and stop reasons
+  prohibited_without_record_level_terms:
+  - deposited file or full-text redistribution
+  - treating metadata licence as the content licence
+- provider: huggingface
+  endpoint_class: public_dataset_search_api
+  access_class: unauthenticated_public_request
+  terms_url: https://huggingface.co/terms-of-service
+  http_status: 200
+  final_url: https://huggingface.co/terms-of-service
+  response_sha256: ea970d587490da8943ec70dd06371a008118491e374ecfd05164ff230853744e
+  observed_boundary: Public content remains governed by applicable displayed licences and platform terms.
+  permitted_repository_evidence:
+  - request and final URLs
+  - timestamps, response hashes, empty-page observations and stop reasons
+  - stable dataset identifiers, titles and canonical URLs when returned
+  prohibited_without_record_level_terms:
+  - dataset card, file or body redistribution
+  - absence inference from empty ranked pages
+- provider: crossref
+  endpoint_class: public_scholarly_metadata_api
+  access_class: unauthenticated_public_request
+  terms_url: https://www.crossref.org/documentation/retrieve-metadata/rest-api/
+  http_status: 200
+  final_url: https://www.crossref.org/documentation/retrieve-metadata/rest-api/
+  response_sha256: 53987c1c937f5f3ccb3cefe08176716e631d579dee983743f00b7837ca328c8d
+  observed_boundary: Crossref describes almost all deposited metadata as reusable, while some abstracts may retain publisher or author copyright.
+  permitted_repository_evidence:
+  - bibliographic facts, DOI, title, type, canonical URL and response hash
+  - request context, totals and stop reasons
+  prohibited_without_record_level_terms:
+  - abstract or full-text redistribution
+  - treating DOI metadata as a licence for the represented work
+- provider: official_institutional_pages
+  endpoint_class: curated_official_landing_pages
+  access_class: public_page_observation
+  terms_url: per_record_required
+  http_status: not_applicable
+  final_url: per_record_required
+  response_sha256: not_observed_as_a_common_terms_surface
+  observed_boundary: The 13 records are curated examples; rights and terms must be assessed per page and linked material.
+  permitted_repository_evidence:
+  - minimal citation, official URL and owner-authored adjacency interpretation
+  prohibited_without_record_level_terms:
+  - page, image, document, abstract or dataset redistribution
+  - global coverage, relationship, endorsement or access inference
+retention:
+  raw_terms_responses: not_retained
+  metadata: retained_in_public_git
+  provider_content_bodies: not_retained_by_bounded_capture
+material_change_triggers:
+- terms URL, text or licence changes
+- API version, media type, ranking or pagination behavior changes
+- record-level rights or withdrawal notice
+- authentication or rate-cap class changes
+- relationship, use or complementarity label changes
+fail_closed_actions:
+- condition: ambiguous or conflicting terms
+  action: metadata_hash_and_citation_only
+- condition: restricted locator without authority and retention basis
+  action: pending_lawful_access
+- condition: rights complaint or hash mismatch
+  action: quarantine_withdraw_and_supersede

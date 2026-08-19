@@ -50,7 +50,9 @@ records:
       - "WHO may terminate the licence and require destruction of copies within seven days after notice."
     archival_disposition: "unmodified_private_raw_copy_permitted_for_public_health_use_subject_to_withdrawal"
     redistribution_disposition: "conditional_pending_field_level_third_party_and_modification_review"
-    hf_raw_upload: "withheld"
+    hf_raw_upload: "complete_private_unmodified"
+    hf_path: "raw-private/who/ghe-2021/ghe2021_daly_bycountry_2000.xlsx"
+    hf_commit: "2f1014860cda849d86c895f722ef18c8d96b359b"
     derived_use_conditions:
       - "retain candidate-only year-2000 comparator scope"
       - "do not redistribute credited third-party material without separate permission"
@@ -60,5 +62,5 @@ records:
 fail_closed_rules:
   - "WPP and WHO terms observations do not activate either source."
   - "A changed workbook or terms-page hash requires a superseding audit."
-  - "WHO raw bytes remain absent from Hugging Face while field-level third-party and modification conditions are unresolved."
+  - "WHO raw bytes remain private and unmodified while public redistribution, field-level third-party and modification conditions are unresolved."
   - "WPP-derived outputs must exclude third-party classification fields unless separately cleared."

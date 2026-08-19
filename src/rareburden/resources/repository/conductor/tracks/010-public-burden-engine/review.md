@@ -1,7 +1,7 @@
 # Track 010 dependency review — Public burden engine and uncertainty framework
 
 **Review date:** 2026-07-27  
-**Decision:** Blocked pending Track 009
+**Decision:** Bounded synthetic preparation; empirical activation remains blocked
 
 ### Review rerun — 2026-07-29
 
@@ -55,7 +55,22 @@ products now fail closed rather than entering summaries.
 
 ## Disposition
 
-Keep Track 010 **blocked**. Do not activate burden calculations or freeze interfaces for Track 003 until the evidence and parameter ledger is complete.
+Keep Track 010 **blocked for empirical or production use**. Track 009's
+repository-owned source-release binding is now complete enough to execute the
+exact synthetic assurance receipt, but it activates no empirical source and
+freezes no interface for Track 003.
+
+### Track 009 reconciliation — 2026-08-16
+
+The engine now validates the exact Track 009 source-release binding manifest
+before execution. The committed deterministic receipt is synthetic-only,
+retains the binding digest and quality-disposition identifier, and explicitly
+records `contract_frozen: false` and `empirical_parameter_activation: false`.
+Negative tests reject primary-estimate use, activation or premature freeze.
+
+This resolves the stale Track 009 dependency for repository-owned synthetic
+assurance only. Scientific-software agent-panel review, owner disposition and
+any exact empirical source/estimand activation remain open.
 
 ### External reviewer packet
 

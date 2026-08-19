@@ -20,7 +20,7 @@
 - [x] Define mutually exclusive aggregation nodes and non-tree relationships. `[M-05, S-02]` Evidence: hierarchy conservation and aggregation-contract tests.
 - [x] Define syndrome/aetiology and multi-diagnosis rules. Evidence: explicit
   relation and aggregation contracts in synthetic hierarchy fixtures.
-- [ ] Obtain clinical and patient/community naming review.
+- [ ] Obtain clinical-methods and community/harm naming challenge from agents and owner disposition.
 
 ## Phase 3 — Implementation
 
@@ -35,7 +35,7 @@
 
 ## Phase 4 — Review and compatibility
 
-- [ ] Run independent semantic/methods review.
+- [ ] Run role-separated semantic/methods agent-panel review and owner disposition.
 - [x] Add schema migration and ontology-update impact tests for synthetic
   mapping releases. Evidence: `tests/test_semantics.py` covers deterministic
   release diffs, added/removed/changed impact summaries and migration receipts;
@@ -84,7 +84,27 @@
 - [x] Prepare the naming, grouping, accessibility and harm-review packet.
   Evidence: `docs/track-008-naming-harm-review-packet-2026-08-03.yml`.
 - [ ] Execute the panel challenge and disposition findings.
-- [ ] Obtain accountable clinical/patient-community naming disposition.
+- [ ] Obtain clinical/community agent-panel naming recommendation and owner disposition.
 - [ ] Pin approved source releases and confirm licence/redistribution terms.
 - [ ] Freeze v0.4 semantic contracts only after all blocking findings and
   upstream Track 002/007 gates are closed.
+
+## Bounded source reconciliation — 2026-08-16
+
+- [x] Reconcile eight exact or bounded source-release records from current
+  Track 002 receipts, including Orphadata, ORPHAcode, HPO, MONDO, UMLS,
+  SNOMED CT and WHO ICD. Evidence:
+  `docs/track-008-source-release-inventory-2026-08-03.yml` and
+  `manifests/semantics/track-008-source-release-provenance-2026-08-16.json`.
+  This does not complete the parent source-pinning task.
+- [x] Enforce deterministic evidence hashing, public/private byte routing and
+  fail-closed activation claims for the bounded source inventory. Evidence:
+  `scripts/render_track008_source_provenance.py` and negative tests in
+  `tests/test_track_008_gate_packets.py`.
+- [x] Run a role-separated repository agent review of the reconciled inventory,
+  naming boundaries and synthetic semantic fixtures. Evidence:
+  `docs/track-008-bounded-agent-review-2026-08-16.yml`. This is not clinical,
+  patient/community, custodian or independent approval, and its four medium
+  findings remain bounded by disabled real-world mappings.
+- [ ] Re-run the source and naming challenge after Track 002/007 completion,
+  obtain the required owner disposition, and only then consider a v0.4 freeze.

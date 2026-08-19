@@ -1,0 +1,62 @@
+name: bounded licensed UTS archive to Hugging Face
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: Exact UTS releaseType slug from the checked-in manifest
+        required: true
+        type: string
+      start:
+        description: Zero-based first release
+        required: true
+        default: "0"
+        type: string
+      count:
+        description: Number of sequential releases
+        required: true
+        default: "1"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-licensed-uts-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    name: Authenticate, archive privately, verify, discard
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Archive bounded licensed batch
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          UMLS_API_KEY: ${{ secrets.UMLS_API_KEY }}
+          UTS_RELEASE_TYPE: ${{ inputs.release_type }}
+          UTS_START: ${{ inputs.start }}
+          UTS_COUNT: ${{ inputs.count }}
+        run: |
+          python3 scripts/archive_uts_batch.py \
+            manifests/uts/all-release-families-2026-08-15.json \
+            --release-type "$UTS_RELEASE_TYPE" \
+            --repo-id edithatogo/hpo-licensed-ontology-archive \
+            --start "$UTS_START" \
+            --count "$UTS_COUNT" \
+            --max-bytes 8000000000 \
+            --receipt uts-archive-receipt.json
+      - name: Preserve redacted receipt
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: uts-archive-receipt
+          path: uts-archive-receipt.json
+          if-no-files-found: error
+          retention-days: 30

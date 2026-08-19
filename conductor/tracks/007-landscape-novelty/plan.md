@@ -1,13 +1,23 @@
 # Track 007 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; independent methods and patient/community challenge remain separate release gates.
+> Review uses role-separated agent panels and repository-owner disposition under ADR-0009; no additional-person or independent review gate applies.
 
 ## Phase 1 — Register the review
 
 - [x] Define provisional questions, inclusion logic, sources and extraction fields.
-- [ ] Register the landscape-review protocol externally and version the complete search strategy.
+- [x] Freeze and hash-register the protocol and complete search strategy in the
+  repository; external registry submission is optional. Evidence:
+  `docs/track-007-protocol-v0.2.0.md` and
+  `docs/track-007-repository-registration-2026-08-16.yml` bind the protocol and
+  evidence by SHA-256 and Git blob identifier; OSF is deferred and removed from
+  the active plan.
 - [x] Define initiative, dataset, software, standard, mandate and methodological-precedent fields.
-- [ ] Recruit patient/community and independent methods reviewers.
+- [x] Obtain role-separated methods/coverage, community/harm,
+  governance/rights/reproducibility and scientific/search-reproducibility agent
+  findings bound to the repository registration. Evidence:
+  `docs/track-007-agent-panel-findings-2026-08-16.yml`. The advisory consensus
+  is `narrow_and_remediate`; agent advice is not independent, human or
+  constituted-community approval.
 
 ## Phase 2 — Search and screen
 
@@ -45,6 +55,92 @@
   `docs/track-007-pagination-workflow.md` and
   `tests/test_track_007_pagination.py`; no live multi-page capture or ecosystem
   completeness claim is inferred.
+- [x] Execute the bounded live pagination workflow across the five frozen queries
+  for GitHub, Zenodo and Hugging Face, preserving exact request/final URLs,
+  retrieval windows, response hashes, provider totals and stop reasons. Evidence:
+  `docs/track-007-live-capture-coverage-2026-08-15.json` and its three bound
+  provider capture files. GitHub endpoint totals were reached, Zenodo remained
+  page-budget limited, and empty Hugging Face results were not interpreted as
+  absence or completeness. Screening of newly captured records remains open.
+- [x] Record a fail-closed coverage and representativeness disposition for the
+  live capture. Global representativeness, comprehensive coverage and upgraded
+  novelty remain prohibited; language, geography, grey-literature and restricted
+  material coverage remain unmeasured or incomplete.
+- [x] Adjudicate all four exact-title clusters at record level using hash-bound
+  GitHub and Crossref observations. Evidence:
+  `docs/track-007-title-cluster-adjudication-2026-08-15.json`. The reciprocal
+  preprint/article relation is linked as one work while preserving both records;
+  three GitHub pairs remain separate repository records with initiative-level
+  equivalence explicitly unresolved.
+
+## Substantive evidence continuation — 2026-08-16
+
+- [x] Reconcile all 306 bounded live-capture occurrences by exact provider
+  identifier. Evidence: `docs/track-007-live-reconciliation-2026-08-16.json`
+  records 215 unique identifiers, 91 exact duplicate occurrences, 71 exact
+  frozen-snapshot matches and 144 live-only identifiers.
+- [x] Observe every live-only identifier through its current public record
+  endpoint with rate limiting, retaining response hashes and minimal metadata
+  but no descriptions, abstracts, bodies or full text. Evidence:
+  `docs/track-007-live-metadata-observations-2026-08-16.json` records 51
+  candidates for content assessment and 93 uncertain metadata signals; none is
+  excluded.
+- [x] Apply the closed-vocabulary public-description rule to the frozen 69
+  records. Evidence: `docs/track-007-public-metadata-resolutions-2026-08-16.json`
+  and `docs/track-007-fulltext-eligibility-2026-08-16.json` record 35 bounded
+  metadata-supported includes, 26 pending content assessments and 8 pending
+  lawful-access cases, with zero new exclusions.
+- [x] Observe the remaining 26 reachable frozen records through lawful public
+  Crossref or GitHub metadata and apply the exact closed-vocabulary rule.
+  Evidence: `docs/track-007-pending-public-content-2026-08-16.json` and the
+  combined v0.3.0 eligibility register record 21 additional includes, 2 explicit
+  duplicate/non-substantive-release exclusions, 1 uncertain record and 2
+  pending public-evidence records.
+- [x] Resolve the remaining 2 public-evidence-pending and 1 uncertain frozen
+  records through exact Zenodo/GitHub public metadata. Evidence:
+  `docs/track-007-fulltext-eligibility-v0.3.1-2026-08-16.json` records 59
+  includes, 2 exclusions and only the 8 lawful-access cases pending.
+- [x] Resolve the 8 restricted frozen records through an adequate public
+  Crossref citation-metadata alternative without fetching publisher locators.
+  Evidence: `docs/track-007-lawful-public-alternatives-2026-08-16.json` and the
+  v0.3.2 eligibility register record 7 bounded includes and 1 uncertain record;
+  restriction or insufficient metadata is never exclusion evidence.
+- [x] Screen all 144 live-only records with the exact scope/contribution
+  vocabulary and response hashes. The result is 51 content-assessment
+  candidates and 93 uncertain records, with zero exclusions.
+- [ ] Complete any deeper content assessment for 54 live-only bounded adjacency
+  records and resolve the remaining 90 uncertain records without inferring
+  exclusion, absence, coverage or novelty from missing evidence. Safe public
+  topics/keywords and repository facts upgraded 3 records; no prohibited
+  content was retained.
+- [x] Record bounded adjacency eligibility for the 51 live-only records with
+  both exact public scope and contribution signals; retain all 93 other records
+  as uncertain, never excluded. Evidence:
+  `docs/track-007-live-final-eligibility-2026-08-16.json`.
+- [x] Execute a strict two-page, 20-row Crossref expansion for the five frozen
+  queries plus four multilingual and three community/community-multilingual
+  queries. Evidence: `docs/track-007-bibliographic-expansion-2026-08-16.json`
+  records 24 rate-limited requests and 480 ranked DOI occurrences, with record
+  language missing for all observations and geography explicitly unmeasured.
+- [x] Assess login-free candidates for a second bibliographic provider against
+  exact public terms and rate-policy evidence. OpenAlex currently requires an
+  API key and its terms capture returned 403; Europe PMC exposed public API and
+  metadata-use guidance but no exact provider-specific numeric rate ceiling was
+  found in the bound pages. No provider was activated. Evidence:
+  `docs/track-007-lawful-alternatives-update-2026-08-16.yml`.
+
+## Review fixes — 2026-08-15 title clusters
+
+- [x] Distinguish hashes of temporary `gh api` observation bytes from hashes of
+  direct Crossref response bytes and state that raw payloads were not retained,
+  preventing the adjudication packet from implying a raw-response archive.
+
+## Review fixes — 2026-08-15 live capture
+
+- [x] Make dated capture creation atomic and fail closed with exclusive file
+  creation, preventing a concurrent writer from bypassing the no-overwrite
+  evidence contract. Evidence: CLI overwrite regression test in
+  `tests/test_track_007_pagination.py`.
 
 ## Phase 3 — Analyse adjacency
 
@@ -56,7 +152,14 @@
 ## Phase 4 — Decide and publish
 
 - [x] Draft the adjacency matrix and provisional landscape report.
-- [ ] Obtain external methodological and patient/community challenge and revise claims.
+- [x] Record the repository-owner `accept`, `narrow`, `revise`, `defer` or
+  `stop` disposition against the exact panel input and findings, including
+  claim revisions, unresolved findings and stop triggers. Evidence:
+  `docs/track-007-owner-disposition-ready-2026-08-16.yml` records Option A
+  `narrow` against merged candidate commit `1f93f5862290e16d0e393834e35c282d187658e1`
+  and tree `97bb9387053f4e8feb30d2310fbc849e5ecbb8da`, while preserving the original
+  publication-ready acceptance as unmet. The attributable owner receipt is
+  GitHub issue comment `5303053641`.
 - [x] Record the provisional `proceed_with_narrowed_scope` decision.
 - [x] Update the roadmap and programme framing to avoid duplicating registries, ontologies or genomic platforms.
 
@@ -104,9 +207,21 @@
 
 - [x] Add the dependency-ordered closure plan shared with Track 002 in
   `docs/track-002-007-closure-plan-2026-08-02.md`.
-- [ ] Obtain protocol registration, independent methods challenge and
-  patient/community interpretation; until then retain provisional landscape
-  claims and `in_review` status.
+- [x] Consolidate the duplicated closure wording into the canonical Phase 1
+  agent-challenge task and Phase 4 owner-disposition task. Repository
+  hash-registration is complete; until the two canonical tasks close, retain
+  provisional landscape claims and `in_review` status.
+
+## Pagination screening-metadata contract — 2026-08-15
+
+- [x] Retain stable identifiers, titles and canonical URLs alongside each
+  hash-addressed captured page so a later dated capture can enter deterministic
+  screening without retaining abstracts, bodies or full text. Malformed and
+  overlong metadata fail closed. Evidence:
+  `scripts/capture_track_007_pages.py`,
+  `tests/test_track_007_pagination.py`, and
+  `docs/track-007-pagination-workflow.md`. Existing captures are not rewritten;
+  this contract applies to subsequent immutable captures.
 
 ## Registration/challenge readiness refresh — 2026-08-04
 
@@ -115,11 +230,11 @@
   questions, receipt fields and stop triggers. Evidence:
   `docs/track-007-registration-challenge-readiness-2026-08-04.yml` and
   `tests/test_track_007_readiness.py`.
-- [ ] Submit the frozen protocol and record an external registry identifier;
-  the readiness packet is not registration evidence.
-- [ ] Obtain an independent methods challenge and accountable
-  patient/community interpretation; repository tests and panels cannot replace
-  either receipt.
+- [x] Record the frozen protocol hash and immutable repository locator; an
+  external registry identifier is optional supplementary evidence. Evidence:
+  `docs/track-007-repository-registration-2026-08-16.yml`.
+- [x] Route challenge and disposition through the canonical Phase 1 and Phase 4
+  tasks instead of maintaining a second checklist gate.
 
 ## Panel closure planning — 2026-08-02
 
@@ -132,6 +247,6 @@
   `tests/test_track_007_staged_plan.py`; external gates remain pending.
 - [x] Prepare a schema-valid synthetic Track 007 panel packet with pending
   registration and challenge receipts in `examples/fixtures/track-007-panel-packet-synthetic.json`.
-- [ ] Obtain protocol registration, independent methods challenge and
-  patient/community decision after panel preparation; panels cannot close
-  these gates.
+- [x] Route repository registration, agent challenge and owner disposition
+  through the canonical Phase 1 and Phase 4 tasks; do not duplicate their
+  lifecycle state in this historical planning section.

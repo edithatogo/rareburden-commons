@@ -1,0 +1,4458 @@
+{
+  "workflow_version": "RBC-LAND-007-LIVE-RECONCILE-v0.1.0",
+  "status": "bounded_identifier_reconciliation_complete_metadata_screening_incomplete",
+  "source_captures": [
+    {
+      "path": "docs/track-007-live-pages-github-2026-08-15.json",
+      "sha256": "sha256:23378daf2ad4ce12a924f8577ad32db2457e51e8c3bcba779f639e0cf5224b27",
+      "registry": "github",
+      "occurrences": 56
+    },
+    {
+      "path": "docs/track-007-live-pages-zenodo-2026-08-15.json",
+      "sha256": "sha256:4cdce0ed263a2002f043b667a77472643cd4f03b5abd45e45910b87be41c7ee6",
+      "registry": "zenodo",
+      "occurrences": 250
+    },
+    {
+      "path": "docs/track-007-live-pages-huggingface-2026-08-15.json",
+      "sha256": "sha256:32527737c89bd9219dbf95d2726ce0082fa3e2c7aa91815ac49f12e7dc50ac3d",
+      "registry": "huggingface_datasets",
+      "occurrences": 0
+    }
+  ],
+  "search_results_sha256": "sha256:75c9e9bae6e4cbd179f568203b05d851f1413909c9ad6a086f645e6bbaef3fa3",
+  "screening_register_sha256": "sha256:a7585914c7c40c5df7769686c6e78f4f4ac7ceba06a6bf47b95bad77ed4247f3",
+  "deduplication_rule": "registry plus case-folded stable identifier",
+  "counts": {
+    "captured_occurrences": 306,
+    "unique_registry_identifiers": 215,
+    "exact_duplicate_occurrences_removed": 91,
+    "reconciled_to_frozen_snapshot": 71,
+    "pending_metadata_retrieval": 144
+  },
+  "records": [
+    {
+      "canonical_key": "github:acadtags/rare-disease-identification",
+      "identifier": "acadTags/Rare-disease-identification",
+      "title": "Rare-disease-identification",
+      "canonical_url": "https://github.com/acadTags/Rare-disease-identification",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:acadtags/rare-disease-identification",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 1,
+          "identifier": "acadTags/Rare-disease-identification"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:akabago/rare_disease_ontology_semtech",
+      "identifier": "akabago/Rare_Disease_Ontology_SemTech",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 11,
+          "identifier": "akabago/Rare_Disease_Ontology_SemTech"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:akshay-gurav-31/hackathon-reusable-framework",
+      "identifier": "Akshay-gurav-31/Hackathon-Reusable-Framework",
+      "title": "Hackathon-Reusable-Framework",
+      "canonical_url": "https://github.com/Akshay-gurav-31/Hackathon-Reusable-Framework",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:akshay-gurav-31/hackathon-reusable-framework",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease cost",
+          "rank": 1,
+          "identifier": "Akshay-gurav-31/Hackathon-Reusable-Framework"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:ariadnavillam/radipo",
+      "identifier": "ariadnavillam/RaDiPO",
+      "title": "RaDiPO",
+      "canonical_url": "https://github.com/ariadnavillam/RaDiPO",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:ariadnavillam/radipo",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 7,
+          "identifier": "ariadnavillam/RaDiPO"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:atinak/rare-disease-detector",
+      "identifier": "atinak/Rare-Disease-Detector",
+      "title": "Rare-Disease-Detector",
+      "canonical_url": "https://github.com/atinak/Rare-Disease-Detector",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:atinak/rare-disease-detector",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 3,
+          "identifier": "atinak/Rare-Disease-Detector"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:bekmuhammad-devoloper/orfan.uz",
+      "identifier": "Bekmuhammad-Devoloper/orfan.uz",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 21,
+          "identifier": "Bekmuhammad-Devoloper/orfan.uz"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:berntpopp/orphanet-link",
+      "identifier": "berntpopp/orphanet-link",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 19,
+          "identifier": "berntpopp/orphanet-link"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:bhfdsc/ccu019_01",
+      "identifier": "BHFDSC/CCU019_01",
+      "title": "CCU019_01",
+      "canonical_url": "https://github.com/BHFDSC/CCU019_01",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:bhfdsc/ccu019_01",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 5,
+          "identifier": "BHFDSC/CCU019_01"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:bih-cei/rd-cdm",
+      "identifier": "BIH-CEI/rd-cdm",
+      "title": "rd-cdm",
+      "canonical_url": "https://github.com/BIH-CEI/rd-cdm",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:bih-cei/rd-cdm",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 6,
+          "identifier": "BIH-CEI/rd-cdm"
+        },
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 3,
+          "identifier": "BIH-CEI/rd-cdm"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:bruise-88/rare-disease-web-registry",
+      "identifier": "bruise-88/Rare-Disease-Web-Registry",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 11,
+          "identifier": "bruise-88/Rare-Disease-Web-Registry"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:deletexiumu/dar-ontology-reasoning",
+      "identifier": "deletexiumu/dar-ontology-reasoning",
+      "title": "dar-ontology-reasoning",
+      "canonical_url": "https://github.com/deletexiumu/dar-ontology-reasoning",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:deletexiumu/dar-ontology-reasoning",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 2,
+          "identifier": "deletexiumu/dar-ontology-reasoning"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:ebispot/ejp-ontology",
+      "identifier": "EBISPOT/EJP-Ontology",
+      "title": "EJP-Ontology",
+      "canonical_url": "https://github.com/EBISPOT/EJP-Ontology",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:ebispot/ejp-ontology",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 15,
+          "identifier": "EBISPOT/EJP-Ontology"
+        },
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 4,
+          "identifier": "EBISPOT/EJP-Ontology"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:ebispot/ejprarediseases.github.io",
+      "identifier": "EBISPOT/ejprarediseases.github.io",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 20,
+          "identifier": "EBISPOT/ejprarediseases.github.io"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:edithatogo/rareburden-commons",
+      "identifier": "edithatogo/rareburden-commons",
+      "title": "rareburden-commons",
+      "canonical_url": "https://github.com/edithatogo/rareburden-commons",
+      "screening_decision": "exclude",
+      "screening_reason": "self_result",
+      "identifier_key": "github:edithatogo/rareburden-commons",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 2,
+          "identifier": "edithatogo/rareburden-commons"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:ejp-rd-vp/resource-metadata-schema-instances",
+      "identifier": "ejp-rd-vp/resource-metadata-schema-instances",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 23,
+          "identifier": "ejp-rd-vp/resource-metadata-schema-instances"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:ejp-rd-vp/resource-metadata-schema-ontology",
+      "identifier": "ejp-rd-vp/resource-metadata-schema-ontology",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 22,
+          "identifier": "ejp-rd-vp/resource-metadata-schema-ontology"
+        },
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 18,
+          "identifier": "ejp-rd-vp/resource-metadata-schema-ontology"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:emcarthur/phecode-hpo-map",
+      "identifier": "emcarthur/phecode-HPO-map",
+      "title": "phecode-HPO-map",
+      "canonical_url": "https://github.com/emcarthur/phecode-HPO-map",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:emcarthur/phecode-hpo-map",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 9,
+          "identifier": "emcarthur/phecode-HPO-map"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:enowpg001/decentralized-rare-disease-patient-registry",
+      "identifier": "enowpg001/Decentralized-Rare-Disease-Patient-Registry",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 14,
+          "identifier": "enowpg001/Decentralized-Rare-Disease-Patient-Registry"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:favourori/patientsregistryapi",
+      "identifier": "favourori/PatientsRegistryAPI",
+      "title": "PatientsRegistryAPI",
+      "canonical_url": "https://github.com/favourori/PatientsRegistryAPI",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:favourori/patientsregistryapi",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 5,
+          "identifier": "favourori/PatientsRegistryAPI"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:favourori/patientsregistryfrontend",
+      "identifier": "favourori/PatientsRegistryFrontend",
+      "title": "PatientsRegistryFrontend",
+      "canonical_url": "https://github.com/favourori/PatientsRegistryFrontend",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:favourori/patientsregistryfrontend",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 7,
+          "identifier": "favourori/PatientsRegistryFrontend"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:favourori/patientsregistrylanding",
+      "identifier": "favourori/PatientsRegistryLanding",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 19,
+          "identifier": "favourori/PatientsRegistryLanding"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:fnuvrinda/lysosomal-registry",
+      "identifier": "fnuvrinda/Lysosomal-Registry",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 18,
+          "identifier": "fnuvrinda/Lysosomal-Registry"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:focuzisaac1/rare-disease-research-and-patient-registry-system",
+      "identifier": "focuzisaac1/Rare-Disease-Research-and-Patient-Registry-System",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 16,
+          "identifier": "focuzisaac1/Rare-Disease-Research-and-Patient-Registry-System"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:gan-orlab/lrrk2_per_domain",
+      "identifier": "gan-orlab/LRRK2_per_domain",
+      "title": "LRRK2_per_domain",
+      "canonical_url": "https://github.com/gan-orlab/LRRK2_per_domain",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:gan-orlab/lrrk2_per_domain",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 4,
+          "identifier": "gan-orlab/LRRK2_per_domain"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:gp2code/wgs-e3-pd-eopd",
+      "identifier": "GP2code/WGS-E3-PD-EOPD",
+      "title": "WGS-E3-PD-EOPD",
+      "canonical_url": "https://github.com/GP2code/WGS-E3-PD-EOPD",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:gp2code/wgs-e3-pd-eopd",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 6,
+          "identifier": "GP2code/WGS-E3-PD-EOPD"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:honghan/ccu019_01",
+      "identifier": "Honghan/CCU019_01",
+      "title": "CCU019_01",
+      "canonical_url": "https://github.com/Honghan/CCU019_01",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:honghan/ccu019_01",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 4,
+          "identifier": "Honghan/CCU019_01"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:imrobintomar/gemmarare",
+      "identifier": "imrobintomar/GemmaRare",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 13,
+          "identifier": "imrobintomar/GemmaRare"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:inutano/rare-disease-globe",
+      "identifier": "inutano/rare-disease-globe",
+      "title": "rare-disease-globe",
+      "canonical_url": "https://github.com/inutano/rare-disease-globe",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:inutano/rare-disease-globe",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 2,
+          "identifier": "inutano/rare-disease-globe"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:ivanwilliammd/iderare-pheno",
+      "identifier": "ivanwilliammd/iderare-pheno",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 14,
+          "identifier": "ivanwilliammd/iderare-pheno"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:johnlbellamy/interactive-kmeans-rare-disease-article-cluster-and-jena-semantic-model",
+      "identifier": "johnlbellamy/Interactive-KMeans-Rare-Disease-Article-Cluster-and-JENA-Semantic-Model",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 16,
+          "identifier": "johnlbellamy/Interactive-KMeans-Rare-Disease-Article-Cluster-and-JENA-Semantic-Model"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:khadgaa/rare-disease-ontology",
+      "identifier": "KhadgaA/Rare-Disease-Ontology",
+      "title": "Rare-Disease-Ontology",
+      "canonical_url": "https://github.com/KhadgaA/Rare-Disease-Ontology",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:khadgaa/rare-disease-ontology",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 8,
+          "identifier": "KhadgaA/Rare-Disease-Ontology"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:kyamasam/rare-disease-registry---noveltek",
+      "identifier": "kyamasam/Rare-Disease-Registry---Noveltek",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 12,
+          "identifier": "kyamasam/Rare-Disease-Registry---Noveltek"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:malav-250/harvard-rare-disease-hackathon-2025",
+      "identifier": "malav-250/Harvard-Rare-Disease-Hackathon-2025",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 17,
+          "identifier": "malav-250/Harvard-Rare-Disease-Hackathon-2025"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:malikalisha721-byte/rare-disease-registry-by-hamna",
+      "identifier": "malikalisha721-byte/rare-disease-registry-by-hamna",
+      "title": "rare-disease-registry-by-hamna",
+      "canonical_url": "https://github.com/malikalisha721-byte/rare-disease-registry-by-hamna",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:malikalisha721-byte/rare-disease-registry-by-hamna",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 9,
+          "identifier": "malikalisha721-byte/rare-disease-registry-by-hamna"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:mira-jain/hackathon-reusable-framework",
+      "identifier": "mira-jain/Hackathon-Reusable-Framework",
+      "title": "Hackathon-Reusable-Framework",
+      "canonical_url": "https://github.com/mira-jain/Hackathon-Reusable-Framework",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:mira-jain/hackathon-reusable-framework",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease cost",
+          "rank": 2,
+          "identifier": "mira-jain/Hackathon-Reusable-Framework"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:mitchell-s17/adni1-geneburdenanalysis",
+      "identifier": "mitchell-s17/ADNI1-GeneBurdenAnalysis",
+      "title": "ADNI1-GeneBurdenAnalysis",
+      "canonical_url": "https://github.com/mitchell-s17/ADNI1-GeneBurdenAnalysis",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:mitchell-s17/adni1-geneburdenanalysis",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 5,
+          "identifier": "mitchell-s17/ADNI1-GeneBurdenAnalysis"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:muccg/rdrf",
+      "identifier": "muccg/rdrf",
+      "title": "rdrf",
+      "canonical_url": "https://github.com/muccg/rdrf",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:muccg/rdrf",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 1,
+          "identifier": "muccg/rdrf"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:orphanet/ordo",
+      "identifier": "Orphanet/ORDO",
+      "title": "ORDO",
+      "canonical_url": "https://github.com/Orphanet/ORDO",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:orphanet/ordo",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 6,
+          "identifier": "Orphanet/ORDO"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:pallavidasaraju/ehr-nlp-rare-disease-poc",
+      "identifier": "pallavidasaraju/ehr-nlp-rare-disease-poc",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 12,
+          "identifier": "pallavidasaraju/ehr-nlp-rare-disease-poc"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:pavlidislab/rdp",
+      "identifier": "PavlidisLab/rdp",
+      "title": "rdp",
+      "canonical_url": "https://github.com/PavlidisLab/rdp",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:pavlidislab/rdp",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 2,
+          "identifier": "PavlidisLab/rdp"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:prirai/rare-diseases-data-scraping",
+      "identifier": "prirai/rare-diseases-data-scraping",
+      "title": "rare-diseases-data-scraping",
+      "canonical_url": "https://github.com/prirai/rare-diseases-data-scraping",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:prirai/rare-diseases-data-scraping",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 5,
+          "identifier": "prirai/rare-diseases-data-scraping"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:rayssacarvalh/genomic-burden-actionability-atlas",
+      "identifier": "RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+      "title": "Genomic-Burden-Actionability-Atlas",
+      "canonical_url": "https://github.com/RayssaCarvalh/Genomic-Burden-Actionability-Atlas",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:rayssacarvalh/genomic-burden-actionability-atlas",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 1,
+          "identifier": "RayssaCarvalh/Genomic-Burden-Actionability-Atlas"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:rclanan/radar",
+      "identifier": "rclanan/radar",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 13,
+          "identifier": "rclanan/radar"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:renalreg/radar",
+      "identifier": "renalreg/radar",
+      "title": "radar",
+      "canonical_url": "https://github.com/renalreg/radar",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:renalreg/radar",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 4,
+          "identifier": "renalreg/radar"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:robworth/radar",
+      "identifier": "robworth/radar",
+      "title": "radar",
+      "canonical_url": "https://github.com/robworth/radar",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:robworth/radar",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 3,
+          "identifier": "robworth/radar"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:rohitdeshmukh-1/gans-for-synthetic-medical-data-generation",
+      "identifier": "RohitDeshmukh-1/GANs-for-synthetic-medical-data-generation",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 20,
+          "identifier": "RohitDeshmukh-1/GANs-for-synthetic-medical-data-generation"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:s-alex2022/rare-diseases-data-registry",
+      "identifier": "S-Alex2022/Rare-Diseases-Data-Registry",
+      "title": "Rare-Diseases-Data-Registry",
+      "canonical_url": "https://github.com/S-Alex2022/Rare-Diseases-Data-Registry",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:s-alex2022/rare-diseases-data-registry",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 10,
+          "identifier": "S-Alex2022/Rare-Diseases-Data-Registry"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:sebmate/docker-osse",
+      "identifier": "sebmate/Docker-OSSE",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 17,
+          "identifier": "sebmate/Docker-OSSE"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:sunchang0124/rarediseaseselection",
+      "identifier": "sunchang0124/RareDiseaseSelection",
+      "title": "RareDiseaseSelection",
+      "canonical_url": "https://github.com/sunchang0124/RareDiseaseSelection",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:sunchang0124/rarediseaseselection",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 10,
+          "identifier": "sunchang0124/RareDiseaseSelection"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:theodorejperkins/monogenic_prevalence_with_severities",
+      "identifier": "theodorejperkins/Monogenic_Prevalence_with_Severities",
+      "title": "Monogenic_Prevalence_with_Severities",
+      "canonical_url": "https://github.com/theodorejperkins/Monogenic_Prevalence_with_Severities",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:theodorejperkins/monogenic_prevalence_with_severities",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease prevalence",
+          "rank": 1,
+          "identifier": "theodorejperkins/Monogenic_Prevalence_with_Severities"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:tribby5/rare-disease-research",
+      "identifier": "tribby5/rare-disease-research",
+      "title": "rare-disease-research",
+      "canonical_url": "https://github.com/tribby5/rare-disease-research",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:tribby5/rare-disease-research",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease burden",
+          "rank": 3,
+          "identifier": "tribby5/rare-disease-research"
+        }
+      ]
+    },
+    {
+      "identifier_key": "github:walu2/squirro-demo",
+      "identifier": "walu2/squirro-demo",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease ontology",
+          "rank": 15,
+          "identifier": "walu2/squirro-demo"
+        }
+      ]
+    },
+    {
+      "canonical_key": "github:wangjl99/okn-registry-temp",
+      "identifier": "wangjl99/okn-registry-temp",
+      "title": "okn-registry-temp",
+      "canonical_url": "https://github.com/wangjl99/okn-registry-temp",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "github:wangjl99/okn-registry-temp",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "github",
+          "query_string": "rare disease registry",
+          "rank": 8,
+          "identifier": "wangjl99/okn-registry-temp"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10136590",
+      "identifier": "10136590",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 39,
+          "identifier": "10136590"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10276454",
+      "identifier": "10276454",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 28,
+          "identifier": "10276454"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10278169",
+      "identifier": "10278169",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 32,
+          "identifier": "10278169"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10561159",
+      "identifier": "10561159",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 49,
+          "identifier": "10561159"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10590212",
+      "identifier": "10590212",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 33,
+          "identifier": "10590212"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10598453",
+      "identifier": "10598453",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 23,
+          "identifier": "10598453"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10612080",
+      "identifier": "10612080",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 36,
+          "identifier": "10612080"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 34,
+          "identifier": "10612080"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 21,
+          "identifier": "10612080"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.10702445",
+      "identifier": "10702445",
+      "title": "Towards A Rare Disease Registry Standard: Semantic Mapping of Common Data Elements Between FAIRVASC and the European Joint Programme for Rare Disease",
+      "canonical_url": "https://zenodo.org/records/10702445",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:10702445",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 4,
+          "identifier": "10702445"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 1,
+          "identifier": "10702445"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 27,
+          "identifier": "10702445"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10927075",
+      "identifier": "10927075",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 44,
+          "identifier": "10927075"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10991413",
+      "identifier": "10991413",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 25,
+          "identifier": "10991413"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:10998859",
+      "identifier": "10998859",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 13,
+          "identifier": "10998859"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:11072076",
+      "identifier": "11072076",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 40,
+          "identifier": "11072076"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:11080898",
+      "identifier": "11080898",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 42,
+          "identifier": "11080898"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:11109534",
+      "identifier": "11109534",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 24,
+          "identifier": "11109534"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:11397544",
+      "identifier": "11397544",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 34,
+          "identifier": "11397544"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.11442985",
+      "identifier": "11442985",
+      "title": "CYShapland/triangulate: First release",
+      "canonical_url": "https://zenodo.org/records/11442985",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:11442985",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 1,
+          "identifier": "11442985"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 9,
+          "identifier": "11442985"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 9,
+          "identifier": "11442985"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 9,
+          "identifier": "11442985"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 2,
+          "identifier": "11442985"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:1157686",
+      "identifier": "1157686",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 39,
+          "identifier": "1157686"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1168737",
+      "identifier": "1168737",
+      "title": "Deep phenotyping for patients by patients: a plain-language medical  vocabulary for precision diagnosis",
+      "canonical_url": "https://zenodo.org/records/1168737",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:1168737",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 6,
+          "identifier": "1168737"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:12180025",
+      "identifier": "12180025",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 14,
+          "identifier": "12180025"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:1251296",
+      "identifier": "1251296",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 49,
+          "identifier": "1251296"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 36,
+          "identifier": "1251296"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:12598376",
+      "identifier": "12598376",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 49,
+          "identifier": "12598376"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:12758629",
+      "identifier": "12758629",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 18,
+          "identifier": "12758629"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1321650",
+      "identifier": "1321650",
+      "title": "REPORT: Portfolio of ELIXIR data resources and tools for  the rare diseases communities",
+      "canonical_url": "https://zenodo.org/records/1321650",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:1321650",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 1,
+          "identifier": "1321650"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 28,
+          "identifier": "1321650"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 16,
+          "identifier": "1321650"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:13341025",
+      "identifier": "13341025",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 26,
+          "identifier": "13341025"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:13533061",
+      "identifier": "13533061",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 45,
+          "identifier": "13533061"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.13630086",
+      "identifier": "13630086",
+      "title": "mcguinlu/triangulate: Initial release",
+      "canonical_url": "https://zenodo.org/records/13630086",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:13630086",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 2,
+          "identifier": "13630086"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 10,
+          "identifier": "13630086"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 10,
+          "identifier": "13630086"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 10,
+          "identifier": "13630086"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 3,
+          "identifier": "13630086"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:13751264",
+      "identifier": "13751264",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 48,
+          "identifier": "13751264"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 28,
+          "identifier": "13751264"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 24,
+          "identifier": "13751264"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 13,
+          "identifier": "13751264"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:13862191",
+      "identifier": "13862191",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 42,
+          "identifier": "13862191"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14049328",
+      "identifier": "14049328",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 14,
+          "identifier": "14049328"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14050748",
+      "identifier": "14050748",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 20,
+          "identifier": "14050748"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-018-0836-0",
+      "identifier": "1412173",
+      "title": "Rare disease registries: potential applications towards impact on development of new drug treatments",
+      "canonical_url": "https://zenodo.org/records/1412173",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:1412173",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 3,
+          "identifier": "1412173"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 43,
+          "identifier": "1412173"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:1415377",
+      "identifier": "1415377",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 44,
+          "identifier": "1415377"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.1415398",
+      "identifier": "1415398",
+      "title": "RD-Connect: an integrated infrastructure for data sharing and analysis in rare disease research",
+      "canonical_url": "https://zenodo.org/records/1415398",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:1415398",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 5,
+          "identifier": "1415398"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 15,
+          "identifier": "1415398"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14207517",
+      "identifier": "14207517",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 41,
+          "identifier": "14207517"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 37,
+          "identifier": "14207517"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 23,
+          "identifier": "14207517"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14228581",
+      "identifier": "14228581",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 40,
+          "identifier": "14228581"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14251033",
+      "identifier": "14251033",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 38,
+          "identifier": "14251033"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14337495",
+      "identifier": "14337495",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 27,
+          "identifier": "14337495"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:1451014",
+      "identifier": "1451014",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 12,
+          "identifier": "1451014"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:1452468",
+      "identifier": "1452468",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 13,
+          "identifier": "1452468"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 46,
+          "identifier": "1452468"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14556600",
+      "identifier": "14556600",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 29,
+          "identifier": "14556600"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14617208",
+      "identifier": "14617208",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 35,
+          "identifier": "14617208"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 32,
+          "identifier": "14617208"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 20,
+          "identifier": "14617208"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14675515",
+      "identifier": "14675515",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 18,
+          "identifier": "14675515"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:1473859",
+      "identifier": "1473859",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 38,
+          "identifier": "1473859"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14849645",
+      "identifier": "14849645",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 45,
+          "identifier": "14849645"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14894634",
+      "identifier": "14894634",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 11,
+          "identifier": "14894634"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.14907384",
+      "identifier": "14907384",
+      "title": "Critical Bottlenecks in Rare Disease Research and Care: A Community Perspective",
+      "canonical_url": "https://zenodo.org/records/14907384",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:14907384",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 6,
+          "identifier": "14907384"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:1490851",
+      "identifier": "1490851",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 34,
+          "identifier": "1490851"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 31,
+          "identifier": "1490851"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 19,
+          "identifier": "1490851"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:14930542",
+      "identifier": "14930542",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 45,
+          "identifier": "14930542"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 41,
+          "identifier": "14930542"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 28,
+          "identifier": "14930542"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.14962863",
+      "identifier": "14962863",
+      "title": "The Prevalence and Incidence of Interstitial Lung Disease among Patients with Systemic Lupus Erythematosus: A Protocol for a Systematic Review",
+      "canonical_url": "https://zenodo.org/records/14962863",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:14962863",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 4,
+          "identifier": "14962863"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:15094569",
+      "identifier": "15094569",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 47,
+          "identifier": "15094569"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:15259696",
+      "identifier": "15259696",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 19,
+          "identifier": "15259696"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:16488164",
+      "identifier": "16488164",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 46,
+          "identifier": "16488164"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:17045461",
+      "identifier": "17045461",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 30,
+          "identifier": "17045461"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1016/j.ijcard.2023.04.005",
+      "identifier": "17147594",
+      "title": "How common is hypertrophic cardiomyopathy\u2026 really?: Disease prevalence revisited 27 years after CARDIA",
+      "canonical_url": "https://zenodo.org/records/17147594",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:17147594",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 7,
+          "identifier": "17147594"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:17206238",
+      "identifier": "17206238",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 15,
+          "identifier": "17206238"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:17400242",
+      "identifier": "17400242",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 36,
+          "identifier": "17400242"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:17424735",
+      "identifier": "17424735",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 46,
+          "identifier": "17424735"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:17496459",
+      "identifier": "17496459",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 28,
+          "identifier": "17496459"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:17518483",
+      "identifier": "17518483",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 29,
+          "identifier": "17518483"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:17620400",
+      "identifier": "17620400",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 31,
+          "identifier": "17620400"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 27,
+          "identifier": "17620400"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 15,
+          "identifier": "17620400"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.17871108",
+      "identifier": "17871108",
+      "title": "Epilepsy Disease Classification: A community effort to enhance the Mondo Disease Ontology",
+      "canonical_url": "https://zenodo.org/records/17871108",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:17871108",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 30,
+          "identifier": "17871108"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 4,
+          "identifier": "17871108"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 14,
+          "identifier": "17871108"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:17998449",
+      "identifier": "17998449",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 22,
+          "identifier": "17998449"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.18217486",
+      "identifier": "18217486",
+      "title": "Healthcare as a Drift-Amplifying System: Incentives, Suppression, and Termination Failure",
+      "canonical_url": "https://zenodo.org/records/18217486",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:18217486",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 3,
+          "identifier": "18217486"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 10,
+          "identifier": "18217486"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:18301904",
+      "identifier": "18301904",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 13,
+          "identifier": "18301904"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1111/jep.12281",
+      "identifier": "18492100",
+      "title": "General knowledge and opinion of future health care and non-health care professionals on rare diseases",
+      "canonical_url": "https://zenodo.org/records/18492100",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:18492100",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 32,
+          "identifier": "18492100"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 19,
+          "identifier": "18492100"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 19,
+          "identifier": "18492100"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 41,
+          "identifier": "18492100"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 6,
+          "identifier": "18492100"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:1889452",
+      "identifier": "1889452",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 22,
+          "identifier": "1889452"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:19183127",
+      "identifier": "19183127",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 26,
+          "identifier": "19183127"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:19436460",
+      "identifier": "19436460",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 50,
+          "identifier": "19436460"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:19587380",
+      "identifier": "19587380",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 18,
+          "identifier": "19587380"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:19678995",
+      "identifier": "19678995",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 22,
+          "identifier": "19678995"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:19847088",
+      "identifier": "19847088",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 47,
+          "identifier": "19847088"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:20222381",
+      "identifier": "20222381",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 39,
+          "identifier": "20222381"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:20222383",
+      "identifier": "20222383",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 7,
+          "identifier": "20222383"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222385",
+      "identifier": "20222385",
+      "title": "Figure 2 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222385",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20222385",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 10,
+          "identifier": "20222385"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222387",
+      "identifier": "20222387",
+      "title": "Figure 3 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222387",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20222387",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 8,
+          "identifier": "20222387"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222389",
+      "identifier": "20222389",
+      "title": "Figure 4 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222389",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20222389",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 5,
+          "identifier": "20222389"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222391",
+      "identifier": "20222391",
+      "title": "Figure 5 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222391",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20222391",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 11,
+          "identifier": "20222391"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222393",
+      "identifier": "20222393",
+      "title": "Figure 6 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222393",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20222393",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 9,
+          "identifier": "20222393"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20222395",
+      "identifier": "20222395",
+      "title": "Figure 7 in The impact of schistosomiasis on the Global Disease Burden: a systematic analysis based on the 2021 Global Burden of Disease study",
+      "canonical_url": "https://zenodo.org/records/20222395",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20222395",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 6,
+          "identifier": "20222395"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20391327",
+      "identifier": "20391327",
+      "title": "Integrative modelling and in vivo analysis identify hypomorphic TMEM17 ciliopathy variants that reduce transition-zone abundance of TMEM-17",
+      "canonical_url": "https://zenodo.org/records/20391327",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20391327",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 36,
+          "identifier": "20391327"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 23,
+          "identifier": "20391327"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 21,
+          "identifier": "20391327"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 46,
+          "identifier": "20391327"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 8,
+          "identifier": "20391327"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:20473209",
+      "identifier": "20473209",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 25,
+          "identifier": "20473209"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:20520796",
+      "identifier": "20520796",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 33,
+          "identifier": "20520796"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 30,
+          "identifier": "20520796"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 16,
+          "identifier": "20520796"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 18,
+          "identifier": "20520796"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:20593250",
+      "identifier": "20593250",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 13,
+          "identifier": "20593250"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 15,
+          "identifier": "20593250"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20696641",
+      "identifier": "20696641",
+      "title": "CiliaHub: an updated gold-standard catalogue of ciliary genes with integrated ciliopathy data",
+      "canonical_url": "https://zenodo.org/records/20696641",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20696641",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 24,
+          "identifier": "20696641"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 16,
+          "identifier": "20696641"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 18,
+          "identifier": "20696641"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 27,
+          "identifier": "20696641"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 5,
+          "identifier": "20696641"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.20798055",
+      "identifier": "20798055",
+      "title": "SYNTHEMA Newsletter 5",
+      "canonical_url": "https://zenodo.org/records/20798055",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:20798055",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 7,
+          "identifier": "20798055"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:21130029",
+      "identifier": "21130029",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 16,
+          "identifier": "21130029"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:21204473",
+      "identifier": "21204473",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 12,
+          "identifier": "21204473"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:21285868",
+      "identifier": "21285868",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 23,
+          "identifier": "21285868"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.21384101",
+      "identifier": "21384101",
+      "title": "Semantic Mapping from MII Core Data Sets to NARSE and from NARSE to the ERDRI Core Data Set",
+      "canonical_url": "https://zenodo.org/records/21384101",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:21384101",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 2,
+          "identifier": "21384101"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 40,
+          "identifier": "21384101"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 26,
+          "identifier": "21384101"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:21741420",
+      "identifier": "21741420",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 29,
+          "identifier": "21741420"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:21872833",
+      "identifier": "21872833",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 46,
+          "identifier": "21872833"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:21874778",
+      "identifier": "21874778",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 49,
+          "identifier": "21874778"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.67667/neu.v27is6.237",
+      "identifier": "21920649",
+      "title": "Consensus statement for the diagnosis and treatment of lysosomal storage diseases with neurological manifestations. 2026",
+      "canonical_url": "https://zenodo.org/records/21920649",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:21920649",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 5,
+          "identifier": "21920649"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:2528168",
+      "identifier": "2528168",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 24,
+          "identifier": "2528168"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:2561528",
+      "identifier": "2561528",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 14,
+          "identifier": "2561528"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3209549",
+      "identifier": "3209549",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 48,
+          "identifier": "3209549"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 35,
+          "identifier": "3209549"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3228294",
+      "identifier": "3228294",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 50,
+          "identifier": "3228294"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 37,
+          "identifier": "3228294"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.3234097",
+      "identifier": "3234097",
+      "title": "Representing glycophenotypes: semantic unification of glycobiology resources for disease discovery",
+      "canonical_url": "https://zenodo.org/records/3234097",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:3234097",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 8,
+          "identifier": "3234097"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3244358",
+      "identifier": "3244358",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 48,
+          "identifier": "3244358"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3246824",
+      "identifier": "3246824",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 44,
+          "identifier": "3246824"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3264001",
+      "identifier": "3264001",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 50,
+          "identifier": "3264001"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3334917",
+      "identifier": "3334917",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 50,
+          "identifier": "3334917"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 44,
+          "identifier": "3334917"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 31,
+          "identifier": "3334917"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3360075",
+      "identifier": "3360075",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 42,
+          "identifier": "3360075"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 38,
+          "identifier": "3360075"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 24,
+          "identifier": "3360075"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13023-017-0597-1",
+      "identifier": "345747",
+      "title": "Does the low prevalence affect the sample size of interventional clinical trials of rare diseases? An analysis of data from the aggregate analysis of clinicaltrials.gov",
+      "canonical_url": "https://zenodo.org/records/345747",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:345747",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 1,
+          "identifier": "345747"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 39,
+          "identifier": "345747"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.3478576",
+      "identifier": "3478576",
+      "title": "Rare Disease analysis in Mondo",
+      "canonical_url": "https://zenodo.org/records/3478576",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:3478576",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 40,
+          "identifier": "3478576"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 25,
+          "identifier": "3478576"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 2,
+          "identifier": "3478576"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 48,
+          "identifier": "3478576"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 9,
+          "identifier": "3478576"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3514484",
+      "identifier": "3514484",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 45,
+          "identifier": "3514484"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 32,
+          "identifier": "3514484"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:3730463",
+      "identifier": "3730463",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 21,
+          "identifier": "3730463"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.4014414",
+      "identifier": "4014414",
+      "title": "zychenfd/Wuhan-disease-burden: Wuhan-disease-burden",
+      "canonical_url": "https://zenodo.org/records/4014414",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:4014414",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 3,
+          "identifier": "4014414"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4016814",
+      "identifier": "4016814",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 17,
+          "identifier": "4016814"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4075097",
+      "identifier": "4075097",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 43,
+          "identifier": "4075097"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 27,
+          "identifier": "4075097"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 23,
+          "identifier": "4075097"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 11,
+          "identifier": "4075097"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4108221",
+      "identifier": "4108221",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 34,
+          "identifier": "4108221"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4394618",
+      "identifier": "4394618",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 12,
+          "identifier": "4394618"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:45102",
+      "identifier": "45102",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 14,
+          "identifier": "45102"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4625470",
+      "identifier": "4625470",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 20,
+          "identifier": "4625470"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4722674",
+      "identifier": "4722674",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 22,
+          "identifier": "4722674"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4767933",
+      "identifier": "4767933",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 12,
+          "identifier": "4767933"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4931316",
+      "identifier": "4931316",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 41,
+          "identifier": "4931316"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:4977833",
+      "identifier": "4977833",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 40,
+          "identifier": "4977833"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5019195",
+      "identifier": "5019195",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 43,
+          "identifier": "5019195"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 39,
+          "identifier": "5019195"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 25,
+          "identifier": "5019195"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5061/dryad.s5700",
+      "identifier": "5021594",
+      "title": "Data from: 28 year temporal sequence of epidemic dynamics in a natural rust \u2013 host plant metapopulation",
+      "canonical_url": "https://zenodo.org/records/5021594",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:5021594",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 8,
+          "identifier": "5021594"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5095419",
+      "identifier": "5095419",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 37,
+          "identifier": "5095419"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5095421",
+      "identifier": "5095421",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 38,
+          "identifier": "5095421"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5105386",
+      "identifier": "5105386",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 36,
+          "identifier": "5105386"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5107810",
+      "identifier": "5107810",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 47,
+          "identifier": "5107810"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 34,
+          "identifier": "5107810"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5115590",
+      "identifier": "5115590",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 43,
+          "identifier": "5115590"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5205331",
+      "identifier": "5205331",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 30,
+          "identifier": "5205331"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5520579",
+      "identifier": "5520579",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 29,
+          "identifier": "5520579"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5565274",
+      "identifier": "5565274",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 38,
+          "identifier": "5565274"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.557065",
+      "identifier": "557065",
+      "title": "ELIXIR workshops organized with the Rare  Disease community",
+      "canonical_url": "https://zenodo.org/records/557065",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:557065",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 33,
+          "identifier": "557065"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 20,
+          "identifier": "557065"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 20,
+          "identifier": "557065"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 42,
+          "identifier": "557065"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 7,
+          "identifier": "557065"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.19070/2470-4563-150004",
+      "identifier": "574924",
+      "title": "Drug-eluting Stents in Premature Coronary Disease in Young People with Homozygous Familial Hypercholesterolemia and Prior Liver Transplant. A Report of Two Cases",
+      "canonical_url": "https://zenodo.org/records/574924",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:574924",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 2,
+          "identifier": "574924"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:5846621",
+      "identifier": "5846621",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 50,
+          "identifier": "5846621"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s12874-021-01434-3",
+      "identifier": "5937460",
+      "title": "Standardizing registry data to the OMOP Common Data Model: experience from three pulmonary hypertension databases",
+      "canonical_url": "https://zenodo.org/records/5937460",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:5937460",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 8,
+          "identifier": "5937460"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.1186/s13326-016-0051-7",
+      "identifier": "59581",
+      "title": "Linking rare and common disease: mapping clinical disease-phenotypes to ontologies in therapeutic target validation",
+      "canonical_url": "https://zenodo.org/records/59581",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:59581",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 7,
+          "identifier": "59581"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 41,
+          "identifier": "59581"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:6394274",
+      "identifier": "6394274",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 11,
+          "identifier": "6394274"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 11,
+          "identifier": "6394274"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:6394375",
+      "identifier": "6394375",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 47,
+          "identifier": "6394375"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:6416062",
+      "identifier": "6416062",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 21,
+          "identifier": "6416062"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:6584967",
+      "identifier": "6584967",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 47,
+          "identifier": "6584967"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:6838880",
+      "identifier": "6838880",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 44,
+          "identifier": "6838880"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:6937791",
+      "identifier": "6937791",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 45,
+          "identifier": "6937791"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7040390",
+      "identifier": "7040390",
+      "title": "Why early treating hidradenitis suppurativa is also a moral issue",
+      "canonical_url": "https://zenodo.org/records/7040390",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:7040390",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 4,
+          "identifier": "7040390"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7102403",
+      "identifier": "7102403",
+      "title": "Using the Mondo Disease Ontology to Standardize Rare Disease Nomenclature",
+      "canonical_url": "https://zenodo.org/records/7102403",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:7102403",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 5,
+          "identifier": "7102403"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7125341",
+      "identifier": "7125341",
+      "title": "Standardizing Rare Disease Data Collection:  It Takes an (Ontology) Village",
+      "canonical_url": "https://zenodo.org/records/7125341",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:7125341",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 3,
+          "identifier": "7125341"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 42,
+          "identifier": "7125341"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7126073",
+      "identifier": "7126073",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 31,
+          "identifier": "7126073"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7156009",
+      "identifier": "7156009",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 12,
+          "identifier": "7156009"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7270345",
+      "identifier": "7270345",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 17,
+          "identifier": "7270345"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7342934",
+      "identifier": "7342934",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 35,
+          "identifier": "7342934"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 17,
+          "identifier": "7342934"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7460586",
+      "identifier": "7460586",
+      "title": "NANDO and NanbyoData: a disease ontology for Japanese rare and intractable diseases (Nanbyo) and a portal website for providing centralized access to the latest and diverse knowledge of Nanbyo",
+      "canonical_url": "https://zenodo.org/records/7460586",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:7460586",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 19,
+          "identifier": "7460586"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 15,
+          "identifier": "7460586"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 16,
+          "identifier": "7460586"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 21,
+          "identifier": "7460586"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 4,
+          "identifier": "7460586"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7553116",
+      "identifier": "7553116",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 17,
+          "identifier": "7553116"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7649672",
+      "identifier": "7649672",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 26,
+          "identifier": "7649672"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7738728",
+      "identifier": "7738728",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 37,
+          "identifier": "7738728"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7769174",
+      "identifier": "7769174",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 49,
+          "identifier": "7769174"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:7857692",
+      "identifier": "7857692",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 35,
+          "identifier": "7857692"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.7961855",
+      "identifier": "7961855",
+      "title": "An annotated list of horizon scanned technologies with potential for application in alien species citizen science projects",
+      "canonical_url": "https://zenodo.org/records/7961855",
+      "screening_decision": "exclude",
+      "screening_reason": "no_rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:7961855",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 1,
+          "identifier": "7961855"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:8032864",
+      "identifier": "8032864",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 26,
+          "identifier": "8032864"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:8099468",
+      "identifier": "8099468",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 33,
+          "identifier": "8099468"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:8102661",
+      "identifier": "8102661",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 48,
+          "identifier": "8102661"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 43,
+          "identifier": "8102661"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 30,
+          "identifier": "8102661"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:8200079",
+      "identifier": "8200079",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 33,
+          "identifier": "8200079"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:8212054",
+      "identifier": "8212054",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 32,
+          "identifier": "8212054"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 29,
+          "identifier": "8212054"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 17,
+          "identifier": "8212054"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:8252259",
+      "identifier": "8252259",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease burden",
+          "rank": 31,
+          "identifier": "8252259"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:8282224",
+      "identifier": "8282224",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 25,
+          "identifier": "8282224"
+        }
+      ]
+    },
+    {
+      "canonical_key": "doi:10.5281/zenodo.837955",
+      "identifier": "837955",
+      "title": "KIKUCHI-FUJIMOTO DISEASE (KFD): A Rare Case Report",
+      "canonical_url": "https://zenodo.org/records/837955",
+      "screening_decision": "include",
+      "screening_reason": "rare_disease_scope_signal_in_public_metadata",
+      "identifier_key": "zenodo:837955",
+      "reconciliation_state": "reconciled_to_frozen_snapshot",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease prevalence",
+          "rank": 6,
+          "identifier": "837955"
+        }
+      ]
+    },
+    {
+      "identifier_key": "zenodo:8430384",
+      "identifier": "8430384",
+      "canonical_key": null,
+      "title": null,
+      "canonical_url": null,
+      "screening_decision": "pending_metadata_retrieval",
+      "screening_reason": "historical capture retained identifiers only; absence of title metadata is not exclusion evidence",
+      "reconciliation_state": "pending_metadata_retrieval",
+      "occurrences": [
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease registry",
+          "rank": 37,
+          "identifier": "8430384"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease ontology",
+          "rank": 35,
+          "identifier": "8430384"
+        },
+        {
+          "registry": "zenodo",
+          "query_string": "rare disease cost",
+          "rank": 22,
+          "identifier": "8430384"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The historical live capture retained identifiers but not titles or descriptions.",
+    "Only exact registry-identifier matches inherit a frozen snapshot decision.",
+    "Live-only identifiers remain pending; they are not excluded or evidence of absence.",
+    "Cross-provider entity equivalence, content eligibility, coverage and novelty remain unresolved."
+  ]
+}

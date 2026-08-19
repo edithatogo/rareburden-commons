@@ -26,8 +26,8 @@ The stable tag may be created only when every criterion marked **Blocking** has 
 | V1-SCI-03 | Every published estimate identifies whether it is observed, transformed, synthesised, transferred, modelled or assumed | Blocking | Schema validation and sampled output audit |
 | V1-SCI-04 | Sampling, mapping, transfer, overlap and structural uncertainty are propagated or explicitly bounded | Blocking | Statistical tests, sensitivity outputs and methods report |
 | V1-SCI-05 | Three demonstrators exercise materially different methods: monogenic diabetes, bronchiectasis and collective paediatric burden | Blocking | Reproducible analysis packages and review records |
-| V1-SCI-06 | At least one released analysis has been independently reproduced from the public release package | Blocking | External reproduction report and checksum comparison |
-| V1-SCI-07 | At least one methods output has independent scientific review outside the core implementation team | Blocking | Review response and disposition log |
+| V1-SCI-06 | At least one released analysis has been reproduced in a clean owner-operated environment from the public release package | Blocking | Hash-bound reproduction report and checksum comparison |
+| V1-SCI-07 | At least one methods output has role-separated agent-panel scientific challenge and an owner disposition | Blocking | Panel response, dissent and owner disposition log |
 | V1-SCI-08 | Applicable health-estimate reporting items are completed before release | Blocking | GATHER-aligned checklist or justified not-applicable record |
 | V1-SCI-09 | Causal language is used only where the estimand and design support it | Blocking | Scientific language review |
 
@@ -94,10 +94,10 @@ The stable tag may be created only when every criterion marked **Blocking** has 
 
 | ID | Criterion | Class | Required evidence |
 |---|---|---|---|
-| V1-GOV-01 | Patient/community governance has voting rights over priorities, acceptable use, interpretation and release framing | Blocking | Charter, membership and decisions |
-| V1-GOV-02 | Scientific, data-governance/ethics and country-node review roles are constituted | Blocking | Charters and named role holders |
+| V1-GOV-01 | Community/harm perspective is represented in agent-panel advice and owner decisions over priorities, acceptable use, interpretation and release framing | Blocking | Panel contract, findings, dissent and owner decisions |
+| V1-GOV-02 | Methods, rights/data-use and country-node perspectives are assigned to agent-panel roles; controlled-node policy remains custodian-defined if activated | Blocking | Panel role contract and bounded-scope records |
 | V1-GOV-03 | Conflicts, authorship, corrections, complaints, appeals and funder independence are operational | Blocking | Policies plus at least one tabletop test |
-| V1-GOV-04 | Patient/community participation is remunerated and budgeted | Blocking | Approved policy and budget line |
+| V1-GOV-04 | The single-developer agent-panel operating model and its limitations are disclosed | Blocking | ADR-0009 and release limitations |
 | V1-GOV-05 | Indigenous Data Sovereignty and CARE-aligned authority are implemented where relevant | Blocking | Node terms and governance review |
 | V1-GOV-06 | At least one LMIC-led or otherwise underserved-population node participates before unqualified global claims | Blocking for global claim | Node agreement and leadership evidence |
 | V1-GOV-07 | Outputs assess plausible harms, stigma, inequity and misuse | Blocking | Acceptable-use and harm review |
@@ -109,7 +109,7 @@ The stable tag may be created only when every criterion marked **Blocking** has 
 | V1-DOC-01 | Quickstart, user, developer, methods, node-operator, data-steward and release guides are complete | Blocking | Documentation inventory and link check |
 | V1-DOC-02 | Every runnable example is tested as documentation | Blocking | Documentation test results |
 | V1-DOC-03 | Diagrams and visual outputs have accessible text alternatives; colour is not the sole signal | Blocking | Accessibility review |
-| V1-DOC-04 | At least two independent users complete the reference workflow without maintainer intervention | Blocking | Usability reports |
+| V1-DOC-04 | Role-separated usability agents exercise the reference workflow and the owner dispositions their findings | Blocking | Hash-bound usability panel report and owner disposition |
 | V1-DOC-05 | Citation, licence, provenance, limitations and correction instructions accompany each release | Blocking | Release inspection |
 
 ## 10. Release, adoption and sustainability
@@ -118,8 +118,8 @@ The stable tag may be created only when every criterion marked **Blocking** has 
 |---|---|---|---|
 | V1-REL-01 | The release includes source, Git history, checksums, citation metadata and a provenance-rich research object | Blocking | Release manifest and archive |
 | V1-REL-02 | The public API/data package is versioned and generated from reviewed release artefacts rather than mutable working data | Blocking | Release pipeline evidence |
-| V1-REL-03 | Two clean release-candidate builds and one independent reproduction produce equivalent reviewed outputs | Blocking | Verification records |
-| V1-SUS-01 | Maintainer, reviewer and incident roles have named primary and backup owners | Blocking | Maintainer roster |
+| V1-REL-03 | Two clean release-candidate builds and one separately executed owner-operated reproduction produce equivalent reviewed outputs | Blocking | Verification records |
+| V1-SUS-01 | Primary and privacy-preserving backup operational roles have recorded scope and acceptance | Blocking | Owner roster, acceptance and handoff evidence |
 | V1-SUS-02 | Infrastructure, node support and release costs have a funded or institutionally committed operating model | Blocking | Approved sustainability plan |
 | V1-SUS-03 | A contribution, succession and deprecation pathway exists if the founding maintainer withdraws | Blocking | Governance and support policies |
 | V1-SUS-04 | Partner-facing claims distinguish confirmed relationships from invitations or proposals | Blocking | Communications review |
@@ -131,7 +131,7 @@ The v1.0 release decision must contain:
 1. the commit and release-candidate identifiers reviewed;
 2. the completed criterion table with linked evidence;
 3. all accepted residual risks and their owners;
-4. confirmation from scientific, patient/community, data-governance, engineering and security reviewers;
+4. agent-panel recommendations across methods, community/harm, rights/data-use, engineering and security, plus the repository-owner disposition;
 5. a clear statement of geographic, disease and analytic scope;
 6. rollback and correction instructions;
 7. the final decision: **release**, **release with bounded exclusions**, **revise**, or **stop**.

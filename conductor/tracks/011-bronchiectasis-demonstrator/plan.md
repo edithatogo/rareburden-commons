@@ -7,7 +7,7 @@
 - [ ] Define and freeze bronchiectasis denominator populations.
 - [ ] Define included rare aetiologies and ontology versions. `[M-01, M-02]`
 - [ ] Define multi-aetiology, unclassified and overlapping categories. `[M-05]`
-- [ ] Obtain respiratory and patient/community review.
+- [ ] Obtain respiratory-methods and community/harm agent-panel review and owner disposition.
 
 ## Phase 2 — Evidence and transportability
 
@@ -26,7 +26,7 @@
 ## Phase 4 — Validation and release
 
 - [ ] Compare with independent registry/cohort evidence where possible.
-- [ ] Complete external scientific and language review.
+- [ ] Complete scientific and language agent-panel review and owner disposition.
 - [x] Produce reproducible synthetic reference report and limitations. Evidence: `docs/bronchiectasis-011-reference.md`.
 - [ ] Record approval, narrowing or redesign decision.
 
@@ -50,3 +50,19 @@
   dependence labelling and the no-extrapolation boundary. Evidence:
   `tests/test_downstream_track_contracts.py`; respiratory, scientific and
   patient/community gates remain open.
+
+## Bounded dependency reconciliation — 2026-08-16
+
+- [x] Bind the synthetic demonstrator to exact Track 008, 009 and 010 artifacts,
+  with empirical activation, clinical interpretation and contract freeze kept
+  false. Evidence: `docs/track-011-dependency-bindings-2026-08-16.yml`.
+- [x] Reconcile a deterministic synthetic composition while retaining
+  multi-aetiology, unknown and unaccounted groups as separate structural
+  quantities. Evidence:
+  `manifests/demonstrators/track-011-bounded-synthetic-receipt-2026-08-16.json`.
+- [x] Add negative tests for activation claims, incomplete context and
+  over-allocation beyond the denominator. Evidence:
+  `tests/test_track011_bounded_reconciliation.py`.
+- [ ] Freeze or activate RBC-P003 only after a real denominator, empirical
+  aetiology evidence, transportability assessment and owner disposition exist;
+  the bounded synthetic receipt does not satisfy these gates.

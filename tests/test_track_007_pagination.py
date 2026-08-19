@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -35,6 +38,18 @@ def test_declared_total_requires_exact_unique_capture() -> None:
     assert capture["capture_complete_for_declared_total"] is True
     assert "does not establish landscape" in capture["claim_boundary"]
     assert all(page["response_sha256"].startswith("sha256:") for page in capture["pages"])
+    assert capture["pages"][0]["screening_records"] == [
+        {
+            "identifier": "org/a",
+            "title": "org/a",
+            "canonical_url": "",
+        },
+        {
+            "identifier": "org/b",
+            "title": "org/b",
+            "canonical_url": "",
+        },
+    ]
 
 
 def test_page_budget_is_explicitly_incomplete() -> None:
@@ -93,12 +108,63 @@ def test_invalid_json_and_http_status_fail_closed() -> None:
         )
 
 
+def test_malformed_screening_metadata_fails_closed() -> None:
+    def malformed(request: PageRequest, _timeout: int) -> tuple[bytes, int, str]:
+        body = json.dumps(
+            {"total_count": 1, "items": [{"full_name": "org/repo", "name": ["bad"]}]}
+        ).encode()
+        return body, 200, request.url
+
+    with pytest.raises(CaptureError, match="title is not text"):
+        capture_query(
+            "github", "fixture", page_size=2, max_pages=1, timeout=1, fetch_page=malformed
+        )
+
+
 def test_capture_schema_fixture_is_fail_closed() -> None:
     evidence = json.loads(
         (ROOT / "docs" / "track-007-pagination-strategy-2026-08-15.json").read_text()
     )
     assert evidence["schema_version"] == "RBC-LAND-007-PAGES-v0.1.0"
-    assert evidence["status"] == "strategy_and_synthetic_fixture_only"
-    assert evidence["production_capture_status"] == "not_run"
+    assert evidence["status"] == "strategy_exercised_with_bounded_live_capture"
+    assert evidence["production_capture_status"] == "bounded_live_run_complete"
+    assert evidence["live_capture_evidence"].endswith("2026-08-15.json")
     assert evidence["claims"]["ecosystem_completeness"] == "prohibited"
     assert evidence["claims"]["captured_page_reproducibility"] == "supported"
+
+
+def test_cli_writes_new_capture_but_refuses_overwrite(tmp_path: Path) -> None:
+    output = tmp_path / "capture.json"
+    command = [
+        sys.executable,
+        str(ROOT / "scripts" / "capture_track_007_pages.py"),
+        "--registry",
+        "github",
+        "--query",
+        "fixture query",
+        "--page-size",
+        "2",
+        "--max-pages",
+        "3",
+        "--fixture-dir",
+        str(FIXTURES),
+        "--retrieved-at-utc",
+        "2026-08-15T00:00:00Z",
+        "--output",
+        str(output),
+    ]
+    # The CLI fixture naming contract uses a query hash, so use the checked-in
+    # registry-prefixed fixtures through a temporary exact-name projection.
+    slug = hashlib.sha256(b"fixture query").hexdigest()[:12]
+    fixture_dir = tmp_path / "fixtures"
+    fixture_dir.mkdir()
+    for page in (1, 2):
+        (fixture_dir / f"github-{slug}-page-{page}.json").write_bytes(
+            (FIXTURES / f"github-complete-page-{page}.json").read_bytes()
+        )
+    command[command.index(str(FIXTURES))] = str(fixture_dir)
+    subprocess.run(command, check=True)
+    assert json.loads(output.read_text())["captures"][0]["pages_captured"] == 2
+    repeated = subprocess.run(command, capture_output=True, text=True)
+    assert repeated.returncode != 0
+    assert "refusing to overwrite capture" in repeated.stderr

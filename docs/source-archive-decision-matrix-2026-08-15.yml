@@ -1,0 +1,211 @@
+schema_version: "1.0"
+status: owner_approved_aggressive_archival
+as_of: "2026-08-15"
+infrastructure:
+  canonical_governance: github:edithatogo/rareburden-commons
+  private_raw_archive: huggingface:edithatogo/rareburden-commons-source-archive
+  public_metadata_catalogue: huggingface:edithatogo/dataset-estate-registry
+  public_raw_release: requires_source_specific_owner_release_decision
+  public_rights_filtered_archive: huggingface:edithatogo/rareburden-commons-open-source-snapshots@795150a6b45937228023b97602e6b770ae7f192b
+  canonical_ontology_archive: huggingface:edithatogo/hpo-licensed-ontology-archive
+  duplication_policy: reference_existing_exact_hashes_instead_of_uploading_duplicate_bytes
+rules:
+  - public_availability_does_not_establish_redistribution_rights
+  - private_hosting_is_copying_and_requires_a_documented_basis
+  - exact_release_identity_and_sha256_are_required_for_raw_archival
+  - controlled_environment_data_must_never_be_exported_to_github_or_huggingface
+  - raw_files_do_not_activate_estimands_or establish_clinical_validity
+  - publisher_licence_and_third_party_rights_facts_cannot_be_overridden_by_owner_or_agents
+decisions:
+  - source_id: orphadata-science
+    dataset_type: public_rare_disease_ontology_and_epidemiology
+    licence: CC_BY_4_0
+    exact_release: "July 2026"
+    private_archive: complete
+    public_raw: eligible_after_packaging
+    github: manifests_tests_attribution_only
+    conditions: [attribution, change_notice, no_endorsement, exact_hash]
+  - source_id: un-world-population-prospects
+    dataset_type: public_population_denominator_workbook
+    licence: CC_BY_3_0_IGO
+    exact_release: "WPP 2024, 28th revision"
+    private_archive: complete
+    public_raw: eligible_after_packaging
+    github: manifests_tests_attribution_only
+    conditions: [attribution, preserve_notices, no_endorsement, exclude_third_party_classifications]
+  - source_id: who-global-health-estimates
+    dataset_type: public_health_estimates_workbook_with_possible_third_party_fields
+    licence: WHO_public_health_terms_file_level_and_field_level_rights_incomplete
+    exact_release: "GHE 2021 workbook observed 2026-08-15"
+    private_archive: complete_unmodified_withdrawal_capable
+    public_raw: prohibited_pending_exact_field_rights
+    github: hash_metadata_extraction_manifest_and_lawful_derived_outputs_only
+    conditions: [unmodified_private_copy, preserve_attribution, withdrawal_route, no_activation]
+  - source_id: world-bank-indicators-api
+    dataset_type: public_versioned_api_response
+    licence: CC_BY_4_0_observed_for_series
+    exact_release: "SP.POP.TOTL AUS/NZL 2000-2021; lastupdated 2026-07-13"
+    private_archive: complete_probe_only
+    public_raw: eligible_after_packaging
+    github: query_hash_metadata_and_tests_only
+    conditions: [exact_query, response_hash, attribution, no_WPP_substitution]
+  - source_id: mondo-disease-ontology
+    dataset_type: public_ontology
+    licence: CC_BY_4_0
+    exact_release: v2026-08-04
+    private_archive: complete_or_upload_in_progress
+    public_raw: eligible_after_packaging
+    github: release_manifest_hashes_attribution_and_tests_only
+    conditions: [attribution, exact_release, publisher_digest_verification, no_clinical_claim]
+  - source_id: human-phenotype-ontology
+    dataset_type: public_phenotype_ontology_and_disease_annotations
+    licence: release_embeds_HPO_terms_URL_but_exact_terms_page_unavailable_at_observation
+    exact_release: v2026-06-23
+    private_archive: complete_or_upload_in_progress
+    public_raw: prohibited_until_exact_HPO_terms_are_captured
+    github: release_manifest_hashes_attribution_and_tests_only
+    conditions: [exact_release, publisher_digest_verification, HPO_attribution, preserve_annotation_provenance, no_direct_diagnostic_use]
+  - source_id: who-icd-10-11
+    dataset_type: international_clinical_classification
+    licence: WHO_ICD_licence_and_API_terms
+    exact_release: pending_selected_edition_and_language
+    private_archive: metadata_hash_only_until_licensed_artifact_selected
+    public_raw: prohibited_without_express_redistribution_rights
+    github: mappings_schema_identifiers_and_acquisition_manifests_only
+    conditions: [edition_pin, language_pin, WHO_attribution, no_unlicensed_redistribution]
+  - source_id: omim
+    dataset_type: proprietary_gene_disease_knowledgebase
+    licence: OMIM_access_and_licence_terms
+    exact_release: account_or_download_specific
+    private_archive: operator_local_or_private_only_if_exact_licence_permits
+    public_raw: prohibited
+    github: identifiers_mapping_code_hashes_and_non_proprietary_metadata_only
+    conditions: [authorized_access_only, no_credential_circumvention, no_redistribution]
+  - source_id: snomed-ct
+    dataset_type: licensed_clinical_terminology
+    licence: SNOMED_CT_affiliate_and_national_member_terms
+    exact_release: pending_selected_edition
+    private_archive: operator_local_or_private_only_if_affiliate_terms_permit
+    public_raw: prohibited
+    github: identifiers_mapping_code_hashes_and_non_licensed_metadata_only
+    conditions: [affiliate_authorization, edition_pin, territory_terms, no_redistribution]
+    prepared_contract: docs/track-002-meddra-mlds-frontier-2026-08-16.md
+    cloud_storage_decision: pending_exact_affiliate_and_national_terms
+  - source_id: snomed-ct-national-edition-germany
+    dataset_type: licensed_national_clinical_terminology
+    licence: SNOMED_CT_affiliate_plus_German_member_national_extension_terms
+    exact_release: pending_authenticated_mlds_inventory
+    private_archive: disabled_until_exact_agreement_territory_and_cloud_permission
+    public_raw: prohibited
+    github: official_urls_release_events_checksums_metadata_and_receipts_only
+    conditions: [affiliate_authorization, German_member_agreement, edition_pin, territory_authorization, affirmative_private_cloud_permission, exact_hash_deduplication, no_public_redistribution]
+    evidence: docs/track-002-bfarm-german-snomed-frontier-2026-08-16.md
+    manifest: manifests/classifications/bfarm-german-snomed-frontier-2026-08-16.json
+    cloud_storage_decision: pending_exact_agreement_territory_and_storage_disposition
+  - source_id: meddra
+    dataset_type: licensed_regulatory_medical_terminology
+    licence: ICH_MSSO_subscriber_terms
+    exact_release: pending_authenticated_portal_inventory
+    private_archive: prohibited_until_exact_subscription_permits_private_cloud
+    public_raw: prohibited
+    github: schemas_metadata_checksums_receipts_and_operator_instructions_only
+    conditions: [subscriber_authorization, release_pin, language_pin, no_credential_storage, no_redistribution]
+    prepared_contract: docs/track-002-meddra-mlds-frontier-2026-08-16.md
+    cloud_storage_decision: pending_exact_subscription_terms
+  - source_id: ncbi-clinvar
+    dataset_type: public_variant_archive
+    licence: freely_available_public_database_with_submitter_attribution_and_usage_caveats
+    exact_release: "variant_summary monthly archive 2026-08"
+    private_archive: complete_or_upload_in_progress
+    public_raw: pending_exact_terms_and_snapshot_decision
+    github: acquisition_code_manifest_hashes_and_tests_only
+    conditions: [monthly_pin, attribution, submitter_provenance, no_direct_diagnostic_use]
+  - source_id: genomics-england-panelapp
+    dataset_type: public_gene_disease_panel_catalogue
+    licence: December_2019_terms_noncommercial_nondiagnostic_mixed_third_party
+    exact_release: "five-page current-panel listing observed 2026-08-15; 433 panel/version rows"
+    private_archive: complete_listing_snapshot_full_panel_details_incomplete_rate_limited
+    public_raw: prohibited_pending_mixed_OMIM_Orphanet_and_output_rights
+    github: acquisition_code_and_metadata_only
+    conditions: [panel_version_pin, GEL_and_contributor_attribution, noncommercial_only, nondiagnostic_only, no_commercialised_outputs, withdrawal_route, rate_limit_respect]
+    coverage_boundary: United_Kingdom_clinical_curation_context_not_global_representativeness
+    automation_boundary: current_robots_txt_disallows_api_so_no_automated_detail_continuation
+  - source_id: panelapp-australia
+    dataset_type: public_gene_disease_panel_catalogue
+    licence: exact_content_reuse_terms_not_found_on_observed_public_site
+    exact_release: "current listing observed 2026-08-15; 263 panels"
+    private_archive: metadata_and_response_hashes_only_pending_exact_content_terms
+    public_raw: prohibited_until_exact_content_reuse_terms_are_recorded
+    github: country_registry_acquisition_code_hashes_and_metadata_only
+    conditions: [panel_version_pin, Australian_context, attribution, nondiagnostic_boundary, rate_limit_respect]
+    coverage_boundary: Australia_clinical_curation_context_not_global_representativeness
+    automation_boundary: bounded_nonretained_metadata_hash_probe_only_pending_exact_reuse_terms
+  - source_id: umls-metathesaurus
+    dataset_type: licensed_multi_vocabulary_terminology_compilation
+    licence: individual_UMLS_licence_plus_source_vocabulary_restriction_levels
+    exact_release: "2026AA metadata observed; authenticated artifact not acquired"
+    private_archive: operator_local_only_until_exact_licence_and_each_source_vocabulary_route_are_dispositioned
+    public_raw: prohibited
+    github: release_metadata_checksums_acquisition_code_and_non_expressive_identifiers_only
+    conditions: [individual_UTS_licence, annual_report, source_vocabulary_terms, no_credential_sharing, no_unlicensed_redistribution]
+    public_subsets: vocabulary_by_vocabulary_only_after_source_specific_rights_review
+  - source_id: ihme-gbd-results
+    dataset_type: registered_results_export
+    licence: dataset_and_user_agreement_specific
+    exact_release: pending_authorized_export
+    private_archive: operator_local_or_private_only_if_agreement_permits
+    public_raw: prohibited_without_express_permission
+    github: metadata_hash_citation_and_non_sensitive_code_only
+    conditions: [no_credential_circumvention, no_unlicensed_redistribution]
+  - source_id: ihme-ghdx
+    dataset_type: catalogue_and_dataset_specific_downloads
+    licence: record_specific
+    exact_release: pending_dataset_selection
+    private_archive: metadata_hash_only_by_default
+    public_raw: prohibited_until_record_specific_terms_verified
+    github: metadata_citations_and_acquisition_manifests_only
+    conditions: [record_specific_terms, no_credential_circumvention]
+  - source_id: oecd-data-explorer
+    dataset_type: public_or_registered_statistical_exports
+    licence: general_terms_permit_reuse_with_attribution_but_dataset_and_third_party_restrictions_may_apply
+    exact_release: pending_dataset_selection
+    private_archive: metadata_hash_only_by_default
+    public_raw: prohibited_until_dataset_terms_verified
+    github: query_export_manifest_hashes_and_code_only
+    conditions: [dataset_specific_terms, attribution, API_export_behaviour_review]
+    metadata_canary: OECD.ELS.HD_DSD_HEALTH_STAT_DF_COM_1.0_structure_hash_only
+  - source_id: all-of-us-public-tier
+    dataset_type: public_aggregate_browser_outputs
+    licence: output_specific_terms_pending
+    exact_release: pending_selection
+    private_archive: metadata_hash_only_until_terms_verified
+    public_raw: prohibited_until_output_terms_verified
+    github: metadata_query_manifests_and_code_only
+    conditions: [aggregate_only, privacy_review, exact_output_terms]
+  - source_id: all-of-us-researcher-workbench
+    dataset_type: controlled_research_environment
+    licence: data_use_agreement_and_workspace_policy
+    exact_release: environment_managed
+    private_archive: prohibited_outside_authorized_environment
+    public_raw: prohibited
+    github: synthetic_code_schema_and_non_sensitive_metadata_only
+    conditions: [never_export_controlled_data, disclosure_review, environment_policy]
+  - source_id: genomics-england-research-environment
+    dataset_type: controlled_research_environment
+    licence: project_and_environment_policy
+    exact_release: environment_managed
+    private_archive: prohibited_outside_authorized_environment
+    public_raw: prohibited
+    github: synthetic_code_schema_and_non_sensitive_metadata_only
+    conditions: [never_export_controlled_data, disclosure_review, environment_policy]
+next_actions:
+  - complete_private_mondo_upload_and_record_huggingface_commit
+  - publish_metadata_only_catalogue_update
+  - maintain_the_public_rights_filtered_projection_and_verify_its_hash_manifest
+  - select_and_pin_clinvar_snapshot
+  - capture_accessible_exact_HPO_terms_before_any_public_mirror
+  - select_exact_ICD_OMIM_and_SNOMED_editions_only_after_licence_route_is_available
+  - retain_controlled_environment_sources_as_code_and_metadata_only
+  - add_Australian_PanelApp_without_treating_UK_or_Australia_as_global_coverage
+  - authenticate_to_UTS_and_record_UMLS_release_metadata_without_uploading_licensed_bytes
+  - deduplicate_existing_Orphadata_and_ontology_snapshots_against_the_canonical_archive

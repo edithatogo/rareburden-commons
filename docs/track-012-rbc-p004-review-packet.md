@@ -25,6 +25,10 @@ accountable review gates are complete.
 - Duplicate-admission, multimorbidity, person-deduplication and small-cell
   disclosure fixtures; no real or controlled data.
 - Draft aggregate export and federated-node boundaries linked to Tracks 004/005.
+- Exact synthetic dependency hashes and a bounded receipt covering person
+  deduplication, multimorbidity, explicit missingness and suppressed
+  jurisdiction breakdowns. This provides no controlled-data or clinical
+  evidence.
 
 ## Required closure packet
 

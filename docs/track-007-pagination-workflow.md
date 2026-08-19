@@ -12,13 +12,19 @@ uv run python scripts/capture_track_007_pages.py \
   --registry github \
   --query "rare disease burden" \
   --page-size 25 \
-  --max-pages 4
+  --max-pages 4 \
+  --output docs/track-007-live-pages-github-YYYY-MM-DD.json
 ```
 
-Save stdout as a new dated evidence file only after inspecting it for the exact
-query, timestamp, endpoints, hashes and stop reason. Never overwrite an earlier
-capture. A failed HTTP response, invalid payload, changing declared total,
+The output path must be new; the command refuses to overwrite an earlier
+capture. Inspect the result for the exact query, timestamp, endpoints, hashes
+and stop reason before treating it as evidence. A failed HTTP response, invalid payload, changing declared total,
 missing identifier or repeated identifier across pages stops the run.
+
+Each captured page also retains only the minimal public metadata needed for
+deterministic follow-on screening: stable identifier, title and canonical URL.
+Malformed or overlong metadata fails closed. Abstracts, repository bodies,
+dataset cards and full text are deliberately not retained by this workflow.
 
 The output distinguishes:
 

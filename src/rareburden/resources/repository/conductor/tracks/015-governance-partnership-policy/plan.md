@@ -5,8 +5,8 @@
 ## Phase 1 — Constitute governance
 
 - [ ] Draft and approve body charters, appointment and voting rules. `[M-16]`
-- [ ] Establish patient/community remuneration and agenda rights.
-- [ ] Establish scientific, data-governance/ethics and node review roles.
+- [ ] Establish community/harm agent-panel remit, dissent rules and owner decision rights.
+- [ ] Establish methods, rights/data-use and node agent-panel review roles.
 - [ ] Publish conflicts, minutes and reserved-decision process. `[M-17]`
 
 ## Phase 2 — Operating policies
@@ -26,7 +26,7 @@
 ## Phase 4 — Policy translation
 
 - [x] Define policy-product claim boundaries and relationship-state crosswalk. `[C-09]` Evidence: `docs/governance-015-reference.md`; indicator approval remains open.
-- [ ] Test framing with patient/community and policy users.
+- [ ] Test framing with community/harm and policy-user perspective agents.
 - [x] Define confirmed/proposed relationship register states. Evidence: relationship claim-state contract in `docs/governance-015-reference.md`; no relationships are confirmed.
 - [ ] Approve geographic and “global” claims for v1 scope.
 
@@ -61,3 +61,21 @@
   relationship evidence requirements.
 - [ ] Keep governance, partnership and endorsement states unactivated until
   constituted dispositions are recorded.
+
+## Bounded repository reconciliation — 2026-08-16
+
+- [x] Implement the single-owner plus role-separated advisory agent-panel
+  operating model without claiming independent, patient/community, custodian,
+  Indigenous, institutional or partner authority. Evidence:
+  `manifests/governance/track-015-bounded-reconciliation-2026-08-16.json`.
+- [x] Bind exact Track 007/013, source-rights, archive-capacity and ADR-0009
+  evidence; keep the Track 014 release-surface dependency pending until its
+  dependency-safe merge.
+- [x] Encode relationship claim states, source/rights boundaries and exact
+  correction/withdrawal triggers with negative overclaim, evidence-drift and
+  dependency tests. Evidence: `scripts/check_track015_bounded_governance.py`
+  and `tests/test_track015_bounded_governance.py`.
+- [x] Bind the exact merged Track 014 release-surface artifact at merge
+  `22388a74e2d8f2c4ff1d59f828279ffabad3b5a7` and SHA-256
+  `dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0`,
+  then re-run the full gate before integration.

@@ -125,12 +125,13 @@ def test_track_007_search_log_preserves_bounded_discovery_and_provisional_status
 
 def test_track_007_registration_packet_is_versioned_and_fail_closed() -> None:
     packet = REGISTRATION_PACKET.read_text(encoding="utf-8")
-    assert "RBC-LAND-007 v0.1.0" in packet
-    assert "versioned draft; not externally registered" in packet
+    assert "RBC-LAND-007 v0.2.0" in packet
+    assert "frozen and hash-registered in the repository" in packet
     for field in ("query_string", "endpoint_or_database", "export_sha256", "exclusion_reason"):
         assert field in packet
-    assert "Methods reviewer" in packet
-    assert "patient/community reviewer" in packet.lower()
+    assert "methods agents" in packet
+    assert "community/harm agents" in packet.lower()
+    assert "not patient/community" in packet.lower()
     assert "Track 007 stays in review" in packet
 
 

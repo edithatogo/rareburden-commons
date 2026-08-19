@@ -1,0 +1,1922 @@
+[
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/genes_to_disease.txt",
+    "path": "releases/hpo/v2026-06-23/genes_to_disease.txt",
+    "bytes": 1477762,
+    "sha256": "a247027ae9944e34545e0a91060243ff6c118681c06379b9721af1ee4f39286a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2026-06-23/genes_to_phenotype.txt",
+    "bytes": 20732778,
+    "sha256": "26cb7ee00c73b5777f6e5ad43323c941e1fcef1d191592f332d7929f3ea1ab3f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-base.json",
+    "path": "releases/hpo/v2026-06-23/hp-base.json",
+    "bytes": 23226592,
+    "sha256": "998e4cfff81674736a4f6af937d6b3e55c64cb813ad384f686ffc60d5546da79"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-base.obo",
+    "path": "releases/hpo/v2026-06-23/hp-base.obo",
+    "bytes": 11782967,
+    "sha256": "dac5b0b7780ff076e83be7c329b3dcc7f93e469da5bef5bddc903cba9e1ad8ab"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-base.owl",
+    "path": "releases/hpo/v2026-06-23/hp-base.owl",
+    "bytes": 49479533,
+    "sha256": "8aab8c4d7f11189def5d4e64c17190dfc90a495fe9f49a451ea2caefc174e153"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2026-06-23/hp-edit.owl-obo-report.tsv",
+    "bytes": 234985,
+    "sha256": "389974d16c019ad7e719e3b3c179a8254dc022b7e637f4ff743996239346d01a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-fr.json",
+    "path": "releases/hpo/v2026-06-23/hp-fr.json",
+    "bytes": 23265435,
+    "sha256": "d3ff3108bffffa0959828d0d8db064405f7ee18a9bf4921e47093796fc40901c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-fr.obo",
+    "path": "releases/hpo/v2026-06-23/hp-fr.obo",
+    "bytes": 15233031,
+    "sha256": "dbb64429fc7f8cd22b612ee2f58213507fe80418f6a0c896a6f304431b4bf62a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-fr.owl",
+    "path": "releases/hpo/v2026-06-23/hp-fr.owl",
+    "bytes": 51455193,
+    "sha256": "d27814dff7f5f65310e8148936cdffa67531b05116498cf22db3fb59a87bce27"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-full.json",
+    "path": "releases/hpo/v2026-06-23/hp-full.json",
+    "bytes": 44034551,
+    "sha256": "c9d99eecb657b7e94d0686aa361a6d8b089109f691c7dec05adb543cceea05f0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-full.obo",
+    "path": "releases/hpo/v2026-06-23/hp-full.obo",
+    "bytes": 19788950,
+    "sha256": "2a6ae166417b74da6fa66d3d4264dc94f8752ac50c4582b6020b0fbf5fd01149"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-full.owl",
+    "path": "releases/hpo/v2026-06-23/hp-full.owl",
+    "bytes": 87060736,
+    "sha256": "df57f8615f6fa759e4ffd58d20f34972399984523a05eda013b013a3f24aed92"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-international.json",
+    "path": "releases/hpo/v2026-06-23/hp-international.json",
+    "bytes": 50432878,
+    "sha256": "a1285aa58f88cc5339563d4479b94ded2cb0f960ccb68679860ee5447dd6e102"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-international.obo",
+    "path": "releases/hpo/v2026-06-23/hp-international.obo",
+    "bytes": 22792194,
+    "sha256": "ebe2223eb0b33700151c44ca2c6e540c544e23d2257695d48f5b58cbeffa415c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-international.owl",
+    "path": "releases/hpo/v2026-06-23/hp-international.owl",
+    "bytes": 210367065,
+    "sha256": "f59cb7a48fba1cdb49e195b25f62bcdc062983c18ac250ed98e5a6444934b007"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2026-06-23/hp-simple-non-classified.json",
+    "bytes": 23019501,
+    "sha256": "79d4cf6efe189000ac2c589b2e79cb27dc200e3389e6451cb775164e43f6d737"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2026-06-23/hp-simple-non-classified.obo",
+    "bytes": 11222391,
+    "sha256": "031b8f63b1a3e3d7e43e90444f7a2186b806e1125babf61d046d43e69209e6e3"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2026-06-23/hp-simple-non-classified.owl",
+    "bytes": 30621247,
+    "sha256": "e2e7526a99cef11dbd1bbe3e3784b738c4a5286f0f1cae7fcbca8f3555375783"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp.json",
+    "path": "releases/hpo/v2026-06-23/hp.json",
+    "bytes": 23019454,
+    "sha256": "3b646565695329aa399e937883c68d5d424d0df5eaab2f22baa0e08d44fdbe87"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp.obo",
+    "path": "releases/hpo/v2026-06-23/hp.obo",
+    "bytes": 11222341,
+    "sha256": "a5092cbdf605f568403cf7380d9173014015692433b2cc631bc5c1b053876b1b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/hp.owl",
+    "path": "releases/hpo/v2026-06-23/hp.owl",
+    "bytes": 77796135,
+    "sha256": "01851cf5121af28b2fd1d252d98977a565abf5c1fbc7901d10c8580d5996dfb4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/phenotype.hpoa",
+    "path": "releases/hpo/v2026-06-23/phenotype.hpoa",
+    "bytes": 35672303,
+    "sha256": "89004f85b253f980ffe84218d2c080665cbf67a57bbb322111d6a2db5eb31dff"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-23/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2026-06-23/phenotype_to_genes.txt",
+    "bytes": 66907216,
+    "sha256": "1386a4dd3ea046f5a5971f4011a3711a9d7928d60961e2e7b757b6860c63c778"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/genes_to_disease.txt",
+    "path": "releases/hpo/v2026-06-06/genes_to_disease.txt",
+    "bytes": 1477474,
+    "sha256": "81e8d2e0bc1c1052c383614ad85388325deeacb4b9478c6d9585597f45602bac"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2026-06-06/genes_to_phenotype.txt",
+    "bytes": 20679214,
+    "sha256": "857cd3c28ce46b3fa5cb65f38a88ed8e4ee3c8c9c92463066ce7e7e3aa9b8ed4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-base.json",
+    "path": "releases/hpo/v2026-06-06/hp-base.json",
+    "bytes": 23164521,
+    "sha256": "746dee51a82484b1e081b154ac060108f0360b5853cea9cff51b67a849af60a7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-base.obo",
+    "path": "releases/hpo/v2026-06-06/hp-base.obo",
+    "bytes": 11748177,
+    "sha256": "520e5c36e27035e75ea7eeb3c484cf50110ac82dfba049f9e95a6950862066c3"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-base.owl",
+    "path": "releases/hpo/v2026-06-06/hp-base.owl",
+    "bytes": 49432151,
+    "sha256": "ec20c2a62cc9fcb675c43ae9fb926dea513f4739aef59398fa4954fe2ebe52e5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2026-06-06/hp-edit.owl-obo-report.tsv",
+    "bytes": 231021,
+    "sha256": "2862c0a8f34f5146d7c0be9a6d0509ef2a78b7341f818fb481d02623013f39bf"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-fr.json",
+    "path": "releases/hpo/v2026-06-06/hp-fr.json",
+    "bytes": 23203405,
+    "sha256": "1353ad4c59816cc3c564d16eb062927d6554f0e72bfeec68a43000d14ab1bee0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-fr.obo",
+    "path": "releases/hpo/v2026-06-06/hp-fr.obo",
+    "bytes": 15197959,
+    "sha256": "360135b2f433dc55b67a89eabe2e1510d7d93cdd9f2b977e16cb98ed66760af5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-fr.owl",
+    "path": "releases/hpo/v2026-06-06/hp-fr.owl",
+    "bytes": 51411355,
+    "sha256": "525a8eecd6490e159fdd61aef1f9f3a61d83d037466024d69e89ae55087bbe7b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-full.json",
+    "path": "releases/hpo/v2026-06-06/hp-full.json",
+    "bytes": 43979745,
+    "sha256": "fe7f26fd51c18b0dc78a37fb038d2b97ff999afe155eb6a28a9f02bd503f133f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-full.obo",
+    "path": "releases/hpo/v2026-06-06/hp-full.obo",
+    "bytes": 19757742,
+    "sha256": "12094c07467861603ff453c956835cc5887d87080032dd48e277446a14872ffb"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-full.owl",
+    "path": "releases/hpo/v2026-06-06/hp-full.owl",
+    "bytes": 87024283,
+    "sha256": "a25839f58c9a90b976fa95569a4f41fc2b89d3fc03e8a96544a3fa50fb760ddc"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-international.json",
+    "path": "releases/hpo/v2026-06-06/hp-international.json",
+    "bytes": 50376273,
+    "sha256": "e2eb8ee7b2cb2a4527066f389450d7569c3c8473acb0365e720ad7554f457ce5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-international.obo",
+    "path": "releases/hpo/v2026-06-06/hp-international.obo",
+    "bytes": 22759785,
+    "sha256": "bcadf1a43f64b8b6343316334172d156122c66d6a0769c1e7811690a93e4888f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-international.owl",
+    "path": "releases/hpo/v2026-06-06/hp-international.owl",
+    "bytes": 210329867,
+    "sha256": "8f718a4f124df3fee6286b678e3f9d08c05a858e175b510a2c35977023b3ffec"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2026-06-06/hp-simple-non-classified.json",
+    "bytes": 22957521,
+    "sha256": "2c73baefe4bdd3862ae75fcb9a6d8612dc5c1962597aa6a8b901178df685215c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2026-06-06/hp-simple-non-classified.obo",
+    "bytes": 11187484,
+    "sha256": "214c01c28f62f97105d48056c3153c1d5956dca3aea6e24592e6395e2ca779ec"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2026-06-06/hp-simple-non-classified.owl",
+    "bytes": 30580983,
+    "sha256": "4cd48804be391aee6cf0ab6bdd7925639b9362de9cf30a5cc8c33aad8bba25b4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp.json",
+    "path": "releases/hpo/v2026-06-06/hp.json",
+    "bytes": 22957474,
+    "sha256": "f9ed035dc1e74e511653edfcf36891144742e8e4b44c78d893b7e7982c15bd01"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp.obo",
+    "path": "releases/hpo/v2026-06-06/hp.obo",
+    "bytes": 11187434,
+    "sha256": "ddc8f8a99844b61cd27cdc17958a954dce55349d4d03f318e71426e1550b7f36"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/hp.owl",
+    "path": "releases/hpo/v2026-06-06/hp.owl",
+    "bytes": 77763010,
+    "sha256": "80cf32268f37a859bddc3b0b89d2b98f076ea80f598e0c35e407a26db5f6495b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/phenotype.hpoa",
+    "path": "releases/hpo/v2026-06-06/phenotype.hpoa",
+    "bytes": 35533311,
+    "sha256": "9e10da9c4b92c2d58f65e2fbd005a8511b5bfde43dd4a026564c72cf2918fbb3"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-06-06/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2026-06-06/phenotype_to_genes.txt",
+    "bytes": 66734263,
+    "sha256": "e9814624644925f34ae0183c1ae61d3323ec37929d6a9661c2e867fc79fd2417"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/genes_to_disease.txt",
+    "path": "releases/hpo/v2026-02-16/genes_to_disease.txt",
+    "bytes": 1474869,
+    "sha256": "364429870dd8326c5d293eeec31c3f1c89351c8d63a9d66c294b171966fa8b60"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2026-02-16/genes_to_phenotype.txt",
+    "bytes": 20533481,
+    "sha256": "25d3e5a40203cbb4cc027747c70fcb5431bcfb26283479608a97f3d810285c7d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-base.json",
+    "path": "releases/hpo/v2026-02-16/hp-base.json",
+    "bytes": 22264343,
+    "sha256": "94330c5f044d310b6befc9450a391b270db7903cf0835ec2f2349be0aabdac41"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-base.obo",
+    "path": "releases/hpo/v2026-02-16/hp-base.obo",
+    "bytes": 11259310,
+    "sha256": "781cb5d7b0cca9d594c62f9404bd259ac0895ca69c80f40e8990ff49b7bde0d0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-base.owl",
+    "path": "releases/hpo/v2026-02-16/hp-base.owl",
+    "bytes": 48376110,
+    "sha256": "aa004b10a476841f976d65e0b7a088c3f7cdd89189663fe2c28b8110eaa038b7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2026-02-16/hp-edit.owl-obo-report.tsv",
+    "bytes": 213619,
+    "sha256": "f5588a38584419f546e99d7f43d99f4be61616eec9d64a4f3f0349720db809b1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-fr.json",
+    "path": "releases/hpo/v2026-02-16/hp-fr.json",
+    "bytes": 22304484,
+    "sha256": "e8a05162baf052df747b3460ce111fc984126eef5670394f62c2d8504d64c0c1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-fr.obo",
+    "path": "releases/hpo/v2026-02-16/hp-fr.obo",
+    "bytes": 14713146,
+    "sha256": "43a402ad098204d5f115d05dd150a6b6ef2cca5ddd724f85ddc20eb8cf38d912"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-fr.owl",
+    "path": "releases/hpo/v2026-02-16/hp-fr.owl",
+    "bytes": 50537436,
+    "sha256": "f52bd4c70f8387f6f895d2d89cbb40d8001c45856b8c825e766bd2dad68ef440"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-full.json",
+    "path": "releases/hpo/v2026-02-16/hp-full.json",
+    "bytes": 42991056,
+    "sha256": "17d19ed35e1c5f16bc8579ba3f88cc36884f063c5d015da4952c1f6b04863432"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-full.obo",
+    "path": "releases/hpo/v2026-02-16/hp-full.obo",
+    "bytes": 19203487,
+    "sha256": "f458c9ebce6bca048183b955c34a8ac46d8682e01ac8fd3c3ba71e00427f14f1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-full.owl",
+    "path": "releases/hpo/v2026-02-16/hp-full.owl",
+    "bytes": 85256414,
+    "sha256": "2a0a99be889624a1a75cc5bffac197ffd9ad672ca14919c14f4be2049fa96e4c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-international.json",
+    "path": "releases/hpo/v2026-02-16/hp-international.json",
+    "bytes": 49246551,
+    "sha256": "444513e5cb729052fefe471126961357c2068d57a5fc529e36c843fcfa9b551f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-international.obo",
+    "path": "releases/hpo/v2026-02-16/hp-international.obo",
+    "bytes": 22152711,
+    "sha256": "6970b81c49539eaa87239c237290b3f5d1e4bc26533189cb355a3f36e15470e3"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-international.owl",
+    "path": "releases/hpo/v2026-02-16/hp-international.owl",
+    "bytes": 208345468,
+    "sha256": "dd61f4d10d6e816b55721a8dd92ec0136904aa87f1b8f5f16eb2ece3cc374f17"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2026-02-16/hp-simple-non-classified.json",
+    "bytes": 22063054,
+    "sha256": "775f1182241585715b75cb7984cf1e8a26adc9fcd65ef89453e0b7d20ad0d0d2"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2026-02-16/hp-simple-non-classified.obo",
+    "bytes": 10703156,
+    "sha256": "4c66a21ba20cb1a301694adcd7ba107b68274f1790f3b2c9efe7d29d34175f62"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2026-02-16/hp-simple-non-classified.owl",
+    "bytes": 29893603,
+    "sha256": "6a0bda10738d5c78078eda06581133260ce4088915ca19e7db32dccb4573b48b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp.json",
+    "path": "releases/hpo/v2026-02-16/hp.json",
+    "bytes": 22063007,
+    "sha256": "cb3b756ac11d1308372136bf4f7f8db2ad1c51f64a795e09400e5ffb2a273243"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp.obo",
+    "path": "releases/hpo/v2026-02-16/hp.obo",
+    "bytes": 10703106,
+    "sha256": "8d6c23798667d4506767ce643fc3c028f0d1c85e7e1d8810e491181a345d53cd"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/hp.owl",
+    "path": "releases/hpo/v2026-02-16/hp.owl",
+    "bytes": 76165285,
+    "sha256": "a14600022d7469647f6643be5077600abe956d9d7e16235c1243afa18d01a94a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/phenotype.hpoa",
+    "path": "releases/hpo/v2026-02-16/phenotype.hpoa",
+    "bytes": 35261380,
+    "sha256": "5d7aedee5f6218e9952fceba5f883df2cc4a0c1938e55d8d2616c15c517964fb"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-02-16/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2026-02-16/phenotype_to_genes.txt",
+    "bytes": 65852754,
+    "sha256": "a0b501b8fe0ce37ed088c924c60eb14d3d81e79e3f33f3e8f21075a1a08bf3b2"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/genes_to_disease.txt",
+    "path": "releases/hpo/v2026-01-08/genes_to_disease.txt",
+    "bytes": 1462282,
+    "sha256": "2552f81ac4bacf718291dac39bc03387ebfe671bad6480cdfcb963cbd9f40843"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2026-01-08/genes_to_phenotype.txt",
+    "bytes": 20125120,
+    "sha256": "e913c803a3b1f3cd511ba4b63281bd3c1e91573e8abab8fa92b2f0fbeb940888"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-base.json",
+    "path": "releases/hpo/v2026-01-08/hp-base.json",
+    "bytes": 22098362,
+    "sha256": "f7216f5cee2f015e22fa8bff833701ab266946c59ff625ad067a3cd88eb2d78b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-base.obo",
+    "path": "releases/hpo/v2026-01-08/hp-base.obo",
+    "bytes": 10888368,
+    "sha256": "9ab6806312421b4d0de5769bca5c6e5b0bfc14713941c204b0dc047c85a1fd77"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-base.owl",
+    "path": "releases/hpo/v2026-01-08/hp-base.owl",
+    "bytes": 47834563,
+    "sha256": "ccbc91c4bdc11dbc9d71cacdf7a8a1f08e4ff2c1a5d172657b4d93bf9f760eaf"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2026-01-08/hp-edit.owl-obo-report.tsv",
+    "bytes": 215250,
+    "sha256": "bf5fb26d00ba332b315e0952233b7618d5bfc53c505429c5eb6b7f689044da35"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-fr.json",
+    "path": "releases/hpo/v2026-01-08/hp-fr.json",
+    "bytes": 22137924,
+    "sha256": "31a7facd91aa81ce8a13dc9916a187d165446607c5c4ee08af00820fefda4ce2"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-fr.obo",
+    "path": "releases/hpo/v2026-01-08/hp-fr.obo",
+    "bytes": 14365656,
+    "sha256": "5c67b161d35194fa34d843fe0e13710c9772c2de06aa8d7b6044f3106b286479"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-fr.owl",
+    "path": "releases/hpo/v2026-01-08/hp-fr.owl",
+    "bytes": 50029119,
+    "sha256": "2d5b74248824402bd673902e6e753668335a8738152e3e0f9b0da2dbc83bda9b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-full.json",
+    "path": "releases/hpo/v2026-01-08/hp-full.json",
+    "bytes": 42820631,
+    "sha256": "0c400ea077ee045c09dd26089010906baacb0ab54b12ff647e2c025eeda47e82"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-full.obo",
+    "path": "releases/hpo/v2026-01-08/hp-full.obo",
+    "bytes": 18832027,
+    "sha256": "66891131229fb293691ddb4a856678ca04f5b5c0d6402b4ebac304445ccaf6ff"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-full.owl",
+    "path": "releases/hpo/v2026-01-08/hp-full.owl",
+    "bytes": 84712201,
+    "sha256": "7146be461461b03aeebeefbf8c0b084747e9863917a9f55bb3bfa367eb05124e"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-international.json",
+    "path": "releases/hpo/v2026-01-08/hp-international.json",
+    "bytes": 49075137,
+    "sha256": "c71783ace8f36d27551af0b35de80914eaa27b935738c7eaf3760de05659d936"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-international.obo",
+    "path": "releases/hpo/v2026-01-08/hp-international.obo",
+    "bytes": 21779805,
+    "sha256": "4eafe784f5ff1024bf1dd9c24c0a97b17453558090c315e8f8ec74a6731ca9d6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-international.owl",
+    "path": "releases/hpo/v2026-01-08/hp-international.owl",
+    "bytes": 207105479,
+    "sha256": "0df13cac9bdb2b4a207645d86919de67ca9c686e0d5ff1096c2ab86474ad59f1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2026-01-08/hp-simple-non-classified.json",
+    "bytes": 21897073,
+    "sha256": "27ea740205be3a7df4209a39c5c4d8ff25cce137cc6cbf0550877e54d10a1a02"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2026-01-08/hp-simple-non-classified.obo",
+    "bytes": 10356268,
+    "sha256": "06f7f1bb187d156de5daffc9fd0fe2e62278073f459a513998cd1e9e795be0e5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2026-01-08/hp-simple-non-classified.owl",
+    "bytes": 29363889,
+    "sha256": "d9275e9b36c368d3554d6f3d85baf8727b39a47a65c5abfddaa558e150227138"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp.json",
+    "path": "releases/hpo/v2026-01-08/hp.json",
+    "bytes": 21897026,
+    "sha256": "d31fda29206e4509b19162903b2fd46188514279d5579eb7a2de0d0722342ecf"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp.obo",
+    "path": "releases/hpo/v2026-01-08/hp.obo",
+    "bytes": 10356218,
+    "sha256": "a6c4852adb6402c1de7d12de8f2a4c652e2f016b6e33b0cbe647b6d35c46f86b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/hp.owl",
+    "path": "releases/hpo/v2026-01-08/hp.owl",
+    "bytes": 75604163,
+    "sha256": "55162803197fe84403a2e25f3ed2fa26387cb42829099729c702c819408d8bf9"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/phenotype.hpoa",
+    "path": "releases/hpo/v2026-01-08/phenotype.hpoa",
+    "bytes": 34972789,
+    "sha256": "506d358590b0f0367cd09332bba73a95cd753cd281a9ecaee00a655ced82e422"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-01-08/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2026-01-08/phenotype_to_genes.txt",
+    "bytes": 64575286,
+    "sha256": "3ce4be69b16e2257b52e377e6248ced09b876d458adfe60b162aeaad99522711"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/genes_to_disease.txt",
+    "path": "releases/hpo/v2025-11-24/genes_to_disease.txt",
+    "bytes": 1455389,
+    "sha256": "c7a7581c9807e2d5a12ec6116403d3d3caa7473513a5bcdf78cd50ceb46f727c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2025-11-24/genes_to_phenotype.txt",
+    "bytes": 19986023,
+    "sha256": "7a7e2fd7b279df61b2b1ed6772d402f9c6e7b3791e95012ea0e110356df641fd"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-base.json",
+    "path": "releases/hpo/v2025-11-24/hp-base.json",
+    "bytes": 22046388,
+    "sha256": "2e9508e3c373648ea0a9227e3ecd542e8db33ee3055d48c7397996e154a02132"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-base.obo",
+    "path": "releases/hpo/v2025-11-24/hp-base.obo",
+    "bytes": 10856100,
+    "sha256": "216a7ccd5d58663a2e000fb3035b9e8958b26d6a646c901848edf9f68e2e859f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-base.owl",
+    "path": "releases/hpo/v2025-11-24/hp-base.owl",
+    "bytes": 47800705,
+    "sha256": "4eb139d99ed3ee05355fd0f5e02ff7925b00c1246bed9ccb06ba998f5f3b9a21"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2025-11-24/hp-edit.owl-obo-report.tsv",
+    "bytes": 216009,
+    "sha256": "6e23ff92f12202773e0c1be41601513cded20fae1961fac3a5ba120c45f73ebb"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-fr.json",
+    "path": "releases/hpo/v2025-11-24/hp-fr.json",
+    "bytes": 22086336,
+    "sha256": "b0ae7d950a7ba42f83cbb421a297eec52a7fd93ba08c31f5449e99a3c6514d5e"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-fr.obo",
+    "path": "releases/hpo/v2025-11-24/hp-fr.obo",
+    "bytes": 14333286,
+    "sha256": "780d7e3d7aba98faedb2b308b9f43b2cf543bd2207345f1fd31aaa7b199c8997"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-fr.owl",
+    "path": "releases/hpo/v2025-11-24/hp-fr.owl",
+    "bytes": 49988623,
+    "sha256": "11d715967080b9bad9d2d4187573d94778b2bab2ae864c70967091c960e23b5e"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-full.json",
+    "path": "releases/hpo/v2025-11-24/hp-full.json",
+    "bytes": 42768508,
+    "sha256": "eac96e1a798f5dc2239d25e2cb6c1f0ae7fc2f83b065bbf03aee4669c2b7e4f7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-full.obo",
+    "path": "releases/hpo/v2025-11-24/hp-full.obo",
+    "bytes": 18799751,
+    "sha256": "4ec09bacf3397de0120d6d543370c6d41137adf5dc5a7593ae5e744127a517d5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-full.owl",
+    "path": "releases/hpo/v2025-11-24/hp-full.owl",
+    "bytes": 84677064,
+    "sha256": "72aa0d7588f7b0ae536109887bdc4578117022b4fa3fe7f75728b1f2e1f74273"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-international.json",
+    "path": "releases/hpo/v2025-11-24/hp-international.json",
+    "bytes": 49018603,
+    "sha256": "cc36966e863afe677a101176c57fe237a2162ac15f35ad1064fe31928372388f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-international.obo",
+    "path": "releases/hpo/v2025-11-24/hp-international.obo",
+    "bytes": 21743253,
+    "sha256": "a961f2b433fb9816090500290acc97040b7342b07288fdcf307614010ed8a499"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-international.owl",
+    "path": "releases/hpo/v2025-11-24/hp-international.owl",
+    "bytes": 207067457,
+    "sha256": "60b9387e75a895c60e9029697700ce51a3d5670fa32f1d7c44e342d586cdd673"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2025-11-24/hp-simple-non-classified.json",
+    "bytes": 21845021,
+    "sha256": "cfb99609d59f94045a80ee406a713b2008e38f9e2c7b4c9e4c601e86f1b8bc6e"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2025-11-24/hp-simple-non-classified.obo",
+    "bytes": 10323948,
+    "sha256": "31d247998c931679c07fe24ef2e8cd9a2b3f11a207d5248d8b46950e4bff6ebe"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2025-11-24/hp-simple-non-classified.owl",
+    "bytes": 29314717,
+    "sha256": "2be531e9fd963f186cad815cac019a2f1c4298660b98b11c98a2daeeb939857d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp.json",
+    "path": "releases/hpo/v2025-11-24/hp.json",
+    "bytes": 21844974,
+    "sha256": "c1c67b854acdfa890d35f28d3cd89723f48165f06b92506ad058abd06009f640"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp.obo",
+    "path": "releases/hpo/v2025-11-24/hp.obo",
+    "bytes": 10323898,
+    "sha256": "d1f3e411add1a1bbe68c00b628f7a2c8210433de1e478c6b79924a7c1e4dc737"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/hp.owl",
+    "path": "releases/hpo/v2025-11-24/hp.owl",
+    "bytes": 75563838,
+    "sha256": "ad93533a68f13cc51f80ca069dfc5d3ed6aa63ff2693c49794633a72137a4899"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/phenotype.hpoa",
+    "path": "releases/hpo/v2025-11-24/phenotype.hpoa",
+    "bytes": 34309912,
+    "sha256": "1f161ec53897d54abc87a817cf08e722dfddbf34d4eb9bba74f260b074451aad"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-11-24/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2025-11-24/phenotype_to_genes.txt",
+    "bytes": 64122722,
+    "sha256": "e6504a08f833369638b81b2db4bee4fe7b113164c23190b9c54b74bdf7157d35"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/genes_to_disease.txt",
+    "path": "releases/hpo/v2025-10-22/genes_to_disease.txt",
+    "bytes": 1575599,
+    "sha256": "ee0954db208a0fbdac4b055c09b63a71539357e81f14f116a15e159c0d0fa1e6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2025-10-22/genes_to_phenotype.txt",
+    "bytes": 22652331,
+    "sha256": "5592d20500cda03521be9f9a4260b575c6525fa2e97eb63ef598b7ccd7aadfe0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-base.json",
+    "path": "releases/hpo/v2025-10-22/hp-base.json",
+    "bytes": 21893996,
+    "sha256": "b0a08ec1725807021ef4b63682c95fe5c143f267b1a5692cb3d3db3b8b68e4dd"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-base.obo",
+    "path": "releases/hpo/v2025-10-22/hp-base.obo",
+    "bytes": 10769525,
+    "sha256": "be54ba983a2ddaab35ef6bc2c76b36f4ed81b2c152fa7c33a228a798f2c19e0d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-base.owl",
+    "path": "releases/hpo/v2025-10-22/hp-base.owl",
+    "bytes": 47637053,
+    "sha256": "318c76de06046636fa0f253825f11135bfb88415217ce357da304a52e0402215"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2025-10-22/hp-edit.owl-obo-report.tsv",
+    "bytes": 216723,
+    "sha256": "68ed3bc7a7ffb3fb0d4d203fe035dc7a28f90faee7a7787b300b0a98220aa7c4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-fr.json",
+    "path": "releases/hpo/v2025-10-22/hp-fr.json",
+    "bytes": 21934155,
+    "sha256": "3dc19d5c13dc643eb629be95aebfcc7b5bdbd6a4f4b2ad56dc5c003e2b512f89"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-fr.obo",
+    "path": "releases/hpo/v2025-10-22/hp-fr.obo",
+    "bytes": 14246192,
+    "sha256": "af3861bbaac10a016371086f51864d174267dc86bcb81b80c16d4a3d2f7aa978"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-fr.owl",
+    "path": "releases/hpo/v2025-10-22/hp-fr.owl",
+    "bytes": 49822780,
+    "sha256": "c8696ac92fca8b93b9a3de5b39bfb6b38eb4b9e2fb7784b9f623c4258691c514"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-full.json",
+    "path": "releases/hpo/v2025-10-22/hp-full.json",
+    "bytes": 42616265,
+    "sha256": "02a658a8d745adfe35206badc6b11e26fe01a392801178e68dc6b08a5674613c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-full.obo",
+    "path": "releases/hpo/v2025-10-22/hp-full.obo",
+    "bytes": 18713313,
+    "sha256": "2403848ba0a4d9ab9c5cc8ab3f3ada07e6d6b1b1f062d74ef31e29684353e02e"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-full.owl",
+    "path": "releases/hpo/v2025-10-22/hp-full.owl",
+    "bytes": 84513496,
+    "sha256": "fdfa6da2b112521801c4b447141b500e9764eb641ccc636510ade4d9da3b84b5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-international.json",
+    "path": "releases/hpo/v2025-10-22/hp-international.json",
+    "bytes": 48865364,
+    "sha256": "5fe23148b5501ccb7f8417233088e9a188b0c03441b6108ef5d2dc0c429068b7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-international.obo",
+    "path": "releases/hpo/v2025-10-22/hp-international.obo",
+    "bytes": 21653082,
+    "sha256": "c239556e0ac08fc7a086681360e59de4ff25365b7d6a83d5b16a257a3a2cccdc"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-international.owl",
+    "path": "releases/hpo/v2025-10-22/hp-international.owl",
+    "bytes": 206899430,
+    "sha256": "4f2d4d09732d82958fd1a5cda5f9512a726c055433047bb5838331b620f1d34d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2025-10-22/hp-simple-non-classified.json",
+    "bytes": 21692629,
+    "sha256": "5f966e169b1bac53b9a758ade5734e4f83efabe970d1817e5dd39ea9b6608a0f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2025-10-22/hp-simple-non-classified.obo",
+    "bytes": 10237425,
+    "sha256": "2540b620d0057fdaa7ca2e208799bfedeffe637764e41b981003be9cb6c85de4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2025-10-22/hp-simple-non-classified.owl",
+    "bytes": 29146549,
+    "sha256": "cdfd664ffe3de081216c0f1117949e2d0cc1c1e1b7c9e99191c1289c7c3a18be"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp.json",
+    "path": "releases/hpo/v2025-10-22/hp.json",
+    "bytes": 21692582,
+    "sha256": "ad4e19db06f6c02cc8f7c3bd2d38e486ec72707f7f767c9c2ebfd16451af86e0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp.obo",
+    "path": "releases/hpo/v2025-10-22/hp.obo",
+    "bytes": 10237375,
+    "sha256": "19d7ced710fcc986514b53b5a6cb85e108f79c8c7d32cd8d527e49a2b4958798"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/hp.owl",
+    "path": "releases/hpo/v2025-10-22/hp.owl",
+    "bytes": 75397796,
+    "sha256": "19df0f4a579ce25df83365f3efb317e974ac85045e5626df364b949f40b8898b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/phenotype.hpoa",
+    "path": "releases/hpo/v2025-10-22/phenotype.hpoa",
+    "bytes": 33881258,
+    "sha256": "8773f392accefc103f4c8e80702816a1088205bc3dc0423248156a791282d36c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-10-22/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2025-10-22/phenotype_to_genes.txt",
+    "bytes": 71824178,
+    "sha256": "d4856efb8f8ed61299f6f45498a87993837c2b8b9f56209bb09bb0a0152f70fb"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/genes_to_disease.txt",
+    "path": "releases/hpo/v2025-09-01/genes_to_disease.txt",
+    "bytes": 1655986,
+    "sha256": "10c488f768213fc9295dcab1944082f9bb03e119fdc480d82e323911b459c612"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2025-09-01/genes_to_phenotype.txt",
+    "bytes": 24100644,
+    "sha256": "89b5cf8f59ef736926d31371ce7b23f2fa10f5bb948f6250a896ad6aac638c1c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-base.json",
+    "path": "releases/hpo/v2025-09-01/hp-base.json",
+    "bytes": 21825920,
+    "sha256": "251fa8d3c4cb7f6115b0bbb66b9ddbf7419dbe2bed8fec6acf11e62b3064386f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-base.obo",
+    "path": "releases/hpo/v2025-09-01/hp-base.obo",
+    "bytes": 10731300,
+    "sha256": "753cce1cb2346403d094d61af8d5c89b626b650150e4af117246eef5bde68919"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-base.owl",
+    "path": "releases/hpo/v2025-09-01/hp-base.owl",
+    "bytes": 47548810,
+    "sha256": "184ff0674ba789b707c8d8f3f48e131beed8a0274bea392364cebdbb48675e2f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2025-09-01/hp-edit.owl-obo-report.tsv",
+    "bytes": 216809,
+    "sha256": "faae8811717beb518a42cd74dc00c3c6fe05b9aeb63010cb223139f6a08599e2"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-fr.json",
+    "path": "releases/hpo/v2025-09-01/hp-fr.json",
+    "bytes": 21866082,
+    "sha256": "454bd93e100683c3d70c024a3f0c42d5552b76ae4bfd38df1927beb3b0365f61"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-fr.obo",
+    "path": "releases/hpo/v2025-09-01/hp-fr.obo",
+    "bytes": 14207771,
+    "sha256": "3d1c2da19e062aba5946ab5241a4355cfb523b10133fd3750c98ed97cbf3570b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-fr.owl",
+    "path": "releases/hpo/v2025-09-01/hp-fr.owl",
+    "bytes": 49731024,
+    "sha256": "db0410d0feb03d3ca9c4b2eccf75eb3e0e1fea20f4d21030281ca1b58e0f0ebd"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-full.json",
+    "path": "releases/hpo/v2025-09-01/hp-full.json",
+    "bytes": 42522598,
+    "sha256": "bb7ecc9d35a19da093dd76b9cc1ef50fa92fb8a0246ec81edbd3c40ef13abcef"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-full.obo",
+    "path": "releases/hpo/v2025-09-01/hp-full.obo",
+    "bytes": 18661731,
+    "sha256": "cb56cfcd51d0c1744e47aa76de5c8f5d67172fcc92df4690ed204a33a7441eb4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-full.owl",
+    "path": "releases/hpo/v2025-09-01/hp-full.owl",
+    "bytes": 84407896,
+    "sha256": "e47dc77bb9d6336c4b08a5b9a38de882ba629dece3a1da1e15a5e54c10f28cad"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-international.json",
+    "path": "releases/hpo/v2025-09-01/hp-international.json",
+    "bytes": 48802674,
+    "sha256": "7927d647079d1addbf6c62a6fdfe1b446ecfa6f7552af4e141cd74acd901fa4a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-international.obo",
+    "path": "releases/hpo/v2025-09-01/hp-international.obo",
+    "bytes": 21608422,
+    "sha256": "cd7505c991e8444784d750f8dc9c88aa297140aa2db0d5a9da87f612e52f277b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-international.owl",
+    "path": "releases/hpo/v2025-09-01/hp-international.owl",
+    "bytes": 206829122,
+    "sha256": "aa0abc98db591c5b92e4f7a20bfa67bd95a598aec52948ad13de1f1dcf6d3d60"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2025-09-01/hp-simple-non-classified.json",
+    "bytes": 21624374,
+    "sha256": "70ce3cf2b27b4be66b03f2b17761e3bd4e0f210b6eec5387d1d0dea92e07a623"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2025-09-01/hp-simple-non-classified.obo",
+    "bytes": 10198919,
+    "sha256": "ea2466961a646889977dad4cbcbfd112f55de116e64cc4d197ccc6176b310df2"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2025-09-01/hp-simple-non-classified.owl",
+    "bytes": 29050946,
+    "sha256": "a3195e6f6b6f7b1d7a278e61847e818da74318f0260f51c10e3a7ecaea3d1fd2"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp.json",
+    "path": "releases/hpo/v2025-09-01/hp.json",
+    "bytes": 21624327,
+    "sha256": "6327923417bf3d66953de48733cbce8d455ef2fe7f799e16ae27a2da571fa4bc"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp.obo",
+    "path": "releases/hpo/v2025-09-01/hp.obo",
+    "bytes": 10198869,
+    "sha256": "4947712ea5e436faef38eb41578f5ab934167d221fe3c0154548e15f2c379dce"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/hp.owl",
+    "path": "releases/hpo/v2025-09-01/hp.owl",
+    "bytes": 75332384,
+    "sha256": "f44ac8ff68396a8f32c2bd3d52f1356ddde617d7ba630e105645208870086aa5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/phenotype.hpoa",
+    "path": "releases/hpo/v2025-09-01/phenotype.hpoa",
+    "bytes": 33785197,
+    "sha256": "67c073f4a9f11181df05c7396c4748a63529c14ca90ae8cd2e0f96cacd68f0ea"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-09-01/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2025-09-01/phenotype_to_genes.txt",
+    "bytes": 74776342,
+    "sha256": "9ce7f0622e655986f808a69ecd5c69584fdd4cd1080a11989e958dcd669f0e6c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/genes_to_disease.txt",
+    "path": "releases/hpo/v2025-08-11/genes_to_disease.txt",
+    "bytes": 1659023,
+    "sha256": "f2d5a93124eb940a2d05673c56bdf6d5b0434b7261968416c17490e5a4fd3d8f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2025-08-11/genes_to_phenotype.txt",
+    "bytes": 24124437,
+    "sha256": "9d73876423491896b1dedff975c83e657b2bb975ff8c60a20e751ce9a7cf2706"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-base.json",
+    "path": "releases/hpo/v2025-08-11/hp-base.json",
+    "bytes": 21752108,
+    "sha256": "838e75cf5a92b30d48e64c694c7ac6e2299593adb05608bbeecfb104827c5e02"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-base.obo",
+    "path": "releases/hpo/v2025-08-11/hp-base.obo",
+    "bytes": 10691683,
+    "sha256": "10617552677c66f4bfc732217d1e3024aa0fdf7a28c6743ed822c90c15ee2fd7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-base.owl",
+    "path": "releases/hpo/v2025-08-11/hp-base.owl",
+    "bytes": 47493503,
+    "sha256": "7cf2c148bf91121e4be8928b10823e60f540e3baa3fb3ce947b6a3d8ddecf77f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2025-08-11/hp-edit.owl-obo-report.tsv",
+    "bytes": 217147,
+    "sha256": "781c31a672a06c25fbf54b83c53f619e2ac7e0bb29b83c8a90c7f28a625cf0f0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-fr.json",
+    "path": "releases/hpo/v2025-08-11/hp-fr.json",
+    "bytes": 21792349,
+    "sha256": "8bb0becbdbb6b74ca2f81b93123a32b5ba1a0bb794ccbc7ee91f1efbd40f31a5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-fr.obo",
+    "path": "releases/hpo/v2025-08-11/hp-fr.obo",
+    "bytes": 14168026,
+    "sha256": "d51bfe68bd05fcdf3c93c73e54e9f6f730e1b8523c49fc81ecd3d96bec3a0824"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-fr.owl",
+    "path": "releases/hpo/v2025-08-11/hp-fr.owl",
+    "bytes": 49665718,
+    "sha256": "2e51720a58e3c4d85a9db531feb7aeac3a0551fe1fefd6b54a2c3872b1cd3ac4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-full.json",
+    "path": "releases/hpo/v2025-08-11/hp-full.json",
+    "bytes": 42447920,
+    "sha256": "cad450fae4f312598fc2ceac4ddcb0d91dee2fab994774b7cf999725aaffefe0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-full.obo",
+    "path": "releases/hpo/v2025-08-11/hp-full.obo",
+    "bytes": 18621971,
+    "sha256": "8a565d4f29c37ce319fe840408f468624a2a18b75b5471aeb9dc8ba560dda05b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-full.owl",
+    "path": "releases/hpo/v2025-08-11/hp-full.owl",
+    "bytes": 84351851,
+    "sha256": "270aed6257e65a890839bb51177b4d6a178ffbcdfdf68f92b101652a8cddb597"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-international.json",
+    "path": "releases/hpo/v2025-08-11/hp-international.json",
+    "bytes": 48724887,
+    "sha256": "bf39195055c3bcbc214f508c17e8fd275c8503e371cf6235eb9b35faa3349aac"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-international.obo",
+    "path": "releases/hpo/v2025-08-11/hp-international.obo",
+    "bytes": 21559796,
+    "sha256": "8f12f7a62ddd3ff4027da3080f4f12b2d3a9123437057e37f013b60d0bb21eff"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-international.owl",
+    "path": "releases/hpo/v2025-08-11/hp-international.owl",
+    "bytes": 206761156,
+    "sha256": "7661c591fa51eb3686a31de179c86dfa1b3e1a72ae9712363f9df82f3494f3f1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2025-08-11/hp-simple-non-classified.json",
+    "bytes": 21550292,
+    "sha256": "158b7c5b8eef299ecdb178a58f5e7e0cab9f571dfb1fd061144410b26bc4a7e9"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2025-08-11/hp-simple-non-classified.obo",
+    "bytes": 10159330,
+    "sha256": "13ac6ab855720ce9e9f071b35e2346f3038e365e2ae0c9d1436eba8bfcb7f147"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2025-08-11/hp-simple-non-classified.owl",
+    "bytes": 28975017,
+    "sha256": "31ff41bf01259e2ea6a58385a3f723c920284423a643a6b41878aa664f1b794b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp.json",
+    "path": "releases/hpo/v2025-08-11/hp.json",
+    "bytes": 21550245,
+    "sha256": "2f61f33fc149f13fd682c986820aca742cf1ec13907aa28156cac4811bae99b6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp.obo",
+    "path": "releases/hpo/v2025-08-11/hp.obo",
+    "bytes": 10159280,
+    "sha256": "39dd3d43ab429eb0886d5bb94e29c575dfbe83aaa8f24150fdc49061de022ffb"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/hp.owl",
+    "path": "releases/hpo/v2025-08-11/hp.owl",
+    "bytes": 75266516,
+    "sha256": "d32d497340aa29ee82c88c0fcd427a6441f900fad285ed6f6e1607958b3ed46f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/phenotype.hpoa",
+    "path": "releases/hpo/v2025-08-11/phenotype.hpoa",
+    "bytes": 33796442,
+    "sha256": "f18d913e5dd087f376f9423208fccdc2e3ca81c4d9d497c4c045b93f78684c5c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-08-11/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2025-08-11/phenotype_to_genes.txt",
+    "bytes": 74753077,
+    "sha256": "3fbcf0220d4bc7ceb30768b2ee609dd65b49b34a00052d9a630c831bf5ea3e61"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/genes_to_disease.txt",
+    "path": "releases/hpo/v2025-05-06/genes_to_disease.txt",
+    "bytes": 1445716,
+    "sha256": "add83b77a5d0434cdbc272432067d2ed91fbb50a66394669d843b850dc34c755"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2025-05-06/genes_to_phenotype.txt",
+    "bytes": 19774160,
+    "sha256": "88baec56152a104309e23df3d61fc590d36a207687dcfae488bac1a447b3730a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-base.json",
+    "path": "releases/hpo/v2025-05-06/hp-base.json",
+    "bytes": 21740729,
+    "sha256": "319aab28fd4d9b4004935d41e5066f8bcc40fc5071df872c36d453761432aa0b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-base.obo",
+    "path": "releases/hpo/v2025-05-06/hp-base.obo",
+    "bytes": 10683081,
+    "sha256": "01e72fefe2a34aace2d9bf42eab41ffd6c9d101041c965641a8c2ff3895ac47d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-base.owl",
+    "path": "releases/hpo/v2025-05-06/hp-base.owl",
+    "bytes": 47475075,
+    "sha256": "2fe9b5557f34b52f9daec5eebe0fb3c8d190c8c5ab13b791ddf5f69c533da99a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2025-05-06/hp-edit.owl-obo-report.tsv",
+    "bytes": 217309,
+    "sha256": "2435ba06566692c195573a19cd7253183e3822a3daaf79a3e8fbbfce35cdabd7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-fr.json",
+    "path": "releases/hpo/v2025-05-06/hp-fr.json",
+    "bytes": 21781730,
+    "sha256": "259c6623c67f7017145c9d1e0c0ff60c4d86bed367c8f15fa5b16be255dabaab"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-fr.obo",
+    "path": "releases/hpo/v2025-05-06/hp-fr.obo",
+    "bytes": 14416957,
+    "sha256": "2bf2e968ffcd73944039cd69e2835628ded6343102575303db91c8e3e2a21a41"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-fr.owl",
+    "path": "releases/hpo/v2025-05-06/hp-fr.owl",
+    "bytes": 49648534,
+    "sha256": "09aa967ee7eb2ca2b663043e940ec309bb99899746462658701ce6aa83c2b919"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-full.json",
+    "path": "releases/hpo/v2025-05-06/hp-full.json",
+    "bytes": 42453089,
+    "sha256": "3224e3983f1970d4c42da8c6661dbceeb79455b1da82babb43be89e86956f53a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-full.obo",
+    "path": "releases/hpo/v2025-05-06/hp-full.obo",
+    "bytes": 18616161,
+    "sha256": "1e83b14094bb640fb24bd8db88a93c875f3684e4b37d062877f7bf257f91d35f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-full.owl",
+    "path": "releases/hpo/v2025-05-06/hp-full.owl",
+    "bytes": 84368145,
+    "sha256": "cee8a5414d68e9f6d7c344d5b11093f25ea082f1876f7c06c0baaf9ee2e1cd94"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-international.json",
+    "path": "releases/hpo/v2025-05-06/hp-international.json",
+    "bytes": 48700823,
+    "sha256": "d785e747166f691c6cb3f04f45c41e71b2035fd624d473cbc27f2936d0ea4ba9"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-international.obo",
+    "path": "releases/hpo/v2025-05-06/hp-international.obo",
+    "bytes": 64324976,
+    "sha256": "10f338569c3126baad95b2cde1af2263e2579b2f2c8c33627fff0531a557346d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-international.owl",
+    "path": "releases/hpo/v2025-05-06/hp-international.owl",
+    "bytes": 206734348,
+    "sha256": "babce9d0652b533e8f6cd089a2cd7f13936b3fe27dfd48650fee8a25b751b3bf"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2025-05-06/hp-simple-non-classified.json",
+    "bytes": 21538913,
+    "sha256": "92e36c2c7e7cc55be8dce146d65734fe1964c2d68d8a184ca5bd04fdd66551bd"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2025-05-06/hp-simple-non-classified.obo",
+    "bytes": 10151090,
+    "sha256": "fdbbc883311782f53b2c238db38018f66167764f5b18ddb34b5ed43a0324d7e8"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2025-05-06/hp-simple-non-classified.owl",
+    "bytes": 28956951,
+    "sha256": "9e31727d94a2e05c3d270f2bf6d9fb4206f4902058c1f1342ee295c1cb48a737"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp.json",
+    "path": "releases/hpo/v2025-05-06/hp.json",
+    "bytes": 21538866,
+    "sha256": "10766771eaec15f78d3d2e7807698fe5cf9d0e6f08ef9998c28e88883837d6a7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp.obo",
+    "path": "releases/hpo/v2025-05-06/hp.obo",
+    "bytes": 10151040,
+    "sha256": "ba2c34c78978a4df2d0d4e7af9ec28eade3c8f38a7c1f4d75d90d6ae87964d84"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/hp.owl",
+    "path": "releases/hpo/v2025-05-06/hp.owl",
+    "bytes": 75240038,
+    "sha256": "e28e1410b782a5ecdc90c63e511afcee5b64220a94930eee4b3f11376795bf56"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/phenotype.hpoa",
+    "path": "releases/hpo/v2025-05-06/phenotype.hpoa",
+    "bytes": 33721801,
+    "sha256": "c58e5296828054d5e9eca80297944e05b4b72f8610d58dc51405fdc99284cad3"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-05-06/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2025-05-06/phenotype_to_genes.txt",
+    "bytes": 63351798,
+    "sha256": "ed68d219529a9d3e76891f10e2e013327faecf6cf6bb8722d9b0dc76075907eb"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/genes_to_disease.txt",
+    "path": "releases/hpo/v2025-03-03/genes_to_disease.txt",
+    "bytes": 1444824,
+    "sha256": "45981590890a75138ffcdc3ac899d2485354f1f413f00c3b84f451d2b6814cb6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2025-03-03/genes_to_phenotype.txt",
+    "bytes": 19753823,
+    "sha256": "72fcbfd67a331aa0622f206817c38e14abbbfe11806024e6f9e1f1f37db02891"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-base.json",
+    "path": "releases/hpo/v2025-03-03/hp-base.json",
+    "bytes": 21581969,
+    "sha256": "9a5ba733f95854862fb7015ba838aec55f7efd558432ed23088e786e923540de"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-base.obo",
+    "path": "releases/hpo/v2025-03-03/hp-base.obo",
+    "bytes": 10590339,
+    "sha256": "08f5951def501b92d6d804e6a22601520fd03b1e2fa3d70245bca209b99c8fb6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-base.owl",
+    "path": "releases/hpo/v2025-03-03/hp-base.owl",
+    "bytes": 47319666,
+    "sha256": "048b77e988748dc6dddeadea3835b19b7d724370ff65c2ae8a5013d2f2660017"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2025-03-03/hp-edit.owl-obo-report.tsv",
+    "bytes": 217502,
+    "sha256": "feb4e2a8630fab73d6a1296d6a2a00f4ffc0b618a93a6490165a65ab6df663af"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-fr.json",
+    "path": "releases/hpo/v2025-03-03/hp-fr.json",
+    "bytes": 21623215,
+    "sha256": "434fa3e654b4f337eea0efaf7cf8d4d910cdfd83ed0cdc8c2fb80f602b36a93f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-fr.obo",
+    "path": "releases/hpo/v2025-03-03/hp-fr.obo",
+    "bytes": 14323898,
+    "sha256": "75406bc24e00d398b3ea9ed975984a0a3bb0f2c181e182fa3b9f69ee6e4d58e7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-fr.owl",
+    "path": "releases/hpo/v2025-03-03/hp-fr.owl",
+    "bytes": 49478467,
+    "sha256": "380150cf1dc5e0a4c426cb84a387e5340637e8732e81eab9b9754941cc5e7773"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-full.json",
+    "path": "releases/hpo/v2025-03-03/hp-full.json",
+    "bytes": 42349004,
+    "sha256": "71eee63f5006c008e5760a4b3bc691967151249efd655ad33b8b3853954c5e0f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-full.obo",
+    "path": "releases/hpo/v2025-03-03/hp-full.obo",
+    "bytes": 18537180,
+    "sha256": "59f428f68875ab80bb318b19708ae367bc0e1dfea5ab4142b17f1919eaef3654"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-full.owl",
+    "path": "releases/hpo/v2025-03-03/hp-full.owl",
+    "bytes": 84182308,
+    "sha256": "48c7d51d9d74702531911362f44f725fd8c40e69f4d2cf67cdc08c9111ad5185"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-international.json",
+    "path": "releases/hpo/v2025-03-03/hp-international.json",
+    "bytes": 48621188,
+    "sha256": "4239c3996f4d252ac0f90822c2574ebf9e8f0505dc49ee1fd2cef97ed760b98a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-international.obo",
+    "path": "releases/hpo/v2025-03-03/hp-international.obo",
+    "bytes": 63368818,
+    "sha256": "ba74eed0eaa8a485bb3600833c2442127ccbcabcb8bb4f55e5c8f6686ae57e1b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-international.owl",
+    "path": "releases/hpo/v2025-03-03/hp-international.owl",
+    "bytes": 203735940,
+    "sha256": "d53aad58f0ea871fda16d3b6082b80b3a64c9e7eb747bec547e92fd8929357c8"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2025-03-03/hp-simple-non-classified.json",
+    "bytes": 21380063,
+    "sha256": "8ed8e25771ef389c75df7a5e6ac47b9ad135e35d947d4635879374138f7a12dd"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2025-03-03/hp-simple-non-classified.obo",
+    "bytes": 10058160,
+    "sha256": "b5ada3c9411bbb91aaf7fb98f1ed03907774a3b73da59754e12fcb7be1815ea8"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2025-03-03/hp-simple-non-classified.owl",
+    "bytes": 28771920,
+    "sha256": "580a3565e5c854260d13c31dd9901188d3a59a4f0a556fb6b07a96d2492d7cc9"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp.json",
+    "path": "releases/hpo/v2025-03-03/hp.json",
+    "bytes": 21380016,
+    "sha256": "bcf3c7cae330441d32837d2672d8a956a4637792d457cbc69711cd1518547191"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp.obo",
+    "path": "releases/hpo/v2025-03-03/hp.obo",
+    "bytes": 10058110,
+    "sha256": "2260c921cd489108787aa0321ba10508b4e2dedfaf33f66448d3637a1041ab12"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/hp.owl",
+    "path": "releases/hpo/v2025-03-03/hp.owl",
+    "bytes": 75039754,
+    "sha256": "df1b088d9ccb974c8bed96eb5eb2a2e1cb4362b9fe0d3ff82b0e30a66612cc99"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/phenotype.hpoa",
+    "path": "releases/hpo/v2025-03-03/phenotype.hpoa",
+    "bytes": 33681212,
+    "sha256": "e12a07b40cf1b1837e2ae9a5293a1fcf262a5412aff5604a4090a6c68cdcf9b1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-03-03/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2025-03-03/phenotype_to_genes.txt",
+    "bytes": 63402889,
+    "sha256": "2692b8c148fca69a04ed7829aec1f01d8d82ea281929d996199eae32ab5719a1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/genes_to_disease.txt",
+    "path": "releases/hpo/v2025-01-16/genes_to_disease.txt",
+    "bytes": 1442919,
+    "sha256": "2af6b994ee7137d94cdba00b3caad7be6c0962a6f5f7e1a1236187e8df45a8c0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2025-01-16/genes_to_phenotype.txt",
+    "bytes": 19746634,
+    "sha256": "77d4c616780ac048a6766f958ec8f6f194cd216e2edd3944c1a0756b6f3e9a36"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-base.json",
+    "path": "releases/hpo/v2025-01-16/hp-base.json",
+    "bytes": 21519047,
+    "sha256": "7a91e867bcb3bb72c98ae73123f75bb1b37cfbaa43cbf9bd675ac3902013f24a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-base.obo",
+    "path": "releases/hpo/v2025-01-16/hp-base.obo",
+    "bytes": 10554223,
+    "sha256": "e3ac3e954d9021ed0643337b56084e915bc5ecc9b69f48fa784825f306be5b4d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-base.owl",
+    "path": "releases/hpo/v2025-01-16/hp-base.owl",
+    "bytes": 47251784,
+    "sha256": "72967d3687341965d1631706a8ae939e0cdba272382c765c5f29e2779caff222"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2025-01-16/hp-edit.owl-obo-report.tsv",
+    "bytes": 217033,
+    "sha256": "b6cc6a2153cdae3ac5d199b1292decff2be01951c60131f80bc1bfe68339549a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-fr.json",
+    "path": "releases/hpo/v2025-01-16/hp-fr.json",
+    "bytes": 21560416,
+    "sha256": "4299c11b9f9d674f79cd46887256d051f747559a801fd8b9b926944363f4c538"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-fr.obo",
+    "path": "releases/hpo/v2025-01-16/hp-fr.obo",
+    "bytes": 14287771,
+    "sha256": "47075d500daf67dca65b17c1207039f3641b755da2f9da989b73aaf1d0c7e899"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-fr.owl",
+    "path": "releases/hpo/v2025-01-16/hp-fr.owl",
+    "bytes": 49409417,
+    "sha256": "4afc833f0cd42e0e078016a1b8aa810fb98715ecb0e6e864f31199d9a167b270"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-full.json",
+    "path": "releases/hpo/v2025-01-16/hp-full.json",
+    "bytes": 42270358,
+    "sha256": "a4a33fd70fa5c9f08c14a9ca0a30b5a07f19e56fb235a7d6a104cb61a80f4926"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-full.obo",
+    "path": "releases/hpo/v2025-01-16/hp-full.obo",
+    "bytes": 18485987,
+    "sha256": "36b8ba897ab25d3610c2920747db2860c7f282e1f1eeea1b75dd5404970287d1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-full.owl",
+    "path": "releases/hpo/v2025-01-16/hp-full.owl",
+    "bytes": 84014348,
+    "sha256": "4931d67270768b93dae509ca3f401a73f50c44185608c869df5740237eeb0407"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-international.json",
+    "path": "releases/hpo/v2025-01-16/hp-international.json",
+    "bytes": 48543343,
+    "sha256": "67b765ed76a1640ddf305c2c3dbd8b76babfb2df1364aa3a001a96312155c4d4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-international.obo",
+    "path": "releases/hpo/v2025-01-16/hp-international.obo",
+    "bytes": 62924145,
+    "sha256": "442d4775d4aec221c5b36a81a3759db32844e9ec71fd8c8eb3d545474d2e86a5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-international.owl",
+    "path": "releases/hpo/v2025-01-16/hp-international.owl",
+    "bytes": 202391666,
+    "sha256": "47ea9c1781f06c418f757409bec27356a7f6943dd5cc78f0be8d496f0165becb"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2025-01-16/hp-simple-non-classified.json",
+    "bytes": 21317141,
+    "sha256": "a9d17f6e7c465905bff92a05f1463dd77868061799903b6dae5ecfe83393a347"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2025-01-16/hp-simple-non-classified.obo",
+    "bytes": 10022002,
+    "sha256": "121e4d9a4d4b1e028bb212a14eaf583561f30f106e59ab5b7130b98a02365aa4"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2025-01-16/hp-simple-non-classified.owl",
+    "bytes": 28701712,
+    "sha256": "aa06b2b728751dd398651e4c689dc7a411beef0e979b16ce7e46349344037187"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp.json",
+    "path": "releases/hpo/v2025-01-16/hp.json",
+    "bytes": 21317094,
+    "sha256": "a4c806aeb495d1c36fd15fab934ce4d096980c352739cb14f99503f2e976c01f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp.obo",
+    "path": "releases/hpo/v2025-01-16/hp.obo",
+    "bytes": 10021952,
+    "sha256": "6b77de067eecc838319ce7650ed5bab0f92a502eabb160e6bc7c0238bc1548c5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/hp.owl",
+    "path": "releases/hpo/v2025-01-16/hp.owl",
+    "bytes": 74870298,
+    "sha256": "141b156ad1e3176d7b077972f04f1b91e8e731a2b59b60a1f2ac3558cc91967f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/phenotype.hpoa",
+    "path": "releases/hpo/v2025-01-16/phenotype.hpoa",
+    "bytes": 33669223,
+    "sha256": "8180403e2f5de0d8f41890e587d95077ce7f8bb8228d5d7b29dd358b70f0938c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2025-01-16/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2025-01-16/phenotype_to_genes.txt",
+    "bytes": 63363976,
+    "sha256": "e18708c72d8fab1857664df3eb0aefbbcfeab7806b042efa8ef51de12b784aec"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/genes_to_disease.txt",
+    "path": "releases/hpo/v2024-12-12/genes_to_disease.txt",
+    "bytes": 1431062,
+    "sha256": "55c9296f6d2fe33269e065476061be554a3bbc157cfa8593e75d0ab1b08d6fae"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2024-12-12/genes_to_phenotype.txt",
+    "bytes": 19657068,
+    "sha256": "7f3bc3760b5e183f36622adee1979e9a1fc7f36589a6c268f09d1e617838bdc0"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-base.json",
+    "path": "releases/hpo/v2024-12-12/hp-base.json",
+    "bytes": 21506003,
+    "sha256": "61f10ef55c3af584a1fbf70e3bb5d1f0f1232cb4b1fd179dc08953792188b99e"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-base.obo",
+    "path": "releases/hpo/v2024-12-12/hp-base.obo",
+    "bytes": 10546879,
+    "sha256": "42e3f91033db32a2aa532b3c69db40a3809d19aa08e6081b3eb3761a312597c9"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-base.owl",
+    "path": "releases/hpo/v2024-12-12/hp-base.owl",
+    "bytes": 47238861,
+    "sha256": "59c7984a766038e3d619e78b9391bd37de17550abe46eecaa0d532040da5d0ec"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2024-12-12/hp-edit.owl-obo-report.tsv",
+    "bytes": 217033,
+    "sha256": "b6cc6a2153cdae3ac5d199b1292decff2be01951c60131f80bc1bfe68339549a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-fr.json",
+    "path": "releases/hpo/v2024-12-12/hp-fr.json",
+    "bytes": 21547374,
+    "sha256": "570c7cd3b2d686faef05356a80114ebfb814ab712c616499823932b2bec7ba0b"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-fr.obo",
+    "path": "releases/hpo/v2024-12-12/hp-fr.obo",
+    "bytes": 14280446,
+    "sha256": "63fd21166e264fbc30ff3f5dd3c9415890f3c112ee8f992064377df01c1ee99d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-fr.owl",
+    "path": "releases/hpo/v2024-12-12/hp-fr.owl",
+    "bytes": 49396569,
+    "sha256": "ac441e5d46a0b3a485313ea1d685ab02c33b198b9a9116ac9af1afdce115399c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-full.json",
+    "path": "releases/hpo/v2024-12-12/hp-full.json",
+    "bytes": 42131201,
+    "sha256": "0470d046e2f9d8709bee856cb99b8985b124c941eef6c20b00a8fa9c754338ca"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-full.obo",
+    "path": "releases/hpo/v2024-12-12/hp-full.obo",
+    "bytes": 18420639,
+    "sha256": "b3256eefc35d47d843fe31da44d1492861db462c5f034b70014ba598bcc68444"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-full.owl",
+    "path": "releases/hpo/v2024-12-12/hp-full.owl",
+    "bytes": 83780286,
+    "sha256": "e64c11045255149b463c6539e8f529c6ea4b83c52358f30f087f50babe631c57"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-international.json",
+    "path": "releases/hpo/v2024-12-12/hp-international.json",
+    "bytes": 46531304,
+    "sha256": "1b6915f780d9c3fdd190293e1ab69edf22cc88852b88e8d793a99d76d229fda3"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-international.obo",
+    "path": "releases/hpo/v2024-12-12/hp-international.obo",
+    "bytes": 61055980,
+    "sha256": "df40ab99752dfdf3524aeb1ea7171a6a1a8ada6d0522b49d425a2785bae23e52"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-international.owl",
+    "path": "releases/hpo/v2024-12-12/hp-international.owl",
+    "bytes": 197183396,
+    "sha256": "775ef6b28b7f213e0385b10a2125dd486d08bca5707e16738d79eb429ed630c6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2024-12-12/hp-simple-non-classified.json",
+    "bytes": 21304097,
+    "sha256": "eb89fd7784048c5ab77285b720426e687b2f08c47cc6f9ec369d04aefdf24c65"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2024-12-12/hp-simple-non-classified.obo",
+    "bytes": 10014678,
+    "sha256": "af3d8565f377fa59da9c769cd1117e82294b7744b97bc6a512882abe85335d23"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2024-12-12/hp-simple-non-classified.owl",
+    "bytes": 28688809,
+    "sha256": "e4bddba4fa952e437a6f2a9360308c9014e6c4afb3141a30300ccaffba11a76e"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp.json",
+    "path": "releases/hpo/v2024-12-12/hp.json",
+    "bytes": 21304050,
+    "sha256": "1928b36cfb676d17ca7480295e88b874fe7e1c020dc3e47f8dd4c48f664d3263"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp.obo",
+    "path": "releases/hpo/v2024-12-12/hp.obo",
+    "bytes": 10014628,
+    "sha256": "85c71dac3c11100e03ea0754089b9424fe230953c6e182fa6b6edb65749d167c"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/hp.owl",
+    "path": "releases/hpo/v2024-12-12/hp.owl",
+    "bytes": 74636236,
+    "sha256": "4867ec855370e4133bd7ea6593e78a28013736fe1964a607d20acb5108518bc9"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/phenotype.hpoa",
+    "path": "releases/hpo/v2024-12-12/phenotype.hpoa",
+    "bytes": 33586642,
+    "sha256": "6f658af1616dfc3036d99984aa3da8f1d1b7cb61563e3a63d3417f62bc92a3eb"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-12-12/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2024-12-12/phenotype_to_genes.txt",
+    "bytes": 63047472,
+    "sha256": "6eb29fdebf670530c989eed1985b6d6834c3362bf1cd80791f0e1007d14545f5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/genes_to_disease.txt",
+    "path": "releases/hpo/v2024-08-13/genes_to_disease.txt",
+    "bytes": 1428129,
+    "sha256": "c1ef0a85f799aef16cd0be15b6c13f18c84229ec1867d44928dfff48b3c17f43"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2024-08-13/genes_to_phenotype.txt",
+    "bytes": 19507647,
+    "sha256": "a102b3ea5e51a722a07fcd135ac81e50c796fa4a18f41a2e5ddff11200b46ad1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-base.json",
+    "path": "releases/hpo/v2024-08-13/hp-base.json",
+    "bytes": 21460277,
+    "sha256": "b588edc62cc3739031f78d42e2749c8c14a2bfba629e3433da83cca638bc3a3a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-base.obo",
+    "path": "releases/hpo/v2024-08-13/hp-base.obo",
+    "bytes": 10519509,
+    "sha256": "a7cee71c04b795a55333c524011afa71646542f29d93021633319e06d5ea9427"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-base.owl",
+    "path": "releases/hpo/v2024-08-13/hp-base.owl",
+    "bytes": 47196232,
+    "sha256": "8d2a3b6c35d3554a82c681fa0ba40b1297219089001bdd72fc35477f056de404"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2024-08-13/hp-edit.owl-obo-report.tsv",
+    "bytes": 217696,
+    "sha256": "db54f27bc787fc12b4032aebc90ce36dc60ee1450760bc9bcfa5ccd852074c11"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-fr.json",
+    "path": "releases/hpo/v2024-08-13/hp-fr.json",
+    "bytes": 21501827,
+    "sha256": "ac9e4b43de8c1908ed4cd4024a90745712db208784d7fbd5acde7ca8de0c4263"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-fr.obo",
+    "path": "releases/hpo/v2024-08-13/hp-fr.obo",
+    "bytes": 14253031,
+    "sha256": "881fd4b51767301ef693d0e003e7fb5e36b086c928d799e4ea80c542bda7ccc5"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-fr.owl",
+    "path": "releases/hpo/v2024-08-13/hp-fr.owl",
+    "bytes": 49347364,
+    "sha256": "3e2459452df8805dcdad54827c8d36b78d07f2dce7227cac2984f7f475fd00c2"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-full.json",
+    "path": "releases/hpo/v2024-08-13/hp-full.json",
+    "bytes": 42245715,
+    "sha256": "cce50ecc6675129e829baf1f9d6a181950511e0fc9c5a1761285293429432a93"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-full.obo",
+    "path": "releases/hpo/v2024-08-13/hp-full.obo",
+    "bytes": 18430942,
+    "sha256": "bf6601422b92465085c01a9f66f69ec7f36982151ac09322156f0b60f51251fe"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-full.owl",
+    "path": "releases/hpo/v2024-08-13/hp-full.owl",
+    "bytes": 83899031,
+    "sha256": "1470f106d4d8a900602ae7ce3b87346fd967c86fb071cc71eca5c1d3e34de967"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-international.json",
+    "path": "releases/hpo/v2024-08-13/hp-international.json",
+    "bytes": 46558136,
+    "sha256": "ec6a7481c8cfdcd5385d05424e48b7d45f12801e8fc58ecd0a36b55c9cd7f956"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-international.obo",
+    "path": "releases/hpo/v2024-08-13/hp-international.obo",
+    "bytes": 60508814,
+    "sha256": "56950f67990cca00a7a89bf9a8446bd651a74ab7a3f0aed5b9efecfe88050467"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2024-08-13/hp-simple-non-classified.json",
+    "bytes": 21258281,
+    "sha256": "1ea9b17ca61434cc7ec049843a85222d5ae515affe232f7a80d5bb330fe97336"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2024-08-13/hp-simple-non-classified.obo",
+    "bytes": 9986938,
+    "sha256": "90866d75d70a0e3f00b8ee24660db3d6eb07b255e43f58ef2ffc444e3d4d541f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2024-08-13/hp-simple-non-classified.owl",
+    "bytes": 28632666,
+    "sha256": "64c02cae8d135c0d41ae87dbfef84a8a4ac2b96a9966333eb0b3cafa707bfcae"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp.json",
+    "path": "releases/hpo/v2024-08-13/hp.json",
+    "bytes": 21258234,
+    "sha256": "3cf84023defc656ab476168c84d98521ca4b3f2cebff75fe52268fe2e74ae874"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp.obo",
+    "path": "releases/hpo/v2024-08-13/hp.obo",
+    "bytes": 9986888,
+    "sha256": "8759f1566ee9ccbcef45d0b0a47498e90c2b2b0cc70e86339fc58abd3f067d30"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/hp.owl",
+    "path": "releases/hpo/v2024-08-13/hp.owl",
+    "bytes": 74698790,
+    "sha256": "c301dca0a865c524e0f2de196e40ec07fb299f54d3b95fed4c2d5b8748dd0d0a"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/phenotype.hpoa",
+    "path": "releases/hpo/v2024-08-13/phenotype.hpoa",
+    "bytes": 33207148,
+    "sha256": "2d7babd28dfd5b098fb08df0653a08c528de773e278ca48f7318de38e0c81427"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-08-13/phenotype_to_genes.txt",
+    "path": "releases/hpo/v2024-08-13/phenotype_to_genes.txt",
+    "bytes": 62727327,
+    "sha256": "36fb97f7f39f83aa024ac662127a98f6b0bdbb0000598be6bdad061e4c444b2e"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/genes_to_disease.txt",
+    "path": "releases/hpo/v2024-07-01/genes_to_disease.txt",
+    "bytes": 1444455,
+    "sha256": "2724fd34c26490174bb69d69a83de694f7177b811c733a5a2dab99009ab5e806"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2024-07-01/genes_to_phenotype.txt",
+    "bytes": 19400620,
+    "sha256": "133a29cb2019c06ab25d8f52be872801c68f8700d135b1e7c9ef5215288b5d8d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-base.json",
+    "path": "releases/hpo/v2024-07-01/hp-base.json",
+    "bytes": 21155115,
+    "sha256": "af8c00f0e0df36cabf801154529dd7a8565bacf55a1ff89ce1a1990593bf95c6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-base.obo",
+    "path": "releases/hpo/v2024-07-01/hp-base.obo",
+    "bytes": 10348354,
+    "sha256": "9108979b098f25ca0f55b69455059ec09369b6b4bea1e6ac92cdcb143eedb6d7"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-base.owl",
+    "path": "releases/hpo/v2024-07-01/hp-base.owl",
+    "bytes": 46925207,
+    "sha256": "98b66a4a8470642ada2213ab266f06ee7be6b7cca364fe8cb3bbe7938bba0adf"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-edit.owl-obo-report.tsv",
+    "path": "releases/hpo/v2024-07-01/hp-edit.owl-obo-report.tsv",
+    "bytes": 218064,
+    "sha256": "0dd66db40e142702db14839c25cccf534fa69b5f1dd222350f7435db24c0e2be"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-fr.json",
+    "path": "releases/hpo/v2024-07-01/hp-fr.json",
+    "bytes": 21197009,
+    "sha256": "93cdf90b9e087d282ec68de3df931ae9e7d8739619bfb87223a5b45b9d936681"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-fr.obo",
+    "path": "releases/hpo/v2024-07-01/hp-fr.obo",
+    "bytes": 14080798,
+    "sha256": "26c7bc602646e4a77e7af8da1c7bb141211dde317cd6106a888d375cb4192103"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-fr.owl",
+    "path": "releases/hpo/v2024-07-01/hp-fr.owl",
+    "bytes": 49044330,
+    "sha256": "d7405f8ff5e882bd23dc17a448ee8ef1b8ed6134b57fe1ac3c41e2c6c0f4eb4d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-full.json",
+    "path": "releases/hpo/v2024-07-01/hp-full.json",
+    "bytes": 41977223,
+    "sha256": "b8ee2713b42fa0855412b68f165ad0f0e046980f29b9387d76d6967f46a7b7a6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-full.obo",
+    "path": "releases/hpo/v2024-07-01/hp-full.obo",
+    "bytes": 18278153,
+    "sha256": "34a355c6b52da79432e00e73e8ab87cd9ccfad5f18a7854288fdb4edb28182c8"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-international.json",
+    "path": "releases/hpo/v2024-07-01/hp-international.json",
+    "bytes": 46289572,
+    "sha256": "d61c2e8422a52c609dee870b5a2a724b02eb17e56e1caeac87afbc08174a0f34"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-international.obo",
+    "path": "releases/hpo/v2024-07-01/hp-international.obo",
+    "bytes": 60137361,
+    "sha256": "33cec64b31eeab9fa5dbc39c7850fa495390be7cac4676890730ac510cb675ea"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-simple-non-classified.json",
+    "path": "releases/hpo/v2024-07-01/hp-simple-non-classified.json",
+    "bytes": 20951207,
+    "sha256": "5203c555b909a127812377b9713449a13b43a95087f7dace670d2071b1096fa6"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-simple-non-classified.obo",
+    "path": "releases/hpo/v2024-07-01/hp-simple-non-classified.obo",
+    "bytes": 9814232,
+    "sha256": "62d030c39d65107ae74e8f103f88e4fdc6fd690092735cfb9da1a22d2ff37059"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp-simple-non-classified.owl",
+    "path": "releases/hpo/v2024-07-01/hp-simple-non-classified.owl",
+    "bytes": 28294329,
+    "sha256": "cf6d84214a654a54187d5431f9a58bb97ebfaf9a0df8092337d5af136a658f98"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp.json",
+    "path": "releases/hpo/v2024-07-01/hp.json",
+    "bytes": 20951160,
+    "sha256": "432683283fc2a93ea154e540720da62a6f306236463887f4397cb37867d50b49"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/hp.obo",
+    "path": "releases/hpo/v2024-07-01/hp.obo",
+    "bytes": 9814182,
+    "sha256": "6a8bd59bc3f72ccc14cb026ff0a49122b5f747b5c8e40cbc773e7dfd0e8e327d"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-07-01/phenotype.hpoa",
+    "path": "releases/hpo/v2024-07-01/phenotype.hpoa",
+    "bytes": 32813915,
+    "sha256": "3d8a7bbb484b302b59cd6df29571211f371ecb0db36ea5559af93e8bcba59f2f"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-06-25/genes_to_disease.txt",
+    "path": "releases/hpo/v2024-06-25/genes_to_disease.txt",
+    "bytes": 1444549,
+    "sha256": "0bea61d8b043a1522326fe6d828027ae9446809f3cab6e0672fc9eaa19784ec1"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-06-25/genes_to_phenotype.txt",
+    "path": "releases/hpo/v2024-06-25/genes_to_phenotype.txt",
+    "bytes": 19373497,
+    "sha256": "d0bd44f5da519ad0230c12ab209ca6618acb0177c83275cc5599b228da9e8edd"
+  },
+  {
+    "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-06-25/hp-base.obo",
+    "path": "releases/hpo/v2024-06-25/hp-base.obo",
+    "bytes": 10321688,
+    "sha256": "295e43c31505a2ae02e938cb20a8c9efad8735d08a0573964ee5436e5ba2c569"
+  }
+]

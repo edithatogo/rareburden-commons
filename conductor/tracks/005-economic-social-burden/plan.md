@@ -5,7 +5,7 @@
 ## Phase 1 — Method and governance
 
 - [ ] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]`
-- [ ] Co-design component taxonomy with patient/family representatives. `[M-16]`
+- [ ] Challenge component taxonomy with community/harm perspective agents and owner disposition. `[M-16]`
 - [ ] Define currency, price year, PPP, discounting and transfer-payment rules.
 - [ ] Define acceptable-use and burden-framing safeguards.
 
@@ -28,7 +28,7 @@
 - [ ] Integrate appropriate components into monogenic-diabetes analysis.
 - [ ] Specify linked administrative-cost inputs for paediatric analysis.
 - [ ] Produce patient/family data-gap and new-collection plan. `[M-26]`
-- [ ] Complete health-economics, ethics and patient/community review.
+- [ ] Complete health-economics, ethics and community/harm agent-panel review and owner disposition.
 
 ## Dependency review — 2026-07-27
 
