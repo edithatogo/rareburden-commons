@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0",
+  "track": "014",
+  "scope": "synthetic_static_package_api_lifecycle_reconciliation",
+  "dependency_artifacts": [
+    {"track": "008", "artifact": "manifests/semantics/track-008-source-release-provenance-2026-08-16.json", "sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"},
+    {"track": "009", "artifact": "manifests/ledger/track-009-source-release-bindings-2026-08-16.json", "sha256": "84b1d8377a87c787a0ff624727a00a9bab6fdbf4851bf840e8157c61eee04376"},
+    {"track": "010", "artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json", "sha256": "a8176c09e3824d603bf6cd839cfb34b1fd55b7644850d2ad5d7bd1da8713e4fc"},
+    {"track": "011", "artifact": "manifests/demonstrators/track-011-bounded-synthetic-receipt-2026-08-16.json", "sha256": "4a225f04add7098121419178a1a7f9ef1d8f01b4536608086ac01af3139c492f"},
+    {"track": "012", "artifact": "manifests/demonstrators/track-012-bounded-synthetic-receipt-2026-08-16.json", "sha256": "0fdc24b93905b2c62aa1bfc07846ee35e411dcbcf4736d7d463f9f02ac1b43e6"},
+    {"track": "013", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"}
+  ],
+  "surface_contract": {
+    "static": "schema_valid_non_published_projection",
+    "package": "aggregate_only",
+    "api": "read_only_shape_no_network_service",
+    "status": "prepared_or_fail_closed_terminal_notice",
+    "missingness": "preserve_missing_not_zero",
+    "sufficiency": "not_assessed"
+  },
+  "claims": {
+    "synthetic_projection_executable": true,
+    "real_source_activation": false,
+    "accessibility_approved": false,
+    "independent_reproduction": false,
+    "release_authority_approval": false,
+    "public_release": false,
+    "stable_release": false
+  },
+  "pending_gates": [
+    "real_source_activation",
+    "accessibility_review",
+    "independent_reproduction",
+    "release_authority",
+    "public_and_stable_release"
+  ],
+  "stop_triggers": [
+    "dependency hash drift",
+    "missingness rendered as zero",
+    "static package or API identity mismatch",
+    "withdrawn candidate remains available",
+    "publication or stable-release claim without authority"
+  ]
+}

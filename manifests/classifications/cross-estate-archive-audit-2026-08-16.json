@@ -9,6 +9,16 @@
     "private_licensed": "huggingface:edithatogo/hpo-licensed-ontology-archive",
     "project_metadata": "github:edithatogo/rareburden-commons"
   },
+  "archive_counts": {
+    "explicitly_counted_public_assets": 492,
+    "components": {
+      "hpo": 320,
+      "orphacode": 71,
+      "orphadata": 94,
+      "mondo": 7
+    },
+    "limitation": "Sum of explicitly reported archive asset/file/pack counts only; excludes uncounted and private objects and is not a completeness claim."
+  },
   "families": [
     {
       "id": "who-icd",
@@ -78,25 +88,25 @@
     },
     {
       "id": "orphacode",
-      "evidence": "manifests/classifications/public-history-products-2026-08-16.json",
+      "evidence": "manifests/classifications/public-history-frontier-2026-08-16.json",
       "observed": "71 packs exposed by the recorded official page snapshot",
       "bytes_state": "public_archive_complete_for_observed_page_snapshot",
       "public_route": "existing_public_archive",
       "private_route": "not_needed",
-      "gap": "historical packs, unavailable languages and future publisher changes",
-      "blocker": "bounded page discovery cannot prove history or representativeness",
-      "evidence_sha256": "3e14b870c5ffe4a451cb103831fc6d16ee227625008fa0a0bd557aec5fe06c00"
+      "gap": "historical packs, unavailable languages and future publisher changes; official media API exposed images only",
+      "blocker": "bounded pack page and media API cannot prove history or representativeness",
+      "evidence_sha256": "76237a764bf1838947640f25fe9911de91007e9b4ae2dd01c778269a5b0d0a85"
     },
     {
       "id": "orphadata",
-      "evidence": "manifests/classifications/public-history-products-2026-08-16.json",
+      "evidence": "manifests/classifications/public-history-frontier-2026-08-16.json",
       "observed": "94 files across 8 current official scientific product pages",
       "bytes_state": "public_archive_complete_for_observed_page_snapshot",
       "public_route": "existing_public_archive",
       "private_route": "not_needed",
-      "gap": "historical July/December releases, unavailable languages and change files",
-      "blocker": "current pages do not expose a complete historical index",
-      "evidence_sha256": "3e14b870c5ffe4a451cb103831fc6d16ee227625008fa0a0bd557aec5fe06c00"
+      "gap": "historical July/December releases, unavailable languages and change files; official media API exposed images only",
+      "blocker": "current product pages and media API do not expose a complete historical index",
+      "evidence_sha256": "76237a764bf1838947640f25fe9911de91007e9b4ae2dd01c778269a5b0d0a85"
     },
     {
       "id": "panelapp",
@@ -107,29 +117,29 @@
       "private_route": "existing_bounded_private_listing",
       "gap": "remaining countries/instances, GEL details/history and Australian content",
       "blocker": "GEL robots disallows API; Australian exact reuse terms absent",
-      "evidence_sha256": "393e71a4349f69522b3f0b349d9c55c570a0ab2242b2420c6f3d6a327bc0ca67"
+      "evidence_sha256": "45544d418ce2b120cba0cee3e3b15e68a6324bb2ce6ffca579250937b2488954"
     },
     {
       "id": "mondo",
-      "evidence": "manifests/classifications/public-history-products-2026-08-16.json",
-      "observed": "100 releases on the bounded first official GitHub Releases API page; v2026-08-04 has three digest-pinned archived assets",
+      "evidence": "manifests/classifications/public-history-frontier-2026-08-16.json",
+      "observed": "120 releases across two official GitHub Releases API pages to the observed frontier; seven digest-pinned assets across v2026-08-04 and v2026-07-06 are archived (726,797,932 bytes)",
       "bytes_state": "existing_public_archive",
       "public_route": "existing_public_archive",
       "private_route": "existing_private_archive",
-      "gap": "releases beyond the bounded first 100 and exact asset digest reconciliation",
-      "blocker": "bounded one-page observation and potentially large historical assets",
-      "evidence_sha256": "3e14b870c5ffe4a451cb103831fc6d16ee227625008fa0a0bd557aec5fe06c00"
+      "gap": "1,916 observed assets (128.4 GB) require cursor-bounded digest reconciliation; non-release tags and future releases remain outside scope",
+      "blocker": "full materialization requires many receipt-verified 500 MB-or-smaller batches",
+      "evidence_sha256": "76237a764bf1838947640f25fe9911de91007e9b4ae2dd01c778269a5b0d0a85"
     },
     {
       "id": "clinvar",
-      "evidence": "manifests/classifications/public-history-products-2026-08-16.json",
-      "observed": "80 links on the bounded official tab-delimited archive index; 2026-08 variant_summary is digest-pinned privately",
+      "evidence": "manifests/classifications/clinvar-recursive-metadata-2026-08-16.json",
+      "observed": "6,410 directory, product, data or checksum routes across 56 bounded official directory observations; the exact seven-seed depth-two queue is exhausted; 2026-08 variant_summary is digest-pinned privately",
       "bytes_state": "existing_private_archive",
       "public_route": "metadata_only_with_submitter_caveats",
       "private_route": "existing_private_archive",
-      "gap": "other ClinVar product directories and product-specific historical reconciliation",
-      "blocker": "scope expansion, submitter-provenance and redistribution review",
-      "evidence_sha256": "3e14b870c5ffe4a451cb103831fc6d16ee227625008fa0a0bd557aec5fe06c00"
+      "gap": "routes beyond the seven fixed seeds or depth two, plus product-specific historical reconciliation",
+      "blocker": "fixed seed/depth scope, submitter-provenance and redistribution review",
+      "evidence_sha256": "d8571db2d94449333bc6810c440e986d4ee9cd30965696a20269c0c294bc384c"
     }
   ],
   "routing_rules": [
@@ -146,5 +156,5 @@
     "licensed_bytes_public": false,
     "duplication_eliminated_retroactively": false
   },
-  "audit_sha256": "bc070753aa6a59019952754d2299cc19276af456af8adec46cdd065391015cdd"
+  "audit_sha256": "710fe0d4061b587f2e81ca0935473c79f5c2a23b221b4aabee827e16a5cf499c"
 }

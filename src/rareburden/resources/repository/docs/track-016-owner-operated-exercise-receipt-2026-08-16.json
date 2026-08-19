@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1.0",
+  "receipt_type": "owner_operated_bounded_operations_exercise",
+  "exercise_id": "track-016-owner-operated-abcf1081",
+  "executed_at_utc": "2026-08-15T18:30:00Z",
+  "operator": "edithatogo_repository_owner_primary_operator",
+  "independent": false,
+  "candidate_commit": "abcf10813d9ad1dd88d8fac402622f65077558d4",
+  "candidate_tree": "ccc08ef01f5eb0fc973fac3541a0a5f4976f4944",
+  "environment": {
+    "platform": "macos_owner_operated",
+    "python": "3.14.5_supplemental",
+    "release_runtime": "python_3.13_unchanged",
+    "dependency_mode": "uv_sync_frozen_extra_dev_offline",
+    "clone_mode": "git_clone_no_local_detached_exact_commit"
+  },
+  "results": [
+    {
+      "exercise": "clean_environment_reproduction",
+      "outcome": "pass",
+      "evidence": "offline locked environment installed from cache; repository safety and synthetic node reproducibility passed"
+    },
+    {
+      "exercise": "repository_security_scan",
+      "outcome": "pass",
+      "evidence": "repository safety inspected 1215 tracked files; hosted exact-head security checks remain separately required"
+    },
+    {
+      "exercise": "sbom_integrity",
+      "outcome": "pass",
+      "evidence": "CycloneDX SBOM regenerated with 91 components",
+      "output_sha256": "6d43b7dd3240a73adad76592b51527ddcce0e455b889de7fb089ecbe0bff01a9"
+    },
+    {
+      "exercise": "backup_restore",
+      "outcome": "pass",
+      "evidence": "Git bundle restored to the exact candidate commit and tree",
+      "bundle_sha256": "a05b449625e74ae34d853b9d1ea118dd6e89f786d838a29f617c6ad83754fa63",
+      "bundle_size_bytes": 2444886
+    },
+    {
+      "exercise": "release_rollback",
+      "outcome": "pass",
+      "evidence": "detached candidate moved to its Track 014 parent then forward to the exact candidate; commit and tree reconciled"
+    },
+    {
+      "exercise": "resource_budget",
+      "outcome": "pass",
+      "evidence": "synthetic 10000-iteration benchmark completed within 15 seconds and wheel/sdist remained below 2 MiB",
+      "scientific_output_sha256": "a22833dbe273df624861cb191e079287102e5fd6adec790191292a90b19564fd",
+      "wheel_size_bytes": 1124821,
+      "sdist_size_bytes": 962088
+    },
+    {
+      "exercise": "vulnerability_incident_tabletop",
+      "outcome": "qualified",
+      "evidence": "synthetic scenarios route secret exposure to revoke/quarantine, hash mismatch to stop/restore, and critical dependency finding to freeze/supersede; no live incident occurred"
+    }
+  ],
+  "restore_identity": {
+    "commit": "abcf10813d9ad1dd88d8fac402622f65077558d4",
+    "tree": "ccc08ef01f5eb0fc973fac3541a0a5f4976f4944"
+  },
+  "rollback_identity": {
+    "commit": "abcf10813d9ad1dd88d8fac402622f65077558d4",
+    "tree": "ccc08ef01f5eb0fc973fac3541a0a5f4976f4944"
+  },
+  "sensitive_values_retained": false,
+  "production_authorized": false,
+  "stable_release_authorized": false,
+  "independent_operator_evidence": false,
+  "independent_security_evidence": false,
+  "backup_owner_handoff_complete": false,
+  "limitations": [
+    "Owner-operated evidence is not independent operator or independent security evidence.",
+    "The offline installation used an existing local package cache and is not an air-gapped third-party reproduction.",
+    "The private backup owner is owner-attested; scope, expiry and a hash-bound handoff remain incomplete.",
+    "No production, hosted service, controlled data, SLA or stable-release claim is authorized."
+  ]
+}

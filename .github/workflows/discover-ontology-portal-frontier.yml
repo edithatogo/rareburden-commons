@@ -1,0 +1,33 @@
+name: bounded ontology portal metadata discovery
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-ontology-portal-metadata-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Capture bounded OLS4 metadata
+        run: |
+          python3 scripts/discover_ontology_portal_frontier.py \
+            --observed-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --max-pages 2 \
+            --delay-seconds 2 \
+            --output ontology-portal-frontier.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bounded-ontology-portal-frontier
+          path: ontology-portal-frontier.json
+          if-no-files-found: error
+          retention-days: 30

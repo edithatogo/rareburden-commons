@@ -16,22 +16,22 @@
 - [x] Complete quickstart, user, developer, methods, operator, steward and release guides. `[V1-DOC-01]` Evidence: `docs/guides/README.md` and role-based guides; methods and quickstart links point to the existing protocol and analyst workflow. This is documentation preparation, not usability evidence.
 - [x] Add tested tutorials and reference workflows. Evidence: synthetic
   reference workflow coverage in `tests/test_reference.py` and
-  `tests/test_cli_integration.py`; independent usability and reproduction
+  `tests/test_cli_integration.py`; agent usability and owner reproduction
   remain separate gates.
 - [x] Add accessibility, citation, licence and correction guidance. Evidence: `docs/documentation-guidance-017.md`; external accessibility review remains open.
 - [x] Verify all public examples and links automatically. Evidence: `uv run python scripts/check_markdown_links.py` passed on 2026-08-01; command execution remains subject to full validation.
 
 The synthetic reference workflow is exercised by `tests/test_reference.py`,
 `tests/test_cli_integration.py` and the installed-package check; this is
-repository-owned structural assurance only and does not close independent-user
-usability or reproduction gates.
+repository-owned structural assurance only and does not close the usability or
+owner-operated reproduction gates.
 
 ## Phase 2 — Agent usability and owner-operated reproduction
 
-- [ ] Run two role-separated usability-agent assessments of the reference workflow.
-- [ ] Complete a separately executed owner-operated node/analyst run.
-- [ ] Build two clean release candidates from locked environments.
-- [ ] Complete one owner-operated clean-environment reproduction with equivalent reviewed outputs.
+- [x] Run two role-separated usability-agent assessments of the reference workflow. Evidence: `manifests/release/track-017-bounded-exercises-2026-08-16.json`; the first assessment found and verified remediation of the documented bare-`python` failure.
+- [x] Complete a separately executed owner-operated node/analyst run. Evidence: same bounded receipt; explicitly non-independent.
+- [x] Build two clean release candidates from locked environments. Evidence: exact candidate, check-log and output-manifest hashes in the bounded receipt.
+- [x] Complete one owner-operated clean-environment reproduction with equivalent reviewed outputs. Evidence: identical output-manifest and verifier hashes in the bounded receipt.
 
 ## Phase 3 — Sustainability and ownership
 
@@ -46,7 +46,12 @@ usability or reproduction gates.
 - [ ] Remove unsupported capabilities or close remaining gaps.
 - [ ] Complete agent-panel methods, community/harm, rights/data-use,
   engineering, security and programme recommendations and owner disposition.
-- [ ] Record final release, bounded exclusion, revise or stop decision.
+- [x] Record an exact-candidate bounded synthetic/public-preview owner decision
+  with stable release deferred. Evidence: immutable issue #16 comment
+  `5303792002` and
+  `manifests/release/track-017-owner-bounded-disposition-2026-08-16.json`.
+- [ ] Record a later stable release, revise or stop decision only for its exact
+  candidate; the current owner decision does not authorize stable release.
 
 ## Phase 5 — Publish and verify
 
@@ -69,7 +74,7 @@ usability or reproduction gates.
 
 ## Preparation refresh — 2026-08-01
 
-- [x] Prepared `docs/track-017-v1-closeout-packet.md` mapping independent
+- [x] Prepared `docs/track-017-v1-closeout-packet.md` mapping agent-panel
   usability, reproduction, ownership, governance and release receipts to the
   stable-v1 decision.
 - [x] Documented the clean-build and verification recipe for future release
@@ -80,12 +85,12 @@ usability or reproduction gates.
 
 ## Implementation planning — 2026-08-02
 
-- [x] Add the dependency-ordered independent usability, reproduction,
+- [x] Add the dependency-ordered usability-agent, owner reproduction,
   ownership and stable-release plan with options, contingencies and
   recommendation in `docs/track-017-v1-implementation-plan-2026-08-02.md`.
-- [x] Define the independent usability, reproduction and clean-build receipt
-  contract in `docs/track-017-independent-receipt-template.md`; no receipt is
-  claimed until an independent operator or user completes it.
+- [x] Retain the legacy receipt template filename for compatibility while the
+  current ADR-0009 contract uses advisory usability-agent reports and
+  owner-operated reproduction; no unavailable authority is inferred.
 - [x] Add a strict release-candidate receipt schema and synthetic non-authorizing
   fixture in `schemas/release-candidate-receipt.schema.json` and
   `tests/test_release_candidate_receipt.py`.
@@ -98,5 +103,33 @@ usability or reproduction gates.
   reproduction/equivalence report.
 - [ ] Record primary/backup ownership, succession, support boundaries and
   approved sustainability costs.
-- [ ] Assemble the v1 evidence index and complete accountable release gates.
+- [x] Assemble the complete v1 evidence index without treating indexing as
+  stable acceptance. Evidence:
+  `manifests/release/v1-evidence-index-2026-08-16.json`,
+  `scripts/check_v1_evidence_index.py` and `tests/test_v1_evidence_index.py`.
+- [ ] Complete the remaining accountable release gates: qualifying backup
+  continuity and public stable-artifact publication/verification after a
+  separate stable-release decision.
 - [ ] Verify public artefacts only after a release-authority decision.
+
+## Bounded readiness reconciliation — 2026-08-16
+
+- [x] Record the single-owner, advisory agent-panel claim boundary and exact
+  owner/backup role status. Evidence:
+  `docs/track-017-bounded-readiness-reconciliation-2026-08-16.md` and
+  `manifests/release/track-017-bounded-readiness-2026-08-16.json`.
+- [x] Define usability-agent and owner-operated clean-reproduction preparation
+  without claiming execution, independence or stable-release authority.
+- [x] Add deterministic evidence-hash checks and negative tests for authority,
+  continuity, dependency and stable-release overclaims. Evidence:
+  `scripts/check_track017_bounded_readiness.py` and
+  `tests/test_track017_bounded_readiness.py`.
+- [x] Execute and validate bounded usability/build/reproduction exercises, apply
+  the high-severity documentation remediation, and retain non-independent and
+  non-stable claim boundaries. Evidence:
+  `scripts/check_track017_bounded_exercises.py` and
+  `tests/test_track017_bounded_exercises.py`.
+- [x] Bind the exact merged Track 016 evidence artifact and merge commit before
+  integrating this bounded preparation. Evidence: PR #104 merge
+  `18910840fee787bbe2ae7d7eff40b944539a11f4` and SHA-256
+  `a12ffd69c9b67e9999b9f6cbf4263387315ac67109cf1c0d6e1af793344bc8f3`.

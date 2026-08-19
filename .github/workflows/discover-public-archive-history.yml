@@ -24,9 +24,28 @@ jobs:
             --observed-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --delay-seconds 1 \
             --output public-history-products.json
+      - name: Extend bounded official history frontier
+        run: |
+          python3 scripts/discover_public_archive_frontier.py \
+            --observed-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --delay-seconds 1 \
+            --max-mondo-pages 10 \
+            --max-orphanet-pages 5 \
+            --output public-history-frontier.json
+      - name: Recursively enumerate bounded ClinVar metadata
+        run: |
+          python3 scripts/discover_clinvar_recursive_metadata.py \
+            --observed-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --max-requests 50 \
+            --max-depth 2 \
+            --delay-seconds 1 \
+            --output clinvar-recursive-metadata.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: bounded-public-history-products
-          path: public-history-products.json
+          path: |
+            public-history-products.json
+            public-history-frontier.json
+            clinvar-recursive-metadata.json
           if-no-files-found: error
           retention-days: 30

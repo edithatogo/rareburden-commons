@@ -128,6 +128,29 @@ for 51 live-only records; 93 remain uncertain and none is excluded. No response
 body, description, abstract or full text is retained, and neither result is a
 quality, novelty, community-authority or completeness finding.
 
+### Lawful alternatives and safe-metadata deepening — 2026-08-16
+
+Public Crossref citation metadata supplied an adequate alternative observation
+for all 8 publisher-restricted DOI records without fetching publisher locators.
+Seven have explicit title-level rare-disease and contribution signals and are
+bounded includes; one journal-introduction record remains uncertain. The frozen
+69 are now 66 includes, 2 explicit duplicate/non-substantive-release exclusions
+and 1 uncertain, with no record pending solely because its publisher locator is
+restricted.
+
+A fresh safe-field pass over the 144 live-only records retained GitHub topics,
+language, SPDX identifier, archived/fork flags and Zenodo keywords, resource
+type, language and access state. It preserved all 51 prior hash-bound includes,
+upgraded 3 records, and left 90 uncertain with zero exclusions. Descriptions,
+abstracts, response bodies and full text were not retained.
+
+No second bibliographic provider was activated. OpenAlex's current official
+authentication page requires an API key and its terms PDF returned 403 to the
+bounded direct observation. Europe PMC's public API and metadata-use pages were
+reachable, but the observed pages did not state an exact provider-specific
+numeric request ceiling. This is a provider-governance blocker, not evidence of
+absence or poor coverage.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The seed screening
@@ -341,34 +364,3 @@ fields. This completes repository-owned workflow construction and locator
 observation only. Final eligibility, pagination/completeness, novelty,
 registration, independent methods challenge and accountable patient/community
 interpretation remain pending.
-
-### Bounded live pagination and coverage disposition — 2026-08-15
-
-The five frozen queries were exercised against GitHub, Zenodo and Hugging Face
-with a two-page, 25-record budget. GitHub reached its retrieval-time endpoint
-totals for all five queries (56 occurrences). Zenodo captured 250 occurrences
-but hit the page budget for every query against much larger provider totals.
-Hugging Face returned empty first pages, which is recorded only as endpoint
-behavior and not as evidence that matching datasets do not exist.
-
-Every provider file records exact URLs, timestamps, response hashes, identifiers
-and stop reasons and is hash-bound by
-`docs/track-007-live-capture-coverage-2026-08-15.json`. The coverage disposition
-keeps scholarly, grey-literature, language, geography, temporal and restricted
-material coverage incomplete or unmeasured. Comprehensive coverage, global
-representativeness and upgraded novelty claims remain prohibited. Newly captured
-record screening and the external challenge gates remain open.
-
-### Exact-title cluster adjudication — 2026-08-15
-
-All four title clusters flagged by bounded screening now have record-level rules
-backed by exact GitHub or Crossref response hashes. Reciprocal Crossref relations
-link the Dercum's disease preprint and journal article as versions of one work
-without deleting either record. The three GitHub pairs have distinct immutable
-repository/node identifiers and no declared fork, parent or source relation, so
-they remain separate repository records.
-
-This does not establish that the GitHub pairs are distinct initiatives. Their
-initiative-level equivalence remains unresolved because shared names or
-descriptions are insufficient evidence. The adjudication removes silent
-record-level merging risk without narrowing external challenge requirements.

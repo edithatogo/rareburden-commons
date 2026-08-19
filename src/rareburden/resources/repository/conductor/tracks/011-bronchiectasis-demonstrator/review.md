@@ -38,3 +38,17 @@ Keep Track 011 **blocked**. Do not activate bronchiectasis analysis or freeze mu
 needed before activation. It is repository-owned preparation and does not
 constitute respiratory clinical, methods, engineering or patient/community
 approval.
+
+### Bounded dependency reconciliation — 2026-08-16
+
+Tracks 008–010 now provide exact repository-owned synthetic artifacts. Track
+011 binds their SHA-256 identities and exercises a deterministic composition in
+which mutually exclusive counts, multi-aetiology observations, unknown causes
+and the unaccounted remainder remain distinct. Negative tests preserve the
+fail-closed activation boundary.
+
+This resolves dependency compatibility only for synthetic assurance. It does
+not freeze the RBC-P003 denominator or aetiology scope, activate empirical
+parameters, support clinical interpretation, demonstrate transportability, or
+complete the remaining methods and community/harm panel challenges and owner
+disposition. Track 011 therefore remains **blocked**.
