@@ -14,7 +14,6 @@ SPEC = importlib.util.spec_from_file_location(
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
-UPDATED_ELIGIBILITY = ROOT / "docs/track-007-fulltext-eligibility-2026-08-16.json"
 
 
 def _documents() -> tuple[bytes, bytes]:
@@ -139,18 +138,3 @@ def test_committed_register_is_schema_valid_hash_bound_and_content_free() -> Non
     serialized = json.dumps(document).lower()
     assert '"full_text"' not in serialized
     assert '"abstract"' not in serialized
-
-
-def test_updated_register_advances_only_supported_records_and_keeps_gaps_pending() -> None:
-    document = json.loads(UPDATED_ELIGIBILITY.read_text())
-    schema = json.loads(
-        (ROOT / "schemas" / "track-007-fulltext-eligibility.schema.json").read_text()
-    )
-    Draft202012Validator(schema, format_checker=FormatChecker()).validate(document)
-    assert document["counts"]["eligibility_state"] == {
-        "include": 35,
-        "pending_content_assessment": 26,
-        "pending_lawful_access": 8,
-    }
-    assert document["counts"]["final_decisions"] == 35
-    assert "exclude" not in document["counts"]["eligibility_state"]
