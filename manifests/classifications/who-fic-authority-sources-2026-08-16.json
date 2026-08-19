@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-08-16",
+  "status": "bounded_official_source_discovery",
+  "publication_route": "metadata_hash_only",
+  "scope_statement": "Official-source seed ledger for discoverable WHO-FIC non-ICD classifications and selected national ICD modification or translation authorities; not a global census.",
+  "who_fic": [
+    {
+      "id": "who-fic-family",
+      "classification": "WHO Family of International Classifications",
+      "country_or_area": "international",
+      "languages": ["en"],
+      "version_or_release": "live WHO classification family page observed 2026-08-16",
+      "authority": "World Health Organization",
+      "source_url": "https://www.who.int/standards/classifications/",
+      "terms_state": "page_terms_observed_artifact_terms_required",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-icf",
+      "classification": "International Classification of Functioning, Disability and Health (ICF)",
+      "country_or_area": "international",
+      "languages": ["cs", "en", "es", "et", "fi", "fr", "hy", "it", "mn", "pt", "ru", "sk", "tr", "uk", "zh"],
+      "version_or_release": "WHO ICD API 2026-01 ICF linearization; official update lists 2012-2018",
+      "authority": "World Health Organization",
+      "source_url": "https://www.who.int/classifications/international-classification-of-functioning-disability-and-health",
+      "terms_state": "same_licensing_rules_as_icd_exact_artifact_terms_required",
+      "artifact_route": "private_or_metadata_only"
+    },
+    {
+      "id": "who-icf-cy",
+      "classification": "International Classification of Functioning, Disability and Health for Children and Youth (ICF-CY)",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "retired; fully merged back into ICF under the 2012 WHO-FIC recommendation",
+      "authority": "World Health Organization",
+      "source_url": "https://www.who.int/classifications/international-classification-of-functioning-disability-and-health",
+      "terms_state": "retired_product_historical_artifact_terms_required",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-ichi",
+      "classification": "International Classification of Health Interventions (ICHI)",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "Beta-3 October 2020; WHO page reports public-health component finalized 2023",
+      "authority": "World Health Organization",
+      "source_url": "https://www.who.int/standards/classifications/international-classification-of-health-interventions",
+      "terms_state": "who_page_says_same_licensing_as_icd11_exact_artifact_terms_required",
+      "artifact_route": "private_or_metadata_only"
+    },
+    {
+      "id": "who-icd-o",
+      "classification": "International Classification of Diseases for Oncology (ICD-O)",
+      "country_or_area": "international",
+      "languages": ["zh", "cs", "en", "fi", "nl", "fr", "de", "ja", "ko", "pt", "es", "ro", "ru", "tr"],
+      "version_or_release": "ICD-O-3.2 (2019); ICD-O-3.1 (2013); ICD-O-3 (2000)",
+      "authority": "WHO Secretariat and International Agency for Research on Cancer",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-diseases-for-oncology",
+      "terms_state": "csv_availability_observed_exact_download_terms_unresolved",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-icpc",
+      "classification": "International Classification of Primary Care (ICPC)",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "live WHO related-classification route observed 2026-08-16",
+      "authority": "World Organization of Family Doctors (WONCA), linked by WHO",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-primary-care",
+      "terms_state": "partner_rights_unresolved",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-iceci",
+      "classification": "International Classification of External Causes of Injury (ICECI)",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "live WHO related-classification route observed 2026-08-16",
+      "authority": "WHO and ICECI coordination partners",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-of-external-causes-of-injury",
+      "terms_state": "exact_artifact_and_partner_rights_unresolved",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-iso-9999",
+      "classification": "ISO 9999 Assistive products",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "live WHO related-classification route observed 2026-08-16",
+      "authority": "International Organization for Standardization, linked by WHO",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/technical-aids-for-persons-with-disabilities",
+      "terms_state": "iso_partner_rights_unresolved",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-atc-ddd",
+      "classification": "Anatomical Therapeutic Chemical Classification with Defined Daily Doses (ATC/DDD)",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "live WHO related-classification route observed 2026-08-16",
+      "authority": "WHO Collaborating Centre for Drug Statistics Methodology",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/the-anatomical-therapeutic-chemical-classification-system-with-defined-daily-doses",
+      "terms_state": "separate_centre_terms_required",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-icnp",
+      "classification": "International Classification for Nursing Practice (ICNP)",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "live WHO related-classification route observed 2026-08-16",
+      "authority": "International Council of Nurses, linked by WHO",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/international-classification-for-nursing-practice",
+      "terms_state": "partner_rights_unresolved",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-verbal-autopsy",
+      "classification": "WHO verbal autopsy standards",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "live WHO related-classification route observed 2026-08-16",
+      "authority": "World Health Organization",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/verbal-autopsy-standards-ascertaining-and-attributing-causes-of-death-tool",
+      "terms_state": "exact_instrument_release_and_terms_required",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "who-icd10-smol",
+      "classification": "Startup Mortality List (ICD-10-SMoL)",
+      "country_or_area": "international",
+      "languages": ["not_enumerated"],
+      "version_or_release": "Version 2.1 observed on the live WHO route 2026-08-16",
+      "authority": "World Health Organization",
+      "source_url": "https://www.who.int/standards/classifications/other-classifications/the-startup-mortality-list-%28icd-10-smol%29",
+      "terms_state": "exact_release_and_terms_required",
+      "artifact_route": "metadata_only"
+    }
+  ],
+  "national_authorities": [
+    {
+      "id": "us-icd10-cm",
+      "classification": "ICD-10-CM",
+      "country_or_area": "United States",
+      "languages": ["en"],
+      "version_or_release": "FY 2027 release and official archive since FY 2010 discoverable",
+      "authority": "US CDC National Center for Health Statistics",
+      "source_url": "https://www.cdc.gov/nchs/icd/icd-10-cm/files.html",
+      "terms_state": "official_files_publicly_downloadable_who_and_file_terms_still_apply",
+      "artifact_route": "metadata_only_pending_file_level_disposition"
+    },
+    {
+      "id": "au-icd10-am",
+      "classification": "ICD-10-AM/ACHI/ACS",
+      "country_or_area": "Australia",
+      "languages": ["en"],
+      "version_or_release": "Thirteenth Edition, implemented 2025-07-01",
+      "authority": "Independent Health and Aged Care Pricing Authority",
+      "source_url": "https://www.ihacpa.gov.au/health-care/products-and-licenses",
+      "terms_state": "licence_agreement_required_for_classification_products",
+      "artifact_route": "metadata_only_or_private_if_licence_permits"
+    },
+    {
+      "id": "ca-icd10-ca",
+      "classification": "ICD-10-CA/CCI",
+      "country_or_area": "Canada",
+      "languages": ["en", "fr"],
+      "version_or_release": "ICD-10-CA 2022 product family observed",
+      "authority": "Canadian Institute for Health Information",
+      "source_url": "https://www.cihi.ca/en/submit-data-and-view-standards/codes-classifications-and-terminologies/classification-resources",
+      "terms_state": "read_only_noncommercial_access_and_product_terms_apply",
+      "artifact_route": "metadata_only_or_private_if_product_terms_permit"
+    },
+    {
+      "id": "de-icd10-gm",
+      "classification": "ICD-10-GM",
+      "country_or_area": "Germany",
+      "languages": ["de"],
+      "version_or_release": "2026 binding reference edition",
+      "authority": "Bundesinstitut fuer Arzneimittel und Medizinprodukte (BfArM)",
+      "source_url": "https://www.bfarm.de/DE/Kodiersysteme/Klassifikationen/ICD/ICD-10-GM/_node.html",
+      "terms_state": "download_creates_bfarm_usage_contract",
+      "artifact_route": "metadata_only_pending_contract_disposition"
+    },
+    {
+      "id": "gb-england-icd10",
+      "classification": "ICD-10 5th Edition with National Clinical Coding Standards",
+      "country_or_area": "England",
+      "languages": ["en"],
+      "version_or_release": "2026 NCCS v12.0; WHO ICD-10 5th Edition/2016 base",
+      "authority": "NHS England",
+      "source_url": "https://classbrowser.nhs.uk/resources.html",
+      "terms_state": "who_content_permission_for_uk_purposes_only_datafiles_via_trud",
+      "artifact_route": "metadata_only_portal_access_required_for_datafiles"
+    },
+    {
+      "id": "nl-icd10-translation",
+      "classification": "Dutch ICD-10 translation",
+      "country_or_area": "Netherlands",
+      "languages": ["nl"],
+      "version_or_release": "Dutch editions 2006, 2014 and 2021 reported",
+      "authority": "RIVM WHO-FIC Collaborating Centre in the Netherlands",
+      "source_url": "https://www.rivm.nl/en/who-collaborating-centre-for-family-of-international-classifications-fic",
+      "terms_state": "translation_publisher_and_who_terms_apply",
+      "artifact_route": "metadata_only_pending_exact_edition_terms"
+    },
+    {
+      "id": "se-icd10-se",
+      "classification": "ICD-10-SE",
+      "country_or_area": "Sweden",
+      "languages": ["sv"],
+      "version_or_release": "official coding guidance v1.1 updated 2026-02-02",
+      "authority": "Socialstyrelsen (National Board of Health and Welfare)",
+      "source_url": "https://www.socialstyrelsen.se/publikationer/anvisningar-for-diagnos--och-atgardskodning-med-icd-10-se-och-kva-version-1.1-2024-1-8487/",
+      "terms_state": "exact_datafile_release_and_terms_not_yet_observed",
+      "artifact_route": "metadata_only"
+    },
+    {
+      "id": "nz-icd10-am-adoption",
+      "classification": "ICD-10-AM adoption",
+      "country_or_area": "New Zealand",
+      "languages": ["en"],
+      "version_or_release": "national use observed; exact currently implemented edition not established by this ledger",
+      "authority": "New Zealand Ministry of Health / Health New Zealand",
+      "source_url": "https://www.health.govt.nz/monitoring-statistics/statistics-and-data-sets/mortality",
+      "terms_state": "australian_product_licence_and_nz_use_terms_apply",
+      "artifact_route": "metadata_only"
+    }
+  ],
+  "limitations": [
+    "The national-authority list is a bounded official-source seed, not every WHO Member State, language, translation or national modification.",
+    "A national use page does not prove authority to redistribute classification bytes.",
+    "WHO-linked related classifications may be owned or jointly governed by partner organisations.",
+    "No login, click-through, purchase or licence agreement was automated.",
+    "No source bytes are approved for public or private archival by this ledger alone."
+  ]
+}

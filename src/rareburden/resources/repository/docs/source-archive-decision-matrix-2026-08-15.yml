@@ -89,6 +89,29 @@ decisions:
     public_raw: prohibited
     github: identifiers_mapping_code_hashes_and_non_licensed_metadata_only
     conditions: [affiliate_authorization, edition_pin, territory_terms, no_redistribution]
+    prepared_contract: docs/track-002-meddra-mlds-frontier-2026-08-16.md
+    cloud_storage_decision: pending_exact_affiliate_and_national_terms
+  - source_id: snomed-ct-national-edition-germany
+    dataset_type: licensed_national_clinical_terminology
+    licence: SNOMED_CT_affiliate_plus_German_member_national_extension_terms
+    exact_release: pending_authenticated_mlds_inventory
+    private_archive: disabled_until_exact_agreement_territory_and_cloud_permission
+    public_raw: prohibited
+    github: official_urls_release_events_checksums_metadata_and_receipts_only
+    conditions: [affiliate_authorization, German_member_agreement, edition_pin, territory_authorization, affirmative_private_cloud_permission, exact_hash_deduplication, no_public_redistribution]
+    evidence: docs/track-002-bfarm-german-snomed-frontier-2026-08-16.md
+    manifest: manifests/classifications/bfarm-german-snomed-frontier-2026-08-16.json
+    cloud_storage_decision: pending_exact_agreement_territory_and_storage_disposition
+  - source_id: meddra
+    dataset_type: licensed_regulatory_medical_terminology
+    licence: ICH_MSSO_subscriber_terms
+    exact_release: pending_authenticated_portal_inventory
+    private_archive: prohibited_until_exact_subscription_permits_private_cloud
+    public_raw: prohibited
+    github: schemas_metadata_checksums_receipts_and_operator_instructions_only
+    conditions: [subscriber_authorization, release_pin, language_pin, no_credential_storage, no_redistribution]
+    prepared_contract: docs/track-002-meddra-mlds-frontier-2026-08-16.md
+    cloud_storage_decision: pending_exact_subscription_terms
   - source_id: ncbi-clinvar
     dataset_type: public_variant_archive
     licence: freely_available_public_database_with_submitter_attribution_and_usage_caveats
@@ -106,6 +129,7 @@ decisions:
     github: acquisition_code_and_metadata_only
     conditions: [panel_version_pin, GEL_and_contributor_attribution, noncommercial_only, nondiagnostic_only, no_commercialised_outputs, withdrawal_route, rate_limit_respect]
     coverage_boundary: United_Kingdom_clinical_curation_context_not_global_representativeness
+    automation_boundary: current_robots_txt_disallows_api_so_no_automated_detail_continuation
   - source_id: panelapp-australia
     dataset_type: public_gene_disease_panel_catalogue
     licence: exact_content_reuse_terms_not_found_on_observed_public_site
@@ -115,6 +139,7 @@ decisions:
     github: country_registry_acquisition_code_hashes_and_metadata_only
     conditions: [panel_version_pin, Australian_context, attribution, nondiagnostic_boundary, rate_limit_respect]
     coverage_boundary: Australia_clinical_curation_context_not_global_representativeness
+    automation_boundary: bounded_nonretained_metadata_hash_probe_only_pending_exact_reuse_terms
   - source_id: umls-metathesaurus
     dataset_type: licensed_multi_vocabulary_terminology_compilation
     licence: individual_UMLS_licence_plus_source_vocabulary_restriction_levels
@@ -148,6 +173,7 @@ decisions:
     public_raw: prohibited_until_dataset_terms_verified
     github: query_export_manifest_hashes_and_code_only
     conditions: [dataset_specific_terms, attribution, API_export_behaviour_review]
+    metadata_canary: OECD.ELS.HD_DSD_HEALTH_STAT_DF_COM_1.0_structure_hash_only
   - source_id: all-of-us-public-tier
     dataset_type: public_aggregate_browser_outputs
     licence: output_specific_terms_pending

@@ -1,0 +1,78 @@
+schema_version: "1.0"
+as_of: "2026-08-16"
+status: bounded_hosted_receipts
+orphacode:
+  source_page: https://www.orphacode.org/pack-nomenclature/
+  source_page_sha256: 858aca7c35ae147addb6a4fc9e59731b32ea6e9157fd56372dfb90cc7c5a1972
+  discovered_pack_count: 71
+  archive: huggingface:edithatogo/rareburden-commons-open-source-snapshots
+  licence: CC_BY_4_0
+  batches:
+    - github_actions_run: 31873102864
+      start: 0
+      count: 1
+      status: success
+      artifact_receipt_sha256: 8ea18c1f9bd2a0f34931c6d76e1417381f569a941ee38532b24988d6365c8552
+    - github_actions_run: 31873123834
+      start: 1
+      count: 70
+      status: success
+      artifact_receipt_sha256: 551661f08b928e519b62127559ec7a08b405a3ab812756d80b4f37f74e12ec1b
+  claims:
+    exact_discovered_page_snapshot_archived: true
+    historical_completeness: false
+    language_or_country_representativeness: false
+uts_current_release_set:
+  github_actions_run: 31873729976
+  status: success
+  archive: huggingface:edithatogo/hpo-licensed-ontology-archive
+  visibility: private
+  family_count: 14
+  newly_archived: 11
+  already_receipt_verified: 3
+  includes:
+    - RxNorm_current_monthly_and_weekly_products
+    - SNOMED_CT_current_international_Spanish_and_US_products_exposed_by_UTS
+    - UMLS_2026AA_full_release
+    - UMLS_2026AA_metathesaurus_full_subset
+    - UMLS_2026AA_MRCONSO
+  claims:
+    public_redistribution: false
+    historical_release_completeness: false
+    native_country_edition_completeness: false
+    production_activation: false
+orphadata_current_scientific_pages:
+  archive: huggingface:edithatogo/rareburden-commons-open-source-snapshots
+  licence: CC_BY_4_0
+  discovered_file_count: 94
+  product_page_count: 8
+  batches:
+    - github_actions_run: 31893447909
+      start: 0
+      count: 1
+      status: success
+      artifact_receipt_sha256: 682cddba7e6f584804b7f4a28d556160d6735ab29d8286557da009c3a64aad32
+    - github_actions_run: 31893485877
+      start: 1
+      count: 93
+      status: success
+      artifact_receipt_sha256: 13e5f8a8fca3f1ba68ea64bbc8d7d54def2d31f78ea5a913acc82ff01ba60a3c
+  coverage:
+    alignments: 24
+    classifications: 34
+    linearisation: 1
+    genes: 1
+    phenotypes: 7
+    functional_consequences: 9
+    epidemiology: 9
+    natural_history: 9
+  claims:
+    exact_discovered_page_snapshot_archived: true
+    language_completeness: false
+    historical_release_completeness: false
+    clinical_validation: false
+limitations:
+  - GitHub Actions artifact receipts expire; canonical per-batch receipts are retained with the remote payloads.
+  - Publisher-page discovery is a bounded observation and does not prove historical completeness.
+  - UTS inclusion does not replace native national-edition inventory or licensing.
+  - The 94 Orphadata files exhaust only the exact links exposed by eight official product pages at the recorded snapshot; they do not establish unavailable historical-release or language completeness.

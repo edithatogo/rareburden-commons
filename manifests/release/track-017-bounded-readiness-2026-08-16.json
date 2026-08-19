@@ -1,0 +1,108 @@
+{
+  "schema_version": "0.1.0",
+  "track": "017",
+  "scope": "single_owner_agent_panel_release_readiness",
+  "status": "bounded_readiness_contract_validated",
+  "created_at": "2026-08-16T00:00:00Z",
+  "operating_model": {
+    "repository_owner_count": 1,
+    "accountable_release_authority": "repository_owner",
+    "agent_panels_are_advisory": true,
+    "panel_roles": [
+      "methods_and_scientific_challenge",
+      "community_harm_and_accessibility_perspective",
+      "rights_and_data_use_challenge",
+      "engineering_security_and_reproducibility",
+      "operations_and_release_challenge"
+    ],
+    "prohibited_agent_authority_claims": [
+      "independent_review",
+      "human_review",
+      "patient_or_community_consent",
+      "custodian_or_licensor_approval",
+      "external_or_institutional_approval"
+    ]
+  },
+  "owner_and_continuity": {
+    "primary_owner": "repository_owner",
+    "release_authority": "repository_owner",
+    "backup_status": "owner_attested_private_backup_acceptance",
+    "continuity_evidence_complete": false,
+    "missing_backup_fields": [
+      "stable private role identifier",
+      "accepted scope",
+      "escalation route",
+      "expiry or review date",
+      "hash-bound handoff receipt"
+    ]
+  },
+  "evidence_bindings": [
+    {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "4d4e2ced2fdf2515923763a8a2fb4e5fc54effda825525b3565350867f49a330"},
+    {"id": "owner_backup_attestation", "artifact": "docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md", "sha256": "e6d95d03f8346be577caff6291af8f1808d33b765ba2b3b266973ef7c31f9257"},
+    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
+    {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"},
+    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "d6a910a3ae94b2c2607fc339212fac95650ff0cd45c9262b1ef561be447a4dea"},
+    {"id": "release_authority_plan", "artifact": "docs/release-authority-receipt-plan-2026-08-03.yml", "sha256": "62f3ae25755d6441ab54f3f1c1d8c1fb73732e0f3546cd1168eac685863581ae"},
+    {"id": "candidate_reconciliation", "artifact": "docs/release-candidate-evidence-reconciliation-2026-08-04.yml", "sha256": "8da971dca2173bb6fa17245a2d6c490d103abdc6c0df7e7fba17c653e44a7cb0"}
+  ],
+  "integration_dependency": {
+    "track": "016",
+    "artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json",
+    "status": "bound",
+    "sha256": "64a928b59e798c79ae2407cb5516a4e99fae6de347c372da18f3c37b6e8466c3",
+    "merge_commit": "18910840fee787bbe2ae7d7eff40b944539a11f4"
+  },
+  "owner_disposition_receipt": {
+    "artifact": "manifests/release/track-017-owner-bounded-disposition-2026-08-16.json",
+    "sha256": "3ab4a645b44e5fe0ab732baf9b2541c9a09a31e1b9035ee99aa7018f752cbbb7",
+    "candidate_commit": "ba92940572bd69e19d54447e59b8ba8f776e3d5b",
+    "decision": "bounded_synthetic_public_preview",
+    "stable_release": "deferred"
+  },
+  "usability_preparation": {
+    "status": "two_advisory_agent_assessments_executed",
+    "required_agent_assessments": 2,
+    "required_roles": ["first_time_user_accessibility", "node_operator_documentation"],
+    "required_report_fields": ["candidate_commit", "environment", "tasks", "outcomes", "barriers", "accessibility_findings", "severity", "recommendation"],
+    "owner_disposition_required": true
+  },
+  "reproduction_preparation": {
+    "status": "two_clean_candidates_and_owner_reproduction_executed",
+    "clean_release_candidates_required": 2,
+    "owner_operated_clean_environment_reproductions_required": 1,
+    "required_receipt_fields": ["candidate_commit", "artifact_hashes", "locked_environment", "commands", "utc_timestamp", "outputs", "discrepancies", "equivalence_disposition"]
+  },
+  "stable_release_gates": {
+    "track_016_bound": true,
+    "usability_agent_reports_complete": true,
+    "owner_reproduction_complete": true,
+    "two_clean_candidates_complete": true,
+    "backup_continuity_complete": false,
+    "complete_v1_evidence_index": true,
+    "owner_exact_candidate_release_decision": true,
+    "public_artifact_verification": false
+  },
+  "claims": {
+    "independent_reproduction": false,
+    "independent_usability": false,
+    "external_approval": false,
+    "patient_or_community_approval": false,
+    "custodian_or_licensor_approval": false,
+    "complete_v1_evidence": false,
+    "support_continuity": false,
+    "stable_release_authorized": false,
+    "v1_tag_created": false,
+    "public_stable_artifacts_verified": false
+  },
+  "stop_triggers": [
+    "critical safety finding",
+    "rights or licence failure",
+    "semantic-integrity failure",
+    "security or credential failure",
+    "reproducibility or recovery failure",
+    "candidate or artifact hash mismatch",
+    "withdrawal route failure",
+    "unsupported stable or support claim"
+  ],
+  "allowed_statement": "Track 017 has a bounded release-readiness preparation contract for a single-owner repository using advisory agent panels; stable v1 release, independent review, continuity and public verification remain pending."
+}

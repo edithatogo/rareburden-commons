@@ -1,0 +1,70 @@
+name: bounded historical UTS frontier to Hugging Face
+
+on:
+  workflow_dispatch:
+    inputs:
+      family:
+        description: Exact family slug, or auto for configured family order
+        required: true
+        default: auto
+        type: string
+      max_artifacts:
+        description: Maximum sequential artifacts (policy maximum 10)
+        required: true
+        default: "3"
+        type: string
+      max_bytes:
+        description: Maximum downloaded bytes across this run (policy maximum 8 GB)
+        required: true
+        default: "8000000000"
+        type: string
+      max_minutes:
+        description: Stop before another artifact after this elapsed budget (maximum 210)
+        required: true
+        default: "180"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-licensed-uts-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    name: Advance receipt-verified historical cursor
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Advance bounded historical frontier
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          UMLS_API_KEY: ${{ secrets.UMLS_API_KEY }}
+          UTS_FAMILY: ${{ inputs.family }}
+          UTS_MAX_ARTIFACTS: ${{ inputs.max_artifacts }}
+          UTS_MAX_BYTES: ${{ inputs.max_bytes }}
+          UTS_MAX_MINUTES: ${{ inputs.max_minutes }}
+          PYTHONPATH: .
+        run: |
+          python3 scripts/archive_uts_historical_frontier.py \
+            manifests/uts/all-release-families-2026-08-15.json \
+            manifests/uts/historical-frontier-plan-2026-08-16.json \
+            --capacity-state manifests/uts/hf-private-capacity-state-2026-08-16.json \
+            --family "$UTS_FAMILY" \
+            --max-artifacts "$UTS_MAX_ARTIFACTS" \
+            --max-bytes "$UTS_MAX_BYTES" \
+            --max-minutes "$UTS_MAX_MINUTES" \
+            --receipt uts-historical-frontier-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: uts-historical-frontier-receipt
+          path: uts-historical-frontier-receipt.json
+          if-no-files-found: error
+          retention-days: 30

@@ -67,3 +67,23 @@
   migration requirements and custody boundaries. Evidence:
   `docs/track-009-ledger-review-packet.md`; upstream source/semantic and
   external epidemiology/data-governance/engineering review remain open.
+
+## Bounded source-ledger reconciliation — 2026-08-16
+
+- [x] Bind the ledger source register to the immutable Track 008 inventory
+  fingerprint and current Track 002 evidence receipts, with distinct licence,
+  visibility and activation states. Evidence:
+  `docs/track-009-source-release-bindings-2026-08-16.yml` and
+  `manifests/ledger/track-009-source-release-bindings-2026-08-16.json`.
+- [x] Reject private, disabled, unusable-licence or mutable source-release links
+  before a parameter can be used. Evidence: `ParameterLedger` validation and
+  positive/negative tests in `tests/test_ledger.py` and
+  `tests/test_track009_source_bindings.py`.
+- [x] Require explicit rationale when selecting among a complete alternative
+  parameter set; never auto-select a conflict. Evidence:
+  `ParameterLedger.select_alternative` and focused tests.
+- [x] Run bounded repository epidemiology, rights and engineering agent
+  challenge. Evidence: `docs/track-009-bounded-agent-challenge-2026-08-16.yml`.
+  Three medium findings remain controlled by disabled empirical activation.
+- [ ] Record owner disposition and repeat the challenge after Track 008 is
+  complete; do not freeze the v0.4 ledger contract before then.

@@ -1,7 +1,155 @@
 # Track 007 internal review — Landscape, adjacency and novelty
 
-**Review date:** 2026-07-27  
-**Decision:** Proceed with narrowed scope, subject to registered review and external challenge
+**Review date:** 2026-07-27; current closeout review 2026-08-16
+
+**Current decision:** Narrow; track remains in review. The protocol is
+repository hash-registered, the role-separated advisory agent challenge is
+complete, and the repository owner selected Option A against the exact merged
+candidate. The original publication-ready landscape acceptance remains unmet.
+External registry submission is optional, and OSF is deferred.
+
+## Current closeout evidence — 2026-08-16
+
+`docs/track-007-protocol-v0.2.0.md` freezes the review question, active search
+surface, five query families, eligibility, deduplication, count reconciliation,
+coverage limits, challenge rules and stop triggers. The content-addressed
+registration in `docs/track-007-repository-registration-2026-08-16.yml` binds
+the protocol and its evidence inputs by SHA-256 and Git blob identifier.
+
+`docs/track-007-bounded-evidence-synthesis-2026-08-16.md` reconciles the frozen
+first-page screen, locator workflow and separate live pagination exercise. It
+keeps all content-level decisions, broader coverage, representativeness and
+novelty claims fail-closed. `docs/track-007-agent-challenge-task-2026-08-16.yml`
+defines the exact input hashes, role remits, required findings and assurance
+boundary for the remaining advisory challenge.
+
+The dated sections below preserve the historical evidence state at the time
+they were written. Their former external or additional-person gate wording is
+superseded prospectively by ADR-0009; historical observations are not rewritten.
+
+### Methods and coverage challenge — 2026-08-16
+
+The role-separated methods and coverage challenger verified every input hash
+and Git blob binding, then recommended **narrow**. The full advisory findings
+are recorded in `docs/track-007-agent-panel-findings-2026-08-16.yml`.
+
+Three High findings remain: all 69 retained records lack final content-level
+eligibility decisions; the separate 306-occurrence live capture is unscreened
+and unreconciled; and scholarly coverage is limited to ranked Crossref first
+pages without executable pagination or database-specific bibliographic
+searches. Medium findings limit deduplication to the frozen snapshot, identify
+English and ranking bias, distinguish capture-mechanics reproducibility from
+exact response reproduction, and require institutional records to be labelled
+as curated seeds.
+
+The exact `133 occurrences -> 120 unique -> 69 retained / 51 excluded` snapshot
+counts remain valid. They do not satisfy the original broad landscape scope.
+The community/harm challenger also recommended **narrow and revise framing**.
+Every gap or niche statement must be bounded to the indexed English-language
+public evidence sampled; the 13 catalogue records are owner-curated examples,
+not a global inventory; inaccessible evidence is `not_assessable`, not absent
+or irrelevant; and no patient/community legitimacy or approval exists. Public
+framing must state that burden measurement does not value lives, rank
+conditions or justify rationing, and must preserve lived-impact, equity and
+accessibility limitations.
+
+The governance/rights/reproducibility and additional
+scientific/search-reproducibility challenges confirmed the narrow direction and
+required provider-terms, exact-candidate, retrospective-protocol, correction
+and withdrawal controls. Those repository remediations are recorded in:
+
+- `docs/track-007-provider-terms-matrix-2026-08-16.yml`;
+- `docs/track-007-correction-withdrawal-map-2026-08-16.yml`;
+- `docs/track-007-bounded-framing-addendum-2026-08-16.md`; and
+- `docs/track-007-owner-disposition-ready-2026-08-16.yml`.
+
+All challenge roles are complete and the panel consensus is **narrow and
+remediate**. The repository owner selected Option A `narrow` against commit
+`1f93f5862290e16d0e393834e35c282d187658e1` and tree
+`97bb9387053f4e8feb30d2310fbc849e5ecbb8da`, through 2026-09-03. The track
+stays **In review** because the original publication-ready landscape acceptance
+is not met; the attributable owner receipt is GitHub issue comment
+`5303053641`. No external, independent or patient/community approval is claimed.
+
+### Substantive evidence continuation — 2026-08-16
+
+The historical panel findings above correctly described the candidate reviewed
+at that time. Subsequent repository work now accounts for all 306 live-capture
+occurrences: 215 exact provider identifiers remain after removing 91 duplicate
+occurrences; 71 match the frozen snapshot and all 144 live-only identifiers
+have a current public-record observation. Of those live-only observations, 51
+have explicit scope and contribution signals suitable for later content
+assessment and 93 remain uncertain. No live-only record was excluded.
+
+For the frozen 69-record eligibility set, an exact, closed-vocabulary rule over
+already-retained public descriptions supports 35 adjacency-eligibility includes.
+The updated register keeps 26 reachable records pending content assessment and
+8 restricted records pending lawful access, with zero new exclusions. The
+decision does not establish quality, novelty or representativeness. Current
+record observations retain response hashes, identifiers, titles and canonical
+URLs; descriptions were inspected transiently and not retained, and no
+abstract, body or full-text bytes were fetched.
+
+The exact hashes, missingness counts, lawful-evidence boundary and prohibited
+claims are consolidated in
+`docs/track-007-substantive-evidence-update-2026-08-16.yml`. Track 007 remains
+**In review** pending the explicitly unchecked content and lawful-access tasks
+and the original publication-ready landscape acceptance.
+
+### Public-content and bibliographic continuation — 2026-08-16
+
+Lawful minimal Crossref and GitHub metadata advanced the frozen 69-record set
+to 56 includes and 2 explicit duplicate/non-substantive-release exclusions.
+One record remains uncertain, 2 remain pending adequate public evidence, and
+the 8 restricted records remain pending lawful access. Abstracts, descriptions,
+bodies and full text were not retained. The 144 live-only records now all have
+an exact closed-vocabulary screen: 51 are candidates for content assessment and
+93 remain uncertain; none was excluded.
+
+A strict Crossref expansion used 24 rate-limited requests: two pages of 20 rows
+for each of five frozen English, four multilingual and three community or
+community-multilingual queries. It records 480 ranked DOI occurrences. Crossref
+did not report record language for any occurrence, query language is not treated
+as record language, and geography remains unmeasured. Community query terms do
+not establish community leadership, authority, legitimacy or approval.
+
+The exact hashes, outcome counts, missingness and claim boundary are recorded
+in `docs/track-007-bibliographic-content-update-2026-08-16.yml`. The bounded
+expansion reduces the earlier single-page Crossref limitation but does not make
+the search systematic, comprehensive, representative or publication-ready.
+
+### Final minimal-metadata pass — 2026-08-16
+
+Exact Zenodo and GitHub public metadata resolved the last 3 non-restricted
+frozen records as includes. The frozen set is now 59 includes, 2 explicit
+duplicate/non-substantive-release exclusions and 8 lawful-access records still
+pending. The same exact signal contract supports bounded adjacency eligibility
+for 51 live-only records; 93 remain uncertain and none is excluded. No response
+body, description, abstract or full text is retained, and neither result is a
+quality, novelty, community-authority or completeness finding.
+
+### Lawful alternatives and safe-metadata deepening — 2026-08-16
+
+Public Crossref citation metadata supplied an adequate alternative observation
+for all 8 publisher-restricted DOI records without fetching publisher locators.
+Seven have explicit title-level rare-disease and contribution signals and are
+bounded includes; one journal-introduction record remains uncertain. The frozen
+69 are now 66 includes, 2 explicit duplicate/non-substantive-release exclusions
+and 1 uncertain, with no record pending solely because its publisher locator is
+restricted.
+
+A fresh safe-field pass over the 144 live-only records retained GitHub topics,
+language, SPDX identifier, archived/fork flags and Zenodo keywords, resource
+type, language and access state. It preserved all 51 prior hash-bound includes,
+upgraded 3 records, and left 90 uncertain with zero exclusions. Descriptions,
+abstracts, response bodies and full text were not retained.
+
+No second bibliographic provider was activated. OpenAlex's current official
+authentication page requires an API key and its terms PDF returned 403 to the
+bounded direct observation. Europe PMC's public API and metadata-use pages were
+reachable, but the observed pages did not state an exact provider-specific
+numeric request ceiling. This is a provider-governance blocker, not evidence of
+absence or poor coverage.
 
 ### Review rerun — 2026-07-29
 
@@ -216,34 +364,3 @@ fields. This completes repository-owned workflow construction and locator
 observation only. Final eligibility, pagination/completeness, novelty,
 registration, independent methods challenge and accountable patient/community
 interpretation remain pending.
-
-### Bounded live pagination and coverage disposition — 2026-08-15
-
-The five frozen queries were exercised against GitHub, Zenodo and Hugging Face
-with a two-page, 25-record budget. GitHub reached its retrieval-time endpoint
-totals for all five queries (56 occurrences). Zenodo captured 250 occurrences
-but hit the page budget for every query against much larger provider totals.
-Hugging Face returned empty first pages, which is recorded only as endpoint
-behavior and not as evidence that matching datasets do not exist.
-
-Every provider file records exact URLs, timestamps, response hashes, identifiers
-and stop reasons and is hash-bound by
-`docs/track-007-live-capture-coverage-2026-08-15.json`. The coverage disposition
-keeps scholarly, grey-literature, language, geography, temporal and restricted
-material coverage incomplete or unmeasured. Comprehensive coverage, global
-representativeness and upgraded novelty claims remain prohibited. Newly captured
-record screening and the external challenge gates remain open.
-
-### Exact-title cluster adjudication — 2026-08-15
-
-All four title clusters flagged by bounded screening now have record-level rules
-backed by exact GitHub or Crossref response hashes. Reciprocal Crossref relations
-link the Dercum's disease preprint and journal article as versions of one work
-without deleting either record. The three GitHub pairs have distinct immutable
-repository/node identifiers and no declared fork, parent or source relation, so
-they remain separate repository records.
-
-This does not establish that the GitHub pairs are distinct initiatives. Their
-initiative-level equivalence remains unresolved because shared names or
-descriptions are insufficient evidence. The adjudication removes silent
-record-level merging risk without narrowing external challenge requirements.

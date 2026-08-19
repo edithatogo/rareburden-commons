@@ -1,0 +1,590 @@
+{
+  "schema_version": "1.0",
+  "observed_at": "2026-08-15T15:42:11+00:00",
+  "source": "https://id.who.int",
+  "api_version": "v2",
+  "scope": [
+    "who-fic-foundation",
+    "icd11-mms",
+    "icf",
+    "icd10"
+  ],
+  "classifications": [
+    {
+      "classification": "who-fic-foundation",
+      "release_id": "2026-01",
+      "endpoint": "/icd/entity",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "cs",
+        "de",
+        "en",
+        "es",
+        "et",
+        "fi",
+        "fr",
+        "hy",
+        "it",
+        "kk",
+        "la",
+        "mn",
+        "pt",
+        "ru",
+        "sk",
+        "sv",
+        "tr",
+        "uk",
+        "uz",
+        "zh"
+      ],
+      "language_evidence": "union_across_current_api_classifications",
+      "release_date": "2026-01-17",
+      "observation_sha256": "de1173631d9c9c3abb54ddbda8374c7b9496f805f1c41159baedcd2fa358a7ba"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2026-01",
+      "endpoint": "/icd/release/11/2026-01/mms",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "cs",
+        "de",
+        "en",
+        "es",
+        "fr",
+        "kk",
+        "la",
+        "pt",
+        "ru",
+        "sk",
+        "sv",
+        "tr",
+        "uz",
+        "zh"
+      ],
+      "prerelease_languages": [
+        "de"
+      ],
+      "release_date": "2026-01-17",
+      "observation_sha256": "6970171bdfeb9972113bc35865d57731007975530db9d6dc401dcb4985506c81"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2026-01",
+      "endpoint": "/icd/release/11/2026-01/icf",
+      "http_status": 200,
+      "available_languages": [
+        "cs",
+        "en",
+        "es",
+        "et",
+        "fi",
+        "fr",
+        "hy",
+        "it",
+        "mn",
+        "pt",
+        "ru",
+        "sk",
+        "tr",
+        "uk",
+        "zh"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2026-01-17",
+      "observation_sha256": "c51d8c7f890621a96ebb983e6bd4d7e39ca022099231d663aa567c7b8527cf2d"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2025-01",
+      "endpoint": "/icd/release/11/2025-01/mms",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "cs",
+        "en",
+        "es",
+        "fr",
+        "kk",
+        "la",
+        "pt",
+        "ru",
+        "sk",
+        "sv",
+        "tr",
+        "uz",
+        "zh"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2025-01-24",
+      "observation_sha256": "30aca06be62261a0bb208a806b0d9b7d6011cc0e1ad814d22a4fcdcabc2083f4"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2025-01",
+      "endpoint": "/icd/release/11/2025-01/icf",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "cs",
+        "en",
+        "es",
+        "fr",
+        "kk",
+        "la",
+        "pt",
+        "ru",
+        "sk",
+        "sv",
+        "tr",
+        "uz",
+        "zh"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2025-01-24",
+      "observation_sha256": "858bc70b94a4776c3282f7d4dcc51800b25bc106fbe4ed6ea7ee037bfaa29858"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2024-01",
+      "endpoint": "/icd/release/11/2024-01/mms",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "cs",
+        "en",
+        "es",
+        "fr",
+        "pt",
+        "ru",
+        "tr",
+        "uz",
+        "zh"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2024-01-21",
+      "observation_sha256": "e59ff9ecc73363838a14d74f40e40669c19a91d915e7d5b35a5a9b2cafff242e"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2024-01",
+      "endpoint": "/icd/release/11/2024-01/icf",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "cs",
+        "en",
+        "es",
+        "fr",
+        "pt",
+        "ru",
+        "tr",
+        "uz",
+        "zh"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2024-01-21",
+      "observation_sha256": "d80cfce0bdc17c8364d1ab4205d49e2698fe7f91722b55c3a2f2c1f3b14f1666"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2023-01",
+      "endpoint": "/icd/release/11/2023-01/mms",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "ru",
+        "tr",
+        "zh"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2023-01-23",
+      "observation_sha256": "09d9a348cff03c86f8d67863e1422b599ab6ad85e09d300275bba7a8c02baa6c"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2023-01",
+      "endpoint": "/icd/release/11/2023-01/icf",
+      "http_status": 404,
+      "available_languages": [],
+      "prerelease_languages": [],
+      "release_date": null,
+      "observation_sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2022-02",
+      "endpoint": "/icd/release/11/2022-02/mms",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "zh"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2022-02-07",
+      "observation_sha256": "0ff1a6845543dfca7b98e37218a13684d930451442b65b6909317f0ace515a57"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2022-02",
+      "endpoint": "/icd/release/11/2022-02/icf",
+      "http_status": 404,
+      "available_languages": [],
+      "prerelease_languages": [],
+      "release_date": null,
+      "observation_sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2021-05",
+      "endpoint": "/icd/release/11/2021-05/mms",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "en",
+        "es",
+        "zh"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2021-05-11",
+      "observation_sha256": "1970a86e18c14dbfc189a710a259358f10c51b9b5a8d06f0efa35647a566518b"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2021-05",
+      "endpoint": "/icd/release/11/2021-05/icf",
+      "http_status": 404,
+      "available_languages": [],
+      "prerelease_languages": [],
+      "release_date": null,
+      "observation_sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2020-09",
+      "endpoint": "/icd/release/11/2020-09/mms",
+      "http_status": 200,
+      "available_languages": [
+        "ar",
+        "en",
+        "es"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2020-09-15",
+      "observation_sha256": "9665e63b70ef564f771a2eb241b54ce6c4d6dc6bfdea779b0db07a16ee99fe83"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2020-09",
+      "endpoint": "/icd/release/11/2020-09/icf",
+      "http_status": 404,
+      "available_languages": [],
+      "prerelease_languages": [],
+      "release_date": null,
+      "observation_sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2019-04",
+      "endpoint": "/icd/release/11/2019-04/mms",
+      "http_status": 200,
+      "available_languages": [
+        "en"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2019-04-06",
+      "observation_sha256": "c2ea7418bedb1d9bfb7434e9418492977dcdc5a6976677171b4cc78eff7d0340"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2019-04",
+      "endpoint": "/icd/release/11/2019-04/icf",
+      "http_status": 404,
+      "available_languages": [],
+      "prerelease_languages": [],
+      "release_date": null,
+      "observation_sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404"
+    },
+    {
+      "classification": "icd11-mms",
+      "release_id": "2018",
+      "endpoint": "/icd/release/11/2018/mms",
+      "http_status": 200,
+      "available_languages": [
+        "en"
+      ],
+      "prerelease_languages": [],
+      "release_date": "2018-06-05",
+      "observation_sha256": "c032392a0a5ce69b4c73acf582012ae9ce168f2979fe0bd19434effa24268c7e"
+    },
+    {
+      "classification": "icd11-icf",
+      "release_id": "2018",
+      "endpoint": "/icd/release/11/2018/icf",
+      "http_status": 404,
+      "available_languages": [],
+      "prerelease_languages": [],
+      "release_date": null,
+      "observation_sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404"
+    },
+    {
+      "classification": "icd10",
+      "release_id": "2019",
+      "endpoint": "/icd/release/10/2019",
+      "http_status": 200,
+      "available_languages": [],
+      "language_evidence": "not_exposed_by_release_endpoint",
+      "release_date": "2020-02-01",
+      "observation_sha256": "9eaafd1ad488fae373519daca49546281a0a25c5bf0dfe6703c104bda0488c7f"
+    },
+    {
+      "classification": "icd10",
+      "release_id": "2016",
+      "endpoint": "/icd/release/10/2016",
+      "http_status": 200,
+      "available_languages": [],
+      "language_evidence": "not_exposed_by_release_endpoint",
+      "release_date": "2016-11-01",
+      "observation_sha256": "ea6332f23d8a63da30f2a2d04899b98872777be5e8e07ca6b30035e10776b1f1"
+    },
+    {
+      "classification": "icd10",
+      "release_id": "2010",
+      "endpoint": "/icd/release/10/2010",
+      "http_status": 200,
+      "available_languages": [],
+      "language_evidence": "not_exposed_by_release_endpoint",
+      "release_date": "2010-11-01",
+      "observation_sha256": "94b58c944ee545a358c1b8140b091adbbf7b62c284774234a36bca99b076c8bd"
+    },
+    {
+      "classification": "icd10",
+      "release_id": "2008",
+      "endpoint": "/icd/release/10/2008",
+      "http_status": 200,
+      "available_languages": [],
+      "language_evidence": "not_exposed_by_release_endpoint",
+      "release_date": "2008-11-01",
+      "observation_sha256": "7eaf78c92f1146170a0042de0c702af583e31037a4df7b2eaa5a72b96f5899fc"
+    }
+  ],
+  "observations": [
+    {
+      "endpoint": "/icd/entity",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1074,
+      "sha256": "de1173631d9c9c3abb54ddbda8374c7b9496f805f1c41159baedcd2fa358a7ba",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2026-01/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 2056,
+      "sha256": "6970171bdfeb9972113bc35865d57731007975530db9d6dc401dcb4985506c81",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2026-01/icf",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 561,
+      "sha256": "c51d8c7f890621a96ebb983e6bd4d7e39ca022099231d663aa567c7b8527cf2d",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2025-01/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 2022,
+      "sha256": "30aca06be62261a0bb208a806b0d9b7d6011cc0e1ad814d22a4fcdcabc2083f4",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2025-01/icf",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 556,
+      "sha256": "858bc70b94a4776c3282f7d4dcc51800b25bc106fbe4ed6ea7ee037bfaa29858",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2024-01/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 2002,
+      "sha256": "e59ff9ecc73363838a14d74f40e40669c19a91d915e7d5b35a5a9b2cafff242e",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2024-01/icf",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 536,
+      "sha256": "d80cfce0bdc17c8364d1ab4205d49e2698fe7f91722b55c3a2f2c1f3b14f1666",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2023-01/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1987,
+      "sha256": "09d9a348cff03c86f8d67863e1422b599ab6ad85e09d300275bba7a8c02baa6c",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2023-01/icf",
+      "language": "en",
+      "http_status": 404,
+      "bytes": 37,
+      "sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2022-02/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1977,
+      "sha256": "0ff1a6845543dfca7b98e37218a13684d930451442b65b6909317f0ace515a57",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2022-02/icf",
+      "language": "en",
+      "http_status": 404,
+      "bytes": 37,
+      "sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2021-05/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1972,
+      "sha256": "1970a86e18c14dbfc189a710a259358f10c51b9b5a8d06f0efa35647a566518b",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2021-05/icf",
+      "language": "en",
+      "http_status": 404,
+      "bytes": 37,
+      "sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2020-09/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1956,
+      "sha256": "9665e63b70ef564f771a2eb241b54ce6c4d6dc6bfdea779b0db07a16ee99fe83",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2020-09/icf",
+      "language": "en",
+      "http_status": 404,
+      "bytes": 37,
+      "sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2019-04/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1946,
+      "sha256": "c2ea7418bedb1d9bfb7434e9418492977dcdc5a6976677171b4cc78eff7d0340",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2019-04/icf",
+      "language": "en",
+      "http_status": 404,
+      "bytes": 37,
+      "sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2018/mms",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1853,
+      "sha256": "c032392a0a5ce69b4c73acf582012ae9ce168f2979fe0bd19434effa24268c7e",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/11/2018/icf",
+      "language": "en",
+      "http_status": 404,
+      "bytes": 37,
+      "sha256": "f0c57fecf818431a5f6e5d1b9c0c0dc7762296ea265153f09c1da09b0388c404",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/10",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 484,
+      "sha256": "6757013c0941a2fb1d05f20adf1916c868bc29843d23ae7f3355aa44ff8fad8f",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/10/2019",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1344,
+      "sha256": "9eaafd1ad488fae373519daca49546281a0a25c5bf0dfe6703c104bda0488c7f",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/10/2016",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1344,
+      "sha256": "ea6332f23d8a63da30f2a2d04899b98872777be5e8e07ca6b30035e10776b1f1",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/10/2010",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1344,
+      "sha256": "94b58c944ee545a358c1b8140b091adbbf7b62c284774234a36bca99b076c8bd",
+      "raw_route": "private_licensed_archive_only"
+    },
+    {
+      "endpoint": "/icd/release/10/2008",
+      "language": "en",
+      "http_status": 200,
+      "bytes": 1344,
+      "sha256": "7eaf78c92f1146170a0042de0c702af583e31037a4df7b2eaa5a72b96f5899fc",
+      "raw_route": "private_licensed_archive_only"
+    }
+  ],
+  "rights": {
+    "public_manifest": "metadata_hashes_only",
+    "raw_api_responses": "private_licensed_archive_only",
+    "public_raw_redistribution": false
+  },
+  "claims": {
+    "complete_api_graph": false,
+    "complete_who_fic_family": false,
+    "national_editions_included": false,
+    "production_activation": false
+  },
+  "known_gaps": [
+    "ICD-10 release endpoints do not expose an availableLanguages field",
+    "ICHI and other WHO derived or related classifications are outside the observed ICD API scope",
+    "national modifications require separate country-authority release inventories"
+  ],
+  "private_archive_commit": "https://huggingface.co/datasets/edithatogo/hpo-licensed-ontology-archive/commit/e88f22d227471b7e421f6e661641c5b32535c67d"
+}

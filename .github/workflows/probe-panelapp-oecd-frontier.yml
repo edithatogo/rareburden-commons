@@ -1,0 +1,55 @@
+name: bounded PanelApp and OECD metadata frontier
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Approved metadata-only canary
+        required: true
+        type: choice
+        options:
+          - panelapp-australia
+          - oecd-health-statistics-dataflow
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-panelapp-oecd-metadata-frontier
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Select exact bounded route
+        id: route
+        env:
+          SOURCE: ${{ inputs.source }}
+        run: |
+          case "$SOURCE" in
+            panelapp-australia)
+              echo 'url=https://panelapp-aus.org/api/v1/panels/?page=1' >> "$GITHUB_OUTPUT"
+              ;;
+            oecd-health-statistics-dataflow)
+              echo 'url=https://sdmx.oecd.org/public/rest/dataflow/OECD.ELS.HD/DSD_HEALTH_STAT@DF_COM/1.0?references=none' >> "$GITHUB_OUTPUT"
+              ;;
+            *) exit 2 ;;
+          esac
+      - name: Capture hash and non-expressive metadata only
+        env:
+          SOURCE: ${{ inputs.source }}
+          SOURCE_URL: ${{ steps.route.outputs.url }}
+        run: |
+          python3 scripts/probe_panelapp_oecd_frontier.py "$SOURCE" \
+            --url "$SOURCE_URL" --receipt frontier-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: panelapp-oecd-frontier-receipt
+          path: frontier-receipt.json
+          if-no-files-found: error
+          retention-days: 30

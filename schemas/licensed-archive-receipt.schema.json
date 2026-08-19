@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.example/schemas/licensed-archive-receipt.schema.json",
+  "title": "Licensed private archive receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "portal", "destination", "visibility", "manifest_sha256", "receipt_path", "results", "claims"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "portal": {"enum": ["meddra", "mlds"]},
+    "destination": {"const": "edithatogo/hpo-licensed-ontology-archive"},
+    "visibility": {"const": "private"},
+    "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "receipt_path": {"type": "string", "pattern": "^licensed-private/receipts/(meddra|mlds)/[0-9a-f]{64}\\.json$"},
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["index", "status", "archive_path", "bytes", "sha256", "duplicate_of"],
+        "properties": {
+          "index": {"type": "integer", "minimum": 0},
+          "status": {"enum": ["archived", "referenced_existing"]},
+          "archive_path": {"type": "string"},
+          "bytes": {"type": "integer", "minimum": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "duplicate_of": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "claims": {
+      "type": "object", "additionalProperties": false,
+      "required": ["public_redistribution", "portal_completeness", "native_edition_completeness", "production_activation"],
+      "properties": {
+        "public_redistribution": {"const": false},
+        "portal_completeness": {"const": false},
+        "native_edition_completeness": {"const": false},
+        "production_activation": {"const": false}
+      }
+    }
+  }
+}

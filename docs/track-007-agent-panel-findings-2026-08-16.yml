@@ -1,0 +1,293 @@
+schema_version: '1.0.0'
+track: 007-landscape-novelty
+status: complete_agent_panel_findings_pending_owner_disposition
+assurance: advisory_agent_review_not_independent_or_human_approval
+reviewed_commit: 33f2c38
+task_contract: docs/track-007-agent-challenge-task-2026-08-16.yml
+input_bindings:
+  repository_registration_sha256: c9fffd556859e5569eab3c32cd460519da7710a0535ea15f8d3701132ef5f89a
+  protocol_sha256: b83e9d9e64b7157f9319c15ec63cde29967646f34eb09cf447571866f0a1dc00
+  synthesis_sha256: 56e1f171272578a5a4966abdc208698351add66fe1614a3b1b9885cf216d33ab
+completed_roles:
+- methods_coverage_challenger
+- community_harm_equity_challenger
+- adversarial_claim_auditor
+additional_challenges:
+- scientific_search_reproducibility_challenger
+pending_roles: []
+methods_coverage_challenger:
+  evidence_checked:
+  - docs/track-007-agent-challenge-task-2026-08-16.yml
+  - docs/track-007-protocol-v0.2.0.md
+  - docs/track-007-repository-registration-2026-08-16.yml
+  - docs/track-007-bounded-evidence-synthesis-2026-08-16.md
+  - docs/track-007-search-log-2026-08-14.yml
+  - docs/track-007-search-results-2026-08-15.json
+  - docs/track-007-screening-2026-08-15.json
+  - docs/track-007-screening-resolutions-2026-08-15.json
+  - docs/track-007-fulltext-locator-observations-2026-08-15.json
+  - docs/track-007-fulltext-eligibility-2026-08-15.json
+  - docs/track-007-pagination-strategy-2026-08-15.json
+  - docs/track-007-live-capture-coverage-2026-08-15.json
+  - docs/track-007-title-cluster-adjudication-2026-08-15.json
+  - catalog/initiatives.yml
+  binding_check: all_task_and_registration_sha256_and_git_blob_identifiers_match
+  findings:
+  - id: M-F1
+    severity: high
+    finding: All 69 retained records lack a final content-level eligibility decision; 61 await content assessment and 8 await lawful access.
+    consequence: The evidence supports a provisional adjacency hypothesis, not a completed landscape, final novelty conclusion or publication-ready report.
+    remediation: Complete lawful content decisions or formally narrow the output and acceptance contract.
+  - id: M-F2
+    severity: high
+    finding: The separate live capture's 306 occurrences are unscreened and unreconciled with the 120-record snapshot.
+    consequence: They cannot be included in adjacency or inclusion counts.
+    remediation: Keep them explicitly outside the bounded counts or screen, deduplicate and reconcile them.
+  - id: M-F3
+    severity: high
+    finding: Crossref is an active source but is absent from executable pagination and has only ranked first pages against very large provider totals; no database-specific bibliographic search is recorded.
+    consequence: Scholarly coverage and acceptance criterion 1 are not met for the original broad scope.
+    remediation: Create a new protocol with bounded scholarly pagination and bibliographic sources, or formally keep scholarly/database coverage incomplete and outside the bounded conclusion.
+  - id: M-F4
+    severity: medium
+    finding: Five unfielded English query phrases have low specificity and undercapture synonyms, non-English terms, community work and unranked results.
+    consequence: Broader language, geography or community-representation inference is unsupported.
+    remediation: Add multilingual, synonym, named-programme and grey-literature queries in a later protocol or retain the prohibition.
+  - id: M-F5
+    severity: medium
+    finding: Exact deduplication is complete only within the first-page snapshot; three GitHub entity pairs and cross-set live overlap remain unresolved.
+    consequence: Only the 133 to 120 to 69 included and 51 excluded snapshot counts are reconciled.
+    remediation: Complete evidence-bound entity adjudication and cross-set count reconciliation before expanding counts.
+  - id: M-F6
+    severity: medium
+    finding: Raw API response bytes were generally not retained.
+    consequence: Requests and capture mechanics are reproducible, but retrieval-time ranking bytes cannot be reproduced after provider drift.
+    remediation: Describe the result as content-addressed observation metadata and capture-mechanics reproducibility; retain lawful immutable metadata exports in future captures where permitted.
+  - id: M-F7
+    severity: medium
+    finding: Official institutional sources are curated catalogue seeds without comparable exact query, timestamp and response-hash logs.
+    consequence: They cannot be described as a reproducible institutional search result set.
+    remediation: Label them curated seeds or record exact per-source searches in a later protocol.
+  - id: M-F8
+    severity: pass
+    finding: Endpoint and page budgets, empty-page non-absence, restricted-locator non-exclusion, coverage biases, prohibited claims and critical stop conditions are explicit and fail closed.
+  uncertainties:
+  - effect of final content assessment on the programme thesis
+  - unseen non-English, community-led, restricted and unindexed initiatives
+  - provider ranking sensitivity
+  - cross-capture entity overlap
+  - lawful-access outcome for eight locators
+  recommendation: narrow
+  recommended_boundary:
+  - retain only the complementary provenance and federated-measurement hypothesis
+  - retain exact bounded snapshot counts only
+  - make no final novelty, comprehensive coverage or scholarly completeness claim
+  - treat unfinished screening and broader discovery as follow-up work
+  dissent: The original broad acceptance criteria remain unmet unless the scope is formally amended.
+  stop_triggers:
+  - hash or count non-reconciliation
+  - unreported provider or page limits
+  - global, systematic, confirmed-novelty, absence, partnership or community-approval claim
+community_harm_equity_challenger:
+  evidence_checked:
+  - docs/track-007-agent-challenge-task-2026-08-16.yml
+  - docs/track-007-protocol-v0.2.0.md
+  - docs/track-007-bounded-evidence-synthesis-2026-08-16.md
+  - catalog/initiatives.yml
+  - conductor/tracks/007-landscape-novelty/spec.md
+  assurance_boundary: advisory_perspective_not_patient_or_community_approval
+  findings:
+  - id: C-F1
+    severity: high
+    finding: Stable-public-identifier eligibility and five English public-index queries structurally undercapture non-English, regional, small-group, community-led, restricted and unindexed work.
+    consequence: Unqualified gap or niche language risks erasure.
+    remediation: Qualify every gap and niche statement as within the indexed English-language public evidence sampled.
+  - id: C-F2
+    severity: high
+    finding: No patient or community legitimacy, consent or constituted-community approval exists.
+    consequence: Agent perspective and owner disposition cannot be represented as patient/community approval.
+    remediation: Retain the explicit assurance boundary in every public disposition.
+  - id: C-F3
+    severity: medium
+    finding: Burden and cost framing lacks an explicit non-valuation and no-rationing statement.
+    consequence: Readers could interpret measurement as ranking the worth of people or services.
+    remediation: State that system-level burden measurement does not value lives, rank conditions or justify rationing and must retain lived-impact and equity context.
+  - id: C-F4
+    severity: medium
+    finding: Candidate-partner, recommended-engagement, use and remaining-gap labels can imply relationship, extractive intent or devaluation of existing work.
+    consequence: Catalogue language can overstate authority or partnership.
+    remediation: Describe owner-considered complementarity and scope boundaries and state that no relationship is evidenced.
+  - id: C-F5
+    severity: medium
+    finding: The 13 institutional catalogue records are owner-curated English-language examples with US, UK, European and Australian skew.
+    consequence: They cannot support a global initiative inventory claim.
+    remediation: Label the catalogue as curated examples and keep geography and representativeness unknown.
+  - id: C-F6
+    severity: medium
+    finding: Stable-identifier and accessible-description rules disadvantage small or less-resourced groups.
+    consequence: An unassessable record may be misread as irrelevant or absent.
+    remediation: Use not_assessable and never infer absence or irrelevance from inaccessible evidence.
+  - id: C-F7
+    severity: medium
+    finding: No plain-language, translation or accessibility deliverable is bound to the current protocol.
+    consequence: The decision surface is not yet suitable for broad public interpretation.
+    remediation: Require a plain-language limitations summary and identify translation and accessibility as unresolved release work.
+  - id: C-F8
+    severity: medium
+    finding: Extraction fields omit community authority, self-described language and geography, intended benefit, accessibility and Indigenous or cultural governance.
+    consequence: Missing perspective fields could be silently inferred.
+    remediation: Add those fields as unknown-by-default in a later protocol rather than infer them.
+  - id: C-F9
+    severity: pass
+    finding: Existing prohibitions on ownership, endorsement and partnership and warnings about community undercapture are strong and should be retained.
+  recommendation: narrow_and_revise_framing
+  required_revisions:
+  - qualify gap and niche claims by the sampled indexed English-language public evidence
+  - add non-valuation and no-rationing language
+  - label institutional records as owner-curated examples with no relationship evidenced
+  - use not_assessable rather than absent or irrelevant
+  - add a plain-language limitations and accessibility requirement
+  - keep missing community authority, language, geography, benefit, accessibility and cultural-governance fields unknown
+  stop_triggers:
+  - worth-ranking or rationing framing
+  - absence inferred from unobserved or inaccessible evidence
+  - implied partnership, consent or community approval
+  - unresolved naming, rights or cultural-governance harm
+adversarial_claim_auditor:
+  remit: governance_rights_reproducibility_and_claim_authority
+  evidence_checked:
+  - docs/track-007-agent-challenge-task-2026-08-16.yml
+  - docs/track-007-protocol-v0.2.0.md
+  - docs/track-007-repository-registration-2026-08-16.yml
+  - docs/track-007-bounded-evidence-synthesis-2026-08-16.md
+  - docs/track-007-registration-challenge-readiness-2026-08-15.yml
+  - docs/release-policy.md
+  findings:
+  - id: A-F1
+    severity: high
+    finding: No exact per-provider terms matrix is bound to retained or public GitHub, Zenodo, Hugging Face, Crossref, DOI and institutional metadata.
+    consequence: Broader public corpus or report publication is not rights-ready.
+    remediation: Record exact terms URLs, timestamps, response hashes, content classes, limits and fail-closed use decisions per provider.
+  - id: A-F2
+    severity: high
+    finding: Repository-owner authority covers repository claim disposition only.
+    consequence: It cannot create publisher rights, restricted access, partnership, community legitimacy or an external registry event.
+    remediation: State the authority boundary in the owner disposition and every public report.
+  - id: A-F3
+    severity: medium
+    finding: Raw responses are absent, so exact retrieval-time response bytes and ranking cannot be reconstructed.
+    consequence: The evidence supports request reconstruction and content-addressed observation metadata, not exact response reproducibility.
+    remediation: Use that exact assurance language and retain lawful immutable metadata exports in future captures where permitted.
+  - id: A-F4
+    severity: medium
+    finding: Restricted locator records lack access authority, terms basis, permitted evidence, retention and withdrawal fields.
+    consequence: They must remain pending and cannot enter public evidence.
+    remediation: Add the fields before lawful assessment or retain pending_lawful_access.
+  - id: A-F5
+    severity: medium
+    finding: Repository registration lacks an exact commit and tree, expiry and supersession binding.
+    consequence: A later repository state could be confused with the challenged candidate.
+    remediation: Bind the final owner-ready packet to commit, tree, hash manifest, expiry and material-change rules.
+  - id: A-F6
+    severity: medium
+    finding: Material-change triggers omit provider terms, API behavior, ranking, rights, withdrawal and relationship-label changes.
+    consequence: A changed evidence or rights surface might incorrectly reuse the disposition.
+    remediation: Add each trigger to the exact-candidate decision contract.
+  - id: A-F7
+    severity: medium
+    finding: Track 007 lacks a provider-to-artifact correction and withdrawal map.
+    consequence: A rights complaint, hash mismatch or harmful description cannot be traced to every affected artifact.
+    remediation: Record quarantine, withdrawal, correction and supersession actions for each public artifact class.
+  - id: A-F8
+    severity: medium
+    finding: Catalogue relationship labels can imply partnership or access.
+    consequence: Public readers could mistake owner-considered complementarity for an evidenced relationship.
+    remediation: State potential complementarity and no relationship evidenced wherever those labels appear.
+  - id: A-F9
+    severity: medium
+    finding: Capture context omits authentication class, API version or media-type headers and rate-cap class.
+    consequence: Future request reconstruction may miss provider behavior determinants.
+    remediation: Record non-secret request context in future capture versions.
+  - id: A-F10
+    severity: pass
+    finding: Minimal metadata, no bodies or full text, no access bypass, hashes, stable identifiers, exact URLs, stop reasons and prohibited claims are strong controls.
+  recommendation: narrow_and_remediate
+  required_before_broader_public_report:
+  - provider terms matrix
+  - repository-owner claim-authority qualifier
+  - exact candidate, tree, expiry and supersession binding
+  - Track 007 correction and withdrawal map
+  contingencies:
+  - condition: ambiguous or conflicting terms
+    action: retain metadata and hashes only; exclude content bytes and derived text
+  - condition: rights complaint or hash mismatch
+    action: quarantine, withdraw and supersede affected artifacts
+  stop_triggers:
+  - publisher or provider rights exceeded
+  - restricted access treated as permission
+  - relationship, community legitimacy or registry event inferred
+  - exact candidate or hashes cannot be reconstructed
+scientific_search_reproducibility_challenger:
+  reviewed_commit: 56bcc7c
+  binding_check: task inputs and counts verified
+  findings:
+  - id: S-F1
+    severity: high
+    finding: Protocol v0.2.0 was frozen after its bound 2026-08-14 and 2026-08-15 searches and screens.
+    consequence: It is a retrospective reconstructable repository protocol, not preregistration or prospective confirmatory evidence.
+    remediation: Label the protocol retrospective and prohibit preregistration, prospective and confirmatory inference.
+  - id: S-F2
+    severity: high
+    finding: Zero of 69 retained records has a final content decision and the separate 306-occurrence live capture is unscreened.
+    consequence: The thesis is a falsifiable design hypothesis complementary to curated seeds, not an established white-space gap or confirmed novelty.
+    remediation: Use that exact narrow owner claim and keep eligibility and novelty upgrades fail closed.
+  - id: S-F3
+    severity: medium
+    finding: Exact English phrases, one scholarly index, page-limited Zenodo and unmeasured geography, grey literature and community sources cannot support a broader landscape.
+    remediation: Retain the bounded claim or version a later multilingual, synonym-rich, multi-index and community-aware protocol.
+  - id: S-F4
+    severity: medium
+    finding: Gap and white-space language can imply absence and erase unindexed or community-led work.
+    remediation: Prefer unresolved design opportunity within the observed sources.
+  - id: S-F5
+    severity: pass
+    finding: Counts, hashes and Git objects reconcile; inaccessible and empty states do not become exclusions or absence; prohibited approval claims remain fail closed.
+  recommendation: revise_then_narrow
+  uncertainty: Content eligibility and community or non-English coverage could materially change adjacency.
+  stop_triggers:
+  - preregistration, prospective or confirmatory claim
+  - systematic, comprehensive, global or confirmed novelty claim
+  - gap stated as absence beyond observed evidence
+  - partnership, access or community approval inference
+  - hash mismatch or material protocol change without re-versioning
+panel_state:
+  recommendation: narrow_and_remediate
+  consensus:
+  - preserve only the frozen bounded adjacency evidence and provisional complementary programme hypothesis
+  - apply framing, terms, candidate-binding and withdrawal remediations before broader public use
+  - retain all incomplete screening, scholarly coverage and community legitimacy limits
+  dissent:
+  - the original broad publication-ready landscape acceptance remains unmet unless formally narrowed or the outstanding evidence work is completed
+  unresolved_findings:
+  - M-F1
+  - M-F2
+  - M-F3
+  - C-F1
+  - C-F2
+  - A-F1
+  - A-F2
+  owner_ready_options:
+  - id: A
+    recommendation: narrow
+    action: Accept the repository protocol and bounded hypothesis only, with exact claim, rights, framing, expiry and withdrawal limits.
+  - id: B
+    recommendation: revise
+    action: Keep the track in review and complete content screening, live-set reconciliation, bibliographic and multilingual expansion before deciding.
+  - id: C
+    recommendation: defer
+    action: Publish no landscape conclusion; retain the packet as methods preparation only.
+  - id: D
+    recommendation: stop
+    action: Stop if critical duplication, harm, rights or reproducibility failure cannot be remediated.
+  owner_disposition: pending
+  owner_boundary: The panel advises; the repository owner decides against an exact candidate.

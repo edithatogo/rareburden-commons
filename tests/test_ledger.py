@@ -185,11 +185,29 @@ def test_conflicting_alternative_parameters_are_exposed_not_selected() -> None:
 def test_track002_release_links_and_human_report_fail_closed() -> None:
     ledger = load_ledger(LEDGER, SCHEMA)
     release_id = "synthetic-un-wpp-2026-07"
-    ledger.validate_source_release_links({release_id: {"licence_state": "permitted"}})
+    permitted = {
+        "licence_state": "not_applicable",
+        "visibility": "public",
+        "activation_state": "synthetic_only",
+        "provenance_manifest_sha256": "a" * 64,
+    }
+    ledger.validate_source_release_links({release_id: permitted})
     with pytest.raises(LedgerError, match="unknown source release"):
         ledger.validate_source_release_links({})
     with pytest.raises(LedgerError, match="unusable licence"):
-        ledger.validate_source_release_links({release_id: {"licence_state": "unknown"}})
+        ledger.validate_source_release_links(
+            {release_id: {**permitted, "licence_state": "unknown"}}
+        )
+    with pytest.raises(LedgerError, match="not public"):
+        ledger.validate_source_release_links({release_id: {**permitted, "visibility": "private"}})
+    with pytest.raises(LedgerError, match="is disabled"):
+        ledger.validate_source_release_links(
+            {release_id: {**permitted, "activation_state": "disabled_rights"}}
+        )
+    with pytest.raises(LedgerError, match="lacks immutable provenance"):
+        ledger.validate_source_release_links(
+            {release_id: {**permitted, "provenance_manifest_sha256": "mutable"}}
+        )
 
     report = ledger.render_markdown()
     assert report.startswith("# Synthetic public-foundation parameter ledger\n")
@@ -197,3 +215,60 @@ def test_track002_release_links_and_human_report_fail_closed() -> None:
     assert "## Assumptions" in report
     assert "rare-diabetes-fraction-synthetic" in report
     assert "Synthetic assurance value" in report
+
+
+def test_alternative_parameter_selection_requires_explicit_rationale() -> None:
+    document = deepcopy(_document())
+    alternative = deepcopy(document["parameters"][1])
+    alternative["parameter_id"] = "rare-diabetes-fraction-alternative"
+    alternative["distribution"] = {"type": "beta", "alpha": 3.0, "beta": 97.0}
+    document["parameters"].append(alternative)
+    ledger = validate_ledger(document, load_mapping(SCHEMA))
+    choices = [
+        "rare-diabetes-fraction-synthetic",
+        "rare-diabetes-fraction-alternative",
+    ]
+    with pytest.raises(LedgerError, match="explicit selected alternative"):
+        ledger.select_alternative(choices, selected_parameter_id=None, rationale="test")
+    with pytest.raises(LedgerError, match="requires a rationale"):
+        ledger.select_alternative(
+            choices,
+            selected_parameter_id="rare-diabetes-fraction-alternative",
+            rationale=None,
+        )
+    selected = ledger.select_alternative(
+        choices,
+        selected_parameter_id="rare-diabetes-fraction-alternative",
+        rationale="Pre-specified synthetic sensitivity scenario.",
+    )
+    assert selected["parameter_id"] == "rare-diabetes-fraction-alternative"
+    selected["label"] = "detached mutation"
+    assert ledger.get("rare-diabetes-fraction-alternative")["label"] != "detached mutation"
+
+    with pytest.raises(LedgerError, match="at least two distinct"):
+        ledger.select_alternative(
+            [choices[0], choices[0]],
+            selected_parameter_id=choices[0],
+            rationale="invalid duplicate set",
+        )
+    with pytest.raises(LedgerError, match="complete conflict group"):
+        ledger.select_alternative(
+            ["australia-population-synthetic", choices[0]],
+            selected_parameter_id=choices[0],
+            rationale="invalid mixed set",
+        )
+
+
+def test_alternative_parameter_selection_rejects_incompatible_context() -> None:
+    document = deepcopy(_document())
+    alternative = deepcopy(document["parameters"][1])
+    alternative["parameter_id"] = "rare-diabetes-fraction-other-period"
+    alternative["period"] = {"start": "2024-01-01", "end": "2024-12-31"}
+    document["parameters"].append(alternative)
+    ledger = validate_ledger(document, load_mapping(SCHEMA))
+    with pytest.raises(LedgerError, match="incompatible parameter period"):
+        ledger.select_alternative(
+            ["rare-diabetes-fraction-synthetic", "rare-diabetes-fraction-other-period"],
+            selected_parameter_id="rare-diabetes-fraction-synthetic",
+            rationale="invalid incompatible set",
+        )

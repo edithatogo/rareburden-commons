@@ -1,0 +1,66 @@
+name: bounded licensed portal archive to Hugging Face
+
+on:
+  workflow_dispatch:
+    inputs:
+      inventory_path:
+        description: Reviewed MedDRA or MLDS inventory committed without credentials
+        required: true
+        type: string
+      start:
+        description: Zero-based first exact artifact
+        required: true
+        default: "0"
+        type: string
+      count:
+        description: Artifact count, maximum three
+        required: true
+        default: "1"
+        type: string
+      terms_confirmed:
+        description: Exact agreement permits private cloud archival
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-licensed-portal-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    if: ${{ inputs.terms_confirmed }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: >-
+          python3 -m pip install --disable-pip-version-check
+          "huggingface-hub==0.36.0" "jsonschema==4.26.0"
+      - name: Archive exact authorized batch, verify and discard
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          PORTAL_AUTHORIZATION: ${{ secrets.LICENSED_PORTAL_AUTHORIZATION }}
+          INVENTORY_PATH: ${{ inputs.inventory_path }}
+          ARCHIVE_START: ${{ inputs.start }}
+          ARCHIVE_COUNT: ${{ inputs.count }}
+        run: |
+          case "$INVENTORY_PATH" in
+            manifests/classifications/authorized-meddra-*.json|manifests/classifications/authorized-mlds-*.json) ;;
+            *) echo 'Inventory path is outside the authorized naming boundary' >&2; exit 2 ;;
+          esac
+          python3 scripts/archive_licensed_portal_batch.py "$INVENTORY_PATH" \
+            --start "$ARCHIVE_START" --count "$ARCHIVE_COUNT" \
+            --max-bytes 8000000000 --receipt licensed-archive-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: licensed-archive-receipt
+          path: licensed-archive-receipt.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,179 @@
+schema_version: "1.0"
+decision_id: track-002-private-archive-capacity-2026-08-16
+status: decision_required
+as_of: "2026-08-16"
+scope: licensed_private_uts_history
+current_state:
+  route: hugging_face_private_dataset
+  repository: edithatogo/hpo-licensed-ontology-archive
+  capacity: blocked
+  evidence: github-actions:31897934633
+  failure:
+    http_status: 403
+    classification: private_repository_storage_limit_reached
+  safeguards:
+    cursor_advanced: false
+    failed_payload_archived: false
+    redownload_permitted: false
+backlog:
+  source_manifest: manifests/uts/all-release-families-2026-08-15.json
+  observed_at: "2026-08-15T13:25:33Z"
+  historical_artifacts_initial: 2437
+  verified_historical_artifacts: 5
+  remaining_historical_artifacts: 2432
+  known_verified_bytes: 2233759449
+  remaining_bytes: unknown
+  reason_remaining_bytes_unknown: >-
+    The official inventory records release identities and download URLs but not
+    content lengths. Estimating total cost from five MRCONSO artifacts would be
+    invalid because the fourteen product families differ substantially in size.
+  scope_note: >-
+    The 2,432 count is the checked cross-family historical-frontier snapshot
+    after the five MRCONSO receipts. It is not the immediate upload tranche.
+    The later family-specific remote observation below must be reconciled into
+    a new consolidated checkpoint before changing the cross-family count.
+  remaining_by_family:
+    rxnav-in-a-box: 2
+    rxnorm-full-monthly-release: 254
+    rxnorm-prescribable-content-monthly-release: 180
+    rxnorm-prescribable-content-weekly-updates: 773
+    rxnorm-weekly-updates: 916
+    snomed-ct-core-problem-list-subset: 58
+    snomed-ct-international-edition: 85
+    snomed-ct-spanish-edition: 29
+    snomed-ct-to-icd-10-cm-mapping-resources: 25
+    snomed-ct-us-edition-transitive-closure-resources: 12
+    snomed-ct-us-edition: 18
+    umls-full-release: 57
+    umls-metathesaurus-full-subset: 14
+    umls-metathesaurus-mrconso-file: 9
+  latest_family_cursor:
+    family: umls-metathesaurus-full-subset
+    observed_verified: 12
+    observed_pending: 2
+    failed_run: github-actions:31897934633
+    failed_run_max_artifacts: 1
+    cursor_advanced_by_failed_run: false
+    interpretation: >-
+      Only the two pending artifacts in this family are immediately behind the
+      blocked cursor. The failed run attempted a one-artifact tranche and did
+      not advance it. This family observation is distinct from the 2,432-item
+      cross-family backlog snapshot.
+observed_provider_evidence:
+  hugging_face:
+    storage_limits_url: https://huggingface.co/docs/hub/main/en/storage-limits
+    pricing_url: https://huggingface.co/pricing
+    observed_at: "2026-08-16"
+    observations:
+      - Free private storage is documented as 100 GB.
+      - PRO private storage is documented as 1 TB included with pay-as-you-go above it.
+      - Additional private repository storage is documented at a base USD 18 per TB-month.
+      - Hugging Face documents egress and CDN as included at no extra cost.
+    volatility: Verify the exact account plan, currency, taxes, included capacity and price immediately before purchase.
+  s3_reference:
+    pricing_url: https://aws.amazon.com/s3/pricing/
+    access_control_url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-management.html
+    object_lock_url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html
+    observed_at: "2026-08-16"
+    observations:
+      - Object storage charges vary by region, storage class, stored bytes, requests, retrieval and transfer.
+      - S3 supports private access controls, encryption, versioning and optional object lock.
+      - Object lock requires versioning and can increase retained storage and operational complexity.
+    volatility: Select a provider and region, then obtain an exact calculator or quote before purchase.
+options:
+  - id: A
+    name: increase_hugging_face_private_capacity
+    disposition: recommended_after_cost_cap
+    benefits:
+      - Reuses the existing private repository, receipts, hashes, paths and GitHub Actions integration.
+      - Avoids a licensed-byte migration and preserves the already verified remote checkpoint.
+      - Current published base private-storage pricing is lower than the AWS S3 Standard comparison headline.
+      - Published Hugging Face pricing includes egress, reducing restore-cost uncertainty.
+    tradeoffs:
+      - Requires a paid account/capacity decision and an exact current quote.
+      - Remaining byte volume is unknown, so total monthly cost cannot yet be calculated responsibly.
+      - Personal-account governance, region and audit controls may be weaker than a selected enterprise object store.
+      - Git repository history can retain superseded large objects and complicate deletion/withdrawal.
+    contingencies:
+      quota_repeats: Return to blocked state without redownload or cursor advancement.
+      price_exceeds_cap: Evaluate Option B against an exact provider quote or retain Option C.
+      retention_or_region_inadequate: Use Option B only after a security and migration checklist passes.
+  - id: B
+    name: private_s3_compatible_object_store
+    disposition: conditional_fallback
+    benefits:
+      - Separates immutable licensed payload objects from public code and metadata.
+      - Can provide explicit region, encryption, lifecycle, versioning, access-log and object-lock controls.
+      - Object keys and sidecar receipts map naturally to the existing content-addressed archive contract.
+    tradeoffs:
+      - Requires provider, region, account, budget and credential decisions plus new automation and recovery tests.
+      - Storage price alone is incomplete; requests, retrieval, egress, minimum-duration and early-deletion charges may apply.
+      - Migrating verified HF objects can require reading licensed bytes and creates a second checkpoint to reconcile.
+      - Versioning or object lock can increase cost and make withdrawal/deletion harder.
+    contingencies:
+      migration_not_authorized: Leave existing HF objects in place and route only future objects after a reviewed cutover.
+      provider_unavailable: Preserve manifests/hashes under Option C; do not download source bytes without a writable verified destination.
+      integrity_mismatch: Stop migration, retain both receipts and do not advance either cursor.
+  - id: C
+    name: pause_raw_history_metadata_hashes_only
+    disposition: current_safe_default
+    benefits:
+      - Incurs no new private-storage commitment and is already enforced fail-closed.
+      - Preserves release identities, URLs, family cursors, existing hashes and verified receipts without duplicate downloads.
+      - Allows a later destination decision without falsely claiming archive completeness.
+    tradeoffs:
+      - Historical bytes remain dependent on continued publisher availability and licensed access.
+      - Future source withdrawal or change could prevent later exact-byte preservation.
+      - Metadata and hashes alone cannot reproduce an unavailable payload.
+    contingencies:
+      source_withdrawal_observed: Record the loss and affected releases; do not infer or reconstruct missing bytes.
+      capacity_restored: Require a dated expiring preflight and one-artifact canary before resumption.
+recommendation:
+  immediate: C
+  preferred_resumption: A
+  rationale: >-
+    Keep the existing enforced pause while the remaining byte volume and exact
+    account price are unknown. Prefer a bounded Hugging Face capacity increase
+    if the owner accepts an explicit monthly cost cap because it preserves the
+    verified checkpoint and avoids a licensed-byte migration. Use an
+    S3-compatible store only if an exact quote or required security, region,
+    retention or withdrawal controls materially outweigh migration complexity.
+  owner_decisions_required:
+    - Maximum recurring monthly storage spend and billing currency.
+    - Whether the current Hugging Face account controls and storage region are acceptable for the licensed archive.
+    - If not, the selected S3-compatible provider, region, retention period and deletion/withdrawal policy.
+  actions_not_authorized:
+    - Purchasing or upgrading a plan.
+    - Creating an object-store account or bucket.
+    - Uploading, migrating or redownloading licensed bytes.
+    - Changing the checked-in capacity state to ready.
+  proposed_first_tranche_after_unblock:
+    family: umls-metathesaurus-full-subset
+    maximum_artifacts: 2
+    prerequisites:
+      - Reconcile the exact remote family cursor into a reviewed checkpoint.
+      - Pass the dated expiring capacity preflight and one-artifact canary first.
+      - Keep the existing 8 GB and serialized-run ceilings.
+stop_conditions:
+  - Any licence or cloud-storage term does not permit the selected private destination.
+  - A destination is not private or least-privilege access cannot be enforced.
+  - The exact quote exceeds the owner-approved cost cap.
+  - Capacity, integrity, hash, receipt, retention or recovery verification fails.
+  - A migration would require uncontrolled local persistence or expose credentials.
+claims:
+  paid_resource_created: false
+  capacity_restored: false
+  total_backlog_bytes_known: false
+  historical_archive_complete: false
+  public_redistribution: false
+parallel_public_archive_boundary:
+  scope: mondo_public_release_assets
+  canary: github-actions:31900277331
+  outcome: success_after_exact_byte_reconciliation
+  receipt_sha256: a69f97827208a05290634be0701e3a82e03959a2ff1cd6b98ace2e2f0336b17d
+  reused_object_sha256: 0d878d02b1720bab27fdb7db2575bd1758f5624a0fafb6657dce4819451b8368
+  relevance: >-
+    This public-archive integrity result is separate from licensed UTS private
+    storage capacity. Publisher/remote identity was verified before reuse and
+    integrity conflicts remain independently fail-closed; the result does not
+    change Options A, B or C or authorize any licensed-byte operation.

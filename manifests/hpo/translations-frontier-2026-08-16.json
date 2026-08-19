@@ -1,0 +1,697 @@
+{
+  "schema_version": "1.0",
+  "status": "bounded_official_github_history_metadata",
+  "observed_at": "2026-08-16",
+  "source_repository": "obophenotype/hpo-translations",
+  "owner_existing_fork": "edithatogo/hpo-translations",
+  "default_branch": "main",
+  "observed_head_sha": "62f1d254f93e47d87e874783019ccd7480400e76",
+  "api_endpoints": [
+    "https://api.github.com/repos/obophenotype/hpo-translations/commits?per_page=100",
+    "https://api.github.com/repos/obophenotype/hpo-translations/tags?per_page=100",
+    "https://api.github.com/repos/obophenotype/hpo-translations/git/trees/main?recursive=1"
+  ],
+  "pagination": {
+    "commits_pages_observed": 2,
+    "commits_exhaustive_until_no_next_Link": true,
+    "tags_pages_observed": 1,
+    "observed_tags": 0
+  },
+  "observed_commit_count": 128,
+  "observed_commits": [
+    {
+      "sha": "62f1d254f93e47d87e874783019ccd7480400e76",
+      "committed_at": "2026-06-22T15:22:48Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/62f1d254f93e47d87e874783019ccd7480400e76"
+    },
+    {
+      "sha": "e79a2201694c61a40044f2b4ec3161bfb5021705",
+      "committed_at": "2026-06-22T14:49:59Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/e79a2201694c61a40044f2b4ec3161bfb5021705"
+    },
+    {
+      "sha": "3c842975cebc719ccfa29b9b914553d36f5fedce",
+      "committed_at": "2026-06-05T13:08:06Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/3c842975cebc719ccfa29b9b914553d36f5fedce"
+    },
+    {
+      "sha": "51f55cc2e7fa74e811eb06adb6676fd3b1a8f6f7",
+      "committed_at": "2026-04-08T12:06:39Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/51f55cc2e7fa74e811eb06adb6676fd3b1a8f6f7"
+    },
+    {
+      "sha": "68d3fe4c8eb8c960d2950854e990a5d9a27eebcf",
+      "committed_at": "2026-04-08T05:39:58Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/68d3fe4c8eb8c960d2950854e990a5d9a27eebcf"
+    },
+    {
+      "sha": "b47a4bd972feae7f7e9ffc857212b7efa024892e",
+      "committed_at": "2026-04-08T05:28:24Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/b47a4bd972feae7f7e9ffc857212b7efa024892e"
+    },
+    {
+      "sha": "14f5d6ca28665d60600423f8c26c78edc00ac854",
+      "committed_at": "2026-04-08T05:26:13Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/14f5d6ca28665d60600423f8c26c78edc00ac854"
+    },
+    {
+      "sha": "28a10696b9494c9e8bb8fc232487145783f49a29",
+      "committed_at": "2026-04-08T05:23:27Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/28a10696b9494c9e8bb8fc232487145783f49a29"
+    },
+    {
+      "sha": "fab50b3b1b9c2e118feea41dd80358254f0bacd2",
+      "committed_at": "2026-04-07T12:54:34Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/fab50b3b1b9c2e118feea41dd80358254f0bacd2"
+    },
+    {
+      "sha": "8c6477fafaed881d63958f04906942313fa5c874",
+      "committed_at": "2026-04-07T12:04:03Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/8c6477fafaed881d63958f04906942313fa5c874"
+    },
+    {
+      "sha": "69f7f96fba5ae4c1b999028991510088f3480487",
+      "committed_at": "2026-02-16T16:48:34Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/69f7f96fba5ae4c1b999028991510088f3480487"
+    },
+    {
+      "sha": "1c5effaab1108524e67fca837894f94b20b5e701",
+      "committed_at": "2026-02-02T11:42:59Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/1c5effaab1108524e67fca837894f94b20b5e701"
+    },
+    {
+      "sha": "37fbca1aa864ac492c647271355fcb6dc4bec883",
+      "committed_at": "2025-06-19T18:19:08Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/37fbca1aa864ac492c647271355fcb6dc4bec883"
+    },
+    {
+      "sha": "5e2649d2837635b551a9b699358517030113dead",
+      "committed_at": "2025-05-06T14:55:09Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/5e2649d2837635b551a9b699358517030113dead"
+    },
+    {
+      "sha": "13df2a160d4aff22e2db1470fa3b0f7f8c715e7d",
+      "committed_at": "2025-04-14T16:08:59Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/13df2a160d4aff22e2db1470fa3b0f7f8c715e7d"
+    },
+    {
+      "sha": "c484a9ea9dd87d39aa8915f9071528d3b963ac9a",
+      "committed_at": "2025-04-14T14:15:40Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/c484a9ea9dd87d39aa8915f9071528d3b963ac9a"
+    },
+    {
+      "sha": "35e054fccc4b6b794f32a4a58282ae570473a1aa",
+      "committed_at": "2025-04-13T15:51:37Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/35e054fccc4b6b794f32a4a58282ae570473a1aa"
+    },
+    {
+      "sha": "621a8f4df5a22be70f36a2bf5b683fd0677d0b57",
+      "committed_at": "2025-04-13T15:51:04Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/621a8f4df5a22be70f36a2bf5b683fd0677d0b57"
+    },
+    {
+      "sha": "20281dd46a02fe50f8632cfaa68244730e2384dd",
+      "committed_at": "2025-03-11T09:41:46Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/20281dd46a02fe50f8632cfaa68244730e2384dd"
+    },
+    {
+      "sha": "5e609abf5b9941dcc09488cb42839aadc970c022",
+      "committed_at": "2025-03-06T16:04:28Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/5e609abf5b9941dcc09488cb42839aadc970c022"
+    },
+    {
+      "sha": "146df520dde1287e2423e6d9f3c27d323e041f85",
+      "committed_at": "2025-02-17T09:12:57Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/146df520dde1287e2423e6d9f3c27d323e041f85"
+    },
+    {
+      "sha": "823c266b0c00c4f2a5e5f824204f3d899679cac1",
+      "committed_at": "2025-02-06T17:49:14Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/823c266b0c00c4f2a5e5f824204f3d899679cac1"
+    },
+    {
+      "sha": "1e6513539c7a97e16cba5d093c79a3f2afdf1bb8",
+      "committed_at": "2025-02-06T16:20:00Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/1e6513539c7a97e16cba5d093c79a3f2afdf1bb8"
+    },
+    {
+      "sha": "40766ac5a19b23f93fbd65250b26f069d177fb3f",
+      "committed_at": "2025-02-06T15:16:58Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/40766ac5a19b23f93fbd65250b26f069d177fb3f"
+    },
+    {
+      "sha": "9e2198c3bde3791838bc3e2dcbf5d65c4b8e7a63",
+      "committed_at": "2025-02-06T14:54:29Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/9e2198c3bde3791838bc3e2dcbf5d65c4b8e7a63"
+    },
+    {
+      "sha": "c47c7391f3846d99159fd4026b31b1a9b869fe60",
+      "committed_at": "2025-02-05T15:43:10Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/c47c7391f3846d99159fd4026b31b1a9b869fe60"
+    },
+    {
+      "sha": "5ea31c0c70764fb423dd54b3a9c66447401ab908",
+      "committed_at": "2025-01-15T09:54:37Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/5ea31c0c70764fb423dd54b3a9c66447401ab908"
+    },
+    {
+      "sha": "ec58d337ff11bd62dbc8e5dd3dc5059368563463",
+      "committed_at": "2025-01-14T16:09:43Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/ec58d337ff11bd62dbc8e5dd3dc5059368563463"
+    },
+    {
+      "sha": "2b00d9933a52900d9d7cd6c74589e0f8759c71bf",
+      "committed_at": "2025-01-10T12:59:21Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/2b00d9933a52900d9d7cd6c74589e0f8759c71bf"
+    },
+    {
+      "sha": "0f0bb5df356e6d93fdbd5b66996744268ccb6d3f",
+      "committed_at": "2025-01-10T07:26:05Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/0f0bb5df356e6d93fdbd5b66996744268ccb6d3f"
+    },
+    {
+      "sha": "611fd91be7650b389bf32bd0d4c59a2ce55b78b6",
+      "committed_at": "2025-01-10T07:09:14Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/611fd91be7650b389bf32bd0d4c59a2ce55b78b6"
+    },
+    {
+      "sha": "926f29ee6a5f775637cb2ab4651cd1f8f36605da",
+      "committed_at": "2025-01-09T13:07:20Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/926f29ee6a5f775637cb2ab4651cd1f8f36605da"
+    },
+    {
+      "sha": "e8e59f9ce58a48d39f879feebee3386cfae34034",
+      "committed_at": "2025-01-08T17:44:09Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/e8e59f9ce58a48d39f879feebee3386cfae34034"
+    },
+    {
+      "sha": "d455c0adcddc9929938af98cd455c53aba5e463a",
+      "committed_at": "2025-01-08T17:42:09Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/d455c0adcddc9929938af98cd455c53aba5e463a"
+    },
+    {
+      "sha": "3ba10e3a656847b6f39dd5e027f7fb5cb8dcc998",
+      "committed_at": "2025-01-08T16:08:29Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/3ba10e3a656847b6f39dd5e027f7fb5cb8dcc998"
+    },
+    {
+      "sha": "f63fef1d804198318391f83e067e5dca3222c24b",
+      "committed_at": "2025-01-08T09:40:15Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/f63fef1d804198318391f83e067e5dca3222c24b"
+    },
+    {
+      "sha": "d810cd90f353403951d4c40080d4fc8e12db266f",
+      "committed_at": "2024-12-31T12:06:49Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/d810cd90f353403951d4c40080d4fc8e12db266f"
+    },
+    {
+      "sha": "96a94a5460c0bc5c39f5bca8ffcbe7007982045d",
+      "committed_at": "2024-12-28T22:37:22Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/96a94a5460c0bc5c39f5bca8ffcbe7007982045d"
+    },
+    {
+      "sha": "fe78119c4d82b9a50df9f0b91d23d7a5403482a5",
+      "committed_at": "2024-12-27T13:00:18Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/fe78119c4d82b9a50df9f0b91d23d7a5403482a5"
+    },
+    {
+      "sha": "f3a773e6a60065a426b6730a4fe01209402a41db",
+      "committed_at": "2024-12-27T11:47:23Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/f3a773e6a60065a426b6730a4fe01209402a41db"
+    },
+    {
+      "sha": "6f044dd93a7ba1ea217439950da43fac69d797c5",
+      "committed_at": "2024-12-18T13:07:32Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/6f044dd93a7ba1ea217439950da43fac69d797c5"
+    },
+    {
+      "sha": "fb9876704a1a018b444d542eacab0f607879ddb2",
+      "committed_at": "2024-12-12T01:10:31Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/fb9876704a1a018b444d542eacab0f607879ddb2"
+    },
+    {
+      "sha": "6ad591cb5ae56c6e5e3ceb12f3bba9e63b8998a5",
+      "committed_at": "2024-12-12T01:10:14Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/6ad591cb5ae56c6e5e3ceb12f3bba9e63b8998a5"
+    },
+    {
+      "sha": "f0fcbbf80757680197204d1a1e9b796b456f8fb6",
+      "committed_at": "2024-12-11T23:30:43Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/f0fcbbf80757680197204d1a1e9b796b456f8fb6"
+    },
+    {
+      "sha": "cee7fd8d63202ea0413254e315edda3c93416ad9",
+      "committed_at": "2024-12-11T23:18:11Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/cee7fd8d63202ea0413254e315edda3c93416ad9"
+    },
+    {
+      "sha": "51735ba21810c3e592de919f896d17673b1ba152",
+      "committed_at": "2024-12-11T22:21:36Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/51735ba21810c3e592de919f896d17673b1ba152"
+    },
+    {
+      "sha": "dce70273f1a0f1be5c833f1e8ed7164cecdb7372",
+      "committed_at": "2024-12-11T22:12:51Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/dce70273f1a0f1be5c833f1e8ed7164cecdb7372"
+    },
+    {
+      "sha": "fc5c49a7290db58c2609316299302ed6bb50b8ad",
+      "committed_at": "2024-12-11T21:11:12Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/fc5c49a7290db58c2609316299302ed6bb50b8ad"
+    },
+    {
+      "sha": "e57258ff2a1d0a79330d94c562dd13a185a0ecee",
+      "committed_at": "2024-12-11T20:43:34Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/e57258ff2a1d0a79330d94c562dd13a185a0ecee"
+    },
+    {
+      "sha": "02798acfadcdc9bb7f6926702a9c38795c420766",
+      "committed_at": "2024-12-11T20:16:57Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/02798acfadcdc9bb7f6926702a9c38795c420766"
+    },
+    {
+      "sha": "e88dbd788e1a76b44423b8a5a386501736946ac8",
+      "committed_at": "2024-12-11T13:13:06Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/e88dbd788e1a76b44423b8a5a386501736946ac8"
+    },
+    {
+      "sha": "20d087345daca4e290113280a104c14066c2df34",
+      "committed_at": "2024-12-11T13:11:40Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/20d087345daca4e290113280a104c14066c2df34"
+    },
+    {
+      "sha": "70328ffd701d88ab749f5f104ac9384d50dd441b",
+      "committed_at": "2024-12-11T13:09:45Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/70328ffd701d88ab749f5f104ac9384d50dd441b"
+    },
+    {
+      "sha": "9619aa97636c2957be902056f5788b1ed8078e7c",
+      "committed_at": "2024-12-11T13:07:46Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/9619aa97636c2957be902056f5788b1ed8078e7c"
+    },
+    {
+      "sha": "5ee580e143d88dbafba8631c281182cfbed91e8a",
+      "committed_at": "2024-12-11T13:07:32Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/5ee580e143d88dbafba8631c281182cfbed91e8a"
+    },
+    {
+      "sha": "10c8b47cfbf3cb86facea3dc5a106896ca894527",
+      "committed_at": "2024-12-11T13:02:50Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/10c8b47cfbf3cb86facea3dc5a106896ca894527"
+    },
+    {
+      "sha": "eeea74ec379117e4b3a6b8a17f3ab23af3f0c4ab",
+      "committed_at": "2024-12-11T13:02:15Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/eeea74ec379117e4b3a6b8a17f3ab23af3f0c4ab"
+    },
+    {
+      "sha": "0cb3e5f2abefb09065665f0254f110cf8535ddb0",
+      "committed_at": "2024-12-11T13:01:51Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/0cb3e5f2abefb09065665f0254f110cf8535ddb0"
+    },
+    {
+      "sha": "460482b4fa4261e857aece0544b7ee1b4dfd6585",
+      "committed_at": "2024-12-11T13:00:49Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/460482b4fa4261e857aece0544b7ee1b4dfd6585"
+    },
+    {
+      "sha": "2536db073d63c69d3c6c27c920b46674b6dc3543",
+      "committed_at": "2024-12-11T13:00:06Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/2536db073d63c69d3c6c27c920b46674b6dc3543"
+    },
+    {
+      "sha": "446a961fae0c3a08020f1b7a511ac6821e514327",
+      "committed_at": "2024-12-11T12:59:08Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/446a961fae0c3a08020f1b7a511ac6821e514327"
+    },
+    {
+      "sha": "c3f1de73e8754fb52b602807af89d17f2e9b7cab",
+      "committed_at": "2024-12-11T12:58:34Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/c3f1de73e8754fb52b602807af89d17f2e9b7cab"
+    },
+    {
+      "sha": "b1d158f6fcc349069bcf8572012a31f7629bdb2c",
+      "committed_at": "2024-12-11T12:57:42Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/b1d158f6fcc349069bcf8572012a31f7629bdb2c"
+    },
+    {
+      "sha": "79b72ef8e0de4c130088c3e7e62e1b32b59cc268",
+      "committed_at": "2024-12-11T12:57:22Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/79b72ef8e0de4c130088c3e7e62e1b32b59cc268"
+    },
+    {
+      "sha": "1f59eec1d0b8f2655dc107c662a664ebe4f73d9c",
+      "committed_at": "2024-12-11T12:56:53Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/1f59eec1d0b8f2655dc107c662a664ebe4f73d9c"
+    },
+    {
+      "sha": "d03e80b2020dafce2d65b7726061bb7cd72bc962",
+      "committed_at": "2024-12-11T12:56:37Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/d03e80b2020dafce2d65b7726061bb7cd72bc962"
+    },
+    {
+      "sha": "4e75b8bd359410204de724f6dfe7ec7a903fd345",
+      "committed_at": "2024-12-11T12:34:24Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/4e75b8bd359410204de724f6dfe7ec7a903fd345"
+    },
+    {
+      "sha": "2dc7e316d63e2ce9b4b9b3f057ae066d88668124",
+      "committed_at": "2024-12-11T12:30:46Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/2dc7e316d63e2ce9b4b9b3f057ae066d88668124"
+    },
+    {
+      "sha": "352764dd1bce19d82d020d1ec2d5a10d8e9185bc",
+      "committed_at": "2024-12-11T12:28:33Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/352764dd1bce19d82d020d1ec2d5a10d8e9185bc"
+    },
+    {
+      "sha": "5ae53b5e41279c02b42bf45f788df20ce0e4232e",
+      "committed_at": "2024-12-11T12:21:44Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/5ae53b5e41279c02b42bf45f788df20ce0e4232e"
+    },
+    {
+      "sha": "6ffbb0aadb70d032b0787d91ffda432ca296b340",
+      "committed_at": "2024-12-11T12:14:53Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/6ffbb0aadb70d032b0787d91ffda432ca296b340"
+    },
+    {
+      "sha": "3240ec1d0c99b1c37bc1bb18476d08985a33187c",
+      "committed_at": "2024-12-11T12:10:12Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/3240ec1d0c99b1c37bc1bb18476d08985a33187c"
+    },
+    {
+      "sha": "5d26ef14c90ad53b96abf870ef57a5f3f9d67553",
+      "committed_at": "2024-12-11T09:22:16Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/5d26ef14c90ad53b96abf870ef57a5f3f9d67553"
+    },
+    {
+      "sha": "c885dce762c6e7463bfbdab7ebfde41603576e7d",
+      "committed_at": "2024-12-11T09:11:47Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/c885dce762c6e7463bfbdab7ebfde41603576e7d"
+    },
+    {
+      "sha": "9e29f296c16eeff64f28528724e0f6cf1da2f6cf",
+      "committed_at": "2024-12-11T09:04:05Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/9e29f296c16eeff64f28528724e0f6cf1da2f6cf"
+    },
+    {
+      "sha": "27d61780d662615b13aeb2fd5ebff2cbe337fbb4",
+      "committed_at": "2024-12-09T10:27:33Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/27d61780d662615b13aeb2fd5ebff2cbe337fbb4"
+    },
+    {
+      "sha": "394f952ee2865bd22b5cc55fcf6dc0c9f9f05387",
+      "committed_at": "2024-12-07T18:17:33Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/394f952ee2865bd22b5cc55fcf6dc0c9f9f05387"
+    },
+    {
+      "sha": "8aae2892a407defa83c453aa9fb8b9fe115ae35d",
+      "committed_at": "2024-12-06T09:53:31Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/8aae2892a407defa83c453aa9fb8b9fe115ae35d"
+    },
+    {
+      "sha": "cdede778138f8f026700e5b9ad33db1d0246214f",
+      "committed_at": "2024-12-05T17:54:43Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/cdede778138f8f026700e5b9ad33db1d0246214f"
+    },
+    {
+      "sha": "f8c4afeef349f2d6fb57cc2ba67fa3632ea18de1",
+      "committed_at": "2024-12-04T13:55:24Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/f8c4afeef349f2d6fb57cc2ba67fa3632ea18de1"
+    },
+    {
+      "sha": "7a10de856fb2de7a23ef88c5fb9e34c823e9cc94",
+      "committed_at": "2024-12-03T14:58:29Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/7a10de856fb2de7a23ef88c5fb9e34c823e9cc94"
+    },
+    {
+      "sha": "52a42fd22d900a6693da53532456c436c4bbbbaf",
+      "committed_at": "2024-12-03T14:57:45Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/52a42fd22d900a6693da53532456c436c4bbbbaf"
+    },
+    {
+      "sha": "08fa55ce3dcaec2a42c5a184392b69ce465ad825",
+      "committed_at": "2024-12-03T14:54:46Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/08fa55ce3dcaec2a42c5a184392b69ce465ad825"
+    },
+    {
+      "sha": "4d224123c493799b6a0140656d04d9741b6853ad",
+      "committed_at": "2024-12-03T11:23:33Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/4d224123c493799b6a0140656d04d9741b6853ad"
+    },
+    {
+      "sha": "7a9d62b3d3455c38716a30c23ca2f140402cbb99",
+      "committed_at": "2024-12-03T10:40:01Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/7a9d62b3d3455c38716a30c23ca2f140402cbb99"
+    },
+    {
+      "sha": "d4cc8f444ed9ba24e7ae38c04ac684b5c70c77d8",
+      "committed_at": "2024-12-02T18:53:25Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/d4cc8f444ed9ba24e7ae38c04ac684b5c70c77d8"
+    },
+    {
+      "sha": "4f5d4b04e8e4c974768d50aa47509834b06ded0a",
+      "committed_at": "2024-11-26T22:10:55Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/4f5d4b04e8e4c974768d50aa47509834b06ded0a"
+    },
+    {
+      "sha": "c14c23fc4e4acba7b47db15b447d919faef03a10",
+      "committed_at": "2024-10-09T13:46:15Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/c14c23fc4e4acba7b47db15b447d919faef03a10"
+    },
+    {
+      "sha": "0ccc4fd469de2e78951a3667dfaacbce4bab3207",
+      "committed_at": "2024-10-09T13:07:31Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/0ccc4fd469de2e78951a3667dfaacbce4bab3207"
+    },
+    {
+      "sha": "0e0421d5647f1e990a93621e0bf4d74afc47a10b",
+      "committed_at": "2024-07-31T12:28:38Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/0e0421d5647f1e990a93621e0bf4d74afc47a10b"
+    },
+    {
+      "sha": "c99b8b4d8a841e73a7e8839cbe5a4b2b3125c817",
+      "committed_at": "2024-07-31T12:18:55Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/c99b8b4d8a841e73a7e8839cbe5a4b2b3125c817"
+    },
+    {
+      "sha": "46bdb402619d077fa3293b75e48f038af4f72030",
+      "committed_at": "2024-07-31T08:24:08Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/46bdb402619d077fa3293b75e48f038af4f72030"
+    },
+    {
+      "sha": "4a56db5fecc3429d09110523a775d0a9a2703f34",
+      "committed_at": "2023-12-01T08:46:26Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/4a56db5fecc3429d09110523a775d0a9a2703f34"
+    },
+    {
+      "sha": "9168cbcb8b28616c353558ee64564864ff1ec649",
+      "committed_at": "2023-12-01T08:11:23Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/9168cbcb8b28616c353558ee64564864ff1ec649"
+    },
+    {
+      "sha": "987f5ddeee36e600a52886a868c88324a810b003",
+      "committed_at": "2023-08-31T13:25:50Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/987f5ddeee36e600a52886a868c88324a810b003"
+    },
+    {
+      "sha": "f7a8b02e0ffe5a971a0db960673ce6b9c316cefa",
+      "committed_at": "2023-08-31T12:54:25Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/f7a8b02e0ffe5a971a0db960673ce6b9c316cefa"
+    },
+    {
+      "sha": "7209fbf3d604917baa467c33f5c79d49438770e8",
+      "committed_at": "2023-08-24T09:02:44Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/7209fbf3d604917baa467c33f5c79d49438770e8"
+    },
+    {
+      "sha": "099b0077f146bfdf6cf208922bf26d00d8522424",
+      "committed_at": "2023-08-24T09:02:38Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/099b0077f146bfdf6cf208922bf26d00d8522424"
+    },
+    {
+      "sha": "7aba6b61e26f09a51e9790fcdc2c183fa0ae75d4",
+      "committed_at": "2023-07-28T12:40:01Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/7aba6b61e26f09a51e9790fcdc2c183fa0ae75d4"
+    },
+    {
+      "sha": "068b0993c215b5fdf6b1b57c0c58814d4c0153be",
+      "committed_at": "2023-06-22T15:52:24Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/068b0993c215b5fdf6b1b57c0c58814d4c0153be"
+    },
+    {
+      "sha": "aed0a6bdfbb3f3b096b35f805135531ce0d3abd0",
+      "committed_at": "2023-06-22T13:39:14Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/aed0a6bdfbb3f3b096b35f805135531ce0d3abd0"
+    },
+    {
+      "sha": "70db8b823cf84d898c20424fe538541c87ec51b3",
+      "committed_at": "2023-06-03T18:48:20Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/70db8b823cf84d898c20424fe538541c87ec51b3"
+    },
+    {
+      "sha": "ace9633364653e0b616ebe7dcd63ff7a7d889898",
+      "committed_at": "2023-06-03T18:48:18Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/ace9633364653e0b616ebe7dcd63ff7a7d889898"
+    },
+    {
+      "sha": "3624d69a0825636b13c88382331a946865731bd0",
+      "committed_at": "2023-06-03T09:34:53Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/3624d69a0825636b13c88382331a946865731bd0"
+    },
+    {
+      "sha": "9d215e067632501c73b915674f491d922117df71",
+      "committed_at": "2023-06-02T07:37:12Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/9d215e067632501c73b915674f491d922117df71"
+    },
+    {
+      "sha": "b5bb6ac1ae84dcec10015ef586630a6b428170ac",
+      "committed_at": "2023-06-01T12:06:08Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/b5bb6ac1ae84dcec10015ef586630a6b428170ac"
+    },
+    {
+      "sha": "e257151433d43d84e0cb61afb5e40b4bf2963f39",
+      "committed_at": "2023-06-01T12:05:45Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/e257151433d43d84e0cb61afb5e40b4bf2963f39"
+    },
+    {
+      "sha": "50c1efb1460dc542624d6bd574d38764b100b935",
+      "committed_at": "2023-05-29T06:45:41Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/50c1efb1460dc542624d6bd574d38764b100b935"
+    },
+    {
+      "sha": "80532152ed3d035ea04ae34873e1baca27caf273",
+      "committed_at": "2023-05-29T06:44:35Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/80532152ed3d035ea04ae34873e1baca27caf273"
+    },
+    {
+      "sha": "a21e788ff4b5540158c01d69decf98fcd15c3e69",
+      "committed_at": "2023-05-28T08:29:50Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/a21e788ff4b5540158c01d69decf98fcd15c3e69"
+    },
+    {
+      "sha": "c1f6de05651b68d6431a9e8d17ca7cc1d9752bce",
+      "committed_at": "2023-05-28T08:05:23Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/c1f6de05651b68d6431a9e8d17ca7cc1d9752bce"
+    },
+    {
+      "sha": "b0a32239f94a3b2729e249934ab7eb15146147b6",
+      "committed_at": "2023-05-23T10:07:30Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/b0a32239f94a3b2729e249934ab7eb15146147b6"
+    },
+    {
+      "sha": "c7b1e0227305c153be5697cca2097c17f1fd3651",
+      "committed_at": "2023-05-20T09:26:47Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/c7b1e0227305c153be5697cca2097c17f1fd3651"
+    },
+    {
+      "sha": "5d8b0341e90523bf52742e235e7fa6659359b33b",
+      "committed_at": "2023-05-18T17:30:29Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/5d8b0341e90523bf52742e235e7fa6659359b33b"
+    },
+    {
+      "sha": "57dd5ac3515e43dfae6cfdf9d9ae08bd1eff048d",
+      "committed_at": "2023-05-18T17:30:22Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/57dd5ac3515e43dfae6cfdf9d9ae08bd1eff048d"
+    },
+    {
+      "sha": "01b4582afc25552fcb8bbd9af2f065997d851bf8",
+      "committed_at": "2023-05-18T17:28:32Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/01b4582afc25552fcb8bbd9af2f065997d851bf8"
+    },
+    {
+      "sha": "6d27f0f53a3ffa950ac9570547fe4b2bdf6da283",
+      "committed_at": "2023-05-18T17:16:42Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/6d27f0f53a3ffa950ac9570547fe4b2bdf6da283"
+    },
+    {
+      "sha": "292f62db028c5af1503dfe7f2a18541b50bfa1e8",
+      "committed_at": "2023-05-18T16:07:42Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/292f62db028c5af1503dfe7f2a18541b50bfa1e8"
+    },
+    {
+      "sha": "3b18463b3ca0e43e6a6181f769ecbd3182d7e9b7",
+      "committed_at": "2023-05-18T15:58:59Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/3b18463b3ca0e43e6a6181f769ecbd3182d7e9b7"
+    },
+    {
+      "sha": "6f9e98bca392c84aaa258d412a5052d53f431759",
+      "committed_at": "2023-05-18T15:49:04Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/6f9e98bca392c84aaa258d412a5052d53f431759"
+    },
+    {
+      "sha": "f7efb35bc18a45a8981820faec7c58c5aaf69973",
+      "committed_at": "2023-05-18T15:44:25Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/f7efb35bc18a45a8981820faec7c58c5aaf69973"
+    },
+    {
+      "sha": "db38da4324ff3d7fe56bd997cc18c62950d8146b",
+      "committed_at": "2023-05-18T09:36:02Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/db38da4324ff3d7fe56bd997cc18c62950d8146b"
+    },
+    {
+      "sha": "15b9a8df3f1983adeee526296175d56a23360a36",
+      "committed_at": "2023-05-17T14:22:10Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/15b9a8df3f1983adeee526296175d56a23360a36"
+    },
+    {
+      "sha": "4127988be7892b0afe854d87dfe862a7c05559c0",
+      "committed_at": "2023-05-17T14:20:26Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/4127988be7892b0afe854d87dfe862a7c05559c0"
+    },
+    {
+      "sha": "ed30ebcecc94261bc6b697d50ec8c648b01f3c79",
+      "committed_at": "2023-04-20T09:03:04Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/ed30ebcecc94261bc6b697d50ec8c648b01f3c79"
+    },
+    {
+      "sha": "9583ffde0b2ef2d96b779aadb80d7ee38801478c",
+      "committed_at": "2022-09-27T08:55:00Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/9583ffde0b2ef2d96b779aadb80d7ee38801478c"
+    },
+    {
+      "sha": "ec6f4c357977d538a826b214cb76da1b4f6d1aa9",
+      "committed_at": "2021-06-08T07:08:41Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/ec6f4c357977d538a826b214cb76da1b4f6d1aa9"
+    },
+    {
+      "sha": "cc1ff746feaa74cec958552fa59285f763a0ea2c",
+      "committed_at": "2021-06-08T06:50:59Z",
+      "html_url": "https://github.com/obophenotype/hpo-translations/commit/cc1ff746feaa74cec958552fa59285f763a0ea2c"
+    }
+  ],
+  "observed_language_codes": [
+    "ar",
+    "cs",
+    "de",
+    "dtp",
+    "es",
+    "fi",
+    "fr",
+    "it",
+    "ja",
+    "nl",
+    "nna",
+    "pt",
+    "th",
+    "tr",
+    "tw",
+    "zh"
+  ],
+  "rights": {
+    "github_classifier": null,
+    "repository_license_file": null,
+    "disposition": "exact_redistribution_rights_unresolved"
+  },
+  "existing_translation_bundle": {
+    "status": "reported_existing_not_duplicated",
+    "verification": "no_repository_local_receipt_located",
+    "action": "reuse_owner_fork_and_existing_bundle;do_not_create_duplicate"
+  },
+  "byte_archive_route": "disabled_pending_exact_licence",
+  "claims": {
+    "all_time_history_complete": false,
+    "all_languages_complete": false,
+    "external_repositories_complete": false
+  }
+}

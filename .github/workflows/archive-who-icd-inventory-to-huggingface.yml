@@ -1,0 +1,43 @@
+name: WHO ICD release inventory and private observation archive
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: who-icd-release-inventory
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    name: Inventory, archive privately, emit public metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Inventory releases and archive exact observations privately
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          WHO_ICD_CLIENT_ID: ${{ secrets.WHO_ICD_CLIENT_ID }}
+          WHO_ICD_CLIENT_SECRET: ${{ secrets.WHO_ICD_CLIENT_SECRET }}
+          WHO_ICD_TOKEN_URL: ${{ secrets.WHO_ICD_TOKEN_URL }}
+          WHO_ICD_API_BASE_URL: ${{ secrets.WHO_ICD_API_BASE_URL }}
+        run: |
+          python3 scripts/archive_who_icd_inventory.py \
+            --manifest who-icd-public-metadata.json \
+            --private-repo-id edithatogo/hpo-licensed-ontology-archive \
+            --request-interval 2
+      - name: Preserve public metadata manifest
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: who-icd-public-metadata
+          path: who-icd-public-metadata.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,3 +1,6 @@
+import hashlib
+import re
+import subprocess
 from pathlib import Path
 
 from rareburden.schema import load_mapping
@@ -5,6 +8,10 @@ from rareburden.schema import load_mapping
 ROOT = Path(__file__).resolve().parents[1]
 PACKET = ROOT / "docs/track-007-registration-challenge-readiness-2026-08-04.yml"
 REFRESHED_PACKET = ROOT / "docs/track-007-registration-challenge-readiness-2026-08-15.yml"
+REPOSITORY_REGISTRATION = ROOT / "docs/track-007-repository-registration-2026-08-16.yml"
+CHALLENGE_TASK = ROOT / "docs/track-007-agent-challenge-task-2026-08-16.yml"
+PANEL_FINDINGS = ROOT / "docs/track-007-agent-panel-findings-2026-08-16.yml"
+OWNER_READY = ROOT / "docs/track-007-owner-disposition-ready-2026-08-16.yml"
 
 
 def test_track_007_readiness_packet_is_fail_closed() -> None:
@@ -31,10 +38,128 @@ def test_refreshed_track_007_packet_binds_evidence_and_keeps_receipts_pending() 
     assert packet["protocol"]["version"] == "0.2.0"
     for field in ("source_packet_sha256", "search_log_sha256", "screening_register_sha256"):
         assert packet["protocol"][field].startswith("sha256:")
-    assert packet["registration"]["status"] == "pending_external_registration"
+    assert packet["registration"]["status"] == "repository_hash_registered"
     assert packet["registration"]["osf"] == "deferred_by_owner"
-    assert packet["methods_challenge"]["status"].endswith("independent_receipt")
-    assert packet["patient_community_interpretation"]["status"].endswith("accountable_receipt")
-    disabled = set(packet["claim_boundary"]["disabled_until_qualifying_receipts"])
+    assert packet["methods_challenge"]["status"].endswith("agent_findings")
+    assert packet["patient_community_interpretation"]["status"].endswith("agent_findings")
+    disabled = set(packet["claim_boundary"]["disabled_after_owner_disposition"])
     assert "completed systematic or scoping review" in disabled
     assert "independently confirmed novelty" in disabled
+
+
+def test_repository_registration_is_content_addressed_and_reconstructable() -> None:
+    registration = load_mapping(REPOSITORY_REGISTRATION)
+    assert registration["status"] == "repository_hash_registered"
+    assert registration["repository"]["external_registry"] == "optional_deferred"
+    assert registration["repository"]["osf"] == "removed_from_active_plan"
+
+    records = [registration["protocol"], *registration["evidence"]]
+    for record in records:
+        path = ROOT / record["path"]
+        assert path.is_file()
+        payload = path.read_bytes()
+        assert hashlib.sha256(payload).hexdigest() == record["sha256"]
+        blob_oid = subprocess.run(
+            ["git", "hash-object", str(path)],
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+        assert blob_oid == record["git_blob_oid"]
+
+
+def test_frozen_protocol_keeps_claims_and_osf_fail_closed() -> None:
+    protocol = (ROOT / "docs/track-007-protocol-v0.2.0.md").read_text()
+    assert "OSF is deferred by owner decision" in protocol
+    assert "not a census" in protocol
+    assert "Comprehensive coverage" in protocol
+    prohibited = set(load_mapping(REPOSITORY_REGISTRATION)["claim_boundary"]["prohibited"])
+    assert {
+        "completed systematic or scoping review",
+        "comprehensive or globally representative coverage",
+        "independent novelty confirmation",
+        "patient or community approval",
+    } <= prohibited
+
+
+def test_agent_challenge_task_binds_inputs_and_separates_roles() -> None:
+    task = load_mapping(CHALLENGE_TASK)
+    assert task["assurance"] == "advisory_role_separated_agent_challenge"
+    assert {role["role_id"] for role in task["roles"]} == {
+        "methods_coverage_challenger",
+        "community_harm_equity_challenger",
+        "adversarial_claim_auditor",
+    }
+    for record in task["candidate"].values():
+        if not isinstance(record, dict) or "path" not in record:
+            continue
+        payload = (ROOT / record["path"]).read_bytes()
+        assert hashlib.sha256(payload).hexdigest() == record["sha256"]
+    assert task["owner_boundary"] == "panel_advises_repository_owner_records_disposition"
+    assert (
+        "claim independent, human, patient, community, institutional or external review"
+        in task["prohibited_actions"]
+    )
+
+
+def test_complete_panel_findings_preserve_owner_gate_and_scope_blockers() -> None:
+    findings = load_mapping(PANEL_FINDINGS)
+    assert findings["status"] == "complete_agent_panel_findings_pending_owner_disposition"
+    assert findings["assurance"] == "advisory_agent_review_not_independent_or_human_approval"
+    assert set(findings["completed_roles"]) == {
+        "methods_coverage_challenger",
+        "community_harm_equity_challenger",
+        "adversarial_claim_auditor",
+    }
+    assert findings["pending_roles"] == []
+    assert findings["additional_challenges"] == ["scientific_search_reproducibility_challenger"]
+    high_methods = {
+        finding["id"]
+        for finding in findings["methods_coverage_challenger"]["findings"]
+        if finding["severity"] == "high"
+    }
+    assert high_methods == {"M-F1", "M-F2", "M-F3"}
+    high_community = {
+        finding["id"]
+        for finding in findings["community_harm_equity_challenger"]["findings"]
+        if finding["severity"] == "high"
+    }
+    assert high_community == {"C-F1", "C-F2"}
+    assert findings["methods_coverage_challenger"]["recommendation"] == "narrow"
+    assert (
+        findings["community_harm_equity_challenger"]["recommendation"]
+        == "narrow_and_revise_framing"
+    )
+    assert findings["adversarial_claim_auditor"]["recommendation"] == "narrow_and_remediate"
+    assert (
+        findings["scientific_search_reproducibility_challenger"]["recommendation"]
+        == "revise_then_narrow"
+    )
+    assert findings["panel_state"]["recommendation"] == "narrow_and_remediate"
+    assert findings["panel_state"]["owner_disposition"] == "pending"
+
+
+def test_owner_disposition_binds_exact_candidate_and_retains_narrow_limits() -> None:
+    packet = load_mapping(OWNER_READY)
+    assert packet["status"] == "repository_owner_disposition_recorded"
+    commit = packet["candidate"]["commit"]
+    tree = packet["candidate"]["tree"]
+    # Hosted shallow checkouts may contain only the PR head, not this bound
+    # intermediate candidate commit. Content hashes below remain independently
+    # verifiable in every checkout; commit/tree ancestry is verified when the
+    # packet is created and by the owner before disposition.
+    assert re.fullmatch(r"[0-9a-f]{40}", commit)
+    assert re.fullmatch(r"[0-9a-f]{40}", tree)
+    for record in packet["bound_evidence"]:
+        assert hashlib.sha256((ROOT / record["path"]).read_bytes()).hexdigest() == record["sha256"]
+    assert packet["recommended_decision"]["disposition"] == "narrow"
+    assert packet["decision_fields"]["repository_owner"] == "edithatogo"
+    assert packet["decision_fields"]["selected_option"] == "A"
+    assert (
+        "publication-ready landscape acceptance is not met"
+        in packet["decision_fields"]["conditions_or_dissent"]
+    )
+    assert (
+        "preregistered, prospective or confirmatory protocol claim"
+        in packet["recommended_decision"]["prohibited"]
+    )

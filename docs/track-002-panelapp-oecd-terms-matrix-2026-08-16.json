@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "observed_on": "2026-08-16",
+  "capture_method": "official-page response hashed in transit; response bodies not retained",
+  "records": [
+    {
+      "source_id": "genomics-england-panelapp-home",
+      "url": "https://panelapp.genomicsengland.co.uk/",
+      "sha256": "ddace53aa3d6cd12f2c124b27ac3ac8ce219c16b0b38852ac9a51b05237b7bd0",
+      "authority": "publisher",
+      "observation": "public users may browse and download panels; download menu provides current and selected previous-version TSV files",
+      "permits": ["operator_triggered_panel_page_download", "research_use_subject_to_terms"],
+      "does_not_establish": ["api_automation_permission", "bulk_version_completeness", "third_party_field_redistribution"]
+    },
+    {
+      "source_id": "genomics-england-panelapp-robots",
+      "url": "https://panelapp.genomicsengland.co.uk/robots.txt",
+      "sha256": "92a8695b08323a0c2bb194064dfc59398ca840a9e518fc4a6a0bb0ed7145678f",
+      "authority": "publisher",
+      "observation": "User-agent wildcard disallows /api/",
+      "route": "api_automation_disabled"
+    },
+    {
+      "source_id": "genomics-england-panelapp-terms",
+      "url": "https://prod-media-panelapp.genomicsengland.co.uk/media/files/GEL_-_PanelApp_Terms_of_Use_December_2019.pdf",
+      "sha256": "91b5acfa9c06a9c8bfe1a30c18171b5f68a4a2995c8dd9eb70ea7b784ec2aa90",
+      "authority": "publisher",
+      "observation": "existing repository disposition limits use and preserves source-specific third-party restrictions",
+      "route": "private_bounded_or_metadata_only_by_field"
+    },
+    {
+      "source_id": "panelapp-australia-home",
+      "url": "https://panelapp-aus.org/",
+      "sha256": "d3068c62c4603bd1b5752e7659b531af3247773eb256bf6792acbcbf446d249c",
+      "authority": "publisher",
+      "observation": "public view/download and API availability; automated access restrictions are currently applied to some clients",
+      "permits": ["manual_public_observation", "bounded_nonretained_metadata_probe"],
+      "does_not_establish": ["content_redistribution_right", "bulk_automation_permission", "historical_completeness"]
+    },
+    {
+      "source_id": "australian-genomics-panelapp-resource",
+      "url": "https://www.australiangenomics.org.au/tools-and-resources/panelapp-australia/",
+      "sha256": "531f9667dff006e410d36f0860dc26cb8b3b43f8f3dfcb93c526d4087af9855b",
+      "authority": "supporting_organisation",
+      "observation": "describes PanelApp Australia as an open online platform",
+      "does_not_establish": ["exact_content_licence", "redistribution_permission"]
+    },
+    {
+      "source_id": "australian-genomics-site-terms",
+      "url": "https://www.australiangenomics.org.au/terms-conditions/",
+      "sha256": "ee29eabef923a66fded2e80afbe954dc6071d495f9241f6ddc765eb5f0657c27",
+      "authority": "supporting_organisation",
+      "observation": "site terms require permission for use of site intellectual property",
+      "does_not_establish": ["PanelApp_content_licence", "PanelApp_raw_redistribution"]
+    },
+    {
+      "source_id": "oecd-general-data-terms",
+      "url": "https://www.oecd.org/en/about/terms-conditions.html",
+      "sha256": "c497ea71aedefbc8f41999a7f414fbffbee21ec791df6c7265dd94835501b9cb",
+      "authority": "publisher",
+      "observation": "OECD-owned data may be extracted, copied, adapted, distributed, shared and embedded with attribution unless specific or third-party restrictions apply; users must inspect metadata source tabs",
+      "route": "exact_series_source_disposition_required"
+    },
+    {
+      "source_id": "oecd-health-statistics-2026",
+      "url": "https://www.oecd.org/en/data/datasets/oecd-health-statistics.html",
+      "sha256": "c766c63835dbcc3a56feabbbb101bb9f9cf5fba23e3e17ba6964bd1f185e52b2",
+      "authority": "publisher",
+      "observation": "identifies the 2026 edition and links exact thematic datasets",
+      "does_not_establish": ["all_series_OECD_owned", "absence_of_additional_restrictions"]
+    },
+    {
+      "source_id": "oecd-health-statistics-2026-metadata-index",
+      "url": "https://www.oecd.org/content/dam/oecd/en/data/datasets/oecd-health-statistics/Table-of-Content-Metadata-OECD-Health-Statistics.pdf",
+      "sha256": "0b75c6cecfd7bfb170e7eed6d0d48acb3dd0fc1637f8267c18fb088f43b65c25",
+      "authority": "publisher",
+      "observation": "maps health topics to definitions, sources and methods; exact source ownership remains series-specific",
+      "route": "metadata_only_until_selected_series_source_tab_is_dispositioned"
+    }
+  ],
+  "global_claims": {
+    "public_availability_is_redistribution_permission": false,
+    "software_licence_is_content_licence": false,
+    "metadata_observation_activates_data": false
+  }
+}

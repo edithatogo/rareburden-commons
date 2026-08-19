@@ -1,0 +1,28 @@
+schema_version: "1.0"
+track: "009-evidence-parameter-ledger"
+scope: "bounded source bindings, conflict handling and synthetic ledger semantics"
+mode: "role_separated_repository_agent_challenge"
+authority_boundary: "advisory repository review only; not external epidemiology, custodian or independent approval"
+lanes:
+  - role: "epidemiology"
+    findings:
+      - {severity: "medium", finding: "Observed source availability does not establish parameter estimand fitness.", remediation: "Keep every empirical source disabled until metric, population, period and transformation are dispositioned."}
+      - {severity: "medium", finding: "Conflicting estimates cannot be selected by insertion order or convenience.", remediation: "Require a complete conflict group, explicit selection and rationale; retain all alternatives."}
+    recommendation: "bounded"
+  - role: "rights_data_use"
+    findings:
+      - {severity: "medium", finding: "Private HPO, UMLS, SNOMED and WHO material cannot support a public ledger parameter merely because metadata exists.", remediation: "Reject private visibility and disabled or unusable licence states at link validation."}
+      - {severity: "low", finding: "Public CC BY source rights do not establish analytic activation.", remediation: "Represent rights and activation as separate fields."}
+    recommendation: "bounded"
+  - role: "engineering"
+    findings:
+      - {severity: "low", finding: "Mutable path-only links would permit silent upstream drift.", remediation: "Bind each source release to a 64-character evidence-manifest SHA-256 and the Track 008 inventory fingerprint."}
+      - {severity: "low", finding: "The current schema remains non-binding while upstream contracts are blocked.", remediation: "Keep contract_freeze and every activation/approval claim false."}
+    recommendation: "bounded"
+disposition:
+  recommendation: "continue_synthetic_and_metadata_only_preparation"
+  critical_findings: 0
+  unresolved_medium_findings: 3
+  owner_ready_options: ["bounded_continue", "revise", "stop"]
+  owner_decision: "pending"
+  v0_4_contract_freeze: false
