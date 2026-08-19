@@ -290,6 +290,76 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Build the country-authority ledger for every discoverable ICD national
   modification and SNOMED CT national edition; preserve each native release
   independently of its possible UMLS representation.
+- [x] Build a bounded official-source country-authority seed ledger for eight
+  discoverable ICD modification, translation or adoption routes, with explicit
+  country, language, release, authority, terms and retrieval states. Evidence:
+  `manifests/classifications/who-fic-authority-sources-2026-08-16.json`,
+  `manifests/classifications/who-fic-authority-observations-2026-08-16.json`
+  and `docs/track-002-who-fic-country-authority-ledger-2026-08-16.md`. This
+  bounded seed is not the parent task's global or SNOMED national-edition
+  completion evidence.
+- [x] Record official WHO routes and fail-closed artifact states for ICF, the
+  retired/merged ICF-CY, ICHI, ICD-O and seven WHO-linked related
+  classifications. No classification bytes were acquired; partner, portal and
+  exact-artifact terms remain metadata-only gates. Evidence: the same source
+  ledger, dated observations, deterministic observer and tests.
+- [x] Correct WHO ICD private-archive idempotency by fingerprinting semantic
+  snapshot content, reusing equivalent private manifests and using
+  content-addressed paths for new snapshots. Preserve both earlier timestamped
+  retrieval events without deletion. Evidence:
+  `docs/track-002-who-icd-duplicate-preservation-2026-08-16.md` and regression
+  tests in `tests/test_archive_who_icd_inventory.py`.
+- [x] Reconcile the requested terminology/archive estate into a deterministic
+  rights, routing and completeness-gap matrix covering WHO ICD/WHO-FIC, UMLS,
+  HPO, SNOMED CT, MedDRA, ORPHAcode, Orphadata, PanelApp, MONDO and ClinVar.
+  Evidence: `docs/track-002-cross-estate-archive-audit-2026-08-16.yml` and
+  `manifests/classifications/cross-estate-archive-audit-2026-08-16.json`.
+  Every family retains explicit historical, language, country or rights gaps.
+- [x] Add credential-free automation for the public metadata audit, with
+  deterministic evidence hashes and tests rejecting licensed-byte publication
+  or completeness inflation. Evidence:
+  `.github/workflows/audit-cross-estate-terminology.yml`,
+  `scripts/render_cross_estate_archive_audit.py` and focused tests. Existing
+  remote paths are referenced rather than duplicated; no licensed bytes are
+  downloaded or published.
+- [x] Enumerate a bounded official history/product slice for ORPHAcode,
+  Orphadata, MONDO and ClinVar; reconcile the two current Orphanet surfaces
+  against existing Hugging Face receipts, keep ClinVar metadata-only, and add
+  deterministic, rate-limited automation with explicit no-completeness claims.
+  Evidence: `manifests/classifications/public-history-products-2026-08-16.json`,
+  `docs/track-002-public-history-products-2026-08-16.md`,
+  `scripts/discover_public_archive_history.py` and
+  `.github/workflows/discover-public-archive-history.yml`.
+- [x] Paginate the official MONDO Releases API to its observed 120-release
+  frontier, enumerate seven bounded ClinVar product/archive indices including
+  checksum routes, and test both official Orphanet WordPress media APIs for
+  historical, language or change-file surfaces. Evidence:
+  `manifests/classifications/public-history-frontier-2026-08-16.json`,
+  `docs/track-002-public-history-frontier-2026-08-16.md` and
+  `scripts/discover_public_archive_frontier.py`. No payload bytes were fetched;
+  Orphanet media exposed images only and ClinVar remains metadata-only.
+- [x] Add a cursor-bounded MONDO CC BY 4.0 materialization workflow for the
+  observed 1,916 assets (128.4 GB), with a 500 MB run ceiling, exact remote
+  SHA-256 reuse verification for LFS and ordinary Git blobs, and ephemeral cleanup; keep full frontier
+  materialization open until every receipt exists. Evidence:
+  `.github/workflows/archive-mondo-release-batch.yml`,
+  `scripts/archive_mondo_release_batch.py` and
+  `docs/track-002-mondo-clinvar-materialization-2026-08-16.md`.
+- [x] Prove one post-canary hosted batch, record its exact receipt and commit a
+  resumable next cursor at release index 1 / asset index 3. Evidence: hosted run
+  `31900342354` and
+  `manifests/classifications/mondo-archive-cursor-2026-08-16.json`. The cursor
+  records only three observed archived assets and makes no frontier-completion
+  claim.
+- [x] Recursively enumerate 56 bounded official ClinVar directory observations
+  and 6,410 metadata/checksum routes at depth two, exhausting only the exact
+  seven-seed, depth-two queue while retaining a metadata-only rights posture.
+  This is not product, history or global completeness evidence. Evidence:
+  `manifests/classifications/clinvar-recursive-metadata-2026-08-16.json` and
+  `scripts/discover_clinvar_recursive_metadata.py`.
+- [ ] Materialize all exact MONDO assets in the observed 120-release frontier
+  through receipt-verified bounded batches; do not infer completion from a
+  canary or prepared workflow.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
