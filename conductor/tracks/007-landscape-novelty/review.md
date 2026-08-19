@@ -364,34 +364,3 @@ fields. This completes repository-owned workflow construction and locator
 observation only. Final eligibility, pagination/completeness, novelty,
 registration, independent methods challenge and accountable patient/community
 interpretation remain pending.
-
-### Bounded live pagination and coverage disposition — 2026-08-15
-
-The five frozen queries were exercised against GitHub, Zenodo and Hugging Face
-with a two-page, 25-record budget. GitHub reached its retrieval-time endpoint
-totals for all five queries (56 occurrences). Zenodo captured 250 occurrences
-but hit the page budget for every query against much larger provider totals.
-Hugging Face returned empty first pages, which is recorded only as endpoint
-behavior and not as evidence that matching datasets do not exist.
-
-Every provider file records exact URLs, timestamps, response hashes, identifiers
-and stop reasons and is hash-bound by
-`docs/track-007-live-capture-coverage-2026-08-15.json`. The coverage disposition
-keeps scholarly, grey-literature, language, geography, temporal and restricted
-material coverage incomplete or unmeasured. Comprehensive coverage, global
-representativeness and upgraded novelty claims remain prohibited. Newly captured
-record screening and the external challenge gates remain open.
-
-### Exact-title cluster adjudication — 2026-08-15
-
-All four title clusters flagged by bounded screening now have record-level rules
-backed by exact GitHub or Crossref response hashes. Reciprocal Crossref relations
-link the Dercum's disease preprint and journal article as versions of one work
-without deleting either record. The three GitHub pairs have distinct immutable
-repository/node identifiers and no declared fork, parent or source relation, so
-they remain separate repository records.
-
-This does not establish that the GitHub pairs are distinct initiatives. Their
-initiative-level equivalence remains unresolved because shared names or
-descriptions are insufficient evidence. The adjudication removes silent
-record-level merging risk without narrowing external challenge requirements.
