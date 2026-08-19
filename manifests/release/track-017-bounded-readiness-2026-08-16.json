@@ -41,7 +41,7 @@
     {"id": "owner_backup_attestation", "artifact": "docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md", "sha256": "e6d95d03f8346be577caff6291af8f1808d33b765ba2b3b266973ef7c31f9257"},
     {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
     {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"},
-    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "f8e9ed508b241a234534ab05614a2e8e0c01994cd35e773c04cf0034a98fca8e"},
+    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "d6a910a3ae94b2c2607fc339212fac95650ff0cd45c9262b1ef561be447a4dea"},
     {"id": "release_authority_plan", "artifact": "docs/release-authority-receipt-plan-2026-08-03.yml", "sha256": "62f3ae25755d6441ab54f3f1c1d8c1fb73732e0f3546cd1168eac685863581ae"},
     {"id": "candidate_reconciliation", "artifact": "docs/release-candidate-evidence-reconciliation-2026-08-04.yml", "sha256": "8da971dca2173bb6fa17245a2d6c490d103abdc6c0df7e7fba17c653e44a7cb0"}
   ],
@@ -49,7 +49,7 @@
     "track": "016",
     "artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json",
     "status": "bound",
-    "sha256": "a12ffd69c9b67e9999b9f6cbf4263387315ac67109cf1c0d6e1af793344bc8f3",
+    "sha256": "64a928b59e798c79ae2407cb5516a4e99fae6de347c372da18f3c37b6e8466c3",
     "merge_commit": "18910840fee787bbe2ae7d7eff40b944539a11f4"
   },
   "owner_disposition_receipt": {

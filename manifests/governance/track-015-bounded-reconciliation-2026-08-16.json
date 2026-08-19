@@ -27,7 +27,7 @@
     {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "4d4e2ced2fdf2515923763a8a2fb4e5fc54effda825525b3565350867f49a330"},
     {"id": "bounded_landscape_claims", "artifact": "docs/track-007-repository-registration-2026-08-16.yml", "sha256": "c9fffd556859e5569eab3c32cd460519da7710a0535ea15f8d3701132ef5f89a"},
     {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
-    {"id": "source_rights_routes", "artifact": "docs/source-archive-decision-matrix-2026-08-15.yml", "sha256": "af45b01b60cd9c2f3a25f2defe9da8d87fc85a034b6911110fcdc949b392486d"},
+    {"id": "source_rights_routes", "artifact": "docs/source-archive-decision-matrix-2026-08-15.yml", "sha256": "38c75a268db01a4b052df9d41e79959dc19477600259c8946f2f4bd760338cb8"},
     {"id": "licensed_archive_capacity", "artifact": "docs/track-002-private-archive-capacity-decision-2026-08-16.yml", "sha256": "32aecc9c51b029e17d2a1e65db4b7867675b0fb60c00a49010b08eb4a7005653"}
   ],
   "integration_dependency": {"track": "014", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "status": "bound", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0", "merge_commit": "22388a74e2d8f2c4ff1d59f828279ffabad3b5a7"},

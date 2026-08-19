@@ -1,33 +1,5 @@
 # Track 002 plan
 
-## HPO rights frontier — 2026-08-16
-
-- [x] Bind the exact official predecessor HPO licence page by URL, response
-  hash, size and last-modified date, and preserve its attribution, version and
-  no-modification conditions.
-- [x] Disposition every one of the 707 observed release assets: 288 core
-  ontology assets may be archived as exact public bytes; 419 translation,
-  merged-import, annotation/mapping and build-report assets remain metadata-only
-  pending their specific embedded-source or current-repository terms.
-- [x] Add a resumable, remote-deduplicating, rate-limited manual Actions route
-  for the lawful core assets, bounded to ten artifacts, 1 GB and 60 minutes per
-  run, with exact-byte verification and ephemeral runner storage.
-
-## HPO historical frontier — 2026-08-16
-
-- [x] Exhaustively paginate the official HPO GitHub releases endpoint and
-  partition 64 observed releases/707 assets against the existing
-  15-release/320-asset manifest. Record the 49 missing release tags as
-  metadata-only while exact asset redistribution rights remain unresolved.
-- [x] Exhaustively paginate the official HPO translations tag and commit
-  endpoints, recording 128 commits, zero tags, the exact head and 16
-  discoverable language codes. Reuse the owner fork and reported existing Git
-  bundle rather than duplicating them; bytes remain fail-closed because the
-  upstream repository exposes no exact licence file.
-- [x] Add deterministic manifests, validation/negative tests, documentation and
-  a manual five-minute Actions audit receipt. No historical, language or
-  external-repository completeness is claimed beyond the recorded API bounds.
-
 ## Phase 1 — Source contracts and schemas
 
 - [x] Reverify the exact bounded candidate URLs, observed terms, release
@@ -257,23 +229,12 @@ scientific and data-governance gates remain separate and pending.
   panel listing (433 panel/version rows) with a SHA-256 manifest. A first
   full-detail attempt captured 129 records before HTTP 429; do not claim a
   complete detail snapshot and resume only with server-respecting backoff.
-- [ ] Complete the remaining PanelApp per-version detail capture only through
-  a publisher-authorized route. The current UK `robots.txt` disallows `/api/`;
-  automation is now fail-closed in
-  `docs/track-002-panelapp-oecd-frontier-2026-08-16.md`. Australian raw/detail
-  capture remains disabled pending exact content-reuse terms.
-- [x] Bind authoritative PanelApp UK/Australia access, automation and reuse
-  observations in a response-hashed terms matrix. Route UK continuation only
-  through operator-triggered official per-panel TSV downloads, keep `/api/`
-  automation disabled, and keep Australian content metadata/hash-only until an
-  exact content licence is recorded.
+- [ ] Complete the remaining PanelApp per-version detail capture using a
+  sequential resumable workflow with rate-limit backoff, then bind all 433
+  records to a replacement SHA-256 manifest.
 - [x] Verify the OECD general terms: data are reusable with attribution unless
   dataset-specific or third-party restrictions apply; acquisition remains
   dataset-specific and metadata-only until an exact OECD dataset is selected.
-- [x] Bind OECD Health Statistics 2026, dataflow
-  `OECD.ELS.HD/DSD_HEALTH_STAT@DF_COM/1.0`, the 2026 metadata index and general
-  terms. Keep values fail-closed until every selected series' source-tab
-  ownership and additional restrictions are recorded.
 - [x] Pin the HPO `v2026-06-23` core ontology and annotation artifacts and
   verify all seven publisher digests. Preserve privately, but prohibit a public
   mirror until the embedded HPO terms URL yields an exact accessible terms
@@ -281,12 +242,8 @@ scientific and data-governance gates remain separate and pending.
 - [x] Record fail-closed archival routes for ICD-10/11, OMIM and SNOMED CT:
   exact licensed editions only, no credential circumvention, and no raw GitHub
   or public Hugging Face redistribution without express rights.
-- [x] Verify exact PanelApp, OECD and future export-specific policy boundaries
-  before raw acquisition; default to metadata/hash-only. Evidence:
-  `manifests/panelapp/instance-frontier-2026-08-16.json`,
-  `manifests/oecd/export-frontier-2026-08-16.json` and
-  `docs/track-002-panelapp-oecd-frontier-2026-08-16.md`. Exact dataset/source
-  terms remain separately required before bytes.
+- [ ] Verify exact PanelApp, OECD and any future export-specific terms before
+  raw acquisition; default to metadata/hash-only.
 - [x] Correct the PanelApp scope from one nominally global source to a
   country-aware registry containing the distinct UK and Australian instances;
   prohibit claims that either instance, or their union, is globally
@@ -325,25 +282,11 @@ scientific and data-governance gates remain separate and pending.
   on the CC BY 4.0 nomenclature-pack page, hashes each exact file, uploads to
   the existing public archive, verifies the remote copy and discards runner
   storage.
-- [x] Run the one-file ORPHAcode canary, then archive all 71 packs discovered
-  on the exact page snapshot in bounded sequential batches and retain the page
-  hash and batch receipts. Evidence: GitHub Actions runs `31873102864` and
-  `31873123834`, summarized in
-  `docs/track-002-terminology-archive-receipts-2026-08-16.yml`; this bounded
-  snapshot does not prove historical completeness.
+- [ ] Run the one-file ORPHAcode canary, then archive all discovered packs in
+  bounded sequential batches and retain the page hash and batch receipts.
 - [ ] Materialize the complete WHO digital release matrix by classification,
   release, language and available artifact; publish unchanged bytes only where
   exact terms permit and otherwise retain private bytes or metadata only.
-- [x] Materialize the authenticated WHO ICD API subset as a rate-limited,
-  fail-closed Foundation/ICD-11 MMS/ICF/ICD-10 release and language inventory;
-  retain raw top-level observations privately and expose only hashes and
-  metadata publicly. Evidence:
-  `manifests/classifications/who-icd-api-inventory-2026-08-16.json`,
-  `docs/track-002-who-icd-api-archive-2026-08-16.md`,
-  `scripts/archive_who_icd_inventory.py` and
-  `.github/workflows/archive-who-icd-inventory-to-huggingface.yml`. ICHI,
-  derived/related classifications, historical ICD and national editions remain
-  explicit separate gaps.
 - [ ] Build the country-authority ledger for every discoverable ICD national
   modification and SNOMED CT national edition; preserve each native release
   independently of its possible UMLS representation.
@@ -420,48 +363,9 @@ scientific and data-governance gates remain separate and pending.
 - [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
   their available release/language/edition inventories, and archive licensed
   bytes privately only when the applicable terms permit cloud storage.
-- [x] Prepare the fail-closed MedDRA/MLDS inventory, private-archive and receipt
-  contracts, manual bounded workflow, credential-free operator procedure,
-  duplicate-reference route and negative tests. Evidence:
-  `docs/track-002-meddra-mlds-frontier-2026-08-16.md`,
-  `manifests/classifications/meddra-mlds-frontier-2026-08-16.json`,
-  `schemas/licensed-portal-inventory.schema.json` and
-  `schemas/licensed-archive-receipt.schema.json`. This does not claim portal
-  login, inventory completeness, cloud-storage permission or download.
-- [x] Expand Orphadata from the two activated observations to all 94 exact files
-  exposed by the eight official scientific product pages in the bounded
-  snapshot, preserving CC BY 4.0 attribution, change notices and exact hashes.
-  The canary and 93-file remainder succeeded in Actions runs `31893447909` and
-  `31893485877`; `docs/track-002-terminology-archive-receipts-2026-08-16.yml`
-  binds both receipts. This does not establish unavailable historical-release
-  or language completeness; the separately discovered 71 ORPHAcode
-  nomenclature packs retain their own receipts.
+- [ ] Expand Orphadata from the two activated observations to every
+  discoverable scientific-file and nomenclature release/language under CC BY
+  4.0, preserving attribution, change notices and exact hashes.
 - [ ] Execute the 14-family UTS inventory incrementally, respecting the
   sequential two-second request interval, byte budgets, retries and private-only
   visibility; never publish UMLS, RxNorm or SNOMED licensed payloads publicly.
-  The current release from all 14 families is now privately receipt-verified by
-  GitHub Actions run `31873729976`; 2,437 historical artifacts entered bounded
-  sequential execution. MRCONSO historical indices 1–5 were
-  receipt-verified by run `31893681893`; the next safe frontier is implemented
-  as a remote-checkpointed, idempotent, manually dispatched workflow with
-  explicit family cursors and cost ceilings in
-  `docs/track-002-uts-historical-frontier-2026-08-16.md`, leaving 2,432
-  historical artifacts pending at that observed checkpoint.
-- [x] Fail closed before any further historical UTS download after Hugging Face
-  run `31897934633` returned an explicit private-storage-limit HTTP 403. The
-  checked-in capacity state blocks cursor advancement and redownload, the
-  runner emits a redacted blocked receipt before authentication or source
-  access, and Actions preserves that receipt on failure. Evidence:
-  `manifests/uts/hf-private-capacity-state-2026-08-16.json` and
-  `docs/track-002-hf-capacity-blocker-2026-08-16.md`.
-- [ ] Restore or increase private destination capacity, record a short-lived
-  authenticated capacity verification, change the state through review and run
-  a one-artifact canary before resuming the historical cursor.
-- [x] Compare a Hugging Face capacity increase, a private S3-compatible object
-  store and a metadata/hash-only pause without purchasing or creating paid
-  resources. Bind the exact 2,432-artifact backlog, unknown remaining byte
-  volume, quota receipt, migration/security/egress/retention tradeoffs,
-  recommendation and fail-closed implementation checklist. Evidence:
-  `docs/track-002-private-archive-capacity-decision-2026-08-16.yml`,
-  `docs/track-002-private-archive-capacity-checklist-2026-08-16.yml` and
-  `tests/test_track_002_private_archive_capacity_decision.py`.

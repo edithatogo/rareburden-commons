@@ -370,3 +370,38 @@ redistribution rights. No source bytes, bodies, abstracts or full text were
 retrieved or retained. Adding seeds, increasing traversal depth or activating a
 product byte route requires a new bounded protocol and product-specific rights
 evidence.
+
+### BfArM German SNOMED CT metadata frontier — 2026-08-16
+
+Official BfArM evidence now identifies the National Edition Germany as an RF2
+bundle of the International Edition and German National Extension, released on
+a semiannual schedule through authenticated MLDS. The repository records three
+bounded publication events and explicitly rejects treating them as exact
+package identities or complete history. It also preserves BfArM's warning that
+the use-case-based German translation is not quality-assured and complete.
+
+The UTS inventory contains 233 observed artifacts across six International,
+Spanish, US, subset and mapping families but no German-labelled family. The
+German extension is therefore an unresolved native-edition gap; its bundled
+International content still requires exact-hash deduplication. Tests require
+metadata-only public routing and prohibit private bytes until exact agreement,
+territory and cloud-storage permission are all affirmative. No raw bytes were
+downloaded or uploaded, and no licence, completeness or activation claim was
+upgraded.
+
+### MedLexSp and KIOM evidence frontier — 2026-08-16
+
+The exact Digital CSIC observation identifies handle `10261/270429` as MedLexSp,
+not an ontology, and binds the sizes and SHA-256 digests of its three public
+documentation bitstreams. No lexicon payload was observed. The signed licence
+requires confidentiality and prohibits third-party access, so public and
+private-cloud byte routes remain disabled absent an express cloud/processor
+grant; metadata, citation and hashes remain available.
+
+The KIOM artifact retains authoritative publication provenance through DOI
+`10.1093/bioinformatics/btq424`, but its named host failed DNS resolution. No
+version, language inventory, bytes, checksum or redistribution licence is
+inferred. The identity map also prevents treating TARA, OCMR or TCDO as copies
+of KIOM merely because they concern traditional medicine. Five negative tests
+enforce these boundaries; this closes evidence preparation only, not payload
+acquisition, rights clearance, completeness or production activation.
