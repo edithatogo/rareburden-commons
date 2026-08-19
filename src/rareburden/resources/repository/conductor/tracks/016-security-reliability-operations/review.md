@@ -69,3 +69,28 @@ This closes the repository-owned SBOM/checksum/provenance receipt gate for the
 release candidate. It does not constitute independent security review or an
 operational exercise: backup/restore, incident, rollback and vulnerability
 tabletop evidence, ownership, and Track 004/014 activation remain open.
+
+## Bounded reconciliation — 2026-08-16
+
+**Disposition:** repository-owned exercises pass; Track remains Planned.
+
+Track 015 merged at exact commit
+`abcf10813d9ad1dd88d8fac402622f65077558d4` and tree
+`ccc08ef01f5eb0fc973fac3541a0a5f4976f4944`. The owner-operated clean-clone,
+offline locked-environment, repository-safety, synthetic-node, SBOM,
+backup/restore, rollback, resource-budget and synthetic incident-tabletop
+exercises passed against that candidate. The redacted receipt is
+`docs/track-016-owner-operated-exercise-receipt-2026-08-16.json`; the
+machine-checked boundary is
+`manifests/operations/track-016-bounded-operations-2026-08-16.json`.
+
+Negative tests reject commit/tree or evidence-hash drift, unsafe paths,
+authority/independence upgrades, a completed-backup claim, missing gates and an
+overstated operator model. The bounded retention/access policy is operative for
+repository-owned synthetic/public records only.
+
+The evidence is owner-operated and therefore does not satisfy independent
+operator or independent-security gates. The private backup owner is
+owner-attested, but the scoped, expiring, hash-bound handoff remains incomplete.
+Production operations, controlled data, SLA, stable release and release
+authority remain pending and fail closed.
