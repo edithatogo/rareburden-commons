@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/atlas-static-projection.schema.json",
+  "title": "Bounded static atlas projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["static_fingerprint", "static_schema_version", "page_id", "release_id", "source_manifest_id", "package_fingerprint", "release_surface_fingerprint", "status_fingerprint", "lifecycle_status", "availability", "publication_authorized", "aggregate_only", "missingness_policy", "rows", "limitations", "text_alternative"],
+  "properties": {
+    "static_fingerprint": {"type": "string", "pattern": "^atlas-static-[0-9a-f]+$"},
+    "static_schema_version": {"const": "0.1.0"},
+    "page_id": {"type": "string", "minLength": 1},
+    "release_id": {"type": "string", "minLength": 1},
+    "source_manifest_id": {"type": "string", "minLength": 1},
+    "package_fingerprint": {"type": "string", "pattern": "^atlas-[0-9a-f]+$"},
+    "release_surface_fingerprint": {"type": "string", "pattern": "^atlas-release-[0-9a-f]+$"},
+    "status_fingerprint": {"type": "string", "pattern": "^atlas-status-[0-9a-f]+$"},
+    "lifecycle_status": {"enum": ["prepared", "correction", "withdrawal", "supersession"]},
+    "availability": {"enum": ["not_published", "do_not_use"]},
+    "publication_authorized": {"const": false},
+    "aggregate_only": {"const": true},
+    "missingness_policy": {"const": "preserve_missing_not_zero"},
+    "rows": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "text_alternative": {"type": "string", "minLength": 1}
+  }
+}

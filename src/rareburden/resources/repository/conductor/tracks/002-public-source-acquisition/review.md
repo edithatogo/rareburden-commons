@@ -3,6 +3,37 @@
 **Review date:** 2026-07-27  
 **Decision:** Internal implementation passes for autonomous handoff; production/live-source approval remains open
 
+## Private archive capacity decision review — 2026-08-16
+
+The storage decision packet binds the exact failed Hugging Face quota receipt,
+the manifest-derived 2,432-artifact historical backlog and the only observed
+historical byte total (2,233,759,449 bytes for five MRCONSO artifacts). It does
+not extrapolate that family to a total byte or cost estimate. The comparison
+records provider-pricing observations as dated and volatile, includes storage,
+request, retrieval, egress, migration, security, retention and withdrawal
+tradeoffs, and authorizes no purchase, bucket creation, upload or redownload.
+
+Review disposition: **pass for repository decision preparation**. Option C
+(metadata/hash-only pause) remains the enforced immediate state. Option A
+(bounded Hugging Face capacity increase) is recommended only after an exact
+quote and owner cost cap; Option B (private S3-compatible storage) is a
+conditional fallback when exact security, region, retention or price needs
+justify migration. Every resumption path remains blocked behind the checklist,
+dated expiring capacity evidence and a one-artifact canary. This review does not
+restore capacity or complete the licensed historical archive.
+
+The 2,432 count is the consolidated cross-family snapshot after those five
+MRCONSO receipts. The latest full-Metathesaurus-subset family observation is
+more local: 12 verified and two pending at the blocked cursor. Failed run
+`31897934633` was bounded to one artifact and advanced neither the cursor nor
+the consolidated checkpoint. A two-artifact continuation is only a proposed
+post-canary tranche, not an observed upload or authorization.
+
+The separate public MONDO canary `31900277331` succeeded only after the
+publisher and existing remote object were reconciled as exact identical bytes.
+That integrity path remains independently fail-closed and does not provide UTS
+capacity evidence or change the licensed-archive storage recommendation.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with external blockers**. The full project gate
@@ -289,3 +320,88 @@ non-commercial and non-diagnostic under its mixed third-party terms. The
 PanelApp listing is complete, but the per-version detail capture is explicitly
 incomplete after HTTP 429 (129 of 433 observed) and is not represented as a
 complete snapshot.
+
+### Private archive capacity stop — 2026-08-16
+
+Historical UTS run `31897934633` did not create a remotely verified payload or
+receipt: the Hugging Face LFS batch endpoint returned HTTP 403 with an explicit
+private repository storage-limit message. The repository now records that
+state as blocked and checks it before authentication, remote cursor planning or
+UTS source download. A blocked invocation emits a redacted failure receipt and
+cannot advance a cursor or authorize a redownload.
+
+This is a repository-owned safety fix, not evidence that capacity has been
+restored. Resumption remains blocked until a dated, expiring authenticated
+capacity verification is reviewed and a one-artifact canary succeeds.
+
+### PanelApp/OECD authoritative rights frontier — 2026-08-16
+
+The response-hashed matrix in
+`docs/track-002-panelapp-oecd-terms-matrix-2026-08-16.json` separates public
+access mechanics, automation policy, content reuse and redistribution. The UK
+publisher documents an operator-triggered panel-page TSV route for current and
+selected prior versions, so this is the only permitted continuation while its
+current robots policy disallows `/api/`. It is not a bulk-completeness route.
+PanelApp Australia exposes public download controls and an API but also warns
+of automated-client restrictions; no exact content licence was found, so its
+raw/detail route remains metadata/hash-only.
+
+OECD Health Statistics 2026 and dataflow
+`OECD.ELS.HD/DSD_HEALTH_STAT@DF_COM/1.0` are now exact dataset identities. OECD
+general terms permit reuse of OECD-owned data with attribution, but explicitly
+require series-level inspection for source ownership and additional
+restrictions. The public metadata index does not clear every series, so values
+remain disabled until selected source tabs are recorded. Tests enforce these
+fail-closed routes and prohibit treating public availability or an open-source
+software licence as a content-redistribution grant.
+
+### Bounded ClinVar metadata queue — 2026-08-16
+
+The committed recursive observation now validates 56 sequential official
+directory observations containing 6,410 directory, product, data or checksum
+routes. The exact seven-seed, depth-two queue is exhausted and its inventory
+fingerprint is verified before commit. The validator rejects unsafe hosts,
+duplicate observation URLs, retained content, byte-route drift, claim upgrades,
+fingerprint drift and inconsistent exhaustion state.
+
+This closes only that fixed metadata queue. It does not establish product,
+historical or global completeness, clinical validity, submitter authority or
+redistribution rights. No source bytes, bodies, abstracts or full text were
+retrieved or retained. Adding seeds, increasing traversal depth or activating a
+product byte route requires a new bounded protocol and product-specific rights
+evidence.
+
+### BfArM German SNOMED CT metadata frontier — 2026-08-16
+
+Official BfArM evidence now identifies the National Edition Germany as an RF2
+bundle of the International Edition and German National Extension, released on
+a semiannual schedule through authenticated MLDS. The repository records three
+bounded publication events and explicitly rejects treating them as exact
+package identities or complete history. It also preserves BfArM's warning that
+the use-case-based German translation is not quality-assured and complete.
+
+The UTS inventory contains 233 observed artifacts across six International,
+Spanish, US, subset and mapping families but no German-labelled family. The
+German extension is therefore an unresolved native-edition gap; its bundled
+International content still requires exact-hash deduplication. Tests require
+metadata-only public routing and prohibit private bytes until exact agreement,
+territory and cloud-storage permission are all affirmative. No raw bytes were
+downloaded or uploaded, and no licence, completeness or activation claim was
+upgraded.
+
+### MedLexSp and KIOM evidence frontier — 2026-08-16
+
+The exact Digital CSIC observation identifies handle `10261/270429` as MedLexSp,
+not an ontology, and binds the sizes and SHA-256 digests of its three public
+documentation bitstreams. No lexicon payload was observed. The signed licence
+requires confidentiality and prohibits third-party access, so public and
+private-cloud byte routes remain disabled absent an express cloud/processor
+grant; metadata, citation and hashes remain available.
+
+The KIOM artifact retains authoritative publication provenance through DOI
+`10.1093/bioinformatics/btq424`, but its named host failed DNS resolution. No
+version, language inventory, bytes, checksum or redistribution licence is
+inferred. The identity map also prevents treating TARA, OCMR or TCDO as copies
+of KIOM merely because they concern traditional medicine. Five negative tests
+enforce these boundaries; this closes evidence preparation only, not payload
+acquisition, rights clearance, completeness or production activation.

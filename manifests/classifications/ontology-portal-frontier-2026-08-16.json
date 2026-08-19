@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "track": "002",
+  "status": "bounded_metadata_and_rights_routing",
+  "observed_at": "2026-08-16T00:00:00+10:00",
+  "records": [
+    {
+      "id": "bioportal-cdo",
+      "portal_url": "https://bioportal.bioontology.org/ontologies/CDO",
+      "canonical_source_url": "https://im.njmu.edu.cn/CDMO/cdmo.owl",
+      "observed_release": "3.0",
+      "observed_language": ["zh"],
+      "portal_licence_field": "blank",
+      "component_risk": "description_reports_hierarchy_adapted_from_SNOMED_CT",
+      "public_route": "metadata_and_hash_only",
+      "private_route": "bytes_only_after_exact_licence_and_component_review",
+      "byte_action": "disabled"
+    },
+    {
+      "id": "bioportal-tara",
+      "portal_url": "https://bioportal.bioontology.org/ontologies/TARA",
+      "canonical_source_url": "https://purl.org/tara/ontology/acupoints-inferred.ttl",
+      "observed_release": "1.5.0",
+      "observed_language": ["en"],
+      "portal_licence_field": "blank",
+      "component_risk": "canonical_repository_and_import_component_rights_not_yet_matrixed",
+      "public_route": "metadata_and_hash_only",
+      "private_route": "bytes_only_after_exact_licence_and_component_review",
+      "byte_action": "disabled"
+    },
+    {
+      "id": "bioportal-ocmr",
+      "portal_url": "https://bioportal.bioontology.org/ontologies/OCMR",
+      "canonical_source_url": "https://github.com/biomedontology/ocmr",
+      "observed_release": "Vision Release; 1.0.11",
+      "observed_language": ["en", "zh"],
+      "portal_licence_field": "blank",
+      "repository_licence": "Apache-2.0",
+      "publication_licence_statement": "CC-BY-3.0",
+      "component_risk": "merged_and_import_files_require_component_level_licence_matrix",
+      "public_route": "canonical_git_metadata_and_hashes_only_until_component_matrix_complete",
+      "private_route": "canonical_git_history_may_be_preserved_subject_to_owner_policy",
+      "byte_action": "disabled"
+    },
+    {
+      "id": "bioportal-tcdo",
+      "portal_url": "https://bioportal.bioontology.org/ontologies/TCDO",
+      "canonical_source_url": "https://github.com/TCMOntology/TCDO",
+      "observed_release": "0.05",
+      "observed_language": ["en", "zh"],
+      "portal_licence_field": "blank",
+      "component_risk": "repository_has_no_detected_licence_and_contains_imported_ontologies",
+      "public_route": "metadata_and_hash_only",
+      "private_route": "bytes_only_after_exact_licence_and_component_review",
+      "byte_action": "disabled"
+    },
+    {
+      "id": "ebi-ols4",
+      "portal_url": "https://www.ebi.ac.uk/ols4/",
+      "canonical_source_url": "https://www.ebi.ac.uk/ols4/api/ontologies",
+      "observed_release": "live_index",
+      "observed_language": [],
+      "portal_licence_field": "service_API_CC0_does_not_supersede_ontology_licences",
+      "component_risk": "indexed_ontologies_have_source_specific_rights",
+      "public_route": "bounded_inventory_metadata_only_then_canonical_source_routing",
+      "private_route": "not_applicable_at_portal_level",
+      "byte_action": "metadata_workflow_only"
+    },
+    {
+      "id": "hetop",
+      "portal_url": "https://www.hetop.eu/hetop/en/",
+      "canonical_source_url": null,
+      "observed_release": "live_discovery_portal",
+      "observed_language": [],
+      "portal_licence_field": "no_bulk_redistribution_licence_observed",
+      "component_risk": "aggregates_separately_governed_terminologies",
+      "public_route": "discovery_metadata_only",
+      "private_route": "none_at_portal_level",
+      "byte_action": "disabled"
+    },
+    {
+      "id": "globalhealthinformatics-hetop-article",
+      "portal_url": "https://globalhealthinformatics.net/2026/06/12/health-terminology-ontology-portal/",
+      "canonical_source_url": "https://globalhealthinformatics.net/wp-json/wp/v2/posts/8",
+      "observed_release": "2026-06-12",
+      "observed_language": ["en"],
+      "portal_licence_field": "web_page_not_a_dataset_release",
+      "component_risk": "article_is_only_a_pointer_to_HeTOP",
+      "public_route": "citation_url_timestamp_and_hash_metadata_only",
+      "private_route": "none",
+      "byte_action": "disabled"
+    }
+  ],
+  "deduplication": {
+    "portal_observation_identity": "portal_url_plus_observed_release",
+    "canonical_byte_identity": "canonical_source_url_plus_upstream_version_plus_sha256",
+    "rule": "retain_portal_observation_but_reuse_existing_canonical_byte_receipt"
+  },
+  "claims": {
+    "ontology_bytes_acquired": false,
+    "public_redistribution_approved": false,
+    "portal_completeness": false,
+    "language_completeness": false,
+    "clinical_validity": false,
+    "production_activation": false
+  }
+}

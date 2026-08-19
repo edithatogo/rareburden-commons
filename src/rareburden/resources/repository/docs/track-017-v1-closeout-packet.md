@@ -6,19 +6,21 @@
 
 | Lane | Required receipt | Accountable disposition |
 |---|---|---|
-| Documentation and accessibility | Two independent user runs, task outcomes, accessibility findings and remediation log | independent users/community reviewer: accept, revise or stop |
-| Reproduction | Clean builds from locked environments and equivalent reviewed outputs | independent operator: pass, qualified or fail |
-| Ownership and sustainability | Named maintainer, backup, incident owner, support scope, succession and cost model | operational owner/institutional host: accept, bound or defer |
-| Scientific and governance | Linked dispositions from Tracks 002–016, dissent and residual-risk register | scientific, patient/community and data-governance authorities: approve, bound or reject |
+| Documentation and accessibility | Two role-separated usability-agent reports, task outcomes, accessibility findings and remediation log | repository owner: accept, revise, defer or stop |
+| Reproduction | Two clean builds and separately recorded owner-operated clean-environment reproduction | repository owner: pass, qualify, revise or fail |
+| Ownership and sustainability | Named owner, exact backup-role evidence, incident scope, succession and cost model | repository owner: accept, bound or defer |
+| Scientific and governance | Linked dispositions from Tracks 002–016, agent-panel dissent and residual-risk register | repository owner: accept, narrow, revise, defer or stop |
 | Release integrity | Exact tag, source/data/provenance checksums, SBOM, attestation and public-artifact verification | release authority: release, bounded, revise or stop |
 
 ## Receipt contract
 
 Every receipt must identify the candidate tag or commit, input/release digest,
 environment, commands, UTC timestamp, outputs, discrepancies, reviewer role and
-decision expiry. A local test, subagent panel, draft guide or hosted CI result
-cannot substitute for independent use, constituted authority or named-owner
-acceptance.
+decision expiry. Agent panels are advisory and must not be described as
+independent, human, patient/community, custodian, licensor, institutional or
+external approval. Owner-operated reproduction is repository evidence, not an
+independent-operator receipt. The reported backup acceptance remains an owner
+attestation until the continuity fields in ADR-0009 are recorded.
 
 ## Safe continuation
 

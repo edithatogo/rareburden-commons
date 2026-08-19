@@ -260,6 +260,59 @@ def build_gap_api_response(
     }
 
 
+def build_static_gap_projection(
+    package: Mapping[str, Any],
+    candidate: Mapping[str, Any],
+    status: Mapping[str, Any],
+    *,
+    page_id: str = "bounded-synthetic-gap",
+) -> dict[str, Any]:
+    """Project a prepared package into a static, non-publishable page model."""
+    if not isinstance(page_id, str) or not page_id.strip():
+        raise AtlasPackageError("static projection requires a page_id")
+    if (
+        package.get("package_type") != "aggregate_gap_map"
+        or package.get("aggregate_only") is not True
+    ):
+        raise AtlasPackageError("static projection requires an aggregate gap package")
+    if (
+        candidate.get("package_fingerprint") != package.get("package_fingerprint")
+        or candidate.get("release_id") != package.get("release_id")
+        or candidate.get("publication_authorized") is not False
+        or candidate.get("release_status") != "prepared"
+    ):
+        raise AtlasPackageError("static projection candidate differs from package")
+    if (
+        status.get("release_surface_fingerprint") != candidate.get("release_surface_fingerprint")
+        or status.get("release_id") != candidate.get("release_id")
+        or status.get("publication_authorized") is not False
+    ):
+        raise AtlasPackageError("static projection status differs from candidate")
+    rows = package.get("rows")
+    if not isinstance(rows, list) or not rows:
+        raise AtlasPackageError("static projection requires rows")
+    if any(row.get("sufficiency") != "not_assessed" for row in rows):
+        raise AtlasPackageError("bounded static projection requires unassessed sufficiency")
+    payload = {
+        "static_schema_version": "0.1.0",
+        "page_id": page_id,
+        "release_id": package["release_id"],
+        "source_manifest_id": package["source_manifest_id"],
+        "package_fingerprint": package["package_fingerprint"],
+        "release_surface_fingerprint": candidate["release_surface_fingerprint"],
+        "status_fingerprint": status["status_fingerprint"],
+        "lifecycle_status": status["release_status"],
+        "availability": status["availability"],
+        "publication_authorized": False,
+        "aggregate_only": True,
+        "missingness_policy": package["missingness_policy"],
+        "rows": [dict(row) for row in rows],
+        "limitations": list(package.get("limitations", [])),
+        "text_alternative": status["text_alternative"],
+    }
+    return {"static_fingerprint": content_id("atlas-static", payload), **payload}
+
+
 def build_gap_package(
     gap_map: Mapping[str, Any], *, release_id: str, source_manifest_id: str
 ) -> dict[str, Any]:
@@ -291,4 +344,5 @@ __all__ = [
     "build_atlas_release_status",
     "build_gap_api_response",
     "build_gap_package",
+    "build_static_gap_projection",
 ]

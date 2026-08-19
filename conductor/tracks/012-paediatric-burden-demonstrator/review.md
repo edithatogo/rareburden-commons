@@ -39,3 +39,18 @@ Keep Track 012 **blocked**. Do not activate controlled-data or paediatric burden
 needed before activation. It is repository-owned preparation and does not
 constitute paediatric, privacy, Indigenous/data-governance, security,
 engineering or patient/family approval.
+
+### Bounded dependency reconciliation — 2026-08-16
+
+Exact repository-owned artifacts from Tracks 004, 005 and 008–011 are now
+bound to an entirely synthetic linkage exercise. The deterministic receipt
+deduplicates people, retains multimorbidity, exposes missing mortality and cost
+coverage, suppresses jurisdiction cells below the synthetic threshold and
+performs no imputation. Negative tests reject activation, broken linkage,
+duplicate people and an unsafe threshold.
+
+This resolves repository dependency compatibility only for synthetic
+assurance. It supplies no real child-level data, access authority, coding
+validation, clinical/economic interpretation, transportability evidence or
+policy claim. Panel findings and owner disposition also remain pending. Track
+012 therefore remains **blocked**.
