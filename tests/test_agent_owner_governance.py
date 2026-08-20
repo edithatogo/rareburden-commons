@@ -19,6 +19,33 @@ def test_normative_governance_uses_agent_panels_and_owner() -> None:
     assert "ADR-0009" in workflow
 
 
+def test_owner_scientist_and_simulated_community_boundaries_are_explicit() -> None:
+    adr = (ROOT / "docs/decisions/ADR-0009-agent-panel-owner-governance.md").read_text(
+        encoding="utf-8"
+    )
+    policy = (ROOT / "docs/subagent-review-panel-policy.md").read_text(encoding="utf-8")
+    decision = (
+        ROOT / "docs/decisions/2026-08-21-owner-scientist-simulated-community-governance.md"
+    ).read_text(encoding="utf-8")
+    combined = " ".join(" ".join((adr, policy, decision)).split())
+    assert "repository owner and scientist is the sole accountable decision-maker" in combined
+    assert "repository evidence, not independent approval or external validation" in combined
+    assert "Owner-executed simulated-community challenge" in combined
+    assert "no actual community" in combined.lower()
+    assert "participation, representation, consultation, endorsement, consent" in combined
+    assert "options, contingencies, rationale, trade-offs" in combined
+    assert "community-impact self-assessment" in combined
+
+
+def test_simulated_community_cannot_manufacture_legitimacy_or_external_facts() -> None:
+    decision = (
+        ROOT / "docs/decisions/2026-08-21-owner-scientist-simulated-community-governance.md"
+    ).read_text(encoding="utf-8")
+    assert "cannot confer representation, consent, endorsement, co-design" in decision
+    assert "Publisher licences, redistribution rights, source terms" in decision
+    assert "Synthetic validation cannot establish empirical validity" in decision
+
+
 def test_unchecked_track_tasks_do_not_require_people_or_independent_review() -> None:
     prohibited = (
         "independent methods",
