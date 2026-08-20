@@ -1,14 +1,19 @@
 schema_version: '1.0.0'
 manifest_id: RBC-LAND-007-STRATA-MANIFEST-2026-08-20
 protocol: docs/track-007-protocol-v0.2.1-preparation.yml
-status: ready_not_executed
-execution_authorization: pending_owner_scope_confirmation
+status: authorized_bounded_pilot_not_executed
+execution_authorization: owner_option_A_selected
+decision_packet: docs/track-007-v021-scope-decision-packet-2026-08-20.yml
+decision_candidate_commit: 320a970cb4bd8d045d0def52010c97435108ce36
+decision_manifest_sha256: sha256:eae621213152f3fbf7f6eea701cf6f68fc801e0d6d78eafc9f8ead72d93b303d
 observations: []
 planned:
   language_strata: [en, es, pt, fr, de, zh, ar, ja]
   region_strata: [africa, americas, south_east_asia, europe, eastern_mediterranean, western_pacific]
   providers: [crossref, github, zenodo, huggingface_datasets]
-  planned_capture_count: 192
+  planned_capture_count: 48
+  selected_language_strata: [en, es, pt, fr]
+  selected_region_strata: [americas, europe, western_pacific]
   minimum_delay_seconds: 1
   max_requests_per_stratum: 24
   raw_response_retention: prohibited

@@ -136,9 +136,11 @@
   Evidence: `docs/track-007-coverage-language-geography-community-2026-08-20.yml`
   and its fail-closed regression tests. This is a supplemental assessment and
   does not freeze protocol v0.2.0.
-- [ ] Execute a new country/region and non-English search surface under a
-  versioned v0.2.1 protocol, with provider terms, rate limits and immutable
-  stratum captures.
+- [ ] Execute the authorized Option A 48-cell country/region and non-English
+  search surface under the versioned v0.2.1 protocol, with provider terms,
+  rate limits and immutable stratum captures. Authorization is recorded in
+  `docs/track-007-v021-scope-decision-packet-2026-08-20.yml`; execution and
+  observations remain outstanding.
 - [ ] Obtain attributable patient/community interpretation or acceptable-use
   evidence for any claim that depends on community authority. Agent panels and
   the repository owner cannot substitute for that evidence.
@@ -151,11 +153,11 @@
   missingness semantics. Evidence:
   `docs/track-007-protocol-v0.2.1-preparation.yml`; it is not frozen and no
   capture execution or community-authority claim is inferred.
-- [x] Prepare a 192-cell provider/language/region capture manifest with an
-  empty observation set, explicit owner-scope confirmation gate and fail-closed
-  claim/stop rules. Evidence:
+- [x] Prepare and authorize the bounded provider/language/region capture
+  manifest with an empty observation set, explicit Option A scope and
+  fail-closed claim/stop rules. Evidence:
   `docs/track-007-stratum-capture-manifest-v0.2.1.yml` and regression tests.
-  Live execution remains pending the owner’s exact scope confirmation.
+  Live execution remains the next unchecked item.
 - [x] Prepare an owner scope-decision packet with bounded-pilot, full-strata
   and defer options. Evidence:
   `docs/track-007-v021-scope-decision-packet-2026-08-20.yml`; no option is

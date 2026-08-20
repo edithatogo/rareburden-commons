@@ -6,10 +6,11 @@ ROOT = Path(__file__).parents[1]
 PACKET = ROOT / "docs/track-007-v021-scope-decision-packet-2026-08-20.yml"
 
 
-def test_scope_decision_packet_is_pending_and_recommends_bounded_pilot() -> None:
+def test_scope_decision_packet_records_bounded_pilot() -> None:
     data = load_mapping(PACKET)
-    assert data["status"] == "awaiting_owner_selection"
-    assert data["owner_decision_fields"]["selected_option"] is None
+    assert data["status"] == "owner_selected_bounded_pilot"
+    assert data["owner_decision_fields"]["selected_option"] == "A"
+    assert data["owner_decision_fields"]["stop_triggers_acknowledged"] is True
     assert data["recommendation"] == "select_A_then_reconcile_before_any_expansion"
     assert data["options"][0]["recommended"] is True
     assert data["options"][0]["scope"]["planned_cells"] == 48
