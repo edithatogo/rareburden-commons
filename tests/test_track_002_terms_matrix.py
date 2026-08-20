@@ -11,8 +11,8 @@ def test_track_002_terms_matrix_is_complete_and_fail_closed() -> None:
     matrix = yaml.safe_load(
         (ROOT / "docs/track-002-source-terms-matrix.yml").read_text(encoding="utf-8")
     )
-    assert matrix["status"] == "bounded_owner_disposition_preparation_only"
-    assert matrix["activation"] == "disabled_until_accountable_dispositions"
+    assert matrix["status"] == "bounded_evidence_reconciled"
+    assert matrix["activation"] == "disabled_until_exact_owner_activation_decision"
     assert {record["source_id"] for record in matrix["records"]} == {
         "orphadata-science",
         "un-world-population-prospects",
@@ -23,11 +23,9 @@ def test_track_002_terms_matrix_is_complete_and_fail_closed() -> None:
         assert record["exact_record"]
         assert record["licence_state"]
         assert record["redistribution"]
-        assert record["scientific_disposition"] == "pending" or record[
-            "scientific_disposition"
-        ].startswith("owner_bounded_")
+        assert record["scientific_disposition"].startswith("owner_bounded_")
         assert record["data_governance_disposition"].startswith("owner_")
-        assert record["source_change_exercise"] == "pending"
+        assert record["source_change_exercise"] == "complete_2026_08_20_hash_stable"
     who = next(
         record
         for record in matrix["records"]

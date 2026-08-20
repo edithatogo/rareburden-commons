@@ -1,6 +1,6 @@
 schema_version: "0.1.0"
 decision: "repository_owner_approved_bounded_preparation"
-activation: "disabled_until_scientific_and_data_governance_receipts"
+activation: "disabled_until_exact_owner_activation_and_publisher_rights"
 primary_preparation_sources:
   - source_id: "orphadata-science"
     role: "descriptive_epidemiology_and_identifier_alignment"

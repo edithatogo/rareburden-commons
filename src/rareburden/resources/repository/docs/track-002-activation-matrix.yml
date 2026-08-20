@@ -7,6 +7,11 @@ rows:
     source_id: "orphadata-science"
     activation: "conditional"
     required_receipts: ["agent_methods_panel", "owner_data_use", "source_change_exercise"]
+    evidence_state:
+      agent_methods_panel: "bounded_advice_recorded"
+      owner_data_use: "recorded_2026_08_15"
+      source_change_exercise: "complete_2026_08_20_hash_stable"
+      remaining: "exact_owner_activation_decision"
     raw_bytes: "private_archive_present_under_cc_by_4_0; excluded_from_bounded_candidate"
     permitted_output: "descriptive_metadata_and_identifier_alignment"
     conditions: ["confirm_CC_BY_and_conditions_apply", "retain_attribution_and_change_notice", "exclude_denominator_and_burden_inference"]
@@ -14,6 +19,11 @@ rows:
     source_id: "un-world-population-prospects"
     activation: "conditional"
     required_receipts: ["agent_methods_panel", "owner_data_use", "source_change_exercise"]
+    evidence_state:
+      agent_methods_panel: "bounded_advice_recorded"
+      owner_data_use: "recorded_2026_08_15"
+      source_change_exercise: "complete_2026_08_20_hash_stable"
+      remaining: "exact_geography_year_and_owner_activation_decision"
     raw_bytes: "private_archive_present_under_cc_by_3_0_igo; excluded_from_bounded_candidate"
     permitted_output: "explicit_medium_variant_population_denominator"
     conditions: ["approve_exact_geography_and_years", "confirm_workbook_terms", "no_age_sex_interpolation"]
@@ -21,6 +31,11 @@ rows:
     source_id: "who-global-health-estimates"
     activation: "candidate_only"
     required_receipts: ["agent_methods_panel", "owner_data_use", "publisher_third_party_rights"]
+    evidence_state:
+      agent_methods_panel: "bounded_advice_recorded"
+      owner_data_use: "candidate_only_recorded_2026_08_15"
+      publisher_third_party_rights: "pending"
+      remaining: "field_level_rights_and_new_owner_decision"
     raw_bytes: "withheld_from_hugging_face; metadata_and_hash_only"
     permitted_output: "none_until_receipts"
     conditions: ["year_2000_only", "clear_third_party_fields", "confirm_workbook_terms"]
@@ -28,6 +43,11 @@ rows:
     source_id: "world-bank-indicators-api"
     activation: "probe_only"
     required_receipts: ["agent_methods_panel", "owner_data_use", "source_change_exercise"]
+    evidence_state:
+      agent_methods_panel: "bounded_advice_recorded"
+      owner_data_use: "probe_only_recorded_2026_08_15"
+      source_change_exercise: "complete_2026_08_20_hash_stable"
+      remaining: "none_while_probe_only; new_decision_required_for_broader_use"
     raw_bytes: "response_hash_only"
     permitted_output: "cross_check_only"
     conditions: ["record_response_hash", "confirm_endpoint_and_terms", "no_silent_WPP_substitution"]
