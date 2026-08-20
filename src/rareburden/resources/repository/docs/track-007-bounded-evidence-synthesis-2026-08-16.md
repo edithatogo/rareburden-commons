@@ -42,7 +42,7 @@ snapshot and remain unscreened.
 | The Zenodo capture is incomplete under its page budget. | `docs/track-007-live-pages-zenodo-2026-08-15.json` | Broad matching and larger provider totals prevent a completeness claim. |
 | Empty Hugging Face first pages were observed. | `docs/track-007-live-pages-huggingface-2026-08-15.json` | Empty ranked pages do not show that matching datasets are absent. |
 | Existing infrastructures provide registries, terminologies, genomic resources, broad burden envelopes and policy mandates that RareBurden must reuse rather than duplicate. | `catalog/initiatives.yml`; the track adjacency fields validated by `schemas/initiative-landscape.schema.json` | The evidence does not imply partnership, endorsement or access. |
-| A provenance-first federated measurement and policy-translation layer remains a plausible bounded niche. | `catalog/initiatives.yml`; `conductor/archive/007-landscape-novelty/review.md` | This is a falsifiable programme hypothesis, not independently confirmed novelty. |
+| A provenance-first federated measurement and policy-translation layer remains a plausible bounded niche. | `catalog/initiatives.yml`; `conductor/tracks/007-landscape-novelty/review.md` | This is a falsifiable programme hypothesis, not independently confirmed novelty. |
 
 ## Coverage and representativeness disposition
 
