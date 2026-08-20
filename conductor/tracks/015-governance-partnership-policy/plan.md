@@ -100,9 +100,10 @@
   disposition without authorising real data or release. Evidence:
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
 - [x] Refresh the exact commit, tree and scope-manifest binding after the
-  merged Track 007 bounded content-resolution change; retain the disposition
-  because Track 007 remains in review and its accountable community and
-  coverage gates remain pending. Evidence:
+  merged Track 007 bounded content-resolution and Option B downstream
+  preparation changes; retain the disposition because Tracks 008–010 remain
+  blocked/provisional and all accountable community, rights, custodian,
+  empirical and release gates remain pending. Evidence:
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
 - [ ] Keep constituted patient/community authority, applicable Indigenous
   authority, publisher rights, supplying-custodian policy and all real-data or
