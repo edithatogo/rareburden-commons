@@ -187,4 +187,3 @@ prohibited_claims:
   - "causal_treatment_effect"
   - "approved_or_frozen_protocol"
   - "independent_or_external_review"
-
