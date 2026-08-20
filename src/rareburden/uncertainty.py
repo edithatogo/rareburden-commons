@@ -6,7 +6,7 @@ import math
 from statistics import fmean
 from typing import Any
 
-from rareburden.model import ModelError, sample_distribution
+from rareburden.model import ModelError, _compile_distribution_sampler
 from rareburden.stochastic import StableRandom
 
 
@@ -38,12 +38,14 @@ def decompose_independent_product(
     if not isinstance(seed, int) or isinstance(seed, bool) or seed < 0:
         raise ModelError("seed must be a non-negative integer")
     rng = StableRandom(seed)
+    left_sampler = _compile_distribution_sampler(left)
+    right_sampler = _compile_distribution_sampler(right)
     left_draws: list[float] = []
     right_draws: list[float] = []
     products: list[float] = []
     for _ in range(iterations):
-        left_value = sample_distribution(left, rng)
-        right_value = sample_distribution(right, rng)
+        left_value = left_sampler(rng)
+        right_value = right_sampler(rng)
         left_draws.append(left_value)
         right_draws.append(right_value)
         products.append(left_value * right_value)

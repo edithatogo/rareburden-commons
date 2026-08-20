@@ -81,6 +81,10 @@ class StableRandom:
             raise RandomStreamError("normal mean must be finite")
         if not math.isfinite(standard_deviation) or standard_deviation <= 0:
             raise RandomStreamError("normal standard_deviation must be finite and positive")
+        return self._normal_unchecked(mean, standard_deviation)
+
+    def _normal_unchecked(self, mean: float, standard_deviation: float) -> float:
+        """Draw from a normal distribution whose parameters were already validated."""
         while True:
             first = 2.0 * self.random() - 1.0
             second = 2.0 * self.random() - 1.0
@@ -122,6 +126,31 @@ class StableRandom:
                 return adjusted * candidate
         raise RandomStreamError("gamma sampler exceeded its defensive iteration limit")
 
+    def _gamma_unchecked(self, shape: float) -> float:
+        """Draw from a gamma distribution whose shape was already validated."""
+        if shape < 1.0:
+            # Gamma(a) = Gamma(a+1) * U**(1/a) for 0 < a < 1.
+            return self._gamma_unchecked(shape + 1.0) * math.pow(
+                self._positive_random(), 1.0 / shape
+            )
+
+        adjusted = shape - 1.0 / 3.0
+        coefficient = 1.0 / math.sqrt(9.0 * adjusted)
+        for _ in range(1_000_000):
+            normal = self._normal_unchecked(0.0, 1.0)
+            candidate_root = 1.0 + coefficient * normal
+            if candidate_root <= 0:
+                continue
+            candidate = candidate_root**3
+            uniform = self._positive_random()
+            if uniform < 1.0 - 0.0331 * normal**4:
+                return adjusted * candidate
+            if math.log(uniform) < 0.5 * normal**2 + adjusted * (
+                1.0 - candidate + math.log(candidate)
+            ):
+                return adjusted * candidate
+        raise RandomStreamError("gamma sampler exceeded its defensive iteration limit")
+
     def beta(self, alpha: float, beta: float) -> float:
         """Return a beta variate from independent gamma draws."""
         if not math.isfinite(alpha) or alpha <= 0:
@@ -130,6 +159,15 @@ class StableRandom:
             raise RandomStreamError("beta beta must be finite and positive")
         first = self.gamma(alpha)
         second = self.gamma(beta)
+        total = first + second
+        if not math.isfinite(total) or total <= 0:
+            raise RandomStreamError("beta sampler produced an invalid denominator")
+        return first / total
+
+    def _beta_unchecked(self, alpha: float, beta: float) -> float:
+        """Draw from a beta distribution whose parameters were already validated."""
+        first = self._gamma_unchecked(alpha)
+        second = self._gamma_unchecked(beta)
         total = first + second
         if not math.isfinite(total) or total <= 0:
             raise RandomStreamError("beta sampler produced an invalid denominator")

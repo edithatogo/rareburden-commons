@@ -33,13 +33,18 @@ def test_benchmark_receipt_is_scientifically_reproducible() -> None:
         clock=iter([5.0, 5.5]).__next__,
     )
     assert first == second
-    assert first["scientific_output_sha256"]
+    assert first["timing_basis"] == "process_cpu"
+    assert (
+        first["scientific_output_sha256"]
+        == "5783be615ac183170e896abf255d77961d965caa40ed13d744bb0d2bef575730"
+    )
     assert first["elapsed_seconds"] == 0.5
 
 
 def test_representative_large_synthetic_workload_stays_bounded() -> None:
     receipt = BENCHMARK.run_benchmark(iterations=100_000, seed=20260731, max_seconds=15)
     assert receipt["iterations"] == 100_000
+    assert receipt["timing_basis"] == "process_cpu"
     assert receipt["elapsed_seconds"] <= receipt["maximum_seconds"]
     assert receipt["scientific_output_sha256"]
 

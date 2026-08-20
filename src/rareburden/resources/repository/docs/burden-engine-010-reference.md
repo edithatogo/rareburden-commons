@@ -37,7 +37,9 @@ the empirical product variance and closure error. It explicitly does not support
 correlated inputs.
 
 `make burden-benchmark` runs a 10,000-draw synthetic simulation and decomposition,
-records a digest of the scientific output and enforces a deliberately generous
+bounding process CPU time so concurrent host workloads do not create a false
+engine regression. This is not an end-to-end wall-latency claim.
+It records a digest of the scientific output and enforces a deliberately generous
 engineering time envelope. The timing gate detects gross regressions; it is not
 evidence that an estimand or distribution is scientifically appropriate.
 
