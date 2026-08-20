@@ -1,7 +1,9 @@
 # Owner disposition — Option B bounded preparation
 
-**Decision date:** 2026-08-20  
-**Decision owner:** repository owner  
+**Decision date:** 2026-08-20
+
+**Decision owner:** repository owner
+
 **Status:** accepted for reversible repository preparation; no empirical or release gate closed
 
 ## Decision
