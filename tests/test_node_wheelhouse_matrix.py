@@ -32,3 +32,10 @@ def test_approved_pass_requires_independent_operator() -> None:
     invalid["rows"][0]["status"] = "approved_passed"
     with pytest.raises(SchemaValidationError):
         validate_instance(invalid, SCHEMA)
+
+
+def test_python_311_is_outside_the_wheelhouse_contract() -> None:
+    invalid = deepcopy(MATRIX)
+    invalid["rows"][0]["python_version"] = "3.11"
+    with pytest.raises(SchemaValidationError):
+        validate_instance(invalid, SCHEMA)
