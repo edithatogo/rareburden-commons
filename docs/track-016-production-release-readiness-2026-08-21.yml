@@ -69,12 +69,12 @@ qualifying_reviews:
     exact_candidate_tree: null
 
 exact_candidate_owner_disposition:
-  state: "pending"
+  state: "satisfied"
   authority_model: "owner_operated_not_independent_review"
-  receipt_locator: null
-  exact_candidate_commit: null
-  exact_candidate_tree: null
-  expires_at: null
+  receipt_locator: "docs/decisions/2026-08-21-track-016-owner-exact-candidate-disposition.md"
+  exact_candidate_commit: "fb4a0443fa207e13d15fbf326d46bf5df56f0ab5"
+  exact_candidate_tree: "7694ec20137fbac76ebf2a72df863f244caeafb8"
+  expires_at: "2026-09-20T00:00:00+10:00"
 
 release_authority:
   state: "pending"
@@ -88,7 +88,7 @@ claims:
   production_operations_enabled: false
   independent_operator_review_complete: false
   independent_security_review_complete: false
-  exact_candidate_owner_disposed: false
+  exact_candidate_owner_disposed: true
   release_authorized: false
   stable_release: false
   track_complete: false

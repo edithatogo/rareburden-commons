@@ -212,5 +212,9 @@
   against the same exact candidate.
 - [~] Exercise qualifying production operations after Tracks 004 and 014 are
   complete and record the production-environment receipt.
-- [~] Record the repository owner's exact-candidate disposition, explicitly as
-  owner-operated governance, then obtain separate release authority.
+- [x] Record the repository owner's exact-candidate disposition, explicitly as
+  owner-operated governance. Evidence:
+  `docs/decisions/2026-08-21-track-016-owner-exact-candidate-disposition.md`
+  binds PR #165's merge commit, tree and evidence hashes for 30 days. It is not
+  independent review, production approval or release authority.
+- [~] Obtain separate release authority after all qualifying gates are satisfied.
