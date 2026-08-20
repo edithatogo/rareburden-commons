@@ -22,10 +22,8 @@ representatives or independent reviewers.
 ## Evidence contract
 
 Each panel result records `panel_assurance`, composition, scope, exact candidate
-commit and manifest, evidence references, findings, uncertainty, dissent and
-stop triggers. Every synthesis presented for decision must include options,
-trade-offs, contingencies, rationale and an accept, narrow, revise, defer or
-stop recommendation. Agent
+commit and manifest, evidence references, findings, uncertainty, dissent, stop
+triggers and an accept, narrow, revise, defer or stop recommendation. Agent
 outputs are advisory and must never be described as independent, human,
 constituted-community, institutional, custodian, licensor or external approval.
 
