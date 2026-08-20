@@ -31,7 +31,10 @@
   plus fail-closed binding checks in `rareburden.demonstrator_readiness`. The
   profiles deliberately report unresolved scientific and controlled-data roles
   and therefore do not declare any demonstrator analysis ready.
-- [ ] Close or assign every blocking data-contract issue.
+- [x] Assign every blocking data-contract issue to an accountable role while
+  retaining pending status until exact-candidate evidence exists. Evidence:
+  `docs/track-009-freeze-readiness-2026-08-21.yml`; assignment does not resolve
+  the three findings or confer epidemiology/data-governance approval.
 - [ ] Freeze v0.4 ledger contracts.
 
 ## Preparation refresh — 2026-08-02
@@ -96,3 +99,12 @@
   `scripts/check_downstream_preparation.py` and focused out-of-order activation
   tests. Epidemiology, rights/data-use, engineering and contract-freeze gates
   remain open.
+
+## Freeze-readiness control — 2026-08-21
+
+- [x] Encode and machine-enforce the dependency, ledger-review, assigned
+  data-contract issue, exact-candidate migration and v0.4 freeze evidence
+  required for Track 009 closure. Evidence:
+  `docs/track-009-freeze-readiness-2026-08-21.yml`,
+  `scripts/check_track_009_freeze_readiness.py` and focused negative tests.
+  Track 009 remains blocked and all accountable review/freeze tasks stay open.
