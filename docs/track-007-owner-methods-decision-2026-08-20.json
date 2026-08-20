@@ -1,0 +1,143 @@
+{
+  "schema_version": "RBC-LAND-007-OWNER-METHODS-v0.1.0",
+  "decision_id": "RBC-LAND-007-OWNER-METHODS-2026-08-20",
+  "recorded_at_utc": "2026-08-20T11:25:16Z",
+  "authorization": {
+    "kind": "repository_owner_interactive_instruction",
+    "scope": "implement_the_recommended_bounded_methods_package",
+    "external_or_community_approval": false
+  },
+  "track_status": "in_review",
+  "deliverable": {
+    "selected": "dated_source_bounded_repository_adjacency_landscape",
+    "not_selected": [
+      "systematic_review",
+      "comprehensive_landscape",
+      "global_or_geographically_representative_landscape",
+      "confirmed_novelty_assessment"
+    ]
+  },
+  "frozen_69_resolution": {
+    "historical_source": {
+      "path": "docs/track-007-final-all-resolutions-2026-08-16.json",
+      "sha256": "sha256:45b0970dee2fb5754c74391b4b71e4843b13e9d519a416d74ac34500e0c9e3a9",
+      "preservation": "historical_hash_bound_record_not_rewritten"
+    },
+    "prior_counts": {
+      "include": 66,
+      "exclude": 2,
+      "uncertain": 1
+    },
+    "current_counts": {
+      "include": 66,
+      "exclude": 3,
+      "uncertain": 0
+    },
+    "resolved_record": {
+      "canonical_key": "doi:10.1177/2633004020902860",
+      "title": "Introducing Therapeutic Advances in Rare Disease",
+      "decision": "exclude",
+      "reason": "non_substantive_journal_launch_editorial",
+      "basis": "lawful_full_text_identifies_an_editorial_announcing_a_journal_and_its_publishing_remit_not_a_qualifying_burden_programme_data_standard_policy_or_measurement_contribution",
+      "evidence": {
+        "pmid": "37180498",
+        "pmcid": "PMC10032439",
+        "publisher_url": "https://journals.sagepub.com/doi/10.1177/2633004020902860",
+        "pmc_oa_record_url": "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC10032439",
+        "pmc_xml_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=10032439&retmode=xml",
+        "pmc_xml_sha256": "sha256:e0dbf85441f3347e236f86be2bf345668d3e362c8cb4f502d1e7688b09a959f2",
+        "oa_record_sha256": "sha256:1ef711ec175f5243335c83e251834b9f974f856fd0ec4c603a404435cbd96669",
+        "observed_at_utc": "2026-08-20T11:25:16Z",
+        "article_type": "editorial",
+        "observed_licence": "CC BY-NC 4.0",
+        "content_retention": "no_response_body_or_full_text_retained"
+      },
+      "non_inferences": [
+        "the_exclusion_does_not_show_the_journal_or_its_articles_are_irrelevant",
+        "the_patient_voice_statement_does_not_establish_community_authority_or_approval",
+        "publisher_affiliation_does_not_establish_study_or_programme_geography"
+      ]
+    }
+  },
+  "live_only_144": {
+    "bounded_counts": {
+      "include_bounded_adjacency": 54,
+      "not_assessable_in_bounded_public_metadata_scope": 90
+    },
+    "priority_policy": {
+      "tier_1": "explicit_safe_metadata_scope_or_contribution_signal_requires_lawful_substantive_confirmation",
+      "tier_2": "no_explicit_safe_metadata_signal_requires_lawful_substantive_evidence",
+      "effect": "orders_future_assessment_only_and_does_not_change_any_record_decision",
+      "forbidden_proxies": [
+        "repository_programming_language_for_content_language",
+        "title_language_for_study_language",
+        "author_or_publisher_affiliation_for_study_geography",
+        "provider_presence_for_representativeness"
+      ]
+    },
+    "evidence": {
+      "path": "docs/track-007-bounded-content-resolution-2026-08-20.json",
+      "sha256": "sha256:ed322bd3a64c393fdc768e6fa9fc22a68828ab4f3a7ea838f064dbebc65c59bb"
+    }
+  },
+  "second_provider_gate": {
+    "status": "not_activated",
+    "crossref_only_provider_bias": "explicit",
+    "activation_conditions": [
+      "dated_applicable_terms_evidence",
+      "lawful_authentication_basis",
+      "exact_numeric_or_enforceable_rate_policy",
+      "frozen_queries_pagination_and_stop_rules",
+      "response_hashes_and_incremental_contribution_accounting"
+    ],
+    "contingency": "retain_crossref_only_evidence_and_prohibit_provider_independent_or_literature_wide_claims"
+  },
+  "grey_literature": {
+    "status": "predeclared_not_executed_and_excluded_from_current_evidence",
+    "bounded_source_classes": [
+      "government_and_intergovernmental_sites",
+      "funder_and_programme_sites",
+      "study_and_trial_registries",
+      "institutional_repositories_theses_and_conference_outputs",
+      "patient_and_community_organisation_sites"
+    ],
+    "execution_requirements": [
+      "exact_source_roster_and_queries",
+      "dated_terms_and_rights_notes",
+      "per_source_result_or_page_ceiling",
+      "receipts_and_stable_identifiers",
+      "fault_isolation_so_one_source_failure_does_not_stop_the_batch",
+      "separation_of_community_nominations_from_systematic_retrieval"
+    ],
+    "claim_effect": "no_programme_policy_access_or_community_activity_absence_claim"
+  },
+  "language_geography_and_community": {
+    "record_language_coverage": "unestablished",
+    "study_or_programme_geography": "unestablished",
+    "geographic_representativeness": "unestablished",
+    "community_authority": "unestablished_pending_attributable_evidence",
+    "community_consultation_or_partnership": "not_inferred",
+    "external_approval": "not_inferred"
+  },
+  "claim_register": {
+    "allowed": [
+      "this_dated_source_bounded_exercise_identifies_evidence_consistent_with_a_repository_adjacency_or_programme_hypothesis_within_the_specified_retrieval_and_screening_frame"
+    ],
+    "forbidden": [
+      "systematic_or_comprehensive_coverage",
+      "global_or_geographic_representativeness",
+      "confirmed_novelty",
+      "programme_operation_or_effectiveness",
+      "partnership_or_endorsement",
+      "data_or_service_access",
+      "clinical_validity_or_patient_benefit",
+      "patient_or_community_authority_approval_or_legitimacy",
+      "external_approval"
+    ]
+  },
+  "remaining_gate": {
+    "id": "track_007_attributable_community_authority",
+    "status": "pending",
+    "effect": "track_remains_in_review_and_no_claim_depending_on_community_authority_may_be_made"
+  }
+}
