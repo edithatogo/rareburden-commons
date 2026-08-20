@@ -490,3 +490,30 @@ inferred. The identity map also prevents treating TARA, OCMR or TCDO as copies
 of KIOM merely because they concern traditional medicine. Five negative tests
 enforce these boundaries; this closes evidence preparation only, not payload
 acquisition, rights clearance, completeness or production activation.
+
+## Bounded completion review — 2026-08-21
+
+**Disposition: Pass for the bounded track contract.**
+
+The repository owner narrowed completion to the implemented offline
+acquisition/provenance substrate, exact owner-dispositioned source roles, and
+fail-closed metadata-only or exclusion routes. The official Orphadata and
+MONDO publisher licence representations are accepted for the exact identified
+CC BY 4.0 allowlist with attribution, change-notice, applicable-notice and
+no-endorsement conditions. This is publisher reliance, not an independent
+chain-of-title claim for every embedded assertion.
+
+Owner scientific and data-use disposition permits only Orphadata descriptive
+metadata/identifier alignment, the exact bounded WPP denominator, and the
+World Bank cross-check. WHO GHE is metadata/hash/link-only; PanelApp is
+metadata/hash/link-only; HPO remains asset-specific; controlled and
+credentialed sources remain metadata-only unless separately authorized and
+evidenced. No independent review, community authority, clinical validation,
+partnership, archive completeness or external approval is claimed.
+
+All former open plan items have a final bounded disposition or were transferred
+to optional separately versioned work. No successor track is initialized by
+this decision. Publication, v0.3.0 release, Issue #2 closure, hosted WPP object
+mutation, credential use, storage purchase and private-byte capture remain
+separate unauthorized external actions. Evidence:
+`docs/decisions/2026-08-21-track-002-bounded-completion.yml`.

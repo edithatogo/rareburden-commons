@@ -19,6 +19,12 @@ Initial supported sources:
 
 IHME and OECD acquisition may be registered manually and specified here, but automation proceeds only after current terms and query/export behaviour are tested.
 
+Completion is bounded to the implemented acquisition/provenance substrate,
+the exact owner-dispositioned source roles, and fail-closed metadata-only or
+exclusion routes. Comprehensive historical, language, country, publisher-
+controlled and credentialed acquisition is optional separately versioned work,
+not part of this track's acceptance criteria.
+
 ## Required outputs
 
 - source-release, acquisition-manifest and normalised-table schemas;
@@ -48,6 +54,10 @@ IHME and OECD acquisition may be registered manually and specified here, but aut
 - mirroring data whose terms prohibit redistribution;
 - assuming all source updates are backwards compatible;
 - using a source in public analysis before terms and provenance are recorded.
+- completing every discoverable historical release, language, national edition
+  or publisher-controlled source;
+- publishing the prepared Orphadata/MONDO candidate or reconciling an existing
+  hosted object without a separate exact external authorization.
 
 ## v1 contribution
 
