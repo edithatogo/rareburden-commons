@@ -7,7 +7,7 @@
   "updated": "2026-08-01",
   "target_release": "0.6.0",
   "stage": "federated_execution",
-  "owner_role": "Node Architecture and Data Governance Leads",
+  "owner_role": "Repository owner (sole accountable human)",
   "dependencies": [
     "006-v1-delivery-system",
     "009-evidence-parameter-ledger",

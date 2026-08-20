@@ -126,3 +126,14 @@
 - [ ] Receive attributable, scope-matched receipts for every applicable gate in
   `docs/track-015-external-gate-closure-2026-08-21.yml`; then rerun the exact-
   candidate review and record a constituted governance readiness decision.
+
+## Single-accountable-human enforcement — 2026-08-21
+
+- [x] Record the owner's acceptance of the panel-recommended enforced
+  single-owner model and make active track ownership, CODEOWNERS, continuity,
+  contribution, security and governance controls agree. Evidence:
+  `docs/decisions/ADR-0011-single-accountable-human-enforcement.md`,
+  `docs/single-owner-agent-governance.yml` and
+  `scripts/check_single_owner_agent_governance.py`. Historical role metadata
+  remains provenance; external evidence and independent-review boundaries are
+  not waived.

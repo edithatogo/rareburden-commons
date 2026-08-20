@@ -2,7 +2,7 @@
 
 > Open, reproducible infrastructure for measuring the collective health, social and economic burden of rare diseases.
 
-RareBurden Commons is the working technical repository of the **Global Rare Disease Burden Initiative**. It is operated as a single-developer repository: repository-owned challenge is provided by role-separated agent panels and the accountable owner. It uses public aggregate data directly and is designed to run controlled analyses behind custodian boundaries rather than centralising patient records.
+RareBurden Commons is the working technical repository of the **Global Rare Disease Burden Initiative**. It has one accountable human, owner and maintainer: `edithatogo`. Repository-owned challenge is provided by role-separated advisory agent panels, followed by the owner's decision. It uses public aggregate data directly and is designed to run controlled analyses behind custodian boundaries rather than centralising patient records.
 
 ## Status
 
