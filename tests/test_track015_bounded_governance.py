@@ -21,6 +21,8 @@ PATIENT_COMMUNITY_SCOPE = (
 PATIENT_COMMUNITY_ADVICE = (
     ROOT / "docs/track-015-patient-community-governance-advice-2026-08-20.yml"
 )
+EXTERNAL_GATE_CLOSURE = ROOT / "docs/track-015-external-gate-closure-2026-08-21.yml"
+TRACK_METADATA = ROOT / "conductor/tracks/015-governance-partnership-policy/metadata.json"
 
 
 def _payload() -> dict:
@@ -104,3 +106,18 @@ def test_patient_community_advice_keeps_non_self_attestable_gates_pending() -> N
         "real_or_controlled_data_authorized": False,
         "external_gate_status_changed": False,
     }
+
+
+def test_completion_attempt_remains_blocked_on_external_authority() -> None:
+    closure = yaml.safe_load(EXTERNAL_GATE_CLOSURE.read_text(encoding="utf-8"))
+    metadata = json.loads(TRACK_METADATA.read_text(encoding="utf-8"))
+
+    assert metadata["status"] == "blocked"
+    assert closure["status"] == "blocked_external_authority_and_dependencies"
+    assert closure["track_completion_authorized"] is False
+    assert all(blocker["self_attestable"] is False for blocker in closure["dependency_blockers"])
+    assert all(
+        gate["status"] == "pending" and gate["self_attestable"] is False
+        for gate in closure["external_gates"]
+    )
+    assert "Track 015 complete" in closure["prohibited_completion_claims"]

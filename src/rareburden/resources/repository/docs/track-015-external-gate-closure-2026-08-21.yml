@@ -1,0 +1,108 @@
+schema_version: '1.0.0'
+track: 015-governance-partnership-policy
+attempted_at: '2026-08-21'
+status: blocked_external_authority_and_dependencies
+track_completion_authorized: false
+unsafe_premise_rejected: repository-owner or agent action cannot constitute or
+  impersonate patient/community, Indigenous, custodian, institutional, partner,
+  scientific, data-governance or release authority
+
+dependency_blockers:
+  - track: 007-landscape-novelty
+    required_state: complete
+    current_state: in_review
+    self_attestable: false
+  - track: 013-quality-validation-gap-equity
+    required_state: complete
+    current_state: blocked
+    self_attestable: false
+
+external_gates:
+  - id: patient_community_constitution
+    acceptance_criteria: [1]
+    status: pending
+    accountable_authority: constituted Patient and Community Council
+    required_receipts:
+      - approved charter and appointments
+      - quorum, voting and reserved-decision rules
+      - budget and paid-remuneration authority
+      - conflicts and dissent record
+    self_attestable: false
+  - id: scientific_data_and_node_authority
+    acceptance_criteria: [2]
+    status: pending
+    accountable_authority: constituted methods, data-governance/ethics and node bodies
+    required_receipts:
+      - named appointments and accepted remits
+      - operational decision and escalation routes
+      - custodian-defined controlled-node policy where activated
+    self_attestable: false
+  - id: operating_policy_approval_and_test
+    acceptance_criteria: [3, 4]
+    status: pending
+    accountable_authority: constituted governance bodies and authorised facilitator
+    required_receipts:
+      - approved acceptable-use, harm, benefit-sharing and correction policies
+      - approved authorship, complaints, appeals and funder-independence policies
+      - authorised tabletop record with conflicts, dissent, actions and owners
+    self_attestable: false
+  - id: indigenous_and_country_node_authority
+    acceptance_criteria: [5]
+    status: pending
+    accountable_authority: applicable Indigenous authority and participating country nodes
+    required_receipts:
+      - jurisdiction-specific CARE and Indigenous Data Sovereignty disposition
+      - country-node agreement and accreditation decision
+      - withdrawal, correction and benefit-sharing terms
+    self_attestable: false
+  - id: relationship_and_partner_evidence
+    acceptance_criteria: [6]
+    status: pending
+    accountable_authority: each named relationship owner and counterparty
+    required_receipts:
+      - evidence-backed relationship register
+      - written agreement before any confirmed, partner or endorsement claim
+      - custodian-specific minimum data and method ask disposition
+    self_attestable: false
+  - id: geographic_and_global_claim_authority
+    acceptance_criteria: [7]
+    status: pending
+    accountable_authority: constituted governance with represented jurisdictions
+    required_receipts:
+      - policy-user framing review
+      - representation and LMIC-led participation evidence
+      - approved bounded geographic claim language
+    self_attestable: false
+  - id: v1_governance_readiness
+    acceptance_criteria: [8]
+    status: pending
+    accountable_authority: constituted governance and release authority
+    required_receipts:
+      - disposition of every blocking finding
+      - exact-candidate acceptable-use and product-scope decision
+      - release, bound, revise or stop decision with expiry
+    self_attestable: false
+
+repository_evidence_completed:
+  - bounded single-owner and role-separated agent-panel controls
+  - relationship claim-state and correction/withdrawal enforcement
+  - non-binding governance, decision-register and tabletop templates
+  - patient/community-governance advisory lane and owner disposition
+  - exact candidate, tree and scope-manifest binding
+
+safe_continuation:
+  - keep every relationship unconfirmed without written counterparty evidence
+  - maintain synthetic-only tests, templates and review packets
+  - route attributable receipts to the decision register without public sensitive detail
+  - rerun exact-candidate review after any material evidence or authority change
+
+prohibited_completion_claims:
+  - Track 015 complete
+  - constituted patient or community governance
+  - Indigenous authority or consent
+  - custodian, ethics, privacy, legal or partner approval
+  - global representativeness
+  - real-data, public-release or redistribution activation
+
+resume_condition: all dependencies complete and every applicable gate has an
+  attributable, scope-matched receipt from its accountable authority

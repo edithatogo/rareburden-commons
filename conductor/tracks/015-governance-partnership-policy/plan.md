@@ -114,3 +114,15 @@
 - [ ] Keep constituted patient/community authority, applicable Indigenous
   authority, publisher rights, supplying-custodian policy and all real-data or
   public-release permissions pending until attributable evidence exists.
+
+## Completion attempt — 2026-08-21
+
+- [x] Audit every remaining task and acceptance criterion against accountable
+  authority, dependency state and required receipts. Evidence:
+  `docs/track-015-external-gate-closure-2026-08-21.yml`.
+- [x] Record the track as blocked rather than self-attesting constituted bodies,
+  approvals, remuneration, partnership, global representation or release
+  authority. Evidence: Track 015 metadata, register and review.
+- [ ] Receive attributable, scope-matched receipts for every applicable gate in
+  `docs/track-015-external-gate-closure-2026-08-21.yml`; then rerun the exact-
+  candidate review and record a constituted governance readiness decision.
