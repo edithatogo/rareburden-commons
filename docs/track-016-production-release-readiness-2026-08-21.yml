@@ -1,0 +1,94 @@
+schema_version: "1.0.0"
+track: "016-security-reliability-operations"
+status: "planned"
+prepared_at: "2026-08-21"
+scope: "reversible synthetic/public preparation and cross-cutting security engineering"
+
+governance:
+  repository_panel_output: "advisory"
+  owner_disposition: "owner_operated_not_independent_review"
+  production_operations: "disabled"
+  release_runtime: "python3.13"
+
+candidate_input:
+  description: "default-branch input inspected before this readiness envelope"
+  commit: "bcff91f3a1c00dad60d86cd2f2f703442d6be0a4"
+  tree: "299d4a638bd42918779ca4fc88b00ff9e1e76c7a"
+  exact_release_candidate: false
+  evidence:
+    - path: "manifests/operations/track-016-bounded-operations-2026-08-16.json"
+      sha256: "23d3e3c57ad318849753870e7796813a48c227c64943d5d3fa457c8f3eaa575e"
+    - path: "docs/track-016-owner-operated-exercise-receipt-2026-08-16.json"
+      sha256: "b31435c60e2e3986eb1befaf33d2682fe9747e09ee416e423f7e62f754b95c58"
+    - path: "docs/release-policy.md"
+      sha256: "2f4626b33d7402a33e0a56238ee5484618ca21699f320e42193dac761eb7bcb1"
+    - path: "docs/security-operations-016-reference.md"
+      sha256: "a81d98aabda3577de26c85cfd1e776d4380501c98846d4ea8791219d977f5b5b"
+
+backup_owner_handoff:
+  state: "pending"
+  primary_owner: "edithatogo"
+  backup_identity: "privacy_preserving_private_role"
+  acceptance_reported_by_owner: true
+  required_receipt:
+    locator: null
+    scope: null
+    escalation_path: null
+    expires_at: null
+    revocation_method: null
+    candidate_commit: null
+    candidate_tree: null
+    handoff_exercise_passed: false
+
+production_operations_gate:
+  state: "pending"
+  required_controls:
+    support_and_security_fix_policy: "prepared_not_activated"
+    deployment_and_runbook: "prepared_not_exercised_in_production"
+    monitoring_and_incident_response: "synthetic_only"
+    backup_restore_and_rollback: "owner_operated_synthetic_only"
+    access_and_retention: "synthetic_public_scope_only"
+    capacity_and_resource_budget: "synthetic_only"
+    production_environment_receipt: null
+  blocked_by_tracks:
+    - "004-federated-node-runner"
+    - "014-atlas-api-release"
+
+qualifying_reviews:
+  independent_operator:
+    state: "pending"
+    receipt_locator: null
+    reviewer_independent_of_owner_and_panel: false
+    exact_candidate_commit: null
+    exact_candidate_tree: null
+  independent_security:
+    state: "pending"
+    receipt_locator: null
+    reviewer_independent_of_owner_and_panel: false
+    exact_candidate_commit: null
+    exact_candidate_tree: null
+
+exact_candidate_owner_disposition:
+  state: "pending"
+  authority_model: "owner_operated_not_independent_review"
+  receipt_locator: null
+  exact_candidate_commit: null
+  exact_candidate_tree: null
+  expires_at: null
+
+release_authority:
+  state: "pending"
+  receipt_locator: null
+  authority_identity_or_private_register_locator: null
+  exact_candidate_commit: null
+  exact_candidate_tree: null
+
+claims:
+  backup_owner_handoff_complete: false
+  production_operations_enabled: false
+  independent_operator_review_complete: false
+  independent_security_review_complete: false
+  exact_candidate_owner_disposed: false
+  release_authorized: false
+  stable_release: false
+  track_complete: false

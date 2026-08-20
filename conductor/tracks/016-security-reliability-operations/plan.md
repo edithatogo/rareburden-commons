@@ -96,7 +96,12 @@
   candidate. Evidence: no critical/high repository finding was observed in the
   recorded rehearsal; hosted exact-head scans remain required at integration
   and independent-security claims remain prohibited.
-- [ ] Publish support and security-fix policy with primary and backup owners.
+- [x] Publish the bounded support and security-fix policy and reconcile primary
+  and privacy-preserving backup roles. Evidence: `docs/release-policy.md`,
+  `docs/security-operations-016-reference.md` and
+  `docs/track-016-production-release-readiness-2026-08-21.yml`. Backup-role
+  acceptance is owner-reported; the scoped, expiring, hash-bound handoff
+  receipt remains pending and production support is not activated.
 
 ## Preparatory dependency review — 2026-07-29
 
@@ -189,3 +194,23 @@
   `docs/downstream-bounded-preparation-plan-2026-08-03.yml` and
   `scripts/check_downstream_preparation.py`. This does not establish an
   independent-security, backup-owner, production-operations or release gate.
+
+## Production and release readiness envelope — 2026-08-21
+
+- [x] Bind the current default-branch input and repository-owned operations
+  evidence by commit, tree and SHA-256 without calling it the exact release
+  candidate. Evidence: `docs/track-016-production-release-readiness-2026-08-21.yml`.
+- [x] Add a fail-closed validator and negative tests for backup handoff,
+  production controls, independent operator/security receipts, owner-operated
+  exact-candidate disposition and release authority. Evidence:
+  `scripts/check_track_016_production_release_readiness.py`,
+  `tests/test_track_016_production_release_readiness.py` and
+  `make track-016-production-release-readiness-check`.
+- [~] Obtain the private backup role's scoped, expiring, revocable,
+  exact-candidate-bound handoff receipt and successful exercise.
+- [~] Obtain qualifying independent-operator and independent-security receipts
+  against the same exact candidate.
+- [~] Exercise qualifying production operations after Tracks 004 and 014 are
+  complete and record the production-environment receipt.
+- [~] Record the repository owner's exact-candidate disposition, explicitly as
+  owner-operated governance, then obtain separate release authority.

@@ -97,3 +97,19 @@ operator or independent-security gates. The private backup owner is
 owner-attested, but the scoped, expiring, hash-bound handoff remains incomplete.
 Production operations, controlled data, SLA, stable release and release
 authority remain pending and fail closed.
+
+## Readiness reconciliation — 2026-08-21
+
+The repository now has a machine-checked readiness envelope at
+`docs/track-016-production-release-readiness-2026-08-21.yml`. It binds the
+inspected default-branch input (`bcff91f3a1c00dad60d86cd2f2f703442d6be0a4`,
+tree `299d4a638bd42918779ca4fc88b00ff9e1e76c7a`) and four repository evidence
+files by SHA-256. This is preparation input, not an exact release candidate.
+
+The validator rejects production activation, release authorization,
+independence or completed-handoff claims without the corresponding receipts.
+Owner-reported private backup acceptance remains recorded, while scope,
+escalation, expiry, revocation and a hash-bound exercise remain pending.
+Python 3.13 remains the release runtime. Production operations remain disabled;
+Tracks 004 and 014, independent operator/security evidence, exact-candidate
+owner disposition and separate release authority remain open.
