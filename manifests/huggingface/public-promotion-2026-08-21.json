@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "status": "exact_rights_cleared_private_to_public_promotion",
+  "source_repository": "edithatogo/hpo-licensed-ontology-archive",
+  "source_revision": "a6c270fc57a5fea6e21b7d8822935e135736c140",
+  "destination_repository": "edithatogo/rareburden-commons-open-source-snapshots",
+  "families": [
+    {"id":"disease-ontology","prefix":"releases/do/","expected_files":11,"expected_bytes":98510057,"licence":"CC0-1.0","licence_url":"https://www.disease-ontology.org/resources/do-resources/","conditions":["preserve_exact_bytes","record_source_revision","record_sha256"]},
+    {"id":"mammalian-phenotype-ontology","prefix":"releases/mp/","expected_files":12,"expected_bytes":133828872,"licence":"CC-BY-4.0","licence_url":"https://obofoundry.org/ontology/mp.html","conditions":["preserve_exact_bytes","record_source_revision","record_sha256","preserve_attribution"]},
+    {"id":"phenotype-and-trait-ontology","prefix":"releases/pato/","expected_files":1,"expected_bytes":725388,"licence":"CC-BY-3.0","licence_url":"https://obofoundry.org/ontology/pato.html","conditions":["preserve_exact_bytes","record_source_revision","record_sha256","preserve_attribution"]},
+    {"id":"unified-phenotype-ontology","prefix":"releases/upheno/","expected_files":1,"expected_bytes":28190223,"licence":"CC0-1.0","licence_url":"https://obofoundry.org/ontology/upheno.html","conditions":["preserve_exact_bytes","record_source_revision","record_sha256"]},
+    {"id":"mesh-2026-xml","prefix":"releases/mesh/2026/xml/","expected_files":4,"expected_bytes":1104953009,"licence":"NLM-MeSH-terms","licence_url":"https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html","conditions":["preserve_exact_bytes","record_source_revision","record_sha256","preserve_NLM_acknowledgement","display_release_version","exclude_MTMS_translations"]}
+  ],
+  "claims": {"all_private_content_redistributable":false,"licensed_terminology_public":false,"private_quota_reclaimed":false}
+}
