@@ -72,3 +72,16 @@
   `tests/test_track_003_framing_interpretation_guard.py`. Clinical-methods,
   patient/community and owner dispositions remain pending; this repository
   preparation is not independent review, consent, endorsement or activation.
+
+## Synthetic evidence-extraction preparation — 2026-08-21
+
+- [x] Define a machine-tested, empty aetiologic-fraction evidence-extraction
+  contract with source/version/rights provenance, aligned numerator and
+  denominator fields, age/phenotype/ancestry/setting/ascertainment strata,
+  non-composite quality domains, conflict/overlap/missingness rules and
+  accountable verification states. Evidence:
+  `docs/track-003-aetiologic-fraction-evidence-contract-v0.1.0.yml` and
+  `tests/test_track_003_aetiologic_fraction_evidence_contract.py`. No source
+  search, empirical extraction, verification, synthesis or parameter creation
+  has occurred; the Phase 2 empirical evidence task and all upstream and
+  external gates remain open.
