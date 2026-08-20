@@ -46,3 +46,19 @@ merge and bounded release surface were hash-bound and the full gate was rerun.
 This work does not constitute governance bodies, community or Indigenous
 authority, remuneration, partnership, custodian approval, institutional
 hosting, global representativeness, production activation or stable release.
+
+## Patient/community-governance advisory lane — 2026-08-20
+
+The role-separated patient/community-governance advisory lane reviewed the
+supplied state of Tracks 003–005 and 008–014 against exact commit
+`59014bd67888fbc20ab18bcf5e12e5090b198324`, tree
+`2f7dbda656606b06c63b843cc3650758202b3db9` and the hashed scope manifest.
+It recommended narrowing work to synthetic/public preparation, deferring real
+data and release activation, and retaining source-rights, Indigenous,
+custodian and jurisdictional permissions as non-self-attestable facts.
+
+The repository owner accepted that bounded implementation disposition. This
+closes only the named repository-owned advisory lane. It does not complete
+Track 015, create constituted patient/community or Indigenous authority,
+approve a controlled-data pathway, or satisfy any scientific, policy-user,
+external or release gate.

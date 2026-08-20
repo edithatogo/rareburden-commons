@@ -18,7 +18,7 @@ evidence still required; none substitutes for accountable external authority.
 | 012 | [RBC-P004 review](track-012-rbc-p004-review-packet.md) |
 | 013 | [Assurance/equity review](track-013-assurance-review-packet.md) |
 | 014 | [Atlas/API review](track-014-atlas-api-review-packet.md) |
-| 015 | [Governance review](track-015-governance-review-packet.md) |
+| 015 | [Governance review](track-015-governance-review-packet.md) and [patient/community-governance advisory lane](track-015-patient-community-governance-advice-2026-08-20.yml) |
 | 016 | [Operations review](track-016-operations-review-packet.md) |
 | 017 | [Stable-v1 closeout](track-017-v1-closeout-packet.md) |
 
