@@ -93,7 +93,9 @@ recommendation. The owner records the decision.
 
 - **Methods/scientific panel:** estimand, definition, mapping, bias, uncertainty, validation and double counting.
 - **Rights/data-use panel:** observed terms, disclosure, retention and withdrawal; publisher rights remain facts.
-- **Community/harm panel:** relevance, acceptable use, equity, harms, interpretation and framing.
+- **Simulated-community/harm panel:** owner-executed challenge of relevance,
+  acceptable use, equity, harms, interpretation and framing; no actual
+  community participation, representation, consent or endorsement is claimed.
 - **Engineering:** correctness, tests, compatibility, performance, reproducibility and maintainability.
 - **Security:** threats, dependencies, secrets, logs, supply chain, incidents and recovery.
 - **Programme:** scope, resourcing, partner claims and sustainability.
