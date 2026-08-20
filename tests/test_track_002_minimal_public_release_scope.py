@@ -92,3 +92,16 @@ def test_claims_and_release_gates_remain_bounded() -> None:
         "final_owner_publication_decision": "pending",
         "wpp_existing_public_object_reconciliation": "pending_external_authority",
     }
+
+
+def test_final_owner_decision_packet_is_prepared_but_not_decided() -> None:
+    packet = ROOT / (
+        "docs/decisions/2026-08-20-track-002-exact-candidate-publication-decision-packet.md"
+    )
+    text = packet.read_text(encoding="utf-8")
+    assert "**Status:** Pending repository-owner decision" in text
+    assert "No option has been selected" in text
+    assert "authorize_exact_bounded_publication" in text
+    assert "defer_publication" in text
+    assert "reject_or_supersede_candidate" in text
+    assert "remain unauthorized" in text

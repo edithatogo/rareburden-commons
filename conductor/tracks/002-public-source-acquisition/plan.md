@@ -30,6 +30,11 @@
 
 ## Review Fixes — 2026-08-20
 
+- [x] Replace fragile MONDO whole-file streams with exact validated byte ranges,
+  preserve bounded retries and whole-file hashes, review publisher reliance and
+  third-party limitations, and pass the candidate gate suite. Evidence:
+  `c99f636`; focused tests `20 passed`; full suite `922 passed` plus one known
+  timing-only benchmark failure, whose single isolated retry passed.
 - [x] Format and re-review the fail-closed exact-candidate verifier, preserve
   the live transport blocker without relaxing any gate, synchronize runtime
   assets, and pass the full repository gate. Evidence: implementation commit
