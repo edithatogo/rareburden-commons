@@ -59,12 +59,16 @@ A supported release contains, as applicable:
 ## Release process
 
 1. Freeze scope and create a release-candidate branch or immutable commit.
-2. Run programme, scientific, data-governance, patient/community, engineering and security reviews.
+2. Run the role-separated agent panels (programme, methods, rights/data-use,
+   community/harm, engineering and security) and record the accountable
+   owner disposition. No independent or human approval is implied.
 3. Build from a clean environment using locked dependencies.
 4. Run the full test, documentation, security, reproducibility and performance suites.
 5. Generate release manifests, checksums, SBOM and provenance attestations.
-6. Reproduce the reference analysis independently.
-7. Review public outputs for disclosure, accessibility and claims.
+6. Run a separately executed owner-operated reproduction of the reference
+   analysis and label it repository evidence, not independent reproduction.
+7. Review public outputs for disclosure, accessibility and claims with the
+   agent panels and owner.
 8. Record the release decision and residual risks.
 9. Tag, archive and publish immutable artefacts.
 10. Verify the published artefacts using the public instructions.

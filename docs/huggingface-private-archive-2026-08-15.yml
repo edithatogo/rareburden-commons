@@ -16,8 +16,32 @@ purpose: >-
 rights_posture:
   raw_bytes: exact_file_terms_and_authority_required
   unresolved_sources: metadata_hash_manifest_only
-  public_release: prohibited_without_new_exact_candidate_decision
+  public_release: permitted_only_through_recorded_public_projection_policy
   source_authority: owner_asserted_but_not_a_substitute_for_file_level_terms
+public_projection:
+  repo_id: edithatogo/rareburden-commons-open-source-snapshots
+  policy: publish_only_exact_files_with_recorded_redistribution_terms
+  audited_at_utc: '2026-08-20T00:00:00Z'
+  publicized_or_already_present:
+    - source_id: orphadata-science-epidemiology
+      path: raw/orphadata/2026-07/en_product9_prev.xml
+      licence: CC BY 4.0
+    - source_id: orphadata-science-alignments
+      path: raw/orphadata/2026-07/en_product1.xml
+      licence: CC BY 4.0
+    - source_id: un-world-population-prospects
+      path: raw/wpp/2024/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx
+      licence: CC BY 3.0 IGO
+    - source_id: mondo-disease-ontology
+      path: raw/mondo/v2026-08-04/
+      licence: CC BY 4.0
+    - source_id: ncbi-clinvar
+      path: raw/clinvar/2026-08/variant_summary_2026-08.txt.gz
+      licence: public-download-with-submitters-attribution
+  note: >-
+    These exact public paths were observed in the open projection; no duplicate
+    upload or private-byte deletion was performed. Private HPO, UMLS, SNOMED,
+    WHO, PanelApp and other unresolved artifacts remain private or metadata-only.
 activation: disabled
 archived_raw_sources:
   - source_id: orphadata-science-epidemiology

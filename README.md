@@ -2,7 +2,7 @@
 
 > Open, reproducible infrastructure for measuring the collective health, social and economic burden of rare diseases.
 
-RareBurden Commons is the working technical repository of the **Global Rare Disease Burden Initiative**. It uses public aggregate data directly and is designed to run controlled analyses behind custodian boundaries rather than centralising patient records.
+RareBurden Commons is the working technical repository of the **Global Rare Disease Burden Initiative**. It is operated as a single-developer repository: repository-owned challenge is provided by role-separated agent panels and the accountable owner. It uses public aggregate data directly and is designed to run controlled analyses behind custodian boundaries rather than centralising patient records.
 
 ## Status
 
@@ -22,6 +22,12 @@ The repository preserves the released v0.1.0 and v0.2.0 history and now implemen
 - conservative R0–R4 reproducibility claims;
 - a synthetic, offline, independently verified reference release;
 - hardened CI/CD, dependency-lock, package, SBOM and workflow-policy controls.
+
+The repository does not require, and cannot claim, independent human approval.
+Agent-panel findings are advisory; the owner records bounded accept, narrow,
+revise, defer or stop decisions for exact candidates. Publisher terms,
+third-party rights, registry events and supplying-custodian policies remain
+evidence-bound facts.
 
 All executable examples are synthetic assurance fixtures. The repository does **not** publish an empirical rare-disease burden estimate, imply custodian approval, or claim independent reproduction, external replication or constituted programme governance.
 

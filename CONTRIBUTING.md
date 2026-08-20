@@ -1,6 +1,10 @@
 # Contributing
 
-RareBurden Commons is intended to become a multidisciplinary public-good project. The foundation is not yet a constituted consortium, so contribution processes will evolve with patient/community and institutional governance.
+RareBurden Commons is a single-developer repository. Repository-owned review
+uses role-separated agent panels and an attributable owner disposition; no
+independent human, constituted-community or institutional approval is claimed
+or required for repository work. Publisher, custodian and third-party rights
+remain external facts and are kept fail-closed.
 
 ## Before proposing a change
 
@@ -34,7 +38,10 @@ A source entry must identify an official access route, access class, custodian, 
 
 ## Research and methods changes
 
-Changes to disease inclusion, hierarchy, estimands, overlap rules, primary models, economic perspective, uncertainty, transportability or release gates require a decision record and the applicable scientific and patient/community review.
+Changes to disease inclusion, hierarchy, estimands, overlap rules, primary
+models, economic perspective, uncertainty, transportability or release gates
+require a decision record, an agent-panel challenge and an attributable owner
+disposition. Do not describe the panel as independent approval.
 
 ## Commit and review practice
 

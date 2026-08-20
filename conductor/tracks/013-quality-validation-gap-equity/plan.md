@@ -1,23 +1,21 @@
 # Track 013 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; scientific, equity and patient/community assurance remain separate.
-
 ## Phase 1 — Assurance framework
 
 - [x] Define evidence quality, bias and transportability dimensions. `[M-21, S-07]` Evidence: evidence-assessment, transportability and quality-disposition schemas/validators; summary documented in `docs/quality-validation-013-reference.md`.
 - [ ] Define validation types, calibration thresholds and model criticism.
-- [x] Define release-language rules by evidence maturity. Evidence: `release_language_for_maturity` and negative maturity tests in `cb8bc3d`; policy remains conservative and does not grant external approval.
+- [ ] Define release-language rules by evidence maturity.
 - [x] Define GATHER-aligned reporting checklist. Evidence: `src/rareburden/reporting.py` and reporting checklist schema.
 
 ## Phase 2 — Gap and equity mapping
 
 - [x] Define parameter-by-geography sufficiency taxonomy. `[M-26]` Evidence: gap-map schema uses explicit `sufficiency: not_assessed` until empirical validation.
 - [x] Generate machine-readable gap map from source and ledger records. Evidence: `src/rareburden/gapmap.py` and reference gap-map workflow.
-- [x] Add rendered coverage, missingness and controlled-data-ask products.
-  Evidence: `render_gap_map_markdown`, `tests/test_gapmap.py` and
-  `tests/test_gapmap_release_schema.py`; outputs remain metadata-only with
-  `sufficiency: not_assessed` until empirical and equity review.
-- [ ] Add LMIC, underserved-population and Indigenous governance assessment.
+- [ ] Add rendered coverage, missingness and controlled-data-ask products.
+- [~] Add LMIC, underserved-population and Indigenous governance assessment.
+  Repository-owned metadata-only scaffold: `schemas/equity-gap-review.schema.json`,
+  `examples/quality/equity-gap-review-synthetic.yml` and its fail-closed test;
+  empirical coverage and governance review remain open.
 
 ## Phase 3 — Demonstrator validation
 
@@ -28,35 +26,11 @@
 
 ## Phase 4 — Independent assurance
 
-- [ ] Run a separately executed owner-operated clean-environment reproduction of at least one analysis. `[S-10]`
-- [ ] Complete community/harm agent-panel interpretation review and owner disposition.
+- [ ] Run a separately executed owner-operated reproduction of at least one analysis; record it as repository evidence, not independent approval. `[S-10]`
+- [ ] Complete patient/community harm and interpretation review.
 - [ ] Complete scientific assurance report and disposition log.
 - [ ] Block, narrow or approve outputs for the atlas beta.
 
 ## Dependency review — 2026-07-27
 
 - [x] Record that Track 013 cannot activate until Tracks 003, 005, 007, 010, 011 and 012 are complete. Evidence: `c126052`.
-
-## Preparation refresh — 2026-08-01
-
-- [x] Prepare the assurance/equity review packet with validation, triangulation,
-  gap, equity, release-language and independent-assurance decisions. Evidence:
-  `docs/track-013-assurance-review-packet.md`; prerequisite and external gates
-  remain open.
-
-## Bounded downstream reconciliation — 2026-08-16
-
-- [x] Bind the merged Track 008–012 synthetic assurance chain to exact artifact
-  hashes and verify non-activation, non-clinical and unfrozen contract states.
-  Evidence: `manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json`.
-- [x] Add deterministic validation and negative tests for hash drift, empirical
-  activation, representativeness overclaim and removal of equity/owner gates.
-  Evidence: `scripts/check_track013_bounded_reconciliation.py` and
-  `tests/test_track013_bounded_reconciliation.py`.
-- [x] Record bounded coverage accounting: five synthetic dependency tracks,
-  zero empirical population rows, zero assessed real geographies, zero assessed
-  real subgroups and two suppressed synthetic subgroup rows. Sufficiency remains
-  `not_assessed`.
-- [ ] Obtain real coverage/representativeness and subgroup/equity evidence,
-  owner quality disposition and separately executed reproduction. The bounded
-  reconciliation cannot satisfy these gates.
