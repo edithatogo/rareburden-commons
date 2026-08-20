@@ -14,9 +14,10 @@ Use this contract whenever a panel is the only available review mechanism.
 ## Required output
 
 Return role, evidence references, commands or observations, findings,
-uncertainty, conflicts, dissent, residual risk, permitted scope, prohibited
-claims, contingency and a recommendation. Use `panel_assurance` for status. A
-recommendation is not an approval.
+uncertainty, conflicts, dissent and residual risk. Present the repository owner
+with distinct options, trade-offs, contingencies, rationale and a
+recommendation, together with permitted scope, prohibited claims and stop
+triggers. Use `panel_assurance` for status. A recommendation is not an approval.
 
 ## Prohibited actions
 

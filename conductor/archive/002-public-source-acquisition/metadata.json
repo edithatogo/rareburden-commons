@@ -7,7 +7,7 @@
   "updated": "2026-08-21",
   "target_release": "0.3.0",
   "stage": "evidence_acquisition",
-  "owner_role": "Data Engineering Lead",
+  "owner_role": "Repository owner (all accountable repository roles)",
   "dependencies": [
     "001-foundation",
     "006-v1-delivery-system"
