@@ -18,6 +18,12 @@ uncertainty, conflicts, dissent, residual risk, permitted scope, prohibited
 claims, contingency and a recommendation. Use `panel_assurance` for status. A
 recommendation is not an approval.
 
+For prospective material decisions from 2026-08-21, use the structured
+agent-owner decision packet. Supply two or three distinct options, each with
+trade-offs, contingencies, rationale and minimum evidence. Preserve uncertainty,
+dissent and stop triggers, label every role as a simulated advisory perspective,
+and keep the owner disposition separate.
+
 ## Prohibited actions
 
 Agents must not invent recipients, claim independence they do not have, send

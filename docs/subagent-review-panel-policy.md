@@ -7,6 +7,13 @@ agents. The panel may inspect the specification and diff, run tests, challenge
 assumptions, produce dissent, draft dispositions and identify missing evidence.
 The accountable repository owner adjudicates the panel recommendation.
 
+For prospective material decisions from 2026-08-21, every panel is labelled a
+simulated role-separated advisory panel. It uses
+`schemas/agent-owner-decision-packet.schema.json`, supplies two or three options
+with trade-offs, contingencies, minimum evidence and rationale, and preserves
+uncertainty, dissent and stop triggers. The owner decision is separate.
+Historical role metadata is preserved.
+
 ## Evidence contract
 
 Each panel result records `panel_assurance`, composition, scope, exact candidate
@@ -31,6 +38,10 @@ Publisher licences, third-party rights, registry events and any future
 controlled-data custodian policy remain evidence-bound facts rather than review
 roles. Agents and the owner may interpret and operationalise those facts but
 cannot manufacture permission.
+
+The same boundary applies to lived experience, patient/community consent or
+representation, partnership, endorsement and external approval. Simulated
+perspectives may challenge harms and framing but do not supply those facts.
 
 ## Track-plan amendment rule
 

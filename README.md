@@ -31,6 +31,12 @@ evidence-bound facts.
 
 All executable examples are synthetic assurance fixtures. The repository does **not** publish an empirical rare-disease burden estimate, imply custodian approval, or claim independent reproduction, external replication or constituted programme governance.
 
+Prospective material decisions use explicitly simulated, role-separated agent
+advice followed by an attributable repository-owner decision. The required
+options, trade-offs, contingencies, evidence boundaries and non-representation
+rules are defined in
+[`docs/single-owner-agent-governance.yml`](docs/single-owner-agent-governance.yml).
+
 ## Start here
 
 ### Programme and scientific foundation

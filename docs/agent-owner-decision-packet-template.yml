@@ -1,0 +1,38 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 000-placeholder
+candidate:
+  commit: "0000000000000000000000000000000000000000"
+  tree: "0000000000000000000000000000000000000000"
+  evidence_manifest_sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+panel:
+  perspectives: [methods_evidence, rights_or_security, community_harm_or_usability]
+  non_representation_statement: Simulated advisory perspectives only; not human or independent review, lived-experience testimony, community representation, consent or approval.
+evidence:
+  references: [PLACEHOLDER]
+  observed_facts: []
+  simulated_assessments: [PLACEHOLDER]
+  cannot_infer: [PLACEHOLDER]
+uncertainty: [PLACEHOLDER]
+dissent: []
+stop_triggers: [PLACEHOLDER]
+options:
+  - id: A
+    title: PLACEHOLDER option A
+    disposition: narrow
+    trade_offs: [PLACEHOLDER]
+    contingencies: [PLACEHOLDER]
+    rationale: PLACEHOLDER rationale
+    minimum_evidence: [PLACEHOLDER]
+  - id: B
+    title: PLACEHOLDER option B
+    disposition: defer
+    trade_offs: [PLACEHOLDER]
+    contingencies: [PLACEHOLDER]
+    rationale: PLACEHOLDER rationale
+    minimum_evidence: [PLACEHOLDER]
+recommendation:
+  option_id: A
+  rationale: PLACEHOLDER recommendation rationale
+owner_decision:
+  status: pending
