@@ -103,7 +103,7 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 
 ### Data and semantics
 
-- **[002-public-source-acquisition — Public-source acquisition and provenance adapters](../conductor/tracks/002-public-source-acquisition/spec.md)** — establishes lawful, versioned and reproducible inputs.
+- **[002-public-source-acquisition — Public-source acquisition and provenance adapters](../conductor/archive/002-public-source-acquisition/spec.md)** — establishes lawful, versioned and reproducible inputs.
 - **[008-semantic-backbone — Semantic backbone and burden-purpose hierarchy](../conductor/tracks/008-semantic-backbone/spec.md)** — defines disease identity, mappings, aggregation and overlap rules.
 - **[009-evidence-parameter-ledger — Evidence and parameter ledger](../conductor/tracks/009-evidence-parameter-ledger/spec.md)** — represents evidence, assumptions, quality, transportability and lineage.
 
