@@ -5,15 +5,22 @@
 For every Conductor track, review is performed by a panel of role-separated
 agents. The panel may inspect the specification and diff, run tests, challenge
 assumptions, produce dissent, draft dispositions and identify missing evidence.
-The accountable repository owner adjudicates the panel recommendation.
+The repository owner and scientist is the sole accountable decision-maker and
+adjudicates the panel recommendation.
 
 ## Evidence contract
 
 Each panel result records `panel_assurance`, composition, scope, exact candidate
 commit and manifest, evidence references, findings, uncertainty, dissent, stop
-triggers and an accept, narrow, revise, defer or stop recommendation. Agent
+triggers, decision options, contingencies, rationale, trade-offs and a
+recommendation. Agent
 outputs are advisory and must never be described as independent, human,
 constituted-community, institutional, custodian, licensor or external approval.
+
+Each material decision is presented to the owner after role-separated panel
+challenge and before implementation. The owner records `approve`,
+`approve_with_conditions`, `narrow`, `revise`, `defer` or `stop`, including the
+rationale, residual risks and reopening or reversal conditions.
 
 Each agent task receives the exact candidate identity and input digest, scope
 and exclusions, question, required evidence fields, output format and
@@ -22,10 +29,25 @@ methods/technical, rights/data-use or security, and community/harm or usability.
 
 ## Accountable-owner boundary
 
-The repository owner is the accountable methods, data-use, operations and
-release decision-maker. The owner may accept, narrow, revise, defer or stop an
-exact candidate after considering panel findings. Panels cannot self-authorise
-a decision.
+The repository owner is also the accountable scientist, developer and primary
+operator. Owner-operated implementation, testing, scientific review and
+reproduction are repository evidence, not independent approval or external
+validation. Panels cannot self-authorise a decision.
+
+## Simulated-community challenge
+
+The community/harm perspective is an owner-executed simulated-community
+challenge. It tests language, accessibility, stigma, equity, exclusion,
+foreseeable misuse and hypothetical stakeholder perspectives. It must state:
+
+> Owner-executed simulated-community challenge; no actual community
+> participation, representation, consultation, endorsement, consent or
+> independent review.
+
+It cannot establish community approval, co-design, representation, cultural
+safety, social licence, lived-experience evidence or absence of harm. Use
+`community-impact self-assessment` in public summaries when the internal label
+could be misunderstood.
 
 Publisher licences, third-party rights, registry events and any future
 controlled-data custodian policy remain evidence-bound facts rather than review
