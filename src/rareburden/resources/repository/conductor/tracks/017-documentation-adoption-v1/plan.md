@@ -7,10 +7,11 @@
 - [ ] Add accessibility, citation, licence and correction guidance.
 - [ ] Verify all public examples and links automatically.
 
-## Phase 2 — External use and reproduction
+## Phase 2 — Agent challenge and owner-operated reproduction
 
-- [ ] Recruit two independent users for reference-workflow usability testing.
-- [ ] Complete independent node-operator or analyst run.
+- [ ] Run two role-separated usability-agent assessments of the reference
+  workflow; record findings as advisory panel evidence.
+- [ ] Complete an owner-operated node/analyst run and label it non-independent.
 - [ ] Build two clean release candidates from locked environments.
 - [ ] Complete a separately executed reproduction with equivalent reviewed outputs.
 
@@ -25,7 +26,8 @@
 
 - [ ] Assemble evidence for every blocking v1 criterion.
 - [ ] Remove unsupported capabilities or close remaining gaps.
-- [ ] Complete scientific, patient/community, data-governance, engineering, security and programme sign-off.
+- [ ] Complete role-separated agent-panel challenges and record the repository
+  owner’s disposition; no additional-person or independent sign-off applies.
 - [ ] Record final release, bounded exclusion, revise or stop decision.
 
 ## Phase 5 — Publish and verify
@@ -49,7 +51,7 @@
   not independent usability or v1 evidence.
 - [x] Run the repository documentation, schema, safety and reference-workflow
   checks as the current executable documentation baseline. Evidence:
-  `uv run make check`; independent users, support owners and release approval
+  `uv run make check`; agent challenge, owner continuity and release decision
   remain open.
 
 ## Preparatory release planning — 2026-08-01

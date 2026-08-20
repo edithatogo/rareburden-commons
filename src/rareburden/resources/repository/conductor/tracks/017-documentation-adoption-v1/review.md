@@ -6,8 +6,8 @@
 ## Findings
 
 - Tracks 013–016 are incomplete, so the v1 evidence index cannot be closed.
-- No independent user, node-operator, reproduction, cost-model, institutional
-  host or multi-lane release sign-off exists.
+- No role-separated agent challenge, owner-operated reproduction, cost-model,
+  institutional host or owner release disposition is complete.
 - Tagging v1 or making a support promise now would violate the release contract.
 
 ## Local preparation
@@ -19,11 +19,13 @@ and does not imply usability, support, institutional hosting or release approval
 ## Activation gates
 
 - Complete Tracks 013–016 and link every blocking v1 criterion.
-- Two independent user runs, two clean release candidates and one independent
-  reproduction with equivalent reviewed outputs.
+- Two role-separated usability-agent assessments, two clean release candidates
+  and one owner-operated reproduction with equivalent reviewed outputs; these
+  are repository evidence, not independent approval.
 - Approved maintainer/backup roster, sustainability model and institutional host
   or bounded interim ownership.
-- Multi-lane sign-off and public artefact verification before v1.0.0 tagging.
+- Agent-panel challenge, repository-owner disposition and public artefact
+  verification before v1.0.0 tagging.
 
 ### Implementation checkpoint — 2026-08-01
 
@@ -33,8 +35,8 @@ full local validation suite, including documentation links, schema, safety and
 synthetic reference checks, passes. These checks do not establish independent
 usability, institutional ownership, cost approval, or release authorization.
 
-Track 017 remains **Planned**. Tracks 013–016 and the independent-user,
-independent-reproduction, ownership, sustainability, multi-lane review and
+Track 017 remains **Planned**. Tracks 013–016 and the agent-challenge,
+owner-operated reproduction, ownership, sustainability, owner-disposition and
 publication gates remain unresolved; stable v1 must not be tagged or claimed.
 
 ### Review rerun — 2026-08-01
@@ -46,10 +48,10 @@ safety and synthetic-reference checks pass. No repository-owned defect was
 identified in this preparatory slice.
 
 The remaining findings are substantive release gates: complete role guides and
-tutorials, accessibility and external usability review, independent operator
-and reproduction receipts, clean release candidates, named primary/backup
-owners, approved sustainability and institutional-host decisions, all
-multi-lane sign-offs, and public artefact verification. Dependencies 013–016
+tutorials, accessibility, agent usability challenge, owner-operated
+reproduction receipts, clean release candidates, owner continuity and
+sustainability decisions, institutional-host decisions, agent-panel challenge,
+owner disposition and public artefact verification. Dependencies 013–016
 are not complete. Track 017 remains **Planned** and is not archive-eligible;
 stable v1 must not be tagged or represented as released.
 

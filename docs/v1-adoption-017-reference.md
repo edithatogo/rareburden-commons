@@ -2,17 +2,20 @@
 
 This is a preparatory documentation and release-evidence scaffold. It does not
 constitute a v1 release, support commitment or independent usability evidence.
+This single-developer repository uses role-separated advisory agent panels and
+an attributable repository-owner disposition; no additional person is required
+or represented as an independent authority.
 
 ## Role-based documentation map
 
 | Role | Minimum guide | Evidence needed before v1 |
 |---|---|---|
-| Patient/community user | purpose, acceptable-use, uncertainty and harms | patient/community review |
-| Analyst/researcher | quickstart, methods, ledger and reproducible workflow | independent reproduction |
-| Developer | architecture, tests, extension and migration guidance | clean build and engineering review |
-| Node operator/custodian | local execution, disclosure, rollback and incident procedures | node validation and governance approval |
-| Data steward | source terms, provenance, retention, withdrawal and correction | data-governance approval |
-| Release maintainer | manifests, checksums, SBOM, changelog and publication verification | release audit and named owners |
+| Patient/community perspective | purpose, acceptable-use, uncertainty and harms | community/harm agent challenge; owner disposition |
+| Analyst/researcher | quickstart, methods, ledger and reproducible workflow | owner-operated reproduction; non-independent |
+| Developer | architecture, tests, extension and migration guidance | automated checks and engineering agent challenge |
+| Node operator/custodian | local execution, disclosure, rollback and incident procedures | owner-operated node evidence; actual custodian policy remains external |
+| Data steward | source terms, provenance, retention, withdrawal and correction | rights/governance agent challenge; publisher terms remain facts |
+| Release maintainer | manifests, checksums, SBOM, changelog and publication verification | release agent challenge and owner disposition |
 
 ## Release evidence index
 
@@ -32,5 +35,7 @@ or `stop`, with residual risks and an owner.
 4. Compare reviewed outputs and record any expected nondeterminism.
 5. Preserve the command transcript, environment identity and reviewer decision.
 
-Two independent user runs, two clean release candidates, independent
-reproduction and named primary/backup owners are required before v1.0.0.
+Two role-separated agent assessments, two clean release candidates and an
+owner-operated reproduction are repository evidence before v1.0.0. They do not
+become independent approval. Backup-owner continuity is an explicit limitation
+when no backup is attributable.
