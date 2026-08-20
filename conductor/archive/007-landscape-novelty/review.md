@@ -2,11 +2,36 @@
 
 **Review date:** 2026-07-27; current closeout review 2026-08-16
 
-**Current decision:** Narrow; track remains in review. The protocol is
+**Current decision:** Narrow; bounded v0.2.x scope complete and archive-eligible.
+The protocol is
 repository hash-registered, the role-separated advisory agent challenge is
 complete, and the repository owner selected Option A against the exact merged
 candidate. The original publication-ready landscape acceptance remains unmet.
-External registry submission is optional, and OSF is deferred.
+External registry submission is optional, and OSF is deferred. The broader
+publication-ready landscape, confirmed novelty, partnership and
+community-facing interpretation ambitions were formally removed from this
+version and require a separately versioned future scope.
+
+## Final closeout review — 2026-08-21
+
+Review found and fixed one high-severity contract mismatch: the accepted scope
+was bounded technical observation, while the required-output list still
+demanded unsupported publication-ready, confirmed-novelty and partnership
+products. The specification now matches the owner-approved narrow decision and
+preserves those broader ambitions as future work rather than falsely claiming
+completion.
+
+All plan tasks are checked. Repository registration, bounded search and
+screening, role-separated agent challenge, owner disposition, provider terms,
+rate controls, immutable evidence, language/geography missingness and claim
+ceilings are recorded. No critical finding remains within the narrowed scope.
+Residual limitations—provider/index bias, incomplete community authority,
+non-representativeness and no confirmed novelty or partnership—are prohibited
+claims rather than unfinished requirements for this technical deliverable.
+
+**Disposition:** complete and archive the bounded Track 007 deliverable. No
+external registration, patient/community approval, partnership, global
+coverage, representativeness or confirmed novelty is inferred.
 
 ## Bounded v0.2.1 pilot and content disposition — 2026-08-20
 

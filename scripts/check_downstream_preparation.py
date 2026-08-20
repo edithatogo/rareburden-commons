@@ -32,6 +32,7 @@ EXPECTED_TRACKS = {
     "017",
 }
 ACTIVATED_STATES = {"active", "in_review", "complete"}
+SATISFIED_STATES = {"complete", "archived"}
 REQUIRED_PROHIBITED_CLAIMS = {
     "empirical_activation",
     "community_or_human_approval",
@@ -56,6 +57,7 @@ def _mapping(path: Path) -> dict[str, Any]:
 
 def _track_metadata(root: Path, track: str) -> dict[str, Any]:
     matches = sorted((root / "conductor" / "tracks").glob(f"{track}-*/metadata.json"))
+    matches.extend(sorted((root / "conductor" / "archive").glob(f"{track}-*/metadata.json")))
     if len(matches) != 1:
         raise DownstreamPreparationError(
             f"track {track} must resolve to exactly one metadata file; found {len(matches)}"
@@ -142,18 +144,18 @@ def validate(plan_path: Path, root: Path) -> None:
         track: _track_metadata(root, track).get("status") for track in ("002", "007", *FREEZE_ORDER)
     }
     if statuses["008"] in ACTIVATED_STATES and any(
-        statuses[track] != "complete" for track in ("002", "007")
+        statuses[track] not in SATISFIED_STATES for track in ("002", "007")
     ):
         raise DownstreamPreparationError(
             "track 008 cannot activate before tracks 002 and 007 complete"
         )
     if statuses["009"] in ACTIVATED_STATES and any(
-        statuses[track] != "complete" for track in ("002", "008")
+        statuses[track] not in SATISFIED_STATES for track in ("002", "008")
     ):
         raise DownstreamPreparationError(
             "track 009 cannot activate before tracks 002 and 008 complete"
         )
-    if statuses["010"] in ACTIVATED_STATES and statuses["009"] != "complete":
+    if statuses["010"] in ACTIVATED_STATES and statuses["009"] not in SATISFIED_STATES:
         raise DownstreamPreparationError("track 010 cannot activate before track 009 completes")
 
 

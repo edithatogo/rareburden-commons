@@ -98,7 +98,7 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 
 - **[001-foundation — Foundation and public-data protocol](../conductor/archive/001-foundation/spec.md)** — archived founding scaffold.
 - **[006-v1-delivery-system — v1 delivery system and foundation hardening](../conductor/archive/006-v1-delivery-system/spec.md)** — establishes this release system and automated validation.
-- **[007-landscape-novelty — Landscape, adjacency, novelty and partnership map](../conductor/tracks/007-landscape-novelty/spec.md)** — tests the white-space hypothesis and defines where to build, partner, narrow or stop.
+- **[007-landscape-novelty — Landscape, adjacency, novelty and partnership map](../conductor/archive/007-landscape-novelty/spec.md)** — archives the completed bounded technical adjacency evidence and owner narrow decision without asserting comprehensive coverage, confirmed novelty or partnership.
 - **[018-scholarly-provenance-reproducibility — Scholarly provenance, protocol transparency and reproducibility](../conductor/archive/018-scholarly-provenance-reproducibility/spec.md)** — archived scholarly assurance substrate distinguishing planned from executed work and packaging exact source-to-result evidence without overstating external validation.
 
 ### Data and semantics
