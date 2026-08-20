@@ -43,6 +43,18 @@ def validate_governance(manifest: dict[str, Any], root: Path) -> dict[str, Any]:
         raise GovernanceReconciliationError(
             "all prohibited agent-authority claims must remain explicit"
         )
+    declarations = manifest.get("owner_declarations", {})
+    if not all(
+        declarations.get(field) is True
+        for field in ("repository_data_custodian", "applicable_indigenous_authority")
+    ):
+        raise GovernanceReconciliationError("owner-held authority declarations are required")
+    if declarations.get("basis") != "attributable_owner_declaration":
+        raise GovernanceReconciliationError("owner declarations must remain attributable")
+    if declarations.get("additional_human_review_planned") is not False:
+        raise GovernanceReconciliationError("additional human review is not a repository gate")
+    if declarations.get("remuneration") != {"model": "unpaid", "amount": 0}:
+        raise GovernanceReconciliationError("repository work must remain unpaid")
     for binding in manifest.get("evidence_bindings", []):
         relative = Path(str(binding.get("artifact", "")))
         if relative.is_absolute() or ".." in relative.parts:
@@ -91,7 +103,9 @@ def validate_governance(manifest: dict[str, Any], root: Path) -> dict[str, Any]:
     if set(manifest.get("correction_withdrawal_triggers", [])) != required_triggers:
         raise GovernanceReconciliationError("all correction and withdrawal triggers are required")
     if not manifest.get("pending_track_acceptance"):
-        raise GovernanceReconciliationError("constituted Track 015 acceptance must remain pending")
+        raise GovernanceReconciliationError(
+            "bounded Track 015 acceptance work must remain explicit"
+        )
     return {
         "status": "bounded_governance_valid",
         "owner_count": 1,

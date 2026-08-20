@@ -7,7 +7,7 @@
   "updated": "2026-08-20",
   "target_release": "0.4.0",
   "stage": "semantic_core",
-  "owner_role": "Semantic Methods Lead",
+  "owner_role": "Repository owner (sole accountable human)",
   "dependencies": [
     "002-public-source-acquisition",
     "007-landscape-novelty"

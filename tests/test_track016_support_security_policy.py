@@ -33,10 +33,11 @@ def test_support_policy_preserves_owner_backup_and_service_boundaries() -> None:
     assert not missing, f"support/security policy lost fail-closed boundaries: {missing}"
 
 
-def test_track_plan_separates_bounded_policy_from_backup_handoff() -> None:
+def test_track_plan_separates_bounded_policy_from_non_authorising_recovery() -> None:
     plan = (ROOT / "conductor/tracks/016-security-reliability-operations/plan.md").read_text(
         encoding="utf-8"
     )
     assert "- [x] Publish the bounded support and security-fix policy" in plan
-    assert "- [~] Complete the owner-attested private backup role" in plan
-    assert "expiry and a handoff exercise" in plan
+    assert "- [x] Supersede the proposed private backup-owner role" in plan
+    assert "recovery controls that confer no" in plan
+    assert "owner-incapacity, credential-compromise" in plan

@@ -1,9 +1,9 @@
 # Track 016 plan
 
-> Single-developer repository: `edithatogo` is the sole developer, repository
-> owner and primary operator. Owner-operated evidence is allowed and labelled;
-> security/operator review is agent-panel and owner-operated; the backup-owner
-> acceptance is privacy-preserving and must be completed with scope and handoff evidence.
+> Single-accountable-human repository: `edithatogo` is the sole owner,
+> maintainer, developer, operator and security decision-maker. Owner-operated
+> evidence is allowed and labelled; security/operator review is agent-panel and
+> owner-operated. Recovery procedures do not create a backup owner.
 
 ## Phase 1 — Threat model and support scope
 
@@ -135,9 +135,9 @@
   `tests/test_synthetic_operations_receipt.py`.
 - [x] Implement and execute owner-operated clean-environment backup, restore and rollback
   exercises with redacted, hash-bound receipts.
-- [~] Complete the owner-attested private backup role with scope, escalation,
-  expiry and a handoff exercise. Acceptance evidence:
-  `docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md`.
+- [ ] Replace the historical backup-role proposal with owner-incapacity,
+  credential-compromise and recovery procedures that fail closed and confer no
+  continuing authority on a recovery-material holder.
 - [x] Record bounded repository-owner primary acceptance and explicit
   unassigned-backup contingency. Evidence:
   `docs/decisions/2026-08-03-owner-operated-operations-acceptance.md`; this
@@ -206,8 +206,10 @@
   `scripts/check_track_016_production_release_readiness.py`,
   `tests/test_track_016_production_release_readiness.py` and
   `make track-016-production-release-readiness-check`.
-- [~] Obtain the private backup role's scoped, expiring, revocable,
-  exact-candidate-bound handoff receipt and successful exercise.
+- [x] Supersede the proposed private backup-owner role with fail-closed
+  owner-incapacity, credential-compromise and recovery controls that confer no
+  repository authority. Evidence:
+  `docs/decisions/ADR-0011-single-accountable-human-enforcement.md`.
 - [~] Obtain qualifying independent-operator and independent-security receipts
   against the same exact candidate.
 - [~] Exercise qualifying production operations after Tracks 004 and 014 are

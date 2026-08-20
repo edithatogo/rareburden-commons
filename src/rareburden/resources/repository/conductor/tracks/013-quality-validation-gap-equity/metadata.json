@@ -7,7 +7,7 @@
   "updated": "2026-08-16",
   "target_release": "0.8.0",
   "stage": "assurance",
-  "owner_role": "Methods Assurance and Equity Leads",
+  "owner_role": "Repository owner (sole accountable human)",
   "dependencies": [
     "003-monogenic-diabetes-demonstrator",
     "005-economic-social-burden",

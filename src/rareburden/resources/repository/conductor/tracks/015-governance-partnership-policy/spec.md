@@ -2,12 +2,14 @@
 
 ## Objective
 
-Convert governance principles into constituted decision rights and create partner- and policy-ready materials without implying unconfirmed endorsement or access.
+Make the sole-owner decision model operational and create partner- and
+policy-ready materials without implying unconfirmed endorsement, access or
+shared repository authority.
 
 ## Required outputs
 
-- Governing Board, Patient and Community Council, Scientific Methods Council, Data Governance and Ethics Committee and Node Council charters;
-- appointment, voting, quorum, conflict, remuneration, authorship, appeals and correction policies;
+- advisory-panel and external-evidence-provider terms of reference;
+- selection, disclosure, conflict, unpaid participation, authorship, appeals and correction policies;
 - acceptable-use, harm-review and benefit-sharing framework;
 - Indigenous Data Sovereignty and CARE-aligned node provisions;
 - country-node agreement and accreditation process;
@@ -18,32 +20,38 @@ Convert governance principles into constituted decision rights and create partne
 
 ## Acceptance criteria
 
-1. Patient/community governance has voting authority and budgeted remuneration.
-2. Scientific, ethics/data-governance and country-node roles are named and operational.
+1. Patient/community or harm advice is explicitly simulated and unpaid; any
+   external evidence is attributable without creating repository ownership or
+   claiming authority where none exists.
+2. Scientific, ethics/data-governance and country-node evidence-provider lanes
+   are defined and operational without becoming accountable repository roles.
 3. Funders and data contributors cannot veto valid results or control methods for advantage.
 4. Conflicts, complaints, appeals, authorship and correction processes are tested.
-5. Indigenous and country-node authority is explicit where applicable.
+5. The owner's repository-custodian and applicable Indigenous-authority roles
+   are explicit and scope-limited; unrelated community, custodian and
+   country-node authority is never inferred.
 6. External materials clearly distinguish public data use, requested collaboration and confirmed agreement.
 7. Global claims require the representation conditions in the roadmap.
-8. Governance approves or bounds the v1 product and acceptable uses.
+8. The repository owner approves or bounds the v1 product and acceptable uses
+   after advisory challenge and applicable external evidence.
 
 ## Non-goals
 
-- creating nominal committees without decision power;
+- creating nominal committees or implying shared repository authority;
 - treating consultation as consent;
 - storing relationship-sensitive operations material in the public repository when confidentiality is required;
 - criticising adjacent institutions to create a partnership case.
 
 ## Current bounded repository operating model
 
-Until the future bodies in this specification are constituted, this
-single-developer repository uses the accountable owner plus role-separated
-advisory agent panels defined by ADR-0009. Agent findings inform owner
-disposition but are not independent, human, patient/community, custodian,
-Indigenous, institutional or partner authority. Publisher terms and controlled
-environment rules remain independently binding facts. This operating model
-implements repository controls only and does not satisfy acceptance criteria
-1, 2, 5 or 8 by relabelling agent advice.
+This single-accountable-human repository uses the owner plus role-separated
+advisory agent panels defined by ADR-0009 and ADR-0011. Agent findings inform
+owner disposition but are not independent or human review. The owner declares
+the repository-custodian and applicable Indigenous-authority roles for this
+work; that declaration does not extend to unrelated communities, third-party
+custodians or country nodes. Publisher terms and controlled-environment rules
+remain binding facts. No additional human review is planned, and remuneration
+is zero.
 
 ## v1 contribution
 

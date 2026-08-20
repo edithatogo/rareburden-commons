@@ -7,7 +7,7 @@
   "updated": "2026-08-16",
   "target_release": "0.7.0",
   "stage": "controlled_reference_analysis",
-  "owner_role": "Paediatric, Administrative Data and Health Economics Leads",
+  "owner_role": "Repository owner (sole accountable human)",
   "dependencies": [
     "004-federated-node-runner",
     "005-economic-social-burden",

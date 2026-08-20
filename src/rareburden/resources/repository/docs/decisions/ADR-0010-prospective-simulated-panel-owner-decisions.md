@@ -19,6 +19,14 @@ synthesis preserves uncertainty, dissent and stop triggers, recommends one
 option and binds the packet to the exact candidate and evidence manifest. The
 repository owner then records the attributable disposition.
 
+The owner has separately declared that they are the repository data custodian
+and the applicable Indigenous authority for this work. That declaration is
+attributable owner evidence, not independent verification, and does not extend
+to unrelated Indigenous peoples or communities, third-party custodians,
+publishers or licensors, ethics bodies, governments or jurisdictions. No
+additional human review is planned. All repository and advisory-agent work is
+unpaid; remuneration is zero.
+
 A simulated patient/community or harm perspective is not lived-experience
 testimony, community representation, consent, legitimacy or endorsement. Agent
 simulation cannot create publisher terms, rights, credentials, custodian
