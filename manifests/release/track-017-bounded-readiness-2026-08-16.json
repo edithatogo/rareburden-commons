@@ -37,11 +37,11 @@
     ]
   },
   "evidence_bindings": [
-    {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "842ef80d7b3ae3e6469ca1c6ae4889da134eed968b54380c4d712ca5c3532847"},
+    {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "4d4e2ced2fdf2515923763a8a2fb4e5fc54effda825525b3565350867f49a330"},
     {"id": "owner_backup_attestation", "artifact": "docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md", "sha256": "e6d95d03f8346be577caff6291af8f1808d33b765ba2b3b266973ef7c31f9257"},
     {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
     {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"},
-    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "686671498e7a39a967fd5bdbadaf48f41b3e65feec0c819589b7b0438ed9783a"},
+    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "0ea077507be0886c242298fbc4a60cdec98c1fef6e83d742766181bb3a52c2d0"},
     {"id": "release_authority_plan", "artifact": "docs/release-authority-receipt-plan-2026-08-03.yml", "sha256": "62f3ae25755d6441ab54f3f1c1d8c1fb73732e0f3546cd1168eac685863581ae"},
     {"id": "candidate_reconciliation", "artifact": "docs/release-candidate-evidence-reconciliation-2026-08-04.yml", "sha256": "8da971dca2173bb6fa17245a2d6c490d103abdc6c0df7e7fba17c653e44a7cb0"}
   ],
@@ -49,7 +49,7 @@
     "track": "016",
     "artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json",
     "status": "bound",
-    "sha256": "5348e13226bf365ea315194a0a0debc32bd520c4fab4eb35666a7bceb1e53c20",
+    "sha256": "23d3e3c57ad318849753870e7796813a48c227c64943d5d3fa457c8f3eaa575e",
     "merge_commit": "18910840fee787bbe2ae7d7eff40b944539a11f4"
   },
   "owner_disposition_receipt": {

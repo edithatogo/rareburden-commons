@@ -11,15 +11,6 @@ would misstate the operating model.
 
 ## Decision
 
-From 2026-08-21, every prospective material repository decision uses the
-machine-readable contract in `docs/single-owner-agent-governance.yml`. At least
-three explicitly simulated, role-separated agent perspectives prepare two or
-three options with option-specific trade-offs, contingencies, minimum evidence
-and rationale. The synthesis preserves uncertainty, dissent and stop triggers,
-identifies a recommendation and binds it to the exact candidate and evidence
-manifest. The repository owner then records the attributable decision.
-Historical track ownership and evidence records are not rewritten.
-
 All methods, scientific, patient/community-perspective, data-use, engineering,
 security, usability, operations and release review is performed as advisory
 challenge by a role-separated panel of agents. The panel records evidence,
@@ -30,10 +21,6 @@ an exact candidate.
 Agent-panel evidence is never called independent, human, constituted-community,
 institutional, custodian, licensor or external approval. No additional person
 is a mandatory repository review gate.
-
-A simulated patient/community or harm perspective is not lived-experience
-testimony, community representation, consent, legitimacy or endorsement. It
-may challenge repository framing and harms, but cannot create those facts.
 
 ## Authority and rights boundary
 
