@@ -34,7 +34,7 @@ def test_single_owner_agent_panel_model_is_bounded() -> None:
         "status": "bounded_governance_valid",
         "owner_count": 1,
         "relationship_count": 7,
-        "pending_acceptance_count": 6,
+        "pending_acceptance_count": 5,
         "track_014_status": "bound",
     }
 
@@ -43,6 +43,18 @@ def test_agent_panel_cannot_be_promoted_to_independent_authority() -> None:
     payload = _payload()
     payload["operating_model"]["agent_panels_are_advisory"] = False
     with pytest.raises(GovernanceReconciliationError, match="must remain advisory"):
+        validate_governance(payload, ROOT)
+
+
+def test_owner_authority_declaration_is_attributable_and_unpaid() -> None:
+    payload = _payload()
+    declarations = payload["owner_declarations"]
+    assert declarations["repository_data_custodian"] is True
+    assert declarations["applicable_indigenous_authority"] is True
+    assert declarations["additional_human_review_planned"] is False
+    assert declarations["remuneration"] == {"model": "unpaid", "amount": 0}
+    declarations["basis"] = "independent_verification"
+    with pytest.raises(GovernanceReconciliationError, match="must remain attributable"):
         validate_governance(payload, ROOT)
     payload = _payload()
     payload["operating_model"]["prohibited_agent_authority_claims"].remove("human_review")
@@ -108,12 +120,12 @@ def test_patient_community_advice_keeps_non_self_attestable_gates_pending() -> N
     }
 
 
-def test_completion_attempt_uses_single_owner_internal_governance() -> None:
+def test_completion_attempt_remains_blocked_on_external_authority() -> None:
     closure = yaml.safe_load(EXTERNAL_GATE_CLOSURE.read_text(encoding="utf-8"))
     metadata = json.loads(TRACK_METADATA.read_text(encoding="utf-8"))
 
     assert metadata["status"] == "blocked"
-    assert closure["status"] == "superseded_by_single_owner_governance_for_internal_gates"
+    assert closure["status"] == "blocked_external_authority_and_dependencies"
     assert closure["track_completion_authorized"] is False
     assert all(blocker["self_attestable"] is False for blocker in closure["dependency_blockers"])
     assert all(
@@ -121,20 +133,3 @@ def test_completion_attempt_uses_single_owner_internal_governance() -> None:
         for gate in closure["external_gates"]
     )
     assert "Track 015 complete" in closure["prohibited_completion_claims"]
-    assert closure["internal_governance_correction"] == {
-        "repository_model": "single_person_repo",
-        "decision_maker": "repository_owner",
-        "panels": "role_separated_advisory_agents",
-        "remuneration": "none",
-        "amount": 0,
-        "grouped_advice_fields": [
-            "options",
-            "contingencies",
-            "rationale",
-            "trade_offs",
-            "recommendation",
-        ],
-        "repository_data_custodian": "repository_owner",
-        "applicable_indigenous_authority": "repository_owner",
-        "independent_human_review_planned": False,
-    }

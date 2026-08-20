@@ -1,16 +1,15 @@
 # Track 015 dependency review — Governance, partnerships and policy translation
 
 **Review date:** 2026-07-29  
-**Decision:** Single-owner governance adopted; external relationship claims not activated
+**Decision:** Planned; constitution and external relationship work not activated
 
 ## Findings
 
 - Track 007’s landscape and Track 013’s assurance work are not complete.
 - No committee, partnership, endorsement, data-access agreement or institutional
   host has been confirmed.
-- Repository governance decisions belong to the sole owner after advisory
-  agent-panel challenge. External authority is required only when claimed or
-  when real data, rights or a third-party pathway invokes it.
+- Governance, patient/community, scientific, ethics/data-governance, programme
+  and release gates remain required.
 
 ## Local preparation
 
@@ -18,13 +17,11 @@
 authority, claim states and policy-translation boundaries. It is a scaffold only
 and does not constitute appointments, consultation, consent or partnership.
 
-## Superseded activation assumptions
+## Activation gates
 
-- Constituted internal councils, voting membership and paid remuneration are
-  not part of this single-person repository. Remuneration is zero.
-- Internal decisions use advisory agent panels and an attributable owner
-  disposition with options, contingencies, rationale, trade-offs and a
-  recommendation.
+- Named patient/community co-chair and remunerated voting membership.
+- Approved charters, conflicts, complaints, appeals, authorship, corrections,
+  acceptable-use and Indigenous/CARE provisions.
 - Written relationship evidence for every `confirmed` claim.
 - Governance tabletop exercise and v1 readiness decision.
 
@@ -44,16 +41,10 @@ to independent or external authority, confirmation of unsupported
 relationships, governance overclaims, evidence drift and premature Track 014
 binding.
 
-The owner has additionally declared the repository-custodian and applicable
-Indigenous-authority roles. Those roles apply within the scope recorded in
-`docs/single-developer-governance.yml`; they do not extend to unrelated peoples,
-communities, third-party custodians, publishers or jurisdictions. No additional
-human reviewer is required or planned.
-
 Disposition: **pass for bounded repository controls** after the exact Track 014
 merge and bounded release surface were hash-bound and the full gate was rerun.
-This work does not constitute additional governance bodies, human community
-consultation, partnership, third-party custodian approval, institutional
+This work does not constitute governance bodies, community or Indigenous
+authority, remuneration, partnership, custodian approval, institutional
 hosting, global representativeness, production activation or stable release.
 
 ## Patient/community-governance advisory lane — 2026-08-20
@@ -74,13 +65,19 @@ external or release gate.
 
 ## Completion attempt — 2026-08-21
 
-The earlier completion audit incorrectly treated constituted internal bodies,
-additional human review and remuneration as mandatory. The corrected operating
-model has one owner as decision maker, repository custodian and applicable
-Indigenous authority, role-separated advisory agent panels, and zero
-remuneration. It does not manufacture authority beyond the declared scope.
+The remaining plan tasks and all eight acceptance criteria were audited against
+the evidence required from their accountable authorities. Repository-owned
+controls and preparation are present, but dependencies 007 and 013 are not
+complete and the required constituted governance, remuneration, Indigenous and
+country-node authority, policy approvals, relationship receipts, tabletop and
+v1 readiness decision are absent.
 
-Disposition: **internal governance correction accepted**. Remaining real-data,
-third-party-rights, partnership, out-of-scope authority and public-release gates
-stay conditional and fail closed. They are not internal council, human-review
-or remuneration requirements.
+Disposition: **blocked for the still-pending operating-policy, tabletop,
+dependency and activated external-claim gates**. The repository's internal
+governance premise is corrected: this is a single-person repository; simulated
+role-separated agent panels advise and the owner decides. The owner declares
+the repository-custodian and applicable Indigenous-authority roles, no
+additional human review is planned, and all work is unpaid. The declaration is
+not authority for unrelated communities, third-party custodians, publishers,
+jurisdictions or partners. The exact bounded resumption contract is
+`docs/track-015-external-gate-closure-2026-08-21.yml`.

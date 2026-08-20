@@ -85,11 +85,12 @@ Review uses [ADR-0009](../docs/decisions/ADR-0009-agent-panel-owner-governance.m
 and the [agent review-panel policy](../docs/subagent-review-panel-policy.md).
 Panels advise; the repository owner decides.
 
-The repository owner (`edithatogo`) is the sole developer and holds every
-accountable repository role. Agent role names identify advisory perspectives,
-not additional people or delegated authority. Panel synthesis presented to the
-owner must include options, trade-offs, contingencies, rationale and a
-recommendation. The owner records the decision.
+For prospective material decisions from 2026-08-21, use the simulated-panel
+contract in `docs/single-owner-agent-governance.yml` and the exact-candidate
+schema in `schemas/agent-owner-decision-packet.schema.json`. Historical role
+metadata is preserved. Simulation cannot create source terms, rights,
+credentials, controlled-data permission, patient/community consent or
+representation, partnership, endorsement or external approval.
 
 - **Methods/scientific panel:** estimand, definition, mapping, bias, uncertainty, validation and double counting.
 - **Rights/data-use panel:** observed terms, disclosure, retention and withdrawal; publisher rights remain facts.

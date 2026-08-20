@@ -23,14 +23,22 @@
       "institutional_or_partner_endorsement"
     ]
   },
+  "owner_declarations": {
+    "repository_data_custodian": true,
+    "applicable_indigenous_authority": true,
+    "basis": "attributable_owner_declaration",
+    "additional_human_review_planned": false,
+    "remuneration": {"model": "unpaid", "amount": 0},
+    "scope_excludes": ["unrelated Indigenous peoples or communities", "third-party custodians", "publishers or licensors", "ethics bodies", "governments or jurisdictions"]
+  },
   "evidence_bindings": [
-    {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "4fb89cfc523bc36d064e05132970f3f4d13d7ba5b7d039677cd3cad9124a04b1"},
+    {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "74ce4e9c51e6d0308242d3f3ccd8f59bfbb973ab78ce97c3b741e7f7796bc211"},
     {"id": "bounded_landscape_claims", "artifact": "docs/track-007-repository-registration-2026-08-16.yml", "sha256": "c9fffd556859e5569eab3c32cd460519da7710a0535ea15f8d3701132ef5f89a"},
-    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
+    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "c8d99555bb185182ed9c28b0da9f48023593ca4cdc1fef2ee82418bea93540fd"},
     {"id": "source_rights_routes", "artifact": "docs/source-archive-decision-matrix-2026-08-15.yml", "sha256": "38c75a268db01a4b052df9d41e79959dc19477600259c8946f2f4bd760338cb8"},
     {"id": "licensed_archive_capacity", "artifact": "docs/track-002-private-archive-capacity-decision-2026-08-16.yml", "sha256": "69ba9c8839be4854563fa0fe69a9296bd4e553ce5acc4ac80021ecbfe13734a2"}
   ],
-  "integration_dependency": {"track": "014", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "status": "bound", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0", "merge_commit": "22388a74e2d8f2c4ff1d59f828279ffabad3b5a7"},
+  "integration_dependency": {"track": "014", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "status": "bound", "sha256": "70b3832c8c3fce31e83c318762ff623bcf0582201b844e77fd157d70ae21c60d", "merge_commit": "22388a74e2d8f2c4ff1d59f828279ffabad3b5a7"},
   "authority_boundaries": {
     "owner_may": ["decide repository scope for an exact candidate", "accept narrow revise defer or stop agent recommendations", "operate correction withdrawal recovery and release controls"],
     "owner_and_agents_cannot": ["override publisher licences or third-party rights", "create patient community custodian or Indigenous authority", "create a partnership endorsement data-access agreement or registry event", "authorize controlled-data export contrary to custodian policy"]
@@ -49,6 +57,6 @@
   "required_actions_on_trigger": ["freeze affected publication and acquisition routes", "mark affected artifacts withdrawn superseded or disabled without rewriting history", "preserve redacted evidence and provenance", "notify only through an authorized relationship route", "re-run agent-panel challenge and owner disposition for the exact replacement"],
   "claims": {"constituted_governance": false, "patient_or_community_authority": false, "custodian_or_data_governance_authority": false, "indigenous_authority": false, "scientific_independence": false, "partnership_or_endorsement": false, "institutional_host": false, "global_representativeness": false, "production_activation": false, "stable_release_authorized": false},
   "repository_controls_implemented": ["relationship claim-state validation", "source-rights fail-closed routing", "agent-panel advice and owner disposition separation", "correction and withdrawal trigger contract", "negative overclaim tests"],
-  "pending_track_acceptance": ["owner-operated governance tabletop and exact-candidate disposition", "applicable external scientific ethics data-governance or node evidence when claimed", "Indigenous and country-node authority where applicable", "confirmed relationship evidence", "approved geographic and global claim scope", "completion of upstream dependencies"],
-  "allowed_statement": "The single-owner repository uses role-separated agent panels for advisory challenge and fail-closed repository controls; no external authority, partnership or constituted governance is claimed."
+  "pending_track_acceptance": ["operating policy disposition and owner-authorised tabletop", "scientific rights/data-use engineering and operations agent-panel execution", "unrelated community and country-node authority where activated", "confirmed relationship evidence where claimed", "approved bounded geographic claim scope"],
+  "allowed_statement": "The single-owner repository uses role-separated agent panels for advisory challenge; the owner declares the repository-custodian and applicable Indigenous-authority roles within the recorded scope, with no independent human review, remuneration, external partnership or unrelated community authority claimed."
 }

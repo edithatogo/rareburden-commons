@@ -11,8 +11,8 @@ Indigenous-authority role for this work. These are accountable owner-held roles,
 not advisory-agent roles and not independent review.
 
 No additional or independent human reviewer is required or planned. Review is
-performed by role-separated advisory agent panels, and the owner makes every
-decision.
+performed by role-separated simulated advisory agent panels, and the owner
+makes every decision. All work is unpaid; remuneration is zero.
 
 ## Scope limits
 
@@ -23,7 +23,6 @@ the corresponding evidence remains separately required.
 
 ## Continuing controls
 
-- All repository work remains free; remuneration is zero.
 - Publisher licences and third-party rights remain binding facts.
 - Agent advice cannot be described as human consultation or independent review.
 - Decisions remain attributable to the owner and bound to the relevant scope.

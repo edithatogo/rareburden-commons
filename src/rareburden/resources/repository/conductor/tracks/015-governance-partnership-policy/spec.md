@@ -2,19 +2,14 @@
 
 ## Objective
 
-Operate a truthful single-owner governance model with role-separated advisory
-agent panels, and create partner- and policy-ready materials without implying
-unconfirmed endorsement, authority or access.
+Convert governance principles into attributable single-owner decision rights
+with role-separated agent advice, and create partner- and policy-ready
+materials without implying unconfirmed endorsement or access.
 
 ## Required outputs
 
-- advisory agent-panel remits for community/harm, methods, rights/data-use,
-  engineering/security and release perspectives;
-- owner decision, conflict, dissent, authorship, appeals and correction policies;
-- grouped decision records containing options, contingencies, rationale,
-  trade-offs, recommendations and attributable owner dispositions;
-- an explicit zero-remuneration contract: all repository work is free and no
-  payment, honorarium, budget, promise or entitlement exists;
+- prospective simulated-panel and owner-decision contract;
+- conflict, dissent, authorship, appeals and correction policies;
 - acceptable-use, harm-review and benefit-sharing framework;
 - Indigenous Data Sovereignty and CARE-aligned node provisions;
 - country-node agreement and accreditation process;
@@ -25,38 +20,38 @@ unconfirmed endorsement, authority or access.
 
 ## Acceptance criteria
 
-1. The owner is the sole decision maker; patient/community and harm perspectives
-   are supplied by advisory agents and never represented as human consultation.
-2. Scientific, rights/data-use, engineering/security and node perspectives are
-   named, role-separated and advisory only.
+1. Patient/community and harm perspectives are represented by explicitly
+   simulated advisory agents; the owner retains decision authority and all work
+   is unpaid.
+2. Scientific, rights/data-use, engineering/security and operations/release
+   agent perspectives are named and operational.
 3. Funders and data contributors cannot veto valid results or control methods for advantage.
 4. Conflicts, complaints, appeals, authorship and correction processes are tested.
 5. The owner's repository-custodian and applicable Indigenous-authority roles
-   are recorded with scope limits; authority for other peoples, communities,
-   custodians or jurisdictions is not implied.
+   are explicit and scope-limited; unrelated community, custodian and
+   country-node authority is never inferred.
 6. External materials clearly distinguish public data use, requested collaboration and confirmed agreement.
 7. Global claims require the representation conditions in the roadmap.
-8. The owner approves, narrows, revises, defers or stops the exact v1 candidate
-   after grouped agent-panel advice.
+8. The repository owner approves or bounds the v1 product and acceptable uses
+   after role-separated agent advice.
 
 ## Non-goals
 
-- presenting advisory agent panels as separate people or constituted bodies;
+- creating nominal committees without decision power;
 - treating consultation as consent;
 - storing relationship-sensitive operations material in the public repository when confidentiality is required;
 - criticising adjacent institutions to create a partnership case.
 
 ## Current bounded repository operating model
 
-This single-developer repository permanently uses the accountable owner plus
-role-separated advisory agent panels defined by ADR-0009 unless the owner later
-records a changed operating model. The owner holds the repository-custodian and
-applicable Indigenous-authority roles recorded in the governance contract.
-Agent findings are advisory and are not human consultation or authority. No
-additional or independent human review is planned. All work is free:
-remuneration is zero and no payment promise exists. Publisher terms,
-third-party custodians and jurisdictional rules remain binding external facts
-when the selected scope invokes them.
+This single-person repository uses the accountable owner plus role-separated
+simulated advisory agent panels defined by ADR-0009 and ADR-0010. Agent findings
+inform owner disposition but are not independent or human review. The owner has
+declared the repository-custodian and applicable Indigenous-authority roles for
+this work; that declaration does not extend to unrelated communities,
+third-party custodians or country nodes. Publisher terms and controlled-
+environment rules remain binding facts. No additional human review is planned,
+and remuneration is zero.
 
 ## v1 contribution
 

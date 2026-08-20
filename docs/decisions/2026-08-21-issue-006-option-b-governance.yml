@@ -1,0 +1,89 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 007-landscape-novelty
+candidate:
+  commit: 7249b5ea4848cb6864d854abd43deafc3a585565
+  tree: 9c81357a534c0e7a4d70bb6edc0126f07bd44336
+  evidence_manifest_sha256: 6b19815717e4dcaa3c9a3842d1258bc8b2065d42bf445762406169ba013ad236
+panel:
+  perspectives: [methods_evidence, community_harm, governance_assurance]
+  non_representation_statement: >-
+    These are simulated agent perspectives, not independent human review,
+    lived-experience testimony, community representation, consent or approval.
+evidence:
+  references:
+    - https://github.com/edithatogo/rareburden-commons/issues/6
+    - docs/track-007-owner-methods-decision-2026-08-20.json
+    - conductor/archive/007-landscape-novelty/review.md
+    - docs/single-owner-agent-governance.yml
+  observed_facts:
+    - The repository has one owner and developer.
+    - Track 007 is archived with a bounded technical-adjacency disposition.
+    - Ninety live-only records remain not assessable in the bounded metadata scope.
+  simulated_assessments:
+    - Prospective material decisions need role-separated challenge before owner disposition.
+    - Historical responsibility labels should remain provenance rather than be rewritten.
+    - Community and harm simulation can challenge framing but cannot supply community authority.
+  cannot_infer:
+    - systematic or comprehensive coverage
+    - global, language or geographic representativeness
+    - grey-literature coverage
+    - content quality, absence or confirmed novelty from metadata
+    - partnership, access, consent, community authority or external approval
+uncertainty:
+  - Provider and index bias remain bounded by the executed query surfaces.
+  - Query language is not record language and metadata is not a geography proxy.
+  - Future community-facing scopes may require separately attributable evidence.
+dissent:
+  - A Track-007-only amendment would be smaller, but would leave future tracks inconsistent.
+stop_triggers:
+  - A packet omits exact-candidate or evidence-manifest binding.
+  - A simulated perspective is described as independent, human or representative.
+  - Missing rights, terms, credentials or external permission are treated as granted.
+  - A critical unresolved finding is accepted without narrowing, revision, deferral or stop.
+options:
+  - id: A
+    title: Track 007 only
+    disposition: narrow
+    trade_offs:
+      - Minimal change and strongest continuity with archived Track 007 evidence.
+      - Other future tracks would lack the same structured decision requirement.
+    contingencies:
+      - Add the global contract later if inconsistent decision packets recur.
+    rationale: Apply the governance workflow only to the issue that prompted the amendment.
+    minimum_evidence:
+      - Track 007 exact-candidate panel packet and owner disposition.
+  - id: B
+    title: Global prospective policy
+    disposition: accept
+    trade_offs:
+      - Creates a consistent future workflow across all material repository decisions.
+      - Requires a new schema, validator, tests and applicability judgement.
+    contingencies:
+      - Use proportionate perspectives for each decision while retaining three for material risk.
+      - Narrow, defer or stop whenever required external facts are missing.
+    rationale: Apply one explicit panel-to-owner contract prospectively without rewriting history.
+    minimum_evidence:
+      - Machine-readable prospective governance contract.
+      - Schema-valid two-or-three-option decision packet.
+      - Negative tests for authority, metadata and external-fact drift.
+  - id: C
+    title: Blanket role rewrite
+    disposition: stop
+    trade_offs:
+      - Mechanically simple single-owner labels across the repository.
+      - Rewrites historical responsibility metadata and does not prove panel execution.
+    contingencies:
+      - Preserve the draft separately if historical reinterpretation is ever reconsidered.
+    rationale: Reject a blanket rewrite because it weakens provenance and overstates implementation.
+    minimum_evidence:
+      - Explicit new owner instruction authorising historical metadata revision.
+recommendation:
+  option_id: B
+  rationale: A global prospective contract gives consistent assurance while preserving historical provenance.
+owner_decision:
+  status: recorded
+  selected_option_id: B
+  decided_by: edithatogo
+  decided_at_utc: "2026-08-20T21:50:06Z"
+  rationale: The repository is single-person, so simulated panels should advise all future material decisions before the owner decides.

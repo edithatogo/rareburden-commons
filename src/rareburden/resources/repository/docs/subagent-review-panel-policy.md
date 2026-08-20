@@ -8,17 +8,25 @@ assumptions, produce dissent, draft dispositions and identify missing evidence.
 The repository owner and scientist is the sole accountable decision-maker and
 adjudicates the panel recommendation.
 
-The repository owner is the sole developer and holds every accountable
-repository role. Agent role separation supplies distinct challenge
-perspectives; it does not create additional office holders, delegated
-decision-makers or independent reviewers.
+For prospective material decisions from 2026-08-21, every panel is labelled a
+simulated role-separated advisory panel. It uses
+`schemas/agent-owner-decision-packet.schema.json`, supplies two or three options
+with trade-offs, contingencies, minimum evidence and rationale, and preserves
+uncertainty, dissent and stop triggers. The owner decision is separate.
+Historical role metadata is preserved.
+
+The repository owner is the sole developer and retains repository decision
+authority. Agent role names identify simulated advisory perspectives, not
+additional office holders, delegated decision-makers, constituted community
+representatives or independent reviewers.
 
 ## Evidence contract
 
 Each panel result records `panel_assurance`, composition, scope, exact candidate
 commit and manifest, evidence references, findings, uncertainty, dissent and
 stop triggers. Every synthesis presented for decision must include options,
-trade-offs, contingencies, rationale and a recommendation. Agent
+trade-offs, contingencies, minimum evidence, rationale and an accept, narrow,
+revise, defer or stop recommendation. Agent
 outputs are advisory and must never be described as independent, human,
 constituted-community, institutional, custodian, licensor or external approval.
 
@@ -58,6 +66,10 @@ Publisher licences, third-party rights, registry events and any future
 controlled-data custodian policy remain evidence-bound facts rather than review
 roles. Agents and the owner may interpret and operationalise those facts but
 cannot manufacture permission.
+
+The same boundary applies to lived experience, patient/community consent or
+representation, partnership, endorsement and external approval. Simulated
+perspectives may challenge harms and framing but do not supply those facts.
 
 ## Track-plan amendment rule
 

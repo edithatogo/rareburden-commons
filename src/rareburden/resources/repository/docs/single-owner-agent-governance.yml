@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+repository: edithatogo/rareburden-commons
+effective_date: "2026-08-21"
+application: prospective_material_decisions
+historical_role_metadata_rewritten: false
+owner:
+  identity: edithatogo
+  decision_authority: repository_scope_and_release_only
+  decides_after_agent_advice: true
+  repository_data_custodian: true
+  applicable_indigenous_authority: true
+  authority_basis: attributable_owner_declaration
+  authority_scope_excludes:
+    - unrelated_indigenous_peoples_or_communities
+    - third_party_custodians
+    - publishers_or_licensors
+    - ethics_bodies
+    - governments_or_jurisdictions
+  additional_human_review_planned: false
+  remuneration_model: unpaid
+  remuneration_amount: 0
+agent_panel:
+  simulation_status: simulated_role_separated_advisory_panel
+  minimum_perspectives: 3
+  perspectives_are_independent_people: false
+  required_packet_schema: schemas/agent-owner-decision-packet.schema.json
+  required_options_minimum: 2
+  required_options_maximum: 3
+  required_presentation: [options, trade_offs, contingencies, rationale, recommendation, uncertainty, dissent, stop_triggers]
+  recommendation_is_approval: false
+external_fact_boundary:
+  simulation_cannot_create:
+    - publisher_licence_or_source_terms
+    - third_party_rights
+    - registry_event
+    - credential_or_live_service_capacity
+    - third_party_controlled_data_custodian_permission
+    - patient_or_community_consent
+    - patient_or_community_representation
+    - partnership_or_endorsement
+    - institutional_or_external_approval
+  unresolved_fact_action: narrow_defer_or_stop
+claims_boundary:
+  simulated_community_harm_perspective_is_lived_experience: false
+  simulated_panel_is_independent_review: false
+  metadata_establishes_content_quality_or_absence: false
+  metadata_establishes_language_or_geographic_representativeness: false
+  metadata_establishes_novelty_partnership_or_community_authority: false
+decision_rule:
+  exact_candidate_binding_required: true
+  dissent_and_uncertainty_preserved: true
+  unresolved_critical_finding: narrow_revise_defer_or_stop
+  owner_disposition_required: true
