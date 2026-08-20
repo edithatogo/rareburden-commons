@@ -20,6 +20,14 @@
   artifact hashes; this preparation decision does not authorize publication,
   issue closure or a v0.3.0 release.
 
+## Review Fixes — 2026-08-20
+
+- [x] Format and re-review the fail-closed exact-candidate verifier, preserve
+  the live transport blocker without relaxing any gate, synchronize runtime
+  assets, and pass the full repository gate. Evidence: implementation commit
+  `473b9aa`; focused post-rebase tests `17 passed`; `uv run make check`
+  completed with `920 passed`.
+
 ## HPO rights frontier — 2026-08-16
 
 - [x] Bind the exact official predecessor HPO licence page by URL, response
