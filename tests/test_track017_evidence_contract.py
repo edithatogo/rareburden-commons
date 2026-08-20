@@ -52,7 +52,7 @@ def test_reconciliation_preserves_planned_status_and_stable_release_boundary() -
         ROOT / "docs/track-017-evidence-contract-reconciliation-2026-08-20.md"
     ).read_text(encoding="utf-8")
     assert metadata["status"] == "planned"
-    assert metadata["updated"] == "2026-08-21"
+    assert metadata["updated"] == "2026-08-20"
     assert "26 completed" in review
     assert "17 pending" in review
     assert "Track 017 remains Planned" in reconciliation

@@ -140,3 +140,29 @@
   and `docs/track-008-provisional-candidate-advice-2026-08-21.yml`. This packet
   is advisory readiness evidence only: source approval, naming authority,
   independent review, v0.4 freeze and Track 009 activation remain blocked.
+
+## Post-upstream reconciliation — 2026-08-21
+
+- [x] Reconcile the archived Track 002/007 outcomes into the bounded source
+  inventory. Evidence: `docs/track-008-source-release-inventory-2026-08-03.yml`
+  now binds the Track 002 owner disposition, recognizes only the exact
+  Orphadata/MONDO allowlist, keeps HPO asset-specific, and leaves WHO and
+  controlled sources disabled. This satisfies dependency ordering only; it
+  does not establish mapping fitness, naming authority or freeze v0.4.
+
+## Owner-approved v0.4 candidate preparation — 2026-08-21
+
+- [x] Prepare the exact bounded v0.4 candidate using the approved Orphadata,
+  MONDO and nine individually cleared HPO ontology-core objects; preserve typed
+  uncertainty, non-clinical use, provisional owner-operated naming and all
+  controlled or mixed-rights exclusions. Evidence:
+  `manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json`,
+  `manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json` and
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml`, with the owner
+  preparation decision in
+  `docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml`.
+  This records owner authorization to prepare, not a contract freeze,
+  independent review, clinical validation or Track 008 completion.
+- [ ] Generate the final real-source mapping rows and provisional naming list,
+  then re-run the hash-bound source, semantic and naming challenge for final
+  owner freeze disposition.

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "track": "008-semantic-backbone",
+  "candidate_contract": "v0.4",
+  "status": "prepared_not_frozen",
+  "baseline_manifest": "manifests/semantics/track-008-provisional-candidate-2026-08-21.json",
+  "candidate_manifest": "manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json",
+  "changes": {
+    "added_public_source_families": ["mondo-disease-ontology", "human-phenotype-ontology ontology_core"],
+    "retained_public_source_families": ["orphadata-science-alignments"],
+    "retained_exclusions": ["controlled", "credentialed", "mixed-rights", "insufficiently-evidenced"],
+    "relation_vocabulary_change": "none",
+    "production_mapping_rows_added": 0,
+    "provisional_naming_rows_added": 0
+  },
+  "compatibility": "The candidate expands the exact source allowlist but does not activate new mapping rows or freeze a public contract.",
+  "required_before_freeze": [
+    "generate and validate any proposed real-source mapping rows",
+    "produce exact added, removed and changed mapping counts",
+    "re-run source, semantic and naming challenge against the final hashes",
+    "obtain final owner disposition"
+  ]
+}

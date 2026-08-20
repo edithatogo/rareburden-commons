@@ -26,6 +26,15 @@ FALSE_CLAIMS = {
     "contract_frozen",
     "track_complete",
 }
+CANDIDATE_FALSE_CLAIMS = {
+    "comprehensive_coverage",
+    "clinical_validation",
+    "patient_community_authority",
+    "independent_review",
+    "partnership_or_external_approval",
+    "contract_frozen",
+    "track_complete",
+}
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
 
@@ -164,6 +173,64 @@ def validate(path: Path, root: Path) -> None:
             _repository_path(root, artifact.get("path"))
         ) != artifact.get("sha256"):
             raise Track008ReadinessError("provisional candidate artifact hash drift")
+
+    candidate_binding = document.get("v0_4_candidate_binding", {})
+    if (
+        candidate_binding.get("status") != "owner_approved_preparation_not_frozen"
+        or candidate_binding.get("review_status") != "owner_operated_not_independent"
+        or candidate_binding.get("effect")
+        != "candidate_preparation_only_no_contract_freeze_or_track_completion"
+    ):
+        raise Track008ReadinessError("v0.4 candidate must remain prepared but not frozen")
+    if not COMMIT.fullmatch(str(candidate_binding.get("source_commit", ""))) or not COMMIT.fullmatch(
+        str(candidate_binding.get("source_tree", ""))
+    ):
+        raise Track008ReadinessError("v0.4 candidate requires exact source commit and tree")
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("migration_impact_receipt", "migration_impact_sha256"),
+        ("owner_preparation_decision", "owner_preparation_decision_sha256"),
+        ("challenge_findings", "challenge_findings_sha256"),
+    ):
+        evidence_path = _repository_path(root, candidate_binding.get(path_field))
+        expected = str(candidate_binding.get(hash_field, ""))
+        if not SHA256.fullmatch(expected) or _sha256(evidence_path) != expected:
+            raise Track008ReadinessError(f"v0.4 candidate evidence hash drift: {path_field}")
+
+    try:
+        prepared = json.loads(
+            _repository_path(root, candidate_binding["candidate_manifest"]).read_text(
+                encoding="utf-8"
+            )
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise Track008ReadinessError(f"cannot read v0.4 candidate manifest: {exc}") from exc
+    if (
+        prepared.get("candidate_status") != "prepared_not_frozen"
+        or prepared.get("source_commit") != candidate_binding.get("source_commit")
+        or prepared.get("source_tree") != candidate_binding.get("source_tree")
+    ):
+        raise Track008ReadinessError("v0.4 candidate identity or status drift")
+    if any(prepared.get("claims", {}).get(name) is not False for name in CANDIDATE_FALSE_CLAIMS):
+        raise Track008ReadinessError("v0.4 candidate blocked claims must remain false")
+    allowlist = prepared.get("public_source_allowlist")
+    if not isinstance(allowlist, list) or [row.get("source_id") for row in allowlist] != [
+        "orphadata-science-alignments",
+        "mondo-disease-ontology",
+        "human-phenotype-ontology",
+    ]:
+        raise Track008ReadinessError("v0.4 candidate source allowlist drift")
+    for source in allowlist:
+        assets = source.get("assets", [source])
+        if not isinstance(assets, list) or not assets:
+            raise Track008ReadinessError("v0.4 candidate source asset inventory is empty")
+        for asset in assets:
+            if not isinstance(asset, dict) or not SHA256.fullmatch(str(asset.get("sha256", ""))):
+                raise Track008ReadinessError("v0.4 candidate source asset digest is invalid")
+    if len(allowlist[2].get("assets", [])) != 9 or not allowlist[2].get(
+        "excluded_asset_classes"
+    ):
+        raise Track008ReadinessError("HPO candidate must remain an exact nine-asset allowlist")
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
         if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):

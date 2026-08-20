@@ -1,11 +1,13 @@
 {
   "schema_version": "0.2.0",
   "track": "008-semantic-backbone",
-  "as_of": "2026-08-16",
+  "as_of": "2026-08-21",
   "activation": "synthetic_and_metadata_only_no_v0_4_freeze",
   "upstream_state": {
-    "track_002": "incomplete_bounded_receipts_only",
-    "track_007": "incomplete"
+    "track_002": "archived_bounded_completion",
+    "track_002_disposition": "docs/decisions/2026-08-21-track-002-bounded-completion.yml",
+    "track_007": "archived_bounded_completion",
+    "consequence": "upstream dependency satisfied without expanding source rights or semantic authority"
   },
   "records": [
     {
@@ -19,6 +21,7 @@
       "redistribution": "permitted_with_attribution_change_notice_and_no_endorsement",
       "byte_route": "public_rights_filtered_archive",
       "semantic_use": "conditional_identifier_alignment_only",
+      "owner_disposition": "included_in_exact_hash_identified_allowlist",
       "limitations": [
         "no_prevalence_or_burden_inference",
         "no_clinical_validity",
@@ -65,31 +68,35 @@
       "source_id": "human-phenotype-ontology",
       "role": "phenotype_ontology_candidate",
       "release": "v2026-06-23",
-      "artifact": "seven digest-pinned core ontology and annotation artifacts",
+      "artifact": "nine individually hash-identified ontology-core assets",
       "artifact_sha256": null,
-      "release_evidence": "docs/track-002-source-verification-2026-08-15.yml",
-      "licence_state": "embedded_terms_route_inaccessible_exact_terms_unresolved",
-      "redistribution": "public_mirror_disabled",
-      "byte_route": "private_licensed_archive_only",
-      "semantic_use": "disabled_pending_exact_terms_and_mapping_review",
+      "release_evidence": "manifests/hpo/asset-rights-matrix-2026-08-16.json",
+      "licence_state": "official_hpo_conditions_observed_asset_specific",
+      "redistribution": "exact_unmodified_ontology_core_only_with_acknowledgement_version_and_no_endorsement",
+      "byte_route": "public_exact_asset_allowlist",
+      "semantic_use": "non_clinical_phenotype_identifier_and_hierarchy_candidate",
+      "owner_disposition": "nine_ontology_core_assets_included_all_other_asset_classes_metadata_only_or_excluded",
       "limitations": [
-        "no_public_bytes",
+        "no_annotations_or_mappings",
+        "no_merged_imports",
+        "no_translations",
         "no_diagnostic_use",
-        "annotation_provenance_required"
+        "not_complete_hpo_public_frontier"
       ],
-      "release_evidence_sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"
+      "release_evidence_sha256": "67fa69c94311c7e49fae00e5c20ebd09e6acd1ceb0ba8135af1eea777422cf09"
     },
     {
       "source_id": "mondo-disease-ontology",
       "role": "disease_ontology_alignment_candidate",
       "release": "v2026-08-04",
-      "artifact": "mondo-rare.owl; mondo.json; mondo.owl",
+      "artifact": "three individually hash-identified release assets: mondo-rare.owl; mondo.json; mondo.owl",
       "artifact_sha256": null,
       "release_evidence": "docs/track-002-source-verification-2026-08-15.yml",
       "licence_state": "exact_release_cc_by_4_0_observed",
       "redistribution": "permitted_with_attribution",
       "byte_route": "public_or_private_rights_filtered_archive",
-      "semantic_use": "metadata_only_pending_mapping_review",
+      "semantic_use": "non_clinical_alignment_candidate_pending_row_level_review",
+      "owner_disposition": "included_in_exact_hash_identified_allowlist_subject_to_mapping_fitness_review",
       "limitations": [
         "no_clinical_validity",
         "no_comprehensive_coverage",
@@ -158,5 +165,5 @@
     "production_activation": false,
     "v0_4_contract_frozen": false
   },
-  "inventory_sha256": "eb2d4935d4e7a9dd0f91634fabd96e3a61fa03ae2b2b2da12225411f450f9f5c"
+  "inventory_sha256": "33eba99430af2f69b79d473aa83fd9702f5191fde2ef8059016ca5706ee163e9"
 }

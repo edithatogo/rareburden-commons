@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+track: "008-semantic-backbone"
+candidate_manifest: "manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json"
+candidate_manifest_sha256: "586b1b4499b7ccdb8e43770f5658f51f3b72b39947d0fc2582cc071b99baa02d"
+status: "owner_operated_simulated_challenge_not_independent_review"
+perspectives:
+  - "simulated rights and data-use"
+  - "simulated semantic methods"
+  - "simulated patient-community harm"
+  - "simulated engineering and release"
+findings:
+  - id: "RIGHTS-MED-01A"
+    severity: "medium"
+    state: "narrowed_not_closed"
+    finding: "The HPO public route is defensible only for the nine exact ontology-core assets; other asset classes remain excluded."
+    contingency: "Any asset-class or hash drift quarantines the affected object and invalidates this candidate."
+  - id: "SEM-MED-01A"
+    severity: "medium"
+    state: "open"
+    finding: "The candidate defines permitted relation types but contains no final real-source mapping rows or row-level fitness assessment."
+    contingency: "Do not freeze until exact rows, ambiguity results and a mapping migration diff are available."
+  - id: "NAME-MED-01A"
+    severity: "medium"
+    state: "open"
+    finding: "Provisional owner-operated naming is authorized, but the exact proposed naming list and harm assessment do not yet exist."
+    contingency: "Keep naming-authority false and require visible provisional labels, aliases and versioned deprecation."
+  - id: "AUTH-MED-01A"
+    severity: "medium"
+    state: "bounded"
+    finding: "The review is owner-operated and simulated, not independent or community-authoritative."
+    contingency: "Reject any release surface that implies independence, participation, partnership, endorsement or external approval."
+critical_findings: []
+recommendation: "retain_candidate_for_final_mapping_and_naming_work_do_not_freeze"
+claims:
+  independent_review: false
+  clinical_validation: false
+  patient_community_authority: false
+  contract_frozen: false
+  track_complete: false
