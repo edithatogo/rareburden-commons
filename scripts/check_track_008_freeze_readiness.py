@@ -40,7 +40,16 @@ def _load(path: Path) -> dict[str, Any]:
 
 
 def _metadata(root: Path, track: str) -> dict[str, Any]:
-    path = root / "conductor" / "tracks" / track / "metadata.json"
+    candidates = [
+        root / "conductor" / "tracks" / track / "metadata.json",
+        root / "conductor" / "archive" / track / "metadata.json",
+    ]
+    matches = [candidate for candidate in candidates if candidate.is_file()]
+    if len(matches) != 1:
+        raise Track008ReadinessError(
+            f"track {track} must resolve to exactly one metadata file; found {len(matches)}"
+        )
+    path = matches[0]
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
@@ -72,7 +81,7 @@ def validate(path: Path, root: Path) -> None:
         observed = _metadata(root, row["track"]).get("status")
         if row.get("required_status") != "complete" or row.get("observed_status") != observed:
             raise Track008ReadinessError(f"dependency state drift for {row['track']}")
-        expected_state = "satisfied" if observed == "complete" else "pending"
+        expected_state = "satisfied" if observed in {"complete", "archived"} else "pending"
         if row.get("state") != expected_state:
             raise Track008ReadinessError(f"dependency gate state mismatch for {row['track']}")
 

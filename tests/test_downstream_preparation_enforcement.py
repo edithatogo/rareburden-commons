@@ -63,6 +63,31 @@ def test_option_b_contract_rejects_out_of_order_track_activation(tmp_path: Path)
         validate(plan_path, root)
 
 
+def test_archived_dependency_resolves_from_archive(tmp_path: Path) -> None:
+    root = tmp_path / "repo"
+    decision = root / "docs" / "decisions" / "2026-08-20-owner-option-b-bounded-preparation.md"
+    decision.parent.mkdir(parents=True)
+    decision.write_text(
+        "Option B\n\nowner-operated governance, not independent review\n", encoding="utf-8"
+    )
+    plan = yaml.safe_load(PLAN.read_text(encoding="utf-8"))
+    plan_path = root / "docs" / "plan.yml"
+    plan_path.write_text(yaml.safe_dump(plan, sort_keys=False), encoding="utf-8")
+    metadata = {
+        "002": ("tracks", {"status": "complete"}),
+        "007": ("archive", {"status": "archived"}),
+        "008": ("tracks", {"status": "active"}),
+        "009": ("tracks", {"status": "blocked"}),
+        "010": ("tracks", {"status": "blocked"}),
+    }
+    for track, (location, payload) in metadata.items():
+        directory = root / "conductor" / location / f"{track}-fixture"
+        directory.mkdir(parents=True)
+        (directory / "metadata.json").write_text(json.dumps(payload), encoding="utf-8")
+
+    validate(plan_path, root)
+
+
 def test_option_b_contract_rejects_production_security_activation(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(PLAN.read_text(encoding="utf-8")))
     document["cross_cutting_security"]["production_activation"] = "authorized"

@@ -16,21 +16,32 @@ require a separately versioned scope.
 
 ## Required outputs
 
-- registered search and screening protocol;
-- reproducible search log, inclusion criteria and evidence table;
-- inventory of initiatives, datasets, software, standards and policy programmes;
-- adjacency matrix comparing purpose, geography, disease scope, data access, methods, outputs and maturity;
-- explicit novelty claims with supporting evidence and limitations;
-- complementarity and partnership map;
-- go, narrow, combine, revise or stop recommendation;
-- publication-ready landscape paper or report.
+- repository hash-registered search and screening protocol;
+- reproducible bounded search log, inclusion criteria and evidence table;
+- bounded inventory of observed initiatives, datasets, software, standards and
+  policy programmes;
+- technical adjacency matrix comparing the fields supported by observed
+  evidence and reporting missingness explicitly;
+- falsifiable provisional complementarity hypothesis with limitations, never a
+  confirmed-novelty or partnership claim;
+- go, narrow, combine, revise, defer or stop recommendation and owner
+  disposition;
+- technical bounded-evidence synthesis suitable for repository planning.
+
+A publication-ready comprehensive landscape, community-facing interpretation,
+confirmed novelty claim or partnership map is not part of the accepted v0.2.x
+deliverable. It requires a separately versioned future scope and its own
+evidence and authority boundaries.
 
 ## Acceptance criteria
 
-1. Searches are reproducible and cover both scholarly and repository ecosystems.
+1. The exact bounded scholarly and repository observations are reproducible
+   from recorded queries, providers, limits, timestamps and hashes; this is not
+   ecosystem-completeness evidence.
 2. Major adjacent initiatives are described from primary sources where possible.
 3. The review distinguishes an unavailable product from an unavailable public interface.
-4. Novelty claims are specific and falsifiable rather than rhetorical.
+4. The provisional complementarity hypothesis is specific and falsifiable,
+   while confirmed novelty remains prohibited.
 5. Existing reusable work is incorporated into later track plans.
 6. Role-separated community/harm and methods agents challenge the proposed gap,
    and the repository owner records the disposition.

@@ -10,8 +10,8 @@ upstream_dependencies:
     state: "pending"
   - track: "007-landscape-novelty"
     required_status: "complete"
-    observed_status: "in_review"
-    state: "pending"
+    observed_status: "archived"
+    state: "satisfied"
 source_release_gate:
   inventory: "docs/track-008-source-release-inventory-2026-08-03.yml"
   provenance_manifest: "manifests/semantics/track-008-source-release-provenance-2026-08-16.json"

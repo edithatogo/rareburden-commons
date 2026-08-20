@@ -27,7 +27,7 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
     assert summary.track_status_counts.get("complete", 0) == 0
-    assert summary.track_status_counts["archived"] == 3
+    assert summary.track_status_counts["archived"] == 4
 
 
 def test_dependency_cycle_is_rejected(tmp_path: Path) -> None:
@@ -47,7 +47,7 @@ def test_dependency_cycle_is_rejected(tmp_path: Path) -> None:
 def test_missing_track_document_is_rejected(tmp_path: Path) -> None:
     tracks = tmp_path / "tracks"
     shutil.copytree(TRACKS, tracks)
-    (tracks / "007-landscape-novelty" / "spec.md").unlink()
+    (tracks / "002-public-source-acquisition" / "spec.md").unlink()
 
     with pytest.raises(RoadmapValidationError, match=r"missing required file spec\.md"):
         validate_with(tracks)
@@ -105,7 +105,7 @@ def test_complete_track_may_target_current_release(tmp_path: Path) -> None:
     tracks = tmp_path / "tracks"
     shutil.copytree(TRACKS, tracks)
     shutil.copytree(ROOT / "conductor" / "archive", tmp_path / "archive")
-    track_dir = tracks / "007-landscape-novelty"
+    track_dir = tracks / "002-public-source-acquisition"
     metadata_path = track_dir / "metadata.json"
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     metadata["status"] = "complete"
