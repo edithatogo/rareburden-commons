@@ -17,7 +17,7 @@ packet_requirements:
 sources:
   - source_id: "orphadata-science"
     packet_status: "candidate_exact_route_recorded"
-    evidence_record: "conductor/tracks/002-public-source-acquisition/review.md"
+    evidence_record: "conductor/archive/002-public-source-acquisition/review.md"
     exact_routes:
       - "https://www.orphadata.com/data/xml/en_product9_prev.xml"
       - "https://www.orphadata.com/data/xml/en_product1.xml"
@@ -45,7 +45,7 @@ sources:
     source_change_exercise: "pending"
   - source_id: "world-bank-indicators-api"
     packet_status: "candidate_query_manifest_recorded"
-    evidence_record: "conductor/tracks/002-public-source-acquisition/review.md"
+    evidence_record: "conductor/archive/002-public-source-acquisition/review.md"
     exact_routes:
       - "https://api.worldbank.org/v2/country/AUS;NZL/indicator/SP.POP.TOTL?date=2000:2021&format=json&per_page=100&source=2"
     sha256_recorded: true

@@ -26,8 +26,8 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.track_count == 18
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
-    assert summary.track_status_counts["complete"] == 1
-    assert summary.track_status_counts["archived"] == 4
+    assert summary.track_status_counts.get("complete", 0) == 0
+    assert summary.track_status_counts["archived"] == 5
 
 
 def test_dependency_cycle_is_rejected(tmp_path: Path) -> None:
@@ -47,7 +47,9 @@ def test_dependency_cycle_is_rejected(tmp_path: Path) -> None:
 def test_missing_track_document_is_rejected(tmp_path: Path) -> None:
     tracks = tmp_path / "tracks"
     shutil.copytree(TRACKS, tracks)
-    (tracks / "002-public-source-acquisition" / "spec.md").unlink()
+    archive = tmp_path / "archive"
+    shutil.copytree(ROOT / "conductor" / "archive", archive)
+    (archive / "002-public-source-acquisition" / "spec.md").unlink()
 
     with pytest.raises(RoadmapValidationError, match=r"missing required file spec\.md"):
         validate_with(tracks)
@@ -101,21 +103,10 @@ def test_human_roadmap_track_drift_is_rejected(tmp_path: Path) -> None:
         validate_roadmap_files(roadmap, ROADMAP_SCHEMA, tracks, TRACK_SCHEMA)
 
 
-def test_complete_track_may_target_current_release(tmp_path: Path) -> None:
+def test_archived_track_may_target_current_release(tmp_path: Path) -> None:
     tracks = tmp_path / "tracks"
     shutil.copytree(TRACKS, tracks)
     shutil.copytree(ROOT / "conductor" / "archive", tmp_path / "archive")
-    track_dir = tracks / "002-public-source-acquisition"
-    metadata_path = track_dir / "metadata.json"
-    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-    metadata["status"] = "complete"
-    metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
-    plan_path = track_dir / "plan.md"
-    plan_path.write_text(
-        plan_path.read_text(encoding="utf-8").replace("- [ ]", "- [x]"),
-        encoding="utf-8",
-    )
-    (track_dir / "review.md").write_text("# Review\n\nNo blocking findings.\n", encoding="utf-8")
 
     validate_with(tracks)
 
