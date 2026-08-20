@@ -2,7 +2,7 @@ schema_version: "1.0"
 track: "009-evidence-parameter-ledger"
 status: "bounded_preparation"
 upstream_track_008_manifest: "manifests/semantics/track-008-source-release-provenance-2026-08-16.json"
-upstream_inventory_sha256: "46ddc7c98990516fe89f7f0e0a1b93906d639f6ef39b7a90fbc142cc75a572d9"
+upstream_inventory_sha256: "458f5159382a631a573497b7ea71f9b9f79c37f2331b00b79897d522f5dba1ec"
 contract_freeze: false
 source_releases:
   - {source_release_id: "orphadata-science-alignments", licence_state: "permitted", visibility: "public", activation_state: "disabled_semantic_only", evidence: "track_008"}
