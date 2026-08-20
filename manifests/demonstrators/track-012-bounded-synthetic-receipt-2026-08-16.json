@@ -29,17 +29,17 @@
     },
     {
       "artifact": "manifests/ledger/track-009-source-release-bindings-2026-08-16.json",
-      "sha256": "84b1d8377a87c787a0ff624727a00a9bab6fdbf4851bf840e8157c61eee04376",
+      "sha256": "56b232807e71e3c43f7ff691dc9985deec13ea59756133a28991fff62e181267",
       "track_id": "009"
     },
     {
       "artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",
-      "sha256": "a8176c09e3824d603bf6cd839cfb34b1fd55b7644850d2ad5d7bd1da8713e4fc",
+      "sha256": "aa14209ab736e9dc3767da55df33897a4ccf6dc7d462cac77f612e7a16b5f60e",
       "track_id": "010"
     },
     {
       "artifact": "manifests/demonstrators/track-011-bounded-synthetic-receipt-2026-08-16.json",
-      "sha256": "4a225f04add7098121419178a1a7f9ef1d8f01b4536608086ac01af3139c492f",
+      "sha256": "7832db4005570a9766ad27b7b74d7a65ed296100f345bffa9535c7cde2897169",
       "track_id": "011"
     }
   ],
@@ -70,7 +70,7 @@
     "people_with_diagnosis": 2,
     "people_with_multiple_diagnoses": 1
   },
-  "receipt_id": "demo-97e9e29d4b5a075459266948",
+  "receipt_id": "demo-4a41e75c87b2b3ed785e18d2",
   "schema_version": "0.1.0",
   "uncertainty": {
     "cost_missing_people": 1,

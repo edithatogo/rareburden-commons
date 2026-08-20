@@ -8,7 +8,7 @@
     "track_015_manifest": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json",
     "track_015_manifest_sha256": "41620412bd7b77f65d254c5f10f6239f5538ddc9c2d6ec3b518f69428c81e1c6",
     "track_014_manifest": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json",
-    "track_014_manifest_sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"
+    "track_014_manifest_sha256": "fadfae63fba94e2c99fc326fc5d3c1e1be20500bcad67526a42b79c068c3571f"
   },
   "operator_model": {
     "primary": "edithatogo",

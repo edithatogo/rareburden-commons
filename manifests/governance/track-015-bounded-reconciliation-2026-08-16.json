@@ -26,11 +26,11 @@
   "evidence_bindings": [
     {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "0216e89d211318174644b64a201be2fe02e45e5d1fa98d07504fe9e16f7eb618"},
     {"id": "bounded_landscape_claims", "artifact": "docs/track-007-repository-registration-2026-08-16.yml", "sha256": "c9fffd556859e5569eab3c32cd460519da7710a0535ea15f8d3701132ef5f89a"},
-    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
+    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "9b60016533a2ddbbe2a5a3bea2c9928be6452f3355e395a454b25f7ae20201c1"},
     {"id": "source_rights_routes", "artifact": "docs/source-archive-decision-matrix-2026-08-15.yml", "sha256": "38c75a268db01a4b052df9d41e79959dc19477600259c8946f2f4bd760338cb8"},
     {"id": "licensed_archive_capacity", "artifact": "docs/track-002-private-archive-capacity-decision-2026-08-16.yml", "sha256": "69ba9c8839be4854563fa0fe69a9296bd4e553ce5acc4ac80021ecbfe13734a2"}
   ],
-  "integration_dependency": {"track": "014", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "status": "bound", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0", "merge_commit": "22388a74e2d8f2c4ff1d59f828279ffabad3b5a7"},
+  "integration_dependency": {"track": "014", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "status": "bound", "sha256": "fadfae63fba94e2c99fc326fc5d3c1e1be20500bcad67526a42b79c068c3571f", "merge_commit": "22388a74e2d8f2c4ff1d59f828279ffabad3b5a7"},
   "authority_boundaries": {
     "owner_may": ["decide repository scope for an exact candidate", "accept narrow revise defer or stop agent recommendations", "operate correction withdrawal recovery and release controls"],
     "owner_and_agents_cannot": ["override publisher licences or third-party rights", "create patient community custodian or Indigenous authority", "create a partnership endorsement data-access agreement or registry event", "authorize controlled-data export contrary to custodian policy"]

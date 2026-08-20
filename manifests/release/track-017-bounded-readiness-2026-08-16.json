@@ -39,8 +39,8 @@
   "evidence_bindings": [
     {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "0216e89d211318174644b64a201be2fe02e45e5d1fa98d07504fe9e16f7eb618"},
     {"id": "owner_backup_attestation", "artifact": "docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md", "sha256": "e6d95d03f8346be577caff6291af8f1808d33b765ba2b3b266973ef7c31f9257"},
-    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
-    {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"},
+    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "9b60016533a2ddbbe2a5a3bea2c9928be6452f3355e395a454b25f7ae20201c1"},
+    {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "fadfae63fba94e2c99fc326fc5d3c1e1be20500bcad67526a42b79c068c3571f"},
     {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "41620412bd7b77f65d254c5f10f6239f5538ddc9c2d6ec3b518f69428c81e1c6"},
     {"id": "release_authority_plan", "artifact": "docs/release-authority-receipt-plan-2026-08-03.yml", "sha256": "62f3ae25755d6441ab54f3f1c1d8c1fb73732e0f3546cd1168eac685863581ae"},
     {"id": "candidate_reconciliation", "artifact": "docs/release-candidate-evidence-reconciliation-2026-08-04.yml", "sha256": "8da971dca2173bb6fa17245a2d6c490d103abdc6c0df7e7fba17c653e44a7cb0"}
