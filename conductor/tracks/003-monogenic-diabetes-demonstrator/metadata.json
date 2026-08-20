@@ -4,10 +4,10 @@
   "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-21",
+  "updated": "2026-07-27",
   "target_release": "0.5.0",
   "stage": "reference_analysis",
-  "owner_role": "Repository owner (all accountable repository roles)",
+  "owner_role": "Clinical and Epidemiology Leads",
   "dependencies": [
     "008-semantic-backbone",
     "009-evidence-parameter-ledger",

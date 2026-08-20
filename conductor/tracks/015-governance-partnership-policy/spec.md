@@ -2,19 +2,12 @@
 
 ## Objective
 
-Operate a truthful single-owner governance model with role-separated advisory
-agent panels, and create partner- and policy-ready materials without implying
-unconfirmed endorsement, authority or access.
+Convert governance principles into constituted decision rights and create partner- and policy-ready materials without implying unconfirmed endorsement or access.
 
 ## Required outputs
 
-- advisory agent-panel remits for community/harm, methods, rights/data-use,
-  engineering/security and release perspectives;
-- owner decision, conflict, dissent, authorship, appeals and correction policies;
-- grouped decision records containing options, contingencies, rationale,
-  trade-offs, recommendations and attributable owner dispositions;
-- an explicit zero-remuneration contract: all repository work is free and no
-  payment, honorarium, budget, promise or entitlement exists;
+- Governing Board, Patient and Community Council, Scientific Methods Council, Data Governance and Ethics Committee and Node Council charters;
+- appointment, voting, quorum, conflict, remuneration, authorship, appeals and correction policies;
 - acceptable-use, harm-review and benefit-sharing framework;
 - Indigenous Data Sovereignty and CARE-aligned node provisions;
 - country-node agreement and accreditation process;
@@ -25,35 +18,32 @@ unconfirmed endorsement, authority or access.
 
 ## Acceptance criteria
 
-1. The owner is the sole decision maker; patient/community and harm perspectives
-   are supplied by advisory agents and never represented as human consultation.
-2. Scientific, rights/data-use, engineering/security and node perspectives are
-   named, role-separated and advisory only.
+1. Patient/community governance has voting authority and budgeted remuneration.
+2. Scientific, ethics/data-governance and country-node roles are named and operational.
 3. Funders and data contributors cannot veto valid results or control methods for advantage.
 4. Conflicts, complaints, appeals, authorship and correction processes are tested.
-5. Indigenous and country-node authority boundaries are explicit: applicable
-   external authority cannot be self-attested by the owner or agents.
+5. Indigenous and country-node authority is explicit where applicable.
 6. External materials clearly distinguish public data use, requested collaboration and confirmed agreement.
 7. Global claims require the representation conditions in the roadmap.
-8. The owner approves, narrows, revises, defers or stops the exact v1 candidate
-   after grouped agent-panel advice.
+8. Governance approves or bounds the v1 product and acceptable uses.
 
 ## Non-goals
 
-- presenting advisory agent panels as separate people or constituted bodies;
+- creating nominal committees without decision power;
 - treating consultation as consent;
 - storing relationship-sensitive operations material in the public repository when confidentiality is required;
 - criticising adjacent institutions to create a partnership case.
 
 ## Current bounded repository operating model
 
-This single-developer repository permanently uses the accountable owner plus
-role-separated advisory agent panels defined by ADR-0009 unless the owner later
-records a changed operating model. Agent findings inform owner disposition but
-are not independent, human, patient/community, custodian, Indigenous,
-institutional or partner authority. All work is free: remuneration is zero and
-no payment promise exists. Publisher terms and controlled-environment rules
-remain binding external facts when the selected scope invokes them.
+Until the future bodies in this specification are constituted, this
+single-developer repository uses the accountable owner plus role-separated
+advisory agent panels defined by ADR-0009. Agent findings inform owner
+disposition but are not independent, human, patient/community, custodian,
+Indigenous, institutional or partner authority. Publisher terms and controlled
+environment rules remain independently binding facts. This operating model
+implements repository controls only and does not satisfy acceptance criteria
+1, 2, 5 or 8 by relabelling agent advice.
 
 ## v1 contribution
 
