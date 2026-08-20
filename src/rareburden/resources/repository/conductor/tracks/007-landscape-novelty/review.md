@@ -33,6 +33,40 @@ patient/community evidence for any future claim that depends on community
 authority. No such authority, approval or legitimacy claim is made by the
 current bounded evidence.
 
+## Owner methods and evidence disposition — 2026-08-20
+
+The repository owner selected a dated, source-bounded repository-adjacency
+landscape as the deliverable and retained the track in review. The executable
+claim register prohibits systematic, comprehensive, global, geographically
+representative, confirmed-novelty, programme-effectiveness, partnership,
+access, clinical-validity, patient/community-authority and external-approval
+claims. Crossref-only provider bias remains explicit; a second provider is not
+activated without dated terms, lawful authentication, an enforceable rate
+policy and incremental-contribution accounting. Grey literature is
+predeclared by source class but was not executed and is excluded from the
+current evidence.
+
+The sole uncertain frozen record, DOI `10.1177/2633004020902860`, was checked
+through lawful NCBI PubMed Central evidence. The source identifies it as an
+editorial announcing a journal and its publishing remit. It does not report a
+qualifying rare-disease burden estimate or describe an eligible programme,
+dataset, standard, policy mandate or measurement method, so it is excluded as
+a non-substantive journal-launch editorial. The frozen set is now 66 includes,
+3 exclusions and 0 uncertain. The observation records PMCID, PMID, licence,
+retrieval time and response hashes; no response body or full text is retained.
+The article's statement about supporting patient voice is not treated as
+evidence of attributable community authority or approval.
+
+The 90 live-only records that remain not assessable in the bounded metadata
+scope retain that uncertainty. A deterministic future-assessment queue places
+46 records with an explicit safe-metadata scope or contribution signal in tier
+1 and the remaining 44 in tier 2. The queue changes no eligibility decision and
+does not use title or repository language, affiliation, publisher location or
+provider presence as language, geography or representativeness evidence.
+Evidence is recorded in
+`docs/track-007-owner-methods-decision-2026-08-20.json` and
+`docs/track-007-bounded-content-resolution-2026-08-20.json`.
+
 ## Current closeout evidence — 2026-08-16
 
 `docs/track-007-protocol-v0.2.0.md` freezes the review question, active search

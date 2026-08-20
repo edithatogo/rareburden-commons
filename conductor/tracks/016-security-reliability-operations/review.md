@@ -28,8 +28,12 @@ service-level promises.
 ## Repository evidence refresh — 2026-08-01
 
 The repository now declares a bounded supported-environment matrix: Linux runs
-the full Python 3.11–3.14 compatibility checks, while Python 3.13 carries the
+the full Python 3.12–3.14 compatibility checks, while Python 3.13 carries the
 complete release assurance and Linux/macOS/Windows offline-install evidence.
+The 20 August 2026 owner decision raises the support floor to Python 3.12;
+earlier Python 3.11 receipts remain historical and do not establish current
+support. Track 016 remains Planned and this bounded engineering decision is not
+external security review, production approval or controlled-node acceptance.
 PRs #23–#29 passed their applicable exact-head protected matrices; PR #28
 integrated the release-candidate foundations into protected default branch
 `main`, and PR #29 corrected the Scorecard permission boundary.

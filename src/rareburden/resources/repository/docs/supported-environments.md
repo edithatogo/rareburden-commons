@@ -1,6 +1,6 @@
 # Supported environments
 
-**Evidence date:** 1 August 2026
+**Evidence date:** 20 August 2026
 **Scope:** pre-release reference implementation and synthetic/offline assurance;
 not a controlled-node accreditation or service-level commitment.
 
@@ -8,21 +8,23 @@ not a controlled-node accreditation or service-level commitment.
 
 | Environment | Evidence level | Supported scope |
 |---|---|---|
-| Ubuntu hosted runner, Python 3.11–3.14 | Continuously tested | Full offline programme, schema, workflow, lock, type, lint and unit checks |
+| Ubuntu hosted runner, Python 3.12–3.14 | Continuously tested | Full offline programme, schema, workflow, lock, type, lint and unit checks |
 | Ubuntu hosted runner, Python 3.13 | Release candidate | Coverage, reproducibility, deterministic distributions, installed-wheel execution, SBOM and clean network-disabled node installation |
 | macOS hosted runner, Python 3.13 | Portability candidate | Programme/tests, installed wheel and clean network-disabled synthetic node installation |
 | Windows hosted runner, Python 3.13 | Portability candidate | Programme/tests, installed wheel and clean network-disabled synthetic node installation |
 
 Linux on a current GitHub-hosted Ubuntu image is the normative pre-release
-platform. Python 3.11 through 3.14 are supported for the pure-Python reference
+platform. Python 3.12 through 3.14 are supported for the pure-Python reference
 package. Python 3.13 is the release-build and cross-platform portability runtime.
 The exact dependency set is `uv.lock`; production and development exports are
 hash-pinned in `requirements.txt` and `requirements-dev.txt`.
+Python 3.11 and versions later than 3.14 are outside the current support
+contract; prior Python 3.11 CI receipts are historical evidence only.
 
 ## Evidence and limits
 
 PRs #23–#25 passed the protected matrix on exact heads, including CodeQL,
-dependency review, Python 3.11–3.14, full distribution assurance and
+dependency review, Python 3.12–3.14, full distribution assurance and
 Ubuntu/macOS/Windows portability. The three platform jobs staged locked wheels,
 disabled package indexes during clean installation and ran the synthetic node
 from an unrelated directory.

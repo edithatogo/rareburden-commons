@@ -7,14 +7,13 @@ name = "rareburden"
 version = "0.3.0rc2"
 description = "Reproducibility, provenance and burden-estimation utilities for RareBurden Commons"
 readme = "README.md"
-requires-python = ">=3.11,<3.15"
+requires-python = ">=3.12,<3.15"
 license = "Apache-2.0"
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Intended Audience :: Healthcare Industry",
   "Intended Audience :: Science/Research",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
@@ -72,7 +71,7 @@ exclude_also = [
 ]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
 strict = true
 warn_unused_configs = true
 packages = ["rareburden"]
@@ -82,7 +81,7 @@ module = ["defusedxml", "defusedxml.*", "jsonschema"]
 ignore_missing_imports = true
 
 [tool.ruff]
-target-version = "py311"
+target-version = "py312"
 line-length = 100
 extend-exclude = ["src/rareburden/resources/repository"]
 
