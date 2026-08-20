@@ -2,7 +2,6 @@ from pathlib import Path
 
 from rareburden.schema import load_mapping
 
-
 ROOT = Path(__file__).parents[1]
 PACKET = ROOT / "docs/track-007-v021-scope-decision-packet-2026-08-20.yml"
 
