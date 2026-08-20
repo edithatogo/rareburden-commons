@@ -5,7 +5,8 @@
 ## Scope and boundary
 
 The single-developer repository routes evidence assembly, challenge, and draft
-recommendations to panels of independent subagents. This replaces internal
+recommendations to panels of role-separated agents. Agent-panel work is
+advisory and is never described as independent review. This replaces internal
 reviewer logistics, not the accountable authority required by the acceptance
 criteria. Panels must not impersonate or self-appoint a scientific/clinical
 reviewer, patient/community authority, custodian, independent operator, or
@@ -41,6 +42,21 @@ unavailable, narrow or disable the affected claim and keep the track blocked.
 If a custodian or community authority imposes stricter terms, those terms
 override panel recommendations. If no independent operator is available, retain
 only repository-owned reproducibility evidence and do not claim independence.
+
+## Accepted downstream preparation disposition — 2026-08-20
+
+The repository owner accepted Option B for downstream execution: reversible,
+clearly labelled synthetic preparation and cross-cutting security engineering
+may proceed while the freeze order remains Track 008, then Track 009, then
+Track 010. This is separate from the panel-organisation options above.
+
+The machine-enforced plan is
+`../docs/downstream-bounded-preparation-plan-2026-08-03.yml`, and the owner
+record is
+`../docs/decisions/2026-08-20-owner-option-b-bounded-preparation.md`. Human or
+community authority, custodian, clinical, independent-review, quality,
+archival and release gates remain blocked. Owner disposition is owner-operated
+governance, not independent review.
 
 ## Gate matrix
 

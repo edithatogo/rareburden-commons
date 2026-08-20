@@ -83,3 +83,12 @@
 - [x] Add negative tests that reject primary use, empirical activation and a
   frozen v0.4 contract. No empirical source, semantic, clinical, policy or
   production activation follows from this reconciliation.
+
+## Option B preparation control — 2026-08-20
+
+- [x] Enforce reversible synthetic engine preparation without allowing Track
+  010 to activate before Track 009 completes or an alpha interface to be
+  represented as frozen. Evidence:
+  `docs/downstream-bounded-preparation-plan-2026-08-03.yml`,
+  `scripts/check_downstream_preparation.py` and focused fail-closed tests.
+  Scientific-software, clinical/community and alpha-freeze gates remain open.

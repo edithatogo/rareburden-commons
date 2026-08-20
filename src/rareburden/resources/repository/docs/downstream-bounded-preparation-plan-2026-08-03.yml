@@ -1,20 +1,44 @@
-schema_version: "0.1.0"
+schema_version: "0.2.0"
 mode: "dependency_ordered_bounded_preparation"
 upstream_gates: ["track_002", "track_007"]
 activation_rule: "synthetic_public_only_until_upstream_receipts"
+owner_disposition: "docs/decisions/2026-08-20-owner-option-b-bounded-preparation.md"
+freeze_order: ["008", "009", "010"]
+governance:
+  panel_status: "advisory"
+  owner_status: "owner_operated_not_independent_review"
+cross_cutting_security:
+  state: "authorized_preparation"
+  allowed: ["threat_models", "privacy_tests", "dependency_scanning", "secret_scanning", "recovery_rehearsals", "incident_runbooks"]
+  production_activation: "blocked"
+prohibited_claims:
+  - "empirical_activation"
+  - "community_or_human_approval"
+  - "custodian_approval"
+  - "clinical_approval"
+  - "independent_review"
+  - "quality_completion"
+  - "archive_authority"
+  - "release_authority"
 tracks:
   - track: "008"
+    contract_state: "provisional"
     preparation: "semantic schemas, ontology pins, mappings and ambiguity fixtures"
     blocked: ["clinical_naming_review", "patient_community_review", "v0.4_semantic_freeze"]
   - track: "009"
+    contract_state: "provisional"
     preparation: "ledger IDs, provenance, uncertainty and synthetic parameter links"
     blocked: ["production_contract_freeze", "controlled_source_integration"]
   - track: "010"
+    contract_state: "provisional"
     preparation: "synthetic burden calculations, uncertainty and regression budgets"
     blocked: ["alpha_interface_freeze", "scientific_release_claim"]
   - track: "003"
     preparation: "public/synthetic monogenic diabetes fixtures and bounded analysis spec"
     blocked: ["clinical_review", "empirical_cohort_claims"]
+  - track: "004"
+    preparation: "synthetic node contracts, disclosure attacks and offline execution rehearsals"
+    blocked: ["custodian_policy", "controlled_data_pilot", "production_node_activation"]
   - track: "011"
     preparation: "public/synthetic bronchiectasis fixtures and limitations"
     blocked: ["clinical_review", "registry_comparison_claims"]

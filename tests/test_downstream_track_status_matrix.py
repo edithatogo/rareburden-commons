@@ -8,12 +8,15 @@ ROOT = Path(__file__).parents[1]
 MATRIX = ROOT / "docs/downstream-track-status-matrix-2026-08-05.yml"
 
 
-def test_downstream_matrix_covers_tracks_008_to_017_without_false_closure() -> None:
+def test_downstream_matrix_covers_every_option_b_track_without_false_closure() -> None:
     matrix = load_mapping(MATRIX)
     assert {row["track"] for row in matrix["tracks"]} == {
         "008",
         "009",
         "010",
+        "003",
+        "004",
+        "005",
         "011",
         "012",
         "013",
@@ -30,8 +33,10 @@ def test_downstream_matrix_covers_tracks_008_to_017_without_false_closure() -> N
 def test_downstream_matrix_keeps_accountable_gates_open() -> None:
     matrix = load_mapping(MATRIX)
     rules = " ".join(matrix["non_closure_rules"])
-    assert "panel outputs do not satisfy independent" in rules
+    assert "not independent review" in rules
+    assert "patient/community authority" in rules
     assert "upstream change" in rules
+    assert matrix["freeze_order"] == ["008", "009", "010"]
 
 
 def test_downstream_matrix_links_exact_repository_evidence_without_claiming_authority() -> None:
