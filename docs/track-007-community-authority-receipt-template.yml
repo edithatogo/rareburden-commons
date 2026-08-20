@@ -1,0 +1,38 @@
+# Blank intake template. It is preparation only and cannot qualify while synthetic is true.
+receipt_schema_version: "1.0.0"
+receipt_id: "PLACEHOLDER"
+track: "007-landscape-novelty"
+gate: "patient_community"
+synthetic: true
+decision: "defer"
+accountable:
+  person_or_body: "PLACEHOLDER"
+  self_described_role: "PLACEHOLDER"
+  community_relationship: "PLACEHOLDER"
+  organisation_or_constituency: "PLACEHOLDER"
+  authority_basis_and_scope: "PLACEHOLDER"
+  contact_or_durable_record_locator: "PLACEHOLDER"
+  selection_or_quorum_basis: "PLACEHOLDER"
+  conflict_of_interest: "PLACEHOLDER"
+decision_date_utc: "1970-01-01T00:00:00Z"
+subject:
+  repository: "edithatogo/rareburden-commons"
+  candidate_commit: "0000000000000000000000000000000000000000"
+  manifest_id: "PLACEHOLDER"
+  manifest_sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+review:
+  materials_reviewed: ["PLACEHOLDER"]
+  language_and_accessibility_support: "PLACEHOLDER"
+  acceptable_use_and_harm_assessment: "PLACEHOLDER"
+  benefit_or_return_expectations: "PLACEHOLDER"
+conditions: []
+limitations_or_dissent: []
+correction_and_withdrawal:
+  route: "PLACEHOLDER"
+  effect_of_correction_or_withdrawal: "PLACEHOLDER"
+attestation:
+  submitted_by: "PLACEHOLDER"
+  submitted_at_utc: "1970-01-01T00:00:00Z"
+  signature_or_approval_record: "PLACEHOLDER"
+  not_repository_owner_or_agent_panel_substitute: true
+  supersedes_receipt_id: ""
