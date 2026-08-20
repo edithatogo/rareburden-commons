@@ -105,4 +105,12 @@ recommendation:
     it is now reproducibly bound while every substantive authority and freeze
     claim remains false and fail-closed.
 owner_decision:
-  status: pending
+  status: recorded
+  selected_option_id: A
+  decided_by: edithatogo
+  decided_at_utc: "2026-08-20T23:54:08Z"
+  rationale: >-
+    Narrowly accept the exact revised candidate as synthetic readiness
+    infrastructure only, with Track 008 still blocked, the v0.4 freeze pending,
+    Track 009 inactive, and all source-rights, mapping-fitness, clinical,
+    community-authority, independent-review and external-approval claims false.
