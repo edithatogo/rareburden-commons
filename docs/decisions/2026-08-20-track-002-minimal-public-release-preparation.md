@@ -1,7 +1,9 @@
 # Track 002 minimal public-release preparation — 2026-08-20
 
-**Decision maker:** repository owner  
-**Authority exercised:** repository-controlled preparation only  
+**Decision maker:** repository owner
+
+**Authority exercised:** repository-controlled preparation only
+
 **Publication status:** not authorized
 
 ## Decision
@@ -48,4 +50,3 @@ approval.
 - a final owner publication decision bound to the exact commit and artifacts.
 
 This decision neither publishes a release nor closes Track 002 or Issue #2.
-
