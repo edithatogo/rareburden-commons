@@ -38,9 +38,9 @@ def run_benchmark(
     iterations: int,
     seed: int,
     max_seconds: float,
-    clock: Callable[[], float] = time.perf_counter,
+    clock: Callable[[], float] = time.process_time,
 ) -> dict[str, Any]:
-    """Execute simulation plus decomposition and return a bounded receipt."""
+    """Execute the CPU-only workload and return a process-time-bounded receipt."""
     if iterations < 100 or iterations > 1_000_000:
         raise BurdenBenchmarkError("iterations must be between 100 and 1,000,000")
     if max_seconds <= 0:
@@ -65,6 +65,7 @@ def run_benchmark(
         "workload": "synthetic-independent-product",
         "iterations": iterations,
         "seed": seed,
+        "timing_basis": "process_cpu",
         "elapsed_seconds": elapsed,
         "maximum_seconds": max_seconds,
         "scientific_output_sha256": digest,

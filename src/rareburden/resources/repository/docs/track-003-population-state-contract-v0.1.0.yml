@@ -1,0 +1,157 @@
+schema_version: "0.1.0"
+contract_id: "RBC-P002-POPULATION-STATES-v0.1.0"
+protocol_id: "RBC-P002"
+status: "non_binding_synthetic_preparation"
+track_status: "blocked"
+empirical_activation: "disabled"
+purpose: >-
+  Distinguish observable classifications, latent disease states, model outputs
+  and selection indicators so that diagnosed, undiagnosed and modelled
+  populations cannot be silently added or interpreted as interchangeable.
+
+state_dimensions:
+  - dimension_id: "diabetes_denominator_eligibility"
+    type: "eligibility"
+    values:
+      - "eligible_under_frozen_diabetes_definition"
+      - "not_eligible_under_frozen_diabetes_definition"
+      - "eligibility_unknown"
+    required_context:
+      - "geography"
+      - "period"
+      - "age_band"
+      - "diabetes_case_definition"
+
+  - dimension_id: "monogenic_aetiology_observation"
+    type: "observable_classification"
+    values:
+      - "diagnosed_confirmed_under_frozen_definition"
+      - "suspected_not_confirmed"
+      - "tested_no_qualifying_finding"
+      - "not_tested_or_testing_unknown"
+      - "classification_unknown"
+    limitation: >-
+      Tested with no qualifying finding is not proof that a monogenic
+      aetiology is absent unless the frozen testing and interpretation scope
+      supports that conclusion.
+
+  - dimension_id: "monogenic_aetiology_latent"
+    type: "model_latent_state"
+    values:
+      - "modelled_meets_monogenic_definition"
+      - "modelled_does_not_meet_monogenic_definition"
+      - "latent_state_unresolved"
+    limitation: >-
+      Latent states are model constructs and cannot be relabelled as observed
+      diagnoses or individual clinical classifications.
+
+  - dimension_id: "referral_and_testing_selection"
+    type: "orthogonal_selection_indicator"
+    values:
+      - "population_frame"
+      - "referred_or_specialist_frame"
+      - "genetic_testing_frame"
+      - "selection_process_unknown"
+    limitation: >-
+      Selection indicators modify ascertainment and transportability; they are
+      not disease states and must not be counted as mutually exclusive cases.
+
+derived_quantities:
+  - quantity_id: "Q-RBC-P002-DIAGNOSED-CONFIRMED"
+    source_dimension: "monogenic_aetiology_observation"
+    source_value: "diagnosed_confirmed_under_frozen_definition"
+    evidence_status: "observed_or_derived_from_observed_records"
+    interpretation: "diagnosed_prevalence_numerator_only"
+
+  - quantity_id: "Q-RBC-P002-MODELLED-TOTAL"
+    source_dimension: "monogenic_aetiology_latent"
+    source_value: "modelled_meets_monogenic_definition"
+    evidence_status: "modelled"
+    interpretation: "expected_population_not_observed_case_count"
+
+  - quantity_id: "Q-RBC-P002-MODELLED-UNDIAGNOSED"
+    evidence_status: "modelled_difference"
+    calculation_contract: >-
+      Modelled total minus diagnosed-confirmed count only when population,
+      geography, period, age, case definitions and ascertainment targets align,
+      and only after non-negativity and uncertainty are evaluated.
+    interpretation: "scenario_estimate_not_directly_observed_population"
+
+  - quantity_id: "Q-RBC-P002-UNCLASSIFIED-OR-UNKNOWN"
+    source_dimension: "monogenic_aetiology_observation"
+    source_values:
+      - "suspected_not_confirmed"
+      - "not_tested_or_testing_unknown"
+      - "classification_unknown"
+    evidence_status: "observed_classification_gap"
+    interpretation: "unresolved_not_assumed_non_monogenic"
+
+partition_rules:
+  - rule_id: "RBC-P002-STATE-001"
+    condition: "diagnosed_plus_modelled_total_requested"
+    action: "reject_overlapping_quantities"
+    rationale: "diagnosed-confirmed cases may already be included in the modelled total"
+
+  - rule_id: "RBC-P002-STATE-002"
+    condition: "diagnosed_plus_modelled_undiagnosed_requested"
+    action: "allow_only_with_aligned_partition_contract"
+    required_alignment:
+      - "population"
+      - "geography"
+      - "period"
+      - "age_band"
+      - "diabetes_case_definition"
+      - "monogenic_case_definition"
+      - "ascertainment_target"
+
+  - rule_id: "RBC-P002-STATE-003"
+    condition: "modelled_total_less_diagnosed_is_negative"
+    action: "reject_and_review_model_or_alignment"
+
+  - rule_id: "RBC-P002-STATE-004"
+    condition: "unknown_or_unclassified_assigned_to_non_monogenic"
+    action: "reject"
+
+  - rule_id: "RBC-P002-STATE-005"
+    condition: "referral_or_testing_frame_treated_as_disease_state"
+    action: "reject"
+
+  - rule_id: "RBC-P002-STATE-006"
+    condition: "latent_state_reported_as_observed_diagnosis"
+    action: "reject"
+
+uncertainty_requirements:
+  modelled_total:
+    - "aetiologic_fraction"
+    - "denominator"
+    - "case_definition"
+    - "transportability"
+    - "structural_model"
+  modelled_undiagnosed:
+    - "all_modelled_total_domains"
+    - "diagnosis_ascertainment"
+    - "record_linkage_or_deduplication"
+    - "dependence_between_total_and_diagnosed_components"
+
+reporting_requirements:
+  - "label_each_quantity_as_observed_derived_modelled_or_scenario"
+  - "report_denominator_and_population_frame_with_every_quantity"
+  - "report_unknown_and_unclassified_states_without_forced_reallocation"
+  - "report_interval_and_structural_sensitivity_for_modelled_quantities"
+  - "avoid_person_level_or_clinical_interpretation"
+
+blocking_gates:
+  - "track_008_entity_and_case_definition_freeze"
+  - "track_009_parameter_and_evidence_status_contracts"
+  - "track_010_model_and_uncertainty_interface"
+  - "clinical_methods_agent_challenge_and_owner_disposition"
+  - "patient_community_harm_agent_challenge_and_owner_disposition"
+  - "lawful_data_and_governance_approval_for_any_empirical_input"
+
+prohibited_claims:
+  - "observed_undiagnosed_case_count"
+  - "unknown_means_non_monogenic"
+  - "modelled_means_diagnosed"
+  - "referral_cohort_is_population_representative"
+  - "approved_or_frozen_protocol"
+  - "independent_or_external_review"
