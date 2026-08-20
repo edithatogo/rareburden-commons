@@ -1,11 +1,13 @@
 {
   "schema_version": "0.2.0",
   "track": "008-semantic-backbone",
-  "as_of": "2026-08-16",
+  "as_of": "2026-08-21",
   "activation": "synthetic_and_metadata_only_no_v0_4_freeze",
   "upstream_state": {
-    "track_002": "incomplete_bounded_receipts_only",
-    "track_007": "incomplete"
+    "track_002": "archived_bounded_completion",
+    "track_002_disposition": "docs/decisions/2026-08-21-track-002-bounded-completion.yml",
+    "track_007": "archived_bounded_completion",
+    "consequence": "upstream dependency satisfied without expanding source rights or semantic authority"
   },
   "records": [
     {
@@ -19,6 +21,7 @@
       "redistribution": "permitted_with_attribution_change_notice_and_no_endorsement",
       "byte_route": "public_rights_filtered_archive",
       "semantic_use": "conditional_identifier_alignment_only",
+      "owner_disposition": "included_in_exact_hash_identified_allowlist",
       "limitations": [
         "no_prevalence_or_burden_inference",
         "no_clinical_validity",
@@ -72,6 +75,7 @@
       "redistribution": "public_mirror_disabled",
       "byte_route": "private_licensed_archive_only",
       "semantic_use": "disabled_pending_exact_terms_and_mapping_review",
+      "owner_disposition": "asset_by_asset_only_uncleared_assets_metadata_only_or_excluded",
       "limitations": [
         "no_public_bytes",
         "no_diagnostic_use",
@@ -90,6 +94,7 @@
       "redistribution": "permitted_with_attribution",
       "byte_route": "public_or_private_rights_filtered_archive",
       "semantic_use": "metadata_only_pending_mapping_review",
+      "owner_disposition": "included_in_exact_hash_identified_allowlist_subject_to_mapping_fitness_review",
       "limitations": [
         "no_clinical_validity",
         "no_comprehensive_coverage",
@@ -158,5 +163,5 @@
     "production_activation": false,
     "v0_4_contract_frozen": false
   },
-  "inventory_sha256": "eb2d4935d4e7a9dd0f91634fabd96e3a61fa03ae2b2b2da12225411f450f9f5c"
+  "inventory_sha256": "458f5159382a631a573497b7ea71f9b9f79c37f2331b00b79897d522f5dba1ec"
 }

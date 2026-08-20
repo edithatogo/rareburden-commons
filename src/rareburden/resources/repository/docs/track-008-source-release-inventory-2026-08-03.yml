@@ -1,12 +1,14 @@
 schema_version: "0.2.0"
 track: "008-semantic-backbone"
-as_of: "2026-08-16"
+as_of: "2026-08-21"
 status: "bounded_source_reconciliation"
 activation: "synthetic_and_metadata_only_no_v0_4_freeze"
 candidate_scope: "synthetic_public_semantic_preview"
 upstream_state:
-  track_002: "incomplete_bounded_receipts_only"
-  track_007: "incomplete"
+  track_002: "archived_bounded_completion"
+  track_002_disposition: "docs/decisions/2026-08-21-track-002-bounded-completion.yml"
+  track_007: "archived_bounded_completion"
+  consequence: "upstream dependency satisfied without expanding source rights or semantic authority"
 records:
   - source_id: "orphadata-science-alignments"
     role: "conditional_identifier_alignment"
@@ -18,6 +20,7 @@ records:
     redistribution: "permitted_with_attribution_change_notice_and_no_endorsement"
     byte_route: "public_rights_filtered_archive"
     semantic_use: "conditional_identifier_alignment_only"
+    owner_disposition: "included_in_exact_hash_identified_allowlist"
     limitations: ["no_prevalence_or_burden_inference", "no_clinical_validity", "no_completeness_claim"]
   - source_id: "orphadata-current-scientific-pages"
     role: "bounded_release_discovery"
@@ -51,6 +54,7 @@ records:
     redistribution: "public_mirror_disabled"
     byte_route: "private_licensed_archive_only"
     semantic_use: "disabled_pending_exact_terms_and_mapping_review"
+    owner_disposition: "asset_by_asset_only_uncleared_assets_metadata_only_or_excluded"
     limitations: ["no_public_bytes", "no_diagnostic_use", "annotation_provenance_required"]
   - source_id: "mondo-disease-ontology"
     role: "disease_ontology_alignment_candidate"
@@ -62,6 +66,7 @@ records:
     redistribution: "permitted_with_attribution"
     byte_route: "public_or_private_rights_filtered_archive"
     semantic_use: "metadata_only_pending_mapping_review"
+    owner_disposition: "included_in_exact_hash_identified_allowlist_subject_to_mapping_fitness_review"
     limitations: ["no_clinical_validity", "no_comprehensive_coverage", "no_production_activation"]
   - source_id: "umls-2026aa"
     role: "controlled_terminology_alignment_candidate"
@@ -102,7 +107,7 @@ fail_closed_rules:
   - "metadata discovery never activates a mapping or establishes clinical fitness"
   - "source changes require a new release record and semantic impact assessment"
   - "synthetic fixtures never become empirical because a source release is recorded"
-  - "Track 002 or Track 007 incompleteness prevents v0.4 contract freeze"
+  - "Archived upstream completion satisfies dependency order but does not supply mapping fitness, naming authority or a v0.4 freeze decision"
 claims:
   exact_supported_source_inventory_complete: false
   clinical_validity: false
