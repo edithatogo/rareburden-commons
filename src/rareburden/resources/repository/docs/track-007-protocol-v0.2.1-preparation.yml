@@ -1,0 +1,128 @@
+schema_version: '1.0.0'
+protocol_id: RBC-LAND-007
+version: 0.2.1-preparation
+status: prepared_not_frozen
+supersedes: docs/track-007-protocol-v0.2.0.md
+owner_authorization:
+  decision: bounded_regional_multilingual_preparation
+  scope_boundary: no_global_or_representative_claim
+  community_authority: pending
+  independent_approval: not_applicable_to_single_developer_repository
+objective: >-
+  Measure language, regional and country missingness in a bounded public
+  adjacency search without converting index visibility into absence,
+  representativeness, community authority or novelty.
+strata:
+  languages:
+    - id: en
+      label: English
+      query_terms: ["rare disease burden", "rare disease registry", "rare disease ontology"]
+    - id: es
+      label: Spanish
+      query_terms: ["carga de enfermedades raras", "registro de enfermedades raras", "ontología de enfermedades raras"]
+    - id: pt
+      label: Portuguese
+      query_terms: ["carga de doenças raras", "registro de doenças raras", "ontologia de doenças raras"]
+    - id: fr
+      label: French
+      query_terms: ["fardeau des maladies rares", "registre des maladies rares", "ontologie des maladies rares"]
+    - id: de
+      label: German
+      query_terms: ["Belastung durch seltene Krankheiten", "Register für seltene Krankheiten", "Ontologie seltener Krankheiten"]
+    - id: zh
+      label: Chinese
+      query_terms: ["罕见病负担", "罕见病登记", "罕见病本体"]
+    - id: ar
+      label: Arabic
+      query_terms: ["عبء الأمراض النادرة", "سجل الأمراض النادرة", "أنطولوجيا الأمراض النادرة"]
+    - id: ja
+      label: Japanese
+      query_terms: ["希少疾患の負担", "希少疾患登録", "希少疾患オントロジー"]
+  regions:
+    - id: africa
+      label: WHO African Region
+      country_codes: [DZ, EG, ET, GH, KE, NG, ZA]
+    - id: americas
+      label: WHO Region of the Americas
+      country_codes: [AR, BR, CA, CL, CO, MX, US]
+    - id: south_east_asia
+      label: WHO South-East Asia Region
+      country_codes: [BD, ID, IN, LK, NP, TH]
+    - id: europe
+      label: WHO European Region
+      country_codes: [DE, ES, FR, GB, IT, NL, PL, SE]
+    - id: eastern_mediterranean
+      label: WHO Eastern Mediterranean Region
+      country_codes: [AE, IQ, JO, MA, PK, SA]
+    - id: western_pacific
+      label: WHO Western Pacific Region
+      country_codes: [AU, CN, JP, KR, NZ, PH]
+  sampling_note: country codes are bounded strata, not a claim that these countries represent their regions
+providers:
+  - id: crossref
+    terms_matrix: docs/track-007-provider-terms-matrix-2026-08-16.yml
+    allowed_fields: [doi, title, type, publisher, issued, language_if_present, URL, response_hash]
+    minimum_delay_seconds: 1
+    max_requests_per_stratum: 24
+    raw_body_retention: prohibited
+  - id: github
+    terms_matrix: docs/track-007-provider-terms-matrix-2026-08-16.yml
+    allowed_fields: [repository_id, full_name, title, topics, language_metadata, URL, response_hash]
+    minimum_delay_seconds: 1
+    max_requests_per_stratum: 24
+    raw_body_retention: prohibited
+  - id: zenodo
+    terms_matrix: docs/track-007-provider-terms-matrix-2026-08-16.yml
+    allowed_fields: [record_id, title, resource_type, keywords, language_if_present, URL, response_hash]
+    minimum_delay_seconds: 1
+    max_requests_per_stratum: 24
+    raw_body_retention: prohibited
+  - id: huggingface_datasets
+    terms_matrix: docs/track-007-provider-terms-matrix-2026-08-16.yml
+    allowed_fields: [dataset_id, title, tags, language_metadata, URL, response_hash]
+    minimum_delay_seconds: 1
+    max_requests_per_stratum: 24
+    raw_body_retention: prohibited
+capture_contract:
+  one_immutable_capture_per_provider_language_region_stratum: true
+  required_fields:
+    - protocol_version
+    - language_stratum
+    - region_stratum
+    - country_scope
+    - provider
+    - query_utf8
+    - request_url
+    - final_url
+    - retrieved_at_utc
+    - http_status
+    - response_sha256
+    - observed_identifiers
+    - provider_total_or_cap
+    - stop_reason
+  missingness_values: [observed, unknown, not_assessable, not_applicable]
+  language_semantics: declared_query_language_must_not_be_used_as_record_language
+  geography_semantics: query_country_scope_must_not_be_used_as_record_geography
+  community_semantics: community_led_or_authority_is_unknown_unless_self_described_and_evidence_bound
+screening:
+  retain_uncertain: true
+  missing_is_exclusion: false
+  exclusion_reason_for_missingness: never_allowed
+  community_authority_receipt: pending
+  agent_panel_role: advisory_challenge_only
+claims:
+  allowed: [bounded_stratum_missingness, retrieval_mechanics, indexed_public_observations]
+  prohibited: [global_coverage, regional_representativeness, community_approval, partnership, confirmed_novelty]
+stop_triggers:
+  - rights_or_terms_ambiguity
+  - unauthorized_access_or_rate_limit_violation
+  - hash_mismatch_or_mutable_capture
+  - missingness_recast_as_absence
+  - community_authority_or_partnership_implied_without_evidence
+  - unsafe_or_stigmatizing_framing
+owner_next_decision:
+  required_before_execution: true
+  wording: >-
+    I select the listed language and regional strata for execution under
+    protocol v0.2.1, subject to provider terms, one-second minimum pacing,
+    per-stratum request caps and fail-closed missingness reporting.

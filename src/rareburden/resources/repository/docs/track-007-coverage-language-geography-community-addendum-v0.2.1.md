@@ -18,6 +18,12 @@ evidence of low relevance. Agent-panel findings and the repository owner’s
 disposition are advisory/owner evidence only; they cannot substitute for
 patient/community authority.
 
+The prepared (not frozen) protocol package is
+`docs/track-007-protocol-v0.2.1-preparation.yml`. It defines eight language
+strata, six bounded regional strata, country-code samples, provider terms and
+rate controls, and immutable capture fields. It does not authorize execution
+or imply that the listed countries represent their regions.
+
 The next material search expansion requires protocol v0.2.1. It should add
 country and regional public registries, non-English query families, nullable
 self-described language/geography/community-governance fields, and a plain-

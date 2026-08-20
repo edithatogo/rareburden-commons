@@ -142,6 +142,11 @@
 - [ ] Obtain attributable patient/community interpretation or acceptable-use
   evidence for any claim that depends on community authority. Agent panels and
   the repository owner cannot substitute for that evidence.
+- [x] Prepare protocol v0.2.1 with bounded language and regional strata,
+  provider terms/rate controls, immutable capture fields and explicit
+  missingness semantics. Evidence:
+  `docs/track-007-protocol-v0.2.1-preparation.yml`; it is not frozen and no
+  capture execution or community-authority claim is inferred.
 
 ## Review fixes — 2026-08-15 title clusters
 
