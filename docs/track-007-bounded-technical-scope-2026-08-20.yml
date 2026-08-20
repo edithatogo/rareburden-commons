@@ -1,0 +1,31 @@
+schema_version: "1.0"
+decision: narrow
+status: owner_disposition_recorded
+decision_date: "2026-08-20"
+scope: bounded_technical_adjacency_and_coverage_observation
+allowed_claims:
+  - observations_within_recorded_providers_queries_languages_regions_caps_and_timestamps
+  - provisional_complementarity_hypothesis
+prohibited_claims:
+  - global_coverage
+  - representativeness
+  - confirmed_novelty
+  - community_acceptability_or_legitimacy
+  - patient_or_community_approval
+  - consent_partnership_or_endorsement
+community_authority:
+  state: non_applicable_to_bounded_technical_scope_not_satisfied
+  future_trigger: community_facing_interpretation_partnership_or_legitimacy_claim
+  future_requirement: separately_versioned_scope_and_attributable_evidence
+authority_boundary:
+  agent_panel: advisory_only
+  repository_owner: repository_claim_disposition_only
+  independent_or_external_approval: false
+supersedes:
+  - earlier_option_b_wait_posture_for_this_exact_bounded_deliverable
+stop_triggers:
+  - provider_rights_drift
+  - evidence_hash_failure
+  - unqualified_absence_coverage_or_novelty_language
+  - implied_community_authority_partnership_or_endorsement
+

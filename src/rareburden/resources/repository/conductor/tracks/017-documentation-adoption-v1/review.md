@@ -105,7 +105,17 @@ did not restore the lost evidence history.
 
 This reconciliation restores that append-only history, retains the ADR-0009
 agent-panel and owner model, and adds a regression test for the exact evidence
-markers and minimum completed-task count. The plan now records 25 completed and
-18 pending tasks. Track 017 remains **Planned** because dependencies 013–016
+markers and minimum completed-task count. The plan now records 26 completed and
+17 pending tasks. Track 017 remains **Planned** because dependencies 013–016
 and the remaining stable-release gates are unresolved; it is not
 archive-eligible and v1.0.0 remains disabled.
+
+## Bounded single-owner continuity disposition — 2026-08-20
+
+The owner accepts the single-point-of-failure limitation for the bounded
+non-production synthetic/public candidate. Redundant backup ownership is
+non-applicable to this exact candidate, not completed. Existing owner-operated
+recovery, rollback, correction and withdrawal evidence remains repository
+evidence only. A stable or production decision still requires qualifying
+continuity evidence or a new exact-candidate risk decision, and no stable
+support promise is made here.

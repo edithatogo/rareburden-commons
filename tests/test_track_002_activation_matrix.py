@@ -12,7 +12,7 @@ def test_activation_matrix_is_per_row_and_fail_closed() -> None:
     document = yaml.safe_load(MATRIX.read_text(encoding="utf-8"))
     assert document["activation_policy"] == "per_estimand_row"
     assert document["default_unresolved_posture"] == "metadata_hash_only"
-    assert all(row["activation"] != "active" for row in document["rows"])
+    assert document["status"] == "bounded_analytical_activation"
     assert all(row["required_receipts"] for row in document["rows"])
     assert all(row["evidence_state"] for row in document["rows"])
 
@@ -37,7 +37,13 @@ def test_activation_matrix_matches_exact_private_archive_dispositions() -> None:
     assert rows["E-WHO-COMP-2000"]["raw_bytes"] == (
         "withheld_from_hugging_face; metadata_and_hash_only"
     )
-    assert all(row["activation"] != "active" for row in rows.values())
+    assert rows["E-ORPHA-DESCRIPTIVE-01"]["activation"] == "active_bounded"
+    assert rows["E-WPP-POP-01"]["activation"] == "active_bounded"
+    assert rows["E-WPP-POP-01"]["geography"] == ["Australia", "New Zealand"]
+    assert rows["E-WPP-POP-01"]["years"] == [2000, 2021]
+    assert rows["E-WPP-POP-01"]["variant"] == "medium"
+    assert rows["E-WHO-COMP-2000"]["activation"] == "candidate_only"
+    assert rows["E-WB-POP-PROBE"]["activation"] == "probe_only"
 
 
 def test_findings_dispositions_are_bounded() -> None:
