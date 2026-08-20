@@ -1,0 +1,39 @@
+schema_version: '1.0.0'
+manifest_id: RBC-LAND-007-STRATA-MANIFEST-2026-08-20
+protocol: docs/track-007-protocol-v0.2.1-preparation.yml
+status: ready_not_executed
+execution_authorization: pending_owner_scope_confirmation
+observations: []
+planned:
+  language_strata: [en, es, pt, fr, de, zh, ar, ja]
+  region_strata: [africa, americas, south_east_asia, europe, eastern_mediterranean, western_pacific]
+  providers: [crossref, github, zenodo, huggingface_datasets]
+  planned_capture_count: 192
+  minimum_delay_seconds: 1
+  max_requests_per_stratum: 24
+  raw_response_retention: prohibited
+required_observation_fields:
+  - protocol_version
+  - language_stratum
+  - region_stratum
+  - country_scope
+  - provider
+  - query_utf8
+  - request_url
+  - final_url
+  - retrieved_at_utc
+  - http_status
+  - response_sha256
+  - observed_identifiers
+  - provider_total_or_cap
+  - stop_reason
+missingness_values: [observed, unknown, not_assessable, not_applicable]
+claims:
+  permitted: [planned_strata, capture_readiness]
+  prohibited: [executed_capture, regional_coverage, language_coverage, representativeness, community_authority, novelty]
+stop_triggers:
+  - execution_without_owner_scope_confirmation
+  - rights_or_terms_ambiguity
+  - rate_limit_or_authentication_violation
+  - hash_mismatch
+  - missingness_recast_as_absence

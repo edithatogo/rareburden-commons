@@ -24,6 +24,12 @@ strata, six bounded regional strata, country-code samples, provider terms and
 rate controls, and immutable capture fields. It does not authorize execution
 or imply that the listed countries represent their regions.
 
+Execution readiness is represented by
+`docs/track-007-stratum-capture-manifest-v0.2.1.yml`: 8 languages × 6 regions
+× 4 providers = 192 planned cells. It contains no observations and cannot be
+read as evidence that any cell was searched. Execution remains gated on the
+owner confirming the exact scope and any provider-specific terms/rate changes.
+
 The next material search expansion requires protocol v0.2.1. It should add
 country and regional public registries, non-English query families, nullable
 self-described language/geography/community-governance fields, and a plain-
