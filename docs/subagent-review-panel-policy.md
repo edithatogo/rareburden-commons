@@ -14,11 +14,18 @@ with trade-offs, contingencies, minimum evidence and rationale, and preserves
 uncertainty, dissent and stop triggers. The owner decision is separate.
 Historical role metadata is preserved.
 
+The repository owner is the sole developer and retains repository decision
+authority. Agent role names identify simulated advisory perspectives, not
+additional office holders, delegated decision-makers, constituted community
+representatives or independent reviewers.
+
 ## Evidence contract
 
 Each panel result records `panel_assurance`, composition, scope, exact candidate
-commit and manifest, evidence references, findings, uncertainty, dissent, stop
-triggers and an accept, narrow, revise, defer or stop recommendation. Agent
+commit and manifest, evidence references, findings, uncertainty, dissent and
+stop triggers. Every synthesis presented for decision must include options,
+trade-offs, contingencies, rationale and an accept, narrow, revise, defer or
+stop recommendation. Agent
 outputs are advisory and must never be described as independent, human,
 constituted-community, institutional, custodian, licensor or external approval.
 

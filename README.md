@@ -29,6 +29,12 @@ revise, defer or stop decisions for exact candidates. Publisher terms,
 third-party rights, registry events and supplying-custodian policies remain
 evidence-bound facts.
 
+The repository owner (`edithatogo`) is the sole developer and holds all
+accountable repository roles. Agent panels provide role-separated advice, not
+authority; advice for owner decisions is presented with options, trade-offs,
+contingencies, rationale and a recommendation. See the
+[machine-readable governance contract](docs/single-developer-governance.yml).
+
 All executable examples are synthetic assurance fixtures. The repository does **not** publish an empirical rare-disease burden estimate, imply custodian approval, or claim independent reproduction, external replication or constituted programme governance.
 
 Prospective material decisions use explicitly simulated, role-separated agent
