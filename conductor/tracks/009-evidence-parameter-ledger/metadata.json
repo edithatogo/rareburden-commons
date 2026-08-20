@@ -4,10 +4,10 @@
   "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-20",
+  "updated": "2026-08-21",
   "target_release": "0.4.0",
   "stage": "evidence_core",
-  "owner_role": "Epidemiology and Data Architecture Leads",
+  "owner_role": "Repository owner (all accountable repository roles)",
   "dependencies": [
     "002-public-source-acquisition",
     "008-semantic-backbone"

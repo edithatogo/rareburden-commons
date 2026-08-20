@@ -1,18 +1,22 @@
 # Track 015 plan
 
-> Repository-owned review uses role-separated advisory agent panels under
-> ADR-0009; constituted governance and patient/community authority remain
-> separate and cannot be self-attested.
+> This is a single-person repository. Repository-owned review uses
+> role-separated advisory agent panels under ADR-0009, and the owner makes every
+> decision. All work is free and remuneration is zero. Agent panels cannot
+> self-attest human, community, Indigenous, custodian or independent authority.
 
-## Phase 1 — Constitute governance
+## Phase 1 — Operate owner governance
 
-- [ ] Draft and approve body charters, appointment and voting rules. `[M-16]`
+- [x] Record the sole-owner decision model and advisory agent-panel remits.
+  Evidence: `docs/single-developer-governance.yml` and ADR-0009. `[M-16]`
 - [x] Establish community/harm agent-panel remit, dissent rules and owner
   decision rights. Evidence:
   `docs/track-015-patient-community-governance-advice-2026-08-20.yml` and
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
-- [ ] Establish methods, rights/data-use and node agent-panel review roles.
-- [ ] Publish conflicts, minutes and reserved-decision process. `[M-17]`
+- [x] Establish methods, rights/data-use and node agent-panel review roles.
+  Evidence: `docs/governance-015-reference.md`.
+- [x] Publish conflict, dissent and owner-decision process. `[M-17]`
+  Evidence: `docs/single-developer-governance.yml` and ADR-0009.
 
 ## Phase 2 — Operating policies
 
@@ -26,7 +30,8 @@
 - [ ] Complete adjacency-informed partner and funder map.
 - [ ] Write tailored IHME, WHO, Orphanet, RDI, WEF and genomic-programme notes.
 - [ ] Define the minimum additional data/method ask for each custodian.
-- [ ] Prepare institutional-host and costed sustainability options.
+- [ ] Prepare institutional-host and sustainability options; do not imply a
+  remuneration budget because all current work is free.
 
 ## Phase 4 — Policy translation
 
@@ -40,7 +45,7 @@
 
 ## Phase 5 — Review
 
-- [ ] Conduct governance tabletop exercise.
+- [ ] Conduct an owner-operated tabletop with role-separated advisory agents.
 - [ ] Close or bound every blocking governance finding.
 - [ ] Record v1 governance readiness decision.
 
@@ -58,9 +63,9 @@
 - [x] Provide a non-binding tabletop exercise protocol covering withdrawal,
   global-claim pressure, funder independence, stigmatizing language and
   disclosure risk. Evidence: `docs/governance-015-tabletop-template.md`.
-- [ ] Run an authorised governance tabletop and record decisions; external
-  facilitator, patient/community authority and governance appointments remain
-  required.
+- [ ] Run an owner-operated governance tabletop and record grouped advice and
+  the owner's disposition; no external facilitator or appointments are required
+  for repository governance.
 
 ## Preparation refresh — 2026-08-01
 
@@ -120,9 +125,10 @@
 - [x] Audit every remaining task and acceptance criterion against accountable
   authority, dependency state and required receipts. Evidence:
   `docs/track-015-external-gate-closure-2026-08-21.yml`.
-- [x] Record the track as blocked rather than self-attesting constituted bodies,
-  approvals, remuneration, partnership, global representation or release
-  authority. Evidence: Track 015 metadata, register and review.
-- [ ] Receive attributable, scope-matched receipts for every applicable gate in
-  `docs/track-015-external-gate-closure-2026-08-21.yml`; then rerun the exact-
-  candidate review and record a constituted governance readiness decision.
+- [x] Supersede the false premise that internal completion requires constituted
+  bodies or remuneration. The owner is the decision maker, all panels are
+  advisory agents, and remuneration is zero. Evidence:
+  `docs/single-developer-governance.yml`.
+- [ ] Obtain attributable external evidence only for scopes that actually claim
+  third-party rights, Indigenous/community authority, controlled-data access,
+  partnership or independent review; otherwise keep those claims inactive.
