@@ -16,10 +16,10 @@
     {"artifact": "manifests/demonstrators/track-012-bounded-synthetic-receipt-2026-08-16.json", "sha256": "0fdc24b93905b2c62aa1bfc07846ee35e411dcbcf4736d7d463f9f02ac1b43e6"},
     {"artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
     {"artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"},
-    {"artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "0ea077507be0886c242298fbc4a60cdec98c1fef6e83d742766181bb3a52c2d0"},
-    {"artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json", "sha256": "23d3e3c57ad318849753870e7796813a48c227c64943d5d3fa457c8f3eaa575e"},
+    {"artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "686671498e7a39a967fd5bdbadaf48f41b3e65feec0c819589b7b0438ed9783a"},
+    {"artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json", "sha256": "5348e13226bf365ea315194a0a0debc32bd520c4fab4eb35666a7bceb1e53c20"},
     {"artifact": "manifests/release/track-017-bounded-exercises-2026-08-16.json", "sha256": "3c2d002426b64483f58a56b3344bf0264a251509d68e0f2c0090b65ed9def4b1"},
-    {"artifact": "manifests/release/track-017-bounded-readiness-2026-08-16.json", "sha256": "5c78f2e55478beaf5461005dd6f9bde86a013e7a70deafbe2dc3ca74dde0d1d3"}
+    {"artifact": "manifests/release/track-017-bounded-readiness-2026-08-16.json", "sha256": "96ae0ff6e0bf7af8c35659ed0c2e27bec36c6619c9c42fccb9ea752839fd8d17"}
   ],
   "criterion_groups": [
     {"prefix": "V1-PROD", "criteria": ["V1-PROD-01", "V1-PROD-02", "V1-PROD-03", "V1-PROD-04", "V1-PROD-05"], "evidence": ["docs/requirements-traceability.md", "conductor/roadmap.yml"], "release_gate_satisfied": false, "gap": "v1 scope freeze and all critical-track completion remain pending"},
