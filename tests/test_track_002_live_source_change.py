@@ -100,6 +100,15 @@ def test_observer_records_stable_and_changed_without_activation(tmp_path: Path) 
             },
             "invalid expected SHA-256",
         ),
+        (
+            {
+                "source_id": "secret-query",
+                "release_id": "v1",
+                "requested_url": "https://api.worldbank.org/file?api-key=do-not-record",
+                "expected_sha256": "0" * 64,
+            },
+            "sensitive query key",
+        ),
     ],
 )
 def test_observer_rejects_unsafe_candidates(
@@ -107,6 +116,17 @@ def test_observer_rejects_unsafe_candidates(
 ) -> None:
     with pytest.raises(ValueError, match=message):
         MODULE.observe(_source(tmp_path, [candidate]), interval=0)
+
+
+def test_observer_rejects_negative_pacing(tmp_path: Path) -> None:
+    candidate = {
+        "source_id": "candidate",
+        "release_id": "v1",
+        "requested_url": "https://www.orphadata.com/file",
+        "expected_sha256": "0" * 64,
+    }
+    with pytest.raises(ValueError, match="pacing interval"):
+        MODULE.observe(_source(tmp_path, [candidate]), interval=-1)
 
 
 def test_checked_in_candidate_set_is_exact_and_inactive() -> None:
