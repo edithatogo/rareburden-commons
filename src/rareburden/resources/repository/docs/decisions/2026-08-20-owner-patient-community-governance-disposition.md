@@ -7,12 +7,12 @@ real-data, external-authority and release activation gate.
 ## Candidate and evidence binding
 
 - Repository: `edithatogo/rareburden-commons`
-- Reviewed commit: `723c6d8c00d0967b3b2442f1851785b9b73f2fc7`
-- Reviewed tree: `3b804ed3de869bec781e4ec59fe1e8f9199c2c66`
+- Reviewed commit: `b654fd2ce90a17fb0315849359e59ff3838cee89`
+- Reviewed tree: `9bd5970a8c0ed1bf9c4bf0d761657bacf7438d35`
 - Scope manifest:
   `manifests/governance/track-015-patient-community-review-scope-2026-08-20.json`
 - Scope-manifest SHA-256:
-  `7fb1b515b9130fcf10ff632f0170690227921c71a71240999d73a4b7847486a3`
+  `4ae7f0c835c7b6d27ba3d647cdf7faacdc68ca817cd587ea527212989cf8ede3`
 - Advisory lane:
   `docs/track-015-patient-community-governance-advice-2026-08-20.yml`
 - Attributable basis: the repository owner repeatedly instructed the advisory
@@ -21,6 +21,11 @@ real-data, external-authority and release activation gate.
 
 Any material change to the candidate, evidence manifest, permitted scope,
 authority boundary or stop triggers requires a new disposition.
+
+This binding includes the merged Track 007 bounded content-resolution evidence
+at `b654fd2`. Track 007 remains in review, and its accountable community,
+coverage and broader release gates remain pending; the accepted governance
+disposition is therefore unchanged.
 
 ## Accepted repository actions
 
@@ -69,4 +74,3 @@ privacy, disclosure, rights, semantic-integrity, provenance, dependency,
 reproducibility or hash failure; if a privacy-safe output cannot be produced;
 or if an output would enable prohibited use. Do not infer approval, partnership,
 community legitimacy or independence from repository-owned evidence.
-
