@@ -10,7 +10,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 |---|---|---|---|---|---|---|
 | 001 | Foundation and public-data protocol | Archived | Must | v0.1.0 | Founding team | — |
 | 006 | v1 delivery system and foundation hardening | Complete | Must | v0.2.0 | Product and Engineering Leads | 001 |
-| 002 | Public-source acquisition and provenance adapters | In review | Must | v0.3.0 | Data Engineering Lead | 001, 006 |
+| 002 | Public-source acquisition and provenance adapters | Complete | Must | v0.3.0 | Data Engineering Lead | 001, 006 |
 | 007 | Landscape, adjacency, novelty and partnership map | Archived | Must | v0.3.0 | Programme and Evidence Synthesis Leads | 001, 006 |
 | 018 | Scholarly provenance, protocol transparency and reproducibility | Archived | Must | v0.3.0 | Methods Assurance and Research Software Leads | 001, 006 |
 | 008 | Semantic backbone and burden-purpose hierarchy | Blocked | Must | v0.4.0 | Semantic Methods Lead | 002, 007 |
@@ -40,11 +40,13 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 ## Parallel work now permitted
 
 Tracks 002, 007 and 018 form the v0.3 release. Tracks 007 and 018 are archived
-after bounded internal completion. Track 002 remains in review against its
-exact source and rights evidence. Track 007 external registry submission is
-optional and its broader landscape ambitions require a separately versioned
-future scope. No downstream track should be marked Active until the validator
-confirms its dependencies are complete and its owner role is assigned.
+after bounded internal completion. Track 002 is complete for its bounded
+acquisition/provenance substrate and exact owner-dispositioned source roles;
+publication and optional source expansion remain separate. Track 007 external
+registry submission is optional and its broader landscape ambitions require a
+separately versioned future scope. No downstream track should be marked Active
+until the validator confirms its dependencies are complete and its owner role
+is assigned.
 
 ## Single-developer review mode
 
