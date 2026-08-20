@@ -147,6 +147,11 @@
   missingness semantics. Evidence:
   `docs/track-007-protocol-v0.2.1-preparation.yml`; it is not frozen and no
   capture execution or community-authority claim is inferred.
+- [x] Prepare a 192-cell provider/language/region capture manifest with an
+  empty observation set, explicit owner-scope confirmation gate and fail-closed
+  claim/stop rules. Evidence:
+  `docs/track-007-stratum-capture-manifest-v0.2.1.yml` and regression tests.
+  Live execution remains pending the owner’s exact scope confirmation.
 
 ## Review fixes — 2026-08-15 title clusters
 
