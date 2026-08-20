@@ -1,0 +1,70 @@
+schema_version: "1.0.0"
+track: "008-semantic-backbone"
+status: "blocked"
+candidate_contract: "v0.4"
+freeze_order_position: 1
+upstream_dependencies:
+  - track: "002-public-source-acquisition"
+    required_status: "complete"
+    observed_status: "in_review"
+    state: "pending"
+  - track: "007-landscape-novelty"
+    required_status: "complete"
+    observed_status: "in_review"
+    state: "pending"
+source_release_gate:
+  inventory: "docs/track-008-source-release-inventory-2026-08-03.yml"
+  provenance_manifest: "manifests/semantics/track-008-source-release-provenance-2026-08-16.json"
+  required_decisions:
+    - "exact release identity and checksum or bounded receipt"
+    - "licence and redistribution disposition"
+    - "mapping-fitness scope"
+    - "public or private byte route"
+  unresolved_sources:
+    - "human-phenotype-ontology"
+    - "umls-2026aa"
+    - "snomed-ct-uts-current"
+    - "who-icd-api-observation"
+  accountable_receipt: ""
+  state: "pending"
+naming_and_semantic_gate:
+  advisory_panel: "docs/track-008-bounded-agent-review-2026-08-16.yml"
+  panel_status: "advisory"
+  unresolved_findings:
+    - id: "SEM-MED-01"
+      finding: "source-specific mapping fitness remains unreviewed"
+      required_accountable_evidence: "clinical or semantic methods disposition bound to the exact candidate"
+    - id: "RIGHTS-MED-01"
+      finding: "HPO exact terms and WHO redistribution remain unresolved"
+      required_accountable_evidence: "source or rights-holder terms disposition for the exact release and route"
+    - id: "RIGHTS-MED-02"
+      finding: "UMLS and SNOMED rights remain vocabulary and edition specific"
+      required_accountable_evidence: "edition-specific licence and redistribution disposition"
+    - id: "NAME-MED-01"
+      finding: "real labels and groupings lack clinical and patient/community authority"
+      required_accountable_evidence: "attributable clinical and patient/community naming disposition"
+  clinical_receipt: ""
+  patient_community_receipt: ""
+  independent_semantic_review_receipt: ""
+  owner_disposition: ""
+  state: "pending"
+contract_freeze_gate:
+  exact_candidate_commit: ""
+  semantic_manifest_sha256: ""
+  migration_impact_receipt: ""
+  blocking_findings_resolved: false
+  accountable_freeze_decision: ""
+  state: "pending"
+claims:
+  approved_ontology_pins: false
+  naming_authority: false
+  independent_semantic_review: false
+  contract_frozen: false
+  track_complete: false
+governance:
+  repository_panel_output: "advisory"
+  owner_disposition: "owner_operated_not_independent_review"
+  automated_validation_effect: "readiness_only_not_approval_review_or_freeze"
+next_action:
+  repository_owned: "preserve provisional contracts and validate incoming exact-candidate receipts"
+  external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"

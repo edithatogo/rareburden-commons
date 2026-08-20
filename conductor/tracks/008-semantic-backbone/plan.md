@@ -83,7 +83,10 @@
   Evidence: `docs/track-008-semantic-challenge-panel-2026-08-03.yml`.
 - [x] Prepare the naming, grouping, accessibility and harm-review packet.
   Evidence: `docs/track-008-naming-harm-review-packet-2026-08-03.yml`.
-- [ ] Execute the panel challenge and disposition findings.
+- [x] Execute the repository panel challenge and record its bounded findings.
+  Evidence: `docs/track-008-panel-assurance-report-2026-08-03.yml` and
+  `docs/track-008-bounded-agent-review-2026-08-16.yml`. Both outputs are
+  advisory; neither is owner disposition or independent review.
 - [ ] Obtain clinical/community agent-panel naming recommendation and owner disposition.
 - [ ] Pin approved source releases and confirm licence/redistribution terms.
 - [ ] Freeze v0.4 semantic contracts only after all blocking findings and
@@ -117,3 +120,12 @@
   `scripts/check_downstream_preparation.py` and focused negative tests. The
   semantic contract remains provisional and upstream, naming, clinical,
   community and review gates remain open.
+
+## Freeze-readiness control — 2026-08-21
+
+- [x] Encode the exact upstream, ontology-pin, naming/semantic finding and
+  v0.4 freeze evidence required for Track 008 closure, with machine-enforced
+  advisory-panel and owner-operated governance boundaries. Evidence:
+  `docs/track-008-freeze-readiness-2026-08-21.yml`,
+  `scripts/check_track_008_freeze_readiness.py` and focused negative tests.
+  This is readiness preparation only; all parent blocking tasks remain open.
