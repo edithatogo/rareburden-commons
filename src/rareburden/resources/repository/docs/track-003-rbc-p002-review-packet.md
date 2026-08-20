@@ -30,6 +30,10 @@ until Tracks 008, 009 and 010 are complete.
 - Machine-tested aetiologic-fraction evidence contract covering source
   registration, aligned extraction, quality domains, stratification,
   conflicts/overlap, missingness and accountable verification states.
+- Machine-tested, empty outcome and service-use evidence-ledger contract that
+  separates diagnosis-delay time origins, treatment change from benefit,
+  complication measure types, people from encounters, causal from descriptive
+  claims, and sampling from structural and transportability uncertainty.
 - Reproducible report, limitations, data-access asks and no-compatible-envelope
   failures.
 
@@ -50,3 +54,8 @@ The non-binding evidence contract is
 `docs/track-003-aetiologic-fraction-evidence-contract-v0.1.0.yml`. It contains
 no registered source release or extracted value and does not establish a
 systematic search, verified evidence, an empirical parameter or fitness for use.
+
+The non-binding outcome and service-use ledger contract is
+`docs/track-003-outcome-service-evidence-ledger-contract-v0.1.0.yml`. It is
+empty and does not establish empirical diagnosis delay, treatment effects,
+complication or service-use differences, causal validity or transportability.

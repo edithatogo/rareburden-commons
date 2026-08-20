@@ -1,0 +1,230 @@
+schema_version: "0.1.0"
+contract_id: "RBC-P002-OUTCOME-SERVICE-EVIDENCE-v0.1.0"
+track_id: "003-monogenic-diabetes-demonstrator"
+status: "non_binding_synthetic_preparation"
+track_status: "blocked"
+empirical_activation: "disabled"
+registered_source_releases: []
+extracted_empirical_records: []
+ledger_parameters: []
+purpose: >-
+  Specify an empty, fail-closed evidence ledger for diagnosis delay, treatment
+  change, complications and service use. This contract contains no observed
+  value, effect estimate, causal inference, burden allocation or approved
+  parameter.
+
+dependencies:
+  estimand_denominator_contract:
+    path: "docs/track-003-estimand-denominator-contract-v0.1.0.yml"
+    status: "non_binding"
+  population_state_contract:
+    path: "docs/track-003-population-state-contract-v0.1.0.yml"
+    status: "non_binding"
+  aetiologic_fraction_evidence_contract:
+    path: "docs/track-003-aetiologic-fraction-evidence-contract-v0.1.0.yml"
+    status: "non_binding"
+  semantic_contract:
+    track: "008-semantic-backbone"
+    status: "not_frozen"
+  evidence_ledger_contract:
+    track: "009-evidence-parameter-ledger"
+    status: "not_frozen"
+
+record_unit:
+  unit_id: "one_source_result_for_one_declared_outcome_estimand_and_population"
+  required_separation:
+    - "reported_result"
+    - "repository_transformation"
+    - "modelled_scenario"
+    - "assumption"
+  prohibited_units:
+    - "participant-level or row-level record"
+    - "small-cell or disclosure-sensitive output"
+    - "unlocated number from narrative text"
+    - "composite burden value without component and overlap provenance"
+
+source_registration_requirements:
+  - "source_record_id"
+  - "citation_and_persistent_identifier"
+  - "source_release_or_version"
+  - "publication_or_release_date"
+  - "retrieval_event_and_retrieved_at"
+  - "access_class"
+  - "licence_and_redistribution_state"
+  - "correction_retraction_and_version_status"
+  - "source_checksum_where_lawful"
+
+common_alignment_fields:
+  - "declared_monogenic_entity_or_entity_set"
+  - "comparison_group_definition"
+  - "diabetes_case_definition"
+  - "diagnosis_and_aetiology_ascertainment"
+  - "geography_and_calendar_period"
+  - "age_definition"
+  - "sex_or_gender_definition_as_reported"
+  - "ancestry_ethnicity_or_population_variable_as_reported"
+  - "clinical_setting_and_referral_pathway"
+  - "follow_up_or_observation_window"
+  - "inclusion_exclusion_and_analysis_population"
+  - "missing_unclassified_and_lost_to_follow_up_counts"
+
+evidence_families:
+  diagnosis_delay:
+    permitted_estimand_types:
+      - "time_from_first_relevant_presentation_to_aetiologic_diagnosis"
+      - "time_from_diabetes_diagnosis_to_aetiologic_diagnosis"
+      - "age_at_diabetes_diagnosis"
+      - "age_at_aetiologic_diagnosis"
+    required_fields:
+      - "time_origin"
+      - "diagnostic_event_definition"
+      - "summary_measure_and_units"
+      - "censoring_and_truncation_handling"
+    fail_closed_rules:
+      - "do_not_subtract aggregate ages unless pairing and dependence are justified"
+      - "do_not treat recalled symptom onset as equivalent to recorded diagnosis date"
+      - "do_not pool incompatible time origins or summary measures"
+
+  treatment_change:
+    permitted_estimand_types:
+      - "proportion_with_documented_treatment_change_after_aetiologic_diagnosis"
+      - "time_to_documented_treatment_change"
+      - "treatment_class_transition"
+    required_fields:
+      - "pre_diagnosis_treatment_definition"
+      - "post_diagnosis_treatment_definition"
+      - "change_window"
+      - "change_ascertainment_and_adherence_definition"
+    fail_closed_rules:
+      - "do_not interpret treatment change as treatment benefit"
+      - "do_not infer adherence, appropriateness or clinical response from prescribing alone"
+      - "do_not estimate a causal effect without an explicit causal design and assumptions"
+
+  complications:
+    permitted_estimand_types:
+      - "complication_prevalence"
+      - "complication_incidence_rate"
+      - "time_to_complication"
+      - "severity_or_patient_reported_outcome"
+    required_fields:
+      - "outcome_definition_and_code_set"
+      - "event_or_person_counting_rule"
+      - "risk_or_person_time_denominator"
+      - "baseline_status_and_follow_up"
+      - "competing_event_handling_where_relevant"
+    fail_closed_rules:
+      - "do_not allocate diabetes complications by aetiologic case fraction alone"
+      - "do_not equate event counts with affected people"
+      - "do_not combine prevalence, risk, rate, hazard or severity measures"
+
+  service_use:
+    permitted_estimand_types:
+      - "people_with_service_contact"
+      - "contacts_or_events_per_person_time"
+      - "length_of_stay"
+      - "care_pathway_or_referral_transition"
+    required_fields:
+      - "service_and_encounter_definition"
+      - "unique_person_or_event_counting_rule"
+      - "observation_window_and_exposure_time"
+      - "planned_unplanned_and_care_setting_classification"
+      - "coverage_and_capture_limitations"
+    fail_closed_rules:
+      - "do_not treat encounters as unique people"
+      - "do_not equate service use with need, access, quality or benefit"
+      - "do_not extrapolate one health-system pathway without transport assessment"
+
+comparison_and_causal_rules:
+  descriptive_default: true
+  required_for_group_comparison:
+    - "comparison_estimand"
+    - "time_zero_and_eligibility_alignment"
+    - "baseline_covariates_and_missingness"
+    - "selection_and_ascertainment_differences"
+    - "effect_measure_and_uncertainty"
+  causal_claim_status: "blocked_without_registered_causal_question_design_and_assumptions"
+  prohibited_shortcuts:
+    - "before-after change attributed to diagnosis without a counterfactual"
+    - "treated-versus-untreated comparison interpreted causally without confounding control"
+    - "case fraction applied to total complication or utilisation envelopes"
+
+quantitative_extraction_fields:
+  - "numerator_value_definition_and_unit"
+  - "denominator_value_definition_and_unit"
+  - "reported_point_estimate"
+  - "uncertainty_measure_type_and_bounds"
+  - "distribution_or_quantiles_for_skewed_time_and_use"
+  - "person_event_and_person_time_counts"
+  - "adjusted_and_unadjusted_results_kept_distinct"
+  - "covariates_and_model_specification"
+  - "subgroup_and_interaction_results"
+  - "author_reported_sensitivity_analyses"
+
+quality_assessment_mapping:
+  schema: "schemas/evidence-assessment.schema.json"
+  mandatory_domains:
+    - "construct_validity"
+    - "selection_bias"
+    - "ascertainment"
+    - "measurement_error"
+    - "missingness"
+    - "precision"
+    - "representativeness"
+    - "diagnostic_validity"
+    - "conflict_of_interest"
+    - "computational_reproducibility"
+  rule: >-
+    Preserve domain judgements and rationales separately; do not calculate a
+    composite quality score or let precision override validity and bias.
+  direct_use_status: "blocked_pending_methods_review_and_target_context_assessment"
+
+overlap_and_missingness_rules:
+  - "retain cohort site recruitment-period and publication-overlap assessments"
+  - "do not sum overlapping complication categories or repeated service events as people"
+  - "distinguish structural zero, observed zero, not collected, not reported, inaccessible and suppressed"
+  - "retain loss to follow-up and informative missingness as separate bias concerns"
+  - "do not assign unclassified outcomes or pathways to no-event or no-use categories"
+
+uncertainty_requirements:
+  - "retain sampling uncertainty in the source measure"
+  - "record measurement and coding uncertainty"
+  - "record selection ascertainment and missingness uncertainty"
+  - "represent transportability and structural uncertainty separately"
+  - "do not replace absent uncertainty with a zero-width interval"
+  - "do not pool heterogeneous measures merely to obtain a narrower interval"
+
+verification_and_release:
+  automated_extraction_status: "unverified_candidate"
+  automated_candidate_eligible_for_parameter_synthesis: false
+  accountable_source_verification: "pending"
+  clinical_interpretation_review: "pending"
+  methods_and_transport_disposition: "pending"
+  ledger_parameter_creation: "blocked"
+  repository_owner_note: >-
+    Owner-operated extraction, checking or reproduction is repository evidence
+    and is not independent verification, external peer review or clinical or
+    patient/community approval.
+
+current_disposition:
+  source_search_executed: false
+  extraction_executed: false
+  quality_assessment_executed: false
+  transport_assessment_executed: false
+  causal_analysis_executed: false
+  synthesis_executed: false
+  parameter_created: false
+  reason: >-
+    This slice defines an empty ledger contract only. Lawful source
+    registration, extraction, verification, assessment, synthesis and
+    accountable dispositions remain future work.
+
+prohibited_claims:
+  - "empirical_diagnosis_delay"
+  - "causal_treatment_effect"
+  - "empirical_complication_difference"
+  - "empirical_service_use_difference"
+  - "complete_or_systematic_evidence_search"
+  - "verified_or_transportable_parameter"
+  - "independent_or_external_review"
+  - "approved_or_frozen_protocol"
+  - "empirical_activation"
