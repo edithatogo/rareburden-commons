@@ -1,0 +1,102 @@
+schema_version: '1.0.0'
+assessment_id: RBC-LAND-007-COVERAGE-2026-08-20
+protocol:
+  base: docs/track-007-protocol-v0.2.0.md
+  status: supplemental_non_freezing_addendum
+  material_change: true
+  next_protocol_version_required: v0.2.1
+scope:
+  candidate: frozen bounded adjacency evidence plus 144 live-only observations
+  retrieval_window: 2026-08-14/2026-08-16
+  claim_boundary: indexed public evidence sample only; not comprehensive, global or representative
+  content_retention: identifiers, titles, URLs, hashes and permitted safe metadata only
+observed_coverage:
+  provider_surfaces:
+    - github_repositories
+    - zenodo_records
+    - huggingface_datasets
+    - crossref_works
+    - curated_official_institutional_seeds
+  live_only_records: 144
+  live_only_registries:
+    github: 21
+    zenodo: 123
+  live_only_metadata_language_field:
+    observed_values:
+      eng: 41
+      por: 1
+      deu: 1
+      ang: 2
+      unknown: 84
+    interpretation: repository or record metadata field only; not verified content language
+  crossref_expansion:
+    requests: 24
+    rows: 480
+    query_groups:
+      frozen_english: 5
+      multilingual: 4
+      community_and_multilingual: 3
+    record_language_observed: 0
+    record_language_missing: 480
+    geography_observed: 0
+    geography_missing: 480
+  institutional_seed_catalogue:
+    records: 13
+    status: curated_examples_not_census
+    geography_measurement: not_collected
+  community_authority:
+    evidence_records: 0
+    authority_or_consent_claim: prohibited
+    community_led_status: unknown_unless_self_described_and_hash_bound
+    interpretation: agent-panel advice and owner disposition cannot establish community authority
+missingness_matrix:
+  languages:
+    status: incomplete
+    reason: provider fields are absent or represent repository metadata; Crossref record language is missing
+    safe_claim: language coverage is unmeasured for most observations
+  geography:
+    status: unmeasured
+    reason: no comparable record-level geography extraction or regional sampling frame was frozen
+    safe_claim: geography cannot be compared or inferred from provider/rank/order
+  community_authority:
+    status: pending
+    reason: no attributable patient/community authority, interpretation or acceptable-use receipt exists
+    safe_claim: no community approval or legitimacy is claimed
+  non_english_and_local_work:
+    status: undercaptured_risk
+    reason: public indexes and mostly English query strings privilege indexable English-language work
+    safe_claim: gaps apply only within the sampled indexed public surface
+follow_up_protocol_v0_2_1:
+  required_before_broader_landscape_claim:
+    - add regional and country-specific public registries with exact terms and rate limits
+    - add non-English query families and preserve declared query language separately from record language
+    - extract self-described geography, language, community-led status and governance evidence as nullable fields
+    - distinguish not_assessable from not_relevant; never convert missingness to exclusion
+    - produce a plain-language limitations and accessibility summary
+    - obtain attributable community-authority evidence if any public claim relies on community interpretation
+  bounded_execution_rules:
+    - one provider and language/region stratum per immutable capture
+    - rate-limit and hash every request; no raw copyrighted content retention
+    - stop on rights restriction, unsafe framing, unauthorized access or hash drift
+    - publish only a missingness matrix and bounded counts until strata are reconciled
+community_authority_gate:
+  state: pending
+  panel_role: advisory_harm_equity_challenge_only
+  owner_role: repository_claim_disposition
+  prohibited_substitutions:
+    - agent-panel findings for patient/community authority
+    - owner approval for community consent or legitimacy
+    - public visibility for community authorization
+recommendation:
+  disposition: narrow_and_remediate
+  permit: repository-owned missingness assessment and protocol preparation
+  prohibit: global coverage, representative geography, community approval, partnership or novelty claims
+  stop_triggers:
+    - any output describes unobserved communities as absent
+    - any output treats metadata language as content-language evidence
+    - any relationship or authority is implied without attributable evidence
+evidence:
+  - docs/track-007-live-safe-metadata-final-2026-08-16.json
+  - docs/track-007-bibliographic-expansion-2026-08-16.json
+  - docs/track-007-agent-panel-findings-2026-08-16.yml
+  - docs/track-007-bounded-framing-addendum-2026-08-16.md

@@ -129,6 +129,20 @@
   found in the bound pages. No provider was activated. Evidence:
   `docs/track-007-lawful-alternatives-update-2026-08-16.yml`.
 
+## Coverage, language, geography and community-authority addendum — 2026-08-20
+
+- [x] Produce a hashable missingness matrix for observed language fields,
+  record-language availability, geography and community-authority evidence.
+  Evidence: `docs/track-007-coverage-language-geography-community-2026-08-20.yml`
+  and its fail-closed regression tests. This is a supplemental assessment and
+  does not freeze protocol v0.2.0.
+- [ ] Execute a new country/region and non-English search surface under a
+  versioned v0.2.1 protocol, with provider terms, rate limits and immutable
+  stratum captures.
+- [ ] Obtain attributable patient/community interpretation or acceptable-use
+  evidence for any claim that depends on community authority. Agent panels and
+  the repository owner cannot substitute for that evidence.
+
 ## Review fixes — 2026-08-15 title clusters
 
 - [x] Distinguish hashes of temporary `gh api` observation bytes from hashes of

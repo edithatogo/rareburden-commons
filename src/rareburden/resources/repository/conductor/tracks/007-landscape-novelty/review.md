@@ -118,6 +118,26 @@ in `docs/track-007-bibliographic-content-update-2026-08-16.yml`. The bounded
 expansion reduces the earlier single-page Crossref limitation but does not make
 the search systematic, comprehensive, representative or publication-ready.
 
+### Coverage, language, geography and community-authority addendum — 2026-08-20
+
+The supplemental assessment in
+`docs/track-007-coverage-language-geography-community-2026-08-20.yml` makes the
+remaining missingness explicit. The 144 live-only records include metadata
+language fields, but those fields are not evidence of underlying content
+language. The 480 Crossref expansion rows have no observed record-language or
+geography values. The 13 institutional records remain curated examples rather
+than a geographic frame. No attributable patient/community authority,
+acceptable-use or interpretation receipt exists.
+
+The repository-owned disposition is `narrow_and_remediate`: retain the bounded
+adjacency hypothesis and missingness matrix, while prohibiting global or
+representative coverage, community approval, partnership and confirmed
+novelty claims. A country/region and non-English expansion is a material change
+and must use protocol v0.2.1; it is not silently added to frozen v0.2.0. Any
+community-authority claim remains pending genuine attributable evidence. This
+assessment is agent-panel/owner evidence only and does not close an external or
+community gate.
+
 ### Final minimal-metadata pass — 2026-08-16
 
 Exact Zenodo and GitHub public metadata resolved the last 3 non-restricted
