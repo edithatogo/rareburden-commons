@@ -136,9 +136,7 @@ def test_checked_in_live_exercise_is_stable_but_non_authorizing() -> None:
 
 
 @pytest.mark.parametrize("failure", ["redirect", "oversized"])
-def test_observer_records_fail_closed_transport_incidents(
-    tmp_path: Path, failure: str
-) -> None:
+def test_observer_records_fail_closed_transport_incidents(tmp_path: Path, failure: str) -> None:
     body = b"stable"
     candidate = {
         "source_id": "candidate",
