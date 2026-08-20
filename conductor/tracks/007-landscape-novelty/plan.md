@@ -108,7 +108,7 @@
 - [x] Screen all 144 live-only records with the exact scope/contribution
   vocabulary and response hashes. The result is 51 content-assessment
   candidates and 93 uncertain records, with zero exclusions.
-- [ ] Complete any deeper content assessment for 54 live-only bounded adjacency
+- [~] Complete any deeper content assessment for 54 live-only bounded adjacency
   records and resolve the remaining 90 uncertain records without inferring
   exclusion, absence, coverage or novelty from missing evidence. Safe public
   topics/keywords and repository facts upgraded 3 records; no prohibited
