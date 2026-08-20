@@ -16,10 +16,11 @@ attribution_text: United Nations, Department of Economic and Social Affairs, Pop
 redistribution_position: permitted_with_attribution_and_preserved_notices
 third_party_material: aggregate classification references excluded from bounded national-total extraction unless separately dispositioned
 intended_use: country population denominators; medium-variant national totals
-geography_scope: 237 countries or areas; final geography codes pending review
-time_scope: 1950-2100 workbook; final extraction years pending review
+geography_scope: 237 countries or areas; exact activated geography codes require an owner decision
+time_scope: 1950-2100 workbook; exact activated years require an owner decision
 measure_unit: total population, thousands
-scientific_reviewer: pending
-data_governance_reviewer: pending
+methods_advice: bounded agent-panel advice recorded; not independent or external review
+owner_data_use_disposition: recorded 2026-08-15
+source_change_exercise: complete 2026-08-20 with matching SHA-256
 decision: candidate_only_terms_observed_activation_disabled
 decision_record_url: conductor/tracks/002-public-source-acquisition/review.md

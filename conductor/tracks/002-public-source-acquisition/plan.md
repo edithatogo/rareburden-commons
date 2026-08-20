@@ -93,10 +93,13 @@
   candidates were reachable and byte-stable on 2026-08-20, with activation
   disabled. Evidence:
   `docs/track-002-live-source-change-exercise-2026-08-20.json`.
-- [ ] Complete the agent-methods challenge and exact owner source-use
-  disposition for any activated estimand; publisher rights remain fail-closed
-  and the current bounded owner posture is recorded in
-  `docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md`.
+- [x] Reconcile the agent-methods advice, owner data-use disposition and dated
+  source-change evidence for all four exact estimands without activating them.
+  Evidence: `docs/track-002-activation-matrix.yml` and
+  `docs/track-002-source-terms-matrix.yml`.
+- [ ] Record an exact owner activation decision for any estimand promoted
+  beyond its current conditional/candidate/probe posture; publisher rights and
+  every excluded claim remain fail-closed.
 - [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.
 - [x] Assign every external review finding to a named gate and bounded
   disposition. Evidence: `docs/track-002-findings-disposition.yml`; assigned

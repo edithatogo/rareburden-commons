@@ -9,7 +9,7 @@ ROOT = Path(__file__).parents[1]
 
 def test_option_a_scope_remains_bounded_and_inactive() -> None:
     scope = yaml.safe_load((ROOT / "docs/track-002-option-a-scope.yml").read_text(encoding="utf-8"))
-    assert scope["activation"] == "disabled_until_scientific_and_data_governance_receipts"
+    assert scope["activation"] == "disabled_until_exact_owner_activation_and_publisher_rights"
     assert [item["source_id"] for item in scope["primary_preparation_sources"]] == [
         "orphadata-science",
         "un-world-population-prospects",
@@ -38,8 +38,9 @@ def test_candidate_manifests_preserve_source_specific_terms_and_unapproved_state
     assert who["redistribution_position"].startswith("conditional_pending_")
 
     for candidate in (wpp, who):
-        assert candidate["scientific_reviewer"] == "pending"
-        assert candidate["data_governance_reviewer"] == "pending"
+        assert candidate["methods_advice"].startswith("bounded agent-panel advice")
+        assert candidate["owner_data_use_disposition"]
+        assert candidate["source_change_exercise"].startswith("complete 2026-08-20")
         assert candidate["exact_url"].startswith("https://")
         assert candidate["landing_page_url"].startswith("https://")
         assert candidate["licence_or_terms_url"].startswith("https://")
