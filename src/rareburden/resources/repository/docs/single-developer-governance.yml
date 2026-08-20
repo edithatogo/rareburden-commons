@@ -1,0 +1,98 @@
+schema_version: "1.0.0"
+repository: "edithatogo/rareburden-commons"
+operating_model: "single_developer_single_accountable_owner"
+owner:
+  identity: "edithatogo"
+  metadata_role: "Repository owner (all accountable repository roles)"
+  holds_all_accountable_repository_roles: true
+  accountable_roles:
+    - repository_owner
+    - sole_developer
+    - methods_decider
+    - scientific_decider
+    - clinical_scope_decider
+    - epidemiology_decider
+    - semantic_decider
+    - data_use_decider
+    - patient_community_perspective_decider
+    - equity_and_harm_decider
+    - engineering_decider
+    - security_decider
+    - operations_decider
+    - programme_decider
+    - release_decider
+agent_advice:
+  status: "advisory_only"
+  role_separation: "perspectives_not_independent_people"
+  required_presentation:
+    - options
+    - trade_offs
+    - contingencies
+    - rationale
+    - recommendation
+  decision_vocabulary: [accept, narrow, revise, defer, stop]
+  prohibited_claims:
+    - independent_review
+    - human_review
+    - community_consent
+    - custodian_approval
+    - licensor_approval
+    - institutional_approval
+    - release_authority
+remuneration:
+  model: "none"
+  amount: 0
+  currency: null
+  applies_to: "repository owner and advisory agent panels"
+  promise_or_entitlement_created: false
+decision_groups:
+  - id: operating_structure
+    rationale: "The repository has one human owner and no constituted internal bodies."
+    options:
+      - "single owner with role-separated advisory agent panels"
+      - "pause until additional human bodies are constituted"
+    trade_offs: "The selected model is operable and truthful, but supplies no independent or community approval."
+    recommendation: "Use advisory agent panels and preserve explicit authority labels."
+    owner_decision: accept
+    contingency: "If additional people later join, record their identity, remit and authority before changing claims."
+  - id: decision_rights
+    rationale: "Accountability cannot be delegated to agents."
+    options:
+      - "owner decides after structured agent advice"
+      - "agents approve or veto repository decisions"
+    trade_offs: "Sole-owner decisions are attributable but do not provide independent assurance."
+    recommendation: "Keep all agent outputs advisory and bind each owner disposition to an exact candidate."
+    owner_decision: accept
+    contingency: "Stop or narrow when critical dissent or uncertainty is unresolved."
+  - id: remuneration
+    rationale: "This single-person repository is free work and has no remuneration programme."
+    options:
+      - "zero remuneration with no promise or entitlement"
+      - "create a funded remuneration scheme"
+    trade_offs: "Zero remuneration avoids a false budget claim but cannot support claims of paid participation."
+    recommendation: "Record remuneration as none and do not describe agent work as paid participation."
+    owner_decision: accept
+    contingency: "A future funded scheme requires a new attributable owner decision and must not be backdated."
+  - id: external_authority
+    rationale: "Repository decisions cannot manufacture third-party rights, consent or authority."
+    options:
+      - "keep external facts conditional and fail closed"
+      - "treat owner or agent statements as external approval"
+    trade_offs: "Fail-closed gates limit activation but prevent misleading authority claims."
+    recommendation: "Require attributable evidence only when a scope actually invokes that external authority."
+    owner_decision: accept
+    contingency: "Remain synthetic/public-only or narrow the claim when required external evidence is absent."
+decision_rule:
+  owner_decides_after_advice: true
+  exact_candidate_binding_required: true
+  unresolved_critical_finding: "stop_or_narrow"
+  dissent_and_uncertainty_preserved: true
+non_delegable_external_facts:
+  - publisher_licence_and_source_terms
+  - third_party_rights
+  - registry_events
+  - controlled_data_custodian_policy
+  - credentials_and_live_service_capacity
+independence_boundary:
+  owner_or_agent_work_is_independent_review: false
+  independent_claim_requires_separate_qualifying_evidence: true

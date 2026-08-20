@@ -1,11 +1,11 @@
 schema_version: '1.0.0'
 track: 015-governance-partnership-policy
 attempted_at: '2026-08-21'
-status: blocked_external_authority_and_dependencies
+status: superseded_by_single_owner_governance_for_internal_gates
 track_completion_authorized: false
-unsafe_premise_rejected: repository-owner or agent action cannot constitute or
-  impersonate patient/community, Indigenous, custodian, institutional, partner,
-  scientific, data-governance or release authority
+unsafe_premise_rejected: agent panels cannot impersonate human, community,
+  Indigenous, custodian, institutional, partner or independent authority;
+  however, those bodies are not mandatory internal repository gates
 
 dependency_blockers:
   - track: 007-landscape-novelty
@@ -18,16 +18,16 @@ dependency_blockers:
     self_attestable: false
 
 external_gates:
-  - id: patient_community_constitution
+  - id: patient_community_authority_if_claimed
     acceptance_criteria: [1]
     status: pending
-    accountable_authority: constituted Patient and Community Council
+    accountable_authority: attributable human patient or community participants
     required_receipts:
-      - approved charter and appointments
-      - quorum, voting and reserved-decision rules
-      - budget and paid-remuneration authority
+      - scope-matched participation or authority record
       - conflicts and dissent record
+      - truthful compensation status for that separate activity
     self_attestable: false
+    applicability: only_if_human_patient_or_community_authority_is_claimed
   - id: scientific_data_and_node_authority
     acceptance_criteria: [2]
     status: pending
@@ -106,3 +106,16 @@ prohibited_completion_claims:
 
 resume_condition: all dependencies complete and every applicable gate has an
   attributable, scope-matched receipt from its accountable authority
+
+internal_governance_correction:
+  repository_model: single_person_repo
+  decision_maker: repository_owner
+  panels: role_separated_advisory_agents
+  remuneration: none
+  amount: 0
+  grouped_advice_fields:
+    - options
+    - contingencies
+    - rationale
+    - trade_offs
+    - recommendation

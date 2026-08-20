@@ -7,11 +7,18 @@ agents. The panel may inspect the specification and diff, run tests, challenge
 assumptions, produce dissent, draft dispositions and identify missing evidence.
 The accountable repository owner adjudicates the panel recommendation.
 
+The repository owner is the sole developer and holds every accountable
+repository role. Agent role separation supplies distinct challenge
+perspectives; it does not create additional office holders, delegated
+decision-makers or independent reviewers.
+
 ## Evidence contract
 
 Each panel result records `panel_assurance`, composition, scope, exact candidate
-commit and manifest, evidence references, findings, uncertainty, dissent, stop
-triggers and an accept, narrow, revise, defer or stop recommendation. Agent
+commit and manifest, evidence references, findings, uncertainty, dissent and
+stop triggers. Every synthesis presented for decision must include options,
+trade-offs, contingencies, rationale and an accept, narrow, revise, defer or
+stop recommendation. Agent
 outputs are advisory and must never be described as independent, human,
 constituted-community, institutional, custodian, licensor or external approval.
 

@@ -12,18 +12,23 @@ governance:
 
 candidate_input:
   description: "default-branch input inspected before this readiness envelope"
+  shallow_checkout_policy: "allow_unavailable_exact_history_without_upgrading_claims"
   commit: "bcff91f3a1c00dad60d86cd2f2f703442d6be0a4"
   tree: "299d4a638bd42918779ca4fc88b00ff9e1e76c7a"
   exact_release_candidate: false
   evidence:
     - path: "manifests/operations/track-016-bounded-operations-2026-08-16.json"
       sha256: "23d3e3c57ad318849753870e7796813a48c227c64943d5d3fa457c8f3eaa575e"
+      source_commit: "fb4a0443fa207e13d15fbf326d46bf5df56f0ab5"
     - path: "docs/track-016-owner-operated-exercise-receipt-2026-08-16.json"
       sha256: "b31435c60e2e3986eb1befaf33d2682fe9747e09ee416e423f7e62f754b95c58"
+      source_commit: "fb4a0443fa207e13d15fbf326d46bf5df56f0ab5"
     - path: "docs/release-policy.md"
       sha256: "2f4626b33d7402a33e0a56238ee5484618ca21699f320e42193dac761eb7bcb1"
+      source_commit: "fb4a0443fa207e13d15fbf326d46bf5df56f0ab5"
     - path: "docs/security-operations-016-reference.md"
       sha256: "a81d98aabda3577de26c85cfd1e776d4380501c98846d4ea8791219d977f5b5b"
+      source_commit: "fb4a0443fa207e13d15fbf326d46bf5df56f0ab5"
 
 backup_owner_handoff:
   state: "pending"
