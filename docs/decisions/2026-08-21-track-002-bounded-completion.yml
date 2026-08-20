@@ -1,0 +1,87 @@
+schema_version: "1.0"
+decision_id: "track-002-bounded-completion-2026-08-21"
+decision_date: "2026-08-21"
+authority: "repository_owner_operator"
+decision: "complete_bounded_scope"
+track_id: "002-public-source-acquisition"
+completion_scope:
+  - "offline acquisition and provenance substrate"
+  - "exact hash-identified Orphadata July 2026 and MONDO v2026-08-04 candidate preparation"
+  - "owner-dispositioned bounded analytical source roles"
+  - "metadata-only and exclusion controls for unresolved sources"
+publisher_licence_reliance:
+  orphadata:
+    status: "passed_for_exact_allowlist"
+    basis: "official publisher representation of Orphadata Science files under CC BY 4.0"
+    conditions: ["attribution", "change_notice", "no_endorsement"]
+  mondo:
+    status: "passed_for_exact_allowlist"
+    basis: "official publisher representation of MONDO release assets under CC BY 4.0"
+    conditions: ["attribution", "change_notice", "preserve_applicable_notices", "no_endorsement"]
+  reliance_limit: >-
+    This is reasonable publisher-licence reliance for the exact identified
+    assets, not an independent chain-of-title representation for every embedded
+    assertion or third-party reference.
+source_dispositions:
+  wpp:
+    disposition: "private_only_under_current_owner_decision"
+    analytical_use: "bounded_AUS_NZL_2000_2021_medium_variant_national_total"
+    public_object_reconciliation: "separate_external_action_not_required_for_track_completion"
+  who_ghe:
+    disposition: "metadata_hash_link_only"
+    payload_redistribution: false
+    reason: "file-level licence and field-level third-party rights remain unresolved"
+  hpo:
+    disposition: "asset_by_asset_only"
+    uncleared_assets: "metadata_only_or_excluded"
+  panelapp:
+    disposition: "metadata_hash_link_only"
+    automated_detail_capture: false
+  world_bank:
+    disposition: "bounded_probe_and_cross_check_only"
+  controlled_or_credentialed_sources:
+    disposition: "metadata_only_unless_separately_authorized_and_evidenced"
+    includes: ["MedDRA", "MLDS", "UMLS", "SNOMED_CT", "ICD", "OMIM"]
+scientific_and_data_use_disposition:
+  authority: "repository_owner_operator"
+  independent_review_claimed: false
+  approved_roles:
+    - "Orphadata descriptive metadata and identifier alignment"
+    - "WPP bounded population denominator defined above"
+    - "World Bank bounded cross-check only"
+  prohibited_roles:
+    - "WHO GHE analytical activation"
+    - "clinical or diagnostic use"
+publication:
+  status: "deferred"
+  authorized: false
+  future_minimum_evidence:
+    - "fresh exact package manifest, sizes and SHA-256 hashes"
+    - "dated included-source terms observations"
+    - "candidate-bound attribution and exclusion audit"
+    - "new owner authorization bound to the then-current evidence commit and package hash"
+transferred_future_work:
+  status: "optional_separately_versioned_scope"
+  items:
+    - "WPP hosted-object reconciliation"
+    - "WHO GHE permission or field-level rights work"
+    - "PanelApp publisher-authorized detail acquisition"
+    - "complete WHO-FIC and national-edition matrices"
+    - "MedDRA and MLDS interactive inventory or private capture"
+    - "UTS historical capture and private-capacity restoration"
+claims:
+  comprehensive_coverage: false
+  archive_completeness: false
+  independent_review: false
+  community_authority: false
+  clinical_validation: false
+  partnership: false
+  external_approval: false
+external_actions_authorized:
+  publish_data: false
+  release_v0_3_0: false
+  close_issue_2: false
+  mutate_wpp_hosted_object: false
+  use_credentials: false
+  purchase_storage: false
+  capture_private_bytes: false

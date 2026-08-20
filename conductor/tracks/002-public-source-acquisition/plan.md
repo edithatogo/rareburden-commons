@@ -11,15 +11,17 @@
 - [x] Supersede the older Orphadata-plus-WPP preparation scope while preserving
   its history; WPP is private-only under the current decision and every source
   outside the exact allowlist remains excluded from this candidate.
-- [ ] Reconcile the already-public WPP object only after separate external
-  mutation authority and post-action remote verification. Repository
-  preparation does not claim that hosted object is currently private.
-- [~] Build and separately owner-verify the exact five-artifact candidate after
+- [x] Transfer reconciliation of the already-public WPP object outside this
+  bounded track; it remains a separate external action requiring exact mutation
+  authority and post-action verification. No current private-state claim is
+  made. Evidence:
+  `docs/decisions/2026-08-21-track-002-bounded-completion.yml`.
+- [x] Build and owner-verify the exact ephemeral five-artifact candidate after
   the dated Orphadata/MONDO terms-change and attribution gates pass. The exact
   ephemeral package now verifies at SHA-256
   `1a8e0a01467a56eee0a85f15f971b0dd03820abfa518cc981d6588a264c58cd1`;
-  publication is deferred and any future candidate requires fresh owner
-  verification against the then-current evidence commit.
+  publication is deferred; preparation is complete, and any future publication
+  requires fresh verification against the then-current evidence commit.
 - [x] Pass the repository-owned exact-package, included-source live-terms,
   attribution/exclusion and Track 007 bounded-claims compatibility gates while
   retaining publisher reliance and derivative-use limitations. Evidence:
@@ -157,7 +159,9 @@
 - [x] Assign every external review finding to a named gate and bounded
   disposition. Evidence: `docs/track-002-findings-disposition.yml`; assigned
   findings remain open until qualifying receipts exist.
-- [ ] Release v0.3.0 only when Track 007 also satisfies its gate.
+- [x] Transfer the v0.3.0 release action outside Track 002 completion. Track 007
+  has an archived bounded disposition, but no software or data release is
+  authorized by this track decision.
 
 ## Live-exercise review fixes — 2026-08-20
 
@@ -217,15 +221,19 @@
 
 ## Single-developer review mode
 
-Repository-owned review tasks use the subagent panel; accountable external
-scientific and data-governance gates remain separate and pending.
+Repository-owned review tasks use role-separated agent advice and accountable
+repository-owner disposition. This satisfies the bounded track review without
+claiming independent review, community authority or external approval.
 
 ## Closure plan — 2026-08-02
 
 - [x] Add the dependency-ordered closure plan shared with Track 007 in
   `docs/track-002-007-closure-plan-2026-08-02.md`.
-- [ ] Obtain qualifying scientific, custodian and Track 007 challenge receipts;
-  until then retain `in_review` and registration-only behavior.
+- [x] Supersede the obsolete external-receipt requirement for the bounded scope
+  with role-separated agent advice, owner scientific/data-use disposition and
+  Track 007's archived bounded decision. Publisher rights remain factual
+  constraints. Evidence:
+  `docs/decisions/2026-08-21-track-002-bounded-completion.yml`.
 - [x] Encode the approved bounded Option A source scope in
   `docs/track-002-option-a-scope.yml` with WHO/World Bank deferred and
   activation disabled.
@@ -252,8 +260,10 @@ scientific and data-governance gates remain separate and pending.
 - [x] Add a machine-readable source terms/disposition matrix and fail-closed
   regression test in `docs/track-002-source-terms-matrix.yml` and
   `tests/test_track_002_terms_matrix.py`.
-- [ ] Obtain separate accountable scientific and custodian/data-governance
-  receipts after panel preparation; panels cannot close these gates.
+- [x] Record accountable repository-owner scientific and data-use disposition
+  for the exact bounded roles; no independent, external or custodian review is
+  claimed. Evidence:
+  `docs/decisions/2026-08-21-track-002-bounded-completion.yml`.
 - [x] Add a regression guard proving the external-gate receipt template remains
   blank and non-approving in `tests/test_external_gate_receipt_template.py`.
 - [x] Add a regression guard keeping deferred UN WPP and WHO manifests
@@ -276,8 +286,10 @@ scientific and data-governance gates remain separate and pending.
 - [x] Re-probe the previously unavailable World Bank endpoint alongside the
   other four exact candidates. All five matched their pinned SHA-256 values on
   2026-08-20; this is retrieval evidence only and permits no activation.
-- [ ] Record current publisher terms facts, agent-methods advice and an exact
-  owner source-use disposition before activating any estimand.
+- [x] Record current publisher terms facts, agent-methods advice and exact owner
+  source-use dispositions for the bounded active, probe-only, metadata-only and
+  excluded roles. Evidence: `docs/track-002-activation-matrix.yml` and
+  `docs/decisions/2026-08-21-track-002-bounded-completion.yml`.
 
 ## Exact source and private-archive refresh — 2026-08-15
 
@@ -334,11 +346,13 @@ scientific and data-governance gates remain separate and pending.
   panel listing (433 panel/version rows) with a SHA-256 manifest. A first
   full-detail attempt captured 129 records before HTTP 429; do not claim a
   complete detail snapshot and resume only with server-respecting backoff.
-- [ ] Complete the remaining PanelApp per-version detail capture only through
+- [x] Transfer any remaining PanelApp per-version detail capture to optional
+  separately versioned work available only through
   a publisher-authorized route. The current UK `robots.txt` disallows `/api/`;
   automation is now fail-closed in
   `docs/track-002-panelapp-oecd-frontier-2026-08-16.md`. Australian raw/detail
-  capture remains disabled pending exact content-reuse terms.
+  capture remains disabled pending exact content-reuse terms. Metadata/hash/link
+  disposition is final for this bounded track.
 - [x] Bind authoritative PanelApp UK/Australia access, automation and reuse
   observations in a response-hashed terms matrix. Route UK continuation only
   through operator-triggered official per-panel TSV downloads, keep `/api/`
@@ -408,9 +422,9 @@ scientific and data-governance gates remain separate and pending.
   `31873123834`, summarized in
   `docs/track-002-terminology-archive-receipts-2026-08-16.yml`; this bounded
   snapshot does not prove historical completeness.
-- [ ] Materialize the complete WHO digital release matrix by classification,
-  release, language and available artifact; publish unchanged bytes only where
-  exact terms permit and otherwise retain private bytes or metadata only.
+- [x] Transfer comprehensive WHO digital release-matrix expansion outside this
+  bounded track. The recorded classification/release/language inventory is a
+  bounded seed; unresolved artifacts remain metadata-only or excluded.
 - [x] Materialize the authenticated WHO ICD API subset as a rate-limited,
   fail-closed Foundation/ICD-11 MMS/ICF/ICD-10 release and language inventory;
   retain raw top-level observations privately and expose only hashes and
@@ -421,9 +435,9 @@ scientific and data-governance gates remain separate and pending.
   `.github/workflows/archive-who-icd-inventory-to-huggingface.yml`. ICHI,
   derived/related classifications, historical ICD and national editions remain
   explicit separate gaps.
-- [ ] Build the country-authority ledger for every discoverable ICD national
-  modification and SNOMED CT national edition; preserve each native release
-  independently of its possible UMLS representation.
+- [x] Transfer comprehensive ICD-national-modification and SNOMED-national-
+  edition discovery outside this bounded track. Preserve the existing bounded
+  seed ledger without a completeness claim.
 - [x] Build a bounded official-source country-authority seed ledger for eight
   discoverable ICD modification, translation or adoption routes, with explicit
   country, language, release, authority, terms and retrieval states. Evidence:
@@ -473,9 +487,9 @@ scientific and data-governance gates remain separate and pending.
   `docs/track-002-public-history-frontier-2026-08-16.md` and
   `scripts/discover_public_archive_frontier.py`. No payload bytes were fetched;
   Orphanet media exposed images only and ClinVar remains metadata-only.
-- [ ] Authenticate to MedDRA and MLDS through owner-authorized accounts, record
-  their available release/language/edition inventories, and archive licensed
-  bytes privately only when the applicable terms permit cloud storage.
+- [x] Transfer MedDRA/MLDS interactive inventory and licensed-byte archival to
+  optional separately authorized work. No credential use, portal login,
+  download or cloud-storage permission is inferred by this disposition.
 - [x] Prepare the fail-closed MedDRA/MLDS inventory, private-archive and receipt
   contracts, manual bounded workflow, credential-free operator procedure,
   duplicate-reference route and negative tests. Evidence:
@@ -492,9 +506,10 @@ scientific and data-governance gates remain separate and pending.
   binds both receipts. This does not establish unavailable historical-release
   or language completeness; the separately discovered 71 ORPHAcode
   nomenclature packs retain their own receipts.
-- [ ] Execute the 14-family UTS inventory incrementally, respecting the
-  sequential two-second request interval, byte budgets, retries and private-only
-  visibility; never publish UMLS, RxNorm or SNOMED licensed payloads publicly.
+- [x] Transfer further 14-family UTS historical execution outside this bounded
+  track while preserving the fail-closed checkpoint, two-second request
+  interval, byte budgets, retries and private-only visibility; never publish
+  UMLS, RxNorm or SNOMED licensed payloads publicly.
   The current release from all 14 families is now privately receipt-verified by
   GitHub Actions run `31873729976`; 2,437 historical artifacts entered bounded
   sequential execution. MRCONSO historical indices 1–5 were
@@ -502,7 +517,8 @@ scientific and data-governance gates remain separate and pending.
   as a remote-checkpointed, idempotent, manually dispatched workflow with
   explicit family cursors and cost ceilings in
   `docs/track-002-uts-historical-frontier-2026-08-16.md`, leaving 2,432
-  historical artifacts pending at that observed checkpoint.
+  historical artifacts pending at that observed checkpoint. No resumption is
+  authorized.
 - [x] Fail closed before any further historical UTS download after Hugging Face
   run `31897934633` returned an explicit private-storage-limit HTTP 403. The
   checked-in capacity state blocks cursor advancement and redownload, the
@@ -510,6 +526,7 @@ scientific and data-governance gates remain separate and pending.
   access, and Actions preserves that receipt on failure. Evidence:
   `manifests/uts/hf-private-capacity-state-2026-08-16.json` and
   `docs/track-002-hf-capacity-blocker-2026-08-16.md`.
-- [ ] Restore or increase private destination capacity, record a short-lived
-  authenticated capacity verification, change the state through review and run
-  a one-artifact canary before resuming the historical cursor.
+- [x] Transfer private-capacity restoration and its authenticated preflight,
+  reviewed state change and one-artifact canary outside this bounded track. The
+  existing capacity pause remains in force; no purchase or capture is
+  authorized.
