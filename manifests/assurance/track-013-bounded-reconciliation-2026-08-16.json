@@ -17,7 +17,7 @@
     {
       "track": "009",
       "artifact": "manifests/ledger/track-009-source-release-bindings-2026-08-16.json",
-      "sha256": "84b1d8377a87c787a0ff624727a00a9bab6fdbf4851bf840e8157c61eee04376",
+      "sha256": "56b232807e71e3c43f7ff691dc9985deec13ea59756133a28991fff62e181267",
       "required_assertions": {
         "claims.empirical_parameter_activation": false,
         "claims.private_source_use": false,
