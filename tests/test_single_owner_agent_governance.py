@@ -32,6 +32,7 @@ def test_prospective_single_owner_governance_is_valid() -> None:
     [
         ("agent_panel", "simulation_status", "community_panel", "explicitly simulated"),
         ("agent_panel", "recommendation_is_approval", True, "must not be approval"),
+        ("agent_panel", "agents_are_maintainers", True, "cannot hold accountability"),
         ("external_fact_boundary", "unresolved_fact_action", "accept", "fail closed"),
         ("decision_rule", "exact_candidate_binding_required", False, "safeguards"),
         (
@@ -65,6 +66,26 @@ def test_rejects_duplicate_advice_fields(tmp_path: Path) -> None:
     document["agent_panel"]["required_presentation"].append("options")
     with pytest.raises(GovernanceError, match="must not contain duplicates"):
         validate(_write(tmp_path, document), ROOT)
+
+
+def test_rejects_additional_accountable_human(tmp_path: Path) -> None:
+    document = _document()
+    document["owner"]["human_count"] = 2
+    with pytest.raises(GovernanceError, match="owner decision authority drifted"):
+        validate(_write(tmp_path, document), ROOT)
+
+
+def test_rejects_backup_owner_or_co_maintainer(tmp_path: Path) -> None:
+    document = _document()
+    document["continuity"]["backup_owner_or_co_maintainer"] = "named"
+    with pytest.raises(GovernanceError, match="continuity boundary drifted"):
+        validate(_write(tmp_path, document), ROOT)
+
+
+def test_all_active_tracks_name_the_sole_accountable_owner() -> None:
+    for metadata_path in (ROOT / "conductor" / "tracks").glob("*/metadata.json"):
+        metadata = yaml.safe_load(metadata_path.read_text(encoding="utf-8"))
+        assert metadata["owner_role"] == "Repository owner (sole accountable human)"
 
 
 def test_packet_requires_owner_decision_when_requested() -> None:
