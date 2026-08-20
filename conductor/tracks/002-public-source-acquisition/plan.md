@@ -14,7 +14,7 @@
 - [ ] Reconcile the already-public WPP object only after separate external
   mutation authority and post-action remote verification. Repository
   preparation does not claim that hosted object is currently private.
-- [ ] Build and separately owner-verify the exact five-artifact candidate after
+- [~] Build and separately owner-verify the exact five-artifact candidate after
   the dated Orphadata/MONDO terms-change and attribution gates pass.
 - [ ] Record a final owner publication decision bound to the exact commit and
   artifact hashes; this preparation decision does not authorize publication,

@@ -19,6 +19,24 @@ Live included-source terms/change evidence, candidate packaging, attribution
 audit, Track 007 bounded-claims disposition and exact-candidate owner release
 authority remain pending.
 
+### Exact-candidate verification attempt — 2026-08-20
+
+The read-only verifier passed its offline allowlist, bounded-claims,
+deterministic-package, lint and type checks. Three bounded live attempts did
+not produce a candidate: one ended on a non-matching `mondo.owl` stream, one
+on a TLS handshake timeout during terms/metadata observation, and one after
+both permitted `mondo-rare.owl` retrieval attempts timed out. Temporary source
+bytes were removed after each byte-retrieval attempt.
+
+The official GitHub release API continued to report the approved sizes and
+SHA-256 values for all three MONDO assets. That metadata supports a transport
+failure disposition but does not substitute for exact package-byte
+verification. Review disposition: **blocked fail-closed on reproducible live
+transport**. Candidate, included-source live-terms, attribution and final owner
+publication gates remain pending. No upload, credential use, private capture,
+activation, issue closure or publication occurred. Evidence is recorded in
+`docs/track-002-minimal-candidate-verification-attempt-2026-08-20.json`.
+
 ## Private archive capacity decision review — 2026-08-16
 
 The storage decision packet binds the exact failed Hugging Face quota receipt,
