@@ -129,7 +129,7 @@
   source-change evidence for all four exact estimands without activating them.
   Evidence: `docs/track-002-activation-matrix.yml` and
   `docs/track-002-source-terms-matrix.yml`.
-- [ ] Record an exact owner activation decision for any estimand promoted
+- [x] Record an exact owner activation decision for any estimand promoted
   beyond its current conditional/candidate/probe posture; publisher rights and
   every excluded claim remain fail-closed.
 - [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.

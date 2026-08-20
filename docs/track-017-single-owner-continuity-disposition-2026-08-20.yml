@@ -1,0 +1,25 @@
+schema_version: "1.0"
+status: owner_accepted_bounded_single_owner_model
+decision_date: "2026-08-20"
+scope: bounded_non_production_synthetic_public_candidate
+primary_owner: repository_owner
+backup_owner_requirement:
+  current_scope: non_applicable_by_owner_decision
+  stable_or_production_scope: required_or_new_explicit_risk_decision
+continuity_limitations:
+  - single_point_of_failure
+  - no_redundant_accountable_operator
+  - no_stable_support_promise
+controls:
+  - documented_owner_operated_backup_restore_and_rollback
+  - correction_withdrawal_and_stop_procedures
+  - exact_candidate_hash_binding
+stop_triggers:
+  - owner_capacity_loss
+  - failed_recovery_or_rollback
+  - inability_to_correct_or_withdraw
+claims:
+  backup_continuity_complete: false
+  stable_release_authorized: false
+  production_authorized: false
+  independent_evidence: false

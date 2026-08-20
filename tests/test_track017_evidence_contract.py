@@ -9,9 +9,9 @@ TRACK = ROOT / "conductor/tracks/017-documentation-adoption-v1"
 
 def test_track017_plan_retains_append_only_evidence_history() -> None:
     plan = (TRACK / "plan.md").read_text(encoding="utf-8")
-    assert plan.count("- [x]") == 25
+    assert plan.count("- [x]") == 26
     assert plan.count("- [~]") == 0
-    assert plan.count("- [ ]") == 18
+    assert plan.count("- [ ]") == 17
     for evidence in (
         "track-017-bounded-exercises-2026-08-16.json",
         "v1-evidence-index-2026-08-16.json",
@@ -53,7 +53,7 @@ def test_reconciliation_preserves_planned_status_and_stable_release_boundary() -
     ).read_text(encoding="utf-8")
     assert metadata["status"] == "planned"
     assert metadata["updated"] == "2026-08-20"
-    assert "25 completed" in review
-    assert "18 pending" in review
+    assert "26 completed" in review
+    assert "17 pending" in review
     assert "Track 017 remains Planned" in reconciliation
     assert "stable v1 remains disabled" in reconciliation

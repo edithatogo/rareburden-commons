@@ -1,32 +1,38 @@
 schema_version: "0.1.0"
-status: "registration_only"
+status: "bounded_analytical_activation"
 activation_policy: "per_estimand_row"
 default_unresolved_posture: "metadata_hash_only"
 rows:
   - estimand_id: "E-ORPHA-DESCRIPTIVE-01"
     source_id: "orphadata-science"
-    activation: "conditional"
+    activation: "active_bounded"
     required_receipts: ["agent_methods_panel", "owner_data_use", "source_change_exercise"]
     evidence_state:
       agent_methods_panel: "bounded_advice_recorded"
       owner_data_use: "recorded_2026_08_15"
       source_change_exercise: "complete_2026_08_20_hash_stable"
-      remaining: "exact_owner_activation_decision"
+      remaining: "none_within_exact_bounded_scope"
     raw_bytes: "private_archive_present_under_cc_by_4_0; excluded_from_bounded_candidate"
     permitted_output: "descriptive_metadata_and_identifier_alignment"
     conditions: ["confirm_CC_BY_and_conditions_apply", "retain_attribution_and_change_notice", "exclude_denominator_and_burden_inference"]
   - estimand_id: "E-WPP-POP-01"
     source_id: "un-world-population-prospects"
-    activation: "conditional"
+    activation: "active_bounded"
     required_receipts: ["agent_methods_panel", "owner_data_use", "source_change_exercise"]
     evidence_state:
       agent_methods_panel: "bounded_advice_recorded"
       owner_data_use: "recorded_2026_08_15"
       source_change_exercise: "complete_2026_08_20_hash_stable"
-      remaining: "exact_geography_year_and_owner_activation_decision"
+      owner_activation: "approved_2026_08_20_AUS_NZL_2000_2021_medium_variant_national_total"
+      remaining: "none_within_exact_bounded_scope"
     raw_bytes: "private_archive_present_under_cc_by_3_0_igo; excluded_from_bounded_candidate"
     permitted_output: "explicit_medium_variant_population_denominator"
-    conditions: ["approve_exact_geography_and_years", "confirm_workbook_terms", "no_age_sex_interpolation"]
+    geography: ["Australia", "New Zealand"]
+    years: [2000, 2021]
+    year_semantics: "inclusive_range"
+    variant: "medium"
+    dimensions: "national_total_population_only"
+    conditions: ["confirm_workbook_terms", "retain_attribution", "no_age_sex_interpolation", "no_geography_year_or_variant_substitution"]
   - estimand_id: "E-WHO-COMP-2000"
     source_id: "who-global-health-estimates"
     activation: "candidate_only"
