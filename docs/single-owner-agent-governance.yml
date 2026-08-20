@@ -19,6 +19,18 @@ owner:
   decision_authority: repository_scope_and_release_only
   decides_after_agent_advice: true
   absence_or_compromise_action: freeze_protected_changes_production_and_release
+  repository_data_custodian: true
+  applicable_indigenous_authority: true
+  authority_basis: attributable_owner_declaration
+  authority_scope_excludes:
+    - unrelated_indigenous_peoples_or_communities
+    - third_party_custodians
+    - publishers_or_licensors
+    - ethics_bodies
+    - governments_or_jurisdictions
+  additional_human_review_planned: false
+  remuneration_model: unpaid
+  remuneration_amount: 0
 agent_panel:
   simulation_status: simulated_role_separated_advisory_panel
   minimum_perspectives: 3

@@ -9,7 +9,7 @@ shared repository authority.
 ## Required outputs
 
 - advisory-panel and external-evidence-provider terms of reference;
-- selection, disclosure, conflict, remuneration, authorship, appeals and correction policies;
+- selection, disclosure, conflict, unpaid participation, authorship, appeals and correction policies;
 - acceptable-use, harm-review and benefit-sharing framework;
 - Indigenous Data Sovereignty and CARE-aligned node provisions;
 - country-node agreement and accreditation process;
@@ -20,14 +20,16 @@ shared repository authority.
 
 ## Acceptance criteria
 
-1. Patient/community evidence is attributable and appropriately remunerated
-   where obtained, without creating repository ownership or claiming authority
-   where none exists.
+1. Patient/community or harm advice is explicitly simulated and unpaid; any
+   external evidence is attributable without creating repository ownership or
+   claiming authority where none exists.
 2. Scientific, ethics/data-governance and country-node evidence-provider lanes
    are defined and operational without becoming accountable repository roles.
 3. Funders and data contributors cannot veto valid results or control methods for advantage.
 4. Conflicts, complaints, appeals, authorship and correction processes are tested.
-5. Indigenous and country-node authority is explicit where applicable.
+5. The owner's repository-custodian and applicable Indigenous-authority roles
+   are explicit and scope-limited; unrelated community, custodian and
+   country-node authority is never inferred.
 6. External materials clearly distinguish public data use, requested collaboration and confirmed agreement.
 7. Global claims require the representation conditions in the roadmap.
 8. The repository owner approves or bounds the v1 product and acceptable uses
@@ -43,11 +45,13 @@ shared repository authority.
 ## Current bounded repository operating model
 
 This single-accountable-human repository uses the owner plus role-separated
-advisory agent panels defined by ADR-0009 and ADR-0011. Agent findings inform owner
-disposition but are not independent, human, patient/community, custodian,
-Indigenous, institutional or partner authority. Publisher terms and controlled
-environment rules remain independently binding facts. This operating model
-does not satisfy external evidence requirements by relabelling agent advice.
+advisory agent panels defined by ADR-0009 and ADR-0011. Agent findings inform
+owner disposition but are not independent or human review. The owner declares
+the repository-custodian and applicable Indigenous-authority roles for this
+work; that declaration does not extend to unrelated communities, third-party
+custodians or country nodes. Publisher terms and controlled-environment rules
+remain binding facts. No additional human review is planned, and remuneration
+is zero.
 
 ## v1 contribution
 
