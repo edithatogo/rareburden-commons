@@ -1,0 +1,64 @@
+schema_version: "1.0.0"
+track: "009-evidence-parameter-ledger"
+status: "blocked"
+candidate_contract: "v0.4"
+freeze_order_position: 2
+upstream_dependencies:
+  - track: "002-public-source-acquisition"
+    required_status: "complete"
+    observed_status: "in_review"
+    state: "pending"
+  - track: "008-semantic-backbone"
+    required_status: "complete"
+    observed_status: "blocked"
+    state: "pending"
+blocking_data_contract_issues:
+  - id: "EPI-MED-01"
+    finding: "source availability does not establish parameter estimand fitness"
+    assigned_role: "Epidemiology Lead"
+    required_evidence: "exact-candidate disposition of metric, population, period and transformation fitness"
+    status: "assigned_pending_evidence"
+    receipt: ""
+  - id: "EPI-MED-02"
+    finding: "conflicting estimates require explicit selection and rationale"
+    assigned_role: "Epidemiology Lead"
+    required_evidence: "review of complete alternative groups, retained estimates and selection rules"
+    status: "assigned_pending_evidence"
+    receipt: ""
+  - id: "GOV-MED-01"
+    finding: "private or restricted source metadata cannot authorize public ledger parameters"
+    assigned_role: "Data Governance Lead"
+    required_evidence: "source-specific rights, retention, visibility and permitted-use disposition"
+    status: "assigned_pending_evidence"
+    receipt: ""
+review_gate:
+  advisory_challenge: "docs/track-009-bounded-agent-challenge-2026-08-16.yml"
+  panel_status: "advisory"
+  epidemiology_receipt: ""
+  data_governance_receipt: ""
+  engineering_receipt: ""
+  owner_disposition: ""
+  state: "pending"
+contract_freeze_gate:
+  exact_candidate_commit: ""
+  ledger_export_sha256: ""
+  schema_and_migration_receipt: ""
+  source_semantic_transformation_manifest_sha256: ""
+  unresolved_issue_disposition: ""
+  blocking_findings_resolved: false
+  accountable_freeze_decision: ""
+  state: "pending"
+claims:
+  empirical_parameter_activation: false
+  epidemiology_approval: false
+  data_governance_approval: false
+  engineering_approval: false
+  contract_frozen: false
+  track_complete: false
+governance:
+  repository_panel_output: "advisory"
+  owner_disposition: "owner_operated_not_independent_review"
+  automated_validation_effect: "readiness_and_assignment_only_not_approval_review_or_freeze"
+next_action:
+  repository_owned: "preserve provisional contracts and validate exact-candidate review receipts"
+  external_or_accountable: "complete Track 008, resolve assigned findings and record the required review and freeze decisions"
