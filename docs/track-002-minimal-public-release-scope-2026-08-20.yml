@@ -1,0 +1,113 @@
+schema_version: "1.0"
+decision_id: "track-002-minimal-public-release-preparation-2026-08-20"
+status: "owner_approved_preparation_only"
+decision_date: "2026-08-20"
+supersedes_release_scope:
+  - "docs/track-002-option-a-scope.yml@pre-2026-08-20"
+  - "docs/decisions/2026-08-20-public-projection-audit.md"
+authority:
+  decision_maker: "repository_owner"
+  operating_capacity: "single_owner_operator"
+  preparation_authorized: true
+  publication_authorized: false
+  external_mutation_authorized: false
+  new_private_capture_authorized: false
+  credential_use_authorized: false
+  issue_closure_authorized: false
+  external_approval_claimed: false
+candidate:
+  release_kind: "minimal_public_source_snapshot"
+  activation: "disabled_pending_all_release_gates"
+  sources:
+    - source_id: "orphadata-science-july-2026"
+      release: "Orphanet knowledge base release of July 2026"
+      licence: "CC BY 4.0"
+      conditions: [attribution, change_notice, no_endorsement, exact_hash]
+      artifacts:
+        - name: "en_product9_prev.xml"
+          role: "descriptive_epidemiology"
+          source_url: "https://www.orphadata.com/data/xml/en_product9_prev.xml"
+          public_path: "raw/orphadata/2026-07/en_product9_prev.xml"
+          bytes: 16178169
+          sha256: "6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0"
+        - name: "en_product1.xml"
+          role: "identifier_alignment"
+          source_url: "https://www.orphadata.com/data/xml/en_product1.xml"
+          public_path: "raw/orphadata/2026-07/en_product1.xml"
+          bytes: 54026799
+          sha256: "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb"
+    - source_id: "mondo-v2026-08-04"
+      release: "v2026-08-04"
+      licence: "CC BY 4.0"
+      conditions: [attribution, exact_release, publisher_digest_verification, no_clinical_claim]
+      artifacts:
+        - name: "mondo-rare.owl"
+          role: "rare_disease_ontology"
+          source_url: "https://github.com/monarch-initiative/mondo/releases/download/v2026-08-04/mondo-rare.owl"
+          public_path: "raw/mondo/v2026-08-04/mondo-rare.owl"
+          bytes: 160016657
+          sha256: "87361d63636436611e27d408be53606f8e831a2fd6ab70a4969ec54d19cb66d3"
+        - name: "mondo.json"
+          role: "ontology_json"
+          source_url: "https://github.com/monarch-initiative/mondo/releases/download/v2026-08-04/mondo.json"
+          public_path: "raw/mondo/v2026-08-04/mondo.json"
+          bytes: 107497863
+          sha256: "7cf8f1df31185555a21f5ffaf36663ca420671a9bc234fc737eb9bfa977ecd60"
+        - name: "mondo.owl"
+          role: "ontology_owl"
+          source_url: "https://github.com/monarch-initiative/mondo/releases/download/v2026-08-04/mondo.owl"
+          public_path: "raw/mondo/v2026-08-04/mondo.owl"
+          bytes: 254105311
+          sha256: "afb2e699abf77082253ef51cca5f8531c8e4023ea0acc32ff3709818d0788a88"
+excluded_sources:
+  - source_id: "un-world-population-prospects"
+    release_visibility: "private_only"
+    existing_public_object: true
+    observed_public_path: "raw/wpp/2024/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx"
+    remediation_gate: "pending_separate_external_action_authority"
+    reason: "Owner narrowed the release; repository preparation cannot make the already-public hosted object private."
+  - source_id: "who-global-health-estimates"
+    release_visibility: "private_candidate"
+    reason: "No file-level licence or field-level third-party credit register; redistribution and non-minimal modification remain unresolved."
+  - source_id: "human-phenotype-ontology"
+    release_visibility: "exact_assets_only_after_separate_rights_and_release_decision"
+    reason: "Existing rights findings are asset-specific and do not authorize inclusion in this candidate."
+  - source_id: "panelapp-all-routes"
+    release_visibility: "excluded"
+    reason: "Publisher, terms, automation, rate and mixed third-party rights gates remain open."
+  - source_id: "controlled-or-credentialed-sources"
+    release_visibility: "excluded"
+    includes: [MedDRA, MLDS, UMLS, SNOMED_CT, ICD, OMIM]
+    reason: "No source-specific credential or licensed-byte action is authorized by this decision."
+  - source_id: "all-other-observed-or-archived-sources"
+    release_visibility: "excluded"
+    reason: "The candidate is an allowlist; public eligibility or prior archival does not imply inclusion."
+release_gates:
+  - id: "exact_candidate_package_verification"
+    status: "pending"
+    minimum_evidence: "Five artifacts verified by exact size and SHA-256 in a clean candidate package."
+  - id: "included_source_live_terms_change_exercise"
+    status: "pending"
+    minimum_evidence: "Dated live Orphadata and MONDO terms/source observations with fail-closed drift disposition."
+  - id: "rights_attribution_and_third_party_audit"
+    status: "pending"
+    minimum_evidence: "Candidate-bound notices, attribution, provenance and exclusion audit."
+  - id: "track_007_bounded_claims_dependency"
+    status: "pending"
+    minimum_evidence: "Track 007 disposition compatible with bounded, non-comprehensive claims."
+  - id: "final_owner_publication_decision"
+    status: "pending"
+    minimum_evidence: "Owner decision bound to exact commit and candidate artifact hashes."
+  - id: "wpp_existing_public_object_reconciliation"
+    status: "pending_external_authority"
+    minimum_evidence: "Separate authorization plus post-action remote verification; no deletion or visibility claim is inferred now."
+claims:
+  comprehensive_coverage: false
+  systematic_review: false
+  global_representativeness: false
+  confirmed_novelty: false
+  independent_review: false
+  community_authority: false
+  clinical_validation: false
+  partnership_or_access: false
+  external_approval: false

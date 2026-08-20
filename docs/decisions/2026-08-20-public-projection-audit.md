@@ -1,5 +1,10 @@
 # Public projection audit — 2026-08-20
 
+**Release-scope status:** superseded by
+`2026-08-20-track-002-minimal-public-release-preparation.md`. The observations
+below remain historical evidence of public objects; they are not current
+authority to include those objects in a release.
+
 **Decision owner:** repository owner
 **Operating model:** single developer; role-separated agent-panel challenge and
 owner disposition. No independent, human, patient/community, custodian or

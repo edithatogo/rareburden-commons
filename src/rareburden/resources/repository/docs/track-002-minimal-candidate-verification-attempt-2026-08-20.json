@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "track-002-minimal-public-release-preparation-2026-08-20",
+  "observed_at": "2026-08-20T12:29:20Z",
+  "status": "blocked_transport_exact_candidate_not_built",
+  "scope": {
+    "source_count": 2,
+    "artifact_count": 5,
+    "scope_path": "docs/track-002-minimal-public-release-scope-2026-08-20.yml"
+  },
+  "attempts": [
+    {
+      "sequence": 1,
+      "result": "failed_closed",
+      "failure": "Live mondo.owl stream did not match the approved exact size and SHA-256 pair.",
+      "cleanup": "temporary source bytes removed"
+    },
+    {
+      "sequence": 2,
+      "result": "failed_closed",
+      "failure": "TLS handshake timed out during a live terms or release-metadata observation.",
+      "cleanup": "no candidate source-byte directory created"
+    },
+    {
+      "sequence": 3,
+      "result": "failed_closed",
+      "failure": "Both bounded attempts to retrieve mondo-rare.owl timed out.",
+      "cleanup": "temporary source bytes removed"
+    }
+  ],
+  "publisher_metadata_observation": {
+    "url": "https://api.github.com/repos/monarch-initiative/mondo/releases/tags/v2026-08-04",
+    "observed_date": "2026-08-20",
+    "assets": [
+      {
+        "name": "mondo-rare.owl",
+        "bytes": 160016657,
+        "sha256": "87361d63636436611e27d408be53606f8e831a2fd6ab70a4969ec54d19cb66d3",
+        "updated_at": "2026-08-04T18:55:19Z"
+      },
+      {
+        "name": "mondo.json",
+        "bytes": 107497863,
+        "sha256": "7cf8f1df31185555a21f5ffaf36663ca420671a9bc234fc737eb9bfa977ecd60",
+        "updated_at": "2026-08-04T18:54:16Z"
+      },
+      {
+        "name": "mondo.owl",
+        "bytes": 254105311,
+        "sha256": "afb2e699abf77082253ef51cca5f8531c8e4023ea0acc32ff3709818d0788a88",
+        "updated_at": "2026-08-04T18:55:26Z"
+      }
+    ],
+    "disposition": "Publisher metadata matches the approved pins, but metadata is not a substitute for exact candidate-byte verification."
+  },
+  "gate_disposition": {
+    "exact_candidate_package_verification": "pending",
+    "included_source_live_terms_change_exercise": "pending",
+    "rights_attribution_and_third_party_audit": "pending",
+    "final_owner_publication_decision": "pending"
+  },
+  "authority": {
+    "publication_authorized": false,
+    "external_mutation_performed": false,
+    "credential_used": false,
+    "private_capture_performed": false,
+    "source_bytes_retained": false
+  },
+  "next_minimum_evidence": "One later clean run must observe every required live terms marker, verify all five exact source files, hash the deterministic candidate package stream, and confirm cleanup."
+}
