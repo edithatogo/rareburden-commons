@@ -4,10 +4,10 @@
   "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-01",
+  "updated": "2026-08-21",
   "target_release": "0.6.0",
   "stage": "federated_execution",
-  "owner_role": "Node Architecture and Data Governance Leads",
+  "owner_role": "Repository owner (all accountable repository roles)",
   "dependencies": [
     "006-v1-delivery-system",
     "009-evidence-parameter-ledger",

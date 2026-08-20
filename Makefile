@@ -9,6 +9,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
 	validation-artifacts validation-artifacts-check \
 	downstream-preparation-check \
+	single-developer-governance-check \
 	track-008-freeze-readiness-check \
 	track-009-freeze-readiness-check \
 	track-010-alpha-freeze-readiness-check \
@@ -41,6 +42,10 @@ qualifying-receipts-check:
 downstream-preparation-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_downstream_preparation.py \
 		docs/downstream-bounded-preparation-plan-2026-08-03.yml --root .
+
+single-developer-governance-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_single_developer_governance.py \
+		docs/single-developer-governance.yml --root .
 
 track-008-freeze-readiness-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track_008_freeze_readiness.py \
@@ -190,7 +195,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check track-008-freeze-readiness-check track-009-freeze-readiness-check track-010-alpha-freeze-readiness-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check single-developer-governance-check track-008-freeze-readiness-check track-009-freeze-readiness-check track-010-alpha-freeze-readiness-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility
