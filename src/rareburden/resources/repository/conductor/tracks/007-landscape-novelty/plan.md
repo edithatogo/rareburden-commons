@@ -108,11 +108,12 @@
 - [x] Screen all 144 live-only records with the exact scope/contribution
   vocabulary and response hashes. The result is 51 content-assessment
   candidates and 93 uncertain records, with zero exclusions.
-- [ ] Complete any deeper content assessment for 54 live-only bounded adjacency
-  records and resolve the remaining 90 uncertain records without inferring
-  exclusion, absence, coverage or novelty from missing evidence. Safe public
-  topics/keywords and repository facts upgraded 3 records; no prohibited
-  content was retained.
+- [x] Complete the bounded deeper content assessment for 54 live-only adjacency
+  records and resolve the remaining 90 records as
+  `not_assessable_in_bounded_public_metadata_scope`, never as exclusions or
+  evidence of absence, coverage or novelty. Evidence:
+  `docs/track-007-bounded-content-resolution-2026-08-20.json`, deterministic
+  generator and negative tests; no prohibited content was retained.
 - [x] Record bounded adjacency eligibility for the 51 live-only records with
   both exact public scope and contribution signals; retain all 93 other records
   as uncertain, never excluded. Evidence:
@@ -154,16 +155,16 @@
   missingness semantics. Evidence:
   `docs/track-007-protocol-v0.2.1-preparation.yml`; it is not frozen and no
   capture execution or community-authority claim is inferred.
-- [x] Prepare and authorize the bounded provider/language/region capture
-  manifest with an empty observation set, explicit Option A scope and
+- [x] Prepare, authorize and execute the bounded provider/language/region
+  capture manifest with explicit Option A scope and
   fail-closed claim/stop rules. Evidence:
   `docs/track-007-stratum-capture-manifest-v0.2.1.yml` and regression tests.
   Live execution is recorded in the bounded pilot artifact; expansion remains
   out of scope until a new owner decision.
 - [x] Prepare an owner scope-decision packet with bounded-pilot, full-strata
-  and defer options. Evidence:
-  `docs/track-007-v021-scope-decision-packet-2026-08-20.yml`; no option is
-  selected or executed by repository automation.
+  and defer options, then record the owner-selected Option A scope. Evidence:
+  `docs/track-007-v021-scope-decision-packet-2026-08-20.yml` and the executed
+  pilot artifact; repository automation did not infer the owner decision.
 
 ## Review fixes — 2026-08-15 title clusters
 

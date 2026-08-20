@@ -8,6 +8,31 @@ complete, and the repository owner selected Option A against the exact merged
 candidate. The original publication-ready landscape acceptance remains unmet.
 External registry submission is optional, and OSF is deferred.
 
+## Bounded v0.2.1 pilot and content disposition — 2026-08-20
+
+The owner-authorized Option A pilot executed all 48 selected
+provider/language/region cells across Crossref, GitHub, Zenodo and Hugging Face
+with one-second minimum pacing. The immutable artifact retains request/final
+URLs, status, response SHA-256, stable identifiers and explicit missingness;
+raw response bodies were not retained. Twenty-four cells returned identifiers
+and 24 record `unknown` missingness. Neither state is evidence of regional or
+language coverage, representativeness, absence, community authority or novelty.
+
+The remaining 144 live-only records now have a terminal bounded disposition.
+Fifty-four records with explicit lawful public scope or contribution signals
+remain `include_bounded_adjacency`. The other 90 are
+`not_assessable_in_bounded_public_metadata_scope`; they are not exclusions and
+do not support absence, quality or novelty inference. The deterministic
+resolution is bound in
+`docs/track-007-bounded-content-resolution-2026-08-20.json` and rejects duplicate
+identifiers, missing hashes and unsupported exclusion states.
+
+Repository-owned search and screening work is therefore complete for the
+approved bounded scope. The remaining unchecked item is attributable
+patient/community evidence for any future claim that depends on community
+authority. No such authority, approval or legitimacy claim is made by the
+current bounded evidence.
+
 ## Current closeout evidence — 2026-08-16
 
 `docs/track-007-protocol-v0.2.0.md` freezes the review question, active search
