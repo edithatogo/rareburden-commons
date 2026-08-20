@@ -1,17 +1,25 @@
 schema_version: '1.0'
 status: exact_public_copy_verified_private_duplicate_removal
-recorded_at_utc: '2026-08-20T22:31:00Z'
+recorded_at_utc: '2026-08-20T22:49:00Z'
 repositories:
   private_source:
     id: edithatogo/hpo-licensed-ontology-archive
-    verified_revision: f73b218697878baf9cea1f60d09c07691c7cf150
-    head_files: 462
-    head_bytes: 91735146774
+    verified_revision: 6ab5857dd99c8aa9caa88b4ca324ce47dc0fae64
+    head_files: 454
+    head_bytes: 91496983205
+  private_source_archive:
+    id: edithatogo/rareburden-commons-source-archive
+    verified_revision: ddf35f48f21dce831e346559b41549bd6188662d
+    head_files: 38
+    head_bytes: 137925035
+  account_private_dataset_head_total:
+    repositories: 2
+    bytes: 91634908240
   public_destination:
     id: edithatogo/rareburden-commons-open-source-snapshots
-    verified_revision: e820592746dc0c2f9f47524b6f59e2da3007da43
-    head_files: 315
-    head_bytes: 7212173340
+    verified_revision: e92fb001bba4fa973e5bfe7e3c8a2431e9f4ffd6
+    head_files: 324
+    head_bytes: 7450340630
 reconciliations:
   - id: do_mp_pato_upheno_mesh
     private_head_commit: 2ef53e2e121af9d8fca2517d09b5a7b862ff36f5
@@ -43,10 +51,22 @@ reconciliations:
     bytes_removed: 244997815
     lfs_objects_permanently_deleted: 7
     verification: exact size and SHA-256; streamed SHA-256 for two non-LFS objects
+  - id: hpo_v2026_06_23_private_ontology_archive
+    private_revision_after_history_rewrite: 6ab5857dd99c8aa9caa88b4ca324ce47dc0fae64
+    references_removed: 8
+    bytes_removed: 238163569
+    lfs_objects_permanently_deleted: 8
+    verification: exact public path, size and SHA-256
+  - id: hpo_v2026_06_23_private_source_archive
+    private_revision_after_history_rewrite: ddf35f48f21dce831e346559b41549bd6188662d
+    references_removed: 3
+    bytes_removed: 112037930
+    lfs_objects_permanently_deleted: 3
+    verification: exact basename, size and SHA-256 against the public HPO release
 totals:
-  private_references_removed: 71
-  private_head_bytes_removed: 2400949651
-  private_lfs_objects_permanently_deleted: 45
+  private_references_removed: 82
+  private_head_bytes_removed: 2751151150
+  private_lfs_objects_permanently_deleted: 56
   public_recovery_source_verified: true
 hpo_public_frontier:
   workflow_runs:
@@ -56,8 +76,9 @@ hpo_public_frontier:
     - {id: 32424348974, start: 150, count: 10, conclusion: success}
     - {id: 32424469328, start: 160, count: 10, conclusion: success}
     - {id: 32424677595, start: 170, count: 10, conclusion: success}
-  public_release_objects: 80
-  public_release_bytes: 2159791101
+    - {id: 32425734686, start: 280, count: 8, conclusion: success}
+  public_release_objects: 88
+  public_release_bytes: 2397954670
   eligible_matrix_objects: 288
   completeness_claimed: false
 boundaries:
