@@ -27,7 +27,9 @@ def test_bounded_content_resolution_is_deterministic() -> None:
     assert resolve(SOURCE.read_bytes()) == json.loads(OUTPUT.read_text(encoding="utf-8"))
 
 
-@pytest.mark.parametrize("defect", ["duplicate", "missing_hash", "unsupported_decision"])
+@pytest.mark.parametrize(
+    "defect", ["duplicate", "missing_hash", "malformed_hash", "unsupported_decision", "non_mapping"]
+)
 def test_bounded_content_resolution_rejects_invalid_sources(defect: str) -> None:
     source = json.loads(SOURCE.read_text(encoding="utf-8"))
     broken = copy.deepcopy(source)
@@ -36,6 +38,10 @@ def test_bounded_content_resolution_rejects_invalid_sources(defect: str) -> None
     elif defect == "missing_hash":
         broken["decisions"][0].pop("response_sha256", None)
         broken["decisions"][0].pop("evidence_sha256", None)
+    elif defect == "malformed_hash":
+        broken["decisions"][0]["response_sha256"] = "sha256:not-a-digest"
+    elif defect == "non_mapping":
+        broken["decisions"][0] = ["not", "an", "object"]
     else:
         broken["decisions"][0]["decision"] = "exclude"
     with pytest.raises(ValueError):
