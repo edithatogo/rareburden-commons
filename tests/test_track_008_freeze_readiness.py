@@ -1,0 +1,54 @@
+from __future__ import annotations
+
+import copy
+from pathlib import Path
+
+import pytest
+import yaml
+
+from scripts.check_track_008_freeze_readiness import Track008ReadinessError, validate
+
+ROOT = Path(__file__).parents[1]
+READINESS = ROOT / "docs/track-008-freeze-readiness-2026-08-21.yml"
+
+
+def _candidate(tmp_path: Path, document: dict[str, object]) -> Path:
+    path = tmp_path / "readiness.yml"
+    path.write_text(yaml.safe_dump(document, sort_keys=False), encoding="utf-8")
+    return path
+
+
+def test_current_track_008_blockers_are_consistent() -> None:
+    validate(READINESS, ROOT)
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        (("claims", "contract_frozen", True), "claims must remain false"),
+        (("governance", "repository_panel_output", "independent"), "must remain advisory"),
+        (("governance", "owner_disposition", "independent_review"), "cannot be independent"),
+    ],
+)
+def test_readiness_rejects_premature_claims(
+    tmp_path: Path, mutation: tuple[str, str, object], message: str
+) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    section, field, value = mutation
+    document[section][field] = value
+    with pytest.raises(Track008ReadinessError, match=message):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_hidden_finding(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["naming_and_semantic_gate"]["unresolved_findings"].pop()
+    with pytest.raises(Track008ReadinessError, match="four bounded-review findings"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_unbound_freeze(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["contract_freeze_gate"]["state"] = "satisfied"
+    with pytest.raises(Track008ReadinessError, match="exact 40-character"):
+        validate(_candidate(tmp_path, document), ROOT)
