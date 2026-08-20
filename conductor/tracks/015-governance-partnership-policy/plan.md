@@ -102,7 +102,8 @@
 - [x] Refresh the exact commit, tree and scope-manifest binding after the
   merged Track 007 bounded content-resolution and Option B downstream
   preparation changes, the bounded Track 002 live source-change exercise and
-  the Track 007 input-hardening fix; retain the disposition because Tracks
+  receipt hardening, the Track 007 input-hardening fix and the Track 017
+  evidence-contract reconciliation; retain the disposition because Tracks
   002/007 remain in review, Tracks 008–010 remain blocked/provisional and all
   accountable community, rights, custodian, empirical and release gates remain
   pending. Evidence:
