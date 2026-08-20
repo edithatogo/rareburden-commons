@@ -5,9 +5,10 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 
 
-def test_external_gate_register_is_pending_and_fail_closed() -> None:
+def test_external_gate_register_is_legacy_and_fail_closed() -> None:
     text = (ROOT / "docs/external-gate-register-017.md").read_text(encoding="utf-8")
-    assert "**Status:** template; all gates are pending." in text
+    assert "**Status:** legacy candidate template" in text
+    assert "superseded by ADR-0009" in text
     for gate in (
         "Scientific methods",
         "Patient/community",
