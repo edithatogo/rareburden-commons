@@ -85,3 +85,18 @@
   search, empirical extraction, verification, synthesis or parameter creation
   has occurred; the Phase 2 empirical evidence task and all upstream and
   external gates remain open.
+
+## Synthetic outcome and service-ledger preparation — 2026-08-21
+
+- [x] Define a machine-tested, empty evidence-ledger contract for diagnosis
+  delay, treatment change, complications and service use, keeping reported
+  results, transformations, modelled scenarios and assumptions distinct.
+  Evidence:
+  `docs/track-003-outcome-service-evidence-ledger-contract-v0.1.0.yml` and
+  `tests/test_track_003_outcome_service_evidence_ledger_contract.py`. The
+  contract rejects causal treatment claims, incompatible outcome measures,
+  case-fraction allocation of complications or utilisation, event/person
+  confusion and silent overlap or missingness handling. No source search,
+  extraction, empirical comparison, synthesis or parameter creation occurred;
+  the Phase 2 empirical ledger task and all upstream and external gates remain
+  open.
