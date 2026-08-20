@@ -92,3 +92,12 @@
   `docs/downstream-bounded-preparation-plan-2026-08-03.yml`,
   `scripts/check_downstream_preparation.py` and focused fail-closed tests.
   Scientific-software, clinical/community and alpha-freeze gates remain open.
+
+## Review fixes — 2026-08-20
+
+- [x] Compile immutable distribution samplers once per simulation and
+  decomposition run, preserve the versioned random stream with a golden output
+  digest, and measure the CPU-only benchmark using process CPU time rather than
+  contention-sensitive wall time. The 15-second limit is unchanged; the receipt
+  explicitly disclaims end-to-end wall latency. External scientific-software
+  review and alpha-interface freeze remain open.
