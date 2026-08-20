@@ -1,0 +1,189 @@
+schema_version: "0.1.0"
+contract_id: "RBC-P002-ESTIMAND-DENOMINATOR-v0.1.0"
+protocol_id: "RBC-P002"
+status: "non_binding_synthetic_preparation"
+track_status: "blocked"
+empirical_activation: "disabled"
+purpose: >-
+  Define machine-testable candidate estimands, denominator roles and
+  compatibility failures without freezing clinical entities or producing an
+  empirical monogenic-diabetes estimate.
+
+population_frame:
+  geography: "required_at_registration"
+  period: "required_at_registration"
+  age_band: "required_at_registration"
+  sex_or_gender_scope: "required_at_registration_or_explicitly_all"
+  diabetes_case_definition: "required_at_registration"
+  monogenic_entity_release: "required_before_activation"
+
+denominator_options:
+  - denominator_id: "D-RBC-P002-PRIMARY-DIABETES"
+    role: "compatible_primary"
+    definition: >-
+      People meeting the prospectively selected diabetes case definition in
+      the declared geography, period and age band.
+    permitted_estimands:
+      - "E-RBC-P002-AETIOLOGIC-PROPORTION"
+      - "E-RBC-P002-EXPECTED-CASES"
+    required_alignment:
+      - "geography"
+      - "period"
+      - "age_band"
+      - "diabetes_case_definition"
+      - "ascertainment_target"
+    unresolved_fields:
+      - "source_release"
+      - "numerator_case_definition"
+      - "population_coverage"
+
+  - denominator_id: "D-RBC-P002-DIAGNOSED-DIABETES"
+    role: "sensitivity_only"
+    definition: >-
+      People recorded as diagnosed with diabetes under a declared observation
+      and ascertainment process.
+    permitted_estimands:
+      - "E-RBC-P002-DIAGNOSED-AETIOLOGIC-PROPORTION"
+    required_alignment:
+      - "geography"
+      - "period"
+      - "age_band"
+      - "diabetes_case_definition"
+      - "diagnosis_observation_process"
+    limitation: >-
+      This denominator cannot identify undiagnosed diabetes or undiagnosed
+      monogenic aetiology without a separately registered state model.
+
+  - denominator_id: "D-RBC-P002-REFERRAL-COHORT"
+    role: "ascertainment_scenario_only"
+    definition: >-
+      People observed in a referral, genetic-testing or specialist cohort.
+    permitted_estimands:
+      - "E-RBC-P002-REFERRAL-COHORT-PROPORTION"
+    prohibited_use:
+      - "national_prevalence"
+      - "population_aetiologic_fraction"
+      - "unadjusted_transport_to_primary_denominator"
+    limitation: >-
+      Referral and testing selection prevent direct interpretation as a
+      population denominator.
+
+  - denominator_id: "D-RBC-P002-TOTAL-POPULATION"
+    role: "incompatible_with_within_diabetes_fraction"
+    definition: >-
+      Total resident population for the declared geography and period.
+    permitted_estimands:
+      - "E-RBC-P002-POPULATION-PREVALENCE"
+    prohibited_use:
+      - "multiply_by_within_diabetes_aetiologic_fraction"
+    limitation: >-
+      A within-diabetes aetiologic fraction may be applied only after a
+      separately registered and compatible diabetes-prevalence step.
+
+estimands:
+  - estimand_id: "E-RBC-P002-AETIOLOGIC-PROPORTION"
+    status: "candidate"
+    question: >-
+      Among people in the compatible primary diabetes denominator, what
+      proportion meet the frozen monogenic-diabetes aetiology definition?
+    numerator: "people_meeting_frozen_monogenic_aetiology_definition"
+    denominator_role: "compatible_primary"
+    unit: "proportion"
+    interpretation: "descriptive_composition_not_a_causal_effect"
+
+  - estimand_id: "E-RBC-P002-EXPECTED-CASES"
+    status: "candidate"
+    question: >-
+      How many people in the compatible primary diabetes denominator plausibly
+      meet the frozen monogenic-diabetes aetiology definition?
+    numerator: "modelled_people_meeting_frozen_monogenic_aetiology_definition"
+    denominator_role: "compatible_primary"
+    unit: "people"
+    calculation_contract: >-
+      compatible_diabetes_denominator multiplied by an aligned aetiologic
+      proportion, with parameter and structural uncertainty reported
+      separately.
+    interpretation: "modelled_expected_population_not_observed_case_count"
+
+  - estimand_id: "E-RBC-P002-DIAGNOSED-AETIOLOGIC-PROPORTION"
+    status: "sensitivity_candidate"
+    question: >-
+      Among people observed as diagnosed with diabetes, what proportion are
+      observed as diagnosed with a frozen monogenic aetiology?
+    numerator: "observed_diagnosed_monogenic_cases"
+    denominator_role: "sensitivity_only"
+    unit: "proportion"
+    interpretation: "ascertainment_conditioned_not_total_monogenic_burden"
+
+  - estimand_id: "E-RBC-P002-REFERRAL-COHORT-PROPORTION"
+    status: "bias_diagnostic_only"
+    question: >-
+      Within a declared referral or testing cohort, what proportion meet the
+      frozen monogenic aetiology definition?
+    numerator: "cohort_members_meeting_frozen_monogenic_aetiology_definition"
+    denominator_role: "ascertainment_scenario_only"
+    unit: "proportion"
+    interpretation: "selection_conditioned_no_population_transport_claim"
+
+  - estimand_id: "E-RBC-P002-POPULATION-PREVALENCE"
+    status: "deferred_chain_estimand"
+    question: >-
+      In the total population, what proportion plausibly meet the frozen
+      monogenic-diabetes aetiology definition?
+    numerator: "modelled_people_meeting_frozen_monogenic_aetiology_definition"
+    denominator_role: "incompatible_with_within_diabetes_fraction"
+    unit: "proportion"
+    activation_condition: >-
+      Register a compatible diabetes-prevalence model and dependence structure
+      before combining it with a within-diabetes aetiologic fraction.
+
+compatibility_rules:
+  - rule_id: "RBC-P002-DEN-001"
+    condition: "within_diabetes_fraction_with_total_population_denominator"
+    action: "reject"
+  - rule_id: "RBC-P002-DEN-002"
+    condition: "referral_cohort_fraction_interpreted_as_population_fraction"
+    action: "reject"
+  - rule_id: "RBC-P002-DEN-003"
+    condition: "geography_period_age_or_case_definition_mismatch"
+    action: "reject"
+  - rule_id: "RBC-P002-DEN-004"
+    condition: "diagnosed_denominator_used_for_total_or_undiagnosed_state"
+    action: "reject_without_registered_state_model"
+  - rule_id: "RBC-P002-DEN-005"
+    condition: "outcome_or_cost_envelope_allocated_by_case_fraction_alone"
+    action: "reject_without_subgroup_specific_model"
+
+uncertainty_domains:
+  - "denominator_measurement"
+  - "aetiologic_fraction_parameter"
+  - "case_definition"
+  - "ascertainment_and_referral"
+  - "transportability"
+  - "dependence_between_model_components"
+  - "structural_model_choice"
+
+current_fixture_disposition:
+  fixture: "examples/analyses/monogenic-diabetes-synthetic.yml"
+  status: "engine_assurance_only"
+  protocol_compatible: false
+  reason: >-
+    The fixture deliberately combines a total-population parameter with a
+    synthetic rare-diabetes fraction and therefore cannot instantiate a
+    within-diabetes RBC-P002 estimand.
+
+blocking_gates:
+  - "track_008_semantic_release_and_entity_scope"
+  - "track_009_evidence_and_parameter_contracts"
+  - "track_010_burden_engine_interface"
+  - "clinical_methods_agent_challenge_and_owner_disposition"
+  - "patient_community_harm_agent_challenge_and_owner_disposition"
+  - "data_governance_review_for_any_non_public_input"
+
+prohibited_claims:
+  - "empirical_monogenic_diabetes_prevalence"
+  - "national_or_global_representativeness"
+  - "clinical_validity_or_diagnostic_use"
+  - "causal_treatment_effect"
+  - "approved_or_frozen_protocol"
+  - "independent_or_external_review"
