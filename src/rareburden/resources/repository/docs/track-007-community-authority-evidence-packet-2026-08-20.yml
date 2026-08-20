@@ -1,0 +1,54 @@
+schema_version: '1.0.0'
+packet_id: RBC-LAND-007-COMMUNITY-AUTHORITY-2026-08-20
+track: 007-landscape-novelty
+status: pending_attributable_community_evidence
+assurance: preparation_only_not_patient_or_community_approval
+purpose: >-
+  Define the minimum evidence needed before any output relies on community
+  interpretation, acceptable use, legitimacy, benefit or authority.
+current_state:
+  attributable_receipts: 0
+  community_authority_claim: prohibited
+  agent_panel_substitute: prohibited
+  owner_disposition_substitute: prohibited
+  public_visibility_substitute: prohibited
+required_receipt_fields:
+  - receipt_id
+  - submitting_body_or_person
+  - self_described_role_and_community_relationship
+  - authority_basis_or_scope
+  - decision_type
+  - materials_reviewed
+  - language_and_accessibility_support
+  - acceptable_use_and_harm_conditions
+  - benefit_or_return_expectations
+  - limitations_or_dissent
+  - date_utc
+  - durable_locator
+  - exact_candidate_commit_and_manifest
+  - withdrawal_or_correction_route
+allowed_decision_types: [endorse, accept_with_conditions, narrow, revise, defer, stop]
+evidence_boundary:
+  may_support:
+    - attributable interpretation of terminology or framing
+    - acceptable-use conditions for a specified candidate
+    - community-prioritised harms or benefits where explicitly stated
+  may_not_support:
+    - global or regional representativeness
+    - clinical validity
+    - publisher licence or custodian authority
+    - partnership or endorsement beyond the submitted scope
+    - consent inferred from a public webpage or search result
+retention:
+  retain_minimum_durable_receipt: true
+  do_not_retain_unnecessary_personal_or_sensitive_content: true
+  preserve_conditions_and_withdrawal_route: true
+stop_triggers:
+  - unattributed_or_ambiguous_authority
+  - consent_or_partnership_inferred_from_public_visibility
+  - missing_scope_or_candidate_binding
+  - unsafe_or_stigmatizing_framing
+  - inability_to_correct_or_withdraw
+next_action:
+  repository_owned: keep_gate_pending_and_use_non_authority_language
+  requires_external_accountable_participant: true

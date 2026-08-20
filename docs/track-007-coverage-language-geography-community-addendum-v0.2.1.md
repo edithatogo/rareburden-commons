@@ -38,3 +38,11 @@ terms, request hashes, rate limits, retrieval window and reconciliation record.
 Until then, the recommended disposition is `narrow_and_remediate`: retain the
 bounded adjacency hypothesis and missingness matrix, while prohibiting global,
 representative, community-authority, partnership and confirmed-novelty claims.
+
+The required evidence shape for any future community-authority or acceptable-
+use decision is prepared in
+`docs/track-007-community-authority-evidence-packet-2026-08-20.yml`. It requires
+an attributable role and authority basis, exact-candidate binding, language and
+accessibility support, conditions, dissent, and a correction/withdrawal route.
+It explicitly rejects agent-panel findings, owner disposition and public
+visibility as substitutes for community authority.
