@@ -6,11 +6,11 @@ dependencies:
     scope: synthetic semantic hierarchy only
   - track_id: "009"
     artifact: manifests/ledger/track-009-source-release-bindings-2026-08-16.json
-    sha256: 84b1d8377a87c787a0ff624727a00a9bab6fdbf4851bf840e8157c61eee04376
+    sha256: 56b232807e71e3c43f7ff691dc9985deec13ea59756133a28991fff62e181267
     scope: synthetic ledger source-link assurance only
   - track_id: "010"
     artifact: manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json
-    sha256: a8176c09e3824d603bf6cd839cfb34b1fd55b7644850d2ad5d7bd1da8713e4fc
+    sha256: dc050724fb70a95885954be5b8f77243851da63f3fcbf1c837e1d307bfa131fd
     scope: bounded synthetic burden-engine reconciliation only
 claims:
   empirical_activation: false

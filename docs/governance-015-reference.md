@@ -1,23 +1,20 @@
 # Track 015 governance and relationship scaffold
 
-This is the operating scaffold for a single-person repository. The repository
-owner is the sole decision maker. Every named panel is a role-separated panel
-of advisory agents, not a committee of people, and supplies options,
-contingencies, rationale, trade-offs and a recommendation. All work is free:
-remuneration is zero and no payment, budget, promise or entitlement exists.
+This is a non-binding governance scaffold. It does not appoint a committee,
+create voting rights, establish remuneration, or imply a partnership.
 
-## Advisory agent panels
+## Proposed decision bodies
 
-| Panel | Advisory perspective | Decision authority |
+| Body | Reserved authority (proposed) | Required representation before activation |
 |---|---|---|
-| Patient/community and harm panel | acceptable use, harm, language, equity and patient-facing interpretation | advisory only; repository owner decides |
-| Scientific methods panel | estimands, methods, uncertainty, validation and scientific claims | advisory only; repository owner decides |
-| Rights and data-use panel | rights, custodian conditions, Indigenous-authority boundaries, disclosure and withdrawal | advisory only; repository owner decides repository scope |
-| Node operations panel | country-node operation, accreditation, local authority and portability | advisory only; external custodians retain their own authority |
-| Programme and release panel | strategy, conflicts, funding independence, appeals and release options | advisory only; repository owner decides |
+| Patient and Community Council | acceptable use, harm, language, equity and patient-facing interpretation | patient/community members with voting authority and budgeted remuneration |
+| Scientific Methods Council | estimands, methods, uncertainty, validation and scientific claims | independent methods and disease expertise |
+| Data Governance and Ethics Committee | rights, custodian conditions, Indigenous governance, disclosure and withdrawal | relevant ethics/data-governance authority |
+| Node Council | country-node operation, accreditation, local authority and portability | participating custodians/nodes |
+| Governing Board | strategy, conflicts, funding independence, appeals and release decisions | accountable programme and community co-chair |
 
-Panel labels separate perspectives, not people. They create no independent,
-community, Indigenous, institutional, custodian, licensor or partner authority.
+No body is considered constituted until appointment, quorum, conflict,
+remuneration, voting and reserved-decision records are approved.
 
 ## Relationship claim states
 

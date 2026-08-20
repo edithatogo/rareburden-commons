@@ -17,9 +17,30 @@ def test_track_008_source_inventory_is_fail_closed() -> None:
     assert document["activation"] == "synthetic_and_metadata_only_no_v0_4_freeze"
     assert len(document["records"]) == 8
     assert not any(document["claims"].values())
+    assert document["upstream_state"]["track_002"] == "archived_bounded_completion"
+    assert document["upstream_state"]["track_007"] == "archived_bounded_completion"
     rendered = render_inventory(document, ROOT)
     assert len(rendered["inventory_sha256"]) == 64
     assert all(len(record["release_evidence_sha256"]) == 64 for record in rendered["records"])
+
+
+def test_track_008_reconciles_owner_source_dispositions_without_activation() -> None:
+    document = yaml.safe_load(
+        (ROOT / "docs/track-008-source-release-inventory-2026-08-03.yml").read_text()
+    )
+    records = {record["source_id"]: record for record in document["records"]}
+
+    assert records["orphadata-science-alignments"]["owner_disposition"] == (
+        "included_in_exact_hash_identified_allowlist"
+    )
+    assert records["mondo-disease-ontology"]["owner_disposition"] == (
+        "included_in_exact_hash_identified_allowlist_subject_to_mapping_fitness_review"
+    )
+    assert records["human-phenotype-ontology"]["owner_disposition"] == (
+        "asset_by_asset_only_uncleared_assets_metadata_only_or_excluded"
+    )
+    assert records["human-phenotype-ontology"]["semantic_use"].startswith("disabled_")
+    assert document["activation"] == "synthetic_and_metadata_only_no_v0_4_freeze"
 
 
 def test_track_008_source_inventory_rejects_unsafe_activation_and_rights() -> None:

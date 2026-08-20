@@ -4,10 +4,10 @@
   "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-21",
+  "updated": "2026-08-20",
   "target_release": "0.4.0",
   "stage": "semantic_core",
-  "owner_role": "Repository owner (all accountable repository roles)",
+  "owner_role": "Semantic Methods Lead",
   "dependencies": [
     "002-public-source-acquisition",
     "007-landscape-novelty"

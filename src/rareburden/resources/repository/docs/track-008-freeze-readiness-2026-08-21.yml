@@ -78,5 +78,5 @@ governance:
   owner_disposition: "owner_operated_not_independent_review"
   automated_validation_effect: "readiness_only_not_approval_review_or_freeze"
 next_action:
-  repository_owned: "preserve the hash-bound provisional candidate and validate incoming exact-candidate receipts"
+  repository_owned: "re-run the bounded source and naming challenge against the reconciled hash-bound provisional candidate; validate incoming exact-candidate receipts"
   external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"
