@@ -24,6 +24,9 @@ until Tracks 008, 009 and 010 are complete.
   ascertainment/penetrance/referral scenarios.
 - Explicit distinction between prevalence, diagnosed prevalence, undiagnosed
   fraction and modelled expected population.
+- Machine-tested framing and interpretation guard covering evidence labels,
+  uncertainty, denominator visibility, harm/equity challenges, acceptable use
+  and stop triggers.
 - Reproducible report, limitations, data-access asks and no-compatible-envelope
   failures.
 
@@ -34,3 +37,8 @@ clinical entities, claim cohort representativeness, apply fractions to
 incompatible outcomes/costs, or produce empirical estimates before upstream
 semantic/ledger/engine contracts and accountable clinical, methods,
 data-governance and patient/community review are complete.
+
+The non-binding framing guard is
+`docs/track-003-framing-interpretation-guard-v0.1.0.yml`. It prepares review
+questions and fail-closed language only; it is not patient/community consent,
+clinical approval or an owner disposition.

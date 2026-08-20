@@ -153,6 +153,13 @@
   scope, accessibility, harm, benefit, correction and withdrawal fields.
   Evidence: `docs/track-007-community-authority-evidence-packet-2026-08-20.yml`;
   the gate remains pending and no authority receipt is inferred.
+- [x] Add a Track 007-specific fail-closed receipt schema, blank intake template
+  and structural validator. Synthetic, owner and agent-panel records cannot
+  qualify; validation is readiness evidence only and accountable verification
+  remains external. Evidence:
+  `schemas/track-007-community-authority-receipt.schema.json`,
+  `docs/track-007-community-authority-receipt-template.yml` and
+  `scripts/check_track_007_community_authority_receipt.py`.
 - [x] Prepare protocol v0.2.1 with bounded language and regional strata,
   provider terms/rate controls, immutable capture fields and explicit
   missingness semantics. Evidence:
