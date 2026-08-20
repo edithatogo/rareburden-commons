@@ -28,12 +28,7 @@ USER_AGENT = "RareBurden-Commons-Track-007/0.2.1 (bounded metadata pilot)"
 
 
 def _retrieved_at() -> str:
-    return (
-        dt.datetime.now(dt.UTC)
-        .replace(microsecond=0)
-        .isoformat()
-        .replace("+00:00", "Z")
-    )
+    return dt.datetime.now(dt.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 def _request(provider: str, query: str) -> tuple[str, bytes, int, str]:
