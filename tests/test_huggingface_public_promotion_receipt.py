@@ -13,6 +13,15 @@ def test_public_promotion_receipt_preserves_free_tier_and_rights_boundaries() ->
     )
     assert payload["private_head_reconciliation"]["removed_exact_duplicate_references"] == 7
     assert payload["private_head_reconciliation"]["removed_head_bytes"] == 1_059_760_301
+    assert payload["private_head_reconciliation"]["permanent_lfs_deletion"] == {
+        "completed": True,
+        "history_rewritten": True,
+        "verified_absent_from_private_lfs_inventory": True,
+    }
+    assert (
+        payload["private_head_reconciliation"]["recoverability"]
+        == "exact_remote_hash_verified_public_projection"
+    )
     assert payload["private_head_reconciliation"]["quota_reclaimed"] == "unverified"
     assert payload["boundaries"] == {
         "paid_storage_used": False,
