@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -27,6 +28,26 @@ FALSE_CLAIMS = {
 }
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
+
+
+def _sha256(path: Path) -> str:
+    try:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+    except OSError as exc:
+        raise Track008ReadinessError(f"cannot hash {path}: {exc}") from exc
+
+
+def _repository_path(root: Path, value: object) -> Path:
+    if not isinstance(value, str) or not value:
+        raise Track008ReadinessError("provisional candidate path is missing")
+    candidate = (root / value).resolve()
+    try:
+        candidate.relative_to(root.resolve())
+    except ValueError as exc:
+        raise Track008ReadinessError(
+            f"provisional candidate path escapes repository: {value}"
+        ) from exc
+    return candidate
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -97,6 +118,52 @@ def validate(path: Path, root: Path) -> None:
     claims = document.get("claims", {})
     if any(claims.get(name) is not False for name in FALSE_CLAIMS):
         raise Track008ReadinessError("blocked Track 008 claims must remain false")
+
+    binding = document.get("provisional_candidate_binding", {})
+    if (
+        binding.get("status") != "synthetic_public_readiness_only"
+        or binding.get("effect") != "none_on_approval_naming_independent_review_freeze_or_track_009"
+    ):
+        raise Track008ReadinessError("provisional candidate must remain readiness-only")
+    if not COMMIT.fullmatch(str(binding.get("source_commit", ""))) or not COMMIT.fullmatch(
+        str(binding.get("source_tree", ""))
+    ):
+        raise Track008ReadinessError(
+            "provisional candidate requires exact commit and tree bindings"
+        )
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("migration_impact_receipt", "migration_impact_sha256"),
+        ("advisory_options", "advisory_options_sha256"),
+    ):
+        relative = binding.get(path_field)
+        expected = binding.get(hash_field)
+        if not isinstance(relative, str) or not SHA256.fullmatch(str(expected)):
+            raise Track008ReadinessError("provisional candidate evidence binding is incomplete")
+        evidence_path = _repository_path(root, relative)
+        if _sha256(evidence_path) != expected:
+            raise Track008ReadinessError(f"provisional candidate evidence hash drift: {relative}")
+
+    try:
+        manifest = json.loads(
+            _repository_path(root, binding["candidate_manifest"]).read_text(encoding="utf-8")
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise Track008ReadinessError(f"cannot read provisional candidate manifest: {exc}") from exc
+    if manifest.get("source_commit") != binding.get("source_commit") or manifest.get(
+        "source_tree"
+    ) != binding.get("source_tree"):
+        raise Track008ReadinessError("provisional candidate revision binding drift")
+    if manifest.get("candidate_status") != "provisional_synthetic_public_only":
+        raise Track008ReadinessError("provisional candidate status is unsafe")
+    artifacts = manifest.get("artifacts")
+    if not isinstance(artifacts, list) or not artifacts:
+        raise Track008ReadinessError("provisional candidate artifact inventory is empty")
+    for artifact in artifacts:
+        if not isinstance(artifact, dict) or _sha256(
+            _repository_path(root, artifact.get("path"))
+        ) != artifact.get("sha256"):
+            raise Track008ReadinessError("provisional candidate artifact hash drift")
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
         if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):

@@ -129,3 +129,14 @@
   `docs/track-008-freeze-readiness-2026-08-21.yml`,
   `scripts/check_track_008_freeze_readiness.py` and focused negative tests.
   This is readiness preparation only; all parent blocking tasks remain open.
+
+## Exact-candidate readiness — 2026-08-21
+
+- [x] Bind the unchanged synthetic/public semantic substrate to its source
+  commit, tree, artifact hashes and deterministic self-baseline migration
+  receipt. Evidence:
+  `manifests/semantics/track-008-provisional-candidate-2026-08-21.json`,
+  `manifests/semantics/track-008-provisional-migration-impact-2026-08-21.json`
+  and `docs/track-008-provisional-candidate-advice-2026-08-21.yml`. This packet
+  is advisory readiness evidence only: source approval, naming authority,
+  independent review, v0.4 freeze and Track 009 activation remain blocked.

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "track": "008-semantic-backbone",
+  "candidate_status": "provisional_synthetic_public_only",
+  "comparison": "self-baseline drift check",
+  "previous_version": "0.1.0",
+  "current_version": "0.1.0",
+  "previous_fingerprint": "map-f02c8762dc0417474df8e223",
+  "current_fingerprint": "map-f02c8762dc0417474df8e223",
+  "added_source_codes": [],
+  "removed_source_codes": [],
+  "changed_source_codes": [],
+  "impact_summary": {"added": 0, "removed": 0, "changed": 0},
+  "interpretation": "The bound synthetic mapping has no drift against its own baseline. This is not an ontology-update assessment or approval receipt."
+}

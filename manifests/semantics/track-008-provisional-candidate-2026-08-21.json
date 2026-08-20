@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "track": "008-semantic-backbone",
+  "candidate_status": "provisional_synthetic_public_only",
+  "source_commit": "a87a7b62b8c7cbe69deee868cc50f195af6f7cb7",
+  "source_tree": "3dc08a4940dfab39c81b5a2cdc5efa1a3b583ccc",
+  "mapping_fingerprint": "map-f02c8762dc0417474df8e223",
+  "artifacts": [
+    {"path": "schemas/disease-hierarchy.schema.json", "sha256": "cd5c5f3f16f65c4fd64f8b4a0c976135906d600fd7fe662ba27961d2b9e2c194"},
+    {"path": "schemas/ontology-mapping.schema.json", "sha256": "3f08e77281aa4374c90b934808c65a33dd42d577ab90923fcd3e33bbdf0d04ae"},
+    {"path": "examples/semantics/bronchiectasis-synthetic.yml", "sha256": "497d3e19aef1f03b0a4a0b356b3129f813ec6a9a4d63490666965caf1882d144"},
+    {"path": "examples/semantics/monogenic-counts-synthetic.yml", "sha256": "cdd0ca6bc9108cb90decb75859c37db35b167afc6cf73eef8db858051d399517"},
+    {"path": "examples/semantics/orpha-to-synthetic-mapping.yml", "sha256": "30822b77b3b4d1728dde6d062f95b3eb136c7a8f6352b4c3c435576fe8839572"},
+    {"path": "examples/semantics/paediatric-burden-synthetic.yml", "sha256": "8544bd1af1550e74287328b4584449deb1bd2449ff92227a9f3a959d8fdead4e"},
+    {"path": "examples/semantics/rare-within-common-synthetic.yml", "sha256": "f5f454a0a7faf69a53732a8095459c1b8d23f0fb406c32d6e86af44879547c3c"},
+    {"path": "examples/semantics/releases/orpha-to-synthetic-v0.1.0.md", "sha256": "fe8997b2abc9aa3a54049d20d0bd1a5aa98478c6614707437c394f982baa2782"}
+  ],
+  "claims": {
+    "approved_ontology_pins": false,
+    "clinical_fitness": false,
+    "patient_community_authority": false,
+    "independent_review": false,
+    "v0_4_contract_frozen": false,
+    "track_009_unblocked": false
+  }
+}
