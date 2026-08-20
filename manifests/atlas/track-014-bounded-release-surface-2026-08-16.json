@@ -3,7 +3,7 @@
   "track": "014",
   "scope": "synthetic_static_package_api_lifecycle_reconciliation",
   "dependency_artifacts": [
-    {"track": "008", "artifact": "manifests/semantics/track-008-source-release-provenance-2026-08-16.json", "sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1"},
+    {"track": "008", "artifact": "manifests/semantics/track-008-source-release-provenance-2026-08-16.json", "sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"},
     {"track": "009", "artifact": "manifests/ledger/track-009-source-release-bindings-2026-08-16.json", "sha256": "84b1d8377a87c787a0ff624727a00a9bab6fdbf4851bf840e8157c61eee04376"},
     {"track": "010", "artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json", "sha256": "a8176c09e3824d603bf6cd839cfb34b1fd55b7644850d2ad5d7bd1da8713e4fc"},
     {"track": "011", "artifact": "manifests/demonstrators/track-011-bounded-synthetic-receipt-2026-08-16.json", "sha256": "4a225f04add7098121419178a1a7f9ef1d8f01b4536608086ac01af3139c492f"},

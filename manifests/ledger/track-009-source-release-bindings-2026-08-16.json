@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "track": "009-evidence-parameter-ledger",
-  "upstream_inventory_sha256": "eb2d4935d4e7a9dd0f91634fabd96e3a61fa03ae2b2b2da12225411f450f9f5c",
+  "upstream_inventory_sha256": "46ddc7c98990516fe89f7f0e0a1b93906d639f6ef39b7a90fbc142cc75a572d9",
   "source_releases": [
     {
       "source_release_id": "orphadata-science-alignments",

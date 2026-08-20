@@ -7,7 +7,7 @@
     {
       "track": "008",
       "artifact": "manifests/semantics/track-008-source-release-provenance-2026-08-16.json",
-      "sha256": "f7770dff5ea46b649493f7837d29b23e4d519032f16804ffa785a138c0e815a1",
+      "sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea",
       "required_assertions": {
         "claims.clinical_validity": false,
         "claims.production_activation": false,
