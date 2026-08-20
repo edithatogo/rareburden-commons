@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.archive_hpo_core_frontier import load_candidates
+from scripts.archive_hpo_core_frontier import archive_batch, load_candidates
 
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "manifests/hpo/asset-rights-matrix-2026-08-16.json"
@@ -46,3 +46,10 @@ def test_public_candidate_requires_official_host_and_conditions(tmp_path: Path) 
     bad.write_text(json.dumps(payload))
     with pytest.raises(ValueError, match="licence conditions"):
         load_candidates(bad)
+
+
+def test_hpo_archive_uses_one_atomic_commit_per_batch() -> None:
+    source = Path(archive_batch.__code__.co_filename).read_text(encoding="utf-8")
+    assert source.count("api.create_commit(") == 1
+    assert "api.upload_file(" not in source
+    assert '"commit_mode": "single_atomic_batch_commit"' in source
