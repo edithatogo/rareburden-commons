@@ -39,6 +39,15 @@ def load_candidates(matrix_path: Path) -> list[dict[str, Any]]:
     return candidates
 
 
+def staging_path(root: Path, item: dict[str, Any]) -> Path:
+    """Return a collision-free local path for one release asset."""
+    release_tag = str(item["release_tag"])
+    name = str(item["name"])
+    if Path(release_tag).name != release_tag or Path(name).name != name:
+        raise ValueError("HPO release tag and asset name must be plain path components")
+    return root / release_tag / name
+
+
 def archive_batch(matrix_path: Path, *, start: int, count: int, max_bytes: int) -> dict[str, Any]:
     from huggingface_hub import CommitOperationAdd, HfApi  # type: ignore[import-not-found]
 
@@ -75,7 +84,8 @@ def archive_batch(matrix_path: Path, *, start: int, count: int, max_bytes: int) 
             request = urllib.request.Request(
                 item["browser_download_url"], headers={"User-Agent": "rareburden-archive/1"}
             )
-            local = root / item["name"]
+            local = staging_path(root, item)
+            local.parent.mkdir(parents=True, exist_ok=True)
             digest = hashlib.sha256()
             size = 0
             with (

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.archive_hpo_core_frontier import archive_batch, load_candidates
+from scripts.archive_hpo_core_frontier import archive_batch, load_candidates, staging_path
 
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "manifests/hpo/asset-rights-matrix-2026-08-16.json"
@@ -53,3 +53,15 @@ def test_hpo_archive_uses_one_atomic_commit_per_batch() -> None:
     assert source.count("api.create_commit(") == 1
     assert "api.upload_file(" not in source
     assert '"commit_mode": "single_atomic_batch_commit"' in source
+
+
+def test_hpo_atomic_staging_paths_include_release_tag(tmp_path: Path) -> None:
+    first = {"release_tag": "v2025-09-01", "name": "hp.owl"}
+    second = {"release_tag": "v2025-10-01", "name": "hp.owl"}
+    assert staging_path(tmp_path, first) != staging_path(tmp_path, second)
+    assert staging_path(tmp_path, first) == tmp_path / "v2025-09-01" / "hp.owl"
+
+    with pytest.raises(ValueError, match="plain path components"):
+        staging_path(tmp_path, {"release_tag": "../escape", "name": "hp.owl"})
+    with pytest.raises(ValueError, match="plain path components"):
+        staging_path(tmp_path, {"release_tag": "v2025-09-01", "name": "../hp.owl"})
