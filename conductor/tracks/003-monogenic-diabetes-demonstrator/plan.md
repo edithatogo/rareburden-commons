@@ -61,3 +61,14 @@
   `tests/test_track_003_population_state_contract.py`. Undiagnosed burden
   remains a modelled scenario quantity, never an observed count; activation
   and all upstream and external gates remain open.
+
+## Synthetic framing and interpretation preparation — 2026-08-21
+
+- [x] Define a machine-tested, non-binding framing and interpretation guard
+  requiring evidence-status labels, denominator and uncertainty visibility,
+  explicit selection/overlap limits, harm/equity challenges and fail-closed
+  prohibited uses. Evidence:
+  `docs/track-003-framing-interpretation-guard-v0.1.0.yml` and
+  `tests/test_track_003_framing_interpretation_guard.py`. Clinical-methods,
+  patient/community and owner dispositions remain pending; this repository
+  preparation is not independent review, consent, endorsement or activation.
