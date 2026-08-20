@@ -92,3 +92,14 @@ blocked by Track 009 and no alpha interface or dependence contract is frozen.
 uncertainty, dependence, structural-scenario, prohibited-shortcut and alpha
 freeze decisions required before activation. It is repository-owned preparation
 and does not replace scientific, engineering or patient/community review.
+
+### Alpha-freeze readiness review — 2026-08-21
+
+Repository result: **Pass for closure-contract preparation only**. The new
+control binds Track 010 to completed Track 009 and requires separate
+scientific/statistical, engineering, patient/community and independent
+scientific-software receipts. It rejects premature approval or freeze claims,
+panel independence claims, owner-operated work labelled independent review,
+and freezes lacking exact engine, ledger and Track 003 interface hashes plus
+migration, benchmark/reproducibility and accountable-decision evidence. Track
+010 remains blocked; no review or alpha-freeze authority is inferred.

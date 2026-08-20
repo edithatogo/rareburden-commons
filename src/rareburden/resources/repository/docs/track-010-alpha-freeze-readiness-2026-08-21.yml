@@ -1,0 +1,44 @@
+schema_version: "1.0.0"
+track: "010-public-burden-engine"
+status: "blocked"
+candidate_interface: "alpha"
+freeze_order_position: 3
+upstream_dependency:
+  track: "009-evidence-parameter-ledger"
+  required_status: "complete"
+  observed_status: "blocked"
+  state: "pending"
+review_gate:
+  review_packet: "docs/track-010-engine-review-packet.md"
+  scientific_statistical_receipt: ""
+  engineering_receipt: ""
+  patient_community_receipt: ""
+  independent_scientific_software_receipt: ""
+  owner_disposition: ""
+  repository_panel_status: "advisory"
+  owner_status: "owner_operated_not_independent_review"
+  unresolved_blocking_findings: []
+  state: "pending"
+alpha_freeze_gate:
+  exact_candidate_commit: ""
+  engine_manifest_sha256: ""
+  track_009_ledger_manifest_sha256: ""
+  track_003_interface_manifest_sha256: ""
+  compatibility_and_migration_receipt: ""
+  benchmark_and_reproducibility_receipt: ""
+  blocking_findings_resolved: false
+  accountable_alpha_freeze_decision: ""
+  state: "pending"
+claims:
+  scientific_approval: false
+  engineering_approval: false
+  patient_community_approval: false
+  independent_review: false
+  alpha_interface_frozen: false
+  empirical_or_production_activation: false
+  track_complete: false
+governance:
+  automated_validation_effect: "readiness_only_not_approval_independent_review_or_freeze"
+next_action:
+  repository_owned: "preserve synthetic contracts and validate incoming exact-candidate review receipts"
+  external_or_accountable: "complete Track 009, obtain independent and accountable review, then decide the hash-bound alpha freeze"
