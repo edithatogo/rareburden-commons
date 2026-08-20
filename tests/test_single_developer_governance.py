@@ -28,8 +28,8 @@ def test_repository_uses_single_owner_agent_advice_model() -> None:
         (("owner", "holds_all_accountable_repository_roles", False), "all accountable roles"),
         (("agent_advice", "status", "approval"), "advisory perspectives"),
         (
-            ("independence_boundary", "owner_or_agent_work_is_independent_review", True),
-            "fail closed",
+            ("review_model", "independent_human_review_planned", True),
+            "absent from the plan",
         ),
     ],
 )
@@ -61,4 +61,13 @@ def test_rejects_incomplete_grouped_decision(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(CONTRACT.read_text(encoding="utf-8")))
     del document["decision_groups"][0]["trade_offs"]
     with pytest.raises(GovernanceContractError, match="complete owner advice format"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_rejects_owner_authority_scope_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(CONTRACT.read_text(encoding="utf-8")))
+    document["owner_authority_declaration"]["does_not_claim"].remove(
+        "authority_over_third_party_custodians"
+    )
+    with pytest.raises(GovernanceContractError, match="scope limits drifted"):
         validate(_candidate(tmp_path, document), ROOT)

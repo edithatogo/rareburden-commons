@@ -26,6 +26,8 @@ REQUIRED_ROLES = {
     "epidemiology_decider",
     "semantic_decider",
     "data_use_decider",
+    "repository_data_custodian",
+    "applicable_indigenous_authority",
     "patient_community_perspective_decider",
     "equity_and_harm_decider",
     "engineering_decider",
@@ -91,12 +93,31 @@ def validate(path: Path, root: Path) -> None:
         raise GovernanceContractError(
             "decision groups must include the complete owner advice format"
         )
-    boundary = contract.get("independence_boundary", {})
+    authority = contract.get("owner_authority_declaration", {})
     if (
-        boundary.get("owner_or_agent_work_is_independent_review") is not False
-        or boundary.get("independent_claim_requires_separate_qualifying_evidence") is not True
+        authority.get("declared_by") != "edithatogo"
+        or authority.get("repository_data_custodian") is not True
+        or authority.get("applicable_indigenous_authority") is not True
     ):
-        raise GovernanceContractError("independence boundary must remain fail closed")
+        raise GovernanceContractError(
+            "owner custodian and Indigenous authority declaration drifted"
+        )
+    required_limits = {
+        "authority_for_unrelated_indigenous_peoples_or_communities",
+        "authority_over_third_party_custodians",
+        "publisher_or_licensor_rights",
+        "jurisdictional_ethics_or_legal_approval",
+    }
+    if set(authority.get("does_not_claim", [])) != required_limits:
+        raise GovernanceContractError("owner authority declaration scope limits drifted")
+    boundary = contract.get("review_model", {})
+    if (
+        boundary.get("independent_human_review_planned") is not False
+        or boundary.get("additional_human_reviewer_required") is not False
+        or boundary.get("owner_or_agent_work_is_independent_review") is not False
+        or boundary.get("independent_review_claim_permitted") is not False
+    ):
+        raise GovernanceContractError("independent human review must remain absent from the plan")
     metadata_paths = sorted((root / "conductor/tracks").glob("*/metadata.json"))
     metadata_paths += sorted((root / "conductor/archive").glob("*/metadata.json"))
     if not metadata_paths:

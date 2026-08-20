@@ -2,8 +2,8 @@
 
 > This is a single-person repository. Repository-owned review uses
 > role-separated advisory agent panels under ADR-0009, and the owner makes every
-> decision. All work is free and remuneration is zero. Agent panels cannot
-> self-attest human, community, Indigenous, custodian or independent authority.
+> decision. The owner also declares the repository custodian and applicable
+> Indigenous-authority roles. All work is free and remuneration is zero.
 
 ## Phase 1 — Operate owner governance
 
@@ -17,6 +17,13 @@
   Evidence: `docs/governance-015-reference.md`.
 - [x] Publish conflict, dissent and owner-decision process. `[M-17]`
   Evidence: `docs/single-developer-governance.yml` and ADR-0009.
+- [x] Record the owner's repository-custodian and applicable
+  Indigenous-authority declaration, including its scope limits. Evidence:
+  `docs/single-developer-governance.yml` and
+  `docs/decisions/2026-08-21-owner-custodian-indigenous-authority.md`.
+- [x] Confirm that no additional human reviewer is a repository plan gate;
+  agent panels advise and the owner decides. Evidence:
+  `docs/single-developer-governance.yml`.
 
 ## Phase 2 — Operating policies
 
@@ -70,16 +77,16 @@
 ## Preparation refresh — 2026-08-01
 
 - [x] Prepared `docs/track-015-governance-review-packet.md` with exact
-  constitution, patient/community, custodian, scientific-independence and
-  relationship evidence requirements.
+  constitution, patient/community, custodian, scientific and relationship
+  evidence requirements.
 - [ ] Keep governance, partnership and endorsement states unactivated until
   constituted dispositions are recorded.
 
 ## Bounded repository reconciliation — 2026-08-16
 
 - [x] Implement the single-owner plus role-separated advisory agent-panel
-  operating model without claiming independent, patient/community, custodian,
-  Indigenous, institutional or partner authority. Evidence:
+  operating model without claiming patient/community, institutional or partner
+  authority beyond the owner's recorded roles. Evidence:
   `manifests/governance/track-015-bounded-reconciliation-2026-08-16.json`.
 - [x] Bind exact Track 007/013, source-rights, archive-capacity and ADR-0009
   evidence; keep the Track 014 release-surface dependency pending until its
@@ -116,9 +123,10 @@
   Tracks 008–010 remain blocked/provisional and all accountable community,
   rights, custodian, empirical and release gates remain pending. Evidence:
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
-- [ ] Keep constituted patient/community authority, applicable Indigenous
-  authority, publisher rights, supplying-custodian policy and all real-data or
-  public-release permissions pending until attributable evidence exists.
+- [ ] Keep constituted patient/community authority, publisher rights,
+  third-party supplying-custodian policy and all real-data or public-release
+  permissions outside the owner's declared scope pending until attributable
+  evidence exists.
 
 ## Completion attempt — 2026-08-21
 
@@ -130,5 +138,6 @@
   advisory agents, and remuneration is zero. Evidence:
   `docs/single-developer-governance.yml`.
 - [ ] Obtain attributable external evidence only for scopes that actually claim
-  third-party rights, Indigenous/community authority, controlled-data access,
-  partnership or independent review; otherwise keep those claims inactive.
+  third-party rights, authority for other Indigenous peoples or communities,
+  third-party controlled-data access or partnership; otherwise keep those
+  claims inactive.

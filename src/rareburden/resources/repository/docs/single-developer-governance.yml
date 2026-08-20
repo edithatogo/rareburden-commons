@@ -14,6 +14,8 @@ owner:
     - epidemiology_decider
     - semantic_decider
     - data_use_decider
+    - repository_data_custodian
+    - applicable_indigenous_authority
     - patient_community_perspective_decider
     - equity_and_harm_decider
     - engineering_decider
@@ -35,10 +37,21 @@ agent_advice:
     - independent_review
     - human_review
     - community_consent
-    - custodian_approval
+    - third_party_custodian_approval
     - licensor_approval
     - institutional_approval
     - release_authority
+owner_authority_declaration:
+  declared_by: "edithatogo"
+  declaration_date: "2026-08-21"
+  repository_data_custodian: true
+  applicable_indigenous_authority: true
+  scope: "this repository, its owner-controlled data pathways, and the Indigenous authority the owner is entitled to exercise"
+  does_not_claim:
+    - authority_for_unrelated_indigenous_peoples_or_communities
+    - authority_over_third_party_custodians
+    - publisher_or_licensor_rights
+    - jurisdictional_ethics_or_legal_approval
 remuneration:
   model: "none"
   amount: 0
@@ -82,6 +95,15 @@ decision_groups:
     recommendation: "Require attributable evidence only when a scope actually invokes that external authority."
     owner_decision: accept
     contingency: "Remain synthetic/public-only or narrow the claim when required external evidence is absent."
+  - id: owner_held_authority
+    rationale: "The owner declares that they are the repository custodian and the applicable Indigenous authority."
+    options:
+      - "record the owner-held roles with explicit scope limits"
+      - "retain them as external gates despite the owner's declaration"
+    trade_offs: "The selected option reflects the operating reality but does not extend the owner's authority to unrelated communities, custodians or jurisdictions."
+    recommendation: "Record and validate the roles as owner-held authority for the declared scope."
+    owner_decision: accept
+    contingency: "Require separate attributable authority when a future scope extends beyond the declaration."
 decision_rule:
   owner_decides_after_advice: true
   exact_candidate_binding_required: true
@@ -93,6 +115,8 @@ non_delegable_external_facts:
   - registry_events
   - controlled_data_custodian_policy
   - credentials_and_live_service_capacity
-independence_boundary:
+review_model:
+  independent_human_review_planned: false
+  additional_human_reviewer_required: false
   owner_or_agent_work_is_independent_review: false
-  independent_claim_requires_separate_qualifying_evidence: true
+  independent_review_claim_permitted: false

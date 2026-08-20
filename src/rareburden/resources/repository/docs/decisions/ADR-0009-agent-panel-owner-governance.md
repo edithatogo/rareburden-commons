@@ -11,6 +11,11 @@ would misstate the operating model.
 
 ## Decision
 
+The owner declares that they hold the repository-custodian and applicable
+Indigenous-authority roles for the scope recorded in the machine-readable
+governance contract. This does not assert authority for unrelated Indigenous
+peoples or communities, third-party custodians, publishers or jurisdictions.
+
 All methods, scientific, patient/community-perspective, data-use, engineering,
 security, usability, operations and release review is performed as advisory
 challenge by a role-separated panel of agents. The panel records evidence,
@@ -19,7 +24,8 @@ recommendation. The repository owner records the attributable disposition for
 an exact candidate.
 
 Agent-panel evidence is never called independent, human, constituted-community,
-institutional, custodian, licensor or external approval. No additional person
+institutional, third-party-custodian, licensor or external approval. No
+additional or independent human review is planned or required. No additional person
 is a mandatory repository review gate.
 
 All repository work is free. Remuneration is zero: there is no payment,

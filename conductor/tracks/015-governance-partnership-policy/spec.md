@@ -31,8 +31,9 @@ unconfirmed endorsement, authority or access.
    named, role-separated and advisory only.
 3. Funders and data contributors cannot veto valid results or control methods for advantage.
 4. Conflicts, complaints, appeals, authorship and correction processes are tested.
-5. Indigenous and country-node authority boundaries are explicit: applicable
-   external authority cannot be self-attested by the owner or agents.
+5. The owner's repository-custodian and applicable Indigenous-authority roles
+   are recorded with scope limits; authority for other peoples, communities,
+   custodians or jurisdictions is not implied.
 6. External materials clearly distinguish public data use, requested collaboration and confirmed agreement.
 7. Global claims require the representation conditions in the roadmap.
 8. The owner approves, narrows, revises, defers or stops the exact v1 candidate
@@ -49,11 +50,13 @@ unconfirmed endorsement, authority or access.
 
 This single-developer repository permanently uses the accountable owner plus
 role-separated advisory agent panels defined by ADR-0009 unless the owner later
-records a changed operating model. Agent findings inform owner disposition but
-are not independent, human, patient/community, custodian, Indigenous,
-institutional or partner authority. All work is free: remuneration is zero and
-no payment promise exists. Publisher terms and controlled-environment rules
-remain binding external facts when the selected scope invokes them.
+records a changed operating model. The owner holds the repository-custodian and
+applicable Indigenous-authority roles recorded in the governance contract.
+Agent findings are advisory and are not human consultation or authority. No
+additional or independent human review is planned. All work is free:
+remuneration is zero and no payment promise exists. Publisher terms,
+third-party custodians and jurisdictional rules remain binding external facts
+when the selected scope invokes them.
 
 ## v1 contribution
 

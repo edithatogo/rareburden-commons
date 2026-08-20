@@ -134,4 +134,7 @@ def test_completion_attempt_uses_single_owner_internal_governance() -> None:
             "trade_offs",
             "recommendation",
         ],
+        "repository_data_custodian": "repository_owner",
+        "applicable_indigenous_authority": "repository_owner",
+        "independent_human_review_planned": False,
     }

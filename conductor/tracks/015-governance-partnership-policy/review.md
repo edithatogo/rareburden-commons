@@ -44,10 +44,16 @@ to independent or external authority, confirmation of unsupported
 relationships, governance overclaims, evidence drift and premature Track 014
 binding.
 
+The owner has additionally declared the repository-custodian and applicable
+Indigenous-authority roles. Those roles apply within the scope recorded in
+`docs/single-developer-governance.yml`; they do not extend to unrelated peoples,
+communities, third-party custodians, publishers or jurisdictions. No additional
+human reviewer is required or planned.
+
 Disposition: **pass for bounded repository controls** after the exact Track 014
 merge and bounded release surface were hash-bound and the full gate was rerun.
-This work does not constitute governance bodies, community or Indigenous
-authority, remuneration, partnership, custodian approval, institutional
+This work does not constitute additional governance bodies, human community
+consultation, partnership, third-party custodian approval, institutional
 hosting, global representativeness, production activation or stable release.
 
 ## Patient/community-governance advisory lane — 2026-08-20
@@ -68,13 +74,13 @@ external or release gate.
 
 ## Completion attempt — 2026-08-21
 
-The earlier completion audit incorrectly treated constituted internal bodies
-and remuneration as mandatory. The corrected operating model has one owner as
-decision maker, role-separated advisory agent panels, and zero remuneration.
-This correction does not manufacture Indigenous, community, custodian,
-institutional, partner or independent-human authority.
+The earlier completion audit incorrectly treated constituted internal bodies,
+additional human review and remuneration as mandatory. The corrected operating
+model has one owner as decision maker, repository custodian and applicable
+Indigenous authority, role-separated advisory agent panels, and zero
+remuneration. It does not manufacture authority beyond the declared scope.
 
 Disposition: **internal governance correction accepted**. Remaining real-data,
-third-party-rights, partnership, Indigenous-authority and public-release gates
-stay conditional and fail closed. They are not internal council or remuneration
-requirements and cannot be satisfied by owner or agent self-attestation.
+third-party-rights, partnership, out-of-scope authority and public-release gates
+stay conditional and fail closed. They are not internal council, human-review
+or remuneration requirements.
