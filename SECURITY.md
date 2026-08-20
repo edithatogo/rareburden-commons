@@ -1,12 +1,26 @@
 # Security and sensitive-data reporting
 
+The detailed owner-operated support and security-fix policy is
+[`docs/track-016-support-security-fix-policy.md`](docs/track-016-support-security-fix-policy.md).
+It is a pre-release policy without a response-time or service-level promise.
+
 ## Scope
 
-The public repository contains code, documentation, metadata, schemas, synthetic examples and approved aggregate outputs only. The current project is pre-release; security and privacy fixes apply to the current maintained branch until the stable support policy in Track 016 is approved.
+The public repository contains code, documentation, metadata, schemas,
+synthetic examples and approved aggregate outputs only. The project is
+pre-release. Security and privacy fixes are applied to the current `main`
+branch as owner capacity permits; prerelease tags and historical branches do
+not receive continuing fixes.
 
 ## Reporting
 
-Do not open a public issue containing credentials, participant information, small cells, exploit details or controlled-data excerpts. Once hosted, use the platform's private vulnerability-reporting channel or the designated institutional security contact. Until a host is appointed, remove the material from branches under your control and notify the founding maintainer through an established private channel.
+Do not open a public issue containing credentials, participant information,
+small cells, exploit details or controlled-data excerpts. Use the repository's
+[private vulnerability-reporting channel](https://github.com/edithatogo/rareburden-commons/security/advisories/new).
+If that external channel is unavailable, remove the material from branches
+under your control and notify repository owner `edithatogo` through an
+established private channel. Do not create a public fallback disclosure that
+contains sensitive material.
 
 ## Accidental sensitive-data commit
 
