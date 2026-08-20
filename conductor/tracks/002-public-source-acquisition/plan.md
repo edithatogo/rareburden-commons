@@ -103,6 +103,13 @@
   findings remain open until qualifying receipts exist.
 - [ ] Release v0.3.0 only when Track 007 also satisfies its gate.
 
+## Live-exercise review fixes — 2026-08-20
+
+- [x] Reject negative pacing and secret-like URL query keys before any live
+  request or receipt persistence. Evidence:
+  `scripts/observe_track_002_source_change.py` and focused negative tests in
+  `tests/test_track_002_live_source_change.py`.
+
 ## Review fixes — 2026-07-27
 
 - [x] Refresh internal harness evidence and separate repository validation from live-source and governance gates. Evidence: `506ce6b`.

@@ -1,5 +1,9 @@
 # External gate evidence index
 
+**Status:** legacy routing index; additional-person review lanes were
+superseded for repository review by ADR-0009. Publisher rights and any future
+controlled-data custodian terms remain factual external constraints.
+
 This index is a routing document for accountable evidence. It does not record
 approval, consent, appointment, independent reproduction or release authority.
 
@@ -27,8 +31,8 @@ repository preparation only. They must not be relabelled as external approval.
 
 Use `docs/external-gate-receipt-template.yml` as the starting shape for a
 submission; replace every blank with an accountable, digest-bound receipt.
-For the Track 017 candidate, maintain gate status in
-`docs/external-gate-register-017.md` and use
-`docs/external-review-request-017.md` when requesting a disposition. Neither
-document is evidence until an accountable submitter completes and signs the
-receipt.
+For the current Track 017 contract, use
+`docs/track-017-evidence-contract-reconciliation-2026-08-20.md` and the
+hash-bound manifests under `manifests/release/`. The older
+`docs/external-gate-register-017.md` and `docs/external-review-request-017.md`
+are retained as legacy templates; they do not add an additional-person gate.

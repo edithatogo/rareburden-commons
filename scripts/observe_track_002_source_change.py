@@ -23,6 +23,16 @@ _ALLOWED_HOSTS = {
 }
 _RETRYABLE = {429, 502, 503, 504}
 _MAX_BYTES = 60_000_000
+_SENSITIVE_QUERY_KEYS = {
+    "access_token",
+    "api_key",
+    "apikey",
+    "auth",
+    "authorization",
+    "password",
+    "secret",
+    "token",
+}
 _REQUIRED_ACTION = (
     "Keep activation disabled and repeat source, terms and methods disposition before "
     "registering changed or replacement bytes."
@@ -54,6 +64,12 @@ def _load_candidates(path: Path) -> list[dict[str, Any]]:
             or parsed.fragment
         ):
             raise ValueError(f"untrusted candidate URL for {source_id}")
+        query_keys = {
+            key.lower().replace("-", "_")
+            for key, _value in urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+        }
+        if query_keys & _SENSITIVE_QUERY_KEYS:
+            raise ValueError(f"sensitive query key in candidate URL for {source_id}")
         expected = candidate["expected_sha256"]
         if not isinstance(expected, str) or len(expected) != 64:
             raise ValueError(f"invalid expected SHA-256 for {source_id}")
@@ -99,11 +115,13 @@ def observe(
     interval: float = 1.0,
     opener: Callable[..., Any] = urllib.request.urlopen,
 ) -> dict[str, Any]:
+    if interval < 0:
+        raise ValueError("pacing interval must not be negative")
     candidates = _load_candidates(source)
     observations: list[dict[str, Any]] = []
     for index, candidate in enumerate(candidates):
         if index:
-            time.sleep(max(interval, 0.0))
+            time.sleep(interval)
         request = urllib.request.Request(
             candidate["requested_url"],
             headers={"User-Agent": "rareburden-source-change-observer/1"},
