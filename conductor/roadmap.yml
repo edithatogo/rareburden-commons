@@ -102,12 +102,12 @@ releases:
 - version: 0.9.0
   name: Release candidate
   status: planned
-  objective: Constitute governance and harden security, reliability, performance, operations and support.
+  objective: Apply the single-developer agent-panel governance model and harden security, reliability, performance, operations and support.
   tracks:
   - 015-governance-partnership-policy
   - 016-security-reliability-operations
   exit_gates:
-  - Required governance bodies and policies are operational.
+  - Agent-panel governance, owner disposition and applicable rights policies are operational; no constituted body is claimed.
   - Threat model, locked build, SBOM, signing/attestation and recovery exercises pass.
   - No unresolved blocking governance, privacy, security or operational finding remains.
 - version: 1.0.0
@@ -120,5 +120,5 @@ releases:
   exit_gates:
   - Every blocking criterion in docs/v1-acceptance-criteria.md has linked evidence.
   - Two clean release-candidate builds and one separately executed owner-operated reproduction agree.
-  - Supported scope, maintainers, support, succession and sustainability are approved.
+  - Supported scope, single-owner support, continuity limits and sustainability are recorded by the owner.
   - Agent-panel lane recommendations and an exact-candidate owner decision authorise the v1.0.0 tag.

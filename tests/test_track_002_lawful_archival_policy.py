@@ -13,17 +13,19 @@ def test_archival_policy_is_maximal_but_fail_closed() -> None:
     assert policy["default"] == "metadata_hash_citation_manifest_only"
     records = {record["source_id"]: record for record in policy["records"]}
     assert records["un-world-population-prospects"]["raw_upload_target"] == (
-        "private_huggingface_archive"
+        "public_open_source_projection"
     )
     assert "preserve_attribution" in records["un-world-population-prospects"]["conditions"]
     assert records["who-global-health-estimates"]["raw_upload_target"] == (
         "private_huggingface_archive"
     )
     assert records["world-bank-indicators-api"]["raw_upload_target"] == (
-        "private_huggingface_archive"
+        "public_open_source_projection"
     )
-    assert records["mondo-disease-ontology"]["raw_upload_target"] == ("private_huggingface_archive")
-    assert records["ncbi-clinvar"]["raw_upload_target"] == ("private_huggingface_archive")
+    assert records["mondo-disease-ontology"]["raw_upload_target"] == (
+        "public_open_source_projection"
+    )
+    assert records["ncbi-clinvar"]["raw_upload_target"] == ("public_open_source_projection")
     assert records["human-phenotype-ontology"]["raw_upload_target"] == (
         "private_huggingface_archive"
     )
