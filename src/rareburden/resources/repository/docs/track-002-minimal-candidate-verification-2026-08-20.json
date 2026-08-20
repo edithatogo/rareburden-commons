@@ -1,0 +1,204 @@
+{
+  "artifacts": [
+    {
+      "bytes": 16178169,
+      "content_type": "application/xml",
+      "disposition": "exact_unmodified_ephemeral_candidate_byte",
+      "final_host": "www.orphadata.com",
+      "http_status": 200,
+      "last_modified": "Mon, 29 Jun 2026 12:08:03 GMT",
+      "name": "en_product9_prev.xml",
+      "public_path": "raw/orphadata/2026-07/en_product9_prev.xml",
+      "requested_url": "https://www.orphadata.com/data/xml/en_product9_prev.xml",
+      "sha256": "6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0",
+      "source_id": "orphadata-science-july-2026",
+      "verification_attempt": 1
+    },
+    {
+      "bytes": 54026799,
+      "content_type": "application/xml",
+      "disposition": "exact_unmodified_ephemeral_candidate_byte",
+      "final_host": "www.orphadata.com",
+      "http_status": 200,
+      "last_modified": "Mon, 29 Jun 2026 12:20:47 GMT",
+      "name": "en_product1.xml",
+      "public_path": "raw/orphadata/2026-07/en_product1.xml",
+      "requested_url": "https://www.orphadata.com/data/xml/en_product1.xml",
+      "sha256": "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb",
+      "source_id": "orphadata-science-july-2026",
+      "verification_attempt": 1
+    },
+    {
+      "bytes": 160016657,
+      "content_type": "application/octet-stream",
+      "disposition": "exact_unmodified_ephemeral_candidate_byte",
+      "final_host": "release-assets.githubusercontent.com",
+      "http_status": 206,
+      "last_modified": "Tue, 04 Aug 2026 18:55:19 GMT",
+      "name": "mondo-rare.owl",
+      "public_path": "raw/mondo/v2026-08-04/mondo-rare.owl",
+      "requested_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-08-04/mondo-rare.owl",
+      "sha256": "87361d63636436611e27d408be53606f8e831a2fd6ab70a4969ec54d19cb66d3",
+      "source_id": "mondo-v2026-08-04",
+      "transport": {
+        "method": "validated_https_byte_ranges",
+        "range_bytes": 16777216
+      },
+      "verification_attempt": 2
+    },
+    {
+      "bytes": 107497863,
+      "content_type": "application/octet-stream",
+      "disposition": "exact_unmodified_ephemeral_candidate_byte",
+      "final_host": "release-assets.githubusercontent.com",
+      "http_status": 206,
+      "last_modified": "Tue, 04 Aug 2026 18:54:16 GMT",
+      "name": "mondo.json",
+      "public_path": "raw/mondo/v2026-08-04/mondo.json",
+      "requested_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-08-04/mondo.json",
+      "sha256": "7cf8f1df31185555a21f5ffaf36663ca420671a9bc234fc737eb9bfa977ecd60",
+      "source_id": "mondo-v2026-08-04",
+      "transport": {
+        "method": "validated_https_byte_ranges",
+        "range_bytes": 16777216
+      },
+      "verification_attempt": 2
+    },
+    {
+      "bytes": 254105311,
+      "content_type": "application/octet-stream",
+      "disposition": "exact_unmodified_ephemeral_candidate_byte",
+      "final_host": "release-assets.githubusercontent.com",
+      "http_status": 206,
+      "last_modified": "Tue, 04 Aug 2026 18:55:25 GMT",
+      "name": "mondo.owl",
+      "public_path": "raw/mondo/v2026-08-04/mondo.owl",
+      "requested_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-08-04/mondo.owl",
+      "sha256": "afb2e699abf77082253ef51cca5f8531c8e4023ea0acc32ff3709818d0788a88",
+      "source_id": "mondo-v2026-08-04",
+      "transport": {
+        "method": "validated_https_byte_ranges",
+        "range_bytes": 16777216
+      },
+      "verification_attempt": 2
+    }
+  ],
+  "authority": {
+    "credential_used": false,
+    "external_mutation_performed": false,
+    "private_capture_performed": false,
+    "publication_authorized": false
+  },
+  "claims": {
+    "clinical_validation": false,
+    "community_authority": false,
+    "comprehensive_coverage": false,
+    "confirmed_novelty": false,
+    "external_approval": false,
+    "global_representativeness": false,
+    "independent_review": false,
+    "partnership_or_access": false,
+    "systematic_review": false
+  },
+  "cleanup": {
+    "source_bytes_retained": false,
+    "temporary_directory_removed": true
+  },
+  "decision_id": "track-002-minimal-public-release-preparation-2026-08-20",
+  "observed_at": "2026-08-20T13:09:23.183666+00:00",
+  "package": {
+    "bytes": 591841280,
+    "format": "deterministic_pax_tar_stream",
+    "retained": false,
+    "sha256": "1a8e0a01467a56eee0a85f15f971b0dd03820abfa518cc981d6588a264c58cd1"
+  },
+  "schema_version": "1.0",
+  "scope_path": "docs/track-002-minimal-public-release-scope-2026-08-20.yml",
+  "scope_sha256": "79a3668dba892fed6d34b40adfff29c072552c119d96f9d99b587928f51c7d46",
+  "status": "verified_ephemeral_candidate_not_published",
+  "terms_observations": [
+    {
+      "bytes": 173164,
+      "final_url": "https://sciences.orphadata.com/epidemiology/",
+      "http_status": 200,
+      "id": "orphadata_epidemiology",
+      "requested_url": "https://sciences.orphadata.com/epidemiology/",
+      "required_markers_present": [
+        "en_product9_prev.xml",
+        "CC BY 4.0",
+        "July 2026"
+      ],
+      "sha256": "5f5aafc9a9bb2de55432770214ce494ced551a26489cc389874900d3c3b85d46",
+      "verification_attempt": 1
+    },
+    {
+      "bytes": 192599,
+      "final_url": "https://sciences.orphadata.com/alignments/",
+      "http_status": 200,
+      "id": "orphadata_alignments",
+      "requested_url": "https://sciences.orphadata.com/alignments/",
+      "required_markers_present": [
+        "en_product1.xml",
+        "CC BY 4.0",
+        "July 2026"
+      ],
+      "sha256": "6b6f4726d5a3e5c1e3e60a030ca8ef6709886ec71d12f0e91dbb6a2de6cab62d",
+      "verification_attempt": 1
+    },
+    {
+      "bytes": 256130,
+      "final_url": "https://sciences.orphadata.com/legal-notice/",
+      "http_status": 200,
+      "id": "orphadata_legal_notice",
+      "requested_url": "https://sciences.orphadata.com/legal-notice/",
+      "required_markers_present": [
+        "CC BY 4.0",
+        "credit",
+        "changes"
+      ],
+      "sha256": "d5f2d70f9824f1b1dbe2797075f6ff764010a89bd30bc71b41cab0de370f4758",
+      "verification_attempt": 1
+    },
+    {
+      "bytes": 10123,
+      "final_url": "https://mondo.monarchinitiative.org/pages/download/",
+      "http_status": 200,
+      "id": "mondo_download",
+      "requested_url": "https://mondo.monarchinitiative.org/pages/download/",
+      "required_markers_present": [
+        "mondo.owl",
+        "mondo-rare.owl",
+        "mondo.json",
+        "CC BY 4.0"
+      ],
+      "sha256": "deb6fd218f6916a7c5c0cad6ea26c87ddd3d45df185ec1f61a6fd57366a7bd8f",
+      "verification_attempt": 1
+    },
+    {
+      "bytes": 239955,
+      "final_url": "https://github.com/monarch-initiative/mondo/releases/tag/v2026-08-04",
+      "http_status": 200,
+      "id": "mondo_release",
+      "requested_url": "https://github.com/monarch-initiative/mondo/releases/tag/v2026-08-04",
+      "required_markers_present": [
+        "v2026-08-04"
+      ],
+      "sha256": "73f655635dd7fd2d38a513f4c060beb9d64c0c3a96539138e5db306af790cf40",
+      "verification_attempt": 1
+    },
+    {
+      "bytes": 68520,
+      "final_url": "https://api.github.com/repos/monarch-initiative/mondo/releases/tags/v2026-08-04",
+      "http_status": 200,
+      "id": "mondo_release_api_digests",
+      "requested_url": "https://api.github.com/repos/monarch-initiative/mondo/releases/tags/v2026-08-04",
+      "required_markers_present": [
+        "87361d63636436611e27d408be53606f8e831a2fd6ab70a4969ec54d19cb66d3",
+        "7cf8f1df31185555a21f5ffaf36663ca420671a9bc234fc737eb9bfa977ecd60",
+        "afb2e699abf77082253ef51cca5f8531c8e4023ea0acc32ff3709818d0788a88"
+      ],
+      "sha256": "54e0f2e3c9eda5483dd1c6adc835b1f7d3e904f5469e59b76c4dd8ec0ef529d5",
+      "verification_attempt": 1
+    }
+  ]
+}

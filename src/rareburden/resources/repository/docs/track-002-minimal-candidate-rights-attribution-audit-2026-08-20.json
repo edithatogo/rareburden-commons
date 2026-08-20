@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "track-002-minimal-candidate-rights-attribution-2026-08-20",
+  "status": "passed_for_exact_unmodified_candidate_with_publisher_reliance",
+  "candidate": {
+    "scope_path": "docs/track-002-minimal-public-release-scope-2026-08-20.yml",
+    "scope_sha256": "79a3668dba892fed6d34b40adfff29c072552c119d96f9d99b587928f51c7d46",
+    "verification_receipt": "docs/track-002-minimal-candidate-verification-2026-08-20.json",
+    "verification_receipt_sha256": "56d63626de61ef70c728b0ac23dad9521e0c0000470ea3dd7c4c539527a98cac",
+    "package_sha256": "1a8e0a01467a56eee0a85f15f971b0dd03820abfa518cc981d6588a264c58cd1",
+    "package_bytes": 591841280,
+    "retained": false,
+    "published": false
+  },
+  "attribution": {
+    "candidate_notice_sha256": "5cff1327c8db0e0bc2025fc2b7a58b4cade8948048768260d20731a540764830",
+    "candidate_notice_bytes": 601,
+    "orphadata_notice": {
+      "path": "docs/track-002-orphadata-attribution-2026-08-15.md",
+      "sha256": "facae37d1237b16ef409032381e63c89dfb12ecc4ea6242dc0e3048e3a367d74",
+      "licence": "CC BY 4.0",
+      "required_conditions": [
+        "credit Orphadata Science / Orphanet",
+        "identify the July 2026 release",
+        "preserve change notice",
+        "do not imply endorsement"
+      ]
+    },
+    "mondo_notice": {
+      "path": "docs/track-002-mondo-attribution-2026-08-15.md",
+      "sha256": "5500f1ff5034785215590f078ff17dca3ee28fc24edc8fd34d2431a75414f7f2",
+      "licence": "CC BY 4.0",
+      "required_conditions": [
+        "credit Mondo Disease Ontology / Monarch Initiative",
+        "identify release v2026-08-04",
+        "preserve upstream filenames and provenance",
+        "do not imply endorsement or clinical validation"
+      ],
+      "tagged_licence_url": "https://raw.githubusercontent.com/monarch-initiative/mondo/v2026-08-04/LICENSE",
+      "tagged_licence_sha256": "f5b745ef98087f531e719ee8ca6a96809444573ecc7173c6fa68eaad39b3cc3f",
+      "tagged_licence_bytes": 18658
+    }
+  },
+  "third_party_rights_disposition": {
+    "basis": "The exact unmodified Orphadata and MONDO publisher releases are offered under CC BY 4.0. This audit relies on those publisher-level licence representations and does not assert an independent chain-of-title review for every embedded ontology assertion or provenance reference.",
+    "permitted_candidate_action": "redistribute only the five exact unmodified files with the candidate notice, source notices, hashes and embedded provenance preserved",
+    "prohibited_without_new_audit": [
+      "strip embedded notices or provenance",
+      "represent cross-references as separately cleared third-party datasets",
+      "publish a modified or field-extracted derivative under this audit",
+      "infer clinical validity, comprehensive coverage or endorsement",
+      "add any source outside the exact five-artifact allowlist"
+    ]
+  },
+  "excluded_sources_confirmed": [
+    "un-world-population-prospects",
+    "who-global-health-estimates",
+    "human-phenotype-ontology",
+    "panelapp-all-routes",
+    "MedDRA",
+    "MLDS",
+    "UMLS",
+    "SNOMED_CT",
+    "ICD",
+    "OMIM",
+    "all-other-observed-or-archived-sources"
+  ],
+  "authority": {
+    "audit_capacity": "repository_owner_operator_preparation",
+    "publication_authorized": false,
+    "external_approval_claimed": false,
+    "independent_legal_opinion_claimed": false
+  }
+}

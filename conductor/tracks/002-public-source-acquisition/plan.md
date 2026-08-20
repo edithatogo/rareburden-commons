@@ -15,18 +15,39 @@
   mutation authority and post-action remote verification. Repository
   preparation does not claim that hosted object is currently private.
 - [~] Build and separately owner-verify the exact five-artifact candidate after
-  the dated Orphadata/MONDO terms-change and attribution gates pass.
-- [ ] Record a final owner publication decision bound to the exact commit and
-  artifact hashes; this preparation decision does not authorize publication,
-  issue closure or a v0.3.0 release.
+  the dated Orphadata/MONDO terms-change and attribution gates pass. The exact
+  ephemeral package now verifies at SHA-256
+  `1a8e0a01467a56eee0a85f15f971b0dd03820abfa518cc981d6588a264c58cd1`;
+  publication is deferred and any future candidate requires fresh owner
+  verification against the then-current evidence commit.
+- [x] Pass the repository-owned exact-package, included-source live-terms,
+  attribution/exclusion and Track 007 bounded-claims compatibility gates while
+  retaining publisher reliance and derivative-use limitations. Evidence:
+  `docs/track-002-minimal-candidate-verification-2026-08-20.json` and
+  `docs/track-002-minimal-candidate-rights-attribution-audit-2026-08-20.json`.
+- [x] Record the owner decision `defer_publication`, bound to evidence commit
+  `d3b3634` and the exact candidate hash. This decision authorizes repository
+  reconciliation/revalidation only; it does not authorize publication, issue
+  closure or a v0.3.0 release. Evidence:
+  `docs/decisions/2026-08-20-track-002-exact-candidate-publication-decision-packet.md`.
 
 ## Review Fixes — 2026-08-20
 
+- [x] Replace fragile MONDO whole-file streams with exact validated byte ranges,
+  preserve bounded retries and whole-file hashes, review publisher reliance and
+  third-party limitations, and pass the candidate gate suite. Evidence:
+  `d3b3634`; focused tests `20 passed`; full suite `922 passed` plus one known
+  timing-only benchmark failure, whose single isolated retry passed.
 - [x] Format and re-review the fail-closed exact-candidate verifier, preserve
   the live transport blocker without relaxing any gate, synchronize runtime
   assets, and pass the full repository gate. Evidence: implementation commit
-  `473b9aa`; focused post-rebase tests `17 passed`; `uv run make check`
+  `59014bd`; focused post-rebase tests `17 passed`; `uv run make check`
   completed with `920 passed`.
+- [x] Reconcile the two unique candidate-evidence commits onto current main,
+  preserve main's input and receipt hardening, record the owner's publication
+  deferral without widening scope, synchronize runtime assets, and pass the
+  full repository gate. Evidence: focused tests `35 passed`; `uv run make
+  check` completed with `950 passed`.
 - [x] Reject non-hex artifact digests and credential-bearing/query URLs before
   retrieval, and create candidate receipts exclusively so an existing receipt
   cannot be overwritten. Evidence: focused negative tests in
