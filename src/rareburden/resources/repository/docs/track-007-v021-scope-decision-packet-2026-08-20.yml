@@ -1,0 +1,48 @@
+schema_version: '1.0.0'
+packet_id: RBC-LAND-007-V021-SCOPE-DECISION-2026-08-20
+protocol: docs/track-007-protocol-v0.2.1-preparation.yml
+status: awaiting_owner_selection
+assurance: owner_scope_decision_only_no_coverage_or_community_claim
+options:
+  - id: A
+    name: bounded_pilot
+    recommended: true
+    scope:
+      languages: [en, es, pt, fr]
+      regions: [americas, europe, western_pacific]
+      providers: [crossref, github, zenodo, huggingface_datasets]
+      planned_cells: 48
+    tradeoff: lower cost and faster drift detection; does not test all prepared strata
+    contingency: expand to option B only after hashes, terms and missingness are reconciled
+  - id: B
+    name: full_prepared_strata
+    recommended: false
+    scope:
+      languages: [en, es, pt, fr, de, zh, ar, ja]
+      regions: [africa, americas, south_east_asia, europe, eastern_mediterranean, western_pacific]
+      providers: [crossref, github, zenodo, huggingface_datasets]
+      planned_cells: 192
+    tradeoff: broader observation surface and higher request/storage/triage cost
+    contingency: pause at any provider, rights, rate-limit or hash stop trigger
+  - id: C
+    name: defer_execution
+    recommended: false
+    scope: no_live_requests
+    tradeoff: preserves current bounded evidence and avoids provider drift; no new language/geography observations
+    contingency: retain the prepared protocol and revisit with a new dated decision
+owner_decision_fields:
+  selected_option: null
+  selected_at_utc: null
+  exact_candidate_commit: null
+  manifest_sha256: null
+  expiry_or_review_date: null
+  conditions: []
+  stop_triggers_acknowledged: false
+required_acknowledgements:
+  - no_global_or_representative_claim
+  - declared_query_language_is_not_record_language
+  - country_scope_is_not_record_geography
+  - missingness_is_not_exclusion_or_absence
+  - community_authority_remains_pending
+  - raw_copyrighted_response_bodies_not_retained
+recommendation: select_A_then_reconcile_before_any_expansion

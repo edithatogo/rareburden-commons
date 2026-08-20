@@ -156,6 +156,10 @@
   claim/stop rules. Evidence:
   `docs/track-007-stratum-capture-manifest-v0.2.1.yml` and regression tests.
   Live execution remains pending the owner’s exact scope confirmation.
+- [x] Prepare an owner scope-decision packet with bounded-pilot, full-strata
+  and defer options. Evidence:
+  `docs/track-007-v021-scope-decision-packet-2026-08-20.yml`; no option is
+  selected or executed by repository automation.
 
 ## Review fixes — 2026-08-15 title clusters
 
