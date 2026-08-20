@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -97,11 +98,45 @@ def validate(path: Path, root: Path) -> None:
     for evidence in candidate.get("evidence", []):
         evidence_path = root / str(evidence.get("path", ""))
         expected = str(evidence.get("sha256", ""))
+        source_commit = evidence.get("source_commit")
         if not SHA256.fullmatch(expected) or not evidence_path.is_file():
             raise Track016ReadinessError(
                 "candidate evidence requires an existing SHA-256-bound file"
             )
-        observed = hashlib.sha256(evidence_path.read_bytes()).hexdigest()
+        if source_commit is not None:
+            if not COMMIT.fullmatch(str(source_commit)):
+                raise Track016ReadinessError("candidate evidence source commit is invalid")
+            try:
+                evidence_bytes = subprocess.run(
+                    ["git", "show", f"{source_commit}:{evidence['path']}"],
+                    cwd=root,
+                    check=True,
+                    capture_output=True,
+                ).stdout
+            except subprocess.CalledProcessError as exc:
+                shallow = subprocess.run(
+                    ["git", "rev-parse", "--is-shallow-repository"],
+                    cwd=root,
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                ).stdout.strip()
+                disposition_commit = document.get("exact_candidate_owner_disposition", {}).get(
+                    "exact_candidate_commit"
+                )
+                if not (
+                    shallow == "true"
+                    and candidate.get("shallow_checkout_policy")
+                    == "allow_unavailable_exact_history_without_upgrading_claims"
+                    and source_commit == disposition_commit
+                ):
+                    raise Track016ReadinessError(
+                        "candidate evidence source commit is unavailable"
+                    ) from exc
+                continue
+        else:
+            evidence_bytes = evidence_path.read_bytes()
+        observed = hashlib.sha256(evidence_bytes).hexdigest()
         if observed != expected:
             raise Track016ReadinessError(f"candidate evidence hash drift: {evidence_path}")
 

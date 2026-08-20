@@ -4,10 +4,10 @@
   "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-16",
+  "updated": "2026-08-21",
   "target_release": "0.7.0",
   "stage": "controlled_reference_analysis",
-  "owner_role": "Paediatric, Administrative Data and Health Economics Leads",
+  "owner_role": "Repository owner (all accountable repository roles)",
   "dependencies": [
     "004-federated-node-runner",
     "005-economic-social-burden",
