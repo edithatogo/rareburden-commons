@@ -2,8 +2,8 @@ schema_version: "1.0.0"
 simulation_status: simulated_role_separated_advisory_panel
 track_id: 007-landscape-novelty
 candidate:
-  commit: 5ac37ae2bfbbce28b530ac6f3cb5320174e5a695
-  tree: 38147ad532a905c1fcf7e407d2ef021db8542fad
+  commit: 7249b5ea4848cb6864d854abd43deafc3a585565
+  tree: 9c81357a534c0e7a4d70bb6edc0126f07bd44336
   evidence_manifest_sha256: 6b19815717e4dcaa3c9a3842d1258bc8b2065d42bf445762406169ba013ad236
 panel:
   perspectives: [methods_evidence, community_harm, governance_assurance]
