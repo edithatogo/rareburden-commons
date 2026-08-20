@@ -30,6 +30,18 @@ FALSE_CLAIMS = {
     "stable_release",
     "track_complete",
 }
+HISTORICAL_EVIDENCE = {
+    "manifests/operations/track-016-bounded-operations-2026-08-16.json": (
+        "23d3e3c57ad318849753870e7796813a48c227c64943d5d3fa457c8f3eaa575e"
+    ),
+    "docs/track-016-owner-operated-exercise-receipt-2026-08-16.json": (
+        "b31435c60e2e3986eb1befaf33d2682fe9747e09ee416e423f7e62f754b95c58"
+    ),
+    "docs/release-policy.md": "2f4626b33d7402a33e0a56238ee5484618ca21699f320e42193dac761eb7bcb1",
+    "docs/security-operations-016-reference.md": (
+        "a81d98aabda3577de26c85cfd1e776d4380501c98846d4ea8791219d977f5b5b"
+    ),
+}
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -96,13 +108,16 @@ def validate(path: Path, root: Path) -> None:
             "preparation input cannot be promoted to an exact release candidate"
         )
     for evidence in candidate.get("evidence", []):
-        evidence_path = root / str(evidence.get("path", ""))
+        evidence_name = str(evidence.get("path", ""))
+        evidence_path = root / evidence_name
         expected = str(evidence.get("sha256", ""))
         source_commit = evidence.get("source_commit")
         if not SHA256.fullmatch(expected) or not evidence_path.is_file():
             raise Track016ReadinessError(
                 "candidate evidence requires an existing SHA-256-bound file"
             )
+        if HISTORICAL_EVIDENCE.get(evidence_name) != expected:
+            raise Track016ReadinessError(f"candidate evidence hash drift: {evidence_path}")
         if source_commit is not None:
             if not COMMIT.fullmatch(str(source_commit)):
                 raise Track016ReadinessError("candidate evidence source commit is invalid")
