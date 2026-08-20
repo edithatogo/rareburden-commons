@@ -79,6 +79,14 @@ MAX_TERMS_BYTES = 5 * 1024 * 1024
 USER_AGENT = "rareburden-track-002-candidate-verifier/1"
 
 
+def _is_sha256(value: object) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == 64
+        and all(character in "0123456789abcdef" for character in value)
+    )
+
+
 class HashingSink:
     """A write-only counter and SHA-256 sink for a streamed tar archive."""
 
@@ -122,7 +130,9 @@ def _safe_scope(scope: dict[str, Any]) -> list[tuple[str, dict[str, Any]]]:
                 "github.com",
             }:
                 raise ValueError("candidate source URL is outside the publisher allowlist")
-            if int(artifact.get("bytes", 0)) <= 0 or len(str(artifact.get("sha256", ""))) != 64:
+            if parsed.username or parsed.password or parsed.query or parsed.fragment:
+                raise ValueError("candidate source URL must be credential-free and query-free")
+            if int(artifact.get("bytes", 0)) <= 0 or not _is_sha256(artifact.get("sha256")):
                 raise ValueError("candidate artifact lacks an exact size and SHA-256")
             artifacts.append((source_id, artifact))
     if len(artifacts) != 5 or len({str(item[1]["public_path"]) for item in artifacts}) != 5:
@@ -344,7 +354,12 @@ def main() -> int:
     parser.add_argument("--receipt", type=Path, required=True)
     args = parser.parse_args()
     receipt = verify(args.scope)
-    args.receipt.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    rendered = json.dumps(receipt, indent=2, sort_keys=True) + "\n"
+    try:
+        with args.receipt.open("x", encoding="utf-8", errors="strict") as stream:
+            stream.write(rendered)
+    except FileExistsError as exc:
+        raise ValueError(f"refusing to overwrite receipt: {args.receipt}") from exc
     print(json.dumps({"status": receipt["status"], "receipt": str(args.receipt)}))
     return 0
 

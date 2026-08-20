@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 import yaml
 
+import scripts.verify_track_002_minimal_candidate as verifier
 from scripts.verify_track_002_minimal_candidate import (
     _candidate_notice,
     _safe_scope,
@@ -47,6 +48,19 @@ def test_scope_validation_rejects_publication_or_unbounded_claims() -> None:
         _safe_scope(scope)
 
 
+def test_scope_validation_rejects_malformed_hash_and_query_url() -> None:
+    scope = _scope()
+    artifact = scope["candidate"]["sources"][0]["artifacts"][0]
+    artifact["sha256"] = "z" * 64
+    with pytest.raises(ValueError, match="exact size and SHA-256"):
+        _safe_scope(scope)
+
+    scope = _scope()
+    artifact = scope["candidate"]["sources"][0]["artifacts"][0]
+    artifact["source_url"] += "?token=must-not-persist"
+    with pytest.raises(ValueError, match="credential-free and query-free"):
+        _safe_scope(scope)
+
 def test_package_digest_is_deterministic_and_bound_to_contents(tmp_path: Path) -> None:
     artifact = tmp_path / "raw/orphadata/2026-07/example.xml"
     artifact.parent.mkdir(parents=True)
@@ -81,3 +95,16 @@ def test_failed_live_attempt_keeps_every_dependent_gate_closed() -> None:
         "private_capture_performed": False,
         "source_bytes_retained": False,
     }
+
+
+def test_cli_refuses_to_overwrite_receipt(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    receipt = tmp_path / "receipt.json"
+    receipt.write_text("preserve me\n", encoding="utf-8")
+    monkeypatch.setattr(verifier, "verify", lambda _scope_path: {"status": "synthetic"})
+    monkeypatch.setattr(
+        "sys.argv",
+        ["verify_track_002_minimal_candidate.py", "--receipt", str(receipt)],
+    )
+    with pytest.raises(ValueError, match="refusing to overwrite receipt"):
+        verifier.main()
+    assert receipt.read_text(encoding="utf-8") == "preserve me\n"

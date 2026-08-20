@@ -27,6 +27,10 @@
   assets, and pass the full repository gate. Evidence: implementation commit
   `473b9aa`; focused post-rebase tests `17 passed`; `uv run make check`
   completed with `920 passed`.
+- [x] Reject non-hex artifact digests and credential-bearing/query URLs before
+  retrieval, and create candidate receipts exclusively so an existing receipt
+  cannot be overwritten. Evidence: focused negative tests in
+  `tests/test_track_002_minimal_candidate_verifier.py`.
 
 ## HPO rights frontier — 2026-08-16
 
@@ -121,15 +125,25 @@
   candidates were reachable and byte-stable on 2026-08-20, with activation
   disabled. Evidence:
   `docs/track-002-live-source-change-exercise-2026-08-20.json`.
-- [ ] Complete the agent-methods challenge and exact owner source-use
-  disposition for any activated estimand; publisher rights remain fail-closed
-  and the current bounded owner posture is recorded in
-  `docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md`.
+- [x] Reconcile the agent-methods advice, owner data-use disposition and dated
+  source-change evidence for all four exact estimands without activating them.
+  Evidence: `docs/track-002-activation-matrix.yml` and
+  `docs/track-002-source-terms-matrix.yml`.
+- [ ] Record an exact owner activation decision for any estimand promoted
+  beyond its current conditional/candidate/probe posture; publisher rights and
+  every excluded claim remain fail-closed.
 - [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.
 - [x] Assign every external review finding to a named gate and bounded
   disposition. Evidence: `docs/track-002-findings-disposition.yml`; assigned
   findings remain open until qualifying receipts exist.
 - [ ] Release v0.3.0 only when Track 007 also satisfies its gate.
+
+## Live-exercise review fixes — 2026-08-20
+
+- [x] Reject negative pacing and secret-like URL query keys before any live
+  request or receipt persistence. Evidence:
+  `scripts/observe_track_002_source_change.py` and focused negative tests in
+  `tests/test_track_002_live_source_change.py`.
 
 ## Review fixes — 2026-07-27
 
