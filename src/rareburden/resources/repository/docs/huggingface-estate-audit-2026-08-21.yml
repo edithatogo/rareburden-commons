@@ -1,0 +1,110 @@
+schema_version: "1.0"
+status: "bounded_live_inventory_owner_disposition_required"
+observed_at: "2026-08-21"
+scope:
+  account: "edithatogo"
+  repository_type: "dataset"
+  project_repositories:
+    - "edithatogo/hpo-licensed-ontology-archive"
+    - "edithatogo/rareburden-commons-source-archive"
+    - "edithatogo/rareburden-commons-open-source-snapshots"
+  boundary: >-
+    This is a revision-bound reconciliation of the named Hugging Face dataset
+    repositories and repository source registers. It is not evidence that every
+    possible upstream source, historical release, language, file, or account
+    repository has been discovered.
+
+live_inventory:
+  - id: "edithatogo/hpo-licensed-ontology-archive"
+    visibility: "private"
+    revision: "7fbac651dd611102ed7fc6fdd898b6f43807c37f"
+    files: 424
+    bytes: 90680074829
+    disposition: "retain_private_and_split_only_exact_rights_cleared_families"
+  - id: "edithatogo/rareburden-commons-source-archive"
+    visibility: "private"
+    revision: "ddf35f48f21dce831e346559b41549bd6188662d"
+    files: 38
+    bytes: 137925035
+    disposition: "retain_private_except_exact_rights_cleared_duplicates"
+  - id: "edithatogo/rareburden-commons-open-source-snapshots"
+    visibility: "public"
+    revision: "6eadca1e2b69a05aaf33d5f2ff1391daf94d33cc"
+    files: 462
+    bytes: 10841596729
+    disposition: "public_rights_filtered_projection"
+
+approved_bulk_promotion:
+  owner_disposition: "promote_additional_exact_rights_cleared_batches_in_bulk"
+  candidate_universe: "288 HPO ontology-core objects marked public_exact_unmodified_with_official_conditions"
+  initial_public_objects: 137
+  public_objects_after_bounded_run: 217
+  newly_public_objects: 80
+  remaining_objects: 71
+  remaining_bytes: 1999612516
+  size_conflicts: 0
+  state: "partially_complete_provider_rate_limit"
+  blocker: "Hugging Face repository commit limit of 128 commits per hour"
+  remediation: "publisher changed from one commit per object to one atomic commit per bounded batch"
+  resume_condition: "provider commit window reopens; then reconcile and submit only still-missing objects"
+
+ascertainment:
+  all_sources_indexed:
+    result: false
+    rationale:
+      - "catalog/data_sources.yml defines 16 project sources, while the archival decision matrix includes additional terminology and classification candidates"
+      - "catalogue metadata reviews are preliminary and the semantic inventory explicitly says exact_supported_source_inventory_complete is false"
+      - "bounded endpoint and release observations do not establish historical, language, edition, national-extension, or upstream-source completeness"
+  all_source_metadata_archived:
+    result: false
+    rationale:
+      - "metadata, notices, hashes, terms observations, and receipts exist for the acquired bounded snapshots"
+      - "several catalogue sources remain selection-, access-, terms-, or custodian-pending and therefore lack an exact release/file archival packet"
+      - "a source URL or catalogue row is not a byte- and revision-complete metadata archive"
+  private_data_can_move_public:
+    result: "some_exact_families_only"
+    already_public:
+      - "Orphadata and Orphacode rights-filtered snapshots"
+      - "UN WPP 2024 exact workbook"
+      - "World Bank bounded response"
+      - "MONDO pinned releases"
+      - "ClinVar 2026-08 pinned snapshot"
+      - "rights-cleared HPO core subset and historical public HPO snapshots"
+      - "Disease Ontology, Mammalian Phenotype Ontology, PATO, uPheno, and MeSH 2026 XML"
+    remain_blocked:
+      - "UMLS, SNOMED CT, RxNorm, and other UTS-controlled bytes"
+      - "WHO ICD response bytes and WHO GHE workbook pending exact redistribution and third-party-field rights"
+      - "PanelApp listing/details pending mixed-rights and reuse disposition"
+      - "HPO artifacts outside the exact rights-cleared public projection"
+      - "LOINC and other licensed or terms-unresolved terminology bytes"
+
+owner_options:
+  - id: "A"
+    decision: "retain_current_split"
+    trade_off: "lowest rights risk; private storage remains large"
+  - id: "B"
+    decision: "promote_only_new_exact_rights_cleared_batches"
+    trade_off: "reduces duplication but requires file-level hashes, terms, notices, rollback, and a separate owner disposition per batch"
+  - id: "C"
+    decision: "make_private_repositories_public"
+    trade_off: "unacceptable because controlled and unresolved-rights bytes are co-located"
+    recommended: false
+recommendation: "B"
+
+required_before_each_new_public_batch:
+  - "pin private source revision and exact paths"
+  - "verify file sizes and SHA-256 digests"
+  - "capture exact file-level licence and third-party restrictions"
+  - "preserve attribution, notices, version, and change information"
+  - "screen for controlled, personal, small-population, and culturally governed content"
+  - "define destination paths, correction/takedown route, and rollback"
+  - "obtain repository-owner disposition for the exact manifest"
+
+claims:
+  independent_review: false
+  external_validation: false
+  community_participation: false
+  production_activation: false
+  global_source_completeness: false
+  metadata_completeness: false
+  all_private_content_redistributable: false
