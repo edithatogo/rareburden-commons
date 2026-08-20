@@ -1,0 +1,92 @@
+{
+  "activation_permitted": false,
+  "claim_boundary": "These are exact retrieval-time byte observations only. They do not establish publisher rights, scientific fitness, representativeness or production activation.",
+  "max_response_bytes": 60000000,
+  "observed_at_utc": "2026-08-20T06:00:00+00:00",
+  "pacing_seconds": 1.0,
+  "records": [
+    {
+      "activation_permitted": false,
+      "bytes_observed": 16178169,
+      "comparison": "stable",
+      "expected_sha256": "6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0",
+      "http_status": 200,
+      "incident_required": false,
+      "observed_sha256": "6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0",
+      "release_id": "orphanet-knowledge-base-2026-07",
+      "requested_url": "https://www.orphadata.com/data/xml/en_product9_prev.xml",
+      "required_action": null,
+      "source_bytes_retained": false,
+      "source_id": "orphadata-science-epidemiology"
+    },
+    {
+      "activation_permitted": false,
+      "bytes_observed": 54026799,
+      "comparison": "stable",
+      "expected_sha256": "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb",
+      "http_status": 200,
+      "incident_required": false,
+      "observed_sha256": "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb",
+      "release_id": "orphanet-knowledge-base-2026-07",
+      "requested_url": "https://www.orphadata.com/data/xml/en_product1.xml",
+      "required_action": null,
+      "source_bytes_retained": false,
+      "source_id": "orphadata-science-alignments"
+    },
+    {
+      "activation_permitted": false,
+      "bytes_observed": 26142942,
+      "comparison": "stable",
+      "expected_sha256": "98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d",
+      "http_status": 200,
+      "incident_required": false,
+      "observed_sha256": "98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d",
+      "release_id": "wpp-2024-28th-revision",
+      "requested_url": "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx",
+      "required_action": null,
+      "source_bytes_retained": false,
+      "source_id": "un-world-population-prospects"
+    },
+    {
+      "activation_permitted": false,
+      "bytes_observed": 12756114,
+      "comparison": "stable",
+      "expected_sha256": "a051da530e7802ff6c084293b50e8de21cce0c36f02b76085568487f143246fe",
+      "http_status": 200,
+      "incident_required": false,
+      "observed_sha256": "a051da530e7802ff6c084293b50e8de21cce0c36f02b76085568487f143246fe",
+      "release_id": "who-ghe-2021-country-daly-2000",
+      "requested_url": "https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/ghe2021_daly_bycountry_2000.xlsx?sfvrsn=23cd3c55_5",
+      "required_action": null,
+      "source_bytes_retained": false,
+      "source_id": "who-global-health-estimates"
+    },
+    {
+      "activation_permitted": false,
+      "bytes_observed": 8826,
+      "comparison": "stable",
+      "expected_sha256": "7db1f222bf7b5af9b9da9b5f380cad48356b1d33c74c2666c9a96d0d7ca7ad4f",
+      "http_status": 200,
+      "incident_required": false,
+      "observed_sha256": "7db1f222bf7b5af9b9da9b5f380cad48356b1d33c74c2666c9a96d0d7ca7ad4f",
+      "release_id": "SP.POP.TOTL-AUS-NZL-2000-2021-source-2",
+      "requested_url": "https://api.worldbank.org/v2/country/AUS;NZL/indicator/SP.POP.TOTL?date=2000:2021&format=json&per_page=100&source=2",
+      "required_action": null,
+      "source_bytes_retained": false,
+      "source_id": "world-bank-indicators-api"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "status": "bounded_live_source_change_exercise",
+  "stop_conditions": [
+    "changed or unavailable bytes",
+    "untrusted redirect",
+    "response over byte budget",
+    "terms, release identity or intended-use drift"
+  ],
+  "summary": {
+    "changed": 0,
+    "stable": 5,
+    "unavailable": 0
+  }
+}

@@ -63,7 +63,13 @@
 - [x] Implement adapter and manual-registration protocols. `[S-03]`
 - [x] Implement cache, checksum, retry, timeout, bounded-size and atomic-write behaviour. `[M-11, M-20]`
 - [x] Add structured provenance that excludes credentials and participant data. `[M-13, M-15]`
-- [~] Complete licence-uncertainty policy and live source-change exercises. `[M-22]` Local policy and pre-network enforcement completed in `c5e50b2`; schema-valid source-change incident evidence completed in `97421ca`; dated live-source exercises remain open.
+- [x] Complete licence-uncertainty policy and live source-change exercises.
+  `[M-22]` Local policy and pre-network enforcement completed in `c5e50b2`;
+  schema-valid source-change incident evidence completed in `97421ca`; the
+  bounded 2026-08-20 live exercise re-observed all five exact candidates with
+  matching bytes while retaining no source payloads and permitting no
+  activation. Evidence:
+  `docs/track-002-live-source-change-exercise-2026-08-20.json`.
 
 ## Phase 3 — Source adapters
 
@@ -83,9 +89,14 @@
 ## Phase 5 — Review and release
 
 - [x] Complete internal engineering and security review of the offline substrate.
-- [ ] Complete the live source-change exercise and agent-methods challenge;
-  publisher rights remain fail-closed and the owner data-use disposition is
-  recorded in `docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md`.
+- [x] Complete the bounded live source-change exercise; all five exact
+  candidates were reachable and byte-stable on 2026-08-20, with activation
+  disabled. Evidence:
+  `docs/track-002-live-source-change-exercise-2026-08-20.json`.
+- [ ] Complete the agent-methods challenge and exact owner source-use
+  disposition for any activated estimand; publisher rights remain fail-closed
+  and the current bounded owner posture is recorded in
+  `docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md`.
 - [x] Verify the final exact Git clone, installed wheel and clean source archive workflows. Evidence: `39a4b4d`; clean single-branch clone passed `make check`, and independently installed wheel and source archive both passed `rareburden validate-programme`.
 - [x] Assign every external review finding to a named gate and bounded
   disposition. Evidence: `docs/track-002-findings-disposition.yml`; assigned
@@ -199,8 +210,11 @@ scientific and data-governance gates remain separate and pending.
   unavailable-response and terms fail-closed rules.
 - [x] Add regression coverage proving hashes are observational only and that
   an unavailable World Bank response cannot be promoted.
-- [ ] Re-probe changed or unavailable endpoints and obtain accountable terms,
-  scientific and custodian dispositions before activation.
+- [x] Re-probe the previously unavailable World Bank endpoint alongside the
+  other four exact candidates. All five matched their pinned SHA-256 values on
+  2026-08-20; this is retrieval evidence only and permits no activation.
+- [ ] Record current publisher terms facts, agent-methods advice and an exact
+  owner source-use disposition before activating any estimand.
 
 ## Exact source and private-archive refresh — 2026-08-15
 
