@@ -2,6 +2,13 @@
 
 All notable changes will be documented here. The project uses semantic versioning for software and independent version identifiers for protocols, schemas, source releases and analytic releases.
 
+## Unreleased
+
+### Changed
+
+- The supported Python range is now 3.12–3.14; Python 3.11 is no longer in the
+  package, CI or wheelhouse support contract.
+
 ## [0.3.0rc2] — 2026-07-27
 
 ### Added

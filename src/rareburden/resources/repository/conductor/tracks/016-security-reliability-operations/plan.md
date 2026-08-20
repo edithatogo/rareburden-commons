@@ -10,8 +10,10 @@
 - [x] Threat-model repository, acquisition, build, node, API and release boundaries. Evidence: `docs/security-operations-016-reference.md`; independent review remains open.
 - [x] Declare supported runtimes and environments. Evidence:
   `docs/supported-environments.md` distinguishes continuously tested Linux
-  Python 3.11–3.14 from Python 3.13 cross-platform candidate evidence and
-  explicitly excludes unverified/custodian claims.
+  Python 3.12–3.14 from Python 3.13 cross-platform candidate evidence and
+  explicitly excludes unverified/custodian claims. The owner decision
+  `docs/decisions/2026-08-20-python-3-12-support-floor.md` removes Python 3.11
+  from the current contract without expanding production-readiness claims.
 - [x] Define bounded security, incident, backup and recovery ownership. Evidence:
   `docs/track-016-bounded-reconciliation-2026-08-16.md` and the machine-checked
   operations manifest name `edithatogo` as primary owner/operator, preserve the

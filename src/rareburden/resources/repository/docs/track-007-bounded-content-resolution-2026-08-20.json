@@ -1,10 +1,14 @@
 {
-  "schema_version": "RBC-LAND-007-BOUNDED-CONTENT-v0.1.0",
+  "schema_version": "RBC-LAND-007-BOUNDED-CONTENT-v0.2.0",
   "source_sha256": "sha256:7ee32a6bc3e701aca3b5d0bda22dc2618dd65b2e75b27636cab4372a6ed6f40c",
   "scope": "minimal_public_metadata_only",
   "counts": {
     "include_bounded_adjacency": 54,
     "not_assessable_in_bounded_public_metadata_scope": 90
+  },
+  "future_assessment_priority_counts": {
+    "tier_1_explicit_safe_metadata_signal": 46,
+    "tier_2_no_explicit_safe_metadata_signal": 44
   },
   "resolutions": [
     {
@@ -86,7 +90,9 @@
       "canonical_url": "https://github.com/favourori/PatientsRegistryLanding",
       "evidence_sha256": "sha256:13e42813a13636b2d8b1f52cd0529925562944352e0e1cb448524428117a5a20",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "github:fnuvrinda/lysosomal-registry",
@@ -167,7 +173,9 @@
       "canonical_url": "https://github.com/rclanan/radar",
       "evidence_sha256": "sha256:13dc20d8f5dae6f6e5f29b59cecea4cbec7065ca788ec9af54198d1a2428c058",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "github:rohitdeshmukh-1/gans-for-synthetic-medical-data-generation",
@@ -194,7 +202,9 @@
       "canonical_url": "https://github.com/walu2/squirro-demo",
       "evidence_sha256": "sha256:ba8a9976fb4190f5e69889ee9fce934e94c38adbb788004e62ea04c91fb359ef",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:10136590",
@@ -203,7 +213,9 @@
       "canonical_url": "https://zenodo.org/records/10136590",
       "evidence_sha256": "sha256:0bc708873141b9cf207c58b93427d08176d3f1eac82bd58a7cd5868725c8edfa",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:10276454",
@@ -212,7 +224,9 @@
       "canonical_url": "https://zenodo.org/records/10276454",
       "evidence_sha256": "sha256:3572e8c7414d99269638de7897d371872c8d209a62a3d4fa373ee87928a6b9bc",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:10278169",
@@ -221,7 +235,9 @@
       "canonical_url": "https://zenodo.org/records/10278169",
       "evidence_sha256": "sha256:38af036cd087009dc6a1a70295ef114b619706a37ec60e50bc377932e2256015",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:10561159",
@@ -239,7 +255,9 @@
       "canonical_url": "https://zenodo.org/records/10590212",
       "evidence_sha256": "sha256:a89cd731bdd5b2b1dbd7e256b8625fdbe55cf04cfdd0eedb50a1e07485400563",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:10598453",
@@ -248,7 +266,9 @@
       "canonical_url": "https://zenodo.org/records/10598453",
       "evidence_sha256": "sha256:71778573fb56ff3d78973442c6ee790a7c083aaffe9bda579f772fd5cc957329",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:10612080",
@@ -266,7 +286,9 @@
       "canonical_url": "https://zenodo.org/records/10927075",
       "evidence_sha256": "sha256:8a5095a27fb7838fc4f6edf820fcc9bf9f0505ba138b3623839a3e89c88a4869",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:10991413",
@@ -302,7 +324,9 @@
       "canonical_url": "https://zenodo.org/records/11080898",
       "evidence_sha256": "sha256:7ef768b9647646f055740ef96cdbf9dab38353a4e09acc661d563bdea518144b",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:11109534",
@@ -311,7 +335,9 @@
       "canonical_url": "https://zenodo.org/records/11109534",
       "evidence_sha256": "sha256:56a04d8d730a6d0dc83ab2b0aa47225e80790969cb00ffa0d800a85090ecc9a3",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:11397544",
@@ -320,7 +346,9 @@
       "canonical_url": "https://zenodo.org/records/11397544",
       "evidence_sha256": "sha256:313ffa63d910f7f49ca783b7915f102b7439bc9745cbee92aee940100b1bf724",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:1157686",
@@ -329,7 +357,9 @@
       "canonical_url": "https://zenodo.org/records/1157686",
       "evidence_sha256": "sha256:b547613cd16003f74251743c9ad8038b3e91b84fa93579eb0812ed8055325e9d",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:12180025",
@@ -356,7 +386,9 @@
       "canonical_url": "https://zenodo.org/records/12598376",
       "evidence_sha256": "sha256:5051449760c21e33fb3bdb08ddaecb4b828b1c756ac29672f463a7c3ee862fee",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:12758629",
@@ -365,7 +397,9 @@
       "canonical_url": "https://zenodo.org/records/12758629",
       "evidence_sha256": "sha256:ae50838c7cd8e1e89dbb0f003384ab5a9d8f203f564a2252e2bb51075229d1c3",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:13341025",
@@ -383,7 +417,9 @@
       "canonical_url": "https://zenodo.org/records/13533061",
       "evidence_sha256": "sha256:5297d0dec2bd934da2dc4e6cce331d646fc6f04cb6fe4fb3f367477f8319ebba",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:13751264",
@@ -392,7 +428,9 @@
       "canonical_url": "https://zenodo.org/records/13751264",
       "evidence_sha256": "sha256:587dcd932136eb895be73b938cfe12f643ac27510845a8cf87e47fcf485dbd0c",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:13862191",
@@ -401,7 +439,9 @@
       "canonical_url": "https://zenodo.org/records/13862191",
       "evidence_sha256": "sha256:95dab95bfe7c7b8f09af1da7868f5b4aaa25738ea0a7a2a469e1943ebf3ef6af",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:14049328",
@@ -419,7 +459,9 @@
       "canonical_url": "https://zenodo.org/records/14050748",
       "evidence_sha256": "sha256:15fbc977521028ca0357f3909b08a01f7daae72d6f5e32b95674f09356ee7a06",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:1415377",
@@ -437,7 +479,9 @@
       "canonical_url": "https://zenodo.org/records/14207517",
       "evidence_sha256": "sha256:024915cbf751fa48826ae0e13131739351115ef7ab2038511895a9b14de762e1",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:14228581",
@@ -455,7 +499,9 @@
       "canonical_url": "https://zenodo.org/records/14251033",
       "evidence_sha256": "sha256:9d24600b7cfd00c2cfeb323e95fff3b5651b576ae07cf1c3eec8213c661f35f6",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:14337495",
@@ -464,7 +510,9 @@
       "canonical_url": "https://zenodo.org/records/14337495",
       "evidence_sha256": "sha256:1522be64a32f5184d092027f478a9221d5d9063e7692f033e34059a8a50998a8",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:1451014",
@@ -491,7 +539,9 @@
       "canonical_url": "https://zenodo.org/records/14556600",
       "evidence_sha256": "sha256:bf23b80207fe55d3e51fb9a68a7e10b93e15a15690c02e20c2e2dc82438f456e",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:14617208",
@@ -500,7 +550,9 @@
       "canonical_url": "https://zenodo.org/records/14617208",
       "evidence_sha256": "sha256:3051546fda252c2fbfbb7c1b2c5f38c12d88aafd7f67df050ff5d970fc548d06",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:14675515",
@@ -509,7 +561,9 @@
       "canonical_url": "https://zenodo.org/records/14675515",
       "evidence_sha256": "sha256:9ec2b285840736ab71702d54d73c1dcb6c45e083c94da40c784d838b19cfb727",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:1473859",
@@ -518,7 +572,9 @@
       "canonical_url": "https://zenodo.org/records/1473859",
       "evidence_sha256": "sha256:a991d47d27c3a18552b82bc0d3dd5a7a0f3698c1b0f8690d16ce0ddc5bc430fc",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:14849645",
@@ -527,7 +583,9 @@
       "canonical_url": "https://zenodo.org/records/14849645",
       "evidence_sha256": "sha256:a10be29c3561a9e4ed9df5c65b95cb5c4bd9e786e2dcdb341cbefb41511a751f",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:14894634",
@@ -536,7 +594,9 @@
       "canonical_url": "https://zenodo.org/records/14894634",
       "evidence_sha256": "sha256:f8012e73fdf5a6b35b2c4a8e5d1b67ecbdaae6a7e70c41d827987855c234e796",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:1490851",
@@ -545,7 +605,9 @@
       "canonical_url": "https://zenodo.org/records/1490851",
       "evidence_sha256": "sha256:29616a8d39d378acba5c9e9c855f8c6468e947cdef802a3fa4d74520d2dd53d7",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:14930542",
@@ -563,7 +625,9 @@
       "canonical_url": "https://zenodo.org/records/15094569",
       "evidence_sha256": "sha256:d3bbed216e32a2ffd6660591126fd53f839e017cf4797d288a249542bfaf13cd",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:15259696",
@@ -572,7 +636,9 @@
       "canonical_url": "https://zenodo.org/records/15259696",
       "evidence_sha256": "sha256:4013a72eef7734b7b3fafc7cfb04af85cef0e38c0fa7362a5ec9365b7c619e60",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:16488164",
@@ -581,7 +647,9 @@
       "canonical_url": "https://zenodo.org/records/16488164",
       "evidence_sha256": "sha256:483519de72db7f75c03a98081f2c6a5cb3df6d04be4259da83cc83309460084d",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:17045461",
@@ -590,7 +658,9 @@
       "canonical_url": "https://zenodo.org/records/17045461",
       "evidence_sha256": "sha256:2111624d82c1b6a948bc2d1975924ae9cff59cf7490706bbf6f411a662638839",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:17206238",
@@ -599,7 +669,9 @@
       "canonical_url": "https://zenodo.org/records/17206238",
       "evidence_sha256": "sha256:7a404c6738f7cc6883b3e1dedd1f288cc6d0c7cbb83d7ce3582d5cb98a1de5b5",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:17400242",
@@ -608,7 +680,9 @@
       "canonical_url": "https://zenodo.org/records/17400242",
       "evidence_sha256": "sha256:6c32e3e777c5aaa4c2ce0eb0206355ba1c4b25cb388dc35a8cdbebd81ec7b61d",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:17424735",
@@ -626,7 +700,9 @@
       "canonical_url": "https://zenodo.org/records/17496459",
       "evidence_sha256": "sha256:218bb9f25e6e37c845e9785c9d11728830e61ce86c0eb636d53cd3e84272179b",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:17518483",
@@ -635,7 +711,9 @@
       "canonical_url": "https://zenodo.org/records/17518483",
       "evidence_sha256": "sha256:20e48d18236ca7104a1a7d2b27a09b8894be82e2ef936ef67eb66aa4096a8b9b",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:17620400",
@@ -653,7 +731,9 @@
       "canonical_url": "https://zenodo.org/records/17998449",
       "evidence_sha256": "sha256:b327ea2b47e6c2313b0c539b5a8bc230d680f66aaae8e851a03a5254ce149f1a",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:18301904",
@@ -662,7 +742,9 @@
       "canonical_url": "https://zenodo.org/records/18301904",
       "evidence_sha256": "sha256:cf2434fc08d452aca83ff76d8bc37c3ff25ffc1033330a1412fbf484ade33316",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:1889452",
@@ -680,7 +762,9 @@
       "canonical_url": "https://zenodo.org/records/19183127",
       "evidence_sha256": "sha256:bc7ed8b5f535640c0913f00857a090e74c8aadc22ea80fe81d41934f561e01aa",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:19436460",
@@ -689,7 +773,9 @@
       "canonical_url": "https://zenodo.org/records/19436460",
       "evidence_sha256": "sha256:b7a3b676e66ebced9bf62ffb2f5bb0770ac143a79e14fbccbdfb1a79bae3af6b",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:19587380",
@@ -698,7 +784,9 @@
       "canonical_url": "https://zenodo.org/records/19587380",
       "evidence_sha256": "sha256:6a8f3ce159fbfbbfec544342cb19775648a8d10bc06eb77cf5eef736e2474d8e",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:19678995",
@@ -707,7 +795,9 @@
       "canonical_url": "https://zenodo.org/records/19678995",
       "evidence_sha256": "sha256:79f1a2a42719cfbb55624c7397b5ef6b7c06de50a3508f54ecc58e898746e832",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:19847088",
@@ -716,7 +806,9 @@
       "canonical_url": "https://zenodo.org/records/19847088",
       "evidence_sha256": "sha256:f7a4239b90ac1ae6bd7512aef67d93c3213d863d73046d4244b6a7322aaeea4e",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:20222381",
@@ -725,7 +817,9 @@
       "canonical_url": "https://zenodo.org/records/20222381",
       "evidence_sha256": "sha256:0a2b9cea7429752ae7e028ad27af2e070331dc73d04a222e93b190048a61faaa",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:20222383",
@@ -734,7 +828,9 @@
       "canonical_url": "https://zenodo.org/records/20222383",
       "evidence_sha256": "sha256:03a77113639944761c61a1ad0ca4439117f45c05e0954e35c9c20e94409291b9",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:20473209",
@@ -743,7 +839,9 @@
       "canonical_url": "https://zenodo.org/records/20473209",
       "evidence_sha256": "sha256:8dfcd9ff3a24bc46d80369031fb20cac0a7fb67277458f110bf71fdaa975fa5b",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:20520796",
@@ -761,7 +859,9 @@
       "canonical_url": "https://zenodo.org/records/20593250",
       "evidence_sha256": "sha256:c6cb6ba83b362d05c5e101c1d2f2218556691b8836fb67b16db969e25ada6811",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:21130029",
@@ -770,7 +870,9 @@
       "canonical_url": "https://zenodo.org/records/21130029",
       "evidence_sha256": "sha256:56c94cc3c58e24e13518643b15d8fb5bcf9fe760a4de75e63a19e8d21522cf18",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:21204473",
@@ -788,7 +890,9 @@
       "canonical_url": "https://zenodo.org/records/21285868",
       "evidence_sha256": "sha256:63b6c9d9eb62e28e31d4ad7a9983b24cc388e364483bc3e59b6f78dd4bea2d7e",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:21741420",
@@ -797,7 +901,9 @@
       "canonical_url": "https://zenodo.org/records/21741420",
       "evidence_sha256": "sha256:653c1e4d79aa26c465a0af3cc44b38ddeb57797915b13e295edea54623f21542",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:21872833",
@@ -806,7 +912,9 @@
       "canonical_url": "https://zenodo.org/records/21872833",
       "evidence_sha256": "sha256:98482e0e8299c3115f1eb3a3eaed8140a4f59ecf8a59700e006e45bbc2c550e4",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:21874778",
@@ -815,7 +923,9 @@
       "canonical_url": "https://zenodo.org/records/21874778",
       "evidence_sha256": "sha256:c759ed22c7009a915df620b09fa5a3187c2e00cf8ff02f43ea1527b8f908a3e9",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:2528168",
@@ -824,7 +934,9 @@
       "canonical_url": "https://zenodo.org/records/2528168",
       "evidence_sha256": "sha256:6bf9e1d3fe1892a564cb67adb16d70737480edecac1d76e190468ed8f1c42f5a",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:2561528",
@@ -860,7 +972,9 @@
       "canonical_url": "https://zenodo.org/records/3244358",
       "evidence_sha256": "sha256:c98ce788dc0650527fe85516c80515eb4042d61dd1332ac6f0d6fed749e05e21",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:3246824",
@@ -869,7 +983,9 @@
       "canonical_url": "https://zenodo.org/records/3246824",
       "evidence_sha256": "sha256:33b9c053b3a3cf824260787fbd1da97ac0b31d6e901f4861f65c9da8c5e840c1",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:3264001",
@@ -914,7 +1030,9 @@
       "canonical_url": "https://zenodo.org/records/3730463",
       "evidence_sha256": "sha256:ad0dc0f1237a6fc46d87a60e5fbcfd210d29ebd6503190594d452f162029955f",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:4016814",
@@ -941,7 +1059,9 @@
       "canonical_url": "https://zenodo.org/records/4108221",
       "evidence_sha256": "sha256:fede14aa4bf2bfc790425da337dd8cf3bd8d7019f30c6d15ab8393ec6d7c2d25",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:4394618",
@@ -950,7 +1070,9 @@
       "canonical_url": "https://zenodo.org/records/4394618",
       "evidence_sha256": "sha256:f672c25f31f1b671c0de3e38a609297e0ca11dac885671fe7a094cf256c31760",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:45102",
@@ -959,7 +1081,9 @@
       "canonical_url": "https://zenodo.org/records/45102",
       "evidence_sha256": "sha256:79a362c74bcd990c35260a9fe5b1cc9a575112249f7f378f910dc32895ffd111",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:4625470",
@@ -968,7 +1092,9 @@
       "canonical_url": "https://zenodo.org/records/4625470",
       "evidence_sha256": "sha256:2b59ab187b643c00c68c401acec63c98159b49bf8154c4b95859e90bcf0cd940",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:4722674",
@@ -977,7 +1103,9 @@
       "canonical_url": "https://zenodo.org/records/4722674",
       "evidence_sha256": "sha256:9040332bb2bd257876392f2c6041c6fcca5a7a37473624f2e275d53257790109",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:4767933",
@@ -986,7 +1114,9 @@
       "canonical_url": "https://zenodo.org/records/4767933",
       "evidence_sha256": "sha256:326296d3c455b1579de389ac186b39cc71a247dac3c483458a6171a99d3655f8",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:4931316",
@@ -995,7 +1125,9 @@
       "canonical_url": "https://zenodo.org/records/4931316",
       "evidence_sha256": "sha256:3609dc2cf5bf40fb5f208e67d8619b61eedc78c2ea37ad65b92e58a38ae7842b",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:4977833",
@@ -1004,7 +1136,9 @@
       "canonical_url": "https://zenodo.org/records/4977833",
       "evidence_sha256": "sha256:420a78c3f01046beab860550bdbfef2ed306f94e917fb049275d7ea0733323ae",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:5019195",
@@ -1022,7 +1156,9 @@
       "canonical_url": "https://zenodo.org/records/5095419",
       "evidence_sha256": "sha256:3df9fc9dca1a239ca38a7b760933a7aabb078616714551f289dca1b4dde931d5",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:5095421",
@@ -1031,7 +1167,9 @@
       "canonical_url": "https://zenodo.org/records/5095421",
       "evidence_sha256": "sha256:b400b40926417a49fb2fe604d67911aa07965f43582ac39cfc2d711ebead52de",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:5105386",
@@ -1040,7 +1178,9 @@
       "canonical_url": "https://zenodo.org/records/5105386",
       "evidence_sha256": "sha256:570d72456968f4912f06daa949b9117df239872038933df075c798112bcdfdb9",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:5107810",
@@ -1058,7 +1198,9 @@
       "canonical_url": "https://zenodo.org/records/5115590",
       "evidence_sha256": "sha256:9177b5aff37bee19879a78863bbea0d08200d9b79e88637d7204d22de355d773",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:5205331",
@@ -1067,7 +1209,9 @@
       "canonical_url": "https://zenodo.org/records/5205331",
       "evidence_sha256": "sha256:32900264729f54c28eb372be57e013c8e2fb391ccebc88a71e2c0f6ea8b22177",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:5520579",
@@ -1076,7 +1220,9 @@
       "canonical_url": "https://zenodo.org/records/5520579",
       "evidence_sha256": "sha256:2a90739d972b7cf67382bb2df84381c24a0576f0fa59007a91542c98f9791fea",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:5565274",
@@ -1085,7 +1231,9 @@
       "canonical_url": "https://zenodo.org/records/5565274",
       "evidence_sha256": "sha256:046b0abf79c95908047a5e2f96061b59174c90a3bdecd7cfd0644c4ef8fbc816",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:5846621",
@@ -1121,7 +1269,9 @@
       "canonical_url": "https://zenodo.org/records/6416062",
       "evidence_sha256": "sha256:20fd7b23b3901b174a384d73dd094bcb8231b16d18932ec0b22151dc3e69772a",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:6584967",
@@ -1130,7 +1280,9 @@
       "canonical_url": "https://zenodo.org/records/6584967",
       "evidence_sha256": "sha256:7dea839926e06092cea7bd70b648a6d19045747a5a29508a7c83c682d93bcd3c",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:6838880",
@@ -1139,7 +1291,9 @@
       "canonical_url": "https://zenodo.org/records/6838880",
       "evidence_sha256": "sha256:ab4e38a0951279d4e830de35379facd16369ea38adee09e0ae4c896e774016ed",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:6937791",
@@ -1148,7 +1302,9 @@
       "canonical_url": "https://zenodo.org/records/6937791",
       "evidence_sha256": "sha256:37c15180158784cd71c8b408d5a6af68717b1e03aa4d8e7600e52188c1c2a6de",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:7126073",
@@ -1157,7 +1313,9 @@
       "canonical_url": "https://zenodo.org/records/7126073",
       "evidence_sha256": "sha256:26031bb99527c676174887a5b44f8c236af0016535b3f5738ab99c7ff37b6eb5",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:7156009",
@@ -1166,7 +1324,9 @@
       "canonical_url": "https://zenodo.org/records/7156009",
       "evidence_sha256": "sha256:6a59a36e2c60637e499b77d14488621006aa77ec13cf2cc30a2c952a827a133c",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:7270345",
@@ -1175,7 +1335,9 @@
       "canonical_url": "https://zenodo.org/records/7270345",
       "evidence_sha256": "sha256:8ccf59c6b74233f2e43858066e561e4538fb19d5c60b4e2cabad564889ff0516",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:7342934",
@@ -1184,7 +1346,9 @@
       "canonical_url": "https://zenodo.org/records/7342934",
       "evidence_sha256": "sha256:8e4e3e318186914c171abe7b3818a8465faa5fd16f32d046f227933e093e035c",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:7553116",
@@ -1202,7 +1366,9 @@
       "canonical_url": "https://zenodo.org/records/7649672",
       "evidence_sha256": "sha256:baecb920d5c291fb6355b5e8eceb06deb63cc09a13c33b3e8bcc09799279b560",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:7738728",
@@ -1211,7 +1377,9 @@
       "canonical_url": "https://zenodo.org/records/7738728",
       "evidence_sha256": "sha256:b1624478bee1888bc1d97010b37dda670c8300e9e0d7145ea88ebd85646d1e81",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     },
     {
       "identifier_key": "zenodo:7769174",
@@ -1220,7 +1388,9 @@
       "canonical_url": "https://zenodo.org/records/7769174",
       "evidence_sha256": "sha256:f7ee2d22ff362ff8c63810fe8b220d9edc68e14562f26bfb81f0821901fbcd05",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:7857692",
@@ -1229,7 +1399,9 @@
       "canonical_url": "https://zenodo.org/records/7857692",
       "evidence_sha256": "sha256:09425dffdcf71be4b55d983a860308768962ebe842de9750a5755fd158fbf303",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:8032864",
@@ -1238,7 +1410,9 @@
       "canonical_url": "https://zenodo.org/records/8032864",
       "evidence_sha256": "sha256:be0f554e1c485c339a71f3d7a28d1792cf081b9dd24c010123217a925150b01f",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:8099468",
@@ -1247,7 +1421,9 @@
       "canonical_url": "https://zenodo.org/records/8099468",
       "evidence_sha256": "sha256:5be022c4bb883bc2838a704beaff199bc5b7c3c1e9dbc89831b309f972c99af0",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:8102661",
@@ -1256,7 +1432,9 @@
       "canonical_url": "https://zenodo.org/records/8102661",
       "evidence_sha256": "sha256:606e3f3eb3ad61436e9ddf93b889829aa03e84ae2d4bf672059c42caa689a741",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:8200079",
@@ -1283,7 +1461,9 @@
       "canonical_url": "https://zenodo.org/records/8252259",
       "evidence_sha256": "sha256:97dbcd4caaaec84517d5082058fd24f3032e55dd7c4ac58fb8e32bf24f8df39e",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:8282224",
@@ -1292,7 +1472,9 @@
       "canonical_url": "https://zenodo.org/records/8282224",
       "evidence_sha256": "sha256:b2d3ce020dda261a405826418498594c76899606d6f0bd04e1f4752bdd1ab0b5",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_2_no_explicit_safe_metadata_signal",
+      "future_assessment_basis": "no_safe_metadata_signal_requires_lawful_substantive_evidence"
     },
     {
       "identifier_key": "zenodo:8430384",
@@ -1301,19 +1483,37 @@
       "canonical_url": "https://zenodo.org/records/8430384",
       "evidence_sha256": "sha256:84f4d87dc11aa47f4cc52bebee30ea0b889a8fc3e8a2ed9d3de611e2ac67173a",
       "resolution": "not_assessable_in_bounded_public_metadata_scope",
-      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference"
+      "reason": "insufficient_lawful_public_metadata_no_exclusion_or_absence_inference",
+      "future_assessment_priority": "tier_1_explicit_safe_metadata_signal",
+      "future_assessment_basis": "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
     }
   ],
   "content_retention": "identifiers_titles_urls_and_hashes_only",
   "interpretation": {
     "include_bounded_adjacency": "eligible only for the bounded adjacency map",
-    "not_assessable_in_bounded_public_metadata_scope": "terminal for this bounded pass; not an exclusion, absence, quality, or novelty finding"
+    "not_assessable_in_bounded_public_metadata_scope": "terminal for this bounded pass; not an exclusion, absence, quality, or novelty finding; uncertainty remains eligible for a later lawful substantive assessment"
+  },
+  "priority_policy": {
+    "purpose": "order later lawful substantive assessment without changing decisions",
+    "tier_1": "records with an explicit safe-metadata scope or contribution signal",
+    "tier_2": "records without either explicit safe-metadata signal",
+    "not_used_as_proxies": [
+      "repository_programming_language_as_content_language",
+      "title_language_as_study_language",
+      "author_or_publisher_affiliation_as_study_geography",
+      "provider_presence_as_representativeness"
+    ]
   },
   "prohibited_claims": [
+    "systematic_or_comprehensive_search",
+    "global_or_geographic_representativeness",
     "comprehensive_coverage",
     "representativeness",
     "confirmed_novelty",
     "community_approval",
-    "partnership_or_endorsement"
+    "patient_or_community_endorsement",
+    "partnership_or_endorsement",
+    "programme_operation_or_effectiveness",
+    "access_or_clinical_validity"
   ]
 }
