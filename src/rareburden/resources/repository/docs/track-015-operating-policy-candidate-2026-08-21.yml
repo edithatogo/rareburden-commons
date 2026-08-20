@@ -1,0 +1,88 @@
+schema_version: "1.0.0"
+track: 015-governance-partnership-policy
+status: candidate_pending_owner_disposition
+repository_model: single_accountable_human_with_simulated_advisory_agents
+decision_authority: repository_owner
+human_review_required: false
+remuneration:
+  model: unpaid
+  amount: 0
+
+scope:
+  permitted_inputs: [public, synthetic, owner_controlled]
+  controlled_or_third_party_inputs: disabled_without_scope_matched_permission
+  authority_for_unrelated_communities_or_nodes: not_claimed
+  partnership_or_endorsement: not_claimed
+
+acceptable_use:
+  permitted:
+    - reproducible aggregate burden research
+    - evidence-gap and service-planning analysis with uncertainty disclosed
+    - synthetic testing and owner-controlled method development
+  prohibited:
+    - individual clinical decisions or re-identification
+    - punitive allocation, eligibility denial or discriminatory profiling
+    - country or community ranking that suppresses uncertainty or missingness
+    - partnership, consent or representativeness claims without evidence
+  stop_triggers:
+    - participant-level, row-level or small-cell content reaches a public path
+    - source rights, custodian terms or authority scope cannot be established
+    - stigmatizing framing or material disclosure risk remains unresolved
+
+harm_and_benefit:
+  required_checks: [privacy, stigma, exclusion, inequitable_interpretation, accessibility]
+  benefit_rule: describe plausible public benefit without promising benefit to a person or community
+  affected_scope_rule: narrow or withdraw an output when harm cannot be acceptably bounded
+  benefit_sharing: free_public_methods_and_aggregate_outputs_where_lawful
+
+corrections:
+  triggers: [factual_error, provenance_drift, rights_change, harmful_language, disclosure_risk]
+  immediate_action: freeze_or_narrow_affected_output
+  history_rule: preserve_immutable_supersession_and_reason
+  decision_owner: repository_owner
+
+authorship:
+  accountable_author: repository_owner
+  agents: tools_or_advisory_contributors_not_authors_or_approvers
+  external_contributor_rule: attribution_requires_consent_and_documented_contribution
+  conflicts_rule: disclose_material_method_funding_relationship_and_interest_conflicts
+
+complaints_and_appeals:
+  intake: repository_issue_or_documented_private_route_when_sensitive
+  acknowledgement_target_days: 14
+  triage: [safety_or_privacy, rights_or_authority, scientific, accessibility_or_language, other]
+  urgent_action: freeze_affected_surface
+  appeal_decider: repository_owner
+  independence_claim: false
+  record_rule: publish_bounded_outcome_without_sensitive_complainant_details
+
+funder_independence:
+  funder_veto: prohibited
+  method_or_result_control_for_advantage: prohibited
+  funding_and_conflicts_disclosure: required
+  adverse_result_rule: preserve_and_report_subject_to_lawful_privacy_and_safety_limits
+
+indigenous_data_and_care:
+  owner_applicable_authority: declared
+  collective_benefit: require_explicit_purpose_and_avoid_extractive_claims
+  authority_to_control: owner_scope_only
+  responsibility: document_provenance_limits_corrections_and_withdrawal
+  ethics: prevent_stigma_reidentification_and_context_collapse
+  unrelated_people_or_country_node_rule: require_attributable_scope_matched_authority_before_activation
+
+country_node:
+  default_state: inactive
+  accreditation_basis: synthetic_conformance_only_until_node_authority_is_recorded
+  required_before_activation:
+    - node_identity_and_accountable_custodian
+    - lawful_scope_and_permitted_outputs
+    - disclosure_retention_withdrawal_and_incident_terms
+    - applicable_indigenous_or_community_authority
+    - versioned_execution_and_schema_conformance
+  owner_may_approve: repository_compatibility_and_synthetic_conformance
+  owner_cannot_infer: third_party_permission_or_unrelated_community_authority
+
+review_and_expiry:
+  material_change_requires_new_packet: true
+  review_interval_days: 365
+  withdrawal_route: freeze_record_supersede

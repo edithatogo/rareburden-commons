@@ -1,0 +1,86 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 015-governance-partnership-policy
+candidate:
+  commit: 81cce428f8ba1ae4298b63d359e20453bf424025
+  tree: 65502fd76a388475ebd99bfd2176fc01f9e6d739
+  evidence_manifest_sha256: 43c6bc13a8981a0265108584a1f133214a9c28b1ed8f243afedb69ed11a9d3f5
+panel:
+  perspectives: [community_harm, rights_data_use, programme_operations]
+  non_representation_statement: >-
+    Simulated advisory perspectives only; not human or independent review,
+    lived-experience testimony, community representation, consent or approval.
+evidence:
+  references:
+    - docs/track-015-operating-policy-candidate-2026-08-21.yml
+    - docs/single-owner-agent-governance.yml
+    - docs/decisions/2026-08-21-owner-custodian-indigenous-authority.md
+    - docs/v1-acceptance-criteria.md
+  observed_facts:
+    - The repository has one accountable human owner and simulated advisory agents.
+    - The owner declares repository-custodian and applicable Indigenous-authority roles.
+    - No additional human review or remuneration is planned.
+    - No third-party partnership, node authority or controlled-data permission is active.
+  simulated_assessments:
+    - A single bounded policy package gives users clearer protections and correction routes.
+    - Country-node terms should remain inactive until each external scope is evidenced.
+    - Owner-decided complaints and appeals must not be described as independent.
+  cannot_infer:
+    - authority for unrelated Indigenous peoples or communities
+    - third-party custodian or country-node permission
+    - partnership, endorsement or global representativeness
+    - independent human review
+uncertainty:
+  - Future jurisdictions may require narrower terms or additional lawful obligations.
+  - A real controlled-data node may require controls not observable in synthetic preparation.
+dissent:
+  - A minimal policy would be shorter, but would leave correction, appeal and node boundaries fragmented.
+stop_triggers:
+  - The policy is treated as third-party permission or community consent.
+  - An appeal is described as independent when the owner is the decider.
+  - A country node or controlled-data pathway is activated without scope-matched evidence.
+options:
+  - id: A
+    title: Adopt bounded integrated policy
+    disposition: accept
+    trade_offs:
+      - Covers acceptable use, harms, corrections, authorship, appeals, funding and node terms coherently.
+      - Requires maintenance when scope, law or data pathways materially change.
+    contingencies:
+      - Keep all third-party and unrelated-authority paths inactive until evidenced.
+      - Reissue the packet after a material policy or jurisdiction change.
+    rationale: >-
+      One fail-closed package is the clearest operational implementation of the
+      sole-owner model and the Track 015 policy requirements.
+    minimum_evidence:
+      - passing candidate validator and negative tests
+      - attributable owner disposition
+  - id: B
+    title: Adopt repository-only minimum
+    disposition: narrow
+    trade_offs:
+      - Reduces maintenance and avoids premature node detail.
+      - Leaves complaints, benefit and country-node expectations fragmented.
+    contingencies:
+      - Add separate policies before any public beta or node activation.
+    rationale: Limit adoption to acceptable use, corrections and funder independence.
+    minimum_evidence:
+      - narrow owner disposition identifying excluded policy areas
+  - id: C
+    title: Defer operating policies
+    disposition: defer
+    trade_offs:
+      - Avoids adopting a policy before more operational experience exists.
+      - Leaves V1-GOV-03 and Phase 2 preparation unresolved.
+    contingencies:
+      - Continue synthetic tests only and set a review trigger.
+    rationale: Preserve the current bounded controls without adopting the candidate.
+    minimum_evidence:
+      - owner deferral reason and revisit trigger
+recommendation:
+  option_id: A
+  rationale: >-
+    Adopt the integrated candidate because it closes the repository-owned policy
+    gap while keeping third-party authority and controlled-data activation fail closed.
+owner_decision:
+  status: pending
