@@ -1,88 +1,72 @@
 # Track 017 stable-release implementation plan
 
-**Status:** non-activating plan; no v1 tag or support promise is authorised.
+**Status:** amended for ADR-0009 on 2026-08-20; no v1 tag or support promise is
+authorised.
 
-## Blocker
+## Operating model
 
-The repository has role-based documentation and synthetic reference tests, but
-there is no independent usability/reproduction receipt, accepted ownership and
-sustainability model, or stable-release evidence package. Local tests and a
-subagent panel can prepare and check evidence; they cannot be represented as
-independent user/operator activity or release authority.
+RareBurden Commons is a single-developer repository. Role-separated agents
+perform advisory usability, methods, community/harm, rights/data-use,
+engineering, security and release challenge. The repository owner records the
+accountable exact-candidate disposition. No additional person or independent
+reviewer is a mandatory repository gate.
 
-## Options
+Agent and owner evidence does not become human, constituted-community,
+custodian, licensor, institutional or external approval. Publisher rights and
+future controlled-data custodian policies remain evidence-bound facts.
 
-### Option A — staged offline release-candidate programme (recommended)
+## Current evidence
 
-1. Freeze a candidate commit and create two clean builds from locked
-   environments (source archive and wheel paths).
-2. Give the same public quickstart and reference workflow to two independent
-   operators without maintainer intervention; capture task completion, defects,
-   environment, timings and redacted receipts.
-3. Run one independent reproduction against the candidate and compare reviewed
-   outputs using hashes and an explicit equivalence tolerance.
-4. Assemble a v1 evidence index mapping every acceptance criterion to a receipt,
-   limitation or bounded exclusion.
-5. Record primary/backup owners, succession, support scope, cost assumptions
-   and expiry/renewal conditions.
-6. Submit the packet to the accountable multi-lane gates, then tag v1 only if
-   the release authority records release.
+- Two role-separated usability-agent assessments have executed.
+- Two clean locked-environment candidates produced equivalent outputs.
+- One separately recorded owner-operated reproduction produced equivalent
+  reviewed outputs.
+- All 67 v1 criteria are indexed without being promoted to satisfied.
+- The repository owner recorded a bounded synthetic/public-preview disposition
+  for an exact candidate; stable release remains deferred.
 
-This is the strongest path because it is reproducible, low-cost and preserves
-the project's offline and aggregate-only boundaries.
+The immutable receipts and validators are indexed by
+`docs/track-017-bounded-readiness-reconciliation-2026-08-16.md`.
 
-### Option B — hosted cross-platform canary
+## Remaining programme
 
-Run candidate builds and usability sessions in disposable hosted Linux/macOS/
-Windows environments. This can expose platform drift sooner, but adds provider
-retention, credentials, cost and data-governance obligations. Use only if
-Option A cannot cover the supported matrix.
+1. Complete dependencies 013–016 and bind their final dispositions.
+2. Complete the primary/backup roster, scoped backup handoff, succession,
+   support boundary and continuity evidence.
+3. Approve a costed operating model and institutional host or bounded interim
+   ownership.
+4. Close or remove unsupported capability for every remaining blocking v1
+   criterion.
+5. Run the role-separated release panel and record a new exact-candidate owner
+   decision: release, release with bounded exclusions, revise or stop.
+6. Only after a stable release decision, build, tag, publish and independently
+   verify the public artefact bytes using the documented instructions. Here,
+   “independently verify” describes a separate verification execution, not an
+   additional-person review authority.
 
-### Option C — bounded pre-v1 release
+## Contingencies
 
-Publish a versioned release candidate with an explicit “not stable / no support
-promise” scope statement. This improves discoverability but does not satisfy
-the stable-v1 acceptance criteria and must not be labelled v1.0.0.
+- If backup continuity is incomplete, retain single-owner limitations and do
+  not make a stable support promise.
+- If costs or hosting are unapproved, retain bounded interim ownership and keep
+  stable release disabled.
+- If a supported environment cannot reproduce cleanly, remove it from the
+  supported matrix until new exact-candidate evidence exists.
+- If publisher rights are unresolved, exclude the affected bytes or source;
+  neither agents nor the owner may manufacture permission.
+- If a critical safety, rights, semantic-integrity, security, reproducibility,
+  recovery, withdrawal or hash finding remains open, narrow, revise or stop.
 
-## Recommendation and contingencies
+## Evidence required for the next status decision
 
-Proceed with Option A. If two independent users cannot be recruited, retain the
-candidate as pre-v1 and record the exact missing receipt. If an equivalent
-reproduction cannot be achieved, narrow the supported workflow and publish the
-discrepancy rather than relaxing equivalence. If ownership or cost acceptance
-is absent, keep support and stable-release claims disabled. If a platform cannot
-be reproduced cleanly, remove that platform from the supported matrix until
-new evidence exists.
+- dependency-complete metadata and reviews for Tracks 013–016;
+- attributable primary/backup scope, acceptance, escalation, expiry and
+  hash-bound handoff evidence;
+- approved cost, support and hosting or interim-ownership disposition;
+- complete v1 evidence table with each blocking criterion satisfied or removed
+  from scope;
+- exact-candidate agent-panel reports and repository-owner stable disposition;
+- publication and public-byte verification receipt after authorization.
 
-## Dependency-ordered work packages
-
-1. **Candidate freeze:** record commit, lockfile, source/wheel hashes, supported
-   environment and reproducible build commands.
-2. **Usability packet:** provide a fixed task script, success criteria,
-   accessibility prompts, defect taxonomy and redacted receipt template.
-3. **Independent reproduction:** compare outputs, provenance, limitations and
-   hashes; preserve non-equivalence as a finding.
-4. **Ownership and sustainability:** record primary/backup maintainer,
-   incident, reviewer and succession roles, support boundaries, costs and
-   institutional or bounded interim host.
-5. **Evidence index:** link every v1 criterion to exact artefacts and mark
-   unsupported capabilities as exclusions.
-6. **Panel review:** use repository subagents to check completeness, traceability
-   and consistency; retain external/accountable decisions as separate gates.
-7. **Release decision:** release, bounded exclusion, revise or stop; only the
-   release-authority record can permit v1.0.0 tagging.
-8. **Public verification:** after approval, publish artefacts and verify them
-   from the public instructions; otherwise leave publication disabled.
-
-## Evidence required to close the blocker
-
-- two independent usability receipts;
-- two clean candidate build receipts;
-- one independent reproduction and equivalence report;
-- maintainer/reviewer/incident/succession roster with backups;
-- approved cost and support model or bounded interim ownership;
-- complete v1 evidence index and accountable multi-lane release disposition;
-- public artefact verification receipt after approval.
-
-No user recruitment, external communication, stable tagging or publication is
-initiated by this plan.
+No external communication, v1.0.0 tagging or publication is initiated by this
+plan.
