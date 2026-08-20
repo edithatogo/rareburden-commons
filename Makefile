@@ -8,6 +8,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	test coverage critical-coverage typecheck lint format-check links safety compile schemas \
 	workflows lock requirements runtime-assets runtime-assets-check release-identity \
 	validation-artifacts validation-artifacts-check \
+	downstream-preparation-check \
 	mutation mutation-score \
 	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
 	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check qualifying-receipts-check package-size-check check ci release-check clean
@@ -32,6 +33,10 @@ external-receipt-check:
 qualifying-receipts-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_qualifying_receipts_register.py \
 		docs/qualifying-receipts-register.yml
+
+downstream-preparation-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_downstream_preparation.py \
+		docs/downstream-bounded-preparation-plan-2026-08-03.yml --root .
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -165,7 +170,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check package-size-check release-identity node-reproducibility burden-benchmark \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check package-size-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility

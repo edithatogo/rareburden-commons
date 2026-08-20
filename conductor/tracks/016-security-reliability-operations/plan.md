@@ -178,3 +178,12 @@
 - [ ] Keep the release runtime at Python 3.13 unless a separately recorded
   compatibility decision changes the support matrix and refreshes the frozen
   candidate.
+
+## Option B cross-cutting security control — 2026-08-20
+
+- [x] Authorise and machine-enforce cross-cutting synthetic security work while
+  keeping production activation blocked. Evidence:
+  `docs/decisions/2026-08-20-owner-option-b-bounded-preparation.md`,
+  `docs/downstream-bounded-preparation-plan-2026-08-03.yml` and
+  `scripts/check_downstream_preparation.py`. This does not establish an
+  independent-security, backup-owner, production-operations or release gate.

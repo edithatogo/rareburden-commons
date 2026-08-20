@@ -108,3 +108,12 @@
   findings remain bounded by disabled real-world mappings.
 - [ ] Re-run the source and naming challenge after Track 002/007 completion,
   obtain the required owner disposition, and only then consider a v0.4 freeze.
+
+## Option B preparation control — 2026-08-20
+
+- [x] Record and machine-enforce the owner-authorised synthetic preparation
+  boundary and serial Track 008 → 009 → 010 freeze order. Evidence:
+  `docs/decisions/2026-08-20-owner-option-b-bounded-preparation.md`,
+  `scripts/check_downstream_preparation.py` and focused negative tests. The
+  semantic contract remains provisional and upstream, naming, clinical,
+  community and review gates remain open.

@@ -1,6 +1,8 @@
-schema_version: "0.1.0"
+schema_version: "0.2.0"
 status: "repository_owned_reconciliation"
-as_of: "2026-08-05"
+as_of: "2026-08-20"
+owner_disposition: "docs/decisions/2026-08-20-owner-option-b-bounded-preparation.md"
+freeze_order: ["008", "009", "010"]
 upstream:
   track_002: "bounded_owner_disposition; source_terms_custodian_and_activation_pending"
   track_007: "protocol_and_panel_preparation; registration_challenge_and_patient_community_pending"
@@ -28,6 +30,21 @@ tracks:
     depends_on: ["009"]
     completed_scope: "synthetic burden calculations and regression budgets"
     remaining_blocks: ["alpha_freeze", "scientific_release_claim", "upstream_009"]
+  - track: "003"
+    state: "bounded_preparation"
+    depends_on: ["008", "009", "010"]
+    completed_scope: "synthetic monogenic-diabetes protocol and reference fixtures"
+    remaining_blocks: ["clinical_review", "community_harm_review", "empirical_cohort_claims", "upstream_008_009_010"]
+  - track: "004"
+    state: "bounded_preparation"
+    depends_on: ["006", "009", "010"]
+    completed_scope: "synthetic node contracts, disclosure controls and offline execution rehearsals"
+    remaining_blocks: ["custodian_policy", "controlled_data_pilot", "production_node_activation", "upstream_009_010"]
+  - track: "005"
+    state: "bounded_preparation"
+    depends_on: ["009", "010"]
+    completed_scope: "synthetic economic and social burden contracts and scenarios"
+    remaining_blocks: ["patient_co_design", "health_economic_review", "empirical_activation", "upstream_009_010"]
   - track: "011"
     state: "bounded_preparation"
     depends_on: ["008", "009", "010"]
@@ -65,6 +82,7 @@ tracks:
     remaining_blocks: ["independent_reproduction", "stable_v1", "release_authority_receipt"]
 non_closure_rules:
   - "bounded_preparation is not implementation completion or release readiness"
-  - "panel outputs do not satisfy independent, patient/community, custodian or release authority gates"
+  - "panel outputs are advisory and owner disposition is owner-operated governance, not independent review"
+  - "panel outputs do not establish patient/community authority, custodian approval or release authority"
   - "any upstream change requires downstream dependency revalidation"
   - "critical safety, rights, semantic-integrity or reproducibility findings stop affected tracks"

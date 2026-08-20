@@ -87,3 +87,12 @@
   Three medium findings remain controlled by disabled empirical activation.
 - [ ] Record owner disposition and repeat the challenge after Track 008 is
   complete; do not freeze the v0.4 ledger contract before then.
+
+## Option B preparation control — 2026-08-20
+
+- [x] Enforce provisional ledger preparation without allowing Track 009 to
+  activate before Track 008 completes. Evidence:
+  `docs/downstream-bounded-preparation-plan-2026-08-03.yml`,
+  `scripts/check_downstream_preparation.py` and focused out-of-order activation
+  tests. Epidemiology, rights/data-use, engineering and contract-freeze gates
+  remain open.
