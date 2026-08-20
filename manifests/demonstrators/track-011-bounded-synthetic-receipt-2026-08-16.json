@@ -28,7 +28,7 @@
     {
       "artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",
       "scope": "bounded synthetic burden-engine reconciliation only",
-      "sha256": "aa14209ab736e9dc3767da55df33897a4ccf6dc7d462cac77f612e7a16b5f60e",
+      "sha256": "dc050724fb70a95885954be5b8f77243851da63f3fcbf1c837e1d307bfa131fd",
       "track_id": "010"
     }
   ],
@@ -73,7 +73,7 @@
     "No age, geography, setting, diagnostic-capacity or clinical inference is permitted."
   ],
   "multi_aetiology_count": 80.0,
-  "receipt_id": "demo-3b681b9c9e259da8f59ab12d",
+  "receipt_id": "demo-b78ff3c4c7fe971eae54b14b",
   "schema_version": "0.1.0",
   "unaccounted_count": 70.0,
   "unknown_count": 150.0

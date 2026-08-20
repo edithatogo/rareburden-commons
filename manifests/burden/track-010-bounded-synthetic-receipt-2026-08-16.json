@@ -25,7 +25,7 @@
   "right_parameter_id": "rare-diabetes-fraction-synthetic",
   "runtime": {
     "python_implementation": "CPython",
-    "python_version": "3.13.13",
+    "python_version": "3.14.5",
     "random_engine": "rareburden.pcg32-box-muller-marsaglia-tsang.v1",
     "software_version": "0.3.0rc2"
   },

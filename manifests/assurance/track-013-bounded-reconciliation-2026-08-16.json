@@ -27,7 +27,7 @@
     {
       "track": "010",
       "artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",
-      "sha256": "a8176c09e3824d603bf6cd839cfb34b1fd55b7644850d2ad5d7bd1da8713e4fc",
+      "sha256": "dc050724fb70a95885954be5b8f77243851da63f3fcbf1c837e1d307bfa131fd",
       "required_assertions": {
         "activation_state": "synthetic_only",
         "empirical_parameter_activation": false,
@@ -37,7 +37,7 @@
     {
       "track": "011",
       "artifact": "manifests/demonstrators/track-011-bounded-synthetic-receipt-2026-08-16.json",
-      "sha256": "4a225f04add7098121419178a1a7f9ef1d8f01b4536608086ac01af3139c492f",
+      "sha256": "7976281d07bf15bfda6947921bfc277c5db0b19463ea49a90ac0e301468bf5b6",
       "required_assertions": {
         "activation_state": "synthetic_only",
         "empirical_activation": false,
@@ -48,7 +48,7 @@
     {
       "track": "012",
       "artifact": "manifests/demonstrators/track-012-bounded-synthetic-receipt-2026-08-16.json",
-      "sha256": "0fdc24b93905b2c62aa1bfc07846ee35e411dcbcf4736d7d463f9f02ac1b43e6",
+      "sha256": "37fde808238b056c2a616fb294aa6cb23f226665be67bb14d6d9c5fd6debf337",
       "required_assertions": {
         "activation_state": "synthetic_only",
         "controlled_data_activation": false,
