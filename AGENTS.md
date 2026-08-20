@@ -2,6 +2,11 @@
 
 Before changing this repository:
 
+`edithatogo` is the sole accountable human, owner and maintainer. Agents are
+advisers only and must present options, trade-offs, contingencies, rationale and
+a recommendation for material decisions. They do not approve, maintain,
+authorise or independently review repository work.
+
 For the portable autonomous handoff branch, also read `docs/handoff/implementation-status.md` and `docs/handoff/CODEX_AUTONOMOUS_CONTINUATION.md` before changing code, Git history or GitHub configuration.
 
 1. Read `conductor/index.md`, `conductor/product.md`, `conductor/tech-stack.md`, `conductor/workflow.md` and `conductor/roadmap.yml`.

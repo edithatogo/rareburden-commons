@@ -2,14 +2,14 @@
 
 ## Objective
 
-Convert governance principles into attributable single-owner decision rights
-with role-separated agent advice, and create partner- and policy-ready
-materials without implying unconfirmed endorsement or access.
+Make the sole-owner decision model operational and create partner- and
+policy-ready materials without implying unconfirmed endorsement, access or
+shared repository authority.
 
 ## Required outputs
 
-- prospective simulated-panel and owner-decision contract;
-- conflict, dissent, authorship, appeals and correction policies;
+- advisory-panel and external-evidence-provider terms of reference;
+- selection, disclosure, conflict, unpaid participation, authorship, appeals and correction policies;
 - acceptable-use, harm-review and benefit-sharing framework;
 - Indigenous Data Sovereignty and CARE-aligned node provisions;
 - country-node agreement and accreditation process;
@@ -20,11 +20,11 @@ materials without implying unconfirmed endorsement or access.
 
 ## Acceptance criteria
 
-1. Patient/community and harm perspectives are represented by explicitly
-   simulated advisory agents; the owner retains decision authority and all work
-   is unpaid.
-2. Scientific, rights/data-use, engineering/security and operations/release
-   agent perspectives are named and operational.
+1. Patient/community or harm advice is explicitly simulated and unpaid; any
+   external evidence is attributable without creating repository ownership or
+   claiming authority where none exists.
+2. Scientific, ethics/data-governance and country-node evidence-provider lanes
+   are defined and operational without becoming accountable repository roles.
 3. Funders and data contributors cannot veto valid results or control methods for advantage.
 4. Conflicts, complaints, appeals, authorship and correction processes are tested.
 5. The owner's repository-custodian and applicable Indigenous-authority roles
@@ -33,25 +33,25 @@ materials without implying unconfirmed endorsement or access.
 6. External materials clearly distinguish public data use, requested collaboration and confirmed agreement.
 7. Global claims require the representation conditions in the roadmap.
 8. The repository owner approves or bounds the v1 product and acceptable uses
-   after role-separated agent advice.
+   after advisory challenge and applicable external evidence.
 
 ## Non-goals
 
-- creating nominal committees without decision power;
+- creating nominal committees or implying shared repository authority;
 - treating consultation as consent;
 - storing relationship-sensitive operations material in the public repository when confidentiality is required;
 - criticising adjacent institutions to create a partnership case.
 
 ## Current bounded repository operating model
 
-This single-person repository uses the accountable owner plus role-separated
-simulated advisory agent panels defined by ADR-0009 and ADR-0010. Agent findings
-inform owner disposition but are not independent or human review. The owner has
-declared the repository-custodian and applicable Indigenous-authority roles for
-this work; that declaration does not extend to unrelated communities,
-third-party custodians or country nodes. Publisher terms and controlled-
-environment rules remain binding facts. No additional human review is planned,
-and remuneration is zero.
+This single-accountable-human repository uses the owner plus role-separated
+advisory agent panels defined by ADR-0009 and ADR-0011. Agent findings inform
+owner disposition but are not independent or human review. The owner declares
+the repository-custodian and applicable Indigenous-authority roles for this
+work; that declaration does not extend to unrelated communities, third-party
+custodians or country nodes. Publisher terms and controlled-environment rules
+remain binding facts. No additional human review is planned, and remuneration
+is zero.
 
 ## v1 contribution
 

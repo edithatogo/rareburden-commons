@@ -1,24 +1,21 @@
 # Track 015 plan
 
-> This is a single-person repository. Role-separated simulated agent panels
-> advise under ADR-0009 and ADR-0010; the owner decides. The owner has declared
-> the repository-custodian and applicable Indigenous-authority roles. All work
-> is unpaid and remuneration is zero.
+> This is a single-accountable-human repository. Role-separated simulated
+> agent panels advise; the owner decides and declares the repository-custodian
+> and applicable Indigenous-authority roles. All work is unpaid.
 
 ## Phase 1 — Constitute governance
 
-- [x] Adopt the prospective simulated-panel and owner-decision contract. `[M-16]`
+- [x] Adopt the prospective agent-panel and sole-owner decision contract. `[M-16]`
 - [x] Establish community/harm agent-panel remit, dissent rules and owner
   decision rights. Evidence:
   `docs/track-015-patient-community-governance-advice-2026-08-20.yml` and
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
 - [x] Establish methods, rights/data-use and node agent-panel review roles.
 - [x] Publish conflict, dissent and owner-disposition process. `[M-17]`
-  Evidence: `docs/single-owner-agent-governance.yml`, ADR-0009 and ADR-0010.
 - [x] Record the owner's repository-custodian and applicable
-  Indigenous-authority declaration with explicit scope exclusions. Evidence:
-  `docs/decisions/2026-08-21-owner-custodian-indigenous-authority.md`.
-- [x] Remove additional or independent human review as a repository plan gate.
+  Indigenous-authority declaration with explicit scope exclusions.
+- [x] Remove additional human review and remuneration as repository plan gates.
 
 ## Phase 2 — Operating policies
 
@@ -64,8 +61,9 @@
 - [x] Provide a non-binding tabletop exercise protocol covering withdrawal,
   global-claim pressure, funder independence, stigmatizing language and
   disclosure risk. Evidence: `docs/governance-015-tabletop-template.md`.
-- [ ] Run the owner-authorised governance tabletop using simulated advisory
-  panels and record the attributable owner disposition.
+- [ ] Run an authorised governance tabletop and record decisions; external
+  facilitator, patient/community authority and governance appointments remain
+  required.
 
 ## Preparation refresh — 2026-08-01
 
@@ -125,8 +123,20 @@
 - [x] Audit every remaining task and acceptance criterion against accountable
   authority, dependency state and required receipts. Evidence:
   `docs/track-015-external-gate-closure-2026-08-21.yml`.
-- [x] Replace the inapplicable constituted-body, additional-human-review and
-  paid-remuneration premises with the single-owner agent-panel model.
-- [ ] Receive attributable, scope-matched evidence only for activated
-  third-party rights, unrelated community/country-node authority, controlled
-  data, partnership or endorsement claims; otherwise keep those claims inactive.
+- [x] Record the track as blocked rather than self-attesting constituted bodies,
+  approvals, remuneration, partnership, global representation or release
+  authority. Evidence: Track 015 metadata, register and review.
+- [ ] Receive attributable, scope-matched receipts for every applicable gate in
+  `docs/track-015-external-gate-closure-2026-08-21.yml`; then rerun the exact-
+  candidate review and record a constituted governance readiness decision.
+
+## Single-accountable-human enforcement — 2026-08-21
+
+- [x] Record the owner's acceptance of the panel-recommended enforced
+  single-owner model and make active track ownership, CODEOWNERS, continuity,
+  contribution, security and governance controls agree. Evidence:
+  `docs/decisions/ADR-0011-single-accountable-human-enforcement.md`,
+  `docs/single-owner-agent-governance.yml` and
+  `scripts/check_single_owner_agent_governance.py`. Historical role metadata
+  remains provenance; external evidence and independent-review boundaries are
+  not waived.
