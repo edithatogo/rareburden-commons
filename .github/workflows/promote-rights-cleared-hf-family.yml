@@ -1,0 +1,37 @@
+name: promote rights-cleared private HF family to public
+
+on:
+  workflow_dispatch:
+    inputs:
+      family:
+        description: Exact allowlisted family identifier
+        required: true
+        type: choice
+        options: [disease-ontology, mammalian-phenotype-ontology, phenotype-and-trait-ontology, unified-phenotype-ontology, mesh-2026-xml]
+
+permissions:
+  contents: read
+concurrency:
+  group: rights-cleared-hf-public-promotion
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Stream, publish, verify and discard exact bytes
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          PROMOTION_FAMILY: ${{ inputs.family }}
+        run: python3 scripts/promote_rights_cleared_hf_family.py --manifest manifests/huggingface/public-promotion-2026-08-21.json --family "$PROMOTION_FAMILY" --max-bytes 2000000000 --receipt public-promotion-receipt.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: rights-cleared-public-promotion-receipt
+          path: public-promotion-receipt.json
+          if-no-files-found: error
+          retention-days: 30

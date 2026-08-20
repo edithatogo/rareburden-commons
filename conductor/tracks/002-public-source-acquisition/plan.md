@@ -1,5 +1,13 @@
 # Track 002 plan
 
+## Rights-cleared free-tier public promotion — 2026-08-21
+
+- [x] Add a fail-closed hosted promotion lane for exact Disease Ontology, MP,
+  PATO, uPheno and MeSH families whose redistribution terms are recorded. Pin
+  the private source revision, enforce exact file/byte bounds, compute SHA-256,
+  verify public bytes remotely, discard runner-local bytes and never infer
+  private deletion or quota reclamation from successful publication.
+
 ## Owner-approved minimal public-release preparation — 2026-08-20
 
 - [x] Bind the owner-approved release allowlist to the exact July 2026
