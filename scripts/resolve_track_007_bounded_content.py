@@ -10,8 +10,19 @@ from pathlib import Path
 from typing import Any
 
 
+def _is_sha256(value: object) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == len("sha256:") + 64
+        and value.startswith("sha256:")
+        and all(character in "0123456789abcdef" for character in value[7:])
+    )
+
+
 def resolve(raw: bytes) -> dict[str, Any]:
     source = json.loads(raw)
+    if not isinstance(source, dict):
+        raise ValueError("source must be a JSON object")
     decisions = source.get("decisions")
     if not isinstance(decisions, list) or not decisions:
         raise ValueError("source decisions must be a non-empty list")
@@ -19,6 +30,8 @@ def resolve(raw: bytes) -> dict[str, Any]:
     identifiers: set[str] = set()
     resolutions: list[dict[str, Any]] = []
     for item in decisions:
+        if not isinstance(item, dict):
+            raise ValueError("every decision must be a JSON object")
         identifier = item.get("identifier_key")
         if not isinstance(identifier, str) or not identifier:
             raise ValueError("every decision requires identifier_key")
@@ -27,7 +40,7 @@ def resolve(raw: bytes) -> dict[str, Any]:
         identifiers.add(identifier)
 
         evidence_sha256 = item.get("response_sha256") or item.get("evidence_sha256")
-        if not isinstance(evidence_sha256, str) or not evidence_sha256.startswith("sha256:"):
+        if not _is_sha256(evidence_sha256):
             raise ValueError(f"{identifier} lacks a response evidence hash")
 
         decision = item.get("decision")
