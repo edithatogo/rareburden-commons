@@ -9,6 +9,13 @@ completion_scope:
   - "exact hash-identified Orphadata July 2026 and MONDO v2026-08-04 candidate preparation"
   - "owner-dispositioned bounded analytical source roles"
   - "metadata-only and exclusion controls for unresolved sources"
+evidence_bindings:
+  exact_release_scope: "docs/track-002-minimal-public-release-scope-2026-08-20.yml"
+  candidate_verification: "docs/track-002-minimal-candidate-verification-2026-08-20.json"
+  rights_attribution_audit: "docs/track-002-minimal-candidate-rights-attribution-audit-2026-08-20.json"
+  activation_matrix: "docs/track-002-activation-matrix.yml"
+  source_terms_matrix: "docs/track-002-source-terms-matrix.yml"
+  publication_decision: "docs/decisions/2026-08-20-track-002-exact-candidate-publication-decision-packet.md"
 publisher_licence_reliance:
   orphadata:
     status: "passed_for_exact_allowlist"
@@ -62,6 +69,7 @@ publication:
     - "new owner authorization bound to the then-current evidence commit and package hash"
 transferred_future_work:
   status: "optional_separately_versioned_scope"
+  active_track_created: false
   items:
     - "WPP hosted-object reconciliation"
     - "WHO GHE permission or field-level rights work"

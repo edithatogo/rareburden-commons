@@ -35,6 +35,10 @@
 
 ## Review Fixes — 2026-08-20
 
+- [x] Bind the bounded-completion decision to its exact repository evidence,
+  preserve every external-action prohibition, synchronize Track 008/009
+  dependency receipts without changing their independent gates, and normalize
+  the regression-test imports. Evidence: completion review 2026-08-21.
 - [x] Replace fragile MONDO whole-file streams with exact validated byte ranges,
   preserve bounded retries and whole-file hashes, review publisher reliance and
   third-party limitations, and pass the candidate gate suite. Evidence:

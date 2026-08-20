@@ -2,7 +2,6 @@ from pathlib import Path
 
 import yaml
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DECISION = ROOT / "docs/decisions/2026-08-21-track-002-bounded-completion.yml"
 
@@ -17,6 +16,9 @@ def test_bounded_completion_preserves_fail_closed_external_boundaries() -> None:
     assert decision["source_dispositions"]["panelapp"]["automated_detail_capture"] is False
     assert decision["scientific_and_data_use_disposition"]["independent_review_claimed"] is False
     assert not any(decision["external_actions_authorized"].values())
+    assert decision["transferred_future_work"]["active_track_created"] is False
+    for path in decision["evidence_bindings"].values():
+        assert (ROOT / path).is_file()
 
 
 def test_open_licence_reliance_is_exact_and_conditioned() -> None:
