@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 import platform
+from collections.abc import Callable
 from dataclasses import dataclass
 from statistics import fmean
 from typing import Any
@@ -111,46 +112,85 @@ def _bounded_normal(
     raise ModelError("Unable to sample bounded normal distribution after 10,000 attempts")
 
 
-def sample_distribution(spec: dict[str, Any], rng: StableRandom) -> float:
-    """Sample a supported distribution specification using a supplied RNG."""
+def _compile_distribution_sampler(
+    spec: dict[str, Any],
+) -> Callable[[StableRandom], float]:
+    """Validate a distribution specification and return its reusable sampler."""
     distribution_type = spec.get("type")
+    raw_sampler: Callable[[StableRandom], float]
     if distribution_type == "fixed":
-        value = float(spec["value"])
+        fixed_value = float(spec["value"])
+
+        def fixed_sampler(_rng: StableRandom) -> float:
+            return fixed_value
+
+        raw_sampler = fixed_sampler
     elif distribution_type == "uniform":
-        lower = float(spec["lower"])
-        upper = float(spec["upper"])
-        if lower > upper:
+        uniform_lower = float(spec["lower"])
+        uniform_upper = float(spec["upper"])
+        if uniform_lower > uniform_upper:
             raise ModelError("uniform lower must not exceed upper")
-        value = rng.uniform(lower, upper)
+
+        def uniform_sampler(rng: StableRandom) -> float:
+            return rng.uniform(uniform_lower, uniform_upper)
+
+        raw_sampler = uniform_sampler
     elif distribution_type == "normal":
-        value = _bounded_normal(
-            rng,
-            float(spec["mean"]),
-            float(spec["standard_deviation"]),
-            float(spec["minimum"]) if spec.get("minimum") is not None else None,
-            float(spec["maximum"]) if spec.get("maximum") is not None else None,
-        )
+        mean = float(spec["mean"])
+        standard_deviation = float(spec["standard_deviation"])
+        normal_lower = float(spec["minimum"]) if spec.get("minimum") is not None else None
+        normal_upper = float(spec["maximum"]) if spec.get("maximum") is not None else None
+        if standard_deviation <= 0:
+            raise ModelError("normal standard_deviation must be positive")
+        if normal_lower is not None and normal_upper is not None and normal_lower > normal_upper:
+            raise ModelError("normal minimum exceeds maximum")
+
+        def normal_sampler(rng: StableRandom) -> float:
+            return _bounded_normal(rng, mean, standard_deviation, normal_lower, normal_upper)
+
+        raw_sampler = normal_sampler
     elif distribution_type == "lognormal":
+        mu = float(spec["mu"])
         sigma = float(spec["sigma"])
         if sigma <= 0:
             raise ModelError("lognormal sigma must be positive")
-        value = rng.lognormal(float(spec["mu"]), sigma)
+
+        def lognormal_sampler(rng: StableRandom) -> float:
+            return rng.lognormal(mu, sigma)
+
+        raw_sampler = lognormal_sampler
     elif distribution_type == "beta":
         alpha = float(spec["alpha"])
         beta = float(spec["beta"])
         if alpha <= 0 or beta <= 0:
             raise ModelError("beta alpha and beta must be positive")
-        value = rng.beta(alpha, beta)
+
+        def beta_sampler(rng: StableRandom) -> float:
+            return rng._beta_unchecked(alpha, beta)
+
+        raw_sampler = beta_sampler
     else:
         raise ModelError(f"Unsupported distribution type: {distribution_type!r}")
 
-    if not math.isfinite(value):
-        raise ModelError("Distribution produced a non-finite value")
-    if spec.get("minimum") is not None and value < float(spec["minimum"]):
-        raise ModelError("Distribution produced a value below its declared minimum")
-    if spec.get("maximum") is not None and value > float(spec["maximum"]):
-        raise ModelError("Distribution produced a value above its declared maximum")
-    return value
+    declared_minimum = float(spec["minimum"]) if spec.get("minimum") is not None else None
+    declared_maximum = float(spec["maximum"]) if spec.get("maximum") is not None else None
+
+    def sampler(rng: StableRandom) -> float:
+        value = raw_sampler(rng)
+        if not math.isfinite(value):
+            raise ModelError("Distribution produced a non-finite value")
+        if declared_minimum is not None and value < declared_minimum:
+            raise ModelError("Distribution produced a value below its declared minimum")
+        if declared_maximum is not None and value > declared_maximum:
+            raise ModelError("Distribution produced a value above its declared maximum")
+        return value
+
+    return sampler
+
+
+def sample_distribution(spec: dict[str, Any], rng: StableRandom) -> float:
+    """Sample a supported distribution specification using a supplied RNG."""
+    return _compile_distribution_sampler(spec)(rng)
 
 
 def _quantile(values: list[float], probability: float) -> float:
@@ -196,10 +236,12 @@ def simulate_product(
             "only explicit independence is implemented"
         )
     rng = StableRandom(seed)
+    left_sampler = _compile_distribution_sampler(left)
+    right_sampler = _compile_distribution_sampler(right)
     values: list[float] = []
     for _ in range(iterations):
-        left_value = sample_distribution(left, rng)
-        right_value = sample_distribution(right, rng)
+        left_value = left_sampler(rng)
+        right_value = right_sampler(rng)
         value = left_value * right_value
         if not math.isfinite(value) or value < 0:
             raise ModelError("product simulation produced a non-finite or negative value")
