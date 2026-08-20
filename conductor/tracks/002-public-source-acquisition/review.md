@@ -90,6 +90,20 @@ publisher terms, scientific fitness, representativeness, redistribution rights
 or production activation. Those decisions remain fail-closed per exact source
 and estimand.
 
+### Activation-evidence reconciliation — 2026-08-20
+
+The activation and source-terms matrices now distinguish evidence already in
+the repository from the decision still required. Agent-panel methods advice,
+the 2026-08-15 owner data-use disposition and the 2026-08-20 stable-byte
+exercise are recorded for Orphadata, WPP and the World Bank probe. WHO remains
+candidate-only because its field-level third-party rights are unresolved.
+
+No row is active. Orphadata still requires an exact owner activation decision
+for identifier/descriptive use; WPP additionally requires named geography and
+year bounds; the World Bank remains probe/cross-check only; WHO requires rights
+evidence and a new owner decision. This reconciliation removes stale pending
+labels without treating preparation evidence as activation authority.
+
 ### External-gate panel synthesis — 2026-08-01
 
 The repository's preparatory panel review is recorded in

@@ -31,8 +31,9 @@ def test_exact_candidate_records_are_hash_bound_and_fail_closed() -> None:
         ):
             assert record[field] not in (None, ""), field
         assert len(record["sha256"]) == 64
-        assert record["scientific_reviewer"] == "pending"
-        assert record["data_governance_reviewer"] == "pending"
+        assert record["methods_advice"].startswith("bounded agent-panel advice")
+        assert record["owner_data_use_disposition"]
+        assert record["source_change_exercise"].startswith("complete 2026-08-20")
         assert "candidate_only" in record["decision"]
 
     wpp = yaml.safe_load(

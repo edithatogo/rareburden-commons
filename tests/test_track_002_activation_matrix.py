@@ -14,6 +14,14 @@ def test_activation_matrix_is_per_row_and_fail_closed() -> None:
     assert document["default_unresolved_posture"] == "metadata_hash_only"
     assert all(row["activation"] != "active" for row in document["rows"])
     assert all(row["required_receipts"] for row in document["rows"])
+    assert all(row["evidence_state"] for row in document["rows"])
+
+    by_id = {row["estimand_id"]: row for row in document["rows"]}
+    for estimand in ("E-ORPHA-DESCRIPTIVE-01", "E-WPP-POP-01", "E-WB-POP-PROBE"):
+        assert by_id[estimand]["evidence_state"]["source_change_exercise"] == (
+            "complete_2026_08_20_hash_stable"
+        )
+    assert by_id["E-WHO-COMP-2000"]["evidence_state"]["publisher_third_party_rights"] == ("pending")
 
 
 def test_activation_matrix_matches_exact_private_archive_dispositions() -> None:

@@ -15,11 +15,13 @@ attribution_text: "Global Health Estimates 2021: Disease burden by Cause, Age, S
 private_archival_position: unmodified_copy_permitted_for_public_health_use_subject_to_attribution_and_withdrawal
 redistribution_position: conditional_pending_field_level_third_party_and_modification_review
 third_party_material: workbook_has_no_field_level_credit_register; WHO terms exclude credited third-party material
-intended_use: country DALY envelope and independent burden comparison
-geography_scope: country estimates; final countries pending scientific review
+intended_use: candidate-only country DALY comparator; no activated burden inference
+geography_scope: country estimates; any activated countries require a new owner decision
 time_scope: year 2000 workbook; broader release family covers 2000-2021
-measure_unit: DALY; final cause/age/sex dimensions pending review
-scientific_reviewer: pending
-data_governance_reviewer: pending
+measure_unit: DALY; cause/age/sex dimensions remain disabled
+methods_advice: bounded agent-panel advice recorded; not independent or external review
+owner_data_use_disposition: candidate-only posture recorded 2026-08-15
+publisher_third_party_rights: pending field-level credit and modification disposition
+source_change_exercise: complete 2026-08-20 with matching SHA-256
 decision: candidate_only_raw_hf_upload_withheld
 decision_record_url: conductor/tracks/002-public-source-acquisition/review.md
