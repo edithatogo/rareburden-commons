@@ -5,10 +5,10 @@ panel_assurance: advisory_agent_perspective_not_independent_or_human_approval
 role: patient_community_governance
 reviewed_candidate:
   repository: edithatogo/rareburden-commons
-  commit: 723c6d8c00d0967b3b2442f1851785b9b73f2fc7
-  tree: 3b804ed3de869bec781e4ec59fe1e8f9199c2c66
+  commit: b654fd2ce90a17fb0315849359e59ff3838cee89
+  tree: 9bd5970a8c0ed1bf9c4bf0d761657bacf7438d35
   scope_manifest: manifests/governance/track-015-patient-community-review-scope-2026-08-20.json
-  scope_manifest_sha256: 7fb1b515b9130fcf10ff632f0170690227921c71a71240999d73a4b7847486a3
+  scope_manifest_sha256: 4ae7f0c835c7b6d27ba3d647cdf7faacdc68ca817cd587ea527212989cf8ede3
 scope:
   tracks: ['003', '004', '005', '008', '009', '010', '011', '012', '013', '014']
   questions:
@@ -161,4 +161,3 @@ owner_disposition:
   release_authorized: false
   real_or_controlled_data_authorized: false
   external_gate_status_changed: false
-
