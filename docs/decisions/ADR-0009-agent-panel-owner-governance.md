@@ -22,11 +22,6 @@ Agent-panel evidence is never called independent, human, constituted-community,
 institutional, custodian, licensor or external approval. No additional person
 is a mandatory repository review gate.
 
-All repository work is free. Remuneration is zero: there is no payment,
-honorarium, budget, promise or entitlement for the owner or advisory agent
-panels. Any future funded arrangement requires a new attributable decision and
-cannot be applied retrospectively.
-
 ## Authority and rights boundary
 
 Publisher licences, source terms, third-party rights, registry events and

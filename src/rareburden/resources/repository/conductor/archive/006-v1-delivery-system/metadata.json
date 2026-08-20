@@ -4,10 +4,10 @@
   "status": "archived",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-21",
+  "updated": "2026-07-27",
   "target_release": "0.2.0",
   "stage": "programme_control",
-  "owner_role": "Repository owner (all accountable repository roles)",
+  "owner_role": "Product and Engineering Leads",
   "dependencies": [
     "001-foundation"
   ],
