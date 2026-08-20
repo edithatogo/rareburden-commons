@@ -7,12 +7,12 @@ real-data, external-authority and release activation gate.
 ## Candidate and evidence binding
 
 - Repository: `edithatogo/rareburden-commons`
-- Reviewed commit: `8235deee389a1c5a53e8eb29fcc183129a72d7e7`
-- Reviewed tree: `cc7f17ccc197d0c33adc9c32c9a4d485cead156f`
+- Reviewed commit: `a485c9427911c63be6fe3484cbf197fece96afaf`
+- Reviewed tree: `706f70dfb32adedf2c035b7f54a9bdda68c04eef`
 - Scope manifest:
   `manifests/governance/track-015-patient-community-review-scope-2026-08-20.json`
 - Scope-manifest SHA-256:
-  `01fb7049ff4c6d00545339b3f84af4c86cb81e42a2330ba4023bbe9b7745e3da`
+  `c686393fda176d9765e2bc6def68e4131f9cd98bdaa8004d9ab55905be0cef70`
 - Advisory lane:
   `docs/track-015-patient-community-governance-advice-2026-08-20.yml`
 - Attributable basis: the repository owner repeatedly instructed the advisory
@@ -26,10 +26,11 @@ This binding includes the merged Track 007 bounded content-resolution and owner
 methods disposition evidence, the dependency-ordered Option B preparation
 controls, the bounded Track 002 live source-change, receipt-hardening and source-
 activation reconciliation evidence, the Track 016 Python support-floor update,
-and Track 017 evidence-contract reconciliation through `8235dee`. Tracks 002
-and 007 remain in review, Tracks 008–010 remain blocked and provisional, and
-accountable community, rights, custodian, empirical and release gates remain
-pending; the accepted governance disposition is therefore unchanged.
+Track 017 evidence-contract reconciliation, and the Track 003 synthetic
+estimand, denominator and population-state contracts through `a485c94`. Tracks
+002 and 007 remain in review, Tracks 008–010 remain blocked and provisional,
+and accountable community, rights, custodian, empirical and release gates
+remain pending; the accepted governance disposition is therefore unchanged.
 
 ## Accepted repository actions
 

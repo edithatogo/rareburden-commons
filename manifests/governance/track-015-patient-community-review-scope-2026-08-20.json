@@ -3,8 +3,8 @@
   "scope_id": "rbc-track015-patient-community-governance-2026-08-20",
   "source_thread_id": "01a01ede-c58d-7443-b0b0-5cbf772df6be",
   "reviewed_repository": "edithatogo/rareburden-commons",
-  "reviewed_commit": "8235deee389a1c5a53e8eb29fcc183129a72d7e7",
-  "reviewed_tree": "cc7f17ccc197d0c33adc9c32c9a4d485cead156f",
+  "reviewed_commit": "a485c9427911c63be6fe3484cbf197fece96afaf",
+  "reviewed_tree": "706f70dfb32adedf2c035b7f54a9bdda68c04eef",
   "review_role": "patient_community_governance_advisory_agent",
   "review_constraints": [
     "advice only",
