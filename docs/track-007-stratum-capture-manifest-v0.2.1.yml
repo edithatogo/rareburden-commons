@@ -1,12 +1,18 @@
 schema_version: '1.0.0'
 manifest_id: RBC-LAND-007-STRATA-MANIFEST-2026-08-20
 protocol: docs/track-007-protocol-v0.2.1-preparation.yml
-status: authorized_bounded_pilot_not_executed
+status: executed_bounded_pilot
 execution_authorization: owner_option_A_selected
 decision_packet: docs/track-007-v021-scope-decision-packet-2026-08-20.yml
 decision_candidate_commit: 320a970cb4bd8d045d0def52010c97435108ce36
 decision_manifest_sha256: sha256:eae621213152f3fbf7f6eea701cf6f68fc801e0d6d78eafc9f8ead72d93b303d
-observations: []
+observations_artifact:
+  path: docs/track-007-v021-option-a-pilot-2026-08-20.json
+  sha256: sha256:35f7cd0122d676a0c893c5e7ed6386aab1d33bf8be44691338e7ddc457e040b9
+  status: bounded_observation_complete
+  cells_observed: 48
+  raw_response_retention: none
+  missingness: unknown_is_reported_not_excluded
 planned:
   language_strata: [en, es, pt, fr, de, zh, ar, ja]
   region_strata: [africa, americas, south_east_asia, europe, eastern_mediterranean, western_pacific]
