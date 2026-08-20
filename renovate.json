@@ -10,7 +10,7 @@
   ],
   "timezone": "Australia/Sydney",
   "schedule": [
-    "before 6am on monday"
+    "at any time"
   ],
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
