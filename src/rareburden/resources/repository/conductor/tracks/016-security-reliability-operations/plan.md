@@ -78,7 +78,7 @@
   memory, package-size and representative large-workload budgets remain open.
 - [x] Verify source archives and Git clones with the same public command.
   Evidence: clean-clone, wheel and source-archive validation recorded in
-  `conductor/tracks/002-public-source-acquisition/review.md` (evidence `39a4b4d`).
+  `conductor/archive/002-public-source-acquisition/review.md` (evidence `39a4b4d`).
   Cross-platform hosted reproduction remains open.
 
 ## Phase 4 — Exercises and release candidate

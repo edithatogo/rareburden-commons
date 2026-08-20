@@ -6,7 +6,7 @@ freeze_order_position: 2
 upstream_dependencies:
   - track: "002-public-source-acquisition"
     required_status: "complete"
-    observed_status: "complete"
+    observed_status: "archived"
     state: "satisfied"
   - track: "008-semantic-backbone"
     required_status: "complete"
