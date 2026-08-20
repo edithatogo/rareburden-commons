@@ -1,0 +1,192 @@
+schema_version: "0.1.0"
+contract_id: "RBC-P002-FRAMING-GUARD-v0.1.0"
+track_id: "003-monogenic-diabetes-demonstrator"
+status: "non_binding_synthetic_preparation"
+track_status: "blocked"
+empirical_activation: "disabled"
+purpose: >-
+  Constrain synthetic Track 003 language and interpretation while accountable
+  clinical-methods and patient/community review remains pending. This contract
+  is repository evidence only and does not confer clinical or community authority.
+
+authoritative_dependencies:
+  estimand_denominator_contract:
+    path: "docs/track-003-estimand-denominator-contract-v0.1.0.yml"
+    status: "non_binding"
+  population_state_contract:
+    path: "docs/track-003-population-state-contract-v0.1.0.yml"
+    status: "non_binding"
+  semantic_contract:
+    track: "008-semantic-backbone"
+    status: "not_frozen"
+  evidence_ledger_contract:
+    track: "009-evidence-parameter-ledger"
+    status: "not_frozen"
+  burden_engine_contract:
+    track: "010-public-burden-engine"
+    status: "not_frozen"
+
+required_quantitative_qualifiers:
+  - "population"
+  - "geography"
+  - "period"
+  - "age_scope"
+  - "case_definition_and_semantic_release"
+  - "denominator_definition"
+  - "evidence_status"
+  - "uncertainty"
+  - "ascertainment_and_referral_limitations"
+  - "overlap_and_double_counting_limitations"
+
+evidence_status_language:
+  observed:
+    required_label: "observed_in_the_declared_source"
+    interpretation: "source_bounded_not_population_complete"
+  transformed:
+    required_label: "derived_from_declared_observed_inputs"
+    interpretation: "transformation_not_direct_observation"
+  modelled:
+    required_label: "modelled_estimate"
+    interpretation: "depends_on_registered_parameters_and_assumptions"
+  scenario:
+    required_label: "scenario_not_empirical_estimate"
+    interpretation: "illustrative_structural_or_parameter_assumption"
+  unknown_or_unclassified:
+    required_label: "unresolved_classification"
+    interpretation: "not_evidence_of_absence_or_non_monogenic_aetiology"
+
+terminology_rules:
+  required:
+    - instead_of: "monogenic diabetics"
+      use: "people living with monogenic diabetes"
+    - instead_of: "missed cases"
+      use: "people whose monogenic aetiology may be undiagnosed under the declared scenario"
+    - instead_of: "true burden"
+      use: "modelled burden under the declared definitions and assumptions"
+    - instead_of: "national rate"
+      use: "estimate for the declared population and evidence setting"
+  prohibited_without_accountable_review:
+    - "preventable suffering"
+    - "diagnostic failure"
+    - "hidden epidemic"
+    - "definitive prevalence"
+    - "representative of all people with diabetes"
+    - "community endorsed"
+
+headline_output_rules:
+  - rule_id: "H-001"
+    requirement: "label every numerator as observed, transformed, modelled, or scenario"
+    failure_action: "suppress_output"
+  - rule_id: "H-002"
+    requirement: "display the compatible denominator beside every proportion or rate"
+    failure_action: "suppress_output"
+  - rule_id: "H-003"
+    requirement: "display uncertainty and material structural assumptions with every estimate"
+    failure_action: "suppress_output"
+  - rule_id: "H-004"
+    requirement: "state referral, testing, ancestry, age, and setting limits where material"
+    failure_action: "suppress_output"
+  - rule_id: "H-005"
+    requirement: "avoid precision unsupported by input evidence"
+    failure_action: "round_or_suppress_output"
+  - rule_id: "H-006"
+    requirement: "keep diagnosis, treatment, outcome, and cost implications separate"
+    failure_action: "reject_combined_claim"
+
+interpretation_boundaries:
+  diagnosis:
+    permitted: "population-level diagnostic-gap scenario"
+    prohibited: "individual diagnosis, testing recommendation, or variant interpretation"
+  treatment:
+    permitted: "scenario conditional on subgroup-specific evidence"
+    prohibited: "causal treatment benefit inferred from case composition"
+  outcomes:
+    permitted: "separately modelled outcome scenario with compatible evidence"
+    prohibited: "allocating DALY, YLD, YLL, mortality, or complications by case fraction alone"
+  economics:
+    permitted: "separately labelled scenario with perspective, currency, price year, and uncertainty"
+    prohibited: "allocating costs by case fraction alone or implying realised savings"
+  policy:
+    permitted: "description of evidence gaps and bounded analytic implications"
+    prohibited: "automatic screening, funding, or rationing recommendation"
+
+harm_and_equity_challenges:
+  - challenge_id: "E-001"
+    risk: "referral and testing access differences presented as biological prevalence differences"
+    required_response: "separate selection, access, ancestry, and aetiology explanations"
+  - challenge_id: "E-002"
+    risk: "unknown or unclassified people erased from the denominator or assigned as non-monogenic"
+    required_response: "retain an explicit unresolved state and quantify its influence"
+  - challenge_id: "E-003"
+    risk: "diagnostic delay language assigns blame to people, families, or clinicians"
+    required_response: "describe system and evidence constraints without attributing fault"
+  - challenge_id: "E-004"
+    risk: "burden metrics used to rank the worth of people or disease communities"
+    required_response: "prohibit worth-ranking and mechanical priority claims"
+  - challenge_id: "E-005"
+    risk: "high-income referral cohorts treated as globally or nationally representative"
+    required_response: "limit claims to the observed setting and require transport scenarios"
+  - challenge_id: "E-006"
+    risk: "patient-facing language implies community consent or endorsement"
+    required_response: "state that accountable patient/community interpretation is pending"
+
+acceptable_uses:
+  - "synthetic contract testing"
+  - "review packet preparation"
+  - "methods development without empirical claims"
+  - "training examples clearly labelled as synthetic"
+
+prohibited_uses:
+  - "clinical decision support"
+  - "individual risk prediction"
+  - "screening eligibility decisions"
+  - "resource allocation or mechanical rationing"
+  - "country, ancestry, or community ranking"
+  - "public empirical burden reporting"
+
+review_gates:
+  clinical_methods:
+    status: "pending"
+    required_decisions:
+      - "clinical accuracy and non-diagnostic boundary"
+      - "case-definition and diagnostic-delay language"
+      - "outcome and treatment interpretation"
+  community_harm:
+    status: "pending"
+    required_decisions:
+      - "acceptable terminology"
+      - "harms, stigma, blame, equity, and acceptable use"
+      - "patient-facing interpretation and dissent"
+  repository_owner:
+    status: "pending"
+    permitted_dispositions:
+      - "approve_bounded_preparation"
+      - "narrow"
+      - "revise"
+      - "stop"
+  authority_statement: >-
+    Agent or repository-owner work is repository evidence, not independent
+    clinical review, patient/community consent, endorsement, or approval.
+
+stop_triggers:
+  - "material clinical inaccuracy without a bounded correction"
+  - "stigmatizing, blaming, or discriminatory interpretation"
+  - "unsupported representativeness or biological-difference claim"
+  - "unlabelled modelled or scenario quantity"
+  - "incompatible denominator, outcome, or cost interpretation"
+  - "claimed patient/community endorsement without attributable authority"
+
+correction_requirements:
+  - "preserve the superseded wording and reason for correction"
+  - "identify affected outputs and interpretation claims"
+  - "regenerate packaged projections and deterministic receipts"
+  - "route material clinical or harm changes back through accountable review"
+
+prohibited_claims:
+  - "clinical_validity_or_diagnostic_use"
+  - "causal_treatment_effect"
+  - "national_or_global_representativeness"
+  - "patient_or_community_endorsement"
+  - "independent_or_external_review"
+  - "approved_or_frozen_protocol"
+  - "empirical_activation"
