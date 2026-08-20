@@ -17,6 +17,14 @@ options:
     contingencies: "Retain synthetic identifiers where attributable naming authority is unavailable."
 rationale: "Dependencies are satisfied, while four substantive rights, fitness and naming findings remain open."
 recommendation: "B now, followed by A against the exact candidate."
+identifier_boundary: >-
+  ORPHA-shaped identifiers are schema exercise tokens. Their appearance does
+  not establish fictitiousness, validated correspondence, mapping fitness,
+  clinical meaning or permission to redistribute source records.
+self_baseline_boundary: >-
+  The zero-change migration receipt compares the candidate with itself. It is
+  not evidence of ontology-update compatibility, mapping fitness, completeness,
+  naming authority or real-world safety.
 governance:
   panel_output: "advisory"
   owner_disposition: "not_recorded"

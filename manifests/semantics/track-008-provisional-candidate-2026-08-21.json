@@ -5,6 +5,7 @@
   "source_commit": "a87a7b62b8c7cbe69deee868cc50f195af6f7cb7",
   "source_tree": "3dc08a4940dfab39c81b5a2cdc5efa1a3b583ccc",
   "mapping_fingerprint": "map-f02c8762dc0417474df8e223",
+  "identifier_interpretation": "ORPHA-shaped identifiers are schema exercise tokens. Their appearance does not establish fictitiousness, validated correspondence, mapping fitness, clinical meaning, or permission to redistribute source records.",
   "artifacts": [
     {"path": "schemas/disease-hierarchy.schema.json", "sha256": "cd5c5f3f16f65c4fd64f8b4a0c976135906d600fd7fe662ba27961d2b9e2c194"},
     {"path": "schemas/ontology-mapping.schema.json", "sha256": "3f08e77281aa4374c90b934808c65a33dd42d577ab90923fcd3e33bbdf0d04ae"},

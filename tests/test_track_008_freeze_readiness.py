@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 import yaml
 
+import scripts.check_track_008_freeze_readiness as readiness_module
 from scripts.check_track_008_freeze_readiness import Track008ReadinessError, validate
 
 ROOT = Path(__file__).parents[1]
@@ -59,6 +60,38 @@ def test_readiness_rejects_provisional_candidate_path_escape(tmp_path: Path) -> 
     document["provisional_candidate_binding"]["candidate_manifest"] = "../outside.json"
     with pytest.raises(Track008ReadinessError, match="escapes repository"):
         validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_source_tree_not_owned_by_declared_commit(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    original = readiness_module._git_text
+
+    def wrong_tree(root: Path, revision: str) -> str:
+        if revision.endswith("^{tree}"):
+            return "0" * 40
+        return original(root, revision)
+
+    monkeypatch.setattr(readiness_module, "_git_text", wrong_tree)
+    with pytest.raises(Track008ReadinessError, match="does not belong"):
+        validate(READINESS, ROOT)
+
+
+def test_readiness_rejects_migration_receipt_overclaim(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    migration_path = ROOT / document["provisional_candidate_binding"]["migration_impact_receipt"]
+    original = migration_path.read_text(encoding="utf-8")
+    try:
+        migration_path.write_text(
+            original.replace("self-baseline drift check", "update"), encoding="utf-8"
+        )
+        document["provisional_candidate_binding"]["migration_impact_sha256"] = (
+            __import__("hashlib").sha256(migration_path.read_bytes()).hexdigest()
+        )
+        with pytest.raises(Track008ReadinessError, match="self-baseline-only"):
+            validate(_candidate(tmp_path, document), ROOT)
+    finally:
+        migration_path.write_text(original, encoding="utf-8")
 
 
 def test_provisional_binding_does_not_freeze_or_unblock_track_009() -> None:
