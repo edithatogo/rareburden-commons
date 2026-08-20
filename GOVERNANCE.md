@@ -1,32 +1,45 @@
-# Governance principles
+# Governance
 
-**Status:** Proposed; no board or partner is yet constituted. Track 015 owns operationalisation before the v1 release candidate.
+**Status:** Current single-owner repository governance from 2026-08-21.
 
-## Proposed bodies
+## Sole accountable human
 
-- **Governing Board:** fiduciary, strategic and public-interest oversight.
-- **Patient and Community Council:** voting authority over priorities, acceptable use and interpretation.
-- **Scientific Methods Council:** methods, validation and uncertainty standards.
-- **Data Governance and Ethics Committee:** access, privacy, licensing, disclosure and cross-border review.
-- **Country and Thematic Node Council:** representation of distributed analytic partners.
-- **Industry Forum:** consultative only, with no control over methods or publication.
+`edithatogo` is the repository's only accountable human, owner and maintainer.
+The owner also holds every internal development, scientific, operational,
+security and release-decision role. No agent, bot, panel persona, external
+evidence provider, recovery contact or automation is a co-owner, maintainer,
+approver or accountable repository role-holder.
 
-## Reserved decisions
+Historical role labels remain provenance only. They do not identify current
+office holders or distribute accountability.
 
-Changes to the disease inclusion framework, primary estimands, public release criteria, patient acceptable-use principles, conflict policy, global claims or central hosting require joint scientific and patient/community approval, plus data-governance or security approval where relevant.
+## Advisory panels and decisions
 
-## Independence
+Material decisions receive challenge from at least three role-separated
+subagents under `docs/single-owner-agent-governance.yml`. Their advice must
+present options, trade-offs, contingencies, rationale, a recommendation,
+uncertainty, dissent and stop triggers. Advice is non-binding. The owner records
+the separate attributable disposition.
 
-Core outputs are intended as public goods. A funder or data contributor may not veto a scientifically valid result, suppress an unfavourable result, select methods for commercial advantage or claim endorsement beyond the written agreement.
+Agent advice and owner-operated review are never independent review.
 
-## Participation
+## External evidence boundary
 
-Patient, community, Indigenous and LMIC node participation must be budgeted and remunerated. Governance should be accessible, multilingual where feasible and designed to avoid tokenistic representation. Local data authority and CARE-aligned principles apply where relevant.
+External people or organisations may provide attributable evidence without
+becoming repository owners or maintainers. Repository ownership cannot create
+or waive third-party rights, licence terms, custodian permission, clinical
+validity, patient/community or Indigenous authority, consent, partnership,
+endorsement, regulatory requirements or genuinely independent evidence.
+Missing required facts narrow, defer or stop the affected work.
 
-## Transparency
+## Security and continuity
 
-Minutes, methods decisions, conflicts, correction notices and release approvals should be public except where confidentiality is legally or ethically required.
+Protected automated checks compensate for, but do not eliminate, sole-owner
+risk. No second-human or CODEOWNERS approval is required. If the owner is
+unavailable or credentials may be compromised, protected changes, production
+operations and releases fail closed until identity, credentials, provenance,
+backups and repository integrity are verified. Recovery material does not
+confer ongoing governance authority.
 
-## v1 governance gate
-
-Stable v1 requires constituted charters, voting and appointment rules, remuneration, conflicts, authorship, acceptable-use, complaints, appeals, correction, benefit-sharing, country-node and succession processes. Principles alone are not completion evidence.
+A future human may acquire accountability only through an explicit dated
+governance transition accepted by the owner.

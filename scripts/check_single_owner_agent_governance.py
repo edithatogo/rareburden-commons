@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from rareburden.schema import load_document, load_mapping, validate_instance
@@ -29,10 +30,24 @@ REQUIRED_EXTERNAL = {
     "registry_event",
     "credential_or_live_service_capacity",
     "controlled_data_custodian_permission",
+    "clinical_validity_or_authority",
     "patient_or_community_consent",
     "patient_or_community_representation",
+    "indigenous_authority_or_consent",
     "partnership_or_endorsement",
     "institutional_or_external_approval",
+    "independent_review_evidence",
+}
+OWNER_ROLE = "Repository owner (sole accountable human)"
+OWNER_ROLES = {
+    "owner",
+    "maintainer",
+    "developer",
+    "approver",
+    "scientist",
+    "operator",
+    "security_decision_maker",
+    "release_decision_maker",
 }
 
 
@@ -54,8 +69,18 @@ def validate(path: Path, root: Path) -> None:
     if c.get("historical_role_metadata_rewritten") is not False:
         raise GovernanceError("historical role metadata must not be rewritten")
     owner, panel = c.get("owner", {}), c.get("agent_panel", {})
-    if owner.get("identity") != "edithatogo" or owner.get("decides_after_agent_advice") is not True:
+    if (
+        owner.get("identity") != "edithatogo"
+        or owner.get("human_count") != 1
+        or owner.get("accountability") != "sole_accountable_repository_human"
+        or owner.get("decides_after_agent_advice") is not True
+        or _strings(owner.get("repository_roles"), "repository owner roles") != OWNER_ROLES
+    ):
         raise GovernanceError("repository owner decision authority drifted")
+    if owner.get("absence_or_compromise_action") != (
+        "freeze_protected_changes_production_and_release"
+    ):
+        raise GovernanceError("owner absence and compromise must fail closed")
     if panel.get("simulation_status") != "simulated_role_separated_advisory_panel":
         raise GovernanceError("agent panel must remain explicitly simulated")
     if (
@@ -74,6 +99,28 @@ def validate(path: Path, root: Path) -> None:
         raise GovernanceError("required advice presentation is incomplete")
     if panel.get("recommendation_is_approval") is not False:
         raise GovernanceError("an agent recommendation must not be approval")
+    if (
+        panel.get("has_accountability_or_authority") is not False
+        or panel.get("agents_are_maintainers") is not False
+    ):
+        raise GovernanceError("agents cannot hold accountability, authority or maintainer status")
+    providers = c.get("external_evidence_providers", {})
+    if providers != {
+        "repository_accountability": False,
+        "repository_maintainer_status": False,
+        "may_supply_attributable_evidence": True,
+        "evidence_does_not_transfer_repository_authority": True,
+    }:
+        raise GovernanceError("external evidence providers must remain non-accountable")
+    continuity = c.get("continuity", {})
+    if continuity != {
+        "additional_accountable_human": "prohibited_without_dated_governance_transition",
+        "backup_owner_or_co_maintainer": "none",
+        "recovery_material_confers_authority": False,
+        "owner_unavailable_action": "fail_closed",
+        "future_human_transition_required": True,
+    }:
+        raise GovernanceError("single-owner continuity boundary drifted")
     boundary = c.get("external_fact_boundary", {})
     if (
         _strings(boundary.get("simulation_cannot_create"), "external fact boundary")
@@ -97,6 +144,26 @@ def validate(path: Path, root: Path) -> None:
         raise GovernanceError("owner decision safeguards are incomplete")
     if decision.get("unresolved_critical_finding") != "narrow_revise_defer_or_stop":
         raise GovernanceError("critical findings must prevent unqualified acceptance")
+    if decision.get("owner_operated_work_is_independent_review") is not False:
+        raise GovernanceError("owner-operated work cannot be independent review")
+
+    active_tracks = sorted((root / "conductor" / "tracks").glob("*/metadata.json"))
+    if not active_tracks:
+        raise GovernanceError("active Conductor track metadata is missing")
+    for metadata_path in active_tracks:
+        try:
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+            raise GovernanceError(f"cannot read {metadata_path}: {exc}") from exc
+        if metadata.get("owner_role") != OWNER_ROLE:
+            raise GovernanceError(
+                f"active track {metadata.get('id')} must name the sole accountable owner"
+            )
+
+    codeowners = (root / ".github" / "CODEOWNERS").read_text(encoding="utf-8").splitlines()
+    rules = [line.strip() for line in codeowners if line.strip() and not line.startswith("#")]
+    if rules != ["* @edithatogo"]:
+        raise GovernanceError("CODEOWNERS must name only the sole maintainer")
     schema = root / panel.get("required_packet_schema", "")
     validate_instance(
         load_document(root / "docs/agent-owner-decision-packet-template.yml"),
