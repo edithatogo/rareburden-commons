@@ -12,7 +12,7 @@
 - [ ] Recruit two independent users for reference-workflow usability testing.
 - [ ] Complete independent node-operator or analyst run.
 - [ ] Build two clean release candidates from locked environments.
-- [ ] Complete one independent reproduction with equivalent reviewed outputs.
+- [ ] Complete a separately executed reproduction with equivalent reviewed outputs.
 
 ## Phase 3 — Sustainability and ownership
 
