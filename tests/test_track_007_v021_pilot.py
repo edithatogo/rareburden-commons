@@ -23,9 +23,15 @@ def test_pilot_completes_bounded_cells_without_retaining_response_bodies(
     monkeypatch, tmp_path
 ) -> None:
     def fake_request(provider: str, query: str) -> tuple[str, bytes, int, str]:
+        payload = {
+            "crossref": {"message": {"items": [{"DOI": "10.1/example"}]}},
+            "github": {"items": [{"full_name": "owner/repo"}]},
+            "zenodo": {"hits": {"hits": [{"id": 7}]}},
+            "huggingface_datasets": [{"id": "owner/dataset"}],
+        }[provider]
         return (
             f"https://example.test/{provider}",
-            json.dumps({"items": [{"DOI": "10.1/example"}]}).encode(),
+            json.dumps(payload).encode(),
             200,
             f"https://example.test/{provider}",
         )
