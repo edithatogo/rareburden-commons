@@ -100,9 +100,12 @@ release_gates:
     minimum_evidence: "Track 007 disposition compatible with bounded, non-comprehensive claims."
     evidence: "docs/track-007-coverage-language-geography-community-2026-08-20.yml"
   - id: "final_owner_publication_decision"
-    status: "pending"
+    status: "deferred_by_owner"
     minimum_evidence: "Owner decision bound to exact commit and candidate artifact hashes."
     decision_packet: "docs/decisions/2026-08-20-track-002-exact-candidate-publication-decision-packet.md"
+    decision: "defer_publication"
+    decision_date: "2026-08-21"
+    publication_authorized: false
   - id: "wpp_existing_public_object_reconciliation"
     status: "pending_external_authority"
     minimum_evidence: "Separate authorization plus post-action remote verification; no deletion or visibility claim is inferred now."

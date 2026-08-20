@@ -1,12 +1,14 @@
 # Track 002 exact-candidate publication decision packet
 
-**Status:** Pending repository-owner decision
+**Status:** Owner decision recorded — publication deferred
 
 **Decision capacity:** Repository owner/operator
 
 **Preparation date:** 2026-08-20
 
-**Evidence commit:** `c99f6361345774604f6b877607943465ef0a3796`
+**Decision date:** 2026-08-21
+
+**Evidence commit:** `d3b363439b27c1abaf6319846d566e278eadad05`
 
 ## Exact candidate
 
@@ -27,7 +29,7 @@ Evidence bindings:
 
 ## Owner options
 
-### Option A — Authorize exact bounded publication (recommended if publication is intended)
+### Option A — Authorize exact bounded publication
 
 Authorize a later external publication action for only the five hash-identified
 source files, `MANIFEST.json` and `NOTICE.md`. The publication operator must
@@ -41,11 +43,11 @@ bounded source-snapshot and provenance claims.
 
 Contingencies:
 
-- Before any external action, reconcile this evidence branch non-destructively
-  with current `origin/main` and the divergent same-name remote branch, remove
-  no unique work, regenerate runtime assets and pass the full repository gate.
-  If reconciliation changes the evidence commit or candidate inputs, obtain a
-  newly bound owner decision; do not reuse this packet as approval.
+- Before any external action, reconcile the evidence branch non-destructively
+  with the then-current `origin/main`, remove no unique work, regenerate runtime
+  assets and pass the full repository gate. If reconciliation changes the
+  evidence commit or candidate inputs, obtain a newly bound owner decision; do
+  not reuse this deferral as approval.
 - Any size, hash, terms, redirect or notice drift returns the decision to
   preparation; no substitution is permitted.
 - WPP, WHO GHE, HPO, PanelApp, controlled/credentialed sources and every other
@@ -98,5 +100,15 @@ by Orphadata, Orphanet, MONDO, the Monarch Initiative or any contributor.
 
 ## Current decision state
 
-No option has been selected in this packet. Publication, push/upload, issue
-closure, release tagging and WPP remediation remain unauthorized.
+The repository owner selected **Option B — `defer_publication`** on 2026-08-21
+by instructing the agent to proceed with its recommendation. This authorizes
+non-destructive repository reconciliation and revalidation only. It does not
+authorize publication, upload, push, issue closure, release tagging, WPP
+remediation, credential use or private capture.
+
+The evidence branch was subsequently rebased onto `origin/main` at `3960eb4`.
+Already-merged preparation commits were not duplicated; the two unique
+candidate-evidence commits were replayed, main's receipt-overwrite and input
+hardening were preserved, and generated runtime assets were rebuilt. A future
+publication decision must bind the then-current evidence commit and reverified
+package hash.

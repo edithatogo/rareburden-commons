@@ -89,19 +89,20 @@ def test_claims_and_release_gates_remain_bounded() -> None:
             "passed_for_exact_unmodified_candidate_with_publisher_reliance"
         ),
         "track_007_bounded_claims_dependency": "passed_for_bounded_claims_only",
-        "final_owner_publication_decision": "pending",
+        "final_owner_publication_decision": "deferred_by_owner",
         "wpp_existing_public_object_reconciliation": "pending_external_authority",
     }
 
 
-def test_final_owner_decision_packet_is_prepared_but_not_decided() -> None:
+def test_final_owner_decision_packet_records_deferral_without_publication_authority() -> None:
     packet = ROOT / (
         "docs/decisions/2026-08-20-track-002-exact-candidate-publication-decision-packet.md"
     )
     text = packet.read_text(encoding="utf-8")
-    assert "**Status:** Pending repository-owner decision" in text
-    assert "No option has been selected" in text
+    normalized = " ".join(text.split())
+    assert "**Status:** Owner decision recorded — publication deferred" in text
+    assert "selected **Option B — `defer_publication`**" in text
     assert "authorize_exact_bounded_publication" in text
     assert "defer_publication" in text
     assert "reject_or_supersede_candidate" in text
-    assert "remain unauthorized" in text
+    assert "does not authorize publication" in normalized
