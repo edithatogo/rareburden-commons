@@ -51,8 +51,8 @@ hosting, global representativeness, production activation or stable release.
 
 The role-separated patient/community-governance advisory lane reviewed the
 supplied state of Tracks 003–005 and 008–014 against exact commit
-`408d671e847193b39b02ecf4e6d75c2acebb1a85`, tree
-`edbad739ce094bf605a283a105c22a48bee47d8e` and the hashed scope manifest.
+`7308e5f42f4af7cf7e88a58df53213a2a18dad89`, tree
+`55ea1c726d83a9f3f3685611baf60ae9048a0e5c` and the hashed scope manifest.
 It recommended narrowing work to synthetic/public preparation, deferring real
 data and release activation, and retaining source-rights, Indigenous,
 custodian and jurisdictional permissions as non-self-attestable facts.
