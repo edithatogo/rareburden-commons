@@ -142,6 +142,10 @@
 - [ ] Obtain attributable patient/community interpretation or acceptable-use
   evidence for any claim that depends on community authority. Agent panels and
   the repository owner cannot substitute for that evidence.
+- [x] Prepare the community-authority evidence packet with attributable-role,
+  scope, accessibility, harm, benefit, correction and withdrawal fields.
+  Evidence: `docs/track-007-community-authority-evidence-packet-2026-08-20.yml`;
+  the gate remains pending and no authority receipt is inferred.
 - [x] Prepare protocol v0.2.1 with bounded language and regional strata,
   provider terms/rate controls, immutable capture fields and explicit
   missingness semantics. Evidence:
