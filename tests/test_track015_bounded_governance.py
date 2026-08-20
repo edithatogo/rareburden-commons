@@ -34,7 +34,7 @@ def test_single_owner_agent_panel_model_is_bounded() -> None:
         "status": "bounded_governance_valid",
         "owner_count": 1,
         "relationship_count": 7,
-        "pending_acceptance_count": 6,
+        "pending_acceptance_count": 5,
         "track_014_status": "bound",
     }
 
@@ -43,6 +43,18 @@ def test_agent_panel_cannot_be_promoted_to_independent_authority() -> None:
     payload = _payload()
     payload["operating_model"]["agent_panels_are_advisory"] = False
     with pytest.raises(GovernanceReconciliationError, match="must remain advisory"):
+        validate_governance(payload, ROOT)
+
+
+def test_owner_authority_declaration_is_attributable_and_unpaid() -> None:
+    payload = _payload()
+    declarations = payload["owner_declarations"]
+    assert declarations["repository_data_custodian"] is True
+    assert declarations["applicable_indigenous_authority"] is True
+    assert declarations["additional_human_review_planned"] is False
+    assert declarations["remuneration"] == {"model": "unpaid", "amount": 0}
+    declarations["basis"] = "independent_verification"
+    with pytest.raises(GovernanceReconciliationError, match="must remain attributable"):
         validate_governance(payload, ROOT)
     payload = _payload()
     payload["operating_model"]["prohibited_agent_authority_claims"].remove("human_review")

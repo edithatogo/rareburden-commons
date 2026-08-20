@@ -81,6 +81,29 @@ def validate(path: Path, root: Path) -> None:
         "freeze_protected_changes_production_and_release"
     ):
         raise GovernanceError("owner absence and compromise must fail closed")
+    if not all(
+        owner.get(field) is True
+        for field in ("repository_data_custodian", "applicable_indigenous_authority")
+    ):
+        raise GovernanceError("owner-held custodian and applicable Indigenous authority drifted")
+    if owner.get("authority_basis") != "attributable_owner_declaration":
+        raise GovernanceError("owner-held authority must remain an attributable declaration")
+    expected_exclusions = {
+        "unrelated_indigenous_peoples_or_communities",
+        "third_party_custodians",
+        "publishers_or_licensors",
+        "ethics_bodies",
+        "governments_or_jurisdictions",
+    }
+    if (
+        _strings(owner.get("authority_scope_excludes"), "owner authority exclusions")
+        != expected_exclusions
+    ):
+        raise GovernanceError("owner authority scope exclusions are incomplete")
+    if owner.get("additional_human_review_planned") is not False:
+        raise GovernanceError("additional human review is not part of this repository model")
+    if (owner.get("remuneration_model"), owner.get("remuneration_amount")) != ("unpaid", 0):
+        raise GovernanceError("repository work must remain explicitly unpaid")
     if panel.get("simulation_status") != "simulated_role_separated_advisory_panel":
         raise GovernanceError("agent panel must remain explicitly simulated")
     if (

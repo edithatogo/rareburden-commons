@@ -72,7 +72,12 @@ complete and the required constituted governance, remuneration, Indigenous and
 country-node authority, policy approvals, relationship receipts, tabletop and
 v1 readiness decision are absent.
 
-Disposition: **blocked**. The exact blocker and resumption contract is
-`docs/track-015-external-gate-closure-2026-08-21.yml`. Neither the repository
-owner's completion instruction nor agent validation can replace the listed
-receipts. Track 015 must not be marked complete or used as release evidence.
+Disposition: **blocked for the still-pending operating-policy, tabletop,
+dependency and activated external-claim gates**. The repository's internal
+governance premise is corrected: this is a single-person repository; simulated
+role-separated agent panels advise and the owner decides. The owner declares
+the repository-custodian and applicable Indigenous-authority roles, no
+additional human review is planned, and all work is unpaid. The declaration is
+not authority for unrelated communities, third-party custodians, publishers,
+jurisdictions or partners. The exact bounded resumption contract is
+`docs/track-015-external-gate-closure-2026-08-21.yml`.
