@@ -54,7 +54,9 @@ reproduction or stable-release gates.
 - [ ] Publish maintainer, reviewer, incident and backup-owner roster.
 - [ ] Approve contribution, succession, deprecation and support processes.
 - [ ] Approve costed infrastructure and release operating model.
-- [ ] Confirm institutional host or bounded interim ownership.
+- [x] Confirm bounded interim single-owner ownership for the non-production
+  candidate, explicitly retaining the single-point-of-failure limitation.
+  Evidence: `docs/track-017-single-owner-continuity-disposition-2026-08-20.yml`.
 
 ## Phase 4 — Stable release review
 
@@ -124,9 +126,11 @@ reproduction or stable-release gates.
   stable acceptance. Evidence:
   `manifests/release/v1-evidence-index-2026-08-16.json`,
   `scripts/check_v1_evidence_index.py` and `tests/test_v1_evidence_index.py`.
-- [ ] Complete the remaining accountable release gates: qualifying backup
-  continuity and public stable-artifact publication/verification after a
-  separate stable-release decision.
+- [ ] Complete the remaining stable-release gates: a new continuity decision
+  (qualifying redundant ownership or explicit stable-risk acceptance) and
+  public stable-artifact publication/verification after a separate stable
+  release decision. Backup continuity is non-applicable to the current bounded
+  non-production candidate, not satisfied.
 - [ ] Verify public artefacts only after a release-authority decision.
 
 ## Bounded readiness reconciliation — 2026-08-16

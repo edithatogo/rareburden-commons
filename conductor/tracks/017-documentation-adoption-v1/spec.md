@@ -51,3 +51,10 @@ constitute independent, human, patient/community, custodian, licensor,
 institutional or external approval. Publisher rights and controlled-data rules
 remain evidence-bound facts. Stable release remains fail-closed until every
 criterion above has exact candidate-bound evidence.
+
+For the bounded non-production synthetic/public candidate, the owner accepts
+the single-owner operating limitation and does not require redundant backup
+ownership. This does not establish backup continuity or a stable support
+promise. A stable or production decision must either provide qualifying
+continuity evidence or record a new explicit risk decision for its exact
+candidate.

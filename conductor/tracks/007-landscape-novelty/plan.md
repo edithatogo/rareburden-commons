@@ -143,9 +143,12 @@
   `docs/track-007-v021-option-a-pilot-2026-08-20.json` records all 48 cells,
   response hashes and explicit missingness; no raw response bodies are retained.
   This remains bounded endpoint observation, not coverage or representativeness.
-- [ ] Obtain attributable patient/community interpretation or acceptable-use
-  evidence for any claim that depends on community authority. Agent panels and
-  the repository owner cannot substitute for that evidence.
+- [x] Narrow the current deliverable so no claim depends on community
+  authority. The gate is non-applicable to this bounded technical scope, not
+  satisfied; any future community-facing claim requires a separately versioned
+  scope and attributable evidence. Evidence:
+  `docs/track-007-bounded-technical-scope-2026-08-20.yml` and
+  `docs/decisions/2026-08-20-owner-track-007-bounded-technical-scope.md`.
 - [x] Prepare the community-authority evidence packet with attributable-role,
   scope, accessibility, harm, benefit, correction and withdrawal fields.
   Evidence: `docs/track-007-community-authority-evidence-packet-2026-08-20.yml`;

@@ -6,7 +6,7 @@
     "commit": "abcf10813d9ad1dd88d8fac402622f65077558d4",
     "tree": "ccc08ef01f5eb0fc973fac3541a0a5f4976f4944",
     "track_015_manifest": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json",
-    "track_015_manifest_sha256": "d6a910a3ae94b2c2607fc339212fac95650ff0cd45c9262b1ef561be447a4dea",
+    "track_015_manifest_sha256": "0ea077507be0886c242298fbc4a60cdec98c1fef6e83d742766181bb3a52c2d0",
     "track_014_manifest": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json",
     "track_014_manifest_sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"
   },

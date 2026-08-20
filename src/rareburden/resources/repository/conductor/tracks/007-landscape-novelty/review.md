@@ -443,3 +443,15 @@ fields. This completes repository-owned workflow construction and locator
 observation only. Final eligibility, pagination/completeness, novelty,
 registration, independent methods challenge and accountable patient/community
 interpretation remain pending.
+
+## Bounded technical-scope owner disposition — 2026-08-20
+
+The owner selected `narrow` for the v0.2.x deliverable. It is limited to the
+exact recorded technical adjacency and coverage observations and prohibits
+global coverage, representativeness, confirmed novelty, partnership,
+endorsement and community-legitimacy claims. Patient/community authority is
+non-applicable to this bounded technical scope, not satisfied. Any future claim
+that depends on community interpretation requires a separately versioned scope
+and attributable evidence. This supersedes the earlier wait posture only for
+this exact narrowed deliverable; historical findings and broader evidence gaps
+remain accurate.

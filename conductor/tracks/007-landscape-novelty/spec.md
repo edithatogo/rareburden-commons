@@ -8,6 +8,12 @@ Determine whether RareBurden Commons fills a defensible evidence and infrastruct
 
 The review covers academic literature, burden-estimation initiatives, rare-disease infrastructures, registries, data catalogues, standards, and public repositories including GitHub, Zenodo, OSF and Hugging Face.
 
+For the accepted v0.2.x deliverable, this scope is narrowed to a bounded
+technical adjacency and coverage observation over the exact recorded provider,
+query, language, region, cap and timestamp matrix. Broader landscape,
+community-facing, partnership, representativeness and confirmed-novelty claims
+require a separately versioned scope.
+
 ## Required outputs
 
 - registered search and screening protocol;
@@ -36,6 +42,9 @@ The review covers academic literature, burden-estimation initiatives, rare-disea
 - criticising existing institutions for not serving a different mandate;
 - using repository popularity as a proxy for scientific quality;
 - proceeding unchanged when the evidence supports a narrower role.
+- claiming patient/community authority, legitimacy, consent, partnership,
+  representativeness, global coverage or confirmed novelty from this bounded
+  technical deliverable.
 
 ## v1 contribution
 
