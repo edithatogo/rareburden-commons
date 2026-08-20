@@ -1,7 +1,12 @@
 # Requirements traceability
 
 **Status:** v0.3.0rc2 autonomous-development handoff candidate
-**Evidence rule:** a requirement is complete only when the cited artefact exists, applicable automated verification passes, and any required external scientific, data-governance, patient/community or custodian review is documented. Synthetic reference evidence is not empirical validation.
+**Evidence rule:** a requirement is complete only when the cited artefact exists,
+applicable automated verification passes, and the role-separated agent-panel
+challenge plus attributable owner disposition are documented. This repository
+does not claim independent human approval; publisher, custodian and other
+third-party facts remain separately evidence-bound. Synthetic reference
+evidence is not empirical validation.
 
 ## Status vocabulary
 
@@ -31,7 +36,7 @@
 | M-13 No sensitive data in Git | 001, 016 | repository-safety checker; contribution/security policy; synthetic-only fixtures | **Implemented for repository controls:** hosted secret scanning and operational security review remain release gates. |
 | M-14 Local custodian execution | 004 | node input/output/policy/manifest schemas; packaged synthetic runner; operator guide | **Partial / external gate:** aggregate allowlists, threshold non-weakening, query budgets and deterministic package checks exist; second-operator installation, approved custodian pilot and controlled deployment remain open. |
 | M-15 Separate public and restricted zones | 001, 004, 016 | trust-zone architecture; local/export manifest separation; path/security tests | **Partial:** design and synthetic separation exist; production threat model and controlled-environment validation remain open. |
-| M-16 Patient/community governance | 015 | governance principles and roadmap gate | **External gate:** not constituted; voting authority, funded participation and decision records are required before relevant production claims. |
+| M-16 Patient/community governance | 015 | governance principles and agent-panel harm/framing challenge | **Bounded repository mode:** no patient/community authority or consent is claimed; owner disposition must remove patient-facing or community-legitimacy claims unless separately evidenced. |
 | M-17 Publish conflicts, methods decisions and corrections | 015, 017, 018 | prospective protocol, decision log, release records, contribution/governance policies | **Partial:** machine-readable decision and amendment infrastructure exists; operational conflicts, corrections, appeals and publication governance remain open. |
 | M-18 Schema-validate metadata and inputs | 001, 002, 004, 008, 009, 014, 018 | JSON Schemas; schema meta-validator; strict YAML and node fixture checks | **Implemented — reference:** the current schema collection and node contract fixtures validate; migration/backward-compatibility policy remains a v1 task. |
 | M-19 Core validation works offline | 001, 004, 016, 018 | offline programme validation; packaged reference repository; synthetic workflow and verifier | **Implemented — reference:** installed wheel can validate and run the reference workflow without network; full locked cross-platform hosted evidence remains open. |
@@ -57,7 +62,7 @@
 | S-07 Evidence quality and transportability | 009, 013 | **Implemented — reference:** domain judgements and intended-use disposition are executable. |
 | S-08 Node and disclosure templates | 004 | **Partial:** packaged synthetic node, allowlisted aggregate outputs, small-cell suppression, monotonic custodian thresholds, overlap-query budgets, strict manifests, log redaction and a keyless offline-verifiable release profile exist; real tagged-release verification, independent operator, custodian review and controlled pilot remain open. |
 | S-09 Persistent release archive | 014, 017, 018 | **Partial / external gate:** CFF, CodeMeta, Zenodo, DataCite-oriented and RO-Crate metadata exist; DOI deposition and independent preservation remain open. |
-| S-10 Independent reproduction | 013, 017, 018 | **External gate:** exact two-process internal reproducibility reaches R2 auditability; independent R3 evidence does not yet exist. |
+| S-10 Owner-operated reproduction | 013, 017, 018 | **Repository gate:** exact clean-environment owner-operated reproduction may support bounded evidence; it is never represented as independent or external reproduction. |
 | S-11 LMIC-led or underserved node | 015 | **External gate:** required before unqualified global-representativeness claims. |
 
 ## Could requirements promoted for mature v1 scope
