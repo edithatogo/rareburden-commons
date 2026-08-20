@@ -1,11 +1,16 @@
 # Track 015 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; constituted governance and patient/community authority remain separate.
+> Repository-owned review uses role-separated advisory agent panels under
+> ADR-0009; constituted governance and patient/community authority remain
+> separate and cannot be self-attested.
 
 ## Phase 1 — Constitute governance
 
 - [ ] Draft and approve body charters, appointment and voting rules. `[M-16]`
-- [ ] Establish community/harm agent-panel remit, dissent rules and owner decision rights.
+- [x] Establish community/harm agent-panel remit, dissent rules and owner
+  decision rights. Evidence:
+  `docs/track-015-patient-community-governance-advice-2026-08-20.yml` and
+  `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
 - [ ] Establish methods, rights/data-use and node agent-panel review roles.
 - [ ] Publish conflicts, minutes and reserved-decision process. `[M-17]`
 
@@ -26,7 +31,10 @@
 ## Phase 4 — Policy translation
 
 - [x] Define policy-product claim boundaries and relationship-state crosswalk. `[C-09]` Evidence: `docs/governance-015-reference.md`; indicator approval remains open.
-- [ ] Test framing with community/harm and policy-user perspective agents.
+- [x] Test cross-track framing, harms, naming, privacy, acceptable use and
+  authority boundaries with a patient/community-governance advisory agent.
+  Evidence: `docs/track-015-patient-community-governance-advice-2026-08-20.yml`.
+- [ ] Test framing with a separate policy-user perspective agent.
 - [x] Define confirmed/proposed relationship register states. Evidence: relationship claim-state contract in `docs/governance-015-reference.md`; no relationships are confirmed.
 - [ ] Approve geographic and “global” claims for v1 scope.
 
@@ -79,3 +87,18 @@
   `22388a74e2d8f2c4ff1d59f828279ffabad3b5a7` and SHA-256
   `dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0`,
   then re-run the full gate before integration.
+
+## Patient/community-governance advisory lane — 2026-08-20
+
+- [x] Bind the supplied Track 003–005 and 008–014 state, repository evidence
+  and exclusions to exact commit/tree and scope-manifest hashes. Evidence:
+  `manifests/governance/track-015-patient-community-review-scope-2026-08-20.json`.
+- [x] Record cluster dispositions, dependency order, synthetic safe
+  continuation, prohibited uses, stop triggers and non-self-attestable gates.
+  Evidence: `docs/track-015-patient-community-governance-advice-2026-08-20.yml`.
+- [x] Record the repository owner's accept/narrow/defer implementation
+  disposition without authorising real data or release. Evidence:
+  `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
+- [ ] Keep constituted patient/community authority, applicable Indigenous
+  authority, publisher rights, supplying-custodian policy and all real-data or
+  public-release permissions pending until attributable evidence exists.

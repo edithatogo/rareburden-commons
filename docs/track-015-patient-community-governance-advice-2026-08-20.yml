@@ -1,0 +1,164 @@
+schema_version: '1.0.0'
+advice_id: RBC-GOV-015-PATIENT-COMMUNITY-2026-08-20
+status: complete_role_lane_owner_disposition_recorded
+panel_assurance: advisory_agent_perspective_not_independent_or_human_approval
+role: patient_community_governance
+reviewed_candidate:
+  repository: edithatogo/rareburden-commons
+  commit: 723c6d8c00d0967b3b2442f1851785b9b73f2fc7
+  tree: 3b804ed3de869bec781e4ec59fe1e8f9199c2c66
+  scope_manifest: manifests/governance/track-015-patient-community-review-scope-2026-08-20.json
+  scope_manifest_sha256: 7fb1b515b9130fcf10ff632f0170690227921c71a71240999d73a4b7847486a3
+scope:
+  tracks: ['003', '004', '005', '008', '009', '010', '011', '012', '013', '014']
+  questions:
+    - harms and acceptable use
+    - naming and framing
+    - Indigenous and community authority boundaries
+    - privacy and disclosure
+    - data pathways and custodians
+    - which permissions and authorities cannot be self-attested
+authority_boundary:
+  establishes:
+    - repository-owned patient and community governance challenge
+    - advisory recommendations for repository-owner disposition
+    - synthetic-only safe-continuation boundaries
+  does_not_establish:
+    - patient or community consultation, consent, endorsement or authority
+    - Indigenous authority or Indigenous data-governance approval
+    - custodian, ethics, privacy, clinical, scientific, security or legal approval
+    - independent review, external replication or second-operator independence
+    - real-data activation, public release or redistribution permission
+overall_recommendation: narrow_and_defer_external_activation
+cluster_dispositions:
+  - cluster: semantic_and_data_contracts
+    tracks: ['008', '009', '010']
+    disposition: revise_then_provisional_synthetic_freeze
+    permitted_now:
+      - synthetic technical refinement and negative tests
+      - contested-term, provenance, versioning and public-label separation
+      - purpose, access-tier, suppression, correction, revocation and prohibited-use contracts
+    retained_gates:
+      - exact source releases, licence and redistribution facts
+      - accountable public-facing naming disposition
+      - scientific-software and engineering panel lanes
+      - any applicable Indigenous or custodian authority
+  - cluster: disease_demonstrators
+    tracks: ['003', '011']
+    disposition: narrow
+    permitted_now:
+      - protocols, evidence ledgers and lawful data-request templates
+      - synthetic denominator, overlap, referral, ascertainment and transport scenarios
+      - explicit separation of diagnosed, suspected, modelled and unmet-need states
+    retained_gates:
+      - clinical and methods panel lanes
+      - lawful cohort or registry access
+      - empirical interpretation and release decision
+  - cluster: economic_and_social_burden
+    tracks: ['005']
+    disposition: narrow
+    permitted_now:
+      - synthetic schemas and perspective-labelled calculations
+      - separate health-system, household and societal outputs
+      - uncertainty, missingness, remuneration and translation planning
+    retained_gates:
+      - health-economics and ethics panel lanes
+      - attributable patient or family co-design where claimed
+      - approval for new data collection
+  - cluster: federated_and_paediatric_pathways
+    tracks: ['004', '012']
+    disposition: defer_real_pilot
+    permitted_now:
+      - synthetic installation, audit, revocation and safe-failure exercises
+      - synthetic paediatric linkage, deduplication, small-cell and suppression tests
+      - non-binding custodian and operator materials
+    retained_gates:
+      - supplying-custodian policy and deployment authority
+      - jurisdictional ethics, linkage, privacy and security requirements
+      - applicable Indigenous data authority
+      - genuinely separate operator evidence when such independence is claimed
+  - cluster: quality_equity_and_release
+    tracks: ['013', '014']
+    disposition: continue_synthetic_assurance_keep_release_inactive
+    permitted_now:
+      - harm register, model criticism, calibration and uncertainty tests
+      - owner-operated reproduction labelled repository evidence
+      - private synthetic atlas and API demonstrator
+      - accessibility preparation and release checklists
+    retained_gates:
+      - upstream track completion
+      - source rights and real-source activation
+      - accountable accessibility and release disposition
+      - beta, public, stable, archive and DOI activation
+dependency_order:
+  - '008: provisional semantic contracts; source rights and naming authority remain distinct'
+  - '009: evidence, privacy, access and permitted-output contracts'
+  - '010: burden-engine interfaces and remaining scientific-software review lane'
+  - '003, 005 and 011: protocols, safeguards, ledgers and synthetic analyses'
+  - '004: governed production contract and synthetic operator workflow'
+  - '012: paediatric governance preparation and synthetic end-to-end workflow'
+  - '013: cross-track harm, equity, criticism and repository reproduction evidence'
+  - '014: release audit and exact-candidate owner decision after dependencies'
+synthetic_work_allowed_now:
+  - harm registers, acceptable-use drafts, prohibited-use tests and escalation routes
+  - contested-term registers, alternative labels, provenance and versioned naming notes
+  - linkage-risk, differencing, small-cell, suppression and safe-failure tests
+  - referral, ascertainment, overlap, missingness, transport and inequity scenarios
+  - node installation, audit, revocation, rollback and output-review workflows
+  - protocols, data dictionaries, custodian packets, plain-language summaries and accessibility checks
+  - owner-operated reproducibility checks labelled repository evidence rather than independent validation
+external_or_factual_gates_retained:
+  - id: publisher_and_source_rights
+    status: pending
+    self_attestable: false
+  - id: indigenous_authority_where_applicable
+    status: pending
+    self_attestable: false
+  - id: supplying_custodian_policy_and_authorization
+    status: pending
+    self_attestable: false
+  - id: jurisdictional_ethics_linkage_privacy_and_security_authority
+    status: pending
+    self_attestable: false
+  - id: constituted_patient_or_community_endorsement_if_claimed
+    status: pending
+    self_attestable: false
+  - id: external_or_independent_review_if_claimed
+    status: pending
+    self_attestable: false
+  - id: real_source_or_controlled_data_activation
+    status: pending
+    self_attestable: false
+  - id: public_beta_stable_archive_or_doi_release
+    status: pending
+    self_attestable: false
+prohibited_uses:
+  - re-identification or differencing attacks
+  - individual eligibility, policing, immigration, employment or insurance decisions
+  - commercial profiling
+  - unsupported ranking of people, communities, diseases or services
+  - rationing or worth-ranking inferred mechanically from burden or cost outputs
+  - reuse beyond the recorded purpose and authority
+unsafe_premises:
+  - Synthetic success and hash reconciliation do not establish social licence, Indigenous authority, real-world privacy, representativeness, clinical validity or custodian acceptability.
+  - Administrative visibility and referral patterns are not unbiased measures of prevalence, need or service quality.
+  - Owner-operated reproduction is repository evidence and cannot be promoted to independent replication.
+  - A public-facing naming freeze cannot manufacture acceptance of contested or harmful terminology.
+dissent:
+  - A synthetic/public-only repository may use agent advice and owner disposition for repository controls under ADR-0009, but it must not relabel that process as community, Indigenous, custodian or independent approval.
+stop_triggers:
+  - no lawful purpose-specific custodian or source pathway
+  - unresolved critical naming, cultural-governance, privacy or disclosure harm
+  - inability to produce a privacy-safe output
+  - prohibited-use enablement without enforceable controls
+  - rights, provenance, dependency, candidate or hash mismatch
+  - external authority, partnership or approval inferred from repository-owned evidence
+owner_disposition:
+  disposition: accept_narrow_and_defer
+  authority: repository_scope_and_implementation_only
+  recorded_at: '2026-08-20'
+  evidence: docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md
+  release_authorized: false
+  real_or_controlled_data_authorized: false
+  external_gate_status_changed: false
+

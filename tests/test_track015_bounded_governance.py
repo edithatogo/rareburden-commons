@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 from pathlib import Path
 
 import pytest
+import yaml
 
 from scripts.check_track015_bounded_governance import (
     GovernanceReconciliationError,
@@ -13,6 +15,12 @@ from scripts.check_track015_bounded_governance import (
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json"
+PATIENT_COMMUNITY_SCOPE = (
+    ROOT / "manifests/governance/track-015-patient-community-review-scope-2026-08-20.json"
+)
+PATIENT_COMMUNITY_ADVICE = (
+    ROOT / "docs/track-015-patient-community-governance-advice-2026-08-20.yml"
+)
 
 
 def _payload() -> dict:
@@ -67,3 +75,32 @@ def test_track_014_cannot_be_marked_bound_without_exact_hash() -> None:
     payload["integration_dependency"]["sha256"] = "0" * 64
     with pytest.raises(GovernanceReconciliationError, match="Track 014 dependency hash mismatch"):
         validate_governance(payload, ROOT)
+
+
+def test_patient_community_advice_keeps_non_self_attestable_gates_pending() -> None:
+    scope_bytes = PATIENT_COMMUNITY_SCOPE.read_bytes()
+    scope = json.loads(scope_bytes)
+    advice = yaml.safe_load(PATIENT_COMMUNITY_ADVICE.read_text(encoding="utf-8"))
+
+    assert advice["panel_assurance"] == (
+        "advisory_agent_perspective_not_independent_or_human_approval"
+    )
+    assert advice["reviewed_candidate"]["commit"] == scope["reviewed_commit"]
+    assert advice["reviewed_candidate"]["tree"] == scope["reviewed_tree"]
+    assert (
+        advice["reviewed_candidate"]["scope_manifest_sha256"]
+        == hashlib.sha256(scope_bytes).hexdigest()
+    )
+    assert all(
+        gate["status"] == "pending" and gate["self_attestable"] is False
+        for gate in advice["external_or_factual_gates_retained"]
+    )
+    assert advice["owner_disposition"] == {
+        "disposition": "accept_narrow_and_defer",
+        "authority": "repository_scope_and_implementation_only",
+        "recorded_at": "2026-08-20",
+        "evidence": "docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md",
+        "release_authorized": False,
+        "real_or_controlled_data_authorized": False,
+        "external_gate_status_changed": False,
+    }
