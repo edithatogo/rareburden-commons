@@ -55,9 +55,13 @@ under `docs/decisions/ADR-0009-agent-panel-owner-governance.md`. Track plans
 must not imply another maintainer, human reviewer or independent review. Panels
 advise and the repository owner records the accountable disposition.
 
-The repository owner (`edithatogo`) is also the sole developer and primary
-operator. Owner-operated implementation, validation, support preparation and
-bounded release decisions are permitted and must be labelled as owner-operated.
+The repository owner (`edithatogo`) is also the accountable scientist, sole
+developer and primary operator. Owner-operated implementation, scientific
+review, validation, support preparation, reproduction and bounded release
+decisions are permitted and must be labelled as owner-operated repository
+evidence, not independent approval or external validation. The community/harm
+lane is an owner-executed simulated-community challenge and never represents
+actual participation, consultation, consent or endorsement.
 A privacy-preserving backup-owner role is owner-attested as accepted but remains
 conditional until its scope, escalation, expiry and handoff evidence are
 recorded. Owner-operated operator/security evidence and owner release decisions
