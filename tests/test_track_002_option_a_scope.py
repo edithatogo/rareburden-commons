@@ -12,14 +12,16 @@ def test_option_a_scope_remains_bounded_and_inactive() -> None:
     assert scope["activation"] == "disabled_until_scientific_and_data_governance_receipts"
     assert [item["source_id"] for item in scope["primary_preparation_sources"]] == [
         "orphadata-science",
-        "un-world-population-prospects",
+        "mondo-disease-ontology",
     ]
     deferred = {item["source_id"]: item["status"] for item in scope["deferred_candidates"]}
     assert deferred == {
+        "un-world-population-prospects": "private_only",
         "who-global-health-estimates": "candidate_only",
         "world-bank-indicators-api": "probe_only",
     }
-    assert "no_raw_third_party_source_bytes_in_repository_or_release" in scope["exclusions"]
+    assert "no_raw_third_party_source_bytes_in_git" in scope["exclusions"]
+    assert "no_sources_outside_exact_candidate_in_release" in scope["exclusions"]
 
 
 def test_candidate_manifests_preserve_source_specific_terms_and_unapproved_state() -> None:

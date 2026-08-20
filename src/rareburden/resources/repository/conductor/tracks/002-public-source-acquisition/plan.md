@@ -1,5 +1,25 @@
 # Track 002 plan
 
+## Owner-approved minimal public-release preparation — 2026-08-20
+
+- [x] Bind the owner-approved release allowlist to the exact July 2026
+  Orphadata pair and three canonical MONDO `v2026-08-04` artifacts, with exact
+  bytes, SHA-256 values, exclusions, bounded claims and negative regression
+  tests. Evidence:
+  `docs/track-002-minimal-public-release-scope-2026-08-20.yml` and
+  `tests/test_track_002_minimal_public_release_scope.py`.
+- [x] Supersede the older Orphadata-plus-WPP preparation scope while preserving
+  its history; WPP is private-only under the current decision and every source
+  outside the exact allowlist remains excluded from this candidate.
+- [ ] Reconcile the already-public WPP object only after separate external
+  mutation authority and post-action remote verification. Repository
+  preparation does not claim that hosted object is currently private.
+- [ ] Build and separately owner-verify the exact five-artifact candidate after
+  the dated Orphadata/MONDO terms-change and attribution gates pass.
+- [ ] Record a final owner publication decision bound to the exact commit and
+  artifact hashes; this preparation decision does not authorize publication,
+  issue closure or a v0.3.0 release.
+
 ## HPO rights frontier — 2026-08-16
 
 - [x] Bind the exact official predecessor HPO licence page by URL, response
