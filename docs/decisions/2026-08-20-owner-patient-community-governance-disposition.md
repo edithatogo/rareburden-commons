@@ -7,12 +7,12 @@ real-data, external-authority and release activation gate.
 ## Candidate and evidence binding
 
 - Repository: `edithatogo/rareburden-commons`
-- Reviewed commit: `0bc080cc1bf1623791006d6242fdcf95a2007156`
-- Reviewed tree: `4ac1bb71cc5e015ef31f0f1a81c1d9aea48e06e8`
+- Reviewed commit: `32a8f04434cb6cb4e7380e9081123d1f67269329`
+- Reviewed tree: `61f45607275c859e2277ad47dc29274b3e656f52`
 - Scope manifest:
   `manifests/governance/track-015-patient-community-review-scope-2026-08-20.json`
 - Scope-manifest SHA-256:
-  `b7815c57a8290d066f68a2e2dc55e9694c9c5f2b155632d40b17802616a5c8e4`
+  `0681c6c65e98e149571485d433f0658dfe41971d0c77d73fc6a113271e8aead4`
 - Advisory lane:
   `docs/track-015-patient-community-governance-advice-2026-08-20.yml`
 - Attributable basis: the repository owner repeatedly instructed the advisory
@@ -23,12 +23,12 @@ Any material change to the candidate, evidence manifest, permitted scope,
 authority boundary or stop triggers requires a new disposition.
 
 This binding includes the merged Track 007 bounded content-resolution evidence,
-the dependency-ordered Option B preparation controls and the bounded Track 002
-live source-change exercise and the bounded-content input-hardening fix through
-`0bc080c`. Tracks 002 and 007 remain in review, Tracks 008–010 remain blocked
-and provisional, and accountable community, rights, custodian, empirical and
-release gates remain pending; the accepted governance disposition is therefore
-unchanged.
+the dependency-ordered Option B preparation controls, the bounded Track 002
+live source-change exercise and receipt hardening, and Track 017 evidence-
+contract reconciliation through `32a8f04`. Tracks 002 and 007 remain in review,
+Tracks 008–010 remain blocked and provisional, and accountable community,
+rights, custodian, empirical and release gates remain pending; the accepted
+governance disposition is therefore unchanged.
 
 ## Accepted repository actions
 
