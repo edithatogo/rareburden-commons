@@ -2,7 +2,7 @@
 
 **Decision-maker:** repository owner and scientist  
 **Disposition:** approve  
-**Governance:** ADR-0009
+**Governance:** ADR-0009 and ADR-0010
 
 ## Decision
 
@@ -19,7 +19,8 @@ The owner also approves this community/harm boundary:
 > participation, representation, consultation, endorsement, consent or
 > independent review.
 
-This decision applies prospectively to material repository decisions. Agents
+This decision supplements ADR-0010's single-owner/all-accountable-roles model
+and applies prospectively to material repository decisions. Agents
 must present options, contingencies, rationale, trade-offs and recommendations
 before the owner records an attributable disposition.
 

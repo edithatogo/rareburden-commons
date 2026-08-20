@@ -4,10 +4,10 @@
   "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-07-27",
+  "updated": "2026-08-21",
   "target_release": "0.7.0",
   "stage": "economic_social_methods",
-  "owner_role": "Health Economics and Patient-Reported Outcomes Leads",
+  "owner_role": "Repository owner (all accountable repository roles)",
   "dependencies": [
     "009-evidence-parameter-ledger",
     "010-public-burden-engine"

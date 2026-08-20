@@ -1,15 +1,16 @@
 # Track 015 dependency review — Governance, partnerships and policy translation
 
 **Review date:** 2026-07-29  
-**Decision:** Planned; constitution and external relationship work not activated
+**Decision:** Single-owner governance adopted; external relationship claims not activated
 
 ## Findings
 
 - Track 007’s landscape and Track 013’s assurance work are not complete.
 - No committee, partnership, endorsement, data-access agreement or institutional
   host has been confirmed.
-- Governance, patient/community, scientific, ethics/data-governance, programme
-  and release gates remain required.
+- Repository governance decisions belong to the sole owner after advisory
+  agent-panel challenge. External authority is required only when claimed or
+  when real data, rights or a third-party pathway invokes it.
 
 ## Local preparation
 
@@ -17,11 +18,13 @@
 authority, claim states and policy-translation boundaries. It is a scaffold only
 and does not constitute appointments, consultation, consent or partnership.
 
-## Activation gates
+## Superseded activation assumptions
 
-- Named patient/community co-chair and remunerated voting membership.
-- Approved charters, conflicts, complaints, appeals, authorship, corrections,
-  acceptable-use and Indigenous/CARE provisions.
+- Constituted internal councils, voting membership and paid remuneration are
+  not part of this single-person repository. Remuneration is zero.
+- Internal decisions use advisory agent panels and an attributable owner
+  disposition with options, contingencies, rationale, trade-offs and a
+  recommendation.
 - Written relationship evidence for every `confirmed` claim.
 - Governance tabletop exercise and v1 readiness decision.
 
@@ -65,14 +68,13 @@ external or release gate.
 
 ## Completion attempt — 2026-08-21
 
-The remaining plan tasks and all eight acceptance criteria were audited against
-the evidence required from their accountable authorities. Repository-owned
-controls and preparation are present, but dependencies 007 and 013 are not
-complete and the required constituted governance, remuneration, Indigenous and
-country-node authority, policy approvals, relationship receipts, tabletop and
-v1 readiness decision are absent.
+The earlier completion audit incorrectly treated constituted internal bodies
+and remuneration as mandatory. The corrected operating model has one owner as
+decision maker, role-separated advisory agent panels, and zero remuneration.
+This correction does not manufacture Indigenous, community, custodian,
+institutional, partner or independent-human authority.
 
-Disposition: **blocked**. The exact blocker and resumption contract is
-`docs/track-015-external-gate-closure-2026-08-21.yml`. Neither the repository
-owner's completion instruction nor agent validation can replace the listed
-receipts. Track 015 must not be marked complete or used as release evidence.
+Disposition: **internal governance correction accepted**. Remaining real-data,
+third-party-rights, partnership, Indigenous-authority and public-release gates
+stay conditional and fail closed. They are not internal council or remuneration
+requirements and cannot be satisfied by owner or agent self-attestation.
