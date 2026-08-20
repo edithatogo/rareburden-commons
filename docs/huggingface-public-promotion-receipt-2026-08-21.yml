@@ -1,0 +1,77 @@
+schema_version: '1.0'
+status: remote_hash_verified_public_promotion_and_private_head_reconciliation
+recorded_at_utc: '2026-08-20T22:02:00Z'
+repositories:
+  private_source_archive:
+    id: edithatogo/rareburden-commons-source-archive
+    revision_after_reconciliation: ea08c69af58b818050379ba8008903ca4635d379
+    head_files: 41
+    head_bytes: 249962965
+  private_ontology_archive:
+    id: edithatogo/hpo-licensed-ontology-archive
+    pinned_source_revision: a6c270fc57a5fea6e21b7d8822935e135736c140
+    head_files: 533
+    head_bytes: 94136096425
+  public_projection:
+    id: edithatogo/rareburden-commons-open-source-snapshots
+    verified_revision: 33a652c355725dc17c2e33161e3e02af7c9dcc63
+    head_files: 249
+    head_bytes: 5601346228
+promotions:
+  hpo_core:
+    workflow_runs: [32420209544, 32421742257]
+    files: 20
+    bytes: 548989544
+    licence: recorded HPO exact-unmodified core conditions
+  disease_ontology:
+    workflow_run: 32422066232
+    files: 11
+    bytes: 98510057
+    licence: CC0-1.0
+  mammalian_phenotype_ontology:
+    workflow_run: 32422118852
+    files: 12
+    bytes: 133828872
+    licence: CC-BY-4.0
+  phenotype_and_trait_ontology:
+    workflow_run: 32421960393
+    files: 1
+    bytes: 725388
+    licence: CC-BY-3.0
+  unified_phenotype_ontology:
+    workflow_run: 32422024831
+    files: 1
+    bytes: 28190223
+    licence: CC0-1.0
+  mesh_2026_xml:
+    workflow_run: 32422237880
+    files: 4
+    bytes: 1104953009
+    licence: NLM-MeSH-terms
+private_head_reconciliation:
+  commit: 8dab5070876d294ce0d425d36df1b4903a8fbe5b
+  removed_exact_duplicate_references: 7
+  removed_head_bytes: 1059760301
+  verification: exact_path_size_and_sha256_matched_public_revision_before_deletion
+  permanent_lfs_deletion:
+    completed: true
+    history_rewritten: true
+    verified_absent_from_private_lfs_inventory: true
+  recoverability: exact_remote_hash_verified_public_projection
+  quota_reclaimed: unverified
+  note: >-
+    The seven private LFS objects and their historical pointers were permanently
+    deleted only after exact public verification. Hugging Face documents that
+    quota accounting changes may take up to 36 hours, so restored quota is not
+    inferred from successful deletion.
+boundaries:
+  paid_storage_used: false
+  local_large_byte_retention: false
+  umls_snomed_rxnorm_public: false
+  private_licensed_bytes_deleted: false
+  all_hpo_history_complete: false
+  all_private_quota_restored: false
+next_gate:
+  action: authenticated_private_quota_preflight
+  pass_condition: provider_reports_capacity_without_paid_upgrade
+  failure_action: keep_historical_private_ingest_paused
