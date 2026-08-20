@@ -54,3 +54,10 @@
   mathematical engine fixture remains assurance-only and is explicitly not an
   RBC-P002-compatible analysis. Registration, empirical activation and all
   upstream, clinical, community and governance gates remain open.
+- [x] Define non-binding population-state semantics that keep observed
+  diagnosis, latent model states, unclassified records and referral/testing
+  selection distinct, with aligned-partition and double-counting guards.
+  Evidence: `docs/track-003-population-state-contract-v0.1.0.yml` and
+  `tests/test_track_003_population_state_contract.py`. Undiagnosed burden
+  remains a modelled scenario quantity, never an observed count; activation
+  and all upstream and external gates remain open.
