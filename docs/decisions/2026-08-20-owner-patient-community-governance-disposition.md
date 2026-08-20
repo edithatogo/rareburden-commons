@@ -22,13 +22,14 @@ real-data, external-authority and release activation gate.
 Any material change to the candidate, evidence manifest, permitted scope,
 authority boundary or stop triggers requires a new disposition.
 
-This binding includes the merged Track 007 bounded content-resolution evidence,
-the dependency-ordered Option B preparation controls, the bounded Track 002
-live source-change exercise and receipt hardening, and Track 017 evidence-
-contract reconciliation through `8235dee`. Tracks 002 and 007 remain in review,
-Tracks 008–010 remain blocked and provisional, and accountable community,
-rights, custodian, empirical and release gates remain pending; the accepted
-governance disposition is therefore unchanged.
+This binding includes the merged Track 007 bounded content-resolution and owner
+methods disposition evidence, the dependency-ordered Option B preparation
+controls, the bounded Track 002 live source-change, receipt-hardening and source-
+activation reconciliation evidence, the Track 016 Python support-floor update,
+and Track 017 evidence-contract reconciliation through `8235dee`. Tracks 002
+and 007 remain in review, Tracks 008–010 remain blocked and provisional, and
+accountable community, rights, custodian, empirical and release gates remain
+pending; the accepted governance disposition is therefore unchanged.
 
 ## Accepted repository actions
 
