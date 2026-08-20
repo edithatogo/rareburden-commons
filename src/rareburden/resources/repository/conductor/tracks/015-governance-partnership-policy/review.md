@@ -62,3 +62,17 @@ closes only the named repository-owned advisory lane. It does not complete
 Track 015, create constituted patient/community or Indigenous authority,
 approve a controlled-data pathway, or satisfy any scientific, policy-user,
 external or release gate.
+
+## Completion attempt — 2026-08-21
+
+The remaining plan tasks and all eight acceptance criteria were audited against
+the evidence required from their accountable authorities. Repository-owned
+controls and preparation are present, but dependencies 007 and 013 are not
+complete and the required constituted governance, remuneration, Indigenous and
+country-node authority, policy approvals, relationship receipts, tabletop and
+v1 readiness decision are absent.
+
+Disposition: **blocked**. The exact blocker and resumption contract is
+`docs/track-015-external-gate-closure-2026-08-21.yml`. Neither the repository
+owner's completion instruction nor agent validation can replace the listed
+receipts. Track 015 must not be marked complete or used as release evidence.
