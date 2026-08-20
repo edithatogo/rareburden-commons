@@ -21,9 +21,9 @@ The owner also approves this community/harm boundary:
 
 This decision is implemented by ADR-0010's prospective simulated-panel and
 owner-decision model and applies prospectively to material repository
-decisions. Agents must present two or three options with contingencies,
-rationale, trade-offs, minimum evidence and recommendations before the owner
-records an attributable disposition bound to the exact candidate.
+decisions. Agents must present two or three options; options, contingencies,
+rationale, trade-offs, minimum evidence and recommendations must precede the
+owner's attributable disposition bound to the exact candidate.
 
 ## Operating model
 
