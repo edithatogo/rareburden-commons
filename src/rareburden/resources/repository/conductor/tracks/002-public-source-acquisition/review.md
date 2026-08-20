@@ -72,6 +72,24 @@ remain unresolved, and Track 007 has not completed its external challenge gate.
 
 Keep Track 002 **In review**. The substrate may be extended, tested and used with synthetic or explicitly lawful fixtures. Do not call the track complete or issue v0.3.0 until the live-source and governance gates are evidenced.
 
+### Bounded live source-change exercise — 2026-08-20
+
+`scripts/observe_track_002_source_change.py` re-retrieved the exact pinned
+Orphadata epidemiology and alignment files, WPP 2024 workbook, WHO GHE workbook
+and bounded World Bank response with one-second inter-request pacing and a
+60 MB per-response ceiling. All five returned HTTP 200 and matched their pinned
+SHA-256 values. The observer discarded response bytes after streaming hashes,
+recorded no activation, and would classify changed or unavailable responses as
+review-required incidents.
+
+Evidence is bound in
+`docs/track-002-live-source-change-exercise-2026-08-20.json`, with deterministic
+and negative tests in `tests/test_track_002_live_source_change.py`. This closes
+the dated live source-change exercise only. It does not establish current
+publisher terms, scientific fitness, representativeness, redistribution rights
+or production activation. Those decisions remain fail-closed per exact source
+and estimand.
+
 ### External-gate panel synthesis — 2026-08-01
 
 The repository's preparatory panel review is recorded in
