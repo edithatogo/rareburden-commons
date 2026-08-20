@@ -7,12 +7,12 @@ real-data, external-authority and release activation gate.
 ## Candidate and evidence binding
 
 - Repository: `edithatogo/rareburden-commons`
-- Reviewed commit: `a485c9427911c63be6fe3484cbf197fece96afaf`
-- Reviewed tree: `706f70dfb32adedf2c035b7f54a9bdda68c04eef`
+- Reviewed commit: `59014bd67888fbc20ab18bcf5e12e5090b198324`
+- Reviewed tree: `2f7dbda656606b06c63b843cc3650758202b3db9`
 - Scope manifest:
   `manifests/governance/track-015-patient-community-review-scope-2026-08-20.json`
 - Scope-manifest SHA-256:
-  `c686393fda176d9765e2bc6def68e4131f9cd98bdaa8004d9ab55905be0cef70`
+  `6969ff88529340e8845e59590f857ac6cd8430b433c31958d82f2e2514dd4037`
 - Advisory lane:
   `docs/track-015-patient-community-governance-advice-2026-08-20.yml`
 - Attributable basis: the repository owner repeatedly instructed the advisory
@@ -27,10 +27,12 @@ methods disposition evidence, the dependency-ordered Option B preparation
 controls, the bounded Track 002 live source-change, receipt-hardening and source-
 activation reconciliation evidence, the Track 016 Python support-floor update,
 Track 017 evidence-contract reconciliation, and the Track 003 synthetic
-estimand, denominator and population-state contracts through `a485c94`. Tracks
-002 and 007 remain in review, Tracks 008–010 remain blocked and provisional,
-and accountable community, rights, custodian, empirical and release gates
-remain pending; the accepted governance disposition is therefore unchanged.
+estimand, denominator and population-state contracts, plus Track 002's fail-
+closed minimal-candidate verifier through `59014bd`. The verifier is preparation
+evidence, not public-release activation. Tracks 002 and 007 remain in review,
+Tracks 008–010 remain blocked and provisional, and accountable community,
+rights, custodian, empirical and release gates remain pending; the accepted
+governance disposition is therefore unchanged.
 
 ## Accepted repository actions
 

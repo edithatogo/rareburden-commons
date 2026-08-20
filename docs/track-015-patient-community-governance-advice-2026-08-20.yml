@@ -5,10 +5,10 @@ panel_assurance: advisory_agent_perspective_not_independent_or_human_approval
 role: patient_community_governance
 reviewed_candidate:
   repository: edithatogo/rareburden-commons
-  commit: a485c9427911c63be6fe3484cbf197fece96afaf
-  tree: 706f70dfb32adedf2c035b7f54a9bdda68c04eef
+  commit: 59014bd67888fbc20ab18bcf5e12e5090b198324
+  tree: 2f7dbda656606b06c63b843cc3650758202b3db9
   scope_manifest: manifests/governance/track-015-patient-community-review-scope-2026-08-20.json
-  scope_manifest_sha256: c686393fda176d9765e2bc6def68e4131f9cd98bdaa8004d9ab55905be0cef70
+  scope_manifest_sha256: 6969ff88529340e8845e59590f857ac6cd8430b433c31958d82f2e2514dd4037
 scope:
   tracks: ['003', '004', '005', '008', '009', '010', '011', '012', '013', '014']
   questions:

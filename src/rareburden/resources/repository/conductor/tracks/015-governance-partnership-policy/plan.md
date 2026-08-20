@@ -105,10 +105,11 @@
   hardening and source-activation reconciliation evidence, the Track 007
   input-hardening and owner methods disposition, the Track 016 Python support-
   floor update, the Track 017 evidence-contract reconciliation and the Track
-  003 synthetic estimand, denominator and population-state contracts; retain
-  the disposition because Tracks 002/007 remain in review, Tracks 008–010
-  remain blocked/provisional and all accountable community, rights, custodian,
-  empirical and release gates remain pending. Evidence:
+  003 synthetic estimand, denominator and population-state contracts, and
+  Track 002's fail-closed minimal-candidate verifier without activating public
+  release; retain the disposition because Tracks 002/007 remain in review,
+  Tracks 008–010 remain blocked/provisional and all accountable community,
+  rights, custodian, empirical and release gates remain pending. Evidence:
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
 - [ ] Keep constituted patient/community authority, applicable Indigenous
   authority, publisher rights, supplying-custodian policy and all real-data or
