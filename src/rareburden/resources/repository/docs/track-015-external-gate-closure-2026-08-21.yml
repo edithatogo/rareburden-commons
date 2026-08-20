@@ -3,9 +3,21 @@ track: 015-governance-partnership-policy
 attempted_at: '2026-08-21'
 status: blocked_external_authority_and_dependencies
 track_completion_authorized: false
-unsafe_premise_rejected: repository-owner or agent action cannot constitute or
-  impersonate patient/community, Indigenous, custodian, institutional, partner,
-  scientific, data-governance or release authority
+internal_governance_correction:
+  repository_model: single_person_repo
+  decision_maker: repository_owner
+  panels: role_separated_simulated_advisory_agents
+  grouped_advice_fields: [options, contingencies, rationale, trade_offs, recommendation]
+  repository_data_custodian: repository_owner
+  applicable_indigenous_authority: repository_owner
+  authority_basis: attributable_owner_declaration
+  independent_human_review_planned: false
+  remuneration: none
+  amount: 0
+unsafe_premise_rejected: the owner declaration cannot create authority for
+  unrelated Indigenous peoples or communities, third-party custodians,
+  publishers or licensors, ethics bodies, governments, jurisdictions,
+  institutions or partners
 
 dependency_blockers:
   - track: 007-landscape-novelty
@@ -18,15 +30,13 @@ dependency_blockers:
     self_attestable: false
 
 external_gates:
-  - id: patient_community_constitution
+  - id: unrelated_patient_community_authority
     acceptance_criteria: [1]
     status: pending
-    accountable_authority: constituted Patient and Community Council
+    accountable_authority: each unrelated patient or community group if its authority is claimed
     required_receipts:
-      - approved charter and appointments
-      - quorum, voting and reserved-decision rules
-      - budget and paid-remuneration authority
-      - conflicts and dissent record
+      - scope-matched consent or representation evidence
+      - attributable terms and withdrawal route
     self_attestable: false
   - id: scientific_data_and_node_authority
     acceptance_criteria: [2]
@@ -46,10 +56,10 @@ external_gates:
       - approved authorship, complaints, appeals and funder-independence policies
       - authorised tabletop record with conflicts, dissent, actions and owners
     self_attestable: false
-  - id: indigenous_and_country_node_authority
+  - id: unrelated_indigenous_and_country_node_authority
     acceptance_criteria: [5]
     status: pending
-    accountable_authority: applicable Indigenous authority and participating country nodes
+    accountable_authority: unrelated Indigenous authorities and participating country nodes where activated
     required_receipts:
       - jurisdiction-specific CARE and Indigenous Data Sovereignty disposition
       - country-node agreement and accreditation decision
@@ -99,8 +109,8 @@ safe_continuation:
 prohibited_completion_claims:
   - Track 015 complete
   - constituted patient or community governance
-  - Indigenous authority or consent
-  - custodian, ethics, privacy, legal or partner approval
+  - authority or consent for unrelated Indigenous peoples or communities
+  - third-party custodian, ethics, privacy, legal or partner approval
   - global representativeness
   - real-data, public-release or redistribution activation
 

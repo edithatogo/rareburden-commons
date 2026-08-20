@@ -1,18 +1,21 @@
 # Track 015 plan
 
-> Repository-owned review uses role-separated advisory agent panels under
-> ADR-0009; constituted governance and patient/community authority remain
-> separate and cannot be self-attested.
+> This is a single-accountable-human repository. Role-separated simulated
+> agent panels advise; the owner decides and declares the repository-custodian
+> and applicable Indigenous-authority roles. All work is unpaid.
 
 ## Phase 1 — Constitute governance
 
-- [ ] Draft and approve body charters, appointment and voting rules. `[M-16]`
+- [x] Adopt the prospective agent-panel and sole-owner decision contract. `[M-16]`
 - [x] Establish community/harm agent-panel remit, dissent rules and owner
   decision rights. Evidence:
   `docs/track-015-patient-community-governance-advice-2026-08-20.yml` and
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
-- [ ] Establish methods, rights/data-use and node agent-panel review roles.
-- [ ] Publish conflicts, minutes and reserved-decision process. `[M-17]`
+- [x] Establish methods, rights/data-use and node agent-panel review roles.
+- [x] Publish conflict, dissent and owner-disposition process. `[M-17]`
+- [x] Record the owner's repository-custodian and applicable
+  Indigenous-authority declaration with explicit scope exclusions.
+- [x] Remove additional human review and remuneration as repository plan gates.
 
 ## Phase 2 — Operating policies
 
@@ -111,9 +114,9 @@
   Tracks 008–010 remain blocked/provisional and all accountable community,
   rights, custodian, empirical and release gates remain pending. Evidence:
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
-- [ ] Keep constituted patient/community authority, applicable Indigenous
-  authority, publisher rights, supplying-custodian policy and all real-data or
-  public-release permissions pending until attributable evidence exists.
+- [ ] Keep authority for unrelated communities or country nodes, publisher
+  rights, third-party custodian policy and all real-data or public-release
+  permissions pending until attributable evidence exists.
 
 ## Completion attempt — 2026-08-21
 
@@ -126,3 +129,14 @@
 - [ ] Receive attributable, scope-matched receipts for every applicable gate in
   `docs/track-015-external-gate-closure-2026-08-21.yml`; then rerun the exact-
   candidate review and record a constituted governance readiness decision.
+
+## Single-accountable-human enforcement — 2026-08-21
+
+- [x] Record the owner's acceptance of the panel-recommended enforced
+  single-owner model and make active track ownership, CODEOWNERS, continuity,
+  contribution, security and governance controls agree. Evidence:
+  `docs/decisions/ADR-0011-single-accountable-human-enforcement.md`,
+  `docs/single-owner-agent-governance.yml` and
+  `scripts/check_single_owner_agent_governance.py`. Historical role metadata
+  remains provenance; external evidence and independent-review boundaries are
+  not waived.

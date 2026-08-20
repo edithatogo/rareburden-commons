@@ -51,7 +51,8 @@ reproduction or stable-release gates.
 
 ## Phase 3 — Sustainability and ownership
 
-- [ ] Publish maintainer, reviewer, incident and backup-owner roster.
+- [ ] Publish the sole-owner maintainer, review and incident-accountability
+  statement plus fail-closed incapacity and succession procedures.
 - [ ] Approve contribution, succession, deprecation and support processes.
 - [ ] Approve costed infrastructure and release operating model.
 - [x] Confirm bounded interim single-owner ownership for the non-production
@@ -120,14 +121,14 @@ reproduction or stable-release gates.
   environments.
 - [ ] Obtain two agent usability reports and one owner-operated
   reproduction/equivalence report.
-- [ ] Record primary/backup ownership, succession, support boundaries and
-  approved sustainability costs.
+- [ ] Record sole-owner accountability, fail-closed succession, support
+  boundaries and approved sustainability costs.
 - [x] Assemble the complete v1 evidence index without treating indexing as
   stable acceptance. Evidence:
   `manifests/release/v1-evidence-index-2026-08-16.json`,
   `scripts/check_v1_evidence_index.py` and `tests/test_v1_evidence_index.py`.
-- [ ] Complete the remaining stable-release gates: a new continuity decision
-  (qualifying redundant ownership or explicit stable-risk acceptance) and
+- [ ] Complete the remaining stable-release gates: a new exact-candidate
+  sole-owner continuity-risk decision and
   public stable-artifact publication/verification after a separate stable
   release decision. Backup continuity is non-applicable to the current bounded
   non-production candidate, not satisfied.
