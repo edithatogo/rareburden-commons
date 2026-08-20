@@ -40,7 +40,7 @@ def load_candidates(matrix_path: Path) -> list[dict[str, Any]]:
 
 
 def archive_batch(matrix_path: Path, *, start: int, count: int, max_bytes: int) -> dict[str, Any]:
-    from huggingface_hub import HfApi  # type: ignore[import-not-found]
+    from huggingface_hub import CommitOperationAdd, HfApi  # type: ignore[import-not-found]
 
     if start < 0 or count < 1 or count > 10 or max_bytes < 1 or max_bytes > 1_000_000_000:
         raise ValueError("HPO batch exceeds the bounded run policy")
@@ -57,6 +57,7 @@ def archive_batch(matrix_path: Path, *, start: int, count: int, max_bytes: int) 
         raise RuntimeError("HPO core destination must be public")
     remote = {item.rfilename: item.size for item in info.siblings}
     results: list[dict[str, Any]] = []
+    operations: list[Any] = []
     used = 0
     with tempfile.TemporaryDirectory(prefix="rareburden-hpo-core-") as temporary:
         root = Path(temporary)
@@ -94,48 +95,56 @@ def archive_batch(matrix_path: Path, *, start: int, count: int, max_bytes: int) 
             expected = item.get("digest")
             if expected and expected != f"sha256:{sha256}":
                 raise RuntimeError("source digest differs from GitHub release metadata")
-            commit = api.upload_file(
-                path_or_fileobj=str(local),
-                path_in_repo=destination,
-                repo_id=_DESTINATION,
-                repo_type="dataset",
-                commit_message=f"Archive exact HPO {item['release_tag']} {item['name']}",
+            operations.append(
+                CommitOperationAdd(
+                    path_or_fileobj=str(local),
+                    path_in_repo=destination,
+                )
             )
-            local.unlink()
             results.append(
                 {
                     "path": destination,
                     "status": "uploaded",
                     "bytes": size,
                     "sha256": sha256,
-                    "commit": str(commit),
                 }
             )
-    receipt = {
-        "schema_version": "1.0",
-        "status": "bounded_public_exact_unmodified_archive",
-        "repository": _DESTINATION,
-        "start": start,
-        "requested_count": count,
-        "used_bytes": used,
-        "results": results,
-        "attribution": "Human Phenotype Ontology Consortium",
-        "licence_evidence": "https://human-phenotype-ontology.github.io/license.html",
-        "modification": "none; exact publisher release bytes",
-        "claims": {
-            "clinical_validation": False,
-            "third_party_terms_cleared": False,
-            "all_history_complete": False,
-        },
-    }
-    receipt_path = f"hpo/receipts/batch-{start:04d}-{start + len(selected) - 1:04d}.json"
-    api.upload_file(
-        path_or_fileobj=io.BytesIO((json.dumps(receipt, sort_keys=True) + "\n").encode()),
-        path_in_repo=receipt_path,
-        repo_id=_DESTINATION,
-        repo_type="dataset",
-        commit_message=f"Record bounded HPO core batch {start}:{start + len(selected)}",
-    )
+        receipt = {
+            "schema_version": "1.0",
+            "status": "bounded_public_exact_unmodified_archive",
+            "repository": _DESTINATION,
+            "start": start,
+            "requested_count": count,
+            "used_bytes": used,
+            "results": results,
+            "commit_mode": "single_atomic_batch_commit",
+            "attribution": "Human Phenotype Ontology Consortium",
+            "licence_evidence": "https://human-phenotype-ontology.github.io/license.html",
+            "modification": "none; exact publisher release bytes",
+            "claims": {
+                "clinical_validation": False,
+                "third_party_terms_cleared": False,
+                "all_history_complete": False,
+            },
+        }
+        receipt_path = f"hpo/receipts/batch-{start:04d}-{start + len(selected) - 1:04d}.json"
+        operations.append(
+            CommitOperationAdd(
+                path_or_fileobj=io.BytesIO((json.dumps(receipt, sort_keys=True) + "\n").encode()),
+                path_in_repo=receipt_path,
+            )
+        )
+        commit = api.create_commit(
+            repo_id=_DESTINATION,
+            repo_type="dataset",
+            operations=operations,
+            commit_message=f"Archive bounded HPO core batch {start}:{start + len(selected)}",
+            commit_description=(
+                "Upload exact rights-cleared objects and their receipt in one atomic commit "
+                "to respect the free-tier repository commit limit."
+            ),
+        )
+        receipt["commit"] = str(commit)
     verified = {
         item.rfilename: item.size
         for item in api.dataset_info(_DESTINATION, files_metadata=True).siblings
