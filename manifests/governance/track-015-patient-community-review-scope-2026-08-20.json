@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "scope_id": "rbc-track015-patient-community-governance-2026-08-20",
+  "source_thread_id": "01a01ede-c58d-7443-b0b0-5cbf772df6be",
+  "reviewed_repository": "edithatogo/rareburden-commons",
+  "reviewed_commit": "723c6d8c00d0967b3b2442f1851785b9b73f2fc7",
+  "reviewed_tree": "3b804ed3de869bec781e4ec59fe1e8f9199c2c66",
+  "review_role": "patient_community_governance_advisory_agent",
+  "review_constraints": [
+    "advice only",
+    "not independent human review",
+    "not constituted patient or community authority",
+    "not Indigenous authority",
+    "not custodian approval",
+    "repository owner records the disposition"
+  ],
+  "track_state": [
+    {
+      "track": "003-monogenic-diabetes-demonstrator",
+      "status": "blocked",
+      "dependencies": ["008-semantic-backbone", "009-evidence-parameter-ledger", "010-public-burden-engine"],
+      "pending_task_count_reported": 15
+    },
+    {
+      "track": "004-federated-node-runner",
+      "status": "blocked",
+      "dependencies": ["006-v1-delivery-system", "009-evidence-parameter-ledger", "010-public-burden-engine"],
+      "pending_task_count_reported": 6
+    },
+    {
+      "track": "005-economic-social-burden",
+      "status": "blocked",
+      "dependencies": ["009-evidence-parameter-ledger", "010-public-burden-engine"],
+      "pending_task_count_reported": 15
+    },
+    {
+      "track": "008-semantic-backbone",
+      "status": "blocked",
+      "dependencies": ["002-public-source-acquisition", "007-landscape-novelty"],
+      "pending_task_count_reported": 8
+    },
+    {
+      "track": "009-evidence-parameter-ledger",
+      "status": "blocked",
+      "dependencies": ["002-public-source-acquisition", "008-semantic-backbone"],
+      "pending_task_count_reported": 3
+    },
+    {
+      "track": "010-public-burden-engine",
+      "status": "blocked",
+      "dependencies": ["009-evidence-parameter-ledger"],
+      "pending_task_count_reported": 2
+    },
+    {
+      "track": "011-bronchiectasis-demonstrator",
+      "status": "blocked",
+      "dependencies": ["008-semantic-backbone", "009-evidence-parameter-ledger", "010-public-burden-engine"],
+      "pending_task_count_reported": 14
+    },
+    {
+      "track": "012-paediatric-burden-demonstrator",
+      "status": "blocked",
+      "dependencies": ["004-federated-node-runner", "005-economic-social-burden", "008-semantic-backbone", "009-evidence-parameter-ledger", "010-public-burden-engine"],
+      "pending_task_count_reported": 13
+    },
+    {
+      "track": "013-quality-validation-gap-equity",
+      "status": "blocked",
+      "dependencies": ["003-monogenic-diabetes-demonstrator", "005-economic-social-burden", "007-landscape-novelty", "010-public-burden-engine", "011-bronchiectasis-demonstrator", "012-paediatric-burden-demonstrator"],
+      "pending_task_count_reported": 10
+    },
+    {
+      "track": "014-atlas-api-release",
+      "status": "planned",
+      "dependencies": ["002-public-source-acquisition", "009-evidence-parameter-ledger", "010-public-burden-engine", "013-quality-validation-gap-equity"],
+      "pending_task_count_reported": 18
+    }
+  ],
+  "repository_evidence_reported": [
+    "deterministic synthetic contracts",
+    "synthetic fixtures",
+    "receipts",
+    "negative tests",
+    "review packets",
+    "exact dependency and hash reconciliation for Tracks 004, 005 and 008 through 013"
+  ],
+  "evidence_absent": [
+    "real participant data",
+    "controlled data",
+    "external approvals",
+    "independent human review",
+    "release activation"
+  ]
+}
