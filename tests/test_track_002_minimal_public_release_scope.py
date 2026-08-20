@@ -83,10 +83,26 @@ def test_claims_and_release_gates_remain_bounded() -> None:
     assert all(value is False for value in scope["claims"].values())
     gates = {gate["id"]: gate["status"] for gate in scope["release_gates"]}
     assert gates == {
-        "exact_candidate_package_verification": "pending",
-        "included_source_live_terms_change_exercise": "pending",
-        "rights_attribution_and_third_party_audit": "pending",
-        "track_007_bounded_claims_dependency": "pending",
-        "final_owner_publication_decision": "pending",
+        "exact_candidate_package_verification": "passed",
+        "included_source_live_terms_change_exercise": "passed",
+        "rights_attribution_and_third_party_audit": (
+            "passed_for_exact_unmodified_candidate_with_publisher_reliance"
+        ),
+        "track_007_bounded_claims_dependency": "passed_for_bounded_claims_only",
+        "final_owner_publication_decision": "deferred_by_owner",
         "wpp_existing_public_object_reconciliation": "pending_external_authority",
     }
+
+
+def test_final_owner_decision_packet_records_deferral_without_publication_authority() -> None:
+    packet = ROOT / (
+        "docs/decisions/2026-08-20-track-002-exact-candidate-publication-decision-packet.md"
+    )
+    text = packet.read_text(encoding="utf-8")
+    normalized = " ".join(text.split())
+    assert "**Status:** Owner decision recorded — publication deferred" in text
+    assert "selected **Option B — `defer_publication`**" in text
+    assert "authorize_exact_bounded_publication" in text
+    assert "defer_publication" in text
+    assert "reject_or_supersede_candidate" in text
+    assert "does not authorize publication" in normalized

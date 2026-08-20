@@ -37,6 +37,25 @@ publication gates remain pending. No upload, credential use, private capture,
 activation, issue closure or publication occurred. Evidence is recorded in
 `docs/track-002-minimal-candidate-verification-attempt-2026-08-20.json`.
 
+### Exact-candidate verification success — 2026-08-20
+
+The hardened verifier used exact validated HTTPS byte ranges for the three
+MONDO artifacts after whole-file streams repeatedly truncated. A clean run
+verified all five approved artifacts, six live terms/release observations and
+the deterministic 591,841,280-byte candidate tar stream at SHA-256
+`1a8e0a01467a56eee0a85f15f971b0dd03820abfa518cc981d6588a264c58cd1`.
+The tar stream and all source bytes were removed; nothing was published.
+
+Review disposition: **pass for the exact unmodified candidate preparation**.
+The rights audit relies on the publishers' CC BY 4.0 representations for the
+exact Orphadata and MONDO releases. It is not an independent chain-of-title
+review of every embedded ontology assertion and does not authorize stripped,
+field-extracted or modified derivatives. Track 007 is compatible only because
+the candidate claims remain bounded; Track 007 itself remains In review and
+provides no community authority, representativeness or novelty approval.
+Separate repository-owner verification and an exact commit/hash-bound
+publication decision remain pending.
+
 ## Private archive capacity decision review — 2026-08-16
 
 The storage decision packet binds the exact failed Hugging Face quota receipt,

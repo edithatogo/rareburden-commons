@@ -76,6 +76,7 @@ TERMS_HOSTS = {
     "api.github.com",
 }
 MAX_TERMS_BYTES = 5 * 1024 * 1024
+MONDO_RANGE_BYTES = 16 * 1024 * 1024
 USER_AGENT = "rareburden-track-002-candidate-verifier/1"
 
 
@@ -140,8 +141,10 @@ def _safe_scope(scope: dict[str, Any]) -> list[tuple[str, dict[str, Any]]]:
     return artifacts
 
 
-def _open(url: str, *, timeout: float = 240.0) -> Any:
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+def _open(url: str, *, timeout: float = 240.0, headers: dict[str, str] | None = None) -> Any:
+    request_headers = {"User-Agent": USER_AGENT}
+    request_headers.update(headers or {})
+    request = urllib.request.Request(url, headers=request_headers)
     return urllib.request.urlopen(request, timeout=timeout)
 
 
@@ -198,6 +201,8 @@ def _observe_term_once(item: dict[str, Any], *, attempt: int) -> dict[str, Any]:
 def _download_artifact(
     source_id: str, artifact: dict[str, Any], destination: Path
 ) -> dict[str, Any]:
+    if source_id == "mondo-v2026-08-04":
+        return _download_ranged_artifact(source_id, artifact, destination)
     failures = []
     for attempt in range(1, 3):
         destination.unlink(missing_ok=True)
@@ -209,6 +214,96 @@ def _download_artifact(
             if attempt < 2:
                 time.sleep(2)
     raise ValueError(f"artifact verification failed for {artifact['name']}: {failures}")
+
+
+def _validate_content_range(value: str | None, *, start: int, end: int, total: int) -> None:
+    expected = f"bytes {start}-{end}/{total}"
+    if value != expected:
+        raise ValueError(f"unexpected Content-Range: expected {expected!r}, observed {value!r}")
+
+
+def _download_ranged_artifact(
+    source_id: str, artifact: dict[str, Any], destination: Path
+) -> dict[str, Any]:
+    expected_size = int(artifact["bytes"])
+    digest = hashlib.sha256()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    maximum_attempt = 1
+    final_host = ""
+    content_type = None
+    last_modified = None
+    with destination.open("wb") as output:
+        for start in range(0, expected_size, MONDO_RANGE_BYTES):
+            end = min(start + MONDO_RANGE_BYTES, expected_size) - 1
+            expected_chunk_size = end - start + 1
+            failures = []
+            for attempt in range(1, 4):
+                try:
+                    with _open(
+                        str(artifact["source_url"]),
+                        headers={"Range": f"bytes={start}-{end}"},
+                    ) as response:
+                        final_host = urllib.parse.urlsplit(response.geturl()).hostname or ""
+                        if final_host not in ALLOWED_FINAL_HOSTS[source_id]:
+                            raise ValueError(
+                                f"unexpected artifact redirect host for {artifact['name']}"
+                            )
+                        if int(response.status) != 206:
+                            raise ValueError(
+                                f"range request returned HTTP {response.status} "
+                                f"for {artifact['name']}"
+                            )
+                        _validate_content_range(
+                            response.headers.get("Content-Range"),
+                            start=start,
+                            end=end,
+                            total=expected_size,
+                        )
+                        chunk = _read_bounded(response, max_bytes=expected_chunk_size)
+                        if len(chunk) != expected_chunk_size:
+                            raise ValueError(
+                                f"short range for {artifact['name']}: expected "
+                                f"{expected_chunk_size}, observed {len(chunk)}"
+                            )
+                        content_type = response.headers.get("Content-Type")
+                        last_modified = response.headers.get("Last-Modified")
+                    output.write(chunk)
+                    digest.update(chunk)
+                    maximum_attempt = max(maximum_attempt, attempt)
+                    break
+                except (OSError, ValueError) as error:
+                    failures.append(f"attempt {attempt}: {error}")
+                    if attempt < 3:
+                        time.sleep(2)
+            else:
+                raise ValueError(f"range {start}-{end} failed for {artifact['name']}: {failures}")
+            if end + 1 < expected_size:
+                time.sleep(0.1)
+    actual_size = destination.stat().st_size
+    actual_sha256 = digest.hexdigest()
+    if actual_size != expected_size or actual_sha256 != artifact["sha256"]:
+        raise ValueError(
+            f"exact ranged size or SHA-256 drift for {artifact['name']}: "
+            f"observed bytes={actual_size}, sha256={actual_sha256}"
+        )
+    return {
+        "source_id": source_id,
+        "name": artifact["name"],
+        "requested_url": artifact["source_url"],
+        "final_host": final_host,
+        "http_status": 206,
+        "content_type": content_type,
+        "last_modified": last_modified,
+        "public_path": artifact["public_path"],
+        "bytes": actual_size,
+        "sha256": actual_sha256,
+        "verification_attempt": maximum_attempt,
+        "transport": {
+            "method": "validated_https_byte_ranges",
+            "range_bytes": MONDO_RANGE_BYTES,
+        },
+        "disposition": "exact_unmodified_ephemeral_candidate_byte",
+    }
 
 
 def _download_artifact_once(
