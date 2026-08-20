@@ -113,3 +113,19 @@ escalation, expiry, revocation and a hash-bound exercise remain pending.
 Python 3.13 remains the release runtime. Production operations remain disabled;
 Tracks 004 and 014, independent operator/security evidence, exact-candidate
 owner disposition and separate release authority remain open.
+
+## Exact-candidate owner disposition — 2026-08-21
+
+The repository owner conditionally accepted PR #165's merged Track 016
+candidate at commit `fb4a0443fa207e13d15fbf326d46bf5df56f0ab5`, tree
+`7694ec20137fbac76ebf2a72df863f244caeafb8`, for reversible labelled
+synthetic/public preparation, cross-cutting security engineering, and
+qualifying review or handoff exercises. The disposition expires on
+2026-09-20 and is recorded in
+`docs/decisions/2026-08-21-track-016-owner-exact-candidate-disposition.md`.
+
+This is owner-operated governance, not independent review, production
+approval or release authority. Candidate/evidence drift, critical or high
+findings, failed recovery/rollback/provenance checks, or material qualifying
+review findings invalidate it. All other Track 016 accountable gates remain
+pending and production remains disabled.

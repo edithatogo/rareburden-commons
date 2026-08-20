@@ -67,3 +67,21 @@ def test_rejects_evidence_hash_drift(tmp_path: Path) -> None:
     document["candidate_input"]["evidence"][0]["sha256"] = "0" * 64
     with pytest.raises(Track016ReadinessError, match="hash drift"):
         validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_owner_disposition_is_exact_bounded_and_not_release_authority() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    disposition = document["exact_candidate_owner_disposition"]
+    assert disposition["state"] == "satisfied"
+    assert disposition["authority_model"] == "owner_operated_not_independent_review"
+    assert disposition["exact_candidate_commit"] == "fb4a0443fa207e13d15fbf326d46bf5df56f0ab5"
+    assert disposition["exact_candidate_tree"] == "7694ec20137fbac76ebf2a72df863f244caeafb8"
+    assert document["claims"]["exact_candidate_owner_disposed"] is True
+    assert document["claims"]["release_authorized"] is False
+
+
+def test_rejects_owner_disposition_claim_mismatch(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["claims"]["exact_candidate_owner_disposed"] = False
+    with pytest.raises(Track016ReadinessError, match="claim must match"):
+        validate(_candidate(tmp_path, document), ROOT)

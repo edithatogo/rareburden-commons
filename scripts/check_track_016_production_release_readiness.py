@@ -25,7 +25,6 @@ FALSE_CLAIMS = {
     "production_operations_enabled",
     "independent_operator_review_complete",
     "independent_security_review_complete",
-    "exact_candidate_owner_disposed",
     "release_authorized",
     "stable_release",
     "track_complete",
@@ -161,11 +160,24 @@ def validate(path: Path, root: Path) -> None:
     _receipt_gate(reviews.get("independent_operator", {}), "independent operator", independent=True)
     _receipt_gate(reviews.get("independent_security", {}), "independent security", independent=True)
     _receipt_gate(document.get("exact_candidate_owner_disposition", {}), "owner disposition")
-    if (
-        document.get("exact_candidate_owner_disposition", {}).get("authority_model")
-        != "owner_operated_not_independent_review"
-    ):
+    owner_disposition = document.get("exact_candidate_owner_disposition", {})
+    if owner_disposition.get("authority_model") != "owner_operated_not_independent_review":
         raise Track016ReadinessError("owner disposition authority must remain owner-operated")
+    disposed = owner_disposition.get("state") == "satisfied"
+    if document.get("claims", {}).get("exact_candidate_owner_disposed") is not disposed:
+        raise Track016ReadinessError("owner disposition claim must match its receipt gate")
+    if disposed:
+        receipt_path = root / str(owner_disposition.get("receipt_locator", ""))
+        if not receipt_path.is_file():
+            raise Track016ReadinessError("owner disposition receipt must exist")
+        try:
+            expiry = datetime.fromisoformat(
+                str(owner_disposition.get("expires_at", "")).replace("Z", "+00:00")
+            )
+        except ValueError as exc:
+            raise Track016ReadinessError("owner disposition expiry must be ISO-8601") from exc
+        if expiry <= datetime.now(UTC):
+            raise Track016ReadinessError("owner disposition is expired")
     _receipt_gate(document.get("release_authority", {}), "release authority")
 
     claims = document.get("claims", {})
