@@ -30,6 +30,12 @@ Execution readiness is represented by
 read as evidence that any cell was searched. Execution remains gated on the
 owner confirming the exact scope and any provider-specific terms/rate changes.
 
+The owner decision is captured as options in
+`docs/track-007-v021-scope-decision-packet-2026-08-20.yml`. The recommended
+bounded pilot is 4 languages × 3 regions × 4 providers (48 cells), followed by
+reconciliation before any expansion. The full 192-cell plan and a defer option
+remain available; neither is selected automatically.
+
 The next material search expansion requires protocol v0.2.1. It should add
 country and regional public registries, non-English query families, nullable
 self-described language/geography/community-governance fields, and a plain-
