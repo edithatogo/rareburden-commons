@@ -83,10 +83,12 @@ def test_claims_and_release_gates_remain_bounded() -> None:
     assert all(value is False for value in scope["claims"].values())
     gates = {gate["id"]: gate["status"] for gate in scope["release_gates"]}
     assert gates == {
-        "exact_candidate_package_verification": "pending",
-        "included_source_live_terms_change_exercise": "pending",
-        "rights_attribution_and_third_party_audit": "pending",
-        "track_007_bounded_claims_dependency": "pending",
+        "exact_candidate_package_verification": "passed",
+        "included_source_live_terms_change_exercise": "passed",
+        "rights_attribution_and_third_party_audit": (
+            "passed_for_exact_unmodified_candidate_with_publisher_reliance"
+        ),
+        "track_007_bounded_claims_dependency": "passed_for_bounded_claims_only",
         "final_owner_publication_decision": "pending",
         "wpp_existing_public_object_reconciliation": "pending_external_authority",
     }

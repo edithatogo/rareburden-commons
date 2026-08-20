@@ -15,7 +15,15 @@
   mutation authority and post-action remote verification. Repository
   preparation does not claim that hosted object is currently private.
 - [~] Build and separately owner-verify the exact five-artifact candidate after
-  the dated Orphadata/MONDO terms-change and attribution gates pass.
+  the dated Orphadata/MONDO terms-change and attribution gates pass. The exact
+  ephemeral package now verifies at SHA-256
+  `1a8e0a01467a56eee0a85f15f971b0dd03820abfa518cc981d6588a264c58cd1`;
+  separate owner verification/publication disposition remains pending.
+- [x] Pass the repository-owned exact-package, included-source live-terms,
+  attribution/exclusion and Track 007 bounded-claims compatibility gates while
+  retaining publisher reliance and derivative-use limitations. Evidence:
+  `docs/track-002-minimal-candidate-verification-2026-08-20.json` and
+  `docs/track-002-minimal-candidate-rights-attribution-audit-2026-08-20.json`.
 - [ ] Record a final owner publication decision bound to the exact commit and
   artifact hashes; this preparation decision does not authorize publication,
   issue closure or a v0.3.0 release.
