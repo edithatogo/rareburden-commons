@@ -47,6 +47,23 @@ def test_scope_validation_rejects_publication_or_unbounded_claims() -> None:
         _safe_scope(scope)
 
 
+<<<<<<< HEAD
+=======
+def test_scope_validation_rejects_malformed_hash_and_query_url() -> None:
+    scope = _scope()
+    artifact = scope["candidate"]["sources"][0]["artifacts"][0]
+    artifact["sha256"] = "z" * 64
+    with pytest.raises(ValueError, match="exact size and SHA-256"):
+        _safe_scope(scope)
+
+    scope = _scope()
+    artifact = scope["candidate"]["sources"][0]["artifacts"][0]
+    artifact["source_url"] += "?token=must-not-persist"
+    with pytest.raises(ValueError, match="credential-free and query-free"):
+        _safe_scope(scope)
+
+
+>>>>>>> f45539c (fix(track-002): harden candidate receipt verification)
 def test_package_digest_is_deterministic_and_bound_to_contents(tmp_path: Path) -> None:
     artifact = tmp_path / "raw/orphadata/2026-07/example.xml"
     artifact.parent.mkdir(parents=True)
