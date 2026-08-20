@@ -5,10 +5,12 @@
 **Revision:** 2026-08-01
 
 Use this checklist for each candidate. Record the exact commit, environment,
-artefact digests, reviewer and decision in the external gate register
-(`docs/external-gate-register-017.md`) and linked receipt records. A failed
-or unavailable item blocks the candidate unless the unsupported capability is
-removed from scope.
+artefact digests, role-separated agent recommendations and repository-owner
+decision in the Track 017 release manifests and linked receipt records. The
+current authority contract is
+`docs/track-017-evidence-contract-reconciliation-2026-08-20.md`; the older
+external-gate register is a legacy template. A failed or unavailable item
+blocks the candidate unless the unsupported capability is removed from scope.
 
 ## Candidate build
 
@@ -39,7 +41,8 @@ removed from scope.
 
 ## Fallback disposition
 
-If external evidence is unavailable, mark the candidate `revise` or `bounded`,
-do not tag `v1.0.0`, and remove claims requiring the missing evidence. A
-owner-operated build is repository evidence, not independent reproduction; a
-green local suite is not external governance or publication approval.
+If required evidence or a rights/custodian fact is unavailable, mark the
+candidate `revise` or `bounded`, do not tag `v1.0.0`, and remove claims requiring
+the missing evidence. An owner-operated build is repository evidence and makes
+no independence claim; a green local suite is not external governance,
+publisher permission, custodian permission or publication evidence.

@@ -1,7 +1,10 @@
 # External gate register — Track 017 release candidate
 
-**Status:** template; all gates are pending. This file is not evidence of
-approval, consent, independence, custody, operational acceptance, or release.
+**Status:** legacy candidate template; superseded by ADR-0009 and
+`docs/track-017-evidence-contract-reconciliation-2026-08-20.md`. This file is
+retained as historical routing context and is not the current Track 017 release
+contract or evidence of approval, consent, independence, custody, operational
+acceptance, or release.
 
 **Candidate under consideration:** tag `candidate-2026-08-03`, manifest
 `rel-b213c531a6b754940f80ab70`, input-manifest SHA-256
