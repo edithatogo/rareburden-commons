@@ -4,7 +4,7 @@ This is the shortest safe path through the synthetic reference workflow. It
 requires no credentials or controlled data.
 
 Prerequisites are Git, [`uv`](https://docs.astral.sh/uv/getting-started/installation/),
-a supported Python version (3.11–3.14), and a clean repository checkout. Run
+a supported Python version (3.12–3.14), and a clean repository checkout. Run
 the commands from the repository root. Allow about 25 minutes, 2 GiB of free
 working space and network access for the initial locked dependency sync. A `uv`
 warning that hardlinks are unavailable across filesystems is harmless when it

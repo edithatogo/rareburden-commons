@@ -25,7 +25,7 @@
         "properties": {
           "platform": {"enum": ["linux", "macos", "windows"]},
           "architecture": {"enum": ["x86_64", "arm64"]},
-          "python_version": {"enum": ["3.11", "3.12", "3.13", "3.14"]},
+          "python_version": {"enum": ["3.12", "3.13", "3.14"]},
           "status": {"enum": ["not_run", "candidate_passed", "approved_passed", "failed"]},
           "operator_independence": {"enum": ["none", "same_operator", "independent_operator"]},
           "evidence": {

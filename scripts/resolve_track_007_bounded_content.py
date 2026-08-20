@@ -53,17 +53,28 @@ def resolve(raw: bytes) -> dict[str, Any]:
         else:
             raise ValueError(f"{identifier} has unsupported decision: {decision}")
 
-        resolutions.append(
-            {
-                "identifier_key": identifier,
-                "identifier": item.get("identifier"),
-                "title": item.get("title"),
-                "canonical_url": item.get("canonical_url"),
-                "evidence_sha256": evidence_sha256,
-                "resolution": resolution,
-                "reason": reason,
-            }
-        )
+        resolved = {
+            "identifier_key": identifier,
+            "identifier": item.get("identifier"),
+            "title": item.get("title"),
+            "canonical_url": item.get("canonical_url"),
+            "evidence_sha256": evidence_sha256,
+            "resolution": resolution,
+            "reason": reason,
+        }
+        if decision == "uncertain":
+            has_signal = bool(item.get("scope_signal") or item.get("contribution_signal"))
+            resolved["future_assessment_priority"] = (
+                "tier_1_explicit_safe_metadata_signal"
+                if has_signal
+                else "tier_2_no_explicit_safe_metadata_signal"
+            )
+            resolved["future_assessment_basis"] = (
+                "scope_or_contribution_signal_requires_lawful_substantive_confirmation"
+                if has_signal
+                else "no_safe_metadata_signal_requires_lawful_substantive_evidence"
+            )
+        resolutions.append(resolved)
 
     counts = {
         state: sum(item["resolution"] == state for item in resolutions)
@@ -78,26 +89,57 @@ def resolve(raw: bytes) -> dict[str, Any]:
     }:
         raise ValueError(f"unexpected bounded resolution counts: {counts}")
 
+    priority_counts = {
+        tier: sum(item.get("future_assessment_priority") == tier for item in resolutions)
+        for tier in (
+            "tier_1_explicit_safe_metadata_signal",
+            "tier_2_no_explicit_safe_metadata_signal",
+        )
+    }
+    if priority_counts != {
+        "tier_1_explicit_safe_metadata_signal": 46,
+        "tier_2_no_explicit_safe_metadata_signal": 44,
+    }:
+        raise ValueError(f"unexpected future-assessment priority counts: {priority_counts}")
+
     return {
-        "schema_version": "RBC-LAND-007-BOUNDED-CONTENT-v0.1.0",
+        "schema_version": "RBC-LAND-007-BOUNDED-CONTENT-v0.2.0",
         "source_sha256": "sha256:" + hashlib.sha256(raw).hexdigest(),
         "scope": "minimal_public_metadata_only",
         "counts": counts,
+        "future_assessment_priority_counts": priority_counts,
         "resolutions": resolutions,
         "content_retention": "identifiers_titles_urls_and_hashes_only",
         "interpretation": {
             "include_bounded_adjacency": "eligible only for the bounded adjacency map",
             "not_assessable_in_bounded_public_metadata_scope": (
                 "terminal for this bounded pass; not an exclusion, absence, quality, "
-                "or novelty finding"
+                "or novelty finding; uncertainty remains eligible for a later lawful "
+                "substantive assessment"
             ),
         },
+        "priority_policy": {
+            "purpose": "order later lawful substantive assessment without changing decisions",
+            "tier_1": "records with an explicit safe-metadata scope or contribution signal",
+            "tier_2": "records without either explicit safe-metadata signal",
+            "not_used_as_proxies": [
+                "repository_programming_language_as_content_language",
+                "title_language_as_study_language",
+                "author_or_publisher_affiliation_as_study_geography",
+                "provider_presence_as_representativeness",
+            ],
+        },
         "prohibited_claims": [
+            "systematic_or_comprehensive_search",
+            "global_or_geographic_representativeness",
             "comprehensive_coverage",
             "representativeness",
             "confirmed_novelty",
             "community_approval",
+            "patient_or_community_endorsement",
             "partnership_or_endorsement",
+            "programme_operation_or_effectiveness",
+            "access_or_clinical_validity",
         ],
     }
 

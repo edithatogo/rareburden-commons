@@ -166,6 +166,24 @@
   `docs/track-007-v021-scope-decision-packet-2026-08-20.yml` and the executed
   pilot artifact; repository automation did not infer the owner decision.
 
+## Owner methods decision — 2026-08-20
+
+- [x] Record the owner-selected dated, source-bounded repository-adjacency
+  deliverable, exact claim ceiling, provider and grey-literature contingencies,
+  language/geography non-inferences and pending community-authority gate.
+  Evidence: `docs/track-007-owner-methods-decision-2026-08-20.json`; Track 007
+  remains `in_review` and no external or community approval is inferred.
+- [x] Resolve the frozen set's sole uncertain journal introduction using lawful
+  substantive PMC evidence. The record is an editorial announcing a journal,
+  not a qualifying burden, programme, data, standard, policy or measurement
+  contribution; bounded counts are 66 includes, 3 exclusions and 0 uncertain.
+  No response body or full text is retained.
+- [x] Prioritise all 90 live-only records that remain not assessable in the
+  bounded metadata pass without changing their decisions. Forty-six records
+  with an explicit safe-metadata scope or contribution signal are tier 1 and
+  44 records without either signal are tier 2. Language, affiliation and
+  provider presence are prohibited as representativeness proxies.
+
 ## Review fixes — 2026-08-15 title clusters
 
 - [x] Distinguish hashes of temporary `gh api` observation bytes from hashes of

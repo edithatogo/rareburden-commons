@@ -34,7 +34,7 @@ and every embedded wheel passed `scripts/build_node_bundle.py check`.
 
 This evidence establishes a candidate offline dependency closure only for the
 recorded platform. The wheelhouse and bundle are generated build artefacts and
-are not committed. Python 3.11/3.12/3.13 Linux, Windows/WSL and other supported
+are not committed. Python 3.12/3.13/3.14 Linux, Windows/WSL and other supported
 platforms require their own locked wheels and receipts. A second person must
 perform the documented run independently before the second-operator gate can
 close. Dependency approval, signing, custodian installation and controlled-data
