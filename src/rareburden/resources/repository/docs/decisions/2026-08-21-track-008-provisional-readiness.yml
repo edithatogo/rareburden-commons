@@ -2,9 +2,9 @@ schema_version: "1.0.0"
 simulation_status: simulated_role_separated_advisory_panel
 track_id: 008-semantic-backbone
 candidate:
-  commit: "e602a9a8ebe089f3f02c0377da5c13f81416b980"
-  tree: "c86d855a35670977204279255e0fd71f15d57681"
-  evidence_manifest_sha256: "1e0c7b40b2dfad676d7b76f43e98b5c533d3fd94cca63a0ec91584ed97eb6179"
+  commit: "b799130059c9c0be625491b21c4376d1057e65f7"
+  tree: "27c5f632f8994d12bff9f6d957985bd9c206f386"
+  evidence_manifest_sha256: "07f027111746d505ab8cd45491acc471e13a1d5b4da45b73f5464a44252b0f81"
 panel:
   perspectives:
     - simulated_semantic_methods_and_evidence
@@ -24,13 +24,13 @@ evidence:
     - docs/track-008-source-release-inventory-2026-08-03.yml
   observed_facts:
     - The reconciled candidate is based on current main and preserves both post-upstream reconciliation and exact-candidate readiness records.
-    - The manifest identifies eight schema or synthetic-fixture artifacts at historical source commit a87a7b62b8c7cbe69deee868cc50f195af6f7cb7 and tree 3dc08a4940dfab39c81b5a2cdc5efa1a3b583ccc.
+    - The manifest identifies eight schema or synthetic-fixture artifacts at source commit 5f0d8dc31e019c3ac9c3dea537a2083617b8f758 and tree d4f9236f4c283329d3b11387768ec9b777aa7823.
     - The validator resolves the declared Git tree and hashes both historical blobs and current working-tree artifacts.
     - The migration receipt is enforced as a self-baseline drift check only.
     - Focused governance and Track 008 tests and lint passed on Python 3.13 for this preparation candidate.
   simulated_assessments:
     - The revised controls are useful reversible readiness infrastructure when all authority and freeze flags remain false.
-    - ORPHA-shaped identifiers remain context-loss risks and require persistent schema-exercise limitations wherever rendered.
+    - RBC-SYNTHETIC and SYNTH-DX-* identifiers remove source-identifier ambiguity, while recognizable disease labels and mapping-status words still require adjacent limitations wherever rendered.
     - Source-family metadata is insufficient evidence of mapping fitness, clinical validity, complete rights or permission for derivatives.
   cannot_infer:
     - approved ontology pins or complete source rights
@@ -40,16 +40,16 @@ evidence:
     - independent review, partnership, endorsement or external approval
     - v0.4 contract freeze, Track 008 completion or Track 009 activation
 uncertainty:
-  - The apparent ORPHA identifiers may correspond to real source identifiers; the repository makes no fictitiousness or validated-correspondence claim.
+  - The unmistakably synthetic tokens remove source-code ambiguity but do not establish mapping fitness, clinical meaning or acceptable naming.
   - HPO rights remain asset-specific, WHO redistribution remains unresolved, and UMLS or SNOMED permissions remain edition and credential specific.
   - No final real-source mapping set, naming list, ontology-update comparison or public rendering path is approved.
 dissent:
-  - The simulated harm perspective prefers unmistakably synthetic identifiers or persistent watermarks before any public rendering.
-  - The simulated engineering perspective considers the revised byte-bound readiness mechanism acceptable without changing fixtures, provided context and blocked claims cannot be stripped.
+  - The simulated harm perspective prefers persistent synthetic, non-clinical and non-community-approved warnings before any public rendering.
+  - The simulated engineering perspective considers the revised byte-bound readiness mechanism acceptable, provided context and blocked claims cannot be stripped.
 stop_triggers:
   - Any candidate commit, tree, artifact or evidence hash drift after owner review.
   - Any unresolved HPO, WHO, UMLS or SNOMED bytes entering a public artifact or metadata being treated as permission.
-  - Any source-shaped token or accepted, exact or high label being presented as clinically validated or community approved.
+  - Any synthetic token or accepted, exact or high label being presented as a real mapping, clinically validated or community approved.
   - Any attempt to freeze v0.4, complete Track 008 or activate Track 009 from this readiness evidence.
   - Any inference of owner selection from the recommendation, tests, metadata or prior discussion rather than an exact-candidate disposition.
 options:
@@ -58,34 +58,34 @@ options:
     disposition: narrow
     trade_offs:
       - Preserves useful exact-byte and Git-object readiness controls while leaving every substantive source, fitness, naming and freeze gate unresolved.
-      - Retains recognizable source-shaped tokens whose context could be lost in a future rendering.
+      - Retains recognizable disease labels and authoritative-looking mapping-status words whose context could be lost in a future rendering.
     contingencies:
       - Keep Track 008 blocked and all authority, freeze and Track 009 flags false.
       - Supersede and re-review the packet on any candidate, source, terms, rendering or evidence change.
-      - Replace or persistently watermark source-shaped tokens before any approved public surface if context cannot be guaranteed.
+      - Add persistent synthetic, non-clinical and non-community-approved warnings before any approved public surface if context cannot be guaranteed.
     rationale: >-
       The panel's requested reconciliation, Git-object verification,
-      self-baseline limitation and identifier clarification are implemented,
+      self-baseline limitation and unmistakably synthetic identifiers are implemented,
       supporting readiness infrastructure only.
     minimum_evidence:
-      - Exact candidate commit e602a9a8ebe089f3f02c0377da5c13f81416b980 and tree c86d855a35670977204279255e0fd71f15d57681.
+      - Exact candidate commit b799130059c9c0be625491b21c4376d1057e65f7 and tree 27c5f632f8994d12bff9f6d957985bd9c206f386.
       - Schema-valid pending decision packet and SHA-256-bound evidence manifest.
       - Python 3.12, 3.13 and 3.14 hosted checks on the eventual PR head before merge.
   - id: B
-    title: Revise identifiers before acceptance
+    title: Add persistent rendering safeguards
     disposition: revise
     trade_offs:
-      - Further reduces context-loss risk by replacing source-shaped tokens or enforcing persistent synthetic watermarks.
-      - Causes fixture, fingerprint and evidence hash churn without adding source rights, mapping fitness or community authority.
+      - Further reduces context-loss risk by enforcing persistent synthetic, non-clinical and non-community-approved warnings.
+      - Expands scope into renderer and export behavior without adding source rights, mapping fitness or community authority.
     contingencies:
-      - Regenerate every affected fixture, release, manifest, migration receipt and hash before a new panel review.
-      - Retain the present candidate unmerged if replacement breaks deterministic semantic tests.
+      - Define and test every renderer or export path before a new panel review.
+      - Retain the present candidate as internal readiness evidence if no public renderer is activated.
     rationale: >-
-      This is the safer option if future public rendering cannot reliably keep
-      limitations adjacent to recognizable identifiers and mapping labels.
+      This is the safer option if public rendering is now in scope and must
+      reliably keep limitations adjacent to labels and mapping statuses.
     minimum_evidence:
       - A rendering-path decision specifying how synthetic status remains visible.
-      - Regenerated exact candidate, fingerprints, manifests, migration receipt and tests.
+      - Tests proving warnings persist through each enabled renderer and export.
   - id: C
     title: Defer readiness candidate
     disposition: defer
@@ -94,8 +94,8 @@ options:
     contingencies:
       - Keep current main readiness state and recreate a candidate when source-specific or naming evidence materially changes.
     rationale: >-
-      Deferral is appropriate if the owner does not want any source-shaped
-      provisional semantic artifacts retained before stronger evidence exists.
+      Deferral is appropriate if the owner does not want provisional semantic
+      artifacts retained before stronger evidence exists.
     minimum_evidence:
       - A later exact candidate and new simulated panel packet.
 recommendation:
