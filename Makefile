@@ -12,6 +12,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	track-008-freeze-readiness-check \
 	track-009-freeze-readiness-check \
 	track-010-alpha-freeze-readiness-check \
+	track-016-production-release-readiness-check \
 	mutation mutation-score \
 	reproducibility burden-benchmark node-bundle-check release-attestation-verify \
 	offline-node-install offline-node-ci build package-check installed-package-check sbom external-receipt-check qualifying-receipts-check package-size-check check ci release-check clean
@@ -52,6 +53,10 @@ track-009-freeze-readiness-check:
 track-010-alpha-freeze-readiness-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track_010_alpha_freeze_readiness.py \
 		docs/track-010-alpha-freeze-readiness-2026-08-21.yml --root .
+
+track-016-production-release-readiness-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track_016_production_release_readiness.py \
+		docs/track-016-production-release-readiness-2026-08-21.yml --root .
 
 install:
 	$(UV) sync --frozen --extra dev
@@ -185,7 +190,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check track-008-freeze-readiness-check track-009-freeze-readiness-check track-010-alpha-freeze-readiness-check package-size-check release-identity node-reproducibility burden-benchmark \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check track-008-freeze-readiness-check track-009-freeze-readiness-check track-010-alpha-freeze-readiness-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility
