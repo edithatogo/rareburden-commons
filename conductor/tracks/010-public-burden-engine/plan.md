@@ -101,3 +101,12 @@
   contention-sensitive wall time. The 15-second limit is unchanged; the receipt
   explicitly disclaims end-to-end wall latency. External scientific-software
   review and alpha-interface freeze remain open.
+
+## Alpha-freeze readiness control — 2026-08-21
+
+- [x] Encode and machine-enforce the Track 009 dependency, independent and
+  accountable review receipts, exact engine/ledger/Track 003 interface hashes,
+  compatibility/migration evidence and alpha-freeze decision required for
+  closure. Evidence: `docs/track-010-alpha-freeze-readiness-2026-08-21.yml`,
+  `scripts/check_track_010_alpha_freeze_readiness.py` and negative tests.
+  Both parent blocking tasks remain open.
