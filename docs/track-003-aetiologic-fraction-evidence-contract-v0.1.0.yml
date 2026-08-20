@@ -1,0 +1,232 @@
+schema_version: "0.1.0"
+contract_id: "RBC-P002-AETIOLOGIC-EVIDENCE-v0.1.0"
+track_id: "003-monogenic-diabetes-demonstrator"
+status: "non_binding_synthetic_preparation"
+track_status: "blocked"
+empirical_activation: "disabled"
+registered_source_releases: []
+extracted_empirical_records: []
+purpose: >-
+  Specify fail-closed extraction and assessment of evidence for the proportion
+  of a compatible diabetes population with a declared monogenic aetiology.
+  This contract contains no literature-derived value and does not register,
+  extract, verify, synthesise, or approve empirical evidence.
+
+dependencies:
+  estimand_denominator_contract:
+    path: "docs/track-003-estimand-denominator-contract-v0.1.0.yml"
+    status: "non_binding"
+  population_state_contract:
+    path: "docs/track-003-population-state-contract-v0.1.0.yml"
+    status: "non_binding"
+  framing_interpretation_guard:
+    path: "docs/track-003-framing-interpretation-guard-v0.1.0.yml"
+    status: "non_binding"
+  semantic_contract:
+    track: "008-semantic-backbone"
+    status: "not_frozen"
+  evidence_ledger_contract:
+    track: "009-evidence-parameter-ledger"
+    status: "not_frozen"
+
+extraction_unit:
+  unit_id: "one_source_estimate_for_one_aligned_population_definition"
+  prohibited_units:
+    - "abstract-level number without a verified full source"
+    - "pooled value copied without component provenance"
+    - "participant-level or row-level record"
+    - "value inferred from a figure without a recorded extraction method"
+
+source_registration_requirements:
+  - "source_record_id"
+  - "citation_and_persistent_identifier"
+  - "source_release_or_version"
+  - "publication_or_release_date"
+  - "retrieval_event_and_retrieved_at"
+  - "access_class"
+  - "licence_and_redistribution_state"
+  - "full_source_availability"
+  - "correction_retraction_and_version_status"
+  - "source_checksum_where_lawful"
+
+eligibility_fields:
+  question_alignment:
+    - "declared_monogenic_entity_or_entity_set"
+    - "diabetes_case_definition"
+    - "compatible_diabetes_denominator"
+    - "diagnosed_or_modelled_state"
+  design:
+    - "study_design"
+    - "sampling_frame"
+    - "recruitment_route"
+    - "inclusion_and_exclusion_criteria"
+    - "follow_up_or_cross_sectional_window"
+  population:
+    - "geography"
+    - "calendar_period"
+    - "age_definition"
+    - "sex_or_gender_definition_as_reported"
+    - "ancestry_ethnicity_or_population_variable_as_reported"
+    - "clinical_setting"
+    - "health_system_and_diagnostic_access"
+  ascertainment:
+    - "referral_pathway"
+    - "testing_indication"
+    - "testing_coverage"
+    - "gene_or_panel_scope"
+    - "variant_classification_standard_and_version"
+    - "phenotype_definition"
+    - "penetrance_or_expressivity_handling"
+
+quantitative_extraction_fields:
+  - "numerator_value_and_definition"
+  - "denominator_value_and_definition"
+  - "reported_fraction_or_rate"
+  - "uncertainty_measure_type_and_bounds"
+  - "analysis_population_and_exclusions"
+  - "missing_and_unclassified_counts"
+  - "cluster_or_family_structure"
+  - "weighting_standardisation_or_adjustment"
+  - "subgroup_and_interaction_results"
+  - "author-reported_sensitivity_analyses"
+
+denominator_alignment_rules:
+  - condition: "denominator_is_total_population_for_within_diabetes_fraction"
+    action: "reject"
+  - condition: "denominator_excludes_untested_people_without_explicit_conditioning"
+    action: "reject_or_reclassify_as_tested_cohort_composition"
+  - condition: "referral_cohort_is_interpreted_as_population_representative"
+    action: "reject"
+  - condition: "case_definition_age_period_or_geography_is_unresolved"
+    action: "hold_ineligible_pending_resolution"
+  - condition: "numerator_and_denominator_are_not_from_the_same_aligned_population"
+    action: "reject"
+  - condition: "diagnosed_prevalence_is_substituted_for_total_aetiologic_fraction"
+    action: "reject"
+
+transformation_rules:
+  permitted:
+    - transformation: "recalculate_fraction_from_verified_numerator_and_denominator"
+      requirements:
+        - "preserve_reported_value"
+        - "record_formula_and_rounding"
+        - "record_transformation_id"
+    - transformation: "derive_standard_error_from_reported_compatible_interval"
+      requirements:
+        - "record_distributional_assumption"
+        - "retain_original_interval"
+        - "flag_approximation"
+  prohibited:
+    - "derive aetiologic fraction from allele frequency alone"
+    - "convert referral-cohort composition into population prevalence"
+    - "impute missing ancestry, ethnicity, age, or setting strata"
+    - "silently combine overlapping genes, phenotypes, families, or cohorts"
+    - "select one estimate from conflicting evidence without a disposition"
+
+quality_assessment_mapping:
+  schema: "schemas/evidence-assessment.schema.json"
+  mandatory_domains:
+    - "construct_validity"
+    - "selection_bias"
+    - "ascertainment"
+    - "measurement_error"
+    - "missingness"
+    - "precision"
+    - "representativeness"
+    - "diagnostic_validity"
+    - "conflict_of_interest"
+    - "computational_reproducibility"
+  rule: >-
+    Do not calculate a composite quality score. Preserve each judgement,
+    rationale, evidence reference, unresolved question, and use decision.
+  allowed_initial_decisions:
+    - "sensitivity_only"
+    - "unsuitable"
+    - "unclear"
+  direct_use_status: "blocked_pending_methods_review_and_target_context_assessment"
+
+stratification_rules:
+  age:
+    rule: "retain source-defined bands and do not silently pool materially different bands"
+  phenotype:
+    rule: "retain inclusion phenotype and diabetes classification criteria"
+  ancestry_ethnicity_population:
+    rule: >-
+      Preserve the source variable, definition, collection method, missingness,
+      and social or genetic interpretation. Do not treat labels as fixed
+      biological categories or infer unreported identity.
+  setting:
+    rule: "separate population, primary-care, specialist, referral, registry, and tested cohorts"
+  sparse_subgroups:
+    rule: "report non-estimability or lawful aggregate suppression rather than unstable ranking"
+
+conflict_and_overlap_rules:
+  - "retain all eligible conflicting estimates and their source identifiers"
+  - "record cohort, site, recruitment-period, and publication overlap assessments"
+  - "do not pool known or possible duplicate participants without an overlap model"
+  - "do not privilege recency, precision, sample size, or prestige automatically"
+  - "route material conflicts to explicit sensitivity sets and methods disposition"
+
+missingness_rules:
+  - "distinguish not reported, not collected, not applicable, inaccessible, and suppressed"
+  - "never interpret missing subgroup evidence as absence of difference"
+  - "never assign unclassified participants to non-monogenic status"
+  - "record whether missing testing is related to referral, access, phenotype, age, or setting"
+
+verification_workflow:
+  automated_extraction:
+    permitted: "candidate field population only"
+    default_status: "unverified_candidate"
+    eligible_for_parameter_synthesis: false
+  second_pass_source_check:
+    required: true
+    checks:
+      - "value_against_source_location"
+      - "numerator_denominator_and_units"
+      - "case_and_population_definitions"
+      - "uncertainty_and_transformations"
+      - "correction_retraction_and_version_status"
+  accountable_verification:
+    status: "pending"
+    required_evidence:
+      - "verifier_role_and_identifier"
+      - "verification_timestamp"
+      - "source_locations_checked"
+      - "disagreements_and_resolution"
+      - "signed_or_hash_bound_disposition"
+  repository_owner_note: >-
+    Owner-operated extraction or checking is repository evidence and is not
+    independent verification, external peer review, or clinical approval.
+
+release_state_machine:
+  - state: "candidate"
+    eligible_for_ledger_parameter: false
+  - state: "source_verified"
+    eligible_for_ledger_parameter: false
+  - state: "quality_assessed"
+    eligible_for_ledger_parameter: false
+  - state: "transport_assessed"
+    eligible_for_ledger_parameter: false
+  - state: "methods_dispositioned"
+    eligible_for_ledger_parameter: "conditional_on_ledger_and_protocol_gates"
+
+current_disposition:
+  source_search_executed: false
+  extraction_executed: false
+  quality_assessment_executed: false
+  synthesis_executed: false
+  parameter_created: false
+  reason: >-
+    This repository slice defines the extraction contract only. Source
+    registration, lawful retrieval, study selection, extraction, verification,
+    quality assessment, transport assessment, synthesis, and clinical-methods
+    disposition remain separate future work.
+
+prohibited_claims:
+  - "systematic_or_complete_evidence_search"
+  - "empirical_aetiologic_fraction"
+  - "verified_or_quality_assessed_evidence"
+  - "directly_transportable_parameter"
+  - "independent_or_external_review"
+  - "approved_or_frozen_protocol"
+  - "empirical_activation"

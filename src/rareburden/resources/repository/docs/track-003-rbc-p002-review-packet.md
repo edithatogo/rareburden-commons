@@ -27,6 +27,9 @@ until Tracks 008, 009 and 010 are complete.
 - Machine-tested framing and interpretation guard covering evidence labels,
   uncertainty, denominator visibility, harm/equity challenges, acceptable use
   and stop triggers.
+- Machine-tested aetiologic-fraction evidence contract covering source
+  registration, aligned extraction, quality domains, stratification,
+  conflicts/overlap, missingness and accountable verification states.
 - Reproducible report, limitations, data-access asks and no-compatible-envelope
   failures.
 
@@ -42,3 +45,8 @@ The non-binding framing guard is
 `docs/track-003-framing-interpretation-guard-v0.1.0.yml`. It prepares review
 questions and fail-closed language only; it is not patient/community consent,
 clinical approval or an owner disposition.
+
+The non-binding evidence contract is
+`docs/track-003-aetiologic-fraction-evidence-contract-v0.1.0.yml`. It contains
+no registered source release or extracted value and does not establish a
+systematic search, verified evidence, an empirical parameter or fitness for use.
