@@ -3,6 +3,22 @@
 **Review date:** 2026-07-27  
 **Decision:** Internal implementation passes for autonomous handoff; production/live-source approval remains open
 
+## Minimal public-release scope disposition — 2026-08-20
+
+The repository owner narrowed public-release preparation to the exact July
+2026 Orphadata pair and the three canonical MONDO `v2026-08-04` artifacts.
+The machine-readable allowlist records five exact byte counts and SHA-256
+digests and fails closed for WPP, WHO GHE, HPO, PanelApp, credentialed sources
+and every other observed or archived source.
+
+Review disposition: **pass for repository preparation only**. Publication,
+Issue #2 closure and v0.3.0 release remain unauthorized. An earlier public
+projection contains WPP and other out-of-scope objects; this is recorded as a
+pending external-remediation gate, not falsely described as already private.
+Live included-source terms/change evidence, candidate packaging, attribution
+audit, Track 007 bounded-claims disposition and exact-candidate owner release
+authority remain pending.
+
 ## Private archive capacity decision review — 2026-08-16
 
 The storage decision packet binds the exact failed Hugging Face quota receipt,
