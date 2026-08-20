@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/track-007-community-authority-receipt.schema.json",
+  "title": "Track 007 attributable patient/community authority receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["receipt_schema_version", "receipt_id", "track", "gate", "synthetic", "decision", "accountable", "decision_date_utc", "subject", "review", "conditions", "limitations_or_dissent", "correction_and_withdrawal", "attestation"],
+  "properties": {
+    "receipt_schema_version": {"const": "1.0.0"},
+    "receipt_id": {"type": "string", "minLength": 1},
+    "track": {"const": "007-landscape-novelty"},
+    "gate": {"const": "patient_community"},
+    "synthetic": {"type": "boolean"},
+    "decision": {"enum": ["endorse", "accept_with_conditions", "narrow", "revise", "defer", "stop"]},
+    "accountable": {
+      "type": "object", "additionalProperties": false,
+      "required": ["person_or_body", "self_described_role", "community_relationship", "organisation_or_constituency", "authority_basis_and_scope", "contact_or_durable_record_locator", "selection_or_quorum_basis", "conflict_of_interest"],
+      "properties": {
+        "person_or_body": {"type": "string", "minLength": 1},
+        "self_described_role": {"type": "string", "minLength": 1},
+        "community_relationship": {"type": "string", "minLength": 1},
+        "organisation_or_constituency": {"type": "string", "minLength": 1},
+        "authority_basis_and_scope": {"type": "string", "minLength": 1},
+        "contact_or_durable_record_locator": {"type": "string", "minLength": 1},
+        "selection_or_quorum_basis": {"type": "string", "minLength": 1},
+        "conflict_of_interest": {"type": "string", "minLength": 1}
+      }
+    },
+    "decision_date_utc": {"type": "string", "format": "date-time"},
+    "subject": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "candidate_commit", "manifest_id", "manifest_sha256"],
+      "properties": {
+        "repository": {"const": "edithatogo/rareburden-commons"},
+        "candidate_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "manifest_id": {"type": "string", "minLength": 1},
+        "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["materials_reviewed", "language_and_accessibility_support", "acceptable_use_and_harm_assessment", "benefit_or_return_expectations"],
+      "properties": {
+        "materials_reviewed": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "language_and_accessibility_support": {"type": "string", "minLength": 1},
+        "acceptable_use_and_harm_assessment": {"type": "string", "minLength": 1},
+        "benefit_or_return_expectations": {"type": "string", "minLength": 1}
+      }
+    },
+    "conditions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "limitations_or_dissent": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "correction_and_withdrawal": {
+      "type": "object", "additionalProperties": false,
+      "required": ["route", "effect_of_correction_or_withdrawal"],
+      "properties": {
+        "route": {"type": "string", "minLength": 1},
+        "effect_of_correction_or_withdrawal": {"type": "string", "minLength": 1}
+      }
+    },
+    "attestation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["submitted_by", "submitted_at_utc", "signature_or_approval_record", "not_repository_owner_or_agent_panel_substitute", "supersedes_receipt_id"],
+      "properties": {
+        "submitted_by": {"type": "string", "minLength": 1},
+        "submitted_at_utc": {"type": "string", "format": "date-time"},
+        "signature_or_approval_record": {"type": "string", "minLength": 1},
+        "not_repository_owner_or_agent_panel_substitute": {"const": true},
+        "supersedes_receipt_id": {"type": "string"}
+      }
+    }
+  }
+}

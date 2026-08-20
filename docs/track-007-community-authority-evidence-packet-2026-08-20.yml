@@ -52,3 +52,13 @@ stop_triggers:
 next_action:
   repository_owned: keep_gate_pending_and_use_non_authority_language
   requires_external_accountable_participant: true
+receipt_validation:
+  schema: schemas/track-007-community-authority-receipt.schema.json
+  blank_template: docs/track-007-community-authority-receipt-template.yml
+  validator: scripts/check_track_007_community_authority_receipt.py
+  qualifying_command: >-
+    uv run python scripts/check_track_007_community_authority_receipt.py
+    --require-qualifying PATH_TO_RECEIPT
+  automated_effect: readiness_only_not_authority_or_gate_closure
+  accountable_verification_required: true
+  synthetic_owner_or_agent_panel_receipts_qualify: false
