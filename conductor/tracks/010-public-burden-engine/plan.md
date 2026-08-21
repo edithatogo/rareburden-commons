@@ -110,3 +110,11 @@
   closure. Evidence: `docs/track-010-alpha-freeze-readiness-2026-08-21.yml`,
   `scripts/check_track_010_alpha_freeze_readiness.py` and negative tests.
   Both parent blocking tasks remain open.
+- [x] Reconcile the exact synthetic-only Track 009 contract freeze with Track
+  010's older whole-track-completion prerequisite and prepare three owner
+  options. Evidence:
+  `docs/decisions/2026-08-21-track-010-upstream-dependency-disposition.yml`
+  and `docs/track-010-alpha-freeze-readiness-2026-08-21.yml`. The recommended
+  narrow exception permits exact synthetic alpha-candidate preparation only;
+  it remains pending owner selection and does not freeze an interface, activate
+  empirical or production use, or supply accountable review.

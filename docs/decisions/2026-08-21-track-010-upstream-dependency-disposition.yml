@@ -1,0 +1,68 @@
+schema_version: "1.0.0"
+simulation_status: "owner_operated_not_independent_review"
+track: "010-public-burden-engine"
+decision: "interpret_track_009_dependency_after_synthetic_contract_freeze"
+upstream_evidence:
+  freeze_recording_commit: "270d928be4962741cfc29abd12a5e64649eaedcd"
+  freeze_recording_tree: "378da5b5ca7d624c4e7c3b7ac947e892a63328de"
+  ledger_candidate_commit: "55f58f7b5f7522fa9b988c4e57dc967969cca7b7"
+  ledger_candidate_tree: "59c720c68ccbe91c35dc2e3b07900a68a76b6431"
+  freeze_receipt: "docs/track-009-v0.4-freeze-receipt-2026-08-21.yml"
+  freeze_receipt_sha256: "da51226da021a287eb8f732378cafce00c8b5f874c3c6a25616e1a7a3b044aef"
+  ledger_manifest_sha256: "caf21cf6d35bd69d26ffa48c35188b73284906fd4bf3cacaa44a9d5bdd7bacb8"
+observed_state:
+  track_009_status: "blocked"
+  track_009_contract_frozen: true
+  track_009_empirical_parameter_activation: false
+  track_010_current_dependency_rule: "track_009_complete"
+  track_010_dependency_state: "pending"
+  track_010_alpha_interface_frozen: false
+cannot_infer:
+  - "Track 009 completion from its synthetic-only ledger freeze"
+  - "fitness of any empirical parameter or burden estimate"
+  - "scientific, statistical, engineering, clinical or patient/community approval"
+  - "independent scientific-software review"
+  - "production activation, partnership or external approval"
+options:
+  - id: "A"
+    title: "Permit exact synthetic alpha-candidate preparation"
+    disposition: "narrow_dependency_exception"
+    trade_offs:
+      - "Allows the engine, ledger binding, Track 003 interface, migration and reproducibility evidence to be assembled against the exact frozen synthetic ledger."
+      - "Creates a narrow distinction between upstream synthetic contract readiness and whole-track completion that must remain explicit."
+    contingencies:
+      - "Preparation remains synthetic and non-empirical; alpha freeze is a separate exact owner decision."
+      - "Scientific, engineering, patient/community and independent-review claims remain false."
+      - "Any Track 009 freeze hash or scope drift invalidates the Track 010 candidate."
+    minimum_evidence:
+      - "Owner selects this option against the exact Track 009 freeze receipt and recording commit."
+      - "A validator enforces preparation-only effect and rejects empirical or production activation."
+      - "The resulting engine, ledger, interface, migration and reproducibility artifacts are hash-bound before final disposition."
+  - id: "B"
+    title: "Retain whole-track completion prerequisite"
+    disposition: "defer"
+    trade_offs:
+      - "Preserves the original dependency wording without exception."
+      - "Blocks exact synthetic candidate preparation while Track 009 remains intentionally incomplete for empirical and external-review reasons."
+    contingencies:
+      - "Continue generic tests only; do not form an alpha candidate."
+    minimum_evidence:
+      - "No new evidence is required; the current fail-closed state remains."
+  - id: "C"
+    title: "Prepare interface declarations only"
+    disposition: "narrow_scope"
+    trade_offs:
+      - "Reduces executable interpretation risk but omits end-to-end benchmark and reproducibility evidence."
+    contingencies:
+      - "Exclude engine outputs and retain only non-activated schemas and interface declarations."
+    minimum_evidence:
+      - "Owner selects this narrower scope and a new exact manifest is generated."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    The frozen Track 009 contract contains only synthetic parameters and is
+    sufficient for bounded engine integration evidence. Permit exact candidate
+    preparation only, keep alpha freeze and all accountable review gates
+    separate, and invalidate the candidate on any upstream drift.
+owner_decision:
+  status: "pending"

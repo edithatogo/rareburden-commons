@@ -8,6 +8,17 @@ upstream_dependency:
   required_status: "complete"
   observed_status: "blocked"
   state: "pending"
+upstream_contract_reconciliation:
+  status: "owner_decision_required"
+  freeze_recording_commit: "270d928be4962741cfc29abd12a5e64649eaedcd"
+  freeze_recording_tree: "378da5b5ca7d624c4e7c3b7ac947e892a63328de"
+  track_009_freeze_receipt: "docs/track-009-v0.4-freeze-receipt-2026-08-21.yml"
+  track_009_freeze_receipt_sha256: "da51226da021a287eb8f732378cafce00c8b5f874c3c6a25616e1a7a3b044aef"
+  decision_packet: "docs/decisions/2026-08-21-track-010-upstream-dependency-disposition.yml"
+  decision_packet_sha256: "e412daf0aea556ee97408cb64352733a912273964da8b4aa305d3f7a56fc2cec"
+  recommended_option: "A"
+  owner_decision_state: "pending"
+  effect: "none_until_owner_selects_an_option_for_this_exact_upstream_freeze"
 review_gate:
   review_packet: "docs/track-010-engine-review-packet.md"
   scientific_statistical_receipt: ""
@@ -40,5 +51,5 @@ claims:
 governance:
   automated_validation_effect: "readiness_only_not_approval_independent_review_or_freeze"
 next_action:
-  repository_owned: "preserve synthetic contracts and validate incoming exact-candidate review receipts"
-  external_or_accountable: "complete Track 009, obtain independent and accountable review, then decide the hash-bound alpha freeze"
+  repository_owned: "preserve synthetic contracts and the exact Track 009 freeze binding"
+  external_or_accountable: "owner disposition of the upstream dependency options before any exact alpha-candidate preparation"
