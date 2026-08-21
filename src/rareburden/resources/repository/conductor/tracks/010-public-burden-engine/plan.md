@@ -156,4 +156,6 @@
   `docs/reviews/track-010-engineering-advisory-2026-08-22.yml`,
   `docs/reviews/track-010-patient-community-advisory-2026-08-22.yml` and
   `docs/reviews/track-010-scientific-software-advisory-2026-08-22.yml`.
-  All four remain pending owner disposition and explicitly non-independent.
+- [x] Record the owner's Option A disposition for all four advisory receipts.
+  The packets remain explicitly non-independent; alpha freeze, community
+  authority and external approval gates remain pending.

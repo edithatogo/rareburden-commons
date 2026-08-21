@@ -54,4 +54,8 @@ recommendation:
   option_id: A
   rationale: Retain bounded advisory software assurance while preserving independent review as a mandatory separate gate.
 owner_decision:
-  status: pending
+  status: recorded
+  selected_option_id: A
+  decided_by: edithatogo
+  decided_at_utc: "2026-08-21T19:17:09Z"
+  rationale: Retain bounded advisory software assurance; this does not establish independent scientific-software review or production fitness.

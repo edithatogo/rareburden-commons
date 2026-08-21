@@ -54,4 +54,8 @@ recommendation:
   option_id: A
   rationale: Continue only bounded synthetic engineering assurance while preserving independent review as a separate gate.
 owner_decision:
-  status: pending
+  status: recorded
+  selected_option_id: A
+  decided_by: edithatogo
+  decided_at_utc: "2026-08-21T19:17:09Z"
+  rationale: Continue bounded synthetic engineering assurance; this does not establish production fitness or independent software review.

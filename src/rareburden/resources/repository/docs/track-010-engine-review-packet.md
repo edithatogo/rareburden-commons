@@ -64,5 +64,5 @@ The prepared receipts are:
 - `docs/reviews/track-010-patient-community-advisory-2026-08-22.yml`
 - `docs/reviews/track-010-scientific-software-advisory-2026-08-22.yml`
 
-Each packet remains `owner_decision.status: pending`; none closes an alpha,
+Each packet records the owner's Option A disposition; none closes an alpha,
 independence, community-authority or external-approval gate.

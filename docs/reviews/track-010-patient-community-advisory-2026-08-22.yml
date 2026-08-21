@@ -54,4 +54,8 @@ recommendation:
   option_id: A
   rationale: Continue only as an explicitly simulated internal harm and framing challenge; do not represent it as community review.
 owner_decision:
-  status: pending
+  status: recorded
+  selected_option_id: A
+  decided_by: edithatogo
+  decided_at_utc: "2026-08-21T19:17:09Z"
+  rationale: Continue simulated harm and framing challenge only; this does not establish community authority, consent or endorsement.
