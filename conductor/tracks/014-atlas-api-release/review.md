@@ -163,3 +163,20 @@ remains pending, as do real-user evidence, patient/community acceptable-use
 review and public-candidate authorization. The product-set task is complete
 only for the bounded synthetic/static implementation; it does not establish an
 empirical country profile, public demonstrator or released gap atlas.
+
+## Review rerun — 2026-08-22
+
+**Finding (High, remediated):** the bounded-runtime optimization in
+`rareburden.assurance._logical` checked containment lexically but did not
+reject symlinked descendant directories. A pre-existing symlink below an
+operator-chosen output path could have caused an artefact to be written outside
+the declared root while retaining an in-root logical identifier.
+
+**Fix:** commit `45dad19` preserves the lexical runtime improvement and rejects
+every symlinked descendant before an artefact receives a logical path. A focused
+test exercises the escape attempt; the reference workflow remains reproducible.
+
+**Disposition:** repository review passes after remediation. Track 014 remains
+Planned: independent accessibility and real-user usability evidence, archive or
+DOI workflow, separately executed reproduction, real-source rights and release
+authority are all still required.
