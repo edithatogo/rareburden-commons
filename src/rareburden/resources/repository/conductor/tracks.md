@@ -26,6 +26,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 015 | Operational governance, partnerships and policy translation | Complete | Must | v0.9.0 | Repository owner (sole accountable human) | 006, 007, 013 |
 | 016 | Security, reliability, performance and operations | Planned | Must | v0.9.0 | Repository owner (sole accountable human) | 004, 014 |
 | 017 | Documentation, adoption, sustainability and stable v1 release | Planned | Must | v1.0.0 | Repository owner (sole accountable human) | 013, 014, 015, 016 |
+| 021 | External governance and partnership activation | Planned | Should | v1.1.0 | Repository owner (sole accountable human) | 015, 017 |
 
 ## Status definitions
 
