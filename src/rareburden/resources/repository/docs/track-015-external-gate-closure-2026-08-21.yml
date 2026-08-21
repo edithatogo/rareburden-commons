@@ -116,3 +116,14 @@ prohibited_completion_claims:
 
 resume_condition: all dependencies complete and every applicable gate has an
   attributable, scope-matched receipt from its accountable authority
+
+bounded_scope_supersession:
+  status: superseded_for_bounded_repository_track_completion
+  decision: docs/decisions/2026-08-21-track-015-bounded-closeout.yml
+  conditional_register: docs/track-015-external-activation-register-2026-08-21.yml
+  effect: >-
+    This historical blocker record remains authoritative for the original
+    externally activated scope. The owner later narrowed Track 015 completion
+    to bounded repository governance. Optional future external activation is
+    not completed or waived; it is tracked conditionally outside the archived
+    track's acceptance criteria.

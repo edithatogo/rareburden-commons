@@ -22,7 +22,7 @@ PATIENT_COMMUNITY_ADVICE = (
     ROOT / "docs/track-015-patient-community-governance-advice-2026-08-20.yml"
 )
 EXTERNAL_GATE_CLOSURE = ROOT / "docs/track-015-external-gate-closure-2026-08-21.yml"
-TRACK_METADATA = ROOT / "conductor/tracks/015-governance-partnership-policy/metadata.json"
+TRACK_METADATA = ROOT / "conductor/archive/015-governance-partnership-policy/metadata.json"
 
 
 def _payload() -> dict:
@@ -120,11 +120,11 @@ def test_patient_community_advice_keeps_non_self_attestable_gates_pending() -> N
     }
 
 
-def test_completion_attempt_remains_blocked_on_external_authority() -> None:
+def test_original_external_scope_remains_blocked_but_bounded_track_is_complete() -> None:
     closure = yaml.safe_load(EXTERNAL_GATE_CLOSURE.read_text(encoding="utf-8"))
     metadata = json.loads(TRACK_METADATA.read_text(encoding="utf-8"))
 
-    assert metadata["status"] == "blocked"
+    assert metadata["status"] == "complete"
     assert closure["status"] == "blocked_external_authority_and_dependencies"
     assert closure["track_completion_authorized"] is False
     assert all(blocker["self_attestable"] is False for blocker in closure["dependency_blockers"])
@@ -133,3 +133,8 @@ def test_completion_attempt_remains_blocked_on_external_authority() -> None:
         for gate in closure["external_gates"]
     )
     assert "Track 015 complete" in closure["prohibited_completion_claims"]
+    supersession = closure["bounded_scope_supersession"]
+    assert supersession["status"] == "superseded_for_bounded_repository_track_completion"
+    assert supersession["conditional_register"] == (
+        "docs/track-015-external-activation-register-2026-08-21.yml"
+    )

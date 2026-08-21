@@ -96,8 +96,9 @@
 - [x] Prepared `docs/track-015-governance-review-packet.md` with exact
   constitution, patient/community, custodian, scientific-independence and
   relationship evidence requirements.
-- [ ] Keep governance, partnership and endorsement states unactivated until
-  constituted dispositions are recorded.
+- [x] Keep governance, partnership and endorsement states unactivated; move
+  optional future activation conditions to the fail-closed standing register.
+  Evidence: `docs/track-015-external-activation-register-2026-08-21.yml`.
 
 ## Bounded repository reconciliation — 2026-08-16
 
@@ -140,9 +141,11 @@
   Tracks 008–010 remain blocked/provisional and all accountable community,
   rights, custodian, empirical and release gates remain pending. Evidence:
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
-- [ ] Keep authority for unrelated communities or country nodes, publisher
+- [x] Keep authority for unrelated communities or country nodes, publisher
   rights, third-party custodian policy and all real-data or public-release
-  permissions pending until attributable evidence exists.
+  permissions pending unless and until a future exact activation request has
+  attributable evidence. Evidence:
+  `docs/track-015-external-activation-register-2026-08-21.yml`.
 
 ## Completion attempt — 2026-08-21
 
@@ -152,9 +155,12 @@
 - [x] Record the track as blocked rather than self-attesting constituted bodies,
   approvals, remuneration, partnership, global representation or release
   authority. Evidence: Track 015 metadata, register and review.
-- [ ] Receive attributable, scope-matched receipts for every applicable gate in
-  `docs/track-015-external-gate-closure-2026-08-21.yml`; then rerun the exact-
-  candidate review and record a constituted governance readiness decision.
+- [x] Formally remove receipts for optional external activation from the
+  bounded repository-governance completion scope and transfer them, without
+  waiver or inferred approval, to
+  `docs/track-015-external-activation-register-2026-08-21.yml`. Evidence:
+  `docs/decisions/2026-08-21-track-015-bounded-closeout.yml`; any future
+  activation requires a new exact-candidate review and owner decision.
 
 ## Single-accountable-human enforcement — 2026-08-21
 
@@ -166,3 +172,16 @@
   `scripts/check_single_owner_agent_governance.py`. Historical role metadata
   remains provenance; external evidence and independent-review boundaries are
   not waived.
+
+## Review fixes and bounded archival — 2026-08-21
+
+- [x] Reconcile the completed repository-governance acceptance criteria with
+  the original external-activation blocker record; preserve the latter as
+  historical evidence and add an explicit bounded-scope supersession.
+- [x] Add negative validation proving archival cannot activate an external
+  relationship, remove a conditional gate or manufacture third-party rights.
+- [x] Archive the validated track while preserving its registry entry and
+  future activation conditions.
+- [x] Permit a completed track to be preserved in the archive before its
+  planned release and resolve the human-roadmap link from its actual location;
+  retain release-status and unchecked-task validation.

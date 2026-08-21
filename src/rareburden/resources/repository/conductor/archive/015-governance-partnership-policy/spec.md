@@ -6,6 +6,11 @@ Make the sole-owner decision model operational and create partner- and
 policy-ready materials without implying unconfirmed endorsement, access or
 shared repository authority.
 
+Completion is bounded to repository-owned governance, preparation and
+fail-closed claim controls. Activating a country node, controlled dataset,
+external partnership, endorsement or public-stable release is a separately
+versioned future action governed by the standing external-activation register.
+
 ## Required outputs
 
 - advisory-panel and external-evidence-provider terms of reference;
@@ -35,12 +40,19 @@ shared repository authority.
 8. The repository owner approves or bounds the v1 product and acceptable uses
    after advisory challenge and applicable external evidence.
 
+For this bounded track, "applicable external evidence" means evidence already
+within the selected repository-only candidate. An optional external condition
+becomes applicable only when the owner proposes that specific activation; it
+does not keep repository-governance preparation perpetually incomplete.
+
 ## Non-goals
 
 - creating nominal committees or implying shared repository authority;
 - treating consultation as consent;
 - storing relationship-sensitive operations material in the public repository when confidentiality is required;
 - criticising adjacent institutions to create a partnership case.
+- activating a country node, controlled-data source, partnership, endorsement,
+  institutional host, production service or public-stable release.
 
 ## Current bounded repository operating model
 
@@ -52,6 +64,10 @@ work; that declaration does not extend to unrelated communities, third-party
 custodians or country nodes. Publisher terms and controlled-environment rules
 remain binding facts. No additional human review is planned, and remuneration
 is zero.
+
+Future external activation conditions are maintained in
+`docs/track-015-external-activation-register-2026-08-21.yml`. Archival does not
+satisfy, waive or infer those conditions.
 
 ## v1 contribution
 
