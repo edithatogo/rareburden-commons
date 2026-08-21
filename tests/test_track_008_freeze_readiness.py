@@ -82,8 +82,8 @@ def test_readiness_rejects_migration_receipt_overclaim(tmp_path: Path) -> None:
     migration_path = ROOT / document["provisional_candidate_binding"]["migration_impact_receipt"]
     original = migration_path.read_text(encoding="utf-8")
     try:
-        migration_path.write_text(
-            original.replace("self-baseline drift check", "update"), encoding="utf-8"
+        migration_path.write_bytes(
+            original.replace("self-baseline drift check", "update").encode("utf-8")
         )
         document["provisional_candidate_binding"]["migration_impact_sha256"] = (
             __import__("hashlib").sha256(migration_path.read_bytes()).hexdigest()
@@ -91,7 +91,7 @@ def test_readiness_rejects_migration_receipt_overclaim(tmp_path: Path) -> None:
         with pytest.raises(Track008ReadinessError, match="self-baseline-only"):
             validate(_candidate(tmp_path, document), ROOT)
     finally:
-        migration_path.write_text(original, encoding="utf-8")
+        migration_path.write_bytes(original.encode("utf-8"))
 
 
 def test_provisional_binding_does_not_freeze_or_unblock_track_009() -> None:
