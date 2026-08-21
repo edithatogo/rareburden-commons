@@ -1,28 +1,29 @@
 # Track 015 governance and partnership review packet
 
-**Status:** non-binding preparation; no body, partnership, endorsement or
-relationship is constituted or confirmed by this repository.
+**Status:** bounded single-owner governance. Role-separated agents advise and
+the owner decides. No partnership, endorsement or external relationship is
+confirmed by this repository.
 
 ## Decisions and accountable evidence
 
 | Decision | Required evidence | Accountable disposition |
 |---|---|---|
-| Governance constitution | Approved charters, appointments, quorum/voting rules, conflicts and reserved powers | constituted governance: approve, amend or defer |
-| Patient/community authority | Named remunerated members, agenda/veto rights, harm and acceptable-use dispositions | patient/community council: approve, bound or reject |
-| Data and Indigenous governance | Custodian terms, CARE/sovereignty provisions, node authority and correction/withdrawal route | data-governance/ethics authority: approve or restrict |
-| Scientific independence | Methods-council remit, funder-independence controls and dispute process | scientific panel: approve, revise or stop |
+| Repository governance | Agent-panel options, trade-offs, dissent, stop triggers and exact candidate | repository owner: approve, bound, revise or stop |
+| Community/harm advice | Role-separated simulated perspective on harms and acceptable use | repository owner: approve, bound or reject |
+| Data and Indigenous governance | Agent rights/data-use advice plus custodian or unrelated-authority terms only when activated | repository owner for owner scope; relevant external authority for its own scope |
+| Scientific challenge | Methods-agent findings, funder-independence controls and dispute process | repository owner: approve, revise or stop |
 | Relationships and claims | Evidence-backed relationship register, contact/consent record and claim-state review | relationship owner/governance: proposed, confirmed or rejected |
-| v1 policy scope | Tabletop receipts for stigma, disclosure, global claims and misuse; residual-risk owners | governance: release, bound, revise or stop |
+| v1 policy scope | Agent tabletop receipts for stigma, disclosure, global claims and misuse; residual-risk owners | repository owner: release, bound, revise or stop |
 
 ## Receipt requirements
 
-Each disposition must name the accountable body, meeting/decision date, quorum,
-conflicts, evidence references, dissent and expiry/review date. Draft charters,
-subagent analysis and repository templates remain preparatory and cannot stand
-in for constituted authority, consent, remuneration or partnership agreement.
+Repository dispositions must bind the exact candidate, agent findings,
+uncertainty, dissent, conflicts, decision date and expiry/review trigger. Agent
+advice is sufficient advice for repository decisions but cannot stand in for a
+third party's licence, consent, permission, relationship or authority.
 
 ## Safe continuation
 
 Continue schema, claim-state, tabletop and policy-language tests locally. Keep
-relationship claims proposed and governance readiness false until the external
-records above are supplied.
+each third-party-dependent capability or claim inactive until its specific
+external fact is supplied; unrelated external advice is not a prerequisite.

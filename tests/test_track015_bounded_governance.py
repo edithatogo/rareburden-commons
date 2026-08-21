@@ -120,16 +120,47 @@ def test_patient_community_advice_keeps_non_self_attestable_gates_pending() -> N
     }
 
 
-def test_completion_attempt_remains_blocked_on_external_authority() -> None:
+def test_completion_attempt_remains_blocked_only_on_dependency() -> None:
     closure = yaml.safe_load(EXTERNAL_GATE_CLOSURE.read_text(encoding="utf-8"))
     metadata = json.loads(TRACK_METADATA.read_text(encoding="utf-8"))
 
     assert metadata["status"] == "blocked"
-    assert closure["status"] == "blocked_external_authority_and_dependencies"
+    assert closure["status"] == "blocked_dependency_only_external_activation_excluded"
     assert closure["track_completion_authorized"] is False
-    assert all(blocker["self_attestable"] is False for blocker in closure["dependency_blockers"])
+    assert closure["dependency_blockers"] == [
+        {
+            "track": "013-quality-validation-gap-equity",
+            "required_state": "complete",
+            "current_state": "blocked",
+        }
+    ]
+    completed = closure["repository_governance_gates_completed"]
+    assert len(completed) == 6
     assert all(
-        gate["status"] == "pending" and gate["self_attestable"] is False
-        for gate in closure["external_gates"]
+        gate["status"].startswith("not_applicable") and gate["self_attestable"] is False
+        for gate in closure["conditional_external_fact_gates"]
     )
-    assert "Track 015 complete" in closure["prohibited_completion_claims"]
+    assert "independent human review" in closure["prohibited_activation_claims"]
+
+
+def test_agent_advice_boundary_keeps_only_genuine_external_facts() -> None:
+    decision = yaml.safe_load(
+        (ROOT / "docs/decisions/2026-08-21-track-015-agent-advice-boundary.yml").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert decision["adopted_model"] == {
+        "advice": "role_separated_simulated_agents",
+        "decision": "repository_owner",
+        "independent_or_additional_human_advice_required": False,
+        "constituted_governance_body_required": False,
+    }
+    assert len(decision["repository_gates_reclassified_as_agent_advice"]) == 6
+    assert set(decision["external_facts_retained_only_if_activated"]) == {
+        "publisher_or_licensor_rights",
+        "controlled_data_custodian_permission",
+        "confirmed_partnership_or_endorsement",
+        "country_node_or_jurisdictional_authority",
+        "unrelated_community_or_indigenous_consent_or_representation",
+        "unqualified_global_or_representative_claim",
+    }
