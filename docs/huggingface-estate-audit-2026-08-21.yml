@@ -29,24 +29,24 @@ live_inventory:
     disposition: "retain_private_except_exact_rights_cleared_duplicates"
   - id: "edithatogo/rareburden-commons-open-source-snapshots"
     visibility: "public"
-    revision: "8c62250e0ef540b1e1bcd859bffaf30cbb1edddd"
-    files: 473
-    bytes: 11112959232
+    revision: "7f53de277671109c92bf8c4f4ab02c6ef200c51a"
+    files: 549
+    bytes: 12841242009
     disposition: "public_rights_filtered_projection"
 
 approved_bulk_promotion:
   owner_disposition: "promote_additional_exact_rights_cleared_batches_in_bulk"
   candidate_universe: "288 HPO ontology-core objects marked public_exact_unmodified_with_official_conditions"
   initial_public_objects: 137
-  public_objects_after_bounded_run: 227
-  newly_public_objects: 90
-  remaining_objects: 61
-  remaining_bytes: 1728252910
+  public_objects_after_bounded_run: 288
+  newly_public_objects: 151
+  remaining_objects: 0
+  remaining_bytes: 0
   size_conflicts: 0
-  state: "partially_complete_provider_rate_limit"
-  blocker: "Hugging Face repository commit limit of 128 commits per hour"
+  state: "complete_within_exact_rights_cleared_candidate_universe"
+  blocker: null
   remediation: "publisher changed from one commit per object to one atomic commit per bounded batch"
-  resume_condition: "provider commit window reopens; then reconcile and submit only still-missing objects"
+  resume_condition: "new file-level rights evidence or candidate-universe revision requires a new owner disposition"
 
 ascertainment:
   all_sources_indexed:
