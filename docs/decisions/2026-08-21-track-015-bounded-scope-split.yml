@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+track: "015-governance-partnership-policy"
+decision: "preserve_archived_bounded_track_and_plan_external_activation"
+status: "accepted"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+recorded_at: "2026-08-21"
+context:
+  - "The v0.9 roadmap requires operational single-owner agent-panel governance and prohibits claims that a constituted body exists."
+  - "PR #233 narrowed third-party evidence to conditional facts required only when their dependent capability or claim is activated."
+  - "PR #235 completed and archived bounded Track 015 and retained optional external activation in a standing fail-closed register."
+options:
+  - id: "A"
+    title: "Preserve archived Track 015 and plan activation"
+    disposition: "accepted"
+    trade_offs:
+      - "Keeps the bounded Track 015 archive and standing register authoritative without fabricating external authority."
+      - "Gives an exact future activation candidate an explicit post-v1 lifecycle without activating it now."
+    contingencies:
+      - "Track 021 remains planned until an exact candidate and applicable register condition receive a new owner decision."
+      - "Any activated external claim must pass Track 021 with attributable scope-matched evidence."
+  - id: "B"
+    title: "Retain the original broad scope"
+    disposition: "not_selected"
+    trade_offs:
+      - "Preserves the original ambition but leaves Track 015 dependent on unconstituted bodies and unconfirmed relationships."
+  - id: "C"
+    title: "Remove all external governance work"
+    disposition: "not_selected"
+    trade_offs:
+      - "Simplifies the roadmap but loses a durable fail-closed place for later authority and partnership evidence."
+rationale: "Option A preserves PR #235's bounded archive and standing register while giving a later exact activation candidate a separate fail-closed post-v1 lifecycle."
+scope_effect:
+  track_015: "pr_235_bounded_governance_archive_retained"
+  successor: "021-external-governance-activation_planned_only"
+  external_activation: false
+  partnership_claims: false
+  global_representativeness: false
+  constituted_governance_claim: false

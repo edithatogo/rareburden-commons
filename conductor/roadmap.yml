@@ -122,3 +122,12 @@ releases:
   - Two clean release-candidate builds and one separately executed owner-operated reproduction agree.
   - Supported scope, single-owner support, continuity limits and sustainability are recorded by the owner.
   - Agent-panel lane recommendations and an exact-candidate owner decision authorise the v1.0.0 tag.
+- version: 1.1.0
+  name: External governance and partnership activation
+  status: planned
+  objective: Activate only evidence-backed external governance, country-node, partnership and representation claims after stable v1.
+  tracks:
+  - 021-external-governance-activation
+  exit_gates:
+  - Every activated authority or relationship has an attributable scope-matched receipt.
+  - Country-node and global claims remain disabled unless their representation conditions pass.

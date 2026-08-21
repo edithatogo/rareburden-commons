@@ -22,8 +22,8 @@ def validate_with(tracks: Path, roadmap: Path = ROADMAP) -> None:
 
 def test_seed_roadmap_is_valid() -> None:
     summary = validate_roadmap_files(ROADMAP, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
-    assert summary.release_count == 10
-    assert summary.track_count == 18
+    assert summary.release_count == 11
+    assert summary.track_count == 19
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
     assert summary.track_status_counts["complete"] == 1

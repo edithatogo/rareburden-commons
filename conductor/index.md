@@ -52,6 +52,7 @@ This directory is the persistent source of truth for the project's context-drive
 ## Active work
 
 - [Private Hugging Face archival destination](../docs/huggingface-private-archive-2026-08-15.yml)
+- [Track 021 — External governance and partnership activation](tracks/021-external-governance-activation/index.md)
 
 ## Completed work
 

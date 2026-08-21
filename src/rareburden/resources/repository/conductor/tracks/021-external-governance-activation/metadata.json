@@ -1,0 +1,23 @@
+{
+  "id": "021-external-governance-activation",
+  "title": "External governance and partnership activation",
+  "status": "planned",
+  "priority": "should",
+  "created": "2026-08-21",
+  "updated": "2026-08-21",
+  "target_release": "1.1.0",
+  "stage": "external_governance_activation",
+  "owner_role": "Repository owner (sole accountable human)",
+  "dependencies": [
+    "015-governance-partnership-policy",
+    "017-documentation-adoption-v1"
+  ],
+  "review_gates": [
+    "scientific",
+    "patient_community",
+    "data_governance",
+    "programme",
+    "release"
+  ],
+  "v1_critical": false
+}
