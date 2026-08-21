@@ -12,7 +12,8 @@ reconciliation:
   archival_matrix_records: 22
   overlap_records: 22
   union_records: 22
-  all_sources_indexed: true
+  declared_catalogue_matrix_id_parity: true
+  all_sources_indexed: false
   all_exact_release_metadata_archived: false
   all_raw_bytes_archived: false
   all_raw_bytes_publicly_redistributable: false
@@ -80,3 +81,4 @@ claims:
   community_participation: false
   global_completeness: false
   negative_evidence_from_missing_metadata: false
+  declared_catalogue_matrix_id_parity_is_global_completeness: false
