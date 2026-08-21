@@ -15,6 +15,10 @@
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
   "rangeStrategy": "auto",
+  "ignorePaths": [
+    "requirements.txt",
+    "requirements-dev.txt"
+  ],
   "packageRules": [
     {
       "description": "Group non-major GitHub Actions updates",
