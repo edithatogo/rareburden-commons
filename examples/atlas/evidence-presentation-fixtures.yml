@@ -1,0 +1,98 @@
+schema_version: "1.0.0"
+status: "synthetic_contract_scenarios_only"
+publication_authorized: false
+scenarios:
+  - id: "complete_modelled_estimate"
+    expected: "accept"
+    record:
+      provenance:
+        release_id: "synthetic-release-014"
+        source_manifest_id: "synthetic-source-manifest-014"
+      uncertainty:
+        estimate_status: "modelled"
+        interval_or_range: [80.0, 120.0]
+        unavailable_reason: null
+      quality:
+        evidence_status: "synthetic_assurance_only"
+        domain_judgements:
+          directness: "not_assessed"
+          precision: "synthetic_only"
+      missingness:
+        state: "not_assessed"
+        value: null
+        reason: "No empirical source release is registered for this synthetic scenario."
+  - id: "uncertainty_explicitly_unavailable"
+    expected: "accept"
+    record:
+      provenance:
+        release_id: "synthetic-release-014"
+        source_manifest_id: "synthetic-source-manifest-014"
+      uncertainty:
+        estimate_status: "not_estimable"
+        interval_or_range: null
+        unavailable_reason: "No eligible parameter distribution is available."
+      quality:
+        evidence_status: "insufficient_for_estimation"
+        domain_judgements:
+          directness: "not_assessed"
+      missingness:
+        state: "non_estimable"
+        value: null
+        reason: "Required evidence is absent."
+  - id: "missingness_rendered_as_zero"
+    expected: "reject"
+    rejection_reason: "Missing or unassessed values must remain null and must not be rendered as numeric zero."
+    record:
+      provenance:
+        release_id: "synthetic-release-014"
+        source_manifest_id: "synthetic-source-manifest-014"
+      uncertainty:
+        estimate_status: "not_estimable"
+        interval_or_range: null
+        unavailable_reason: "Required evidence is absent."
+      quality:
+        evidence_status: "insufficient_for_estimation"
+        domain_judgements:
+          directness: "not_assessed"
+      missingness:
+        state: "missing"
+        value: 0
+        reason: "Required evidence is absent."
+  - id: "estimate_without_uncertainty_explanation"
+    expected: "reject"
+    rejection_reason: "An estimate requires an interval or range, or an explicit unavailable reason."
+    record:
+      provenance:
+        release_id: "synthetic-release-014"
+        source_manifest_id: "synthetic-source-manifest-014"
+      uncertainty:
+        estimate_status: "modelled"
+        interval_or_range: null
+        unavailable_reason: null
+      quality:
+        evidence_status: "synthetic_assurance_only"
+        domain_judgements:
+          directness: "not_assessed"
+      missingness:
+        state: "not_applicable"
+        value: null
+        reason: "The field is outside this scenario."
+  - id: "opaque_composite_quality_score"
+    expected: "reject"
+    rejection_reason: "Quality domains must remain visible and cannot be replaced by a composite score."
+    record:
+      provenance:
+        release_id: "synthetic-release-014"
+        source_manifest_id: "synthetic-source-manifest-014"
+      uncertainty:
+        estimate_status: "observed"
+        interval_or_range: [9.0, 11.0]
+        unavailable_reason: null
+      quality:
+        evidence_status: "review_pending"
+        domain_judgements: {}
+        composite_score: 92
+      missingness:
+        state: "not_applicable"
+        value: null
+        reason: "No missing field is asserted in this scenario."

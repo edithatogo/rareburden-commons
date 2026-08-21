@@ -129,3 +129,19 @@ research, patient/community endorsement, accessibility acceptance, custodian
 approval, funding endorsement or release authority. Real-user and independent
 accessibility evidence remain pending before a public candidate can rely on
 these journeys as validated usability evidence.
+
+## Evidence-presentation component contract — 2026-08-21
+
+Repository review result: **Pass for the bounded design contract and synthetic
+fail-closed scenarios**. One schema-validated contract defines provenance,
+uncertainty, domain-level quality and explicit missingness components, then
+maps the same scientific facts into the five repository-authored journey
+profiles. Positive scenarios preserve explicit uncertainty and null
+missingness; negative scenarios reject missing-as-zero, unexplained uncertainty
+and opaque composite quality scores.
+
+This closes only the repository-owned component-definition task. It does not
+show that any interface is understandable or accessible to real users, that a
+source is cleared for redistribution, that an exact candidate was reproduced,
+or that publication is authorised. Independent accessibility and real-user
+usability evidence remain pending.

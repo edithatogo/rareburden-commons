@@ -14,7 +14,14 @@
   `schemas/atlas-api-response.schema.json` and
   `docs/track-014-bounded-reconciliation-2026-08-16.md`. These synthetic
   contracts do not activate a hosted API or public atlas. `[C-01]`
-- [ ] Define provenance, uncertainty, quality and missingness components.
+- [x] Define provenance, uncertainty, quality and missingness components.
+  Evidence: `docs/track-014-evidence-presentation-contract-2026-08-21.yml`,
+  `schemas/atlas-evidence-presentation-contract.schema.json`,
+  `examples/atlas/evidence-presentation-fixtures.yml` and
+  `tests/test_track014_evidence_presentation_contract.py` define one shared
+  scientific-fact contract, five audience profiles and fail-closed synthetic
+  scenarios. This is repository design evidence, not user research or
+  independent accessibility approval.
 - [ ] Complete accessibility design review. `[M-23]`
 
 ## Phase 2 — Release contracts
