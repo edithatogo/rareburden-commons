@@ -108,3 +108,13 @@
   `docs/track-009-freeze-readiness-2026-08-21.yml`,
   `scripts/check_track_009_freeze_readiness.py` and focused negative tests.
   Track 009 remains blocked and all accountable review/freeze tasks stay open.
+
+## Post-Track 008 bounded-freeze reconciliation — 2026-08-21
+
+- [x] Bind Track 009's dormant synthetic preparation to the exact bounded
+  Track 008 candidate, owner decision and readiness hashes while retaining the
+  declared completion dependency as unsatisfied. Evidence:
+  `docs/decisions/2026-08-21-track-009-post-track-008-reconciliation.yml` and
+  `docs/track-009-freeze-readiness-2026-08-21.yml`. Track 009 remains blocked,
+  inactive and unfrozen; the agent panel is advisory and the owner's
+  disposition authorizes reversible preparation only.

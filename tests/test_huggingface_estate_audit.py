@@ -16,5 +16,9 @@ def test_huggingface_estate_audit_is_fail_closed() -> None:
         == "some_exact_families_only"
     )
     assert audit["recommendation"] == "B"
+    assert audit["status"] == "bounded_live_inventory_rights_cleared_projection_complete"
+    assert audit["approved_bulk_promotion"]["remaining_objects"] == 0
+    assert audit["approved_bulk_promotion"]["exact_public_private_hpo_core_overlaps"] == 0
+    assert audit["approved_bulk_promotion"]["cumulative_private_bytes_removed"] == 5_517_987_017
     assert audit["claims"]["all_private_content_redistributable"] is False
     assert audit["claims"]["independent_review"] is False

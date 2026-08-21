@@ -1,5 +1,5 @@
 schema_version: "1.0"
-status: "bounded_live_inventory_owner_disposition_required"
+status: "bounded_live_inventory_rights_cleared_projection_complete"
 observed_at: "2026-08-21"
 scope:
   account: "edithatogo"
@@ -17,10 +17,10 @@ scope:
 live_inventory:
   - id: "edithatogo/hpo-licensed-ontology-archive"
     visibility: "private"
-    revision: "7fbac651dd611102ed7fc6fdd898b6f43807c37f"
-    files: 424
-    bytes: 90680074829
-    disposition: "retain_private_and_split_only_exact_rights_cleared_families"
+    revision: "720aa679d8a8fcf051ca95672400e874c4490a71"
+    files: 354
+    bytes: 88730147338
+    disposition: "retain_remaining_licensed_and_mixed_rights_content_private"
   - id: "edithatogo/rareburden-commons-source-archive"
     visibility: "private"
     revision: "ddf35f48f21dce831e346559b41549bd6188662d"
@@ -29,9 +29,9 @@ live_inventory:
     disposition: "retain_private_except_exact_rights_cleared_duplicates"
   - id: "edithatogo/rareburden-commons-open-source-snapshots"
     visibility: "public"
-    revision: "7f53de277671109c92bf8c4f4ab02c6ef200c51a"
-    files: 549
-    bytes: 12841242009
+    revision: "bdb5ef114d1b30634e576b231006225b6faafc78"
+    files: 545
+    bytes: 12841237828
     disposition: "public_rights_filtered_projection"
 
 approved_bulk_promotion:
@@ -43,6 +43,10 @@ approved_bulk_promotion:
   remaining_objects: 0
   remaining_bytes: 0
   size_conflicts: 0
+  exact_public_private_hpo_core_overlaps: 0
+  cumulative_private_references_removed: 182
+  cumulative_private_bytes_removed: 5517987017
+  cumulative_private_lfs_objects_reclaimed: 138
   state: "complete_within_exact_rights_cleared_candidate_universe"
   blocker: null
   remediation: "publisher changed from one commit per object to one atomic commit per bounded batch"
