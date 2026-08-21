@@ -133,3 +133,16 @@
   deterministic regeneration produces identical evidence on Windows, macOS
   and Linux. Evidence: hosted Windows portability finding and the candidate
   builder reproducibility test.
+
+## Exact post-merge advisory preparation — 2026-08-21
+
+- [x] Bind a schema-valid, role-separated advisory packet to the exact merged
+  Track 009 candidate and retain the owner decision as pending. Evidence:
+  `docs/decisions/2026-08-21-track-009-post-merge-options.yml`. The panel is
+  simulated and advisory; it is not independent review or owner disposition.
+- [x] Add fail-closed containment validation for the exact candidate commit,
+  tree, manifest, synthetic input/export allowlist, source identifiers,
+  semantic identifiers and non-empirical warnings. Evidence:
+  `scripts/check_track009_candidate_containment.py` and focused negative tests.
+  Track 009 remains blocked, inactive, incomplete and unfrozen; Track 010
+  remains ineligible.
