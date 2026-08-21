@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "receipt_type": "owner_operated_clean_environment_install",
+  "exercise_id": "track-014-owner-installed-2026-08-22",
+  "executed_at_utc": "2026-08-22T00:00:00Z",
+  "operator": "repository_owner_primary_operator",
+  "independent": false,
+  "candidate_commit": "d2b93995b3b8815a46eace2148d45db4efe3531a",
+  "candidate_tree": "47d99dba6c02e51823c788fa97c3ea10f9fa9aa4",
+  "environment": {
+    "platform": "macos_owner_operated",
+    "python": "3.13",
+    "dependency_mode": "uv_venv_and_installed_wheel",
+    "working_directory": "temporary_unrelated_directory"
+  },
+  "wheel": {
+    "path": "dist/rareburden-0.3.0rc2-py3-none-any.whl",
+    "sha256": "6c72496330aead15cea8b216de73a24d5d5faa14df24d21fda02b4a2a76d0bf7",
+    "size_bytes": 1389060
+  },
+  "results": [
+    {"exercise": "installed_package_doctor", "outcome": "pass", "evidence": "Installed package resources resolved independently of the caller directory."},
+    {"exercise": "reference_workflow", "outcome": "pass", "evidence": "Synthetic public-foundation output was generated and verification passed."},
+    {"exercise": "synthetic_node_workflow", "outcome": "pass", "evidence": "Installed package aggregation, disclosure policy and durable ledger checks passed."}
+  ],
+  "production_authorized": false,
+  "stable_release_authorized": false,
+  "independent_reproduction": false,
+  "limitations": [
+    "This is owner-operated repository evidence, not independent reproduction or external review.",
+    "The installed environment may use the local uv package cache and is not an air-gapped third-party run.",
+    "No empirical source, hosted API, beta publication or release authority is claimed."
+  ]
+}
