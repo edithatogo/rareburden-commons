@@ -197,7 +197,6 @@ No archive move is authorized: archiving an incomplete, non-superseded track
 would destroy lifecycle meaning and overstate release readiness. Reopen the
 track only when the named evidence is supplied or the scope is formally
 superseded with an accountable decision.
-
 ## Owner-installed reproduction preparation — 2026-08-22
 
 The installed-wheel check passed for the exact candidate recorded in
