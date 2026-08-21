@@ -2,6 +2,7 @@ schema_version: "0.1.0"
 track: "014"
 purpose: "stage real-data readiness without activating an unapproved release"
 status: "preparation_only"
+mandate: "real_metadata_and_clearly_redistributable_aggregates_may_progress_source_by_source_after_exact_receipts"
 activation:
   real_source_activation: false
   public_redistribution: false
@@ -50,3 +51,4 @@ stop_triggers:
   - "source bytes or fields cannot be bound to an exact version and hash"
   - "restricted payload would enter a repository, wheel, archive or public API"
   - "missingness, suppression, provenance or withdrawal controls are incomplete"
+decision_receipt: "docs/decisions/2026-08-22-track-014-real-data-bounded-mandate.yml"
