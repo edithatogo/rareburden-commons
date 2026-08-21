@@ -313,6 +313,100 @@ def build_static_gap_projection(
     return {"static_fingerprint": content_id("atlas-static", payload), **payload}
 
 
+def build_static_product_set(
+    package: Mapping[str, Any],
+    candidate: Mapping[str, Any],
+    status: Mapping[str, Any],
+    *,
+    country_scope_id: str,
+    demonstrator_scope_id: str,
+) -> dict[str, Any]:
+    """Build bounded gap, synthetic-country, and demonstrator page models.
+
+    The country scope must use the ISO 3166 user-assigned XAA-XZZ range so a
+    synthetic fixture cannot be mistaken for a real geography.
+    """
+    if (
+        not isinstance(country_scope_id, str)
+        or re.fullmatch(r"X[A-Z]{2}", country_scope_id) is None
+    ):
+        raise AtlasPackageError("country scope must use a synthetic XAA-XZZ identifier")
+    if not isinstance(demonstrator_scope_id, str) or not demonstrator_scope_id.strip():
+        raise AtlasPackageError("demonstrator_scope_id is required")
+
+    static = build_static_gap_projection(package, candidate, status)
+    shared = {
+        "availability": static["availability"],
+        "publication_authorized": False,
+        "aggregate_only": True,
+        "estimate_status": "not_assessed",
+        "rows": [dict(row) for row in static["rows"]],
+        "limitations": [
+            *static["limitations"],
+            "Synthetic metadata-only design fixture; no empirical burden estimate is presented.",
+            "Independent accessibility and real-user review remain pending.",
+        ],
+        "non_colour_status_labels": [
+            "Not assessed",
+            "Synthetic only",
+            "Not published",
+        ],
+    }
+    definitions = (
+        (
+            "gap",
+            "bounded-synthetic-gap",
+            "public-data-gap",
+            "Synthetic public-data gap product",
+            "Gap product: all evidence sufficiency states are not assessed. "
+            "No estimate is published.",
+        ),
+        (
+            "country",
+            f"bounded-synthetic-country-{country_scope_id.lower()}",
+            country_scope_id,
+            f"Synthetic country profile {country_scope_id}",
+            f"Country profile {country_scope_id}: synthetic metadata-only fixture; "
+            "all evidence sufficiency states are not assessed and no real geography "
+            "is represented.",
+        ),
+        (
+            "demonstrator",
+            f"bounded-demonstrator-{demonstrator_scope_id}",
+            demonstrator_scope_id,
+            "Synthetic public-foundation demonstrator",
+            "Demonstrator product: synthetic metadata-only fixture; no empirical "
+            "validity, external review or publication is claimed.",
+        ),
+    )
+    products: list[dict[str, Any]] = []
+    for product_type, page_id, scope_id, heading, text_alternative in definitions:
+        product = {
+            "product_type": product_type,
+            "page_id": page_id,
+            "scope_id": scope_id,
+            "heading": heading,
+            **shared,
+            "text_alternative": text_alternative,
+        }
+        products.append({"product_fingerprint": content_id("atlas-product", product), **product})
+
+    payload = {
+        "schema_version": "0.1.0",
+        "release_id": static["release_id"],
+        "source_manifest_id": static["source_manifest_id"],
+        "package_fingerprint": static["package_fingerprint"],
+        "release_surface_fingerprint": static["release_surface_fingerprint"],
+        "status_fingerprint": static["status_fingerprint"],
+        "publication_authorized": False,
+        "aggregate_only": True,
+        "synthetic_only": True,
+        "missingness_policy": static["missingness_policy"],
+        "products": products,
+    }
+    return {"product_set_fingerprint": content_id("atlas-product-set", payload), **payload}
+
+
 def build_gap_package(
     gap_map: Mapping[str, Any], *, release_id: str, source_manifest_id: str
 ) -> dict[str, Any]:
@@ -345,4 +439,5 @@ __all__ = [
     "build_gap_api_response",
     "build_gap_package",
     "build_static_gap_projection",
+    "build_static_product_set",
 ]

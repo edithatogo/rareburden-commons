@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/atlas-static-product-set.schema.json",
+  "title": "Bounded static atlas product set",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "product_set_fingerprint",
+    "schema_version",
+    "release_id",
+    "source_manifest_id",
+    "package_fingerprint",
+    "release_surface_fingerprint",
+    "status_fingerprint",
+    "publication_authorized",
+    "aggregate_only",
+    "synthetic_only",
+    "missingness_policy",
+    "products"
+  ],
+  "properties": {
+    "product_set_fingerprint": {"type": "string", "pattern": "^atlas-product-set-[0-9a-f]+$"},
+    "schema_version": {"const": "0.1.0"},
+    "release_id": {"type": "string", "minLength": 1},
+    "source_manifest_id": {"type": "string", "minLength": 1},
+    "package_fingerprint": {"type": "string", "pattern": "^atlas-[0-9a-f]+$"},
+    "release_surface_fingerprint": {"type": "string", "pattern": "^atlas-release-[0-9a-f]+$"},
+    "status_fingerprint": {"type": "string", "pattern": "^atlas-status-[0-9a-f]+$"},
+    "publication_authorized": {"const": false},
+    "aggregate_only": {"const": true},
+    "synthetic_only": {"const": true},
+    "missingness_policy": {"const": "preserve_missing_not_zero"},
+    "products": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/product"}
+    }
+  },
+  "$defs": {
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product_fingerprint",
+        "product_type",
+        "page_id",
+        "scope_id",
+        "heading",
+        "availability",
+        "publication_authorized",
+        "aggregate_only",
+        "estimate_status",
+        "rows",
+        "limitations",
+        "text_alternative",
+        "non_colour_status_labels"
+      ],
+      "properties": {
+        "product_fingerprint": {"type": "string", "pattern": "^atlas-product-[0-9a-f]+$"},
+        "product_type": {"enum": ["gap", "country", "demonstrator"]},
+        "page_id": {"type": "string", "minLength": 1},
+        "scope_id": {"type": "string", "minLength": 1},
+        "heading": {"type": "string", "minLength": 1},
+        "availability": {"enum": ["not_published", "do_not_use"]},
+        "publication_authorized": {"const": false},
+        "aggregate_only": {"const": true},
+        "estimate_status": {"const": "not_assessed"},
+        "rows": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+        "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "text_alternative": {"type": "string", "minLength": 1},
+        "non_colour_status_labels": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}
