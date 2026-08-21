@@ -95,4 +95,19 @@ recommendation:
     completion and all clinical, community, independence and external-authority
     claims remain blocked.
 owner_decision:
-  status: "pending"
+  status: "accepted"
+  selected_option: "A"
+  decided_by: "edithatogo"
+  accountable_role: "repository owner and sole accountable human"
+  governance_status: "owner_operated_not_independent_review"
+  recorded_at: "2026-08-21"
+  exact_candidate_commit: "47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd"
+  exact_candidate_tree: "af2bc0074ae6c77a65f8c47da04431b08baca77f"
+  evidence_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+  disposition: "freeze_bounded_provisional_non_clinical_contract"
+  retained_boundaries:
+    - "Track 008 remains blocked and incomplete."
+    - "Approved ontology pins, naming authority and independent semantic review remain false."
+    - "The freeze supplies no clinical, patient-community, rights-holder or external authority."
+    - "Track 009 remains inactive until its declared dependency and accountable review gates are satisfied."
+  invalidation: "any recorded stop trigger invalidates this bounded freeze and requires a new exact-candidate disposition"
