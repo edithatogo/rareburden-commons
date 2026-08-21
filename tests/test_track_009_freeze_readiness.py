@@ -91,6 +91,22 @@ def test_readiness_rejects_candidate_hash_drift(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
+def test_final_disposition_is_exact_pending_and_non_activating() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    disposition = document["final_owner_disposition_candidate"]
+    assert disposition["exact_candidate_commit"] == ("55f58f7b5f7522fa9b988c4e57dc967969cca7b7")
+    assert disposition["owner_decision_state"] == "pending"
+    assert document["claims"]["empirical_parameter_activation"] is False
+    assert document["contract_freeze_gate"]["state"] == "pending"
+
+
+def test_readiness_rejects_final_disposition_hash_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["final_owner_disposition_candidate"]["decision_packet_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="disposition packet hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
 def test_resolved_issue_and_freeze_require_evidence(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
     document["blocking_data_contract_issues"][0]["status"] = "resolved"

@@ -124,3 +124,8 @@
   and `docs/track-009-v0.4-candidate-challenge-2026-08-21.yml`. The candidate
   contains two synthetic parameters and zero empirical parameters; all three
   medium findings, every approval claim and contract freeze remain open or false.
+- [x] Bind the resulting candidate to exact commit `55f58f7`, tree and artifact
+  hashes and prepare three final owner options. Evidence:
+  `docs/decisions/2026-08-21-track-009-v0.4-final-disposition.yml`. The
+  recommended Option A freezes only the synthetic non-empirical contract; the
+  decision remains pending and no freeze or downstream activation is inferred.

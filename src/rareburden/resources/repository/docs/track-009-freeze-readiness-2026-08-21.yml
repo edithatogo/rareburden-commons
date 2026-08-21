@@ -40,6 +40,14 @@ v0_4_candidate_binding:
   parameter_count: 2
   empirical_parameter_count: 0
   effect: "candidate_preparation_only_no_contract_freeze_or_track_completion"
+final_owner_disposition_candidate:
+  exact_candidate_commit: "55f58f7b5f7522fa9b988c4e57dc967969cca7b7"
+  exact_candidate_tree: "59c720c68ccbe91c35dc2e3b07900a68a76b6431"
+  decision_packet: "docs/decisions/2026-08-21-track-009-v0.4-final-disposition.yml"
+  decision_packet_sha256: "09a859ec3ee2725a10f0edf9c1ebd849396034f855f224cec6570e8ad8a315a0"
+  recommended_option: "A"
+  owner_decision_state: "pending"
+  effect: "none_until_owner_selects_an_option_for_this_exact_candidate"
 blocking_data_contract_issues:
   - id: "EPI-MED-01"
     finding: "source availability does not establish parameter estimand fitness"
@@ -88,5 +96,5 @@ governance:
   owner_disposition: "owner_operated_not_independent_review"
   automated_validation_effect: "readiness_and_assignment_only_not_approval_review_or_freeze"
 next_action:
-  repository_owned: "present exact candidate revision, hashes, migration evidence and challenge for final owner disposition"
+  repository_owned: "preserve the exact candidate revision and bound evidence while owner disposition is pending"
   external_or_accountable: "retain epidemiology, data-governance and engineering findings unless separately evidenced"

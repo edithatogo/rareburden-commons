@@ -197,6 +197,33 @@ def validate(path: Path, root: Path) -> None:
     ):
         raise Track009ReadinessError("v0.4 ledger candidate identity, scope or claims drift")
 
+    disposition = document.get("final_owner_disposition_candidate", {})
+    if (
+        disposition.get("exact_candidate_commit") != "55f58f7b5f7522fa9b988c4e57dc967969cca7b7"
+        or disposition.get("exact_candidate_tree") != "59c720c68ccbe91c35dc2e3b07900a68a76b6431"
+        or disposition.get("recommended_option") != "A"
+        or disposition.get("owner_decision_state") != "pending"
+        or disposition.get("effect")
+        != "none_until_owner_selects_an_option_for_this_exact_candidate"
+    ):
+        raise Track009ReadinessError("final Track 009 disposition must remain exact and pending")
+    disposition_path = _repository_path(root, disposition.get("decision_packet"))
+    disposition_hash = str(disposition.get("decision_packet_sha256", ""))
+    if not SHA256.fullmatch(disposition_hash) or _sha256(disposition_path) != disposition_hash:
+        raise Track009ReadinessError("final Track 009 disposition packet hash drift")
+    disposition_packet = _load(disposition_path)
+    if (
+        disposition_packet.get("candidate", {}).get("commit")
+        != disposition.get("exact_candidate_commit")
+        or disposition_packet.get("candidate", {}).get("tree")
+        != disposition.get("exact_candidate_tree")
+        or disposition_packet.get("candidate", {}).get("manifest_sha256")
+        != candidate_binding.get("candidate_manifest_sha256")
+        or disposition_packet.get("recommendation", {}).get("option_id") != "A"
+        or disposition_packet.get("owner_decision", {}).get("status") != "pending"
+    ):
+        raise Track009ReadinessError("final Track 009 disposition identity or state drift")
+
     issues = document.get("blocking_data_contract_issues")
     if not isinstance(issues, list) or {row.get("id") for row in issues} != REQUIRED_ISSUES:
         raise Track009ReadinessError("all three bounded-review issues must remain explicit")
