@@ -13,7 +13,7 @@ ROOT = Path(__file__).parents[1]
 PLAN = ROOT / "docs/downstream-bounded-preparation-plan-2026-08-03.yml"
 
 
-def test_option_b_contract_passes_for_current_blocked_track_state() -> None:
+def test_option_b_contract_passes_for_current_bounded_track_state() -> None:
     validate(PLAN, ROOT)
 
 
