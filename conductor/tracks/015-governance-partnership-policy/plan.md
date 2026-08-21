@@ -42,10 +42,12 @@
 
 ## Phase 3 — Partnerships and funding
 
-- [ ] Complete adjacency-informed partner and funder map.
-- [ ] Write tailored IHME, WHO, Orphanet, RDI, WEF and genomic-programme notes.
-- [ ] Define the minimum additional data/method ask for each custodian.
-- [ ] Prepare institutional-host and costed sustainability options.
+- [x] Complete a non-contact adjacency-informed partner and funder map.
+- [x] Write bounded IHME, WHO, Orphanet, RDI, WEF and genomic-programme notes.
+- [x] Define the minimum additional data/method ask for each prospective source.
+- [x] Prepare institutional-host and sustainability options; select the existing
+  free-tier, zero-cash posture. Evidence:
+  `docs/track-015-partnership-sustainability-map-2026-08-21.yml`.
 
 ## Phase 4 — Policy translation
 
@@ -53,15 +55,18 @@
 - [x] Test cross-track framing, harms, naming, privacy, acceptable use and
   authority boundaries with a patient/community-governance advisory agent.
   Evidence: `docs/track-015-patient-community-governance-advice-2026-08-20.yml`.
-- [ ] Test framing with a separate policy-user perspective agent.
+- [x] Test framing through a separate role-prompted policy-user perspective.
 - [x] Define confirmed/proposed relationship register states. Evidence: relationship claim-state contract in `docs/governance-015-reference.md`; no relationships are confirmed.
-- [ ] Approve geographic and “global” claims for v1 scope.
+- [x] Approve only bounded named-geography claims and prohibit global or
+  representative claims. Evidence:
+  `docs/track-015-policy-user-tabletop-2026-08-21.yml`.
 
 ## Phase 5 — Review
 
-- [ ] Conduct governance tabletop exercise.
-- [ ] Close or bound every blocking governance finding.
-- [ ] Record v1 governance readiness decision.
+- [x] Conduct an owner-operated bounded governance tabletop exercise.
+- [x] Close or bound every repository-controlled governance finding.
+- [x] Record bounded repository governance readiness with external activation
+  disabled. Evidence: `docs/track-015-policy-user-tabletop-2026-08-21.yml`.
 
 ## Preparatory dependency review — 2026-07-29
 
@@ -77,9 +82,8 @@
 - [x] Provide a non-binding tabletop exercise protocol covering withdrawal,
   global-claim pressure, funder independence, stigmatizing language and
   disclosure risk. Evidence: `docs/governance-015-tabletop-template.md`.
-- [ ] Run an authorised governance tabletop and record decisions; external
-  facilitator, patient/community authority and governance appointments remain
-  required.
+- [x] Run the authorised owner-operated governance tabletop and record bounded
+  decisions; it is not independent, human, community or external approval.
 - [x] Prepare and negatively test a five-scenario simulated tabletop candidate
   against the pending operating-policy package without recording owner approval
   or external activation. Evidence:

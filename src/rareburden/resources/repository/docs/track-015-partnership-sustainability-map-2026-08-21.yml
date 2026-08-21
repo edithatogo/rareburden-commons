@@ -1,0 +1,69 @@
+schema_version: "1.0.0"
+track: 015-governance-partnership-policy
+status: bounded_non_contact_preparation
+repository_model: single_owner_unpaid_free_tier
+evidence_binding:
+  commit: d70c43e2b6a0e58776ace80576975d40244c87bc
+  tree: 548ffa55ce334d35910fe9ed0ccdaa7e5128de9e
+  initiatives_path: catalog/initiatives.yml
+  initiatives_sha256: 24862850048d75b07f93e1f158f8ff1138316851c7ffdc988b82e647d4d1e916
+claim_boundary: >-
+  These are repository-owner hypotheses for future consideration. No contact,
+  relationship, partnership, endorsement, commitment, funding, data access or
+  institutional approval is evidenced.
+relationship_state: potential_complementarity_no_relationship_evidenced
+targets:
+  - id: ihme
+    evidence_seed: ihme-gbd
+    potential_complementarity: comparative burden methods and cause hierarchies
+    minimum_ask: aggregate method metadata, hierarchy advice and lawful parameter interfaces
+    prohibited_inference: access_or_collaboration
+  - id: who
+    evidence_seed: who-ghe
+    potential_complementarity: indicator alignment and aggregate triangulation
+    minimum_ask: exact field-level rights, attribution and method definitions
+    prohibited_inference: WHO_programme_status_or_endorsement
+  - id: orphanet
+    evidence_seed: orphadata
+    potential_complementarity: nomenclature, release provenance and burden-purpose semantics
+    minimum_ask: exact release/change metadata and clarification of unresolved reuse terms
+    prohibited_inference: naming_authority_delegation
+  - id: rare_diseases_international
+    evidence_seed: rdi-lancet-commission
+    potential_complementarity: policy framing and future community-defined priorities
+    minimum_ask: only a future scoped invitation; no data or approval presumed
+    prohibited_inference: patient_or_community_authority
+  - id: world_economic_forum
+    evidence_seed: wef-rare-disease-data
+    potential_complementarity: later policy translation and convening
+    minimum_ask: none before reproducible bounded public evidence exists
+    prohibited_inference: sponsorship_or_partnership
+  - id: genomic_programmes
+    evidence_seeds: [genomics-england, all-of-us, rd-connect, erdera-virtual-platform]
+    potential_complementarity: governed parameter studies and federated validation
+    minimum_ask: cohort ascertainment, output controls, transportability and lawful access terms
+    prohibited_inference: population_representativeness_or_data_access
+sustainability_options:
+  - id: A
+    title: free_tier_repository_operation
+    annual_cash_budget: 0
+    status: selected
+    components: [GitHub_public_repository, Hugging_Face_free_tier, local_owner_operation]
+    trade_off: capacity and continuity remain bounded; controlled archives may pause
+    contingency: retain metadata_hashes_and_resumable_receipts_when_capacity_is_exhausted
+  - id: B
+    title: hosted_institutional_sponsorship
+    annual_cash_budget: unknown
+    status: inactive
+    activation_requires: written_scope_cost_control_independence_and_exit_terms
+  - id: C
+    title: external_grant_or_funder_support
+    annual_cash_budget: unknown
+    status: inactive
+    activation_requires: no_method_or_result_veto_and_public_conflict_disclosure
+stop_triggers:
+  - relationship_language_exceeds_evidence
+  - funder_or_host_controls_methods_or_results
+  - data_access_or_authority_is_inferred
+  - paid_capacity_is_committed_without_owner_budget_decision
+
