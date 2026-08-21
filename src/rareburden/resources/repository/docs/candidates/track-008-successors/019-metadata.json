@@ -1,0 +1,14 @@
+{
+  "id": "019-bounded-semantic-infrastructure",
+  "title": "Bounded non-clinical semantic infrastructure",
+  "status": "blocked",
+  "priority": "must",
+  "created": "2026-08-21",
+  "updated": "2026-08-21",
+  "target_release": "0.4.0",
+  "stage": "evidence_core",
+  "owner_role": "Repository owner (sole accountable human)",
+  "dependencies": ["002-public-source-acquisition", "007-landscape-novelty"],
+  "review_gates": ["methods", "rights_data_use", "simulated_community_harm", "engineering"],
+  "v1_critical": true
+}

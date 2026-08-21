@@ -12,6 +12,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	single-owner-agent-governance-check \
 	track-008-freeze-readiness-check \
 	track-008-split-candidate-check \
+	track-008-successor-implementation-candidate-check \
 	track-009-freeze-readiness-check \
 	track-009-source-profile-role-check \
 	track-010-alpha-freeze-readiness-check \
@@ -56,6 +57,10 @@ track-008-freeze-readiness-check:
 track-008-split-candidate-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track_008_split_candidate.py \
 		docs/track-008a-008b-scope-candidate-2026-08-21.yml --root .
+
+track-008-successor-implementation-candidate-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track_008_successor_implementation_candidate.py \
+		docs/candidates/track-008-successors/implementation-candidate.yml --root .
 
 track-009-freeze-readiness-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track_009_freeze_readiness.py \

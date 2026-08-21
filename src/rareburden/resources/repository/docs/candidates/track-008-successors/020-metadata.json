@@ -1,0 +1,14 @@
+{
+  "id": "020-clinical-community-semantic-assurance",
+  "title": "Clinical, community and extended-source semantic assurance",
+  "status": "blocked",
+  "priority": "must",
+  "created": "2026-08-21",
+  "updated": "2026-08-21",
+  "target_release": "0.4.0",
+  "stage": "evidence_core",
+  "owner_role": "Repository owner (sole accountable human)",
+  "dependencies": ["019-bounded-semantic-infrastructure"],
+  "review_gates": ["clinical_methods", "rights_data_use", "attributable_patient_community", "independent_engineering_semantic"],
+  "v1_critical": true
+}
