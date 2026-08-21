@@ -1,0 +1,74 @@
+schema_version: "1.0.0"
+track: "009-evidence-parameter-ledger"
+status: "bounded_synthetic_nonclinical_candidate_complete"
+scope:
+  mode: "synthetic_internal_preparation"
+  target_estimand_state: "undefined_nonbinding_profile_role"
+  source_state: "repository_owned_synthetic_only"
+  alternative_scope: "current_bound_profile_inventory_only_not_empirical_alternatives"
+  supported_effects:
+    - "schema-validated synthetic ledger exports"
+    - "deterministic regeneration and migration self-baseline checks"
+    - "source-to-bound-profile-role structural compatibility checks"
+    - "owner-operated preparation for a later exact candidate review"
+  prohibited_effects:
+    - "empirical parameter activation"
+    - "estimand or denominator fitness"
+    - "selection among empirical alternatives"
+    - "calibrated uncertainty or transportability validation"
+    - "source rights, retention or redistribution authorization"
+    - "contract freeze, Track 010 alpha eligibility or Track 003 eligibility"
+candidate:
+  repository_commit: "9477999619901c2c817a3c51121141c43e9c221b"
+  repository_tree: "47d99dba6c02e51823c788fa97c3ea10f9fa9aa4"
+  commit: "067e67f25802e0350c68d9ee25cecd10fdd52676"
+  tree: "1a2ad9562cad826558d04b4da1fe920795a7ea51"
+  manifest: "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json"
+  manifest_sha256: "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5"
+  migration_receipt: "manifests/ledger/track-009-v0.4-migration-impact-2026-08-21.json"
+  migration_sha256: "79f95631d38b6020c308ae01050f6a41a12e5aa3e3e4437d6f9c03002c7f8372"
+  schema: "schemas/parameter-ledger.schema.json"
+  schema_sha256: "f58ffd67c9b55d9cffecbc4c050e957e3092ca1bb2c383a54f0a9310d0ad4821"
+  profile_role_matrix: "examples/ledger/source-profile-role-structural-synthetic.yml"
+  profile_role_matrix_sha256: "6b4098089f7b6f0935d934b0900a455a19d4cfa85d45f598cb9fd6b30e7c7ef0"
+review_packet:
+  path: "docs/decisions/2026-08-22-track-009-bounded-synthetic-technical-review.yml"
+  sha256: "aff4a8ceff651a0c0066f61d58990fad982059e4452a411dbdbca8a7b218c93b"
+  candidate_commit: "9477999619901c2c817a3c51121141c43e9c221b"
+  candidate_tree: "47d99dba6c02e51823c788fa97c3ea10f9fa9aa4"
+claims:
+  empirical_estimand_fitness: false
+  alternative_selection: false
+  calibrated_uncertainty: false
+  transportability_validation: false
+  rights_authorized: false
+  contract_frozen: false
+  track_complete: false
+  track_010_alpha_eligible: false
+  track_003_eligible: false
+  independent_review: false
+  community_authority: false
+global_blockers:
+  - id: "EPI-MED-01"
+    status: "pending_globally"
+    scope: "outside_synthetic_candidate"
+  - id: "EPI-MED-02"
+    status: "pending_globally"
+    scope: "outside_synthetic_candidate"
+  - id: "GOV-MED-01"
+    status: "pending_globally"
+    scope: "outside_synthetic_candidate"
+owner_disposition:
+  status: "recorded"
+  decided_by: "edithatogo"
+  governance_status: "owner_operated_not_independent_review"
+  decision: "accept_bounded_subcompletion"
+  rationale: >-
+    Accept this exact repository-owned synthetic technical sub-completion. It
+    records structural, provenance and deterministic behavior only. Undefined
+    target estimands, empirical alternatives, source rights and all downstream
+    activation or freeze decisions remain outside scope and pending globally.
+invalidation: >-
+  Any candidate, input, export, schema, profile, matrix, upstream semantic,
+  lockfile or evidence-hash drift invalidates this receipt and requires
+  regeneration and a new owner disposition.

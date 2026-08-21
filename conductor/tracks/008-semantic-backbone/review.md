@@ -101,25 +101,20 @@ and the repository owner is the sole accountable decision-maker. The exact
 Option A disposition therefore closes the repository review task without
 creating an independence claim.
 
-### Bounded completion reconciliation — 2026-08-22
+Track 008 remains **blocked and incomplete**. The continuing blockers are
+factual or scope-specific: unresolved licence and redistribution terms for
+excluded source classes, source-specific mapping fitness, clinical validity,
+and actual-community naming authority for any use that would claim community
+participation, consent, endorsement or representation. Owner and agent work
+cannot self-attest those external facts or authorities.
 
-Repository review result: **Pass for the exact bounded provisional
-non-clinical scope**. The owner decision in
-`docs/decisions/2026-08-22-track-008-bounded-completion.yml` selects Option A:
-the exact Orphadata, MONDO and nine HPO ontology-core assets, provisional
-identifiers and mappings, source-native labels, synthetic hierarchy and
-deterministic migration controls. All 46 plan tasks are checked, metadata is
-`complete`, and the registry records `Complete (bounded non-clinical core)`.
+### Superseding bounded-completion disposition — 2026-08-22
 
-Role-separated agents advised and the repository owner decided. This is not
-clinical validation, independent review, patient/community participation,
-custodian permission, rights clearance for excluded sources, production
-activation or release authority.
-
-Track 008 is therefore **complete for the bounded scope**. The following remain
-conditional expansion gates: source or rights-holder evidence for any expanded
-allowlist, source-specific mapping fitness and clinical validity, actual-
-community authority for participation or representation claims, and a separate
-exact-candidate production-release decision. Track 009 may use the bounded
-semantic dependency for preparation, but its own evidence, freeze and release
-gates remain open.
+The later owner decision `docs/decisions/2026-08-22-track-008-bounded-completion.yml`
+supersedes the preceding broad-scope status for the exact bounded completion
+scope only. Track 008 is `complete` only for the recorded provisional,
+non-clinical semantic core and its exact allowlisted assets. It remains
+incomplete for clinical, public-facing, authority-bearing, community,
+rights-expansion and production purposes. This append-only clarification does
+not rewrite the historical review finding or create independent, clinical,
+community, custodian or external approval.

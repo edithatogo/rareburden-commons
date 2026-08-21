@@ -1,0 +1,86 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "009-evidence-parameter-ledger"
+candidate:
+  commit: "9477999619901c2c817a3c51121141c43e9c221b"
+  tree: "47d99dba6c02e51823c788fa97c3ea10f9fa9aa4"
+  evidence_manifest_sha256: "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5"
+panel:
+  perspectives:
+    - "simulated epidemiology and estimand-fitness perspective"
+    - "simulated rights and data-governance perspective"
+    - "simulated engineering and reproducibility perspective"
+    - "simulated security and release perspective"
+  non_representation_statement: >-
+    These owner-requested agent simulations are advisory only. They are not
+    independent review, human or community participation, custodian authority,
+    consent, endorsement, partnership, production approval or release authority.
+evidence:
+  references:
+    - "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json"
+    - "manifests/ledger/track-009-v0.4-migration-impact-2026-08-21.json"
+    - "examples/ledger/source-profile-role-structural-synthetic.yml"
+    - "docs/track-009-bounded-synthetic-technical-receipt-2026-08-22.yml"
+    - "docs/track-008-freeze-readiness-2026-08-21.yml"
+  observed_facts:
+    - "The exact candidate contains repository-owned synthetic ledger exports only."
+    - "The profile-role matrix has undefined nonbinding target estimands and no empirical source payload."
+    - "Track 008 is complete only for its recorded bounded non-clinical scope."
+    - "The candidate manifest, migration receipt, schemas and structural matrix are hash-bound and reproducible."
+  simulated_assessments:
+    - "Accept a bounded technical sub-completion for structural, provenance and deterministic behavior."
+    - "Retain EPI-MED-01, EPI-MED-02 and GOV-MED-01 as global blockers outside this synthetic scope."
+    - "Permit a later bounded Track 010 interface review only against this exact receipt; do not freeze alpha."
+  cannot_infer:
+    - "empirical estimand or denominator fitness"
+    - "selection among empirical alternatives"
+    - "calibrated uncertainty or transportability validation"
+    - "source rights, retention, redistribution or custodian permission"
+    - "clinical validity, patient/community authority or independent review"
+uncertainty:
+  - "Target estimands remain undefined and nonbinding in the current profile inventory."
+  - "The bound profile inventory is not a complete empirical alternative universe."
+  - "Any source, schema, profile, export, lock or upstream semantic drift invalidates the receipt."
+dissent:
+  - "The simulated epidemiology perspective would defer any empirical or attributable ledger use until a complete alternative universe and denominator envelope exist."
+  - "The simulated rights perspective would quarantine any source-derived or restricted artifact absent exact field-level evidence."
+stop_triggers:
+  - "Any empirical, restricted, private, controlled, credentialed or source-derived input enters the candidate."
+  - "Any unassessed structural role is promoted to compatible, fit, active or authoritative."
+  - "Any owner or agent work is labelled independent, community, clinical, licensor or custodian approval."
+  - "Any candidate, input, export, schema, profile, migration, lock or upstream hash drift occurs."
+options:
+  - id: "A"
+    title: "Accept bounded synthetic technical sub-completion"
+    disposition: "accept"
+    trade_offs:
+      - "Enables deterministic interface preparation while requiring scoped status semantics and continued blocker reporting."
+    contingencies:
+      - "Invalidate on any stop trigger and rebind the exact candidate before further use."
+    rationale: "Captures repository-owned technical closure without overstating scientific or rights evidence."
+    minimum_evidence:
+      - "Exact hashes, schema validation, deterministic regeneration and structural negative tests pass."
+      - "Global empirical, rights and authority claims remain false or pending."
+  - id: "B"
+    title: "Retain preparation only"
+    disposition: "narrow"
+    trade_offs:
+      - "Preserves the strongest boundary but delays scoped interface review."
+    contingencies:
+      - "Keep the receipt as technical evidence without downstream dependency use."
+    rationale: "Use if scoped completion cannot be represented without confusing global completion."
+    minimum_evidence:
+      - "The candidate remains replaceable and all downstream readiness gates stay pending."
+recommendation:
+  option_id: "A"
+  rationale: "A scoped technical receipt is machine-enforceable and does not resolve any empirical or external gate."
+owner_decision:
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-22T00:00:00Z"
+  rationale: >-
+    Accept this exact bounded synthetic technical sub-completion as owner-operated
+    repository evidence. It does not complete Track 009 globally, freeze its
+    contract, resolve EPI-MED-01/02 or GOV-MED-01, authorize rights, or permit
+    Track 010 alpha, Track 003, production or release claims.
