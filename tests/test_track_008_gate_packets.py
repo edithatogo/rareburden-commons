@@ -37,9 +37,9 @@ def test_track_008_reconciles_owner_source_dispositions_without_activation() -> 
         "included_in_exact_hash_identified_allowlist_subject_to_mapping_fitness_review"
     )
     assert records["human-phenotype-ontology"]["owner_disposition"] == (
-        "asset_by_asset_only_uncleared_assets_metadata_only_or_excluded"
+        "nine_ontology_core_assets_included_all_other_asset_classes_metadata_only_or_excluded"
     )
-    assert records["human-phenotype-ontology"]["semantic_use"].startswith("disabled_")
+    assert records["human-phenotype-ontology"]["byte_route"] == ("public_exact_asset_allowlist")
     assert document["activation"] == "synthetic_and_metadata_only_no_v0_4_freeze"
 
 
@@ -58,7 +58,7 @@ def test_track_008_source_inventory_rejects_unsafe_activation_and_rights() -> No
         for record in unsafe_public["records"]
         if record["source_id"] == "human-phenotype-ontology"
     )
-    hpo["byte_route"] = "public_rights_filtered_archive"
+    hpo["owner_disposition"] = "all_hpo_assets_public"
     with pytest.raises(ValueError, match="lacks exact permissive terms"):
         render_inventory(unsafe_public, ROOT)
 
@@ -68,7 +68,6 @@ def test_track_008_source_inventory_keeps_controlled_bytes_disabled() -> None:
         (ROOT / "docs/track-008-source-release-inventory-2026-08-03.yml").read_text()
     )
     for source_id in (
-        "human-phenotype-ontology",
         "umls-2026aa",
         "snomed-ct-uts-current",
         "who-icd-api-observation",
@@ -76,6 +75,15 @@ def test_track_008_source_inventory_keeps_controlled_bytes_disabled() -> None:
         record = next(record for record in document["records"] if record["source_id"] == source_id)
         assert record["byte_route"] == "private_licensed_archive_only"
         assert "disabled" in record["semantic_use"]
+
+    hpo = next(
+        record
+        for record in document["records"]
+        if record["source_id"] == "human-phenotype-ontology"
+    )
+    assert hpo["byte_route"] == "public_exact_asset_allowlist"
+    assert "no_annotations_or_mappings" in hpo["limitations"]
+    assert "not_complete_hpo_public_frontier" in hpo["limitations"]
 
 
 def test_track_008_panel_packet_preserves_accountable_gate_boundary() -> None:

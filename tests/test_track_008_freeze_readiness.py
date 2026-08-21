@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 import yaml
 
+import scripts.check_track_008_freeze_readiness as readiness_module
 from scripts.check_track_008_freeze_readiness import Track008ReadinessError, validate
 
 ROOT = Path(__file__).parents[1]
@@ -45,6 +46,100 @@ def test_readiness_rejects_hidden_finding(tmp_path: Path) -> None:
     document["naming_and_semantic_gate"]["unresolved_findings"].pop()
     with pytest.raises(Track008ReadinessError, match="four bounded-review findings"):
         validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_provisional_candidate_evidence_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["provisional_candidate_binding"]["candidate_manifest_sha256"] = "0" * 64
+    with pytest.raises(Track008ReadinessError, match="evidence hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_provisional_candidate_path_escape(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["provisional_candidate_binding"]["candidate_manifest"] = "../outside.json"
+    with pytest.raises(Track008ReadinessError, match="escapes repository"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_source_tree_not_owned_by_declared_commit(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    original = readiness_module._git_text
+
+    def wrong_tree(root: Path, revision: str) -> str:
+        if revision.endswith("^{tree}"):
+            return "0" * 40
+        return original(root, revision)
+
+    monkeypatch.setattr(readiness_module, "_git_text", wrong_tree)
+    with pytest.raises(Track008ReadinessError, match="does not belong"):
+        validate(READINESS, ROOT)
+
+
+def test_readiness_rejects_migration_receipt_overclaim(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    migration_path = ROOT / document["provisional_candidate_binding"]["migration_impact_receipt"]
+    original = migration_path.read_text(encoding="utf-8")
+    try:
+        migration_path.write_bytes(
+            original.replace("self-baseline drift check", "update").encode("utf-8")
+        )
+        document["provisional_candidate_binding"]["migration_impact_sha256"] = (
+            __import__("hashlib").sha256(migration_path.read_bytes()).hexdigest()
+        )
+        with pytest.raises(Track008ReadinessError, match="self-baseline-only"):
+            validate(_candidate(tmp_path, document), ROOT)
+    finally:
+        migration_path.write_bytes(original.encode("utf-8"))
+
+
+def test_provisional_binding_does_not_freeze_or_unblock_track_009() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    assert document["provisional_candidate_binding"]["status"] == (
+        "synthetic_public_readiness_only"
+    )
+    assert document["contract_freeze_gate"]["state"] == "pending"
+    assert document["v0_4_candidate_binding"]["status"] == ("owner_approved_preparation_not_frozen")
+    assert document["claims"] == {
+        "approved_ontology_pins": False,
+        "naming_authority": False,
+        "independent_semantic_review": False,
+        "contract_frozen": False,
+        "track_complete": False,
+    }
+
+
+def test_readiness_rejects_v0_4_candidate_evidence_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["v0_4_candidate_binding"]["migration_impact_sha256"] = "0" * 64
+    with pytest.raises(Track008ReadinessError, match=r"v0\.4 candidate evidence hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_v0_4_candidate_keeps_external_authority_claims_false() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    assert document["v0_4_candidate_binding"]["review_status"] == ("owner_operated_not_independent")
+    assert document["naming_and_semantic_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "pending"
+
+
+def test_v0_4_candidate_binds_generated_rows() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    manifest = __import__("json").loads(
+        (ROOT / document["v0_4_candidate_binding"]["candidate_manifest"]).read_text()
+    )
+    derived = {row["path"]: row for row in manifest["derived_candidate_artifacts"]}
+    mapping_path = "manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json"
+    assert derived[mapping_path]["rows"] == 9758
+
+
+def test_final_disposition_remains_pending_and_exact() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    disposition = document["final_owner_disposition_candidate"]
+    assert disposition["exact_candidate_commit"] == ("47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd")
+    assert disposition["owner_decision_state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "pending"
 
 
 def test_readiness_rejects_unbound_freeze(tmp_path: Path) -> None:

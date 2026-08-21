@@ -1,0 +1,98 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "008-semantic-backbone"
+candidate:
+  commit: "881f09152eae597fb376ced664bcfb6cabb07a7f"
+  tree: "795edb37102a727da43b0ef5038b9faa65912b34"
+  evidence_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+panel:
+  perspectives:
+    - "simulated rights and data-use perspective"
+    - "simulated semantic-methods perspective"
+    - "simulated patient-community harm perspective"
+    - "simulated engineering and release perspective"
+  non_representation_statement: >-
+    These are owner-operated simulations, not independent clinical review,
+    lived-experience participation, community representation, consent,
+    endorsement, partnership or external approval.
+evidence:
+  references:
+    - "manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json"
+    - "manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json"
+    - "docs/track-002-source-verification-2026-08-15.yml"
+    - "manifests/hpo/asset-rights-matrix-2026-08-16.json"
+    - "docs/huggingface-public-shift-followup-2026-08-21.yml"
+  observed_facts:
+    - "The exact Orphadata alignment file and three MONDO release assets have recorded release identities and SHA-256 values."
+    - "Nine HPO v2026-06-23 ontology-core assets are individually routed public under the observed official HPO conditions."
+    - "HPO annotations, mappings, merged imports, translations and build reports are not on this candidate allowlist."
+    - "Controlled, credentialed, mixed-rights and insufficiently evidenced sources remain excluded or metadata-only."
+  simulated_assessments:
+    - "Asset-level routing is preferable to a source-family-wide permission because HPO rights differ by asset class."
+    - "The generated real-source rows remain provisional, moderate-confidence and non-clinical; preparation does not activate them."
+    - "Provisional labels require visible uncertainty and versioned alias or deprecation handling."
+  cannot_infer:
+    - "clinical validity or diagnostic fitness"
+    - "comprehensive or representative coverage"
+    - "patient or community authority"
+    - "independent review"
+    - "partnership, endorsement or external approval"
+uncertainty:
+  - "The public HPO frontier is incomplete and later eligible objects may require a new candidate."
+  - "No final real-source mapping set or naming list is present in this candidate."
+  - "Publisher terms or embedded third-party rights may change or be clarified."
+dissent:
+  - "The harm perspective would prefer synthetic identifiers until accountable community input exists."
+  - "The engineering perspective accepts provisional labels only when machine-readable authority flags remain false."
+stop_triggers:
+  - "Any candidate, source or evidence hash drift."
+  - "Discovery of third-party or controlled content in an allowlisted asset."
+  - "A proposed mapping collapses ambiguity or implies clinical equivalence."
+  - "A release surface implies community authority, independent review, partnership or approval."
+options:
+  - id: "A"
+    title: "Prepare the exact bounded candidate"
+    disposition: "accept"
+    trade_offs:
+      - "Enables reversible progress while requiring asset-level provenance and visible limitations."
+    contingencies:
+      - "Quarantine any drifting or newly uncertain asset and regenerate the candidate."
+      - "Keep Track 008 blocked until the final hash-bound freeze decision."
+    rationale: "This is the broadest source and semantic scope supported by current exact evidence without claiming external authority."
+    minimum_evidence:
+      - "Exact source paths, releases, byte sizes and SHA-256 values."
+      - "Observed licence route and explicit excluded asset classes."
+      - "Hash-bound candidate and migration-impact receipt."
+  - id: "B"
+    title: "Use Orphadata and MONDO only"
+    disposition: "narrow"
+    trade_offs:
+      - "Reduces HPO rights complexity but removes cleared phenotype ontology utility."
+    contingencies:
+      - "Add HPO later through a versioned migration after separate review."
+    rationale: "This is a credible conservative fallback if HPO evidence or operational routing drifts."
+    minimum_evidence:
+      - "Exact Orphadata and MONDO manifests and attribution."
+  - id: "C"
+    title: "Freeze the broad contract now"
+    disposition: "defer"
+    trade_offs:
+      - "Would move fastest but would bind an incomplete mapping and naming surface."
+    contingencies:
+      - "Reconsider only after the final mapping rows, naming list, challenge and migration diff exist."
+    rationale: "Preparation evidence cannot substitute for the final exact-candidate freeze disposition."
+    minimum_evidence:
+      - "Final semantic manifest, mapping diff, challenge findings and owner freeze decision."
+recommendation:
+  option_id: "A"
+  rationale: "Prepare the exact bounded candidate now, retain all authority flags as false, and preserve a separate final freeze gate."
+owner_decision:
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-20T23:15:23Z"
+  rationale: >-
+    Owner approved preparation using cleared Orphadata, MONDO and individually
+    verified public HPO objects, with non-clinical typed alignment,
+    provisional owner-operated naming, explicit exclusions, no independent
+    review claim and no Track 008 freeze or completion.

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "track": "009-evidence-parameter-ledger",
-  "upstream_inventory_sha256": "458f5159382a631a573497b7ea71f9b9f79c37f2331b00b79897d522f5dba1ec",
+  "upstream_inventory_sha256": "33eba99430af2f69b79d473aa83fd9702f5191fde2ef8059016ca5706ee163e9",
   "source_releases": [
     {
       "source_release_id": "orphadata-science-alignments",
@@ -9,7 +9,7 @@
       "visibility": "public",
       "activation_state": "disabled_semantic_only",
       "evidence": "track_008",
-      "provenance_manifest_sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"
+      "provenance_manifest_sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"
     },
     {
       "source_release_id": "orphadata-current-scientific-pages",
@@ -17,7 +17,7 @@
       "visibility": "public",
       "activation_state": "disabled_discovery_only",
       "evidence": "track_008",
-      "provenance_manifest_sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"
+      "provenance_manifest_sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"
     },
     {
       "source_release_id": "orphacode-nomenclature-packs",
@@ -25,7 +25,7 @@
       "visibility": "public",
       "activation_state": "disabled_mapping_review",
       "evidence": "track_008",
-      "provenance_manifest_sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"
+      "provenance_manifest_sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"
     },
     {
       "source_release_id": "human-phenotype-ontology",
@@ -33,7 +33,7 @@
       "visibility": "private",
       "activation_state": "disabled_rights",
       "evidence": "track_008",
-      "provenance_manifest_sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"
+      "provenance_manifest_sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"
     },
     {
       "source_release_id": "mondo-disease-ontology",
@@ -41,7 +41,7 @@
       "visibility": "public",
       "activation_state": "disabled_mapping_review",
       "evidence": "track_008",
-      "provenance_manifest_sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"
+      "provenance_manifest_sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"
     },
     {
       "source_release_id": "umls-2026aa",
@@ -49,7 +49,7 @@
       "visibility": "private",
       "activation_state": "disabled_controlled",
       "evidence": "track_008",
-      "provenance_manifest_sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"
+      "provenance_manifest_sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"
     },
     {
       "source_release_id": "snomed-ct-uts-current",
@@ -57,7 +57,7 @@
       "visibility": "private",
       "activation_state": "disabled_controlled",
       "evidence": "track_008",
-      "provenance_manifest_sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"
+      "provenance_manifest_sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"
     },
     {
       "source_release_id": "who-icd-api-observation",
@@ -65,7 +65,7 @@
       "visibility": "private",
       "activation_state": "disabled_rights",
       "evidence": "track_008",
-      "provenance_manifest_sha256": "6d336a1b0f60e49516629dbffc3063940cacc831a54d3da6c6ba463bfdf4e2ea"
+      "provenance_manifest_sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"
     },
     {
       "source_release_id": "orphadata-science-epidemiology-july-2026",
@@ -115,5 +115,5 @@
     "epidemiology_approval": false,
     "rights_approval": false
   },
-  "binding_set_sha256": "ac8055ead105f378bc5d260a1f2c081ce4e30c4486aa8675dde4d24cd37c0d8c"
+  "binding_set_sha256": "5f71e87934ce3171b4a36aa5aa930f00d08d047bf14970ccafd03292a556c909"
 }
