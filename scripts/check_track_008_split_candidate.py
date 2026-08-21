@@ -48,8 +48,20 @@ EXPECTED_ROUTE_CLASSES = {
     "controlled_mixed_or_unresolved_sources",
 }
 DERIVED_QUARANTINE_ROUTE = (
-    "already_public_repository_artifacts_quarantined_from_activation_and_"
-    "further_release_pending_rights_disposition"
+    "already_public_in_git_no_additional_repository_owned_publication_export_"
+    "rendering_activation_or_promotion_pending_rights_disposition"
+)
+EXPECTED_DERIVED_ARTIFACTS = {
+    "manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json": (
+        "ae617b0826ce17915ddeff73be78f5b10f88bb9e89df634a86c0921d51df188e"
+    ),
+    "manifests/semantics/track-008-v0.4-provisional-naming.json": (
+        "a4cb8c3cbb0e7f3dc0ad013252301ff811c0a07711161748ed57196baabee05f"
+    ),
+}
+PROPOSED_CONTAINMENT = (
+    "do_not_additionally_publish_export_render_activate_or_promote_pending_exact_"
+    "rights_and_scope_disposition; historical_git_availability_persists"
 )
 FALSE_CLAIMS = {
     "track_008a_complete",
@@ -211,20 +223,28 @@ def validate(candidate_path: Path, root: Path) -> None:
     }:
         raise Track008SplitError("exact source allowlist or route has drifted")
     derived = routes.get("source_derived_mapping_or_extracted_label_artifacts", {})
-    if (
-        derived.get("route")
-        != DERIVED_QUARANTINE_ROUTE
-        or derived.get("successor_gate")
-        != [
-            "019-bounded-semantic-infrastructure",
-            "020-clinical-community-semantic-assurance",
-        ]
-    ):
+    if derived.get("route") != DERIVED_QUARANTINE_ROUTE or derived.get("successor_gate") != [
+        "019-bounded-semantic-infrastructure",
+        "020-clinical-community-semantic-assurance",
+    ]:
         raise Track008SplitError(
             "source-derived artifacts must remain quarantined and assurance-gated"
         )
-    for artifact in derived.get("artifacts", []):
-        if artifact.get("sha256") != _sha256(root / artifact.get("path", "")):
+    artifacts = derived.get("artifacts", [])
+    artifact_map = {
+        artifact.get("path"): artifact.get("sha256")
+        for artifact in artifacts
+        if isinstance(artifact, dict)
+    }
+    if (
+        artifact_map != EXPECTED_DERIVED_ARTIFACTS
+        or len(artifacts) != len(EXPECTED_DERIVED_ARTIFACTS)
+        or derived.get("public_exposure_observed_at") != "2026-08-21"
+        or derived.get("proposed_containment") != PROPOSED_CONTAINMENT
+    ):
+        raise Track008SplitError("public source-derived exposure record is incomplete")
+    for relative, expected in artifact_map.items():
+        if expected != _sha256(root / relative):
             raise Track008SplitError("public source-derived artifact hash drift")
     controlled = routes["controlled_mixed_or_unresolved_sources"]
     if controlled.get("route") != "private_or_metadata_only" or controlled.get(
