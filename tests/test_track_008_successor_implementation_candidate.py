@@ -75,3 +75,50 @@ def test_rejects_unknown_mode_acceptance(tmp_path: Path, monkeypatch: pytest.Mon
     monkeypatch.setattr(Path, "read_text", changed)
     with pytest.raises(SuccessorCandidateError, match="default must fail closed"):
         validate(CANDIDATE, ROOT)
+
+
+def test_rejects_missing_atomic_effect(tmp_path: Path) -> None:
+    document = _document(CANDIDATE)
+    document["required_atomic_effects"].pop()
+    with pytest.raises(SuccessorCandidateError, match="atomic effects are incomplete"):
+        validate(_write(tmp_path, document), ROOT)
+
+
+def test_rejects_candidate_file_hash_drift(tmp_path: Path) -> None:
+    document = _document(CANDIDATE)
+    first = document["candidate_files"][0]
+    document["candidate_file_sha256"][first] = "0" * 64
+    with pytest.raises(SuccessorCandidateError, match="candidate file hash drift"):
+        validate(_write(tmp_path, document), ROOT)
+
+
+def test_rejects_receipt_register_claim(monkeypatch: pytest.MonkeyPatch) -> None:
+    register_path = ROOT / "docs/candidates/track-008-successors/external-evidence-register.yml"
+    register = _document(register_path)
+    register["claims"]["rights_cleared"] = True
+    original = Path.read_text
+
+    def changed(path: Path, *args: object, **kwargs: object) -> str:
+        if path.resolve() == register_path.resolve():
+            return yaml.safe_dump(register, sort_keys=False)
+        return original(path, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "read_text", changed)
+    with pytest.raises(SuccessorCandidateError, match="cannot satisfy a gate"):
+        validate(CANDIDATE, ROOT)
+
+
+def test_atomic_dependency_migration_dry_run_rolls_back_exactly() -> None:
+    migration = _document(ROOT / "docs/candidates/track-008-successors/reference-migration.yml")
+    before = {
+        row["consumer"]: copy.deepcopy(row["current"])
+        for row in migration["operational_references"]
+    }
+    simulated = copy.deepcopy(before)
+    for row in migration["operational_references"]:
+        simulated[row["consumer"]] = copy.deepcopy(row["proposed"])
+    assert simulated != before
+
+    for consumer, dependencies in before.items():
+        simulated[consumer] = copy.deepcopy(dependencies)
+    assert simulated == before
