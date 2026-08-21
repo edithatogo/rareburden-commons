@@ -74,6 +74,10 @@
   installed-wheel doctor, synthetic reference workflow and synthetic-node
   passes. The run is owner-operated and explicitly not independent reproduction.
 - [ ] Complete owner-operated clean-environment reproduction and agent-panel release-content audit.
+- [x] Prepare an exact-candidate, non-authorizing release-content audit packet
+  that routes panel advice and unresolved gates to the accountable owner.
+  Evidence: `docs/track-014-release-content-audit-preparation-2026-08-22.json`;
+  the owner decision and all external gates remain pending.
 - [ ] Publish v0.8 beta only after Track 013 approval.
 
 ## Preparatory dependency review — 2026-07-29
