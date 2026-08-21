@@ -61,7 +61,7 @@ provisional_candidate_binding:
   invalidation: "any artifact, commit, tree or evidence hash drift"
   effect: "none_on_approval_naming_independent_review_freeze_or_track_009"
 v0_4_candidate_binding:
-  status: "owner_approved_preparation_not_frozen"
+  status: "owner_accepted_bounded_contract_frozen"
   source_commit: "881f09152eae597fb376ced664bcfb6cabb07a7f"
   source_tree: "795edb37102a727da43b0ef5038b9faa65912b34"
   candidate_manifest: "manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json"
@@ -73,32 +73,33 @@ v0_4_candidate_binding:
   challenge_findings: "docs/track-008-v0.4-candidate-challenge-2026-08-21.yml"
   challenge_findings_sha256: "895d310f05c2a964c62b16a0972684d476ad9b03ee9e53d6d26e5dc8ebe0c3db"
   review_status: "owner_operated_not_independent"
-  effect: "candidate_preparation_only_no_contract_freeze_or_track_completion"
+  effect: "bounded_provisional_non_clinical_contract_freeze_only_no_track_completion"
 final_owner_disposition_candidate:
   exact_candidate_commit: "47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd"
   exact_candidate_tree: "af2bc0074ae6c77a65f8c47da04431b08baca77f"
   decision_packet: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
-  decision_packet_sha256: "0a1bff03d491265cb3fa9dfb5911ca848b0b3dedd49c7a85524222403ea1e868"
+  decision_packet_sha256: "b7d09cfa9987991007fab783d407013335946da65e9825ff3af682154c1b219f"
   recommended_option: "A"
-  owner_decision_state: "pending"
-  effect: "none_until_owner_selects_an_option_for_this_exact_candidate"
+  owner_decision_state: "accepted_option_a"
+  effect: "bounded_provisional_non_clinical_contract_freeze_only"
 contract_freeze_gate:
-  exact_candidate_commit: ""
-  semantic_manifest_sha256: ""
-  migration_impact_receipt: ""
-  blocking_findings_resolved: false
-  accountable_freeze_decision: ""
-  state: "pending"
+  exact_candidate_commit: "47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd"
+  semantic_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+  migration_impact_receipt: "manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json"
+  blocking_findings_resolved: true
+  resolution_scope: "bounded provisional non-clinical candidate only; external naming, clinical, community, rights and independent-review findings remain pending"
+  accountable_freeze_decision: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
+  state: "satisfied"
 claims:
   approved_ontology_pins: false
   naming_authority: false
   independent_semantic_review: false
-  contract_frozen: false
+  contract_frozen: true
   track_complete: false
 governance:
   repository_panel_output: "advisory"
   owner_disposition: "owner_operated_not_independent_review"
-  automated_validation_effect: "readiness_only_not_approval_review_or_freeze"
+  automated_validation_effect: "validates_recorded_scoped_freeze_only_not_approval_independent_review_track_completion_or_external_authority"
 next_action:
-  repository_owned: "preserve the hash-bound provisional candidate, reconcile it with bounded public HPO evidence, and re-run the source and naming challenge"
+  repository_owned: "preserve the frozen hash-bound bounded candidate and invalidate it on any recorded stop trigger"
   external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"

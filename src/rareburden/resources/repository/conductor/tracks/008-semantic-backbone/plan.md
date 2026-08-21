@@ -177,8 +177,12 @@
   challenge and two fallback options for owner disposition. Evidence:
   `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. The
   decision remains pending; do not freeze or complete Track 008 automatically.
-- [ ] Record the owner's exact-candidate disposition and, only if selected,
-  apply the bounded contract-freeze state without marking Track 008 complete.
+- [x] Record the owner's exact-candidate Option A disposition for commit
+  `47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd` and tree
+  `af2bc0074ae6c77a65f8c47da04431b08baca77f`, and apply only the bounded
+  provisional non-clinical contract freeze. Track 008 remains blocked and
+  incomplete; external naming, clinical, patient/community, rights and
+  independent-review gates remain pending.
 
 ## Review fixes — 2026-08-21
 
