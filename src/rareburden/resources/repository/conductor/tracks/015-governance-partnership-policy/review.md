@@ -93,3 +93,19 @@ Disposition: **pass for bounded repository governance; external activation
 disabled**. This is not independent or human review, community authority,
 third-party permission, partnership, funding, country-node approval, global
 representativeness, production activation or stable-release authority.
+
+## Agent-advice and external-fact boundary — 2026-08-21
+
+The owner directed removal of third-party aspects unless genuinely necessary.
+Repository governance challenge is therefore supplied by role-separated agents
+and decided by the owner; no independent adviser, additional human reviewer,
+committee, council or constituted body is required. The previously grouped
+external gates were narrowed to conditional facts that only apply when their
+dependent capability or claim is activated.
+
+Disposition: **pass for the revised single-owner governance contract**. Track
+015 remains blocked only by its Track 013 dependency. Publisher/licensor rights,
+controlled-data permission, confirmed relationships, country-node authority,
+unrelated community or Indigenous consent/representation, and unqualified
+global claims still require evidence from the relevant external authority if
+used; they are not prerequisites for bounded repository work.

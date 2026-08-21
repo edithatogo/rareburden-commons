@@ -96,8 +96,9 @@
 - [x] Prepared `docs/track-015-governance-review-packet.md` with exact
   constitution, patient/community, custodian, scientific-independence and
   relationship evidence requirements.
-- [ ] Keep governance, partnership and endorsement states unactivated until
-  constituted dispositions are recorded.
+- [x] Keep partnership and endorsement states unactivated unless attributable
+  counterparty evidence is recorded; repository governance decisions use
+  role-separated agent advice and owner disposition.
 
 ## Bounded repository reconciliation — 2026-08-16
 
@@ -140,9 +141,10 @@
   Tracks 008–010 remain blocked/provisional and all accountable community,
   rights, custodian, empirical and release gates remain pending. Evidence:
   `docs/decisions/2026-08-20-owner-patient-community-governance-disposition.md`.
-- [ ] Keep authority for unrelated communities or country nodes, publisher
-  rights, third-party custodian policy and all real-data or public-release
-  permissions pending until attributable evidence exists.
+- [x] Keep authority for unrelated communities or country nodes, publisher
+  rights, third-party custodian policy and real-data permissions inactive
+  unless attributable evidence exists; these are conditional activation facts,
+  not requirements for bounded repository advice or owner decisions.
 
 ## Completion attempt — 2026-08-21
 
@@ -152,9 +154,20 @@
 - [x] Record the track as blocked rather than self-attesting constituted bodies,
   approvals, remuneration, partnership, global representation or release
   authority. Evidence: Track 015 metadata, register and review.
-- [ ] Receive attributable, scope-matched receipts for every applicable gate in
-  `docs/track-015-external-gate-closure-2026-08-21.yml`; then rerun the exact-
-  candidate review and record a constituted governance readiness decision.
+- [ ] Complete the Track 013 dependency. If a third-party-dependent capability
+  is later activated, first receive its scope-matched receipt under
+  `docs/track-015-external-gate-closure-2026-08-21.yml` and rerun the affected
+  exact-candidate review; no independent-advice or constituted-body gate is
+  required for bounded repository governance.
+
+## Agent-advice and external-fact boundary — 2026-08-21
+
+- [x] Replace unnecessary independent, constituted-body and external-advice
+  gates with role-separated agent challenge plus owner disposition; retain
+  third-party receipts only for rights, permissions, relationships,
+  representation or jurisdictional authority actually activated. Evidence:
+  `docs/decisions/2026-08-21-track-015-agent-advice-boundary.yml` and
+  `docs/track-015-external-gate-closure-2026-08-21.yml`.
 
 ## Single-accountable-human enforcement — 2026-08-21
 
