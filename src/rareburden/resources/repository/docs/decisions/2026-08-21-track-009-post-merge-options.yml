@@ -93,4 +93,14 @@ recommendation:
     preparation and add Option B's containment safeguards. This maximises safe
     repository-owned progress without satisfying any review or freeze gate.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T06:27:02Z"
+  rationale: >-
+    As sole accountable repository owner and maintainer, I accept the panel's
+    recommendation for this exact candidate only as reversible, clearly
+    labelled synthetic preparation with fail-closed containment safeguards.
+    This is owner-operated governance, not independent review, approval of any
+    empirical or controlled input, contract freeze, production approval,
+    public-readiness determination or release authority.

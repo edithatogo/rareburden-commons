@@ -39,6 +39,18 @@ v0_4_candidate_preparation:
   review_preparation_sha256: "853dd184b65b45dbb016457c76135b3105b9844142c3f71d295c332c00c5ab84"
   invalidation: "any input, export, schema, upstream semantic or evidence hash drift"
   effect: "exact_synthetic_review_preparation_only_no_activation_review_or_freeze"
+bounded_owner_disposition:
+  status: "authorized_bounded_synthetic_preparation_only"
+  exact_candidate_commit: "a9ef5b1ffdba55a0d45faf670d8679d890e414d6"
+  exact_candidate_tree: "6fa0fd46a54db0970ba04611f6cf90443525b9b7"
+  candidate_manifest_sha256: "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5"
+  decision: "docs/decisions/2026-08-21-track-009-post-merge-options.yml"
+  decision_sha256: "d6b7454973c87d650fb381f5a5b7b152e3b75dcbab41599c99536dc504958562"
+  selected_option: "A"
+  authority: "repository_owner_sole_accountable_human"
+  governance_status: "owner_operated_not_independent_review"
+  effect: "reversible_synthetic_preparation_and_containment_only_no_review_activation_freeze_or_release"
+  invalidation: "any recorded stop trigger or candidate, evidence, containment or upstream semantic drift"
 blocking_data_contract_issues:
   - id: "EPI-MED-01"
     finding: "source availability does not establish parameter estimand fitness"
