@@ -71,6 +71,13 @@ def test_split_candidate_rejects_source_derived_republication(tmp_path: Path) ->
         validate(_candidate(tmp_path, document), ROOT)
 
 
+def test_split_candidate_rejects_missing_exposed_artifact(tmp_path: Path) -> None:
+    document = _document()
+    document["artifact_routes"][2]["artifacts"].pop()
+    with pytest.raises(Track008SplitError, match="exposure record is incomplete"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
 def test_split_candidate_rejects_synthetic_context_loss(tmp_path: Path) -> None:
     document = _document()
     document["artifact_routes"][0]["route"] = "repository_distributable"

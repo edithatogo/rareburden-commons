@@ -30,12 +30,12 @@ artifact_routes:
     exact_allowlist: ["orphadata_july_2026_en_product1_xml", "mondo_v2026_08_04_three_assets", "hpo_v2026_06_23_nine_ontology_core_assets"]
     successor_gate: ["019-bounded-semantic-infrastructure"]
   - class: "source_derived_mapping_or_extracted_label_artifacts"
-    route: "already_public_repository_artifacts_quarantined_from_activation_and_further_release_pending_rights_disposition"
+    route: "already_public_in_git_no_additional_repository_owned_publication_export_rendering_activation_or_promotion_pending_rights_disposition"
     public_exposure_observed_at: "2026-08-21"
     artifacts:
       - {path: "manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json", sha256: "ae617b0826ce17915ddeff73be78f5b10f88bb9e89df634a86c0921d51df188e"}
       - {path: "manifests/semantics/track-008-v0.4-provisional-naming.json", sha256: "a4cb8c3cbb0e7f3dc0ad013252301ff811c0a07711161748ed57196baabee05f"}
-    owner_response: "do_not_activate_republish_or_render_pending_exact_rights_and_scope_disposition"
+    proposed_containment: "do_not_additionally_publish_export_render_activate_or_promote_pending_exact_rights_and_scope_disposition; historical_git_availability_persists"
     successor_gate: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
   - class: "controlled_mixed_or_unresolved_sources"
     route: "private_or_metadata_only"
