@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -29,6 +31,26 @@ SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
 
 
+def _sha256(path: Path) -> str:
+    try:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+    except OSError as exc:
+        raise Track008ReadinessError(f"cannot hash {path}: {exc}") from exc
+
+
+def _repository_path(root: Path, value: object) -> Path:
+    if not isinstance(value, str) or not value:
+        raise Track008ReadinessError("provisional candidate path is missing")
+    candidate = (root / value).resolve()
+    try:
+        candidate.relative_to(root.resolve())
+    except ValueError as exc:
+        raise Track008ReadinessError(
+            f"provisional candidate path escapes repository: {value}"
+        ) from exc
+    return candidate
+
+
 def _load(path: Path) -> dict[str, Any]:
     try:
         value = yaml.safe_load(path.read_text(encoding="utf-8"))
@@ -37,6 +59,33 @@ def _load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise Track008ReadinessError(f"{path} must contain a mapping")
     return value
+
+
+def _git_bytes(root: Path, revision: str, path: str) -> bytes:
+    try:
+        return subprocess.run(
+            ["git", "show", f"{revision}:{path}"],
+            cwd=root,
+            check=True,
+            capture_output=True,
+        ).stdout
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise Track008ReadinessError(
+            f"cannot resolve declared Git object {revision}:{path}"
+        ) from exc
+
+
+def _git_text(root: Path, revision: str) -> str:
+    try:
+        return subprocess.run(
+            ["git", "rev-parse", revision],
+            cwd=root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise Track008ReadinessError(f"cannot resolve declared Git revision {revision}") from exc
 
 
 def _metadata(root: Path, track: str) -> dict[str, Any]:
@@ -97,6 +146,82 @@ def validate(path: Path, root: Path) -> None:
     claims = document.get("claims", {})
     if any(claims.get(name) is not False for name in FALSE_CLAIMS):
         raise Track008ReadinessError("blocked Track 008 claims must remain false")
+
+    binding = document.get("provisional_candidate_binding", {})
+    if (
+        binding.get("status") != "synthetic_public_readiness_only"
+        or binding.get("effect") != "none_on_approval_naming_independent_review_freeze_or_track_009"
+    ):
+        raise Track008ReadinessError("provisional candidate must remain readiness-only")
+    if not COMMIT.fullmatch(str(binding.get("source_commit", ""))) or not COMMIT.fullmatch(
+        str(binding.get("source_tree", ""))
+    ):
+        raise Track008ReadinessError(
+            "provisional candidate requires exact commit and tree bindings"
+        )
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("migration_impact_receipt", "migration_impact_sha256"),
+        ("advisory_options", "advisory_options_sha256"),
+    ):
+        relative = binding.get(path_field)
+        expected = binding.get(hash_field)
+        if not isinstance(relative, str) or not SHA256.fullmatch(str(expected)):
+            raise Track008ReadinessError("provisional candidate evidence binding is incomplete")
+        evidence_path = _repository_path(root, relative)
+        if _sha256(evidence_path) != expected:
+            raise Track008ReadinessError(f"provisional candidate evidence hash drift: {relative}")
+
+    try:
+        manifest = json.loads(
+            _repository_path(root, binding["candidate_manifest"]).read_text(encoding="utf-8")
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise Track008ReadinessError(f"cannot read provisional candidate manifest: {exc}") from exc
+    if manifest.get("source_commit") != binding.get("source_commit") or manifest.get(
+        "source_tree"
+    ) != binding.get("source_tree"):
+        raise Track008ReadinessError("provisional candidate revision binding drift")
+    source_commit = str(binding["source_commit"])
+    if _git_text(root, f"{source_commit}^{{tree}}") != binding.get("source_tree"):
+        raise Track008ReadinessError("declared source tree does not belong to source commit")
+    if manifest.get("candidate_status") != "provisional_synthetic_public_only":
+        raise Track008ReadinessError("provisional candidate status is unsafe")
+    artifacts = manifest.get("artifacts")
+    if not isinstance(artifacts, list) or not artifacts:
+        raise Track008ReadinessError("provisional candidate artifact inventory is empty")
+    for artifact in artifacts:
+        if not isinstance(artifact, dict):
+            raise Track008ReadinessError("provisional candidate artifact is invalid")
+        artifact_path = artifact.get("path")
+        expected_hash = artifact.get("sha256")
+        if _sha256(_repository_path(root, artifact_path)) != expected_hash:
+            raise Track008ReadinessError("provisional candidate artifact hash drift")
+        if (
+            hashlib.sha256(_git_bytes(root, source_commit, str(artifact_path))).hexdigest()
+            != expected_hash
+        ):
+            raise Track008ReadinessError("declared Git artifact hash drift")
+
+    try:
+        migration = json.loads(
+            _repository_path(root, binding["migration_impact_receipt"]).read_text(encoding="utf-8")
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise Track008ReadinessError(f"cannot read migration impact receipt: {exc}") from exc
+    if (
+        migration.get("comparison") != "self-baseline drift check"
+        or migration.get("previous_fingerprint") != manifest.get("mapping_fingerprint")
+        or migration.get("current_fingerprint") != manifest.get("mapping_fingerprint")
+        or migration.get("interpretation")
+        != (
+            "The bound synthetic mapping has no drift against its own baseline. "
+            "This is not an ontology-update assessment or approval receipt."
+        )
+    ):
+        raise Track008ReadinessError(
+            "migration receipt must remain an explicit self-baseline-only check"
+        )
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
         if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):

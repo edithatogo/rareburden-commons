@@ -145,7 +145,7 @@ def test_mapping_set_rejects_ambiguous_exact_mapping() -> None:
     document = load_mapping(MAPPING_PATH)
     document["mappings"].append(
         {
-            "source_code": "552",
+            "source_code": "SYNTH-DX-A",
             "target_code": "other-monogenic-diabetes",
             "relation": "exact",
             "confidence": "high",
@@ -208,7 +208,7 @@ def test_mapping_set_diff_is_deterministic_and_reports_impact() -> None:
     current_document["mappings"].pop()
     current_document["mappings"].append(
         {
-            "source_code": "ORPHA:999999",
+            "source_code": "SYNTH-DX-C",
             "target_code": "synthetic-unmapped",
             "relation": "related",
             "confidence": "moderate",
@@ -222,9 +222,9 @@ def test_mapping_set_diff_is_deterministic_and_reports_impact() -> None:
     diff = diff_mapping_sets(previous, current)
     assert diff["previous_version"] == "0.1.0"
     assert diff["current_version"] == "0.2.0"
-    assert diff["added_source_codes"] == ["ORPHA:999999"]
+    assert diff["added_source_codes"] == ["SYNTH-DX-C"]
     assert diff["removed_source_codes"]
-    assert diff["changed_source_codes"] == ["552"]
+    assert diff["changed_source_codes"] == ["SYNTH-DX-A"]
     assert diff["impact_summary"] == {"added": 1, "removed": 1, "changed": 1}
 
 

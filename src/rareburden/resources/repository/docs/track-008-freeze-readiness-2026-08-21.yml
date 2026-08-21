@@ -48,6 +48,18 @@ naming_and_semantic_gate:
   independent_semantic_review_receipt: ""
   owner_disposition: ""
   state: "pending"
+provisional_candidate_binding:
+  status: "synthetic_public_readiness_only"
+  source_commit: "5f0d8dc31e019c3ac9c3dea537a2083617b8f758"
+  source_tree: "d4f9236f4c283329d3b11387768ec9b777aa7823"
+  candidate_manifest: "manifests/semantics/track-008-provisional-candidate-2026-08-21.json"
+  candidate_manifest_sha256: "07f027111746d505ab8cd45491acc471e13a1d5b4da45b73f5464a44252b0f81"
+  migration_impact_receipt: "manifests/semantics/track-008-provisional-migration-impact-2026-08-21.json"
+  migration_impact_sha256: "0f9f072c2de150753c1bfc6cde63bc3536c57fcfa59a4e9f136daf6521736c32"
+  advisory_options: "docs/track-008-provisional-candidate-advice-2026-08-21.yml"
+  advisory_options_sha256: "d99d7d786f65cd32b29b74ca672777a9df1ba13969ff3b437784b88aa8c62e45"
+  invalidation: "any artifact, commit, tree or evidence hash drift"
+  effect: "none_on_approval_naming_independent_review_freeze_or_track_009"
 contract_freeze_gate:
   exact_candidate_commit: ""
   semantic_manifest_sha256: ""
@@ -66,5 +78,5 @@ governance:
   owner_disposition: "owner_operated_not_independent_review"
   automated_validation_effect: "readiness_only_not_approval_review_or_freeze"
 next_action:
-  repository_owned: "re-run bounded source and naming challenge against the reconciled exact candidate; preserve provisional contracts"
+  repository_owned: "re-run the bounded source and naming challenge against the reconciled hash-bound provisional candidate; validate incoming exact-candidate receipts"
   external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"
