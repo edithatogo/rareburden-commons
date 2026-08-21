@@ -28,15 +28,22 @@ BASELINE_FILES = {
     "track_009_metadata_sha256": "conductor/tracks/009-evidence-parameter-ledger/metadata.json",
     "track_009_readiness_sha256": "docs/track-009-freeze-readiness-2026-08-21.yml",
 }
-REQUIRED_TRANSFERS = {
-    "pinned extended source families",
-    "patient/community naming and aggregation review",
-    "clinical mapping-fitness review",
-    "independent semantic review",
-    "bounded non-clinical schemas, mappings, hierarchy and migration",
+REQUIRED_TRANSFER_IDS = {
+    *(f"RO-{index}" for index in range(1, 9)),
+    *(f"AC-{index}" for index in range(1, 8)),
+    "REV-1",
+    "V1-1",
+}
+REQUIRED_CONSUMERS = {
+    "003-monogenic-diabetes-demonstrator",
+    "009-evidence-parameter-ledger",
+    "011-bronchiectasis-demonstrator",
+    "012-paediatric-burden-demonstrator",
+    "014-atlas-api-release",
 }
 FALSE_CLAIMS = {
     "track_008a_complete",
+    "track_008_complete",
     "track_008b_complete",
     "track_009_unblocked",
     "scope_change_approved",
@@ -88,11 +95,24 @@ def _git(root: Path, revision: str) -> str:
         raise Track008SplitError(f"cannot resolve baseline revision {revision}") from exc
 
 
+def _git_blob_sha256(root: Path, commit: str, relative: str) -> str:
+    try:
+        value = subprocess.run(
+            ["git", "show", f"{commit}:{relative}"],
+            cwd=root,
+            check=True,
+            capture_output=True,
+        ).stdout
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise Track008SplitError(f"cannot read baseline Git blob: {relative}") from exc
+    return hashlib.sha256(value).hexdigest()
+
+
 def validate(candidate_path: Path, root: Path) -> None:
     """Validate exact binding, prospective scope, and unchanged dependency state."""
     candidate = _mapping(candidate_path)
-    if candidate.get("schema_version") != "1.0.0":
-        raise Track008SplitError("schema_version must be 1.0.0")
+    if candidate.get("schema_version") != "1.1.0":
+        raise Track008SplitError("schema_version must be 1.1.0")
     if candidate.get("status") != "prospective_scope_change_candidate_preparation_only":
         raise Track008SplitError("candidate must remain preparation only")
 
@@ -103,8 +123,8 @@ def validate(candidate_path: Path, root: Path) -> None:
         raise Track008SplitError("owner authorization must remain preparation-only")
     prohibited = set(authorization.get("prohibited_effects", []))
     if not {
-        "mark_track_008a_complete",
-        "mark_track_008b_complete",
+        "mark_track_008_or_successors_complete",
+        "register_or_activate_successor_tracks",
         "unblock_or_activate_track_009",
         "infer_final_owner_disposition",
     }.issubset(prohibited):
@@ -118,8 +138,18 @@ def validate(candidate_path: Path, root: Path) -> None:
     if _git(root, f"{commit}^{{tree}}") != tree:
         raise Track008SplitError("baseline commit does not own the declared tree")
     for field, relative in BASELINE_FILES.items():
-        if baseline.get(field) != _sha256(root / relative):
+        expected = baseline.get(field)
+        if expected != _sha256(root / relative) or expected != _git_blob_sha256(
+            root, commit, relative
+        ):
             raise Track008SplitError(f"baseline hash drift: {relative}")
+
+    historical = candidate.get("historical_track")
+    if not isinstance(historical, dict) or historical != {
+        "canonical_id": "008-semantic-backbone",
+        "treatment": "preserved_umbrella_blocked_pending_exact_supersession_decision",
+    }:
+        raise Track008SplitError("historical Track 008 must remain a blocked umbrella")
 
     tracks = candidate.get("proposed_tracks")
     if not isinstance(tracks, list) or len(tracks) != 2:
@@ -127,23 +157,40 @@ def validate(candidate_path: Path, root: Path) -> None:
     by_alias = {row.get("alias"): row for row in tracks if isinstance(row, dict)}
     if set(by_alias) != {"008A", "008B"}:
         raise Track008SplitError("proposed aliases must be 008A and 008B")
-    if by_alias["008A"].get("canonical_id") != "008-semantic-backbone":
-        raise Track008SplitError("008A must retain the historical canonical identifier")
-    if by_alias["008B"].get("canonical_id") != "019-clinical-community-semantic-assurance":
-        raise Track008SplitError("008B must use the schema-compatible 019 identifier")
-    if by_alias["008A"].get("candidate_state") != "blocked_pending_exact_scope_disposition":
-        raise Track008SplitError("008A must remain blocked pending disposition")
-    if by_alias["008B"].get("candidate_state") != "proposed_not_registered_or_active":
-        raise Track008SplitError("008B must remain unregistered and inactive")
+    expected_ids = {
+        "008A": "019-bounded-semantic-infrastructure",
+        "008B": "020-clinical-community-semantic-assurance",
+    }
+    if any(by_alias[alias].get("canonical_id") != value for alias, value in expected_ids.items()):
+        raise Track008SplitError("successors must use distinct canonical identifiers")
+    if any(
+        row.get("candidate_state") != "proposed_not_registered_or_active"
+        for row in by_alias.values()
+    ):
+        raise Track008SplitError("successors must remain unregistered and inactive")
 
-    transfers = candidate.get("transferred_requirement_register")
+    transfers = candidate.get("requirement_transfer_matrix")
     if not isinstance(transfers, list):
         raise Track008SplitError("transferred requirement register must be a list")
-    original_requirements = {
-        row.get("original_requirement") for row in transfers if isinstance(row, dict)
-    }
-    if original_requirements != REQUIRED_TRANSFERS:
-        raise Track008SplitError("transferred requirement register is incomplete or duplicated")
+    transfer_ids = [row.get("id") for row in transfers if isinstance(row, dict)]
+    if set(transfer_ids) != REQUIRED_TRANSFER_IDS or len(transfer_ids) != len(
+        REQUIRED_TRANSFER_IDS
+    ):
+        raise Track008SplitError("requirement transfer matrix is incomplete or duplicated")
+    if any(not row.get("source") or not row.get("destination") for row in transfers):
+        raise Track008SplitError("each requirement transfer needs source and destination")
+
+    routes = {row.get("class"): row for row in candidate.get("artifact_routes", [])}
+    derived = routes.get("source_derived_mapping_or_extracted_label_artifacts", {})
+    if derived.get(
+        "route"
+    ) != "private_non_activated_pending_derivative_and_third_party_rights" or derived.get(
+        "successor_gate"
+    ) != [
+        "019-bounded-semantic-infrastructure",
+        "020-clinical-community-semantic-assurance",
+    ]:
+        raise Track008SplitError("source-derived artifacts must remain private and assurance-gated")
 
     dependency = candidate.get("dependency_analysis")
     if not isinstance(dependency, dict):
@@ -151,12 +198,28 @@ def validate(candidate_path: Path, root: Path) -> None:
     current = dependency.get("current_track_009")
     if not isinstance(current, dict) or current != {
         "status": "blocked",
-        "dependency": "008-semantic-backbone",
+        "dependencies": ["002-public-source-acquisition", "008-semantic-backbone"],
         "activation": False,
     }:
         raise Track008SplitError("Track 009 current dependency state must remain blocked")
     if dependency.get("preparation_candidate_effect") != "none":
         raise Track008SplitError("preparation candidate cannot change dependencies")
+    modes = dependency.get("proposed_modes", {})
+    empirical = modes.get("source_derived_empirical_public_clinical_or_authority_bearing", {})
+    if (
+        empirical.get("depends_on")
+        != [
+            "019-bounded-semantic-infrastructure",
+            "020-clinical-community-semantic-assurance",
+        ]
+        or modes.get("default") != "deny_unknown_or_unlabelled_mode"
+    ):
+        raise Track008SplitError("empirical and unknown modes must fail closed")
+
+    consumers = candidate.get("downstream_consumer_inventory", [])
+    consumer_ids = [row.get("track") for row in consumers if isinstance(row, dict)]
+    if set(consumer_ids) != REQUIRED_CONSUMERS or len(consumer_ids) != len(REQUIRED_CONSUMERS):
+        raise Track008SplitError("downstream consumer inventory is incomplete or duplicated")
 
     if _metadata(root, "008-semantic-backbone").get("status") != "blocked":
         raise Track008SplitError("current Track 008 metadata must remain blocked")
