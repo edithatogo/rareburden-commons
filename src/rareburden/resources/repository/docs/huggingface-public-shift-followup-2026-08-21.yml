@@ -1,12 +1,12 @@
 schema_version: '1.0'
 status: exact_public_copy_verified_private_duplicate_removal
-recorded_at_utc: '2026-08-21T00:00:00Z'
+recorded_at_utc: '2026-08-21T02:05:00Z'
 repositories:
   private_source:
     id: edithatogo/hpo-licensed-ontology-archive
-    verified_revision: 1bdb0e3fb5092d96ed3e5328789ea3fcc0d875aa
-    head_files: 394
-    head_bytes: 89875386931
+    verified_revision: 720aa679d8a8fcf051ca95672400e874c4490a71
+    head_files: 354
+    head_bytes: 88730147338
   private_source_archive:
     id: edithatogo/rareburden-commons-source-archive
     verified_revision: ddf35f48f21dce831e346559b41549bd6188662d
@@ -14,12 +14,12 @@ repositories:
     head_bytes: 137925035
   account_private_dataset_head_total:
     repositories: 2
-    bytes: 90013311966
+    bytes: 88868072373
   public_destination:
     id: edithatogo/rareburden-commons-open-source-snapshots
-    verified_revision: 6eadca1e2b69a05aaf33d5f2ff1391daf94d33cc
-    head_files: 462
-    head_bytes: 10841596729
+    verified_revision: bdb5ef114d1b30634e576b231006225b6faafc78
+    head_files: 545
+    head_bytes: 12841237828
 reconciliations:
   - id: do_mp_pato_upheno_mesh
     private_head_commit: 2ef53e2e121af9d8fca2517d09b5a7b862ff36f5
@@ -80,10 +80,17 @@ reconciliations:
     bytes_removed: 535623414
     lfs_objects_permanently_deleted: 15
     verification: 15 exact remote LFS SHA-256 matches and 5 temporary streamed SHA-256 matches
+  - id: hpo_core_batches_0240_0279
+    private_revision_after_history_rewrite: 720aa679d8a8fcf051ca95672400e874c4490a71
+    workflow_runs: [32434835111, 32435030906, 32435315629, 32435434880]
+    references_removed: 40
+    bytes_removed: 1145239593
+    lfs_objects_permanently_deleted: 35
+    verification: 35 exact remote LFS SHA-256 matches and 5 temporary streamed SHA-256 matches
 totals:
-  private_references_removed: 142
-  private_head_bytes_removed: 4372747424
-  private_lfs_objects_permanently_deleted: 103
+  private_references_removed: 182
+  private_head_bytes_removed: 5517987017
+  private_lfs_objects_permanently_deleted: 138
   public_recovery_source_verified: true
 hpo_public_frontier:
   workflow_runs:
@@ -103,22 +110,33 @@ hpo_public_frontier:
     - {id: 32429541750, start: 230, count: 10, conclusion: failure_duplicate_basename_staging_no_commit}
     - {id: 32430075012, start: 230, count: 10, conclusion: success_after_staging_fix}
     - {id: 32430552122, start: 240, count: 10, conclusion: failure_rate_limit_no_commit}
+    - {id: 32434835111, start: 240, count: 10, conclusion: success_after_rate_window}
+    - {id: 32435030906, start: 250, count: 10, conclusion: success}
+    - {id: 32435315629, start: 260, count: 10, conclusion: success}
+    - {id: 32435434880, start: 270, count: 10, conclusion: success}
+    - {id: 32436983348, start: 80, count: 10, conclusion: success_source_only_gap}
+    - {id: 32437031313, start: 100, count: 10, conclusion: success_source_only_gap}
+    - {id: 32438279196, start: 120, count: 10, conclusion: success_source_only_gap}
+    - {id: 32438420632, start: 130, count: 10, conclusion: success_source_only_gap}
+    - {id: 32438536857, start: 140, count: 10, conclusion: success_source_only_gap}
   atomic_uploader_pr: 192
   unique_staging_fix_pr: 194
-  public_release_objects: 217
-  public_release_bytes: 5789173373
+  public_release_objects: 288
+  public_release_bytes: 7788785889
   eligible_matrix_objects: 288
-  remaining_matrix_objects: 71
+  remaining_matrix_objects: 0
   private_eligible_not_public:
-    objects: 40
-    bytes: 1145239593
-    candidate_indices: 240-279
+    objects: 0
+    bytes: 0
+    candidate_indices: []
   exact_public_private_size_overlaps: 0
   rate_limit:
     observed_at_utc: '2026-08-20T23:56:29Z'
     retry_not_before_utc: '2026-08-21T00:56:29Z'
+    resolved_at_utc: '2026-08-21T01:01:41Z'
     limit: 128 repository commits per hour
     effect: no repository commit or receipt; no private deletion
+  eligible_matrix_complete: true
   completeness_claimed: false
 boundaries:
   paid_storage_used: false
@@ -127,14 +145,12 @@ boundaries:
   mixed_rights_hpo_public: false
   orphanet_diff_and_legacy_private_receipt_public: false
   private_quota_restored: unverified
-  all_eligible_hpo_objects_archived: false
+  all_eligible_hpo_objects_archived: true
 recoverability: >-
   Permanently deleted private LFS objects are not recoverable from private Git
   history. Each deleted dataset object has an exact verified public remote copy.
 next_action: >-
-  After the recorded rate-limit window, continue indices 240-279 in bounded
-  atomic HPO batches and delete only newly matched private duplicates after
-  remote hash verification. Then archive the 31 eligible source-only gaps
-  without creating private duplicates. Keep licensed and mixed-rights content
-  private, and keep historical UTS ingestion paused until Hugging Face reports
-  usable free-tier private capacity.
+  Preserve the completed 288-object exact HPO core matrix and monitor upstream
+  releases without claiming all-history or translation completeness. Keep
+  licensed and mixed-rights content private, and keep historical UTS ingestion
+  paused until Hugging Face reports usable free-tier private capacity.

@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -33,6 +35,40 @@ FALSE_CLAIMS = {
 }
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
+OBSERVATION_EFFECT = (
+    "dormant_synthetic_preparation_only_no_dependency_satisfaction_activation_review_or_freeze"
+)
+
+
+def _repository_path(root: Path, value: object) -> Path:
+    if not isinstance(value, str) or not value:
+        raise Track009ReadinessError("upstream evidence path is missing")
+    candidate = (root / value).resolve()
+    try:
+        candidate.relative_to(root.resolve())
+    except ValueError as exc:
+        raise Track009ReadinessError(f"upstream evidence path escapes repository: {value}") from exc
+    return candidate
+
+
+def _sha256(path: Path) -> str:
+    try:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+    except OSError as exc:
+        raise Track009ReadinessError(f"cannot hash {path}: {exc}") from exc
+
+
+def _git_text(root: Path, revision: str) -> str:
+    try:
+        return subprocess.run(
+            ["git", "rev-parse", revision],
+            cwd=root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise Track009ReadinessError(f"cannot resolve upstream revision {revision}") from exc
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -90,6 +126,96 @@ def validate(path: Path, root: Path) -> None:
         expected_state = "satisfied" if observed in {"complete", "archived"} else "pending"
         if row.get("state") != expected_state:
             raise Track009ReadinessError(f"dependency gate state mismatch for {row['track']}")
+
+    observation = document.get("upstream_semantic_observation", {})
+    if (
+        observation.get("observation_status") != "bounded_freeze_observed_dependency_unsatisfied"
+        or observation.get("effect") != OBSERVATION_EFFECT
+    ):
+        raise Track009ReadinessError("Track 008 observation must remain non-activating")
+    observed_commit = str(observation.get("observed_repository_commit", ""))
+    observed_tree = str(observation.get("observed_repository_tree", ""))
+    candidate_commit = str(observation.get("track_008_candidate_commit", ""))
+    candidate_tree = str(observation.get("track_008_candidate_tree", ""))
+    if any(
+        not COMMIT.fullmatch(value)
+        for value in (observed_commit, observed_tree, candidate_commit, candidate_tree)
+    ):
+        raise Track009ReadinessError("upstream observation requires exact commits and trees")
+    if _git_text(root, f"{observed_commit}^{{tree}}") != observed_tree:
+        raise Track009ReadinessError("observed repository tree does not belong to commit")
+    evidence_fields = (
+        ("track_008_owner_decision", "track_008_owner_decision_sha256"),
+        ("track_008_readiness", "track_008_readiness_sha256"),
+        ("advisory_and_owner_preparation", "advisory_and_owner_preparation_sha256"),
+    )
+    for path_field, hash_field in evidence_fields:
+        expected = str(observation.get(hash_field, ""))
+        if (
+            not SHA256.fullmatch(expected)
+            or _sha256(_repository_path(root, observation.get(path_field))) != expected
+        ):
+            raise Track009ReadinessError(f"upstream observation evidence drift: {path_field}")
+    track_008 = _load(_repository_path(root, observation.get("track_008_readiness")))
+    track_008_decision = _load(_repository_path(root, observation.get("track_008_owner_decision")))
+    preparation = _load(_repository_path(root, observation.get("advisory_and_owner_preparation")))
+    if (
+        track_008.get("status") != "blocked"
+        or track_008.get("contract_freeze_gate", {}).get("state") != "satisfied"
+        or track_008.get("claims", {}).get("track_complete") is not False
+        or track_008.get("final_owner_disposition_candidate", {}).get("exact_candidate_commit")
+        != candidate_commit
+        or track_008.get("final_owner_disposition_candidate", {}).get("exact_candidate_tree")
+        != candidate_tree
+        or track_008_decision.get("owner_decision", {}).get("selected_option") != "A"
+        or preparation.get("owner_disposition", {}).get("status")
+        != "authorized_reversible_preparation_only"
+    ):
+        raise Track009ReadinessError("upstream observation overstates Track 008 or owner authority")
+    if observation.get("track_008_semantic_manifest_sha256") != track_008.get(
+        "contract_freeze_gate", {}
+    ).get("semantic_manifest_sha256"):
+        raise Track009ReadinessError("Track 008 semantic manifest binding drift")
+
+    candidate = document.get("v0_4_candidate_preparation", {})
+    if (
+        candidate.get("status") != "prepared_synthetic_only_not_frozen"
+        or candidate.get("effect")
+        != "exact_synthetic_review_preparation_only_no_activation_review_or_freeze"
+    ):
+        raise Track009ReadinessError("v0.4 candidate must remain synthetic preparation only")
+    candidate_commit = str(candidate.get("source_commit", ""))
+    candidate_tree = str(candidate.get("source_tree", ""))
+    if (
+        not COMMIT.fullmatch(candidate_commit)
+        or not COMMIT.fullmatch(candidate_tree)
+        or _git_text(root, f"{candidate_commit}^{{tree}}") != candidate_tree
+    ):
+        raise Track009ReadinessError("v0.4 candidate source commit and tree drift")
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("migration_impact_receipt", "migration_impact_sha256"),
+        ("review_preparation", "review_preparation_sha256"),
+    ):
+        expected = str(candidate.get(hash_field, ""))
+        if (
+            not SHA256.fullmatch(expected)
+            or _sha256(_repository_path(root, candidate.get(path_field))) != expected
+        ):
+            raise Track009ReadinessError(f"v0.4 candidate evidence drift: {path_field}")
+    candidate_manifest = json.loads(
+        _repository_path(root, candidate.get("candidate_manifest")).read_text(encoding="utf-8")
+    )
+    if (
+        candidate_manifest.get("candidate_status") != "prepared_synthetic_only_not_frozen"
+        or candidate_manifest.get("source_commit") != candidate_commit
+        or candidate_manifest.get("source_tree") != candidate_tree
+        or any(value is not False for value in candidate_manifest.get("claims", {}).values())
+    ):
+        raise Track009ReadinessError("v0.4 candidate identity or blocked claims drift")
+    for artifact in candidate_manifest.get("exports", []):
+        if _sha256(_repository_path(root, artifact.get("path"))) != artifact.get("sha256"):
+            raise Track009ReadinessError("v0.4 candidate export hash drift")
 
     issues = document.get("blocking_data_contract_issues")
     if not isinstance(issues, list) or {row.get("id") for row in issues} != REQUIRED_ISSUES:

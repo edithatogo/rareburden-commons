@@ -8,8 +8,10 @@ import hashlib
 import io
 import json
 import os
+import ssl
 import tempfile
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -17,6 +19,7 @@ from typing import Any
 
 _DESTINATION = "edithatogo/rareburden-commons-open-source-snapshots"
 _PUBLIC_ROUTE = "public_exact_unmodified_with_official_conditions"
+_DOWNLOAD_ATTEMPTS = 3
 
 
 def load_candidates(matrix_path: Path) -> list[dict[str, Any]]:
@@ -46,6 +49,32 @@ def staging_path(root: Path, item: dict[str, Any]) -> Path:
     if Path(release_tag).name != release_tag or Path(name).name != name:
         raise ValueError("HPO release tag and asset name must be plain path components")
     return root / release_tag / name
+
+
+def download_verified(item: dict[str, Any], local: Path) -> tuple[int, str]:
+    """Download one exact source artifact with bounded full-file retries."""
+    request = urllib.request.Request(
+        item["browser_download_url"], headers={"User-Agent": "rareburden-archive/1"}
+    )
+    for attempt in range(_DOWNLOAD_ATTEMPTS):
+        digest = hashlib.sha256()
+        size = 0
+        try:
+            with (
+                urllib.request.urlopen(request, timeout=180) as response,
+                local.open("wb") as output,
+            ):
+                while chunk := response.read(1024 * 1024):
+                    size += len(chunk)
+                    digest.update(chunk)
+                    output.write(chunk)
+            return size, digest.hexdigest()
+        except (ConnectionResetError, TimeoutError, ssl.SSLError, urllib.error.URLError):
+            local.unlink(missing_ok=True)
+            if attempt + 1 == _DOWNLOAD_ATTEMPTS:
+                raise
+            time.sleep(2 ** (attempt + 1))
+    raise AssertionError("unreachable bounded download retry state")
 
 
 def archive_batch(matrix_path: Path, *, start: int, count: int, max_bytes: int) -> dict[str, Any]:
@@ -81,27 +110,14 @@ def archive_batch(matrix_path: Path, *, start: int, count: int, max_bytes: int) 
                 continue
             if results:
                 time.sleep(2)
-            request = urllib.request.Request(
-                item["browser_download_url"], headers={"User-Agent": "rareburden-archive/1"}
-            )
             local = staging_path(root, item)
             local.parent.mkdir(parents=True, exist_ok=True)
-            digest = hashlib.sha256()
-            size = 0
-            with (
-                urllib.request.urlopen(request, timeout=180) as response,
-                local.open("wb") as output,
-            ):
-                while chunk := response.read(1024 * 1024):
-                    size += len(chunk)
-                    used += len(chunk)
-                    if used > max_bytes:
-                        raise ValueError("HPO batch exceeded byte budget")
-                    digest.update(chunk)
-                    output.write(chunk)
+            size, sha256 = download_verified(item, local)
+            used += size
+            if used > max_bytes:
+                raise ValueError("HPO batch exceeded byte budget")
             if size != item["size"]:
                 raise RuntimeError(f"source size drifted: {item['release_tag']}/{item['name']}")
-            sha256 = digest.hexdigest()
             expected = item.get("digest")
             if expected and expected != f"sha256:{sha256}":
                 raise RuntimeError("source digest differs from GitHub release metadata")

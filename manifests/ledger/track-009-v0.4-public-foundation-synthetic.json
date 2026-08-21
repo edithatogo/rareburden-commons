@@ -1,0 +1,95 @@
+{
+  "created_at": "2026-07-19T00:00:00Z",
+  "ledger_id": "public-foundation-synthetic-ledger",
+  "limitations": [
+    "Every value is synthetic and must not be cited as an empirical burden estimate."
+  ],
+  "parameters": [
+    {
+      "distribution": {
+        "mean": 26638544.0,
+        "minimum": 0.0,
+        "standard_deviation": 100000.0,
+        "type": "normal"
+      },
+      "evidence_assessment_ids": [
+        "eqa-9094d747d9be42c39065d97e"
+      ],
+      "evidence_status": "observed",
+      "label": "Synthetic Australian population denominator",
+      "licence_state": "not_applicable",
+      "limitations": [
+        "Synthetic assurance value; not an official UN or Australian population estimate."
+      ],
+      "measure": "population",
+      "metric": "count",
+      "parameter_id": "australia-population-synthetic",
+      "parameter_revision": 1,
+      "period": {
+        "end": "2025-12-31",
+        "start": "2025-01-01"
+      },
+      "population": {
+        "geography_id": "synthetic-au",
+        "population_id": "all-residents",
+        "sex": "all"
+      },
+      "quantity_type": "population",
+      "semantic_entity_ids": [
+        "synthetic:population-au"
+      ],
+      "source_release_ids": [
+        "synthetic-un-wpp-2026-07"
+      ],
+      "transformation_ids": [],
+      "transportability_assessment_ids": [],
+      "uncertainty_status": "quantified",
+      "unit": "people"
+    },
+    {
+      "assumption_rationale": "A transparent synthetic assumption used only to exercise rare-within-common modelling and provenance.",
+      "distribution": {
+        "alpha": 2.0,
+        "beta": 98.0,
+        "maximum": 1.0,
+        "minimum": 0.0,
+        "type": "beta"
+      },
+      "evidence_assessment_ids": [
+        "eqa-a996c37d962a989e31fd4233"
+      ],
+      "evidence_status": "assumed",
+      "label": "Synthetic rare-aetiology fraction within diabetes",
+      "licence_state": "not_applicable",
+      "limitations": [
+        "Not an empirical prevalence or etiologic fraction."
+      ],
+      "measure": "rare aetiology share",
+      "metric": "case_fraction",
+      "parameter_id": "rare-diabetes-fraction-synthetic",
+      "parameter_revision": 1,
+      "period": {
+        "end": "2025-12-31",
+        "start": "2025-01-01"
+      },
+      "population": {
+        "geography_id": "synthetic-au",
+        "population_id": "all-residents",
+        "sex": "all"
+      },
+      "quantity_type": "fraction",
+      "semantic_entity_ids": [
+        "synthetic:rare-diabetes"
+      ],
+      "source_release_ids": [],
+      "transformation_ids": [],
+      "transportability_assessment_ids": [
+        "tra-2a77e6b21b5ed474ad42cadd"
+      ],
+      "uncertainty_status": "quantified",
+      "unit": "proportion"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "title": "Synthetic public-foundation parameter ledger"
+}

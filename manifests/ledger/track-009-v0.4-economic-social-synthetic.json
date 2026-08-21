@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-08-01T00:00:00Z",
+  "ledger_id": "economic-social-synthetic-ledger",
+  "limitations": [
+    "All values are synthetic assurance artefacts.",
+    "Health-system, household and societal perspectives must remain separate until reviewed."
+  ],
+  "parameters": [
+    {
+      "assumption_rationale": "Synthetic value exercising a declared health-system perspective only.",
+      "distribution": {
+        "minimum": 0.0,
+        "type": "fixed",
+        "value": 1200.0
+      },
+      "evidence_assessment_ids": [
+        "eqa-9094d747d9be42c39065d97e"
+      ],
+      "evidence_status": "assumed",
+      "label": "Synthetic health-system cost per affected person",
+      "licence_state": "not_applicable",
+      "limitations": [
+        "Currency, price year, PPP, discounting, transfers and payer boundaries are intentionally unresolved.",
+        "Not an empirical cost estimate and not suitable for policy or reimbursement decisions."
+      ],
+      "measure": "direct health-system cost",
+      "metric": "cost_per_person",
+      "parameter_id": "synthetic-health-system-cost",
+      "parameter_revision": 1,
+      "period": {
+        "end": "2025-12-31",
+        "start": "2025-01-01"
+      },
+      "population": {
+        "geography_id": "synthetic-au",
+        "population_id": "synthetic-affected",
+        "sex": "all"
+      },
+      "quantity_type": "cost",
+      "semantic_entity_ids": [
+        "synthetic:monogenic-diabetes"
+      ],
+      "source_release_ids": [],
+      "transformation_ids": [],
+      "transportability_assessment_ids": [],
+      "uncertainty_status": "not_quantified",
+      "unit": "SYN"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "title": "Synthetic economic and social burden parameter ledger"
+}

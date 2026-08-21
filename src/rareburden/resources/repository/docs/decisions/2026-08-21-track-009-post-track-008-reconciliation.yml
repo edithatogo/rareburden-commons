@@ -1,0 +1,58 @@
+schema_version: "1.0.0"
+simulation_status: "role_separated_agent_panel_advisory_only"
+track_id: "009-evidence-parameter-ledger"
+context:
+  track_008_status: "blocked"
+  bounded_contract_freeze: "satisfied"
+  dependency_effect: "observed_but_not_satisfied_until_track_008_is_complete"
+panel:
+  perspectives:
+    - "governance and dependency-order perspective"
+    - "scientific and data-rights perspective"
+    - "security and release perspective"
+  non_representation_statement: >-
+    Agent outputs are advisory simulations. They are not epidemiology,
+    data-governance, engineering or independent review and do not grant source,
+    custodian, clinical, community, production or release authority.
+options:
+  - id: "A"
+    title: "Reconcile dependency and retain dormant synthetic preparation"
+    trade_offs:
+      - "Preserves useful schema, fixture, provenance, security and recovery work."
+      - "Prepared artifacts may require regeneration after upstream completion or drift."
+    contingencies:
+      - "Invalidate the observation on any Track 008 candidate, decision or readiness hash drift."
+      - "Keep empirical ingestion, accepted data contracts and every Track 009 review or freeze claim false."
+    rationale: "This preserves serial ordering while avoiding unnecessary synthetic engineering debt."
+  - id: "B"
+    title: "Restrict work to generic cross-cutting security controls"
+    trade_offs:
+      - "Has the lowest semantic ossification risk but defers ledger-specific reproducibility checks."
+    contingencies:
+      - "Do not encode provisional semantic identifiers as stable downstream contracts."
+    rationale: "Use if Track 008 begins changing frequently or deterministic regeneration fails."
+  - id: "C"
+    title: "Treat the bounded Track 008 freeze as dependency completion"
+    trade_offs:
+      - "Would accelerate nominal progression by bypassing the declared completion dependency."
+    contingencies:
+      - "Rejected because it would collapse a scoped provisional freeze into Track 008 completion."
+    rationale: "Incompatible with the 008 to 009 to 010 serial evidence gate."
+recommendation:
+  option_id: "A"
+  safeguards:
+    - "Track 009 remains blocked, inactive and unfrozen."
+    - "Only clearly labelled synthetic or public preparation and cross-cutting security work may proceed."
+    - "Epidemiology, data-governance, engineering and independent review remain outstanding."
+    - "Track 010 remains ineligible."
+owner_disposition:
+  status: "authorized_reversible_preparation_only"
+  instruction: "Proceed with the next steps."
+  governance_status: "owner_operated_not_independent_review"
+  effect: "dependency_reconciliation_and_dormant_synthetic_preparation_only"
+  prohibited_effects:
+    - "Track 009 activation"
+    - "empirical or controlled data use"
+    - "data-contract acceptance"
+    - "ledger freeze"
+    - "Track 010 eligibility"

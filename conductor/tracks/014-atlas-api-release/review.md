@@ -101,3 +101,18 @@ consistency, independent reproduction, archive/DOI authority and release
 content audit are outstanding. Track 014 remains **Planned** and is not
 archive-eligible. No atlas/API beta or public publication is authorised by
 this review.
+
+## Plan-state reconciliation — 2026-08-21
+
+Later bounded evidence supersedes the stale API/package-contract and parity
+findings above. The static page, aggregate package, read-only API,
+release-surface schemas, reviewed-artifact boundary,
+citation/provenance/licence/digest fields, parity tests, text alternatives and
+disabled-publication invariant are implemented for synthetic preparation.
+
+This does not complete user research, uncertainty and quality presentation, a
+full demonstrator/country product, independent accessibility review,
+archive/DOI workflow, clean independent reproduction, real-source activation
+or any beta/public release decision. Track 014 therefore remains Planned; this
+reconciliation corrects task states without claiming publication, external
+review or release authority.

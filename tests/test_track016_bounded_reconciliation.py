@@ -12,10 +12,23 @@ from scripts.check_track016_bounded_operations import (
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests/operations/track-016-bounded-operations-2026-08-16.json"
+PLAN = ROOT / "conductor/tracks/016-security-reliability-operations/plan.md"
 
 
 def _payload() -> dict:
     return json.loads(MANIFEST.read_text(encoding="utf-8"))
+
+
+def test_track016_plan_preserves_open_review_and_authority_gates() -> None:
+    plan = PLAN.read_text(encoding="utf-8")
+    assert "- [ ]" not in plan
+    assert plan.count("- [~]") == 4
+    assert "Complete qualifying independent security/operator challenge" in plan
+    assert "Obtain qualifying independent-operator and independent-security receipts" in plan
+    assert "Exercise qualifying production operations after Tracks 004 and 014" in plan
+    assert "Obtain separate release authority" in plan
+    assert "Supersede the proposed private backup-owner role" in plan
+    assert "owner-operated governance, not release authority" in plan
 
 
 def test_bounded_operations_manifest_preserves_owner_and_independence_boundaries() -> None:
