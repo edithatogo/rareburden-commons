@@ -1,0 +1,99 @@
+schema_version: "1.0"
+status: "bounded_union_reconciled_gaps_open"
+as_of: "2026-08-21"
+scope:
+  catalogue: "catalog/data_sources.yml"
+  archival_matrix: "docs/source-archive-decision-matrix-2026-08-15.yml"
+  huggingface_estate: "docs/huggingface-estate-audit-2026-08-21.yml"
+  boundary: "repository-declared candidate universe only; not global source completeness"
+
+reconciliation:
+  catalogue_records: 16
+  archival_matrix_records: 21
+  overlap_records: 15
+  union_records: 22
+  all_sources_indexed: false
+  all_exact_release_metadata_archived: false
+  all_raw_bytes_archived: false
+  all_raw_bytes_publicly_redistributable: false
+
+catalogue_only:
+  - source_id: "who-global-health-expenditure-database"
+    gap: "missing archival-matrix disposition and exact selected release packet"
+    next_evidence: "release, file, checksum, terms, third-party fields, retention and redistribution decision"
+
+archival_matrix_only:
+  - source_id: "human-phenotype-ontology"
+    catalogue_action: "add as an explicit source family distinct from general semantic candidates"
+  - source_id: "who-icd-10-11"
+    catalogue_action: "add selected edition/language family only after exact scope is chosen"
+  - source_id: "omim"
+    catalogue_action: "add metadata-only restricted source entry"
+  - source_id: "snomed-ct"
+    catalogue_action: "add metadata-only licensed terminology entry"
+  - source_id: "snomed-ct-national-edition-germany"
+    catalogue_action: "add only if the national edition remains an intended project source"
+  - source_id: "meddra"
+    catalogue_action: "add metadata-only subscriber source entry"
+
+exact_snapshot_metadata_archived:
+  status: "bounded_not_exhaustive"
+  source_ids:
+    - "orphadata-science"
+    - "un-world-population-prospects"
+    - "who-global-health-estimates"
+    - "world-bank-indicators-api"
+    - "mondo-disease-ontology"
+    - "human-phenotype-ontology"
+    - "ncbi-clinvar"
+  limitation: "exact metadata applies to the named observed snapshot, not all releases, products, languages or historical versions"
+
+partial_or_metadata_only:
+  - source_id: "genomics-england-panelapp"
+    state: "bounded listing incomplete; detail capture stopped and later automation prohibited"
+  - source_id: "panelapp-australia"
+    state: "metadata/hash probe only pending content-reuse terms"
+  - source_id: "who-icd-10-11"
+    state: "bounded response metadata; edition/language and redistribution unresolved"
+  - source_id: "umls-metathesaurus"
+    state: "release metadata plus licensed private holdings; source-vocabulary rights remain specific"
+
+selection_or_access_pending:
+  source_ids:
+    - "who-global-health-expenditure-database"
+    - "omim"
+    - "snomed-ct"
+    - "snomed-ct-national-edition-germany"
+    - "meddra"
+    - "ihme-gbd-results"
+    - "ihme-ghdx"
+    - "oecd-data-explorer"
+    - "all-of-us-public-tier"
+    - "all-of-us-researcher-workbench"
+    - "genomics-england-research-environment"
+
+raw_publication:
+  complete_exact_candidate_universes:
+    - source_id: "human-phenotype-ontology"
+      scope: "288 ontology-core objects marked public_exact_unmodified_with_official_conditions"
+      state: "288_of_288_public_zero_size_conflicts"
+  already_public_bounded_snapshots:
+    - "orphadata-science"
+    - "un-world-population-prospects"
+    - "world-bank-indicators-api"
+    - "mondo-disease-ontology"
+    - "ncbi-clinvar"
+  prohibited_or_unknown: "all other raw-byte routes remain source-, release-, field-, agreement- and purpose-specific"
+
+recommended_order:
+  - "add the six matrix-only candidates to the catalogue as restricted or metadata-only entries without activating them"
+  - "add a GHED archival-matrix disposition or explicitly remove it from intended acquisition scope"
+  - "create exact release packets only after selection/access is lawful"
+  - "promote further raw bytes only from a new exact file-level rights manifest and owner disposition"
+
+claims:
+  independent_review: false
+  external_validation: false
+  community_participation: false
+  global_completeness: false
+  negative_evidence_from_missing_metadata: false
