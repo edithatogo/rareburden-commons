@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests/huggingface/public-promotion-2026-08-21.json"
 
 
-def test_all_public_promotion_families_are_bounded_and_rights_cleared() -> None:
+def test_promotion_manifest_is_bounded_and_quarantined() -> None:
     payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assert payload["status"] == "bounded_exact_file_candidate_no_promotion"
     assert payload["promotion_enabled"] is False
