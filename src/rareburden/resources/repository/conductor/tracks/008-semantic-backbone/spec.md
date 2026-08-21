@@ -7,7 +7,9 @@ Implement a versioned semantic layer that defines rare-disease entities, maps re
 ## Required outputs
 
 - disease-definition and ontology-mapping schemas;
-- pinned ORDO/ORPHA, ICD-10/11, MONDO, OMIM, HPO and selected terminology releases;
+- an exact bounded v0.4 allowlist of pinned Orphadata, MONDO and HPO
+  ontology-core assets, plus an explicit excluded-source registry for other
+  coding systems and controlled or mixed-rights source classes;
 - mapping provenance, confidence and ambiguity representation;
 - burden-purpose hierarchy or linearisation for supported demonstrators;
 - parent/child, syndrome/aetiology and multi-diagnosis overlap rules;
@@ -33,6 +35,27 @@ Implement a versioned semantic layer that defines rare-disease entities, maps re
 - declaring clinically authoritative variant classifications;
 - forcing every rare disease into a mutually exclusive global tree;
 - hiding unresolved semantic uncertainty.
+- activating UMLS, SNOMED CT, WHO ICD, OMIM or excluded HPO asset classes in
+  the bounded v0.4 contract without a new source-specific rights and fitness
+  decision;
+- clinical or diagnostic use of the provisional mappings;
+- claiming actual-community participation, representation, consent,
+  endorsement or authority from the simulated harm challenge.
+
+## Bounded v0.4 completion scope — 2026-08-21
+
+The repository owner selected Option A in
+`docs/decisions/2026-08-21-track-008-bounded-completion.yml`. Track completion
+therefore covers only the exact hash-bound provisional non-clinical contract:
+the Orphadata July 2026 alignment asset, MONDO v2026-08-04 release assets and
+nine individually cleared HPO v2026-06-23 ontology-core assets. The accepted
+ORPHA-to-MONDO rows remain source-asserted, moderate-confidence and
+non-clinical; source-native labels do not confer naming authority.
+
+Excluded-source redistribution, clinical use and claims of actual-community
+participation or authority are future expansion gates outside these acceptance
+criteria. They remain fail closed and cannot be satisfied by owner or agent
+self-attestation.
 
 ## v1 contribution
 

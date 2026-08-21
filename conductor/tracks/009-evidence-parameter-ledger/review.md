@@ -6,7 +6,7 @@
 ## Findings
 
 - Track 002 remains in review pending live-source, licensing, scientific, data-governance and security evidence.
-- Track 008 remains blocked pending Tracks 002 and 007.
+- At the 2026-07-27 review, Track 008 remained blocked pending Tracks 002 and 007.
 - No approved Track 009 ledger contract or migration tooling has been completed; existing generic ledger code, fixtures and impact tracing remain preparatory and are not a frozen Track 009 contract.
 - Scientific, data-governance and engineering review gates remain required.
 
@@ -105,3 +105,15 @@ issues, unsupported resolution, premature approval/freeze claims, panel
 independence claims, and freezes lacking exact candidate, ledger-export,
 source/semantic/transformation, migration and accountable-decision evidence.
 No finding is resolved and no review or freeze authority is inferred.
+
+### Track 008 bounded-completion reconciliation — 2026-08-21
+
+Track 008 is now complete for its exact bounded provisional non-clinical
+semantic scope. The serial dependency is therefore satisfied, but this grants
+no empirical parameter fitness, data-governance approval, engineering review,
+ledger freeze, production activation or release authority.
+
+Track 009 remains **blocked on its own gates**: EPI-MED-01, EPI-MED-02 and
+GOV-MED-01 still require evidence and disposition; the review gate and exact
+v0.4 contract-freeze gate remain pending. The synthetic candidate stays
+provisional, inactive and replaceable.

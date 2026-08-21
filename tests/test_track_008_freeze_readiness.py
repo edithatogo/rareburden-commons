@@ -19,15 +19,14 @@ def _candidate(tmp_path: Path, document: dict[str, object]) -> Path:
     return path
 
 
-def test_current_track_008_blockers_are_consistent() -> None:
+def test_current_track_008_bounded_completion_is_consistent() -> None:
     validate(READINESS, ROOT)
 
 
 def test_automation_validates_but_does_not_grant_authority() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     assert document["governance"]["automated_validation_effect"] == (
-        "validates_recorded_scoped_freeze_only_not_approval_independent_review_"
-        "track_completion_or_external_authority"
+        "validates_recorded_bounded_completion_not_external_authority_or_release"
     )
 
 
@@ -66,7 +65,7 @@ def test_readiness_rejects_premature_claims(
 
 def test_readiness_rejects_hidden_finding(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
-    document["naming_and_semantic_gate"]["unresolved_findings"].pop()
+    document["naming_and_semantic_gate"]["residual_findings"].pop()
     with pytest.raises(Track008ReadinessError, match="four bounded-review findings"):
         validate(_candidate(tmp_path, document), ROOT)
 
@@ -117,7 +116,7 @@ def test_readiness_rejects_migration_receipt_overclaim(tmp_path: Path) -> None:
         migration_path.write_bytes(original.encode("utf-8"))
 
 
-def test_bounded_freeze_does_not_complete_track_008_or_unblock_track_009() -> None:
+def test_bounded_completion_preserves_external_authority_boundaries() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     assert document["provisional_candidate_binding"]["status"] == (
         "synthetic_public_readiness_only"
@@ -127,12 +126,14 @@ def test_bounded_freeze_does_not_complete_track_008_or_unblock_track_009() -> No
         "owner_accepted_bounded_contract_frozen"
     )
     assert document["claims"] == {
-        "approved_ontology_pins": False,
+        "approved_ontology_pins": True,
+        "approved_ontology_pin_scope": "exact_bounded_allowlist_only",
         "naming_authority": False,
         "independent_semantic_review": False,
         "contract_frozen": True,
-        "track_complete": False,
+        "track_complete": True,
     }
+    assert document["external_expansion_gates"]["status"] == ("pending_outside_track_completion")
 
 
 def test_readiness_rejects_v0_4_candidate_evidence_drift(tmp_path: Path) -> None:
@@ -145,7 +146,7 @@ def test_readiness_rejects_v0_4_candidate_evidence_drift(tmp_path: Path) -> None
 def test_v0_4_candidate_keeps_external_authority_claims_false() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     assert document["v0_4_candidate_binding"]["review_status"] == ("owner_operated_not_independent")
-    assert document["naming_and_semantic_gate"]["state"] == "pending"
+    assert document["naming_and_semantic_gate"]["state"] == ("satisfied_for_bounded_scope")
     assert document["contract_freeze_gate"]["state"] == "satisfied"
 
 
@@ -178,4 +179,11 @@ def test_readiness_rejects_owner_decision_drift(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
     document["final_owner_disposition_candidate"]["owner_decision_state"] = "pending"
     with pytest.raises(Track008ReadinessError, match="exact and accepted"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_bounded_completion_decision_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["bounded_completion_gate"]["decision_sha256"] = "0" * 64
+    with pytest.raises(Track008ReadinessError, match="completion decision hash drift"):
         validate(_candidate(tmp_path, document), ROOT)

@@ -293,7 +293,10 @@ def _roadmap_invariant_errors(
         target = metadata.get("target_release")
         status = metadata.get("status")
         target_status = release_status.get(str(target))
-        if status == "complete" and target_status not in {"released", "current"}:
+        # Repository track completion may precede release activation. A planned
+        # release still cannot consume incomplete work as released evidence,
+        # but a completed track must not force an external release-state claim.
+        if status == "complete" and target_status not in {"released", "current", "planned"}:
             errors.append(
                 f"{track_id}: complete track targets release with status {target_status!r}"
             )

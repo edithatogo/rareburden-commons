@@ -96,3 +96,34 @@ excluded source classes, source-specific mapping fitness, clinical validity,
 and actual-community naming authority for any use that would claim community
 participation, consent, endorsement or representation. Owner and agent work
 cannot self-attest those external facts or authorities.
+
+### Bounded completion review — 2026-08-21
+
+**Decision: Complete for the exact bounded provisional non-clinical scope.**
+
+The repository owner approved Option A in
+`docs/decisions/2026-08-21-track-008-bounded-completion.yml`. This supersedes
+the earlier broad-scope blocked disposition without rewriting its history. The
+accepted completion scope contains only the exact Orphadata, MONDO and nine HPO
+ontology-core assets bound by the v0.4 candidate, the 9,758 provisional
+source-asserted ORPHA-to-MONDO rows, source-native labels, synthetic
+demonstrator hierarchies, and the tested ambiguity, overlap, migration and
+deprecation contracts.
+
+Repository review finds that every narrowed acceptance criterion has objective
+evidence, the later post-upstream challenge and owner disposition satisfy the
+previously stale review task, and no critical finding remains within this
+scope. Agent-panel outputs remain advisory and owner-operated; no independent
+human review is claimed or required by the single-person repository model.
+
+Residual findings are retained as expansion gates outside Track 008
+completion. Excluded HPO classes, UMLS, SNOMED CT, WHO ICD, OMIM and any other
+unallowlisted source require source-specific rights and fitness evidence before
+activation. Clinical or diagnostic use requires clinical-validity evidence.
+Actual-community participation, representation, consent or endorsement cannot
+be inferred from the simulated harm challenge. Completion supplies neither
+production activation nor release authority.
+
+Track 009's declared Track 008 dependency is satisfied. Track 009 remains
+blocked on its own epidemiology, data-governance, engineering and contract
+freeze gates.

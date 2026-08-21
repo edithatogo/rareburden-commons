@@ -1,13 +1,19 @@
 # Track 008 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; clinical and patient/community semantic authority remains separate.
+> Repository-owned review uses role-separated advisory agent panels under
+> ADR-0009; the repository owner decides. Clinical validity and actual-community
+> semantic authority remain separate.
 
 ## Phase 1 — Contracts and source releases
 
 - [x] Define disease-definition and mapping schemas. `[M-01, M-02, M-18]`
   Evidence: ontology-mapping and hierarchy schemas with strict semantic tests;
-  source release approval remains open.
-- [ ] Pin source ontology/coding releases and licence states.
+  excluded-source expansion remains open.
+- [x] Pin the exact bounded v0.4 source releases and licence states; register
+  every other source class as excluded or metadata-only. Evidence:
+  `manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json`,
+  `docs/track-008-source-release-inventory-2026-08-03.yml` and the bounded
+  completion decision. This does not approve any excluded source class.
 - [x] Define stable internal identifiers and mapping provenance. Evidence:
   mapping schemas require stable entity IDs, source/version and evidence refs.
 - [x] Define ambiguity, deprecation and migration representation. Evidence:
@@ -109,8 +115,9 @@
 - [x] Freeze the bounded v0.4 semantic contract after upstream Track 002/007
   reconciliation and resolution of findings within the narrowed non-clinical
   scope. Expansion findings remain open and fail closed.
-- [ ] Obtain source- or rights-holder evidence before expanding the exact asset
-  allowlist or redistributing any currently excluded source class.
+- [x] Remove excluded-source expansion from the bounded v0.4 completion scope
+  and retain source- or rights-holder evidence as a future expansion gate.
+  Evidence: `docs/decisions/2026-08-21-track-008-bounded-completion.yml`.
 
 ## Bounded source reconciliation — 2026-08-16
 
@@ -129,8 +136,10 @@
   `docs/track-008-bounded-agent-review-2026-08-16.yml`. This is not clinical,
   patient/community, custodian or independent approval, and its four medium
   findings remain bounded by disabled real-world mappings.
-- [ ] Re-run the source and naming challenge after Track 002/007 completion,
-  obtain the required owner disposition, and only then consider a v0.4 freeze.
+- [x] Re-run the source and naming challenge after Track 002/007 completion and
+  record the exact owner disposition. Evidence:
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml` and
+  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`.
 
 ## Option B preparation control — 2026-08-20
 
@@ -196,15 +205,17 @@
 - [x] Prepare and present the final exact hashes, migration impact, bounded
   challenge and two fallback options for owner disposition. Evidence:
   `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. The
-  decision remains pending; do not freeze or complete Track 008 automatically.
+  decision was pending at this preparation stage; do not infer a freeze or
+  completion from preparation evidence alone.
 - [x] Record the owner's exact-candidate Option A disposition for commit
   `47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd` and tree
   `af2bc0074ae6c77a65f8c47da04431b08baca77f`, and apply only the bounded
-  provisional non-clinical contract freeze. Track 008 remains blocked and
-  incomplete; source-rights expansion, clinical validity and actual-community
-  naming-authority gates remain pending. Independent human review is not a
-  gate in this single-person repository; agent panels advise and the owner
-  decides.
+  provisional non-clinical contract freeze. At this freeze stage Track 008
+  remained blocked; the later bounded-completion decision removes expansion
+  from the track's acceptance scope while preserving source-rights expansion,
+  clinical validity and actual-community naming-authority gates. Independent
+  human review is not a gate in this single-person repository; agent panels
+  advise and the owner decides.
 
 ## Review fixes — 2026-08-21
 
@@ -223,3 +234,18 @@
   `tests/test_track008_icd11_metadata_packet.py`. This does not complete the
   parent source-pinning task, validate a mapping, authorize redistribution or
   change the bounded provisional v0.4 semantic candidate.
+
+## Bounded completion — 2026-08-21
+
+- [x] Record the owner's approved scope decision with options, rationale,
+  trade-offs, contingencies and retained external expansion gates. Evidence:
+  `docs/decisions/2026-08-21-track-008-bounded-completion.yml`.
+- [x] Reconcile the readiness contract, Track 009 dependency and repository
+  lifecycle records without changing the exact semantic candidate or granting
+  clinical, community, rights-holder or release authority. Evidence:
+  `docs/track-008-freeze-readiness-2026-08-21.yml` and
+  `docs/track-009-freeze-readiness-2026-08-21.yml`.
+- [x] Run focused completion tests, programme validation and the full
+  repository gate; record the final review disposition. Evidence:
+  `tests/test_track008_bounded_completion.py`,
+  `tests/test_track_008_freeze_readiness.py` and this track's `review.md`.

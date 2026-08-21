@@ -135,8 +135,11 @@ def validate(plan_path: Path, root: Path) -> None:
         raise DownstreamPreparationError("every track must define preparation and blocking gates")
     for track in FREEZE_ORDER:
         row = rows.get(track)
-        if not isinstance(row, dict) or row.get("contract_state") != "provisional":
-            raise DownstreamPreparationError(f"track {track} contract must remain provisional")
+        expected_contract = "bounded_frozen" if track == "008" else "provisional"
+        if not isinstance(row, dict) or row.get("contract_state") != expected_contract:
+            raise DownstreamPreparationError(
+                f"track {track} contract must remain {expected_contract}"
+            )
         if not row.get("blocked"):
             raise DownstreamPreparationError(f"track {track} must retain blocking gates")
 

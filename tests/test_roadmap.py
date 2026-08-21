@@ -26,7 +26,8 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.track_count == 18
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
-    assert summary.track_status_counts.get("complete", 0) == 0
+    assert summary.track_status_counts["complete"] == 1
+    assert summary.track_status_counts["blocked"] == 9
     assert summary.track_status_counts["archived"] == 5
 
 
@@ -107,6 +108,23 @@ def test_archived_track_may_target_current_release(tmp_path: Path) -> None:
     tracks = tmp_path / "tracks"
     shutil.copytree(TRACKS, tracks)
     shutil.copytree(ROOT / "conductor" / "archive", tmp_path / "archive")
+
+    validate_with(tracks)
+
+
+def test_complete_track_may_target_planned_release(tmp_path: Path) -> None:
+    tracks = tmp_path / "tracks"
+    shutil.copytree(TRACKS, tracks)
+    shutil.copytree(ROOT / "conductor" / "archive", tmp_path / "archive")
+    metadata_path = tracks / "008-semantic-backbone" / "metadata.json"
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata["status"] = "complete"
+    metadata_path.write_text(json.dumps(metadata), encoding="utf-8")
+    plan_path = tracks / "008-semantic-backbone" / "plan.md"
+    plan_path.write_text(
+        plan_path.read_text(encoding="utf-8").replace("- [ ]", "- [x]"),
+        encoding="utf-8",
+    )
 
     validate_with(tracks)
 

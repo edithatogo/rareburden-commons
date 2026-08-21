@@ -20,11 +20,9 @@ class Track008ReadinessError(ValueError):
 
 DEPENDENCIES = ("002-public-source-acquisition", "007-landscape-novelty")
 REQUIRED_FINDINGS = {"SEM-MED-01", "RIGHTS-MED-01", "RIGHTS-MED-02", "NAME-MED-01"}
-FALSE_CLAIMS = {
-    "approved_ontology_pins",
+EXTERNAL_FALSE_CLAIMS = {
     "naming_authority",
     "independent_semantic_review",
-    "track_complete",
 }
 CANDIDATE_FALSE_CLAIMS = {
     "comprehensive_coverage",
@@ -142,7 +140,18 @@ def validate(path: Path, root: Path) -> None:
         if row.get("state") != expected_state:
             raise Track008ReadinessError(f"dependency gate state mismatch for {row['track']}")
 
-    findings = document.get("naming_and_semantic_gate", {}).get("unresolved_findings", [])
+    source_gate = document.get("source_release_gate", {})
+    if source_gate.get("state") != "satisfied_for_bounded_scope" or source_gate.get(
+        "included_source_allowlist"
+    ) != [
+        "orphadata-science-alignments",
+        "mondo-disease-ontology",
+        "human-phenotype-ontology nine exact ontology-core assets",
+    ]:
+        raise Track008ReadinessError("bounded source allowlist gate is incomplete")
+
+    semantic_gate = document.get("naming_and_semantic_gate", {})
+    findings = semantic_gate.get("residual_findings", [])
     if {row.get("id") for row in findings if isinstance(row, dict)} != REQUIRED_FINDINGS:
         raise Track008ReadinessError("the four bounded-review findings must remain explicit")
     governance = document.get("governance", {})
@@ -158,14 +167,19 @@ def validate(path: Path, root: Path) -> None:
             "single-person governance must use advisory agents and repository-owner disposition"
         )
     if governance.get("automated_validation_effect") != (
-        "validates_recorded_scoped_freeze_only_not_approval_independent_review_"
-        "track_completion_or_external_authority"
+        "validates_recorded_bounded_completion_not_external_authority_or_release"
     ):
-        raise Track008ReadinessError("automation cannot grant approval, review or authority")
+        raise Track008ReadinessError("automation cannot grant external authority or release")
 
     claims = document.get("claims", {})
-    if any(claims.get(name) is not False for name in FALSE_CLAIMS):
-        raise Track008ReadinessError("blocked Track 008 claims must remain false")
+    if any(claims.get(name) is not False for name in EXTERNAL_FALSE_CLAIMS):
+        raise Track008ReadinessError("external authority claims must remain false")
+    if (
+        claims.get("approved_ontology_pins") is not True
+        or claims.get("approved_ontology_pin_scope") != "exact_bounded_allowlist_only"
+        or claims.get("track_complete") is not True
+    ):
+        raise Track008ReadinessError("bounded completion claims must remain exact")
 
     binding = document.get("provisional_candidate_binding", {})
     if (
@@ -362,6 +376,33 @@ def validate(path: Path, root: Path) -> None:
     if claims.get("contract_frozen") is not (freeze.get("state") == "satisfied"):
         raise Track008ReadinessError("contract freeze claim must match the scoped freeze gate")
 
+    completion = document.get("bounded_completion_gate", {})
+    completion_path = _repository_path(root, completion.get("decision"))
+    completion_hash = str(completion.get("decision_sha256", ""))
+    if not SHA256.fullmatch(completion_hash) or _sha256(completion_path) != completion_hash:
+        raise Track008ReadinessError("bounded completion decision hash drift")
+    completion_decision = _load(completion_path)
+    if (
+        completion.get("state") != "satisfied"
+        or completion.get("selected_option") != "A"
+        or completion.get("exact_semantic_candidate_commit")
+        != disposition.get("exact_candidate_commit")
+        or completion.get("exact_semantic_candidate_tree")
+        != disposition.get("exact_candidate_tree")
+        or completion_decision.get("owner_decision", {}).get("status") != "accepted"
+        or completion_decision.get("owner_decision", {}).get("selected_option") != "A"
+        or completion_decision.get("effect", {}).get("track_008_status") != "complete"
+        or completion_decision.get("effect", {}).get("release_authority") is not False
+    ):
+        raise Track008ReadinessError("bounded completion decision is incomplete or overbroad")
+    expansion = document.get("external_expansion_gates", {})
+    if (
+        expansion.get("status") != "pending_outside_track_completion"
+        or expansion.get("effect") != "none_on_bounded_track_completion"
+        or len(expansion.get("excluded_sources", [])) < 5
+    ):
+        raise Track008ReadinessError("external expansion gates must remain explicit")
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -374,8 +415,8 @@ def main() -> int:
         print(f"Track 008 freeze readiness failed: {exc}")
         return 1
     print(
-        "Track 008 bounded contract freeze passed; source rights, clinical validity, "
-        "actual-community authority and track completion remain separate gates."
+        "Track 008 bounded completion passed; excluded-source rights, clinical use, "
+        "actual-community authority and release remain separate gates."
     )
     return 0
 

@@ -89,7 +89,8 @@
   challenge. Evidence: `docs/track-009-bounded-agent-challenge-2026-08-16.yml`.
   Three medium findings remain controlled by disabled empirical activation.
 - [ ] Record owner disposition and repeat the challenge after Track 008 is
-  complete; do not freeze the v0.4 ledger contract before then.
+  complete; resolve EPI-MED-01, EPI-MED-02 and GOV-MED-01 and do not freeze the
+  v0.4 ledger contract before those Track 009 gates pass.
 
 ## Option B preparation control — 2026-08-20
 
@@ -180,3 +181,13 @@
   is defined by the non-binding profiles. This exercises but does not
   resolve EPI-MED-01/02; empirical fitness, rights, review, freeze and Track 010
   eligibility remain blocked.
+
+## Track 008 bounded-completion reconciliation — 2026-08-21
+
+- [x] Reconcile Track 008's owner-approved bounded completion as a satisfied
+  dependency without resolving any Track 009 review, data-contract, activation
+  or freeze gate. Evidence: `docs/track-009-freeze-readiness-2026-08-21.yml`,
+  `scripts/check_track_009_freeze_readiness.py` and focused negative tests.
+  Track 009 remains blocked on EPI-MED-01, EPI-MED-02, GOV-MED-01, its
+  role-separated advisory challenge and owner disposition, and its exact
+  contract-freeze decision.

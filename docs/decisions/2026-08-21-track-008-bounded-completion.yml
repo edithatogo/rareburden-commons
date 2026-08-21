@@ -1,0 +1,84 @@
+schema_version: "1.0.0"
+track_id: "008-semantic-backbone"
+decision_type: "bounded_track_completion_scope"
+decided_at_utc: "2026-08-21T12:55:04Z"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+owner_instruction: "I approve your recommendations."
+context:
+  exact_semantic_candidate_commit: "47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd"
+  exact_semantic_candidate_tree: "af2bc0074ae6c77a65f8c47da04431b08baca77f"
+  semantic_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+  prior_freeze_decision: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
+options:
+  - id: "A"
+    title: "Complete the bounded non-clinical semantic core"
+    recommendation: true
+    rationale: >-
+      The exact public allowlist, provisional mappings, source-native labels,
+      migration controls, simulated harm challenge and owner disposition meet
+      the narrowed repository acceptance criteria without relying on excluded
+      controlled sources or external authority claims.
+    trade_offs:
+      - "Provides the declared v0.4 dependency contract now."
+      - "Controlled-source expansion, clinical use and community-authority claims remain unavailable."
+    contingencies:
+      - "Any semantic candidate, source, licence, mapping or evidence hash drift invalidates the bounded freeze."
+      - "Expansion requires a new scoped decision and the applicable external evidence."
+  - id: "B"
+    title: "Retain the original broad blocked scope"
+    recommendation: false
+    rationale: "Preserves the broad source ambition but leaves completion dependent on open-ended external evidence."
+    trade_offs:
+      - "Does not distinguish a usable bounded core from optional future expansion."
+    contingencies:
+      - "Keep Track 009 dependency blocked until every broad source and authority gate is satisfied."
+  - id: "C"
+    title: "Narrow to a source registry only"
+    recommendation: false
+    rationale: "Minimizes semantic interpretation risk but removes the accepted provisional mapping contract."
+    trade_offs:
+      - "Discards the interoperability value of the 9,758 hash-bound ORPHA-to-MONDO rows."
+    contingencies:
+      - "Retain mapping artifacts only as inactive historical evidence."
+owner_decision:
+  status: "accepted"
+  selected_option: "A"
+  governance_status: "owner_operated_not_independent_review"
+  rationale: >-
+    Complete Track 008 only for its exact bounded, provisional, non-clinical
+    semantic contract and preserve every excluded-source, clinical-use and
+    actual-community-authority condition as a future expansion gate.
+completion_scope:
+  included_public_sources:
+    - "Orphadata July 2026 exact alignment asset"
+    - "MONDO v2026-08-04 exact release assets"
+    - "nine individually hash-identified HPO v2026-06-23 ontology-core assets"
+  supported_effects:
+    - "versioned provisional identifiers, mappings and source-native labels"
+    - "synthetic demonstrator hierarchy and overlap controls"
+    - "migration, deprecation, ambiguity and deterministic diff contracts"
+    - "dependency satisfaction for Track 009"
+  prohibited_effects:
+    - "clinical or diagnostic validity"
+    - "patient or community participation, representation, consent or endorsement"
+    - "redistribution of excluded or controlled source classes"
+    - "production activation, public release or partnership authority"
+external_expansion_gates:
+  status: "pending_outside_track_completion"
+  gates:
+    - id: "TRACK008-RIGHTS-EXPANSION"
+      requirement: "source- or rights-holder evidence for any excluded HPO, UMLS, SNOMED CT, WHO ICD or other controlled source asset"
+    - id: "TRACK008-CLINICAL-USE"
+      requirement: "source-specific mapping-fitness and clinical-validity evidence for any clinical or diagnostic use"
+    - id: "TRACK008-COMMUNITY-AUTHORITY"
+      requirement: "actual-community authority before claiming participation, representation, consent or endorsement"
+unsafe_premises_rejected:
+  - "Repository ownership or custodianship does not create third-party redistribution rights."
+  - "Owner-operated agent review does not create clinical validity or independent review."
+  - "Indigenous authority held by the owner is not generalized to unrelated communities."
+effect:
+  track_008_status: "complete"
+  track_009_dependency: "satisfied"
+  release_authority: false
+  external_expansion_authority: false

@@ -1,6 +1,7 @@
 # Track 008 semantic review packet
 
-**Status:** non-binding preparation; Track 008 remains blocked  
+**Status:** historical non-binding preparation; superseded for the exact
+bounded scope by `docs/decisions/2026-08-21-track-008-bounded-completion.yml`
 **Contract draft:** semantic contract v0.1.0  
 **Activation rule:** no v0.4 contract freeze or source-pinned semantic release
 until Tracks 002 and 007 pass their gates.
