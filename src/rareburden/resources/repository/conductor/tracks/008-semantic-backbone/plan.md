@@ -163,6 +163,22 @@
   `docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml`.
   This records owner authorization to prepare, not a contract freeze,
   independent review, clinical validation or Track 008 completion.
-- [ ] Generate the final real-source mapping rows and provisional naming list,
-  then re-run the hash-bound source, semantic and naming challenge for final
-  owner freeze disposition.
+- [x] Generate 9,758 provisional exact-release ORPHA-to-MONDO mapping rows,
+  preserve 9,758 paired source labels and 20,413 HPO source-native labels,
+  exclude 27 MONDO assertions absent from the exact Orphadata release, and
+  re-run the bounded challenge. Evidence:
+  `manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json`,
+  `manifests/semantics/track-008-v0.4-provisional-naming.json`,
+  `manifests/semantics/track-008-v0.4-row-generation-receipt.json` and
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml`. Rows remain
+  provisional, moderate-confidence and non-clinical; no new groupings were
+  created.
+- [ ] Present the final exact hashes, migration impact and bounded challenge
+  for owner disposition; do not freeze or complete Track 008 automatically.
+
+## Review fixes — 2026-08-21
+
+- [x] Resolve full-gate lint findings in the candidate-binding validator,
+  HPO provenance renderer and negative hash-drift test without changing any
+  semantic candidate or gate state. Evidence: focused Track 008 tests and the
+  full repository validation gate.

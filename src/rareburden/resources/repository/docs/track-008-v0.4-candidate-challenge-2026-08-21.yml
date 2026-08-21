@@ -1,7 +1,7 @@
 schema_version: "1.0.0"
 track: "008-semantic-backbone"
 candidate_manifest: "manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json"
-candidate_manifest_sha256: "586b1b4499b7ccdb8e43770f5658f51f3b72b39947d0fc2582cc071b99baa02d"
+candidate_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
 status: "owner_operated_simulated_challenge_not_independent_review"
 perspectives:
   - "simulated rights and data-use"
@@ -16,13 +16,13 @@ findings:
     contingency: "Any asset-class or hash drift quarantines the affected object and invalidates this candidate."
   - id: "SEM-MED-01A"
     severity: "medium"
-    state: "open"
-    finding: "The candidate defines permitted relation types but contains no final real-source mapping rows or row-level fitness assessment."
-    contingency: "Do not freeze until exact rows, ambiguity results and a mapping migration diff are available."
+    state: "narrowed_not_closed"
+    finding: "The candidate contains 9,758 provisional MONDO-asserted exact-match rows present in the exact Orphadata release; exact remains a source assertion, not independently validated clinical equivalence."
+    contingency: "Keep confidence moderate and status provisional; any ambiguous target or non-exact predicate fails closed."
   - id: "NAME-MED-01A"
     severity: "medium"
-    state: "open"
-    finding: "Provisional owner-operated naming is authorized, but the exact proposed naming list and harm assessment do not yet exist."
+    state: "narrowed_not_closed"
+    finding: "The exact naming list preserves 9,758 Orphadata/MONDO source-label pairs and 20,413 HPO source-native labels without adding owner-defined groupings."
     contingency: "Keep naming-authority false and require visible provisional labels, aliases and versioned deprecation."
   - id: "AUTH-MED-01A"
     severity: "medium"
@@ -30,7 +30,7 @@ findings:
     finding: "The review is owner-operated and simulated, not independent or community-authoritative."
     contingency: "Reject any release surface that implies independence, participation, partnership, endorsement or external approval."
 critical_findings: []
-recommendation: "retain_candidate_for_final_mapping_and_naming_work_do_not_freeze"
+recommendation: "present_exact_mapping_naming_and_migration_hashes_for_final_owner_disposition_do_not_freeze_automatically"
 claims:
   independent_review: false
   clinical_validation: false

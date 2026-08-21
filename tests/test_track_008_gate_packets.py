@@ -39,9 +39,7 @@ def test_track_008_reconciles_owner_source_dispositions_without_activation() -> 
     assert records["human-phenotype-ontology"]["owner_disposition"] == (
         "nine_ontology_core_assets_included_all_other_asset_classes_metadata_only_or_excluded"
     )
-    assert records["human-phenotype-ontology"]["byte_route"] == (
-        "public_exact_asset_allowlist"
-    )
+    assert records["human-phenotype-ontology"]["byte_route"] == ("public_exact_asset_allowlist")
     assert document["activation"] == "synthetic_and_metadata_only_no_v0_4_freeze"
 
 

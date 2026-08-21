@@ -47,12 +47,14 @@ def render_inventory(document: dict[str, Any], root: Path) -> dict[str, Any]:
             "public_exact_asset_allowlist",
         }
         licence_state = str(record.get("licence_state", ""))
+        hpo_owner_disposition = (
+            "nine_ontology_core_assets_included_all_other_asset_classes_metadata_only_or_excluded"
+        )
         hpo_exact_route = (
             source_id == "human-phenotype-ontology"
             and record.get("byte_route") == "public_exact_asset_allowlist"
             and licence_state == "official_hpo_conditions_observed_asset_specific"
-            and record.get("owner_disposition")
-            == "nine_ontology_core_assets_included_all_other_asset_classes_metadata_only_or_excluded"
+            and record.get("owner_disposition") == hpo_owner_disposition
             and {"no_annotations_or_mappings", "no_merged_imports", "no_translations"}
             <= set(record.get("limitations", []))
         )

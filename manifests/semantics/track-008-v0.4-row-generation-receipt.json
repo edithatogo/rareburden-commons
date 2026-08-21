@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0.0",
+  "track": "008-semantic-backbone",
+  "status": "candidate_rows_generated_not_frozen",
+  "source_hashes": {
+    "orphadata": "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb",
+    "mondo": "7cf8f1df31185555a21f5ffaf36663ca420671a9bc234fc737eb9bfa977ecd60",
+    "hpo": "3b646565695329aa399e937883c68d5d424d0df5eaab2f22baa0e08d44fdbe87"
+  },
+  "counts": {
+    "orphadata_codes": 11645,
+    "mondo_orphanet_exact_assertions": 9785,
+    "included_intersection_rows": 9758,
+    "excluded_absent_from_exact_orphadata": 27,
+    "ambiguous_orpha_codes": 0,
+    "hpo_source_native_labels": 20413,
+    "new_owner_defined_groupings": 0
+  },
+  "excluded_rows": [
+    {
+      "source_code": "ORPHA:240839",
+      "target_code": "MONDO:0027652",
+      "target_label": "5-fluorouracil toxicity"
+    },
+    {
+      "source_code": "ORPHA:240841",
+      "target_code": "MONDO:0027653",
+      "target_label": "abacavir toxicity"
+    },
+    {
+      "source_code": "ORPHA:240845",
+      "target_code": "MONDO:0027655",
+      "target_label": "allopurinol toxicity"
+    },
+    {
+      "source_code": "ORPHA:240863",
+      "target_code": "MONDO:0027664",
+      "target_label": "cisplatin toxicity"
+    },
+    {
+      "source_code": "ORPHA:240867",
+      "target_code": "MONDO:0027666",
+      "target_label": "codeine toxicity"
+    },
+    {
+      "source_code": "ORPHA:240869",
+      "target_code": "MONDO:0027667",
+      "target_label": "efavirenz toxicity"
+    },
+    {
+      "source_code": "ORPHA:240871",
+      "target_code": "MONDO:0027668",
+      "target_label": "flucloxacilline toxicity"
+    },
+    {
+      "source_code": "ORPHA:240885",
+      "target_code": "MONDO:0027675",
+      "target_label": "irinotecan toxicity"
+    },
+    {
+      "source_code": "ORPHA:240887",
+      "target_code": "MONDO:0027677",
+      "target_label": "isoniazid toxicity"
+    },
+    {
+      "source_code": "ORPHA:240905",
+      "target_code": "MONDO:0027687",
+      "target_label": "raltegravir toxicity"
+    },
+    {
+      "source_code": "ORPHA:240921",
+      "target_code": "MONDO:0027696",
+      "target_label": "voriconazole toxicity"
+    },
+    {
+      "source_code": "ORPHA:377788",
+      "target_code": "MONDO:0000001",
+      "target_label": "disease"
+    },
+    {
+      "source_code": "ORPHA:377789",
+      "target_code": "MONDO:8000032",
+      "target_label": "obsolete malformation syndrome"
+    },
+    {
+      "source_code": "ORPHA:377790",
+      "target_code": "MONDO:0032011",
+      "target_label": "obsolete biological anomaly"
+    },
+    {
+      "source_code": "ORPHA:377791",
+      "target_code": "MONDO:8000030",
+      "target_label": "obsolete morphological anomaly"
+    },
+    {
+      "source_code": "ORPHA:377792",
+      "target_code": "MONDO:0032013",
+      "target_label": "obsolete clinical syndrome"
+    },
+    {
+      "source_code": "ORPHA:377793",
+      "target_code": "MONDO:0032014",
+      "target_label": "obsolete particular clinical situation in a disease or syndrome"
+    },
+    {
+      "source_code": "ORPHA:409941",
+      "target_code": "MONDO:0021141",
+      "target_label": "acquired"
+    },
+    {
+      "source_code": "ORPHA:413693",
+      "target_code": "MONDO:0033169",
+      "target_label": "curariform drugs toxicity"
+    },
+    {
+      "source_code": "ORPHA:413696",
+      "target_code": "MONDO:0033170",
+      "target_label": "statin toxicity"
+    },
+    {
+      "source_code": "ORPHA:414750",
+      "target_code": "MONDO:0033181",
+      "target_label": "phenytoin or carbamazepine toxicity"
+    },
+    {
+      "source_code": "ORPHA:557492",
+      "target_code": "MONDO:8000033",
+      "target_label": "obsolete group of disorders"
+    },
+    {
+      "source_code": "ORPHA:557493",
+      "target_code": "MONDO:8000034",
+      "target_label": "obsolete disorder"
+    },
+    {
+      "source_code": "ORPHA:557494",
+      "target_code": "MONDO:8000031",
+      "target_label": "obsolete subtype of a disorder"
+    },
+    {
+      "source_code": "ORPHA:574637",
+      "target_code": "MONDO:0035875",
+      "target_label": "ivermectin toxicity"
+    },
+    {
+      "source_code": "ORPHA:574671",
+      "target_code": "MONDO:0035876",
+      "target_label": "belinostat toxicity or dose selection"
+    },
+    {
+      "source_code": "ORPHA:596744",
+      "target_code": "MONDO:0036025",
+      "target_label": "toxicity to dolutegravir"
+    }
+  ],
+  "interpretation": "Rows are the exact-release intersection of MONDO skos:exactMatch assertions and Orphadata codes. Generation does not constitute clinical validation, independent review, community approval, contract freeze or Track 008 completion."
+}

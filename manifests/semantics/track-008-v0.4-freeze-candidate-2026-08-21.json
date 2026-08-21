@@ -69,6 +69,11 @@
     {"path": "examples/semantics/orpha-to-synthetic-mapping.yml", "sha256": "30822b77b3b4d1728dde6d062f95b3eb136c7a8f6352b4c3c435576fe8839572"},
     {"path": "examples/semantics/releases/orpha-to-synthetic-v0.1.0.md", "sha256": "fe8997b2abc9aa3a54049d20d0bd1a5aa98478c6614707437c394f982baa2782"}
   ],
+  "derived_candidate_artifacts": [
+    {"path": "manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json", "sha256": "ae617b0826ce17915ddeff73be78f5b10f88bb9e89df634a86c0921d51df188e", "rows": 9758},
+    {"path": "manifests/semantics/track-008-v0.4-provisional-naming.json", "sha256": "a4cb8c3cbb0e7f3dc0ad013252301ff811c0a07711161748ed57196baabee05f"},
+    {"path": "manifests/semantics/track-008-v0.4-row-generation-receipt.json", "sha256": "e2531c99e4f06c2079b447309969589fc1d305e3ad0cf46d906e4ccb5056ad46"}
+  ],
   "evidence": [
     {"path": "docs/track-002-source-verification-2026-08-15.yml", "sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"},
     {"path": "manifests/hpo/asset-rights-matrix-2026-08-16.json", "sha256": "67fa69c94311c7e49fae00e5c20ebd09e6acd1ceb0ba8135af1eea777422cf09"},
@@ -83,5 +88,6 @@
     "contract_frozen": false,
     "track_complete": false
   },
-  "invalidation": "Any source, asset, evidence, repository artifact, commit or tree drift requires a new manifest and challenge."
+  "source_selection_note": "Rows were generated from the exact hash-verified public archive copy because the versionless live route was not accepted without the approved digest.",
+  "invalidation": "Any source, asset, evidence, repository artifact, derived artifact, commit or tree drift requires a new manifest and challenge."
 }

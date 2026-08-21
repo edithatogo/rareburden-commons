@@ -182,9 +182,9 @@ def validate(path: Path, root: Path) -> None:
         != "candidate_preparation_only_no_contract_freeze_or_track_completion"
     ):
         raise Track008ReadinessError("v0.4 candidate must remain prepared but not frozen")
-    if not COMMIT.fullmatch(str(candidate_binding.get("source_commit", ""))) or not COMMIT.fullmatch(
-        str(candidate_binding.get("source_tree", ""))
-    ):
+    source_commit = str(candidate_binding.get("source_commit", ""))
+    source_tree = str(candidate_binding.get("source_tree", ""))
+    if not COMMIT.fullmatch(source_commit) or not COMMIT.fullmatch(source_tree):
         raise Track008ReadinessError("v0.4 candidate requires exact source commit and tree")
     for path_field, hash_field in (
         ("candidate_manifest", "candidate_manifest_sha256"),
@@ -227,10 +227,17 @@ def validate(path: Path, root: Path) -> None:
         for asset in assets:
             if not isinstance(asset, dict) or not SHA256.fullmatch(str(asset.get("sha256", ""))):
                 raise Track008ReadinessError("v0.4 candidate source asset digest is invalid")
-    if len(allowlist[2].get("assets", [])) != 9 or not allowlist[2].get(
-        "excluded_asset_classes"
-    ):
+    if len(allowlist[2].get("assets", [])) != 9 or not allowlist[2].get("excluded_asset_classes"):
         raise Track008ReadinessError("HPO candidate must remain an exact nine-asset allowlist")
+    derived = prepared.get("derived_candidate_artifacts")
+    if not isinstance(derived, list) or len(derived) != 3:
+        raise Track008ReadinessError("v0.4 derived candidate inventory is incomplete")
+    for artifact in derived:
+        artifact_path = _repository_path(root, artifact.get("path"))
+        if not SHA256.fullmatch(str(artifact.get("sha256", ""))) or _sha256(
+            artifact_path
+        ) != artifact.get("sha256"):
+            raise Track008ReadinessError("v0.4 derived candidate artifact hash drift")
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
         if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):

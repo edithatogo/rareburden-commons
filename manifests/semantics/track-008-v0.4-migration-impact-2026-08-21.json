@@ -10,14 +10,15 @@
     "retained_public_source_families": ["orphadata-science-alignments"],
     "retained_exclusions": ["controlled", "credentialed", "mixed-rights", "insufficiently-evidenced"],
     "relation_vocabulary_change": "none",
-    "production_mapping_rows_added": 0,
-    "provisional_naming_rows_added": 0
+    "provisional_mapping_rows_added": 9758,
+    "provisional_mapping_rows_excluded": 27,
+    "provisional_orpha_mondo_label_pairs_added": 9758,
+    "provisional_hpo_source_labels_added": 20413,
+    "owner_defined_groupings_added": 0
   },
-  "compatibility": "The candidate expands the exact source allowlist but does not activate new mapping rows or freeze a public contract.",
+  "compatibility": "The candidate adds provisional non-clinical mapping and source-native naming rows but does not activate them or freeze a public contract.",
   "required_before_freeze": [
-    "generate and validate any proposed real-source mapping rows",
-    "produce exact added, removed and changed mapping counts",
-    "re-run source, semantic and naming challenge against the final hashes",
+    "review the exact row and naming hashes and bounded challenge findings",
     "obtain final owner disposition"
   ]
 }

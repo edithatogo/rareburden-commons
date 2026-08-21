@@ -4,7 +4,7 @@ track_id: "008-semantic-backbone"
 candidate:
   commit: "881f09152eae597fb376ced664bcfb6cabb07a7f"
   tree: "795edb37102a727da43b0ef5038b9faa65912b34"
-  evidence_manifest_sha256: "586b1b4499b7ccdb8e43770f5658f51f3b72b39947d0fc2582cc071b99baa02d"
+  evidence_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
 panel:
   perspectives:
     - "simulated rights and data-use perspective"
@@ -29,7 +29,7 @@ evidence:
     - "Controlled, credentialed, mixed-rights and insufficiently evidenced sources remain excluded or metadata-only."
   simulated_assessments:
     - "Asset-level routing is preferable to a source-family-wide permission because HPO rights differ by asset class."
-    - "Typed uncertainty-preserving relations can support non-clinical alignment, but no real-source mapping rows are activated by this preparation decision."
+    - "The generated real-source rows remain provisional, moderate-confidence and non-clinical; preparation does not activate them."
     - "Provisional labels require visible uncertainty and versioned alias or deprecation handling."
   cannot_infer:
     - "clinical validity or diagnostic fitness"
