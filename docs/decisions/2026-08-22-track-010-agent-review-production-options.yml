@@ -66,4 +66,12 @@ recommendation:
     authority and independence boundary. The owner should approve or reject
     each agent-produced receipt and retain the final alpha-freeze decision.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T15:10:06Z"
+  rationale: >-
+    Permit agents to prepare exact-candidate advisory receipts with structured
+    options and uncertainty, while retaining the owner's approval as the only
+    accountable disposition. Agent output does not satisfy independent review,
+    community authority or external approval gates.

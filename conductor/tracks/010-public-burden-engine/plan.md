@@ -137,7 +137,7 @@
 
 ## Proposed owner-gated review-production amendment — 2026-08-22
 
-- [ ] Decide whether agents may produce candidate-bound advisory review
+- [x] Decide that agents may produce candidate-bound advisory review
   receipts for the scientific/statistical, engineering, patient/community and
   scientific-software perspectives. The proposed Option A permits agents to
   produce exact-hash-bound packets that present 2–3 options, rationale,
@@ -147,3 +147,6 @@
   scientific-software review, patient/community authority, consent,
   endorsement, clinical validation or external approval. Evidence:
   `docs/decisions/2026-08-22-track-010-agent-review-production-options.yml`.
+  Owner selected Option A; production of the receipts is now permitted as
+  preparation work, while the alpha-freeze and independent-review gates remain
+  pending.
