@@ -12,7 +12,10 @@ observations:
   - source_id: "who-global-health-estimates"
     publisher_route: "https://www.who.int/data/global-health-estimates/"
     observed: "WHO GHE publishes downloadable global, regional and country estimates by age, sex and cause for 2000-2021; the page warns that the 2000-2021 estimates are not comparable with earlier releases."
-    rights_state: "asset-specific terms and third-party credited fields require exact file receipt"
+    terms_locator: "https://data.who.int/about/data/terms-and-conditions"
+    observed_terms: "WHO dataset terms provide CC BY 4.0 unless specifically indicated otherwise, require attribution and prohibit de-identification or false/misleading presentation; third-party credited materials are excluded from the default terms."
+    release_boundary: "2000-2021; do not combine silently with earlier GHE releases"
+    rights_state: "permissive_use_supported_for_WHO_covered_components_with_attribution_and_no_endorsement; third-party fields and asset-specific exceptions excluded"
     activation: false
   - source_id: "who-data-terms"
     publisher_route: "https://data.who.int/about/data/terms-and-conditions"

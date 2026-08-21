@@ -20,10 +20,10 @@ source_receipts:
   - source_id: "who-global-health-estimates"
     catalogue_locator: "catalog/data_sources.yml#who-global-health-estimates"
     intended_class: "aggregate_conditional"
-    catalogue_licence: "Asset-specific WHO terms; verify the licence attached to each downloaded file"
-    catalogue_redistribution: "conditional"
+    catalogue_licence: "CC BY 4.0 for WHO-covered components unless the selected asset states otherwise; third-party credited components excluded"
+    catalogue_redistribution: "yes_with_asset_exclusions"
     exact_receipt_status: "pending"
-    next_evidence: ["release and file identifier", "exact cause/measure/age/sex/location/year scope", "retrieval timestamp", "sha256", "third-party field exclusion", "redistribution decision"]
+    next_evidence: ["release and file identifier", "exact cause/measure/age/sex/location/year scope", "retrieval timestamp", "sha256", "2000-2021 comparability boundary", "third-party field exclusion", "attribution/no-endorsement notice"]
   - source_id: "world-bank-indicators-api"
     catalogue_locator: "catalog/data_sources.yml#world-bank-indicators-api"
     intended_class: "aggregate_conditional"
