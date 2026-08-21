@@ -94,15 +94,30 @@ disabled**. This is not independent or human review, community authority,
 third-party permission, partnership, funding, country-node approval, global
 representativeness, production activation or stable-release authority.
 
+## Agent-advice and external-fact boundary — 2026-08-21
+
+The owner directed removal of third-party aspects unless genuinely necessary.
+Repository governance challenge is therefore supplied by role-separated agents
+and decided by the owner; no independent adviser, additional human reviewer,
+committee, council or constituted body is required. The previously grouped
+external gates were narrowed to conditional facts that only apply when their
+dependent capability or claim is activated.
+
+Disposition: **pass for the revised single-owner governance contract**. Track
+015 remains blocked only by its Track 013 dependency. Publisher/licensor rights,
+controlled-data permission, confirmed relationships, country-node authority,
+unrelated community or Indigenous consent/representation, and unqualified
+global claims still require evidence from the relevant external authority if
+used; they are not prerequisites for bounded repository work.
+
 ## Bounded archival review — 2026-08-21
 
 The owner selected archival of the completed repository-governance scope. The
 review reconciled the specification, all plan tasks, metadata, registry,
-historical blocker record and automated controls. The three previously
-unchecked items described optional external activation, not missing work in
-the selected repository-only candidate. They are now complete as fail-closed
-controls and are maintained in
-`docs/track-015-external-activation-register-2026-08-21.yml`.
+historical dependency/blocker record and automated controls. Track 013 remains
+a downstream product-evidence dependency, not missing work in the selected
+repository-governance candidate. Optional external activation conditions are
+maintained in `docs/track-015-external-activation-register-2026-08-21.yml`.
 
 No Critical or High repository-controlled finding remains. Archival does not
 activate or imply unrelated community or Indigenous authority, publisher or
@@ -112,4 +127,5 @@ Any such future proposal requires attributable scope-specific evidence, a new
 exact-candidate advisory challenge and an owner decision.
 
 Disposition: **archive as complete for bounded single-owner repository
-governance; future external activation remains conditional and fail-closed**.
+governance; future product evidence and external activation remain conditional
+and fail-closed**.

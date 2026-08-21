@@ -13,7 +13,8 @@ versioned future action governed by the standing external-activation register.
 
 ## Required outputs
 
-- advisory-panel and external-evidence-provider terms of reference;
+- role-separated advisory-agent terms and a narrow external-fact receipt
+  contract for rights or authority the owner cannot hold;
 - selection, disclosure, conflict, unpaid participation, authorship, appeals and correction policies;
 - acceptable-use, harm-review and benefit-sharing framework;
 - Indigenous Data Sovereignty and CARE-aligned node provisions;
@@ -38,12 +39,14 @@ versioned future action governed by the standing external-activation register.
 6. External materials clearly distinguish public data use, requested collaboration and confirmed agreement.
 7. Global claims require the representation conditions in the roadmap.
 8. The repository owner approves or bounds the v1 product and acceptable uses
-   after advisory challenge and applicable external evidence.
+   after role-separated agent challenge. External evidence is required only
+   for an activated claim or capability that depends on someone else's rights,
+   permission, relationship, representation or jurisdictional authority.
 
-For this bounded track, "applicable external evidence" means evidence already
-within the selected repository-only candidate. An optional external condition
-becomes applicable only when the owner proposes that specific activation; it
-does not keep repository-governance preparation perpetually incomplete.
+An optional external condition becomes applicable only when the owner proposes
+that specific activation. Track 013 remains a downstream product-evidence
+dependency, but it does not keep the bounded governance-control package
+perpetually incomplete while representative and global claims remain disabled.
 
 ## Non-goals
 
@@ -64,6 +67,14 @@ work; that declaration does not extend to unrelated communities, third-party
 custodians or country nodes. Publisher terms and controlled-environment rules
 remain binding facts. No additional human review is planned, and remuneration
 is zero.
+
+Independent advice is not a repository requirement. Role-separated agents
+provide methods, rights/data-use, community/harm, policy, security, programme
+and release challenge; the owner records the decision. A third-party receipt
+is required only when the proposed scope actually relies on a third party,
+including a licence, controlled-data permission, confirmed relationship,
+country-node activation, unrelated community or Indigenous authority, or an
+unqualified representative/global claim.
 
 Future external activation conditions are maintained in
 `docs/track-015-external-activation-register-2026-08-21.yml`. Archival does not

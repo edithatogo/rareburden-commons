@@ -39,6 +39,10 @@ CANDIDATE_EFFECT = (
     "dormant_synthetic_preparation_only_no_dependency_satisfaction_review_"
     "alpha_freeze_or_track_003_eligibility"
 )
+BOUNDED_DISPOSITION_EFFECT = (
+    "disposable_synthetic_pre_alpha_preparation_only_no_dependency_review_"
+    "freeze_track_003_or_release_authority"
+)
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -149,6 +153,40 @@ def validate(path: Path, root: Path) -> None:
         or any(value is not False for value in candidate_manifest.get("claims", {}).values())
     ):
         raise Track010ReadinessError("synthetic candidate claims or provenance drift")
+
+    disposition = document.get("bounded_owner_disposition", {})
+    disposition_commit = str(disposition.get("exact_candidate_commit", ""))
+    disposition_tree = str(disposition.get("exact_candidate_tree", ""))
+    if (
+        disposition.get("status") != "authorized_disposable_synthetic_pre_alpha_only"
+        or not COMMIT.fullmatch(disposition_commit)
+        or not COMMIT.fullmatch(disposition_tree)
+        or _git_tree(root, disposition_commit) != disposition_tree
+        or disposition.get("candidate_manifest_sha256")
+        != candidate.get("candidate_manifest_sha256")
+        or disposition.get("selected_option") != "A"
+        or disposition.get("authority") != "repository_owner_sole_accountable_human"
+        or disposition.get("governance_status") != "owner_operated_not_independent_review"
+        or disposition.get("effect") != BOUNDED_DISPOSITION_EFFECT
+    ):
+        raise Track010ReadinessError("bounded owner disposition scope or candidate drift")
+    decision_path = _repository_path(root, disposition.get("decision"))
+    decision_sha256 = str(disposition.get("decision_sha256", ""))
+    if not SHA256.fullmatch(decision_sha256) or _sha256(decision_path) != decision_sha256:
+        raise Track010ReadinessError("bounded owner disposition receipt hash drift")
+    decision = _load(decision_path)
+    owner_decision = decision.get("owner_decision", {})
+    if (
+        decision.get("simulation_status") != "simulated_role_separated_advisory_panel"
+        or decision.get("candidate", {}).get("commit") != disposition_commit
+        or decision.get("candidate", {}).get("tree") != disposition_tree
+        or decision.get("candidate", {}).get("evidence_manifest_sha256")
+        != disposition.get("candidate_manifest_sha256")
+        or owner_decision.get("status") != "recorded"
+        or owner_decision.get("selected_option_id") != "A"
+        or owner_decision.get("decided_by") != "edithatogo"
+    ):
+        raise Track010ReadinessError("bounded owner disposition receipt overstates authority")
 
     review = document.get("review_gate", {})
     if review.get("repository_panel_status") != "advisory":
