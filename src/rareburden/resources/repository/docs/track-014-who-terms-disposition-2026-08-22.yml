@@ -1,0 +1,24 @@
+schema_version: "0.1.0"
+track: "014-atlas-api-release"
+source_family: "WHO datasets and WHO-derived aggregate outputs"
+terms_locator: "https://data.who.int/about/data/terms-and-conditions"
+status: "bounded_terms_disposition_exact_asset_receipts_still_required"
+default_rule:
+  licence: "CC BY 4.0 unless the selected dataset or asset expressly indicates otherwise"
+  permitted: ["copy", "adapt", "aggregate", "redistribute", "use via API"]
+  required: ["attribution as specified in dataset metadata", "licence notice", "source/version", "change indication where modified"]
+  prohibited_or_reserved: ["de-identification attempts", "false or misleading presentation", "implied WHO endorsement or affiliation", "use of WHO name/emblem without permission"]
+third_party_boundary:
+  rule: "Materials credited to a source other than WHO are outside the default WHO terms."
+  action: "exclude from redistribution or obtain separate permission; record field-level disposition"
+source_receipt_requirements:
+  - "exact dataset/file/API response and release identifier"
+  - "retrieval timestamp, MIME/size and SHA-256"
+  - "metadata attribution and any asset-specific licence override"
+  - "third-party credited fields and exclusion or permission record"
+  - "transformation and change notice"
+  - "correction and withdrawal locator"
+release_boundary:
+  allowed: "WHO-covered aggregate or metadata outputs meeting the exact receipt requirements"
+  not_allowed: ["restricted or personal data", "unreceipted asset redistribution", "clinical or representative claims inferred from the licence", "beta/stable publication before Track 013 and owner release decisions"]
+decision: "Apply the default permissive terms as written; do not add invented restrictions, and do not treat the licence as evidence of scientific validity or release authority."
