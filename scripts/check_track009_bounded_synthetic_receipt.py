@@ -7,11 +7,32 @@ import argparse
 import hashlib
 import json
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
-from rareburden.schema import SchemaValidationError, validate_document_files
-from scripts.check_track009_source_profile_role import validate as validate_profile_role
+try:
+    from rareburden.schema import SchemaValidationError, validate_document_files
+except ModuleNotFoundError:  # Direct script execution from a source checkout.
+    sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
+    from rareburden.schema import SchemaValidationError, validate_document_files
+
+try:
+    from scripts.check_track009_candidate_containment import (
+        CandidateContainmentError,
+    )
+    from scripts.check_track009_candidate_containment import (
+        validate as validate_containment,
+    )
+    from scripts.check_track009_source_profile_role import validate as validate_profile_role
+except ModuleNotFoundError:  # Direct script execution has scripts/ on sys.path.
+    from check_track009_candidate_containment import (
+        CandidateContainmentError,
+    )
+    from check_track009_candidate_containment import (
+        validate as validate_containment,
+    )
+    from check_track009_source_profile_role import validate as validate_profile_role
 
 
 class Track009SyntheticReceiptError(ValueError):
@@ -77,10 +98,26 @@ def validate(root: Path, receipt_path: Path = RECEIPT, schema_path: Path = SCHEM
         or candidate["repository_tree"] != review["candidate_tree"]
     ):
         raise Track009SyntheticReceiptError("repository candidate binding drift")
-    validate_document_files(
+    review_document = validate_document_files(
         review_path,
         root / "schemas/agent-owner-decision-packet.schema.json",
     )
+    recommendation = review_document["recommendation"]
+    owner_decision = review_document["owner_decision"]
+    options = review_document["options"]
+    option_a = next((option for option in options if option["id"] == "A"), None)
+    if (
+        recommendation["option_id"] != "A"
+        or not isinstance(option_a, dict)
+        or option_a["disposition"] != "accept"
+        or owner_decision["status"] != "recorded"
+        or owner_decision["selected_option_id"] != "A"
+        or owner_decision["decided_by"] != "edithatogo"
+        or review_document["candidate"]["commit"] != candidate["repository_commit"]
+        or review_document["candidate"]["tree"] != candidate["repository_tree"]
+        or review_document["candidate"]["evidence_manifest_sha256"] != candidate["manifest_sha256"]
+    ):
+        raise Track009SyntheticReceiptError("review packet does not accept this exact candidate")
 
     for path_field, hash_field in (
         ("manifest", "manifest_sha256"),
@@ -101,6 +138,10 @@ def validate(root: Path, receipt_path: Path = RECEIPT, schema_path: Path = SCHEM
         raise Track009SyntheticReceiptError("candidate manifest overstates synthetic scope")
 
     validate_profile_role(root, MATRIX, MATRIX_SCHEMA)
+    try:
+        validate_containment(root)
+    except CandidateContainmentError as exc:
+        raise Track009SyntheticReceiptError(f"candidate containment drift: {exc}") from exc
 
     blocker_ids = [row["id"] for row in receipt["global_blockers"]]
     if blocker_ids != ["EPI-MED-01", "EPI-MED-02", "GOV-MED-01"]:
