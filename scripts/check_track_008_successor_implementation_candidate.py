@@ -149,6 +149,22 @@ def _sha256(path: Path) -> str:
 
 def validate(candidate_path: Path, root: Path) -> None:
     candidate = _load(candidate_path)
+    if candidate.get("status") == "superseded_by_bounded_completion_scope":
+        decision_path = candidate.get("superseded_by")
+        if not isinstance(decision_path, str) or not (root / decision_path).is_file():
+            raise SuccessorCandidateError(
+                "superseded candidate must name its bounded completion decision"
+            )
+        decision = _load(root / decision_path)
+        if decision.get("track_id") != "008-semantic-backbone":
+            raise SuccessorCandidateError("superseding decision must identify Track 008")
+        if decision.get("owner_decision", {}).get("selected_option") != "A":
+            raise SuccessorCandidateError("superseding decision must select bounded option A")
+        if decision.get("effect", {}).get("track_008_status") != "complete_for_bounded_scope":
+            raise SuccessorCandidateError(
+                "superseding decision must complete only the bounded scope"
+            )
+        return
     if candidate.get("status") != "prepared_not_applied":
         raise SuccessorCandidateError("candidate must remain prepared and not applied")
     if candidate.get("next_gate") != (

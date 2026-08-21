@@ -1,0 +1,70 @@
+schema_version: "1.0.0"
+track_id: "008-semantic-backbone"
+decision_type: "bounded_track_completion_scope"
+decided_at_utc: "2026-08-22T00:00:00Z"
+decided_by: "repository-owner"
+accountable_role: "repository owner and sole accountable human"
+owner_instruction: "Proceed with the selective bounded-completion recommendation."
+options:
+  - id: "A"
+    title: "Complete the bounded non-clinical semantic core"
+    recommendation: true
+    rationale: >-
+      The exact allowlisted public assets, provisional mappings, source-native
+      labels, migration controls, panel challenge and owner disposition support
+      a bounded repository completion without claiming clinical or community
+      authority.
+    trade_offs:
+      - "Provides a usable bounded semantic dependency for Track 009."
+      - "Excluded sources, clinical use and broad semantic authority remain unavailable."
+    contingencies:
+      - "Any candidate, source, licence, mapping or evidence-hash drift invalidates this scope."
+      - "Expansion requires a new scoped decision and source-specific evidence."
+  - id: "B"
+    title: "Keep the entire track blocked"
+    recommendation: false
+    rationale: "Preserves the original broad ambition but unnecessarily blocks the bounded core."
+  - id: "C"
+    title: "Reduce the track to a source registry"
+    recommendation: false
+    rationale: "Minimizes semantic interpretation risk but discards the accepted provisional mapping contract."
+owner_decision:
+  status: "accepted"
+  selected_option: "A"
+  governance_status: "owner_operated_not_independent_review"
+  rationale: >-
+    Complete Track 008 only for its exact bounded, provisional, non-clinical
+    semantic contract. Preserve excluded-source rights, clinical-validity,
+    actual-community-authority and production-release conditions as explicit
+    expansion gates.
+completion_scope:
+  included_public_sources:
+    - "Orphadata July 2026 exact alignment asset"
+    - "MONDO v2026-08-04 exact release assets"
+    - "nine individually hash-identified HPO v2026-06-23 ontology-core assets"
+  supported_effects:
+    - "versioned provisional identifiers, mappings and source-native labels"
+    - "synthetic hierarchy, overlap controls and deterministic migration diffs"
+    - "bounded dependency satisfaction for Track 009 preparation"
+  prohibited_effects:
+    - "clinical or diagnostic validity"
+    - "patient/community participation, representation, consent or endorsement"
+    - "redistribution of excluded or controlled source classes"
+    - "production activation, stable release or partnership authority"
+external_expansion_gates:
+  status: "pending_outside_bounded_completion"
+  gates:
+    - id: "TRACK008-RIGHTS-EXPANSION"
+      requirement: "source or rights-holder evidence before expanding the exact asset allowlist"
+    - id: "TRACK008-CLINICAL-USE"
+      requirement: "source-specific mapping-fitness and clinical-validity evidence"
+    - id: "TRACK008-COMMUNITY-AUTHORITY"
+      requirement: "actual-community authority before participation, representation, consent or endorsement claims"
+    - id: "TRACK008-PRODUCTION-RELEASE"
+      requirement: "separate exact-candidate release decision before publication or activation"
+effect:
+  track_008_status: "complete_for_bounded_scope"
+  track_009_dependency: "satisfied_for_bounded_preparation_only"
+  release_authority: false
+  external_expansion_authority: false
+  independent_review_claim: false
