@@ -1,0 +1,62 @@
+schema_version: "1.0.0"
+track: 013-quality-validation-gap-equity
+status: bounded_repository_assurance_complete_dependencies_blocked
+scope: synthetic_and_metadata_only
+agent_panel:
+  simulation_status: role_separated_simulated_advice
+  perspectives:
+    - scientific_methods
+    - community_harm_interpretation
+    - equity_accessibility
+    - rights_data_use
+    - programme_release
+  independent_or_human_review: false
+findings:
+  - id: coverage
+    severity: high
+    disposition: bounded
+    rationale: All six gap-map needs remain not_assessed for sufficiency.
+    action: Preserve visible missingness and prohibit representative claims.
+  - id: equity
+    severity: high
+    disposition: bounded
+    rationale: LMIC, underserved and Indigenous rows are metadata-only or not assessed.
+    action: Use harm and governance criteria without claiming representation.
+  - id: triangulation
+    severity: high
+    disposition: blocked_by_dependencies
+    rationale: No active empirical demonstrator output is eligible for comparison.
+    action: Rerun after each prerequisite track supplies an exact empirical candidate.
+  - id: uncertainty
+    severity: medium
+    disposition: bounded
+    rationale: Deterministic independent-product decomposition is available; correlated empirical inputs are not.
+    action: Publish structural uncertainty only and label the independence assumption.
+  - id: atlas
+    severity: high
+    disposition: narrowed
+    rationale: Synthetic and metadata products are testable; empirical atlas claims are not ready.
+    action: Permit synthetic and metadata-only surfaces and block empirical promotion.
+owner_disposition:
+  decided_by: edithatogo
+  decision: narrow_and_continue
+  accepted_scope: synthetic_and_metadata_only
+  empirical_or_global_release_authorized: false
+repository_outputs:
+  protocol: docs/quality-validation-013-protocol.md
+  machine_gap_map: docs/track-013-public-data-gap-map-2026-08-21.json
+  human_gap_map: docs/track-013-public-data-gap-map-2026-08-21.md
+  equity_review: examples/quality/equity-gap-review-synthetic.yml
+  uncertainty_implementation: src/rareburden/uncertainty.py
+remaining_dependency_states:
+  003-monogenic-diabetes-demonstrator: blocked
+  005-economic-social-burden: blocked
+  010-public-burden-engine: blocked
+  011-bronchiectasis-demonstrator: blocked
+  012-paediatric-burden-demonstrator: blocked
+conditional_external_facts:
+  - empirical comparison evidence for an activated analysis
+  - applicable third-party rights or custodian permission
+  - unrelated community or Indigenous consent or representation if claimed
+  - representation evidence before any unqualified global claim
+resume_condition: Each pending triangulation task resumes only when its named dependency supplies an eligible exact candidate.

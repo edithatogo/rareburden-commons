@@ -12,11 +12,12 @@ def test_synthetic_equity_gap_review_is_schema_valid_and_fail_closed() -> None:
     schema = load_mapping(ROOT / "schemas/equity-gap-review.schema.json")
     review = load_yaml(ROOT / "examples/quality/equity-gap-review-synthetic.yml")
     validate_instance(review, schema, label="equity gap review")
-    assert review["status"] == "draft"
+    assert review["status"] == "reviewed"
     assert all(
         item["coverage_status"] in {"metadata_only", "not_assessed"}
         for item in review["populations"]
     )
+    assert any("agent advice" in item.lower() for item in review["limitations"])
     invalid = {**review, "limitations": []}
     with pytest.raises(SchemaValidationError):
         validate_instance(invalid, schema, label="equity gap review")
