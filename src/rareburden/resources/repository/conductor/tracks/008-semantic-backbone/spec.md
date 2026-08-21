@@ -22,7 +22,9 @@ Implement a versioned semantic layer that defines rare-disease entities, maps re
 3. Mutually exclusive aggregation nodes pass conservation and no-parent-child-sum tests.
 4. Demonstrator definitions can be reconstructed from the semantic release alone.
 5. Ontology updates produce a reviewable diff and invalidate affected outputs.
-6. Patient/community review addresses naming and aggregation harms.
+6. An owner-operated, role-separated simulated community-impact challenge
+   addresses naming and aggregation harms without claiming participation,
+   representation, consent, endorsement or authority for unrelated communities.
 7. Semantic releases have migration and deprecation rules.
 
 ## Non-goals
@@ -38,4 +40,4 @@ This track implements the disease-definition, mapping and overlap controls requi
 
 ## Non-binding protocol draft — semantic contract v0.1.0 (2026-07-27)
 
-Preparatory only; this does not activate the track or freeze a v0.4 interface. Represent disease, syndrome, aetiology, phenotype and code-system entities with stable internal IDs, source/version, relation, validity, provenance and licence state. Support exact, broader, narrower, approximate, ambiguous, deprecated and unmapped mappings, with ambiguous aggregation failing closed. Explicitly represent mutually exclusive nodes, non-tree relations, multi-aetiology and multi-diagnosis links. Validate cycles, conservation, version impact and golden fixtures; require semantic, clinical, patient/community and engineering review.
+Preparatory only; this does not activate the track or freeze a v0.4 interface. Represent disease, syndrome, aetiology, phenotype and code-system entities with stable internal IDs, source/version, relation, validity, provenance and licence state. Support exact, broader, narrower, approximate, ambiguous, deprecated and unmapped mappings, with ambiguous aggregation failing closed. Explicitly represent mutually exclusive nodes, non-tree relations, multi-aetiology and multi-diagnosis links. Validate cycles, conservation, version impact and golden fixtures; require role-separated semantic, clinical-methods, simulated community-impact and engineering agent advice followed by repository-owner disposition. Independent human review is not part of this single-person repository model. Factual source-rights constraints, clinical-validity limits and authority for unrelated communities remain separate and cannot be manufactured by owner or agent attestation.

@@ -31,12 +31,27 @@ def test_automation_validates_but_does_not_grant_authority() -> None:
     )
 
 
+def test_single_owner_governance_has_no_independent_human_review_gate() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    governance = document["governance"]
+    assert governance["independent_human_review_gate"] == (
+        "not_applicable_single_person_repository"
+    )
+    assert governance["accountable_decision_maker"] == "repository_owner"
+    assert "independent_semantic_review_receipt" not in document["naming_and_semantic_gate"]
+    assert "independent semantic" not in document["next_action"]["external"]
+
+
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
         (("claims", "contract_frozen", False), "freeze claim must match"),
         (("governance", "repository_panel_output", "independent"), "must remain advisory"),
         (("governance", "owner_disposition", "independent_review"), "cannot be independent"),
+        (
+            ("governance", "independent_human_review_gate", "pending"),
+            "single-person governance",
+        ),
     ],
 )
 def test_readiness_rejects_premature_claims(
