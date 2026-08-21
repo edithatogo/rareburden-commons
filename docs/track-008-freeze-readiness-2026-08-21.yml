@@ -75,10 +75,10 @@ v0_4_candidate_binding:
   review_status: "owner_operated_not_independent"
   effect: "candidate_preparation_only_no_contract_freeze_or_track_completion"
 final_owner_disposition_candidate:
-  exact_candidate_commit: "fa9109e09a91ea5dfc975c54921a3f2f1f79c016"
-  exact_candidate_tree: "81d32f8a2ea7f4b8d385e0c23cef4af6742bb09d"
+  exact_candidate_commit: "47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd"
+  exact_candidate_tree: "af2bc0074ae6c77a65f8c47da04431b08baca77f"
   decision_packet: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
-  decision_packet_sha256: "71abf3fbd7f1042789348bc2cc20f5318223424ac44ccc672bea8a9ef65ab074"
+  decision_packet_sha256: "0a1bff03d491265cb3fa9dfb5911ca848b0b3dedd49c7a85524222403ea1e868"
   recommended_option: "A"
   owner_decision_state: "pending"
   effect: "none_until_owner_selects_an_option_for_this_exact_candidate"

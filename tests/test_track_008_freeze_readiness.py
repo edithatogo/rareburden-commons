@@ -137,7 +137,7 @@ def test_v0_4_candidate_binds_generated_rows() -> None:
 def test_final_disposition_remains_pending_and_exact() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     disposition = document["final_owner_disposition_candidate"]
-    assert disposition["exact_candidate_commit"] == ("fa9109e09a91ea5dfc975c54921a3f2f1f79c016")
+    assert disposition["exact_candidate_commit"] == ("47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd")
     assert disposition["owner_decision_state"] == "pending"
     assert document["contract_freeze_gate"]["state"] == "pending"
 
