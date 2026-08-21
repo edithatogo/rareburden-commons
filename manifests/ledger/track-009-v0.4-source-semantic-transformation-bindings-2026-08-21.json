@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "track": "009-evidence-parameter-ledger",
+  "candidate_contract": "v0.4",
+  "binding_status": "prepared_not_frozen",
+  "upstream_semantic_contract": {
+    "candidate_commit": "bdce109e0fc917e2f9f8e178120c97b3e00dc0d6",
+    "candidate_tree": "1c804aa7cb90a74bad77559341cabfc758061284",
+    "manifest_sha256": "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290",
+    "freeze_receipt_sha256": "6239f64a09182d6688efeb661899cd0e50bd9fde899492bb6100a26069a86a8d",
+    "permitted_use": "identifier_and_provisional_non_clinical_semantic_validation_only"
+  },
+  "ledger_source_releases": [
+    {
+      "source_release_id": "synthetic-un-wpp-2026-07",
+      "licence_state": "not_applicable",
+      "visibility": "public",
+      "activation_state": "synthetic_only",
+      "evidence_path": "examples/ledger/public-foundation-synthetic.yml",
+      "evidence_sha256": "b0aef6e12893fb469f4993285f4d5d9621f810af3e08f686ec3235d0cfd51a76"
+    }
+  ],
+  "transformations": [],
+  "excluded_parameter_sources": [
+    "all empirical Orphadata epidemiology values pending estimand review",
+    "WPP private archive",
+    "WHO GHE private or metadata-only material",
+    "HPO objects as parameter evidence",
+    "PanelApp and all controlled or credentialed sources"
+  ],
+  "claims": {
+    "empirical_parameter_activation": false,
+    "private_source_use": false,
+    "clinical_use": false,
+    "contract_frozen": false,
+    "track_complete": false
+  }
+}

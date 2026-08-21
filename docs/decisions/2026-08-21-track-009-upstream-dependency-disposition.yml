@@ -67,4 +67,11 @@ recommendation:
     retain empirical activation and the Track 009 freeze as later exact owner
     decisions, and invalidate on any upstream drift.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T03:58:18Z"
+  rationale: >-
+    Permit preparation of an exact Track 009 candidate against the frozen
+    bounded Track 008 semantic contract. This does not complete Track 008,
+    freeze Track 009, activate empirical parameters or supply external review.

@@ -114,16 +114,16 @@ def validate(path: Path, root: Path) -> None:
 
     reconciliation = document.get("upstream_contract_reconciliation", {})
     if (
-        reconciliation.get("status") != "owner_decision_required"
+        reconciliation.get("status") != "owner_approved_candidate_preparation"
         or reconciliation.get("recommended_option") != "A"
-        or reconciliation.get("owner_decision_state") != "pending"
+        or reconciliation.get("owner_decision_state") != "recorded_option_A"
         or reconciliation.get("effect")
-        != "none_until_owner_selects_an_option_for_this_exact_upstream_freeze"
+        != "exact_candidate_preparation_only_no_freeze_or_empirical_activation"
         or not COMMIT.fullmatch(str(reconciliation.get("freeze_recording_commit", "")))
         or not COMMIT.fullmatch(str(reconciliation.get("freeze_recording_tree", "")))
     ):
         raise Track009ReadinessError(
-            "upstream contract reconciliation must remain exact and pending"
+            "upstream contract reconciliation must remain exact and recorded"
         )
     for path_field, hash_field in (
         ("track_008_freeze_receipt", "track_008_freeze_receipt_sha256"),
@@ -146,11 +146,56 @@ def validate(path: Path, root: Path) -> None:
     if (
         decision_packet.get("track") != "009-evidence-parameter-ledger"
         or decision_packet.get("recommendation", {}).get("option_id") != "A"
-        or decision_packet.get("owner_decision", {}).get("status") != "pending"
+        or decision_packet.get("owner_decision", {}).get("status") != "recorded"
+        or decision_packet.get("owner_decision", {}).get("selected_option_id") != "A"
+        or decision_packet.get("owner_decision", {}).get("decided_by") != "edithatogo"
         or decision_packet.get("upstream_evidence", {}).get("freeze_receipt_sha256")
         != reconciliation.get("track_008_freeze_receipt_sha256")
     ):
         raise Track009ReadinessError("Track 009 upstream decision packet identity or state drift")
+
+    candidate_binding = document.get("v0_4_candidate_binding", {})
+    if (
+        candidate_binding.get("status") != "prepared_not_frozen"
+        or candidate_binding.get("effect")
+        != "candidate_preparation_only_no_contract_freeze_or_track_completion"
+        or candidate_binding.get("parameter_count") != 2
+        or candidate_binding.get("empirical_parameter_count") != 0
+        or not COMMIT.fullmatch(str(candidate_binding.get("preparation_source_commit", "")))
+        or not COMMIT.fullmatch(str(candidate_binding.get("preparation_source_tree", "")))
+    ):
+        raise Track009ReadinessError("v0.4 ledger candidate scope or revision binding drift")
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("ledger_export", "ledger_export_sha256"),
+        ("schema_and_migration_receipt", "schema_and_migration_receipt_sha256"),
+        (
+            "source_semantic_transformation_bindings",
+            "source_semantic_transformation_bindings_sha256",
+        ),
+        ("challenge_findings", "challenge_findings_sha256"),
+    ):
+        evidence_path = _repository_path(root, candidate_binding.get(path_field))
+        expected = str(candidate_binding.get(hash_field, ""))
+        if not SHA256.fullmatch(expected) or _sha256(evidence_path) != expected:
+            raise Track009ReadinessError(f"v0.4 ledger candidate evidence hash drift: {path_field}")
+    try:
+        candidate = json.loads(
+            _repository_path(root, candidate_binding.get("candidate_manifest")).read_text(
+                encoding="utf-8"
+            )
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise Track009ReadinessError(f"cannot read v0.4 ledger candidate manifest: {exc}") from exc
+    if (
+        candidate.get("candidate_status") != "prepared_not_frozen"
+        or candidate.get("ledger_export", {}).get("sha256")
+        != candidate_binding.get("ledger_export_sha256")
+        or candidate.get("ledger_export", {}).get("empirical_parameter_count") != 0
+        or candidate.get("claims", {}).get("contract_frozen") is not False
+        or candidate.get("claims", {}).get("track_complete") is not False
+    ):
+        raise Track009ReadinessError("v0.4 ledger candidate identity, scope or claims drift")
 
     issues = document.get("blocking_data_contract_issues")
     if not isinstance(issues, list) or {row.get("id") for row in issues} != REQUIRED_ISSUES:

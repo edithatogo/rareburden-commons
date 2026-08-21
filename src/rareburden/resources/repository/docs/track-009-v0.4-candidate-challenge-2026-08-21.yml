@@ -1,0 +1,37 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track: "009-evidence-parameter-ledger"
+candidate_scope: "exact synthetic ledger contract preparation"
+authority_boundary: >-
+  Owner-operated repository challenge only; not independent epidemiology,
+  data-governance, engineering, clinical, custodian or community approval.
+lanes:
+  - role: "simulated epidemiology"
+    findings:
+      - severity: "medium"
+        finding: "The candidate contains no empirical parameter fit for a real estimand."
+        disposition: "Retain empirical activation as false and keep EPI-MED-01 open."
+      - severity: "medium"
+        finding: "No real conflicting-estimate group is dispositioned."
+        disposition: "Retain no-automatic-selection controls and keep EPI-MED-02 open."
+  - role: "simulated rights and data use"
+    findings:
+      - severity: "medium"
+        finding: "Rights clearance for a source does not establish parameter fitness or public activation."
+        disposition: "Candidate uses synthetic values only; private, controlled and credentialed sources remain excluded."
+  - role: "simulated engineering"
+    findings:
+      - severity: "low"
+        finding: "Candidate validity depends on exact schema, ledger, upstream semantic and binding hashes."
+        disposition: "Any bound hash drift invalidates the candidate and requires regeneration."
+critical_findings: 0
+unresolved_medium_findings: ["EPI-MED-01", "EPI-MED-02", "GOV-MED-01"]
+recommendation: "present exact synthetic candidate for owner disposition"
+claims:
+  empirical_parameter_activation: false
+  epidemiology_approval: false
+  data_governance_approval: false
+  engineering_approval: false
+  independent_review: false
+  contract_frozen: false
+  track_complete: false

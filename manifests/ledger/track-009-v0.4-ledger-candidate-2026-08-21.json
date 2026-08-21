@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "track": "009-evidence-parameter-ledger",
+  "candidate_contract": "v0.4",
+  "candidate_status": "prepared_not_frozen",
+  "preparation_source_commit": "e88fd303d3929cd8cc4987cf9ff4647122c7239e",
+  "preparation_source_tree": "6b241ac123b2a48b75f3db0c99b9bf9031ec67e7",
+  "owner_preparation_decision": {
+    "path": "docs/decisions/2026-08-21-track-009-upstream-dependency-disposition.yml",
+    "sha256": "588f62f959593b3571cdd4efb5e191183e5da3d1a7e9f5bec1c2f8a6123cb7b4",
+    "selected_option_id": "A"
+  },
+  "ledger_export": {
+    "path": "examples/ledger/public-foundation-synthetic.yml",
+    "sha256": "b0aef6e12893fb469f4993285f4d5d9621f810af3e08f686ec3235d0cfd51a76",
+    "ledger_id": "public-foundation-synthetic-ledger",
+    "parameter_count": 2,
+    "empirical_parameter_count": 0
+  },
+  "schema_and_migration_receipt": {
+    "path": "manifests/ledger/track-009-v0.4-schema-migration-receipt-2026-08-21.json",
+    "sha256": "3b7f5d35b1c123753ed599f43fb8f36dac2480303f66dcf60738a0b191ab521f"
+  },
+  "source_semantic_transformation_bindings": {
+    "path": "manifests/ledger/track-009-v0.4-source-semantic-transformation-bindings-2026-08-21.json",
+    "sha256": "b56f5aecb14b50f3385aa87f4f2ceb1fa45c1371d2f9ca2d75e4bda7143dc834"
+  },
+  "challenge": {
+    "path": "docs/track-009-v0.4-candidate-challenge-2026-08-21.yml",
+    "sha256": "96edd2a9bd1f2f611b56a21e1ae85dd538024c4dc353a291c06a78ef85402ade"
+  },
+  "invalidation": "any bound artifact, schema, upstream semantic, commit or tree hash drift",
+  "claims": {
+    "empirical_parameter_activation": false,
+    "epidemiology_approval": false,
+    "data_governance_approval": false,
+    "engineering_approval": false,
+    "independent_review": false,
+    "contract_frozen": false,
+    "track_complete": false
+  }
+}

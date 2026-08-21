@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "track": "009-evidence-parameter-ledger",
+  "candidate_contract": "v0.4",
+  "migration_status": "identity_validated_not_activated",
+  "source_schema_version": "1.0.0",
+  "target_schema_version": "1.0.0",
+  "schemas": [
+    {"path": "schemas/parameter-ledger.schema.json", "sha256": "f58ffd67c9b55d9cffecbc4c050e957e3092ca1bb2c383a54f0a9310d0ad4821"},
+    {"path": "schemas/evidence-assessment.schema.json", "sha256": "adfac3942e2b3778b6c3abf6157d5c4db3e6630548f663ceeb03b0b7ac896f1b"},
+    {"path": "schemas/assumption.schema.json", "sha256": "9113a850c86fe6468873ab248c998b9aebf38e211685e55c0affb9f5f9c418dc"},
+    {"path": "schemas/analysis-specification.schema.json", "sha256": "d72c9ba6557b21d10877f8cf8424db7111aff2c3ff1ed6805c2f1f5f5632bde5"}
+  ],
+  "ledger_export": {
+    "path": "examples/ledger/public-foundation-synthetic.yml",
+    "sha256": "b0aef6e12893fb469f4993285f4d5d9621f810af3e08f686ec3235d0cfd51a76",
+    "parameter_count": 2,
+    "synthetic_parameter_count": 2,
+    "empirical_parameter_count": 0
+  },
+  "observed_impact": {
+    "changed_parameter_ids": [],
+    "removed_parameter_ids": [],
+    "schema_data_loss": false
+  },
+  "claims": {
+    "migration_approved_for_production": false,
+    "empirical_parameter_activation": false,
+    "contract_frozen": false
+  }
+}

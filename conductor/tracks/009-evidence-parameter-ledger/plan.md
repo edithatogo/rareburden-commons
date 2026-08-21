@@ -113,5 +113,14 @@
   Evidence:
   `docs/decisions/2026-08-21-track-009-upstream-dependency-disposition.yml`
   and `docs/track-009-freeze-readiness-2026-08-21.yml`. The recommended narrow
-  exception permits exact candidate preparation only; it is pending owner
-  selection and does not freeze Track 009 or activate empirical parameters.
+  exception permits exact candidate preparation only; the owner selected it
+  without freezing Track 009 or activating empirical parameters.
+- [x] Prepare the exact v0.4 synthetic ledger candidate, identity migration
+  receipt, source-semantic-transformation bindings and repeated bounded
+  challenge. Evidence:
+  `manifests/ledger/track-009-v0.4-ledger-candidate-2026-08-21.json`,
+  `manifests/ledger/track-009-v0.4-schema-migration-receipt-2026-08-21.json`,
+  `manifests/ledger/track-009-v0.4-source-semantic-transformation-bindings-2026-08-21.json`
+  and `docs/track-009-v0.4-candidate-challenge-2026-08-21.yml`. The candidate
+  contains two synthetic parameters and zero empirical parameters; all three
+  medium findings, every approval claim and contract freeze remain open or false.
