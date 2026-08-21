@@ -145,3 +145,21 @@ show that any interface is understandable or accessible to real users, that a
 source is cleared for redistribution, that an exact candidate was reproduced,
 or that publication is authorised. Independent accessibility and real-user
 usability evidence remain pending.
+
+## Accessibility preparation and bounded static product set — 2026-08-21
+
+Repository review result: **Pass for contract-level accessibility preparation
+and three synthetic static product models**. The shared release identity now
+projects into gap, synthetic-country and demonstrator products with required
+headings, text alternatives, explicit non-colour status labels, visible
+`not_assessed` state and missing-not-zero semantics. Synthetic country
+identifiers are restricted to the ISO user-assigned `XAA`–`XZZ` range so they
+cannot silently represent a real jurisdiction.
+
+The repository-owned accessibility review remains advisory and records
+keyboard/assistive-technology behavior and plain-language comprehension as not
+independently assessed. The main accessibility design-review task therefore
+remains pending, as do real-user evidence, patient/community acceptable-use
+review and public-candidate authorization. The product-set task is complete
+only for the bounded synthetic/static implementation; it does not establish an
+empirical country profile, public demonstrator or released gap atlas.

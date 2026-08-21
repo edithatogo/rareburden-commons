@@ -1,0 +1,38 @@
+schema_version: "1.0.0"
+track: "014-atlas-api-release"
+review_date: "2026-08-21"
+review_kind: "repository_owned_advisory_design_review"
+independent_review: false
+real_user_testing_observed: false
+publication_authorized: false
+scope:
+  - "bounded static product model"
+  - "aggregate package and read-only API-shaped response"
+  - "evidence-presentation component contract"
+criteria:
+  - id: "meaningful_structure"
+    status: "pass_repository_contract"
+    evidence: "Every static product requires a heading, page identity and scope identity."
+  - id: "text_alternatives"
+    status: "pass_repository_contract"
+    evidence: "Every product requires a non-empty text alternative describing status, scope and limitations."
+  - id: "non_colour_meaning"
+    status: "pass_repository_contract"
+    evidence: "Every product requires explicit textual status labels; colour is not required to interpret state."
+  - id: "missingness_not_zero"
+    status: "pass_repository_contract"
+    evidence: "The product set preserves not_assessed and the preserve_missing_not_zero policy."
+  - id: "keyboard_and_assistive_technology"
+    status: "not_independently_assessed"
+    evidence: "The repository model is static structured data; rendered interface behavior requires an exact candidate and independent review."
+  - id: "plain_language_and_cognitive_accessibility"
+    status: "not_independently_assessed"
+    evidence: "Repository-authored text has not been evaluated with real patient, policy or operator users."
+findings:
+  blocking_repository_findings: []
+  external_findings:
+    - "Independent accessibility review of an exact rendered candidate remains required."
+    - "Real-user usability and patient/community acceptable-use evidence remain required."
+disposition: >-
+  Pass only for repository contract completeness and synthetic negative tests.
+  Keep the Track 014 accessibility design-review and beta-release gates pending.
