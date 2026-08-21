@@ -4,7 +4,11 @@
 
 ## Phase 1 — Product and information design
 
-- [ ] Define user journeys for patient, policy, research, custodian and funder users.
+- [x] Define bounded user journeys for patient, policy, research, custodian and
+  funder users. Evidence:
+  `docs/track-014-bounded-user-journeys-2026-08-21.yml` and
+  `tests/test_track014_user_journeys.py`. These are repository design
+  hypotheses, not user research, endorsement or accessibility approval.
 - [x] Define the bounded static page, aggregate data-package and read-only API
   contracts. Evidence: `schemas/atlas-static-projection.schema.json`,
   `schemas/atlas-api-response.schema.json` and
