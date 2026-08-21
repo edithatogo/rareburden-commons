@@ -159,3 +159,9 @@
 - [x] Record the owner's Option A disposition for all four advisory receipts.
   The packets remain explicitly non-independent; alpha freeze, community
   authority and external approval gates remain pending.
+- [x] Record the owner-attributable bounded scientific/statistical disposition
+  for the exact candidate. Evidence:
+  `docs/track-010-scientific-statistical-owner-receipt-2026-08-22.yml`.
+  This qualifies only the narrowly bounded synthetic contract and does not
+  establish independent review, empirical validity, clinical validity,
+  transportability, production fitness or alpha freeze.

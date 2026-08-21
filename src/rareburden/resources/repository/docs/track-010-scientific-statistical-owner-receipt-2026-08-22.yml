@@ -1,0 +1,61 @@
+receipt_schema_version: "0.1.0"
+receipt_id: "track-010-owner-attributable-bounded-scientific-statistical-2026-08-22"
+gate: "scientific_statistical"
+decision: "bounded_synthetic_contract_only"
+accountable:
+  person_or_body: "edithatogo repository owner"
+  role: "repository_owner_scientific_statistical_authority"
+  organisation_or_constituency: "RareBurden Commons single-developer repository"
+  contact_or_record_locator: "Owner decision recorded in this receipt"
+  independence_or_authority_basis: "Owner-attributable bounded scientific/statistical disposition"
+  conflict_of_interest: "Owner and developer; not independent of implementation"
+  quorum_or_selection_basis: "Single-owner scientist/statistician decision after advisory panel input"
+decision_date_utc: "2026-08-21T19:17:09Z"
+expiry_or_review_date_utc: "2026-09-21T19:17:09Z"
+subject:
+  repository: "edithatogo/rareburden-commons"
+  track: "010-public-burden-engine"
+  candidate_commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  candidate_tree: "56851ea539a3503175e253dd7949b28abc474082"
+  candidate_manifest: "manifests/burden/track-010-alpha-candidate-2026-08-21.json"
+  candidate_manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+  engine_manifest_sha256: "dd74d5b5b4a061512b189094621740992454f87589810b134eb86dbaad455a64"
+  ledger_receipt_sha256: "da51226da021a287eb8f732378cafce00c8b5f874c3c6a25616e1a7a3b044aef"
+  track_003_interface_manifest_sha256: "9725f803dde25c8c8d8010a40b653f241bccec7f399f71bd707138bfd9b51b3d"
+  compatibility_migration_sha256: "dcd7ad550413646ee52c511300bb5b6813b32678ac2b90f72f606c835aabbb08"
+  benchmark_reproducibility_sha256: "f6c5f6e8e0649b25b3cc9854e54aedb5bfdb25daec3360e8894bf1469ef3393d"
+evidence:
+  references:
+    - "docs/track-010-engine-review-packet.md"
+    - "docs/burden-engine-010-reference.md"
+    - "docs/track-010-alpha-candidate-challenge-2026-08-21.yml"
+    - "docs/reviews/track-010-scientific-statistical-advisory-2026-08-22.yml"
+  protocol_versions: ["burden-engine-contract-v0.1.0", "track-010-exact-candidate-2026-08-21"]
+  commands: ["make PYTHON='uv run python' check"]
+  environment: "repository-owned bounded scientific/statistical disposition"
+  retained_outputs:
+    - "docs/track-010-scientific-statistical-owner-receipt-2026-08-22.yml"
+  discrepancy_log: "No hash discrepancy observed; scientific limitations remain explicit and unresolved beyond synthetic scope."
+review_scope:
+  estimands: "Approve expected affected population and rare-aetiology product contracts only for compatible synthetic count/person envelopes."
+  uncertainty: "Approve seeded beta propagation and independent-product decomposition as model-based synthetic demonstrations, not calibrated inference."
+  dependence: "Retain correlated-input handling as unsupported and fail-closed."
+  structural_scenarios: "Approve bounded scenario machinery only when analysis identity, estimand, unit and intended use are preserved."
+  prohibited_shortcuts: "Retain rejection of direct case-fraction allocation to DALY, YLD, YLL, deaths or costs without explicit component models."
+  intended_use: "Synthetic contract assurance and continued non-activating preparation."
+conditions:
+  - "Empirical parameter activation remains false; candidate empirical_parameter_count is zero."
+  - "Synthetic distribution parameters and effective sample size must not be described as observations or calibrated uncertainty."
+  - "Monte Carlo percentile intervals must not be described as confidence or credible intervals without a new justified model."
+  - "No clinical, policy, representative, transportable, causal or production burden claim is approved."
+  - "Any candidate, engine, ledger, interface, specification or relevant artifact hash drift invalidates this receipt."
+dissent_or_limitations:
+  - "The advisory panel identifies absent target-population, time-horizon, ascertainment, missingness, measurement-error, transportability and empirical-validation evidence."
+  - "The owner is not independent of implementation; this receipt does not satisfy independent scientific-software review."
+  - "A stricter alternative would narrow to deterministic estimands only or defer the gate."
+restricted_evidence_pointer: ""
+attestation:
+  submitted_by: "edithatogo repository owner"
+  submitted_at_utc: "2026-08-21T19:17:09Z"
+  signature_or_approval_record: "Owner selected Option A after review of the exact-candidate advisory panel outputs."
+  supersedes_receipt_id: ""

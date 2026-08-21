@@ -66,3 +66,9 @@ The prepared receipts are:
 
 Each packet records the owner's Option A disposition; none closes an alpha,
 independence, community-authority or external-approval gate.
+
+The owner-attributable bounded scientific/statistical disposition is recorded
+in `docs/track-010-scientific-statistical-owner-receipt-2026-08-22.yml`. It
+qualifies only the synthetic contract scope stated there; it is not independent
+review and does not establish empirical, clinical, transportability or
+production validity.
