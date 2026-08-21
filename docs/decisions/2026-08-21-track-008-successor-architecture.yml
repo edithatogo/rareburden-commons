@@ -91,4 +91,13 @@ recommendation:
     Select the distinct-successor architecture only, then prepare a separate
     atomic implementation candidate with all status and dependency gates still closed.
 owner_decision:
-  status: pending
+  status: recorded
+  selected_option_id: A
+  decided_by: edithatogo
+  decided_at_utc: "2026-08-21T06:21:26Z"
+  rationale: >-
+    Select the distinct-successor architecture and authorize preparation of a
+    separate atomic implementation candidate. Historical Track 008, both
+    successors and Track 009 remain blocked; this decision does not register or
+    complete a successor, migrate a dependency, clear rights, or authorize
+    empirical, public-facing, clinical or patient-facing semantic use.
