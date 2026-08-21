@@ -29,19 +29,19 @@ live_inventory:
     disposition: "retain_private_except_exact_rights_cleared_duplicates"
   - id: "edithatogo/rareburden-commons-open-source-snapshots"
     visibility: "public"
-    revision: "6eadca1e2b69a05aaf33d5f2ff1391daf94d33cc"
-    files: 462
-    bytes: 10841596729
+    revision: "8c62250e0ef540b1e1bcd859bffaf30cbb1edddd"
+    files: 473
+    bytes: 11112959232
     disposition: "public_rights_filtered_projection"
 
 approved_bulk_promotion:
   owner_disposition: "promote_additional_exact_rights_cleared_batches_in_bulk"
   candidate_universe: "288 HPO ontology-core objects marked public_exact_unmodified_with_official_conditions"
   initial_public_objects: 137
-  public_objects_after_bounded_run: 217
-  newly_public_objects: 80
-  remaining_objects: 71
-  remaining_bytes: 1999612516
+  public_objects_after_bounded_run: 227
+  newly_public_objects: 90
+  remaining_objects: 61
+  remaining_bytes: 1728252910
   size_conflicts: 0
   state: "partially_complete_provider_rate_limit"
   blocker: "Hugging Face repository commit limit of 128 commits per hour"
