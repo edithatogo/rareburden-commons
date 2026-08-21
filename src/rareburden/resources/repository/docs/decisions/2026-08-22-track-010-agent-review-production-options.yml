@@ -1,0 +1,69 @@
+schema_version: "1.0.0"
+simulation_status: "owner_operated_not_independent_review"
+track: "010-public-burden-engine"
+decision: "permit_agent_produced_candidate_bound_review_receipts"
+context:
+  exact_candidate_commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  exact_candidate_tree: "56851ea539a3503175e253dd7949b28abc474082"
+  current_gate: "candidate_bound_scientific_statistical_engineering_patient_community_and_independent_scientific_software_receipts"
+  current_boundary: "agents_are_advisers; agent output is not independent scientific review, community authority, consent, endorsement or external approval"
+  requested_change: "allow agents to produce candidate-bound advisory review receipts that present options and preserve owner approval as the accountable gate"
+options:
+  - id: "A"
+    title: "Permit agent-produced advisory receipts; preserve independent gate"
+    disposition: "recommended_bounded_plan_amendment"
+    rationale: >-
+      Agents can efficiently produce reproducible, exact-candidate technical
+      and simulated role-separated review packets. Their receipts should be
+      accepted as advisory evidence and decision support, while the existing
+      independent scientific-software and patient/community authority gates
+      remain explicitly unresolved until qualifying evidence exists.
+    trade_offs:
+      - "Advances review preparation and gives the owner a structured approval packet."
+      - "Does not satisfy the independent scientific-software gate or create community authority, consent, endorsement or external approval."
+      - "Requires strict role, hash, uncertainty and dissent recording to prevent overclaiming."
+    contingencies:
+      - "Every receipt must bind to the exact candidate commit, tree and relevant artifact hashes."
+      - "Each receipt must include 2-3 options, rationale, trade-offs, contingencies, uncertainty, dissent and stop triggers."
+      - "The owner must approve, revise, defer or reject each disposition; unresolved critical findings keep alpha freeze blocked."
+      - "Scientific/statistical and engineering agent receipts may support owner review; patient/community output must be labelled simulated or owner-operated and cannot represent lived community authority."
+    minimum_evidence:
+      - "A plan amendment and validator contract identifying agent-produced receipts as advisory, not independent."
+      - "One exact-candidate receipt per required perspective with provenance, role, hashes, findings and bounded claims."
+      - "A separate owner decision packet recording disposition of every receipt."
+  - id: "B"
+    title: "Permit agent receipts to satisfy all review labels"
+    disposition: "not_recommended_gate_substitution"
+    rationale: >-
+      This would shorten the path to alpha freeze but would contradict the
+      existing governance boundary that agent work is not independent review
+      and would risk treating simulation as community or external authority.
+    trade_offs:
+      - "Fastest apparent completion path."
+      - "Creates a material false-equivalence between advisory agent output and independent or community evidence."
+    contingencies:
+      - "Would require an explicit policy change, revised acceptance criteria and a new accountable owner decision."
+    minimum_evidence:
+      - "Owner-approved governance change plus replacement of every affected independent-authority boundary."
+  - id: "C"
+    title: "Permit only engineering agent receipt preparation"
+    disposition: "narrower_alternative"
+    rationale: >-
+      Limits agent production to reproducibility, compatibility, performance
+      and maintainability observations, leaving scientific/statistical and
+      patient/community review packets for separate human or external routes.
+    trade_offs:
+      - "Lowest authority risk and simplest validation."
+      - "Provides less complete preparation and leaves more owner coordination."
+    contingencies:
+      - "Engineering receipts remain advisory and cannot close the independent review gate."
+    minimum_evidence:
+      - "Exact-candidate engineering receipt and owner disposition packet."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    Adopt the bounded preparation capability while preserving every existing
+    authority and independence boundary. The owner should approve or reject
+    each agent-produced receipt and retain the final alpha-freeze decision.
+owner_decision:
+  status: "pending"

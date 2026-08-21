@@ -45,3 +45,14 @@ Continue synthetic property, golden, convergence, migration and benchmark
 tests. Do not introduce silent imputation, unsupported correlation, direct
 case-fraction-to-DALY/cost allocation, or a Track 003 alpha dependency before
 the ledger and external review gates are closed.
+
+## Proposed owner-gated agent review preparation
+
+Agents may prepare candidate-bound advisory receipts when the owner adopts the
+plan amendment in `docs/decisions/2026-08-22-track-010-agent-review-production-options.yml`.
+Each receipt must bind to the exact candidate commit, tree and relevant artifact
+hashes and present options, rationale, trade-offs, contingencies, uncertainty,
+dissent and stop triggers. The owner must approve, revise, defer or reject each
+receipt. Agent output remains owner-operated advisory evidence and cannot be
+represented as independent scientific-software review, patient/community
+authority, consent, endorsement, clinical validation or external approval.
