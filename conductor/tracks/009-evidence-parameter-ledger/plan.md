@@ -165,3 +165,18 @@
   model correctness, source fitness or real-data reproducibility. Track 009
   remains blocked, synthetic-only, provisional and unfrozen, and it creates no
   empirical, rights, review or Track 010 eligibility claim.
+
+## Synthetic source-to-profile-role structural check — 2026-08-21
+
+- [x] Add a provisional source-to-bound-profile-role structural schema, an exact matrix
+  for every currently bound synthetic demonstrator-profile role, and a
+  fail-closed validator. Evidence:
+  `schemas/source-profile-role-structural-assessment.schema.json`,
+  `examples/ledger/source-profile-role-structural-synthetic.yml`,
+  `scripts/check_track009_source_profile_role.py` and focused negative
+  tests. The matrix rejects the generic population count as a monogenic-diabetes
+  or bronchiectasis disease denominator and leaves both the assumed aetiologic
+  fraction and paediatric all-residents context unassessed. No target estimand
+  is defined by the non-binding profiles. This exercises but does not
+  resolve EPI-MED-01/02; empirical fitness, rights, review, freeze and Track 010
+  eligibility remain blocked.

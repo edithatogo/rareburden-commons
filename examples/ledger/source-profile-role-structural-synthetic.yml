@@ -1,0 +1,197 @@
+schema_version: 1.0.0
+track: 009-evidence-parameter-ledger
+status: synthetic_profile_role_contract_exercise_only
+profiles:
+  - examples/demonstrators/003-ledger-profile.yml
+  - examples/demonstrators/011-ledger-profile.yml
+  - examples/demonstrators/012-ledger-profile.yml
+ledger: examples/ledger/public-foundation-synthetic.yml
+assessments:
+  - assessment_id: spr-003-denominator
+    demonstrator_id: 003-monogenic-diabetes-demonstrator
+    protocol_id: RBC-P002
+    role: denominator
+    target_estimand: {state: undefined_nonbinding_profile_role, estimand_id: null, revision: null}
+    parameter_id: australia-population-synthetic
+    source_release_id: synthetic-un-wpp-2026-07
+    source_scope: synthetic_release
+    proposed_role: denominator
+    measure: population
+    metric: count
+    unit: people
+    population: all-residents
+    geography: synthetic-au
+    period: {start: '2025-01-01', end: '2025-12-31', time_basis: period_count}
+    aggregation_level: person
+    numerator_or_state: all synthetic residents
+    denominator_or_exposure: not a diabetes disease envelope
+    case_definition_state: unresolved
+    transformations: {state: direct, transformation_ids: []}
+    missingness_rule: missing is not zero
+    overlap_rule: not applicable to a total-population context count
+    uncertainty: {status: quantified, distribution: normal, scale: people, dependence_requirement: unresolved with downstream fractions}
+    evidence_assessment_ids: [eqa-9094d747d9be42c39065d97e]
+    transportability_assessment_ids: []
+    alternative_group: {group_id: ag-003-denominator, completeness: complete_for_current_bound_profile_inventory, selection_state: rejected}
+    dimension_dispositions:
+      population: {disposition: incompatible, rationale: total residents are not the within-diabetes population}
+      geography: {disposition: compatible, rationale: both use the synthetic Australian geography}
+      period_time_basis: {disposition: unclear, rationale: the disease-envelope time basis remains undefined}
+      measure_metric_unit: {disposition: compatible, rationale: population count in people is mechanically aligned}
+      aggregation_numerator_denominator: {disposition: incompatible, rationale: a diabetes prevalence or case envelope is absent}
+      case_definition_semantics: {disposition: unclear, rationale: no diabetes case-definition release is bound}
+      transformations: {disposition: unclear, rationale: the required population-to-disease-envelope transformation is absent}
+      missingness_overlap: {disposition: unclear, rationale: case missingness and aetiology overlap rules remain undefined}
+      uncertainty: {disposition: unclear, rationale: dependence with the missing disease envelope is unresolved}
+    overall_disposition: incompatible
+    scientific_fitness: not_assessed
+    rights: {payload_visibility: synthetic_public, access_authority: not_applicable_synthetic, retention_authority: not_applicable_synthetic, redistribution_state: synthetic_repository_owned_only, permitted_use_state: synthetic_contract_testing_only}
+    activation_state: disabled_synthetic_only
+    rationale: The total-population fixture cannot directly serve as the monogenic-diabetes denominator without a diabetes disease envelope.
+    unresolved_questions:
+      - What diabetes population, case definition and observation window form the required denominator?
+
+  - assessment_id: spr-003-aetiologic-fraction
+    demonstrator_id: 003-monogenic-diabetes-demonstrator
+    protocol_id: RBC-P002
+    role: aetiologic_fraction
+    target_estimand: {state: undefined_nonbinding_profile_role, estimand_id: null, revision: null}
+    parameter_id: rare-diabetes-fraction-synthetic
+    source_release_id: null
+    source_scope: synthetic_assumption
+    proposed_role: fraction
+    measure: rare aetiology share
+    metric: case_fraction
+    unit: proportion
+    population: all-residents
+    geography: synthetic-au
+    period: {start: '2025-01-01', end: '2025-12-31', time_basis: period_prevalence}
+    aggregation_level: person
+    numerator_or_state: synthetic rare-aetiology diabetes cases
+    denominator_or_exposure: synthetic diabetes cases not represented by a bound parameter
+    case_definition_state: synthetic_only
+    transformations: {state: assumption_dependent, transformation_ids: []}
+    missingness_rule: absence of a diabetes envelope remains unresolved
+    overlap_rule: aetiologies must be mutually exclusive or overlap-adjusted before use
+    uncertainty: {status: quantified, distribution: beta, scale: proportion, dependence_requirement: dependence with the diabetes envelope is unresolved}
+    evidence_assessment_ids: [eqa-a996c37d962a989e31fd4233]
+    transportability_assessment_ids: [tra-2a77e6b21b5ed474ad42cadd]
+    alternative_group: {group_id: ag-003-aetiologic-fraction, completeness: complete_for_current_bound_profile_inventory, selection_state: unassessed}
+    dimension_dispositions:
+      population: {disposition: incompatible, rationale: all residents are not the intended within-diabetes population}
+      geography: {disposition: compatible, rationale: both use the synthetic Australian geography}
+      period_time_basis: {disposition: unclear, rationale: the target fraction observation basis is undefined}
+      measure_metric_unit: {disposition: compatible, rationale: the parameter is represented as a case fraction proportion}
+      aggregation_numerator_denominator: {disposition: unclear, rationale: no bound diabetes case-envelope parameter exists}
+      case_definition_semantics: {disposition: unclear, rationale: the diabetes and rare-aetiology case definitions are synthetic only}
+      transformations: {disposition: unclear, rationale: combining the assumption with a missing envelope is undefined}
+      missingness_overlap: {disposition: unclear, rationale: missing aetiologies and overlap adjustment remain unresolved}
+      uncertainty: {disposition: unclear, rationale: beta uncertainty is mechanical and not empirically calibrated}
+    overall_disposition: unassessed
+    scientific_fitness: not_assessed
+    rights: {payload_visibility: none, access_authority: not_applicable_synthetic, retention_authority: not_applicable_synthetic, redistribution_state: synthetic_repository_owned_only, permitted_use_state: synthetic_contract_testing_only}
+    activation_state: disabled_synthetic_only
+    rationale: The assumed fraction exercises schema behavior but cannot establish a rare-within-diabetes estimand without the missing disease envelope.
+    unresolved_questions:
+      - Which diabetes case envelope and overlap rules define the fraction denominator?
+
+  - assessment_id: spr-011-denominator
+    demonstrator_id: 011-bronchiectasis-demonstrator
+    protocol_id: RBC-P003
+    role: denominator
+    target_estimand: {state: undefined_nonbinding_profile_role, estimand_id: null, revision: null}
+    parameter_id: australia-population-synthetic
+    source_release_id: synthetic-un-wpp-2026-07
+    source_scope: synthetic_release
+    proposed_role: denominator
+    measure: population
+    metric: count
+    unit: people
+    population: all-residents
+    geography: synthetic-au
+    period: {start: '2025-01-01', end: '2025-12-31', time_basis: period_count}
+    aggregation_level: person
+    numerator_or_state: all synthetic residents
+    denominator_or_exposure: not a bronchiectasis disease envelope
+    case_definition_state: unresolved
+    transformations: {state: direct, transformation_ids: []}
+    missingness_rule: missing bronchiectasis status is not absence
+    overlap_rule: aetiology overlap requires separate reviewed rules
+    uncertainty: {status: quantified, distribution: normal, scale: people, dependence_requirement: unresolved with disease-envelope parameters}
+    evidence_assessment_ids: [eqa-9094d747d9be42c39065d97e]
+    transportability_assessment_ids: []
+    alternative_group: {group_id: ag-011-denominator, completeness: complete_for_current_bound_profile_inventory, selection_state: rejected}
+    dimension_dispositions:
+      population: {disposition: incompatible, rationale: total residents are not a bronchiectasis case denominator}
+      geography: {disposition: compatible, rationale: both use the synthetic Australian geography}
+      period_time_basis: {disposition: unclear, rationale: the bronchiectasis disease-envelope time basis is undefined}
+      measure_metric_unit: {disposition: compatible, rationale: population count in people is mechanically aligned}
+      aggregation_numerator_denominator: {disposition: incompatible, rationale: the bronchiectasis case envelope is absent}
+      case_definition_semantics: {disposition: unclear, rationale: no bronchiectasis case-definition release is bound}
+      transformations: {disposition: unclear, rationale: the required population-to-disease-envelope transformation is absent}
+      missingness_overlap: {disposition: unclear, rationale: disease missingness and aetiology overlap rules remain undefined}
+      uncertainty: {disposition: unclear, rationale: dependence with missing disease parameters is unresolved}
+    overall_disposition: incompatible
+    scientific_fitness: not_assessed
+    rights: {payload_visibility: synthetic_public, access_authority: not_applicable_synthetic, retention_authority: not_applicable_synthetic, redistribution_state: synthetic_repository_owned_only, permitted_use_state: synthetic_contract_testing_only}
+    activation_state: disabled_synthetic_only
+    rationale: A generic population context cannot serve directly as the bronchiectasis disease-envelope denominator.
+    unresolved_questions:
+      - What bronchiectasis case definition, ascertainment frame and observation window define the denominator?
+
+  - assessment_id: spr-012-population-context
+    demonstrator_id: 012-paediatric-burden-demonstrator
+    protocol_id: RBC-P004
+    role: population_context
+    target_estimand: {state: undefined_nonbinding_profile_role, estimand_id: null, revision: null}
+    parameter_id: australia-population-synthetic
+    source_release_id: synthetic-un-wpp-2026-07
+    source_scope: synthetic_release
+    proposed_role: population_context
+    measure: population
+    metric: count
+    unit: people
+    population: all-residents
+    geography: synthetic-au
+    period: {start: '2025-01-01', end: '2025-12-31', time_basis: context_only}
+    aggregation_level: aggregate_context
+    numerator_or_state: all synthetic residents
+    denominator_or_exposure: contextual population only
+    case_definition_state: not_applicable
+    transformations: {state: direct, transformation_ids: []}
+    missingness_rule: missing population context is not zero
+    overlap_rule: context only and not an aggregation of rare-disease cases
+    uncertainty: {status: quantified, distribution: normal, scale: people, dependence_requirement: none for structural context exercise}
+    evidence_assessment_ids: [eqa-9094d747d9be42c39065d97e]
+    transportability_assessment_ids: []
+    alternative_group: {group_id: ag-012-population-context, completeness: complete_for_current_bound_profile_inventory, selection_state: unassessed}
+    dimension_dispositions:
+      population: {disposition: unclear, rationale: all residents are not explicitly an age-specific paediatric population}
+      geography: {disposition: compatible, rationale: both use the synthetic Australian geography}
+      period_time_basis: {disposition: compatible, rationale: both use the synthetic 2025 context period}
+      measure_metric_unit: {disposition: compatible, rationale: population count in people matches the context role}
+      aggregation_numerator_denominator: {disposition: not_applicable, rationale: the value is not used as a disease or outcome denominator}
+      case_definition_semantics: {disposition: not_applicable, rationale: generic context does not define paediatric rare-disease cases}
+      transformations: {disposition: compatible, rationale: no transformation is declared for the structural context exercise}
+      missingness_overlap: {disposition: not_applicable, rationale: generic context is not used to infer cases or overlapping outcomes}
+      uncertainty: {disposition: unclear, rationale: status and distribution family are preserved but scale and dependence are not validated}
+    overall_disposition: unassessed
+    scientific_fitness: not_assessed
+    rights: {payload_visibility: synthetic_public, access_authority: not_applicable_synthetic, retention_authority: not_applicable_synthetic, redistribution_state: synthetic_repository_owned_only, permitted_use_state: synthetic_contract_testing_only}
+    activation_state: disabled_synthetic_only
+    rationale: The generic population-context binding remains unassessed because the draft paediatric profile does not define an all-age target estimand.
+    unresolved_questions:
+      - Which age-specific population and lawful aggregate sources would be required for an empirical paediatric analysis?
+claims:
+  empirical_estimand_fitness: false
+  epi_med_01_resolved: false
+  epi_med_02_resolved: false
+  rights_or_retention_authorized: false
+  independent_review: false
+  contract_frozen: false
+  track_010_eligible: false
+limitations:
+  - Passing this matrix demonstrates structural checks against the current bound non-binding profile inventory only.
+  - Profile-inventory completeness does not establish complete empirical alternatives or resolve EPI-MED-02.
+  - It does not validate estimands, denominators, uncertainty, source fitness, transportability or model correctness.
+  - It does not authorize source access, retention, redistribution, activation, contract freeze or downstream use.
