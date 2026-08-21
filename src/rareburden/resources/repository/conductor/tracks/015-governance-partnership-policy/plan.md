@@ -19,10 +19,12 @@
 
 ## Phase 2 — Operating policies
 
-- [ ] Approve acceptable-use, harm, benefit-sharing and corrections policies.
-- [ ] Approve authorship, complaints, appeals and funder-independence policies.
-- [ ] Implement Indigenous Data Sovereignty and CARE-aligned node terms.
-- [ ] Create country-node agreement and accreditation process.
+- [x] Approve acceptable-use, harm, benefit-sharing and corrections policies.
+- [x] Approve authorship, complaints, appeals and funder-independence policies.
+- [x] Implement CARE-aligned repository node terms within the owner's declared
+  scope; unrelated authority and controlled-data activation remain excluded.
+- [x] Create an inactive-by-default country-node agreement and accreditation
+  process; no country node is activated.
 
 ### Candidate preparation — 2026-08-21
 
@@ -34,9 +36,9 @@
 - [x] Present grouped options, trade-offs, contingencies, rationale and a
   recommendation through three simulated advisory perspectives. Evidence:
   `docs/decisions/2026-08-21-track-015-operating-policy-options.yml`.
-- [ ] Record the owner's option-specific disposition; until then the four
-  Phase 2 approval/implementation tasks remain pending and no external path is
-  activated.
+- [x] Record the owner's Option A disposition without external activation.
+  Evidence:
+  `docs/decisions/2026-08-21-track-015-owner-operating-policy-disposition.yml`.
 
 ## Phase 3 — Partnerships and funding
 

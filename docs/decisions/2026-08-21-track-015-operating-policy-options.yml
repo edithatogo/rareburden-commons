@@ -83,4 +83,11 @@ recommendation:
     Adopt the integrated candidate because it closes the repository-owned policy
     gap while keeping third-party authority and controlled-data activation fail closed.
 owner_decision:
-  status: pending
+  status: accepted
+  selected_option: A
+  decided_by: edithatogo
+  accountable_role: repository_owner_and_sole_accountable_human
+  governance_status: owner_operated_not_independent_review
+  recorded_at: "2026-08-21"
+  receipt: docs/decisions/2026-08-21-track-015-owner-operating-policy-disposition.yml
+  external_activation: false
