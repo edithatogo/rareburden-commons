@@ -78,6 +78,12 @@
 - [ ] Run an authorised governance tabletop and record decisions; external
   facilitator, patient/community authority and governance appointments remain
   required.
+- [x] Prepare and negatively test a five-scenario simulated tabletop candidate
+  against the pending operating-policy package without recording owner approval
+  or external activation. Evidence:
+  `docs/track-015-governance-tabletop-candidate-2026-08-21.yml`,
+  `scripts/check_track015_governance_tabletop_candidate.py` and
+  `tests/test_track015_governance_tabletop_candidate.py`.
 
 ## Preparation refresh — 2026-08-01
 
