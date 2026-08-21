@@ -148,6 +148,13 @@
 - [ ] Activate real sources or publish any beta/stable surface only after the
   remaining gates are satisfied for an exact candidate.
 
+## Real-data activation preparation — 2026-08-22
+
+- [x] Classify candidate real-data routes and bind their next rights,
+  provenance and authority receipts without activating them. Evidence:
+  `docs/track-014-real-data-readiness-matrix-2026-08-22.yml`; all real-source,
+  redistribution, beta and stable-release flags remain false.
+
 ## Review fixes — 2026-08-22
 
 - [x] Reject symlinked descendants when assigning logical paths to generated

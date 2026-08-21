@@ -1,0 +1,52 @@
+schema_version: "0.1.0"
+track: "014"
+purpose: "stage real-data readiness without activating an unapproved release"
+status: "preparation_only"
+activation:
+  real_source_activation: false
+  public_redistribution: false
+  beta_release: false
+  stable_release: false
+classes:
+  metadata_only:
+    route: "retain source identifiers, definitions, versions, links and terms; do not copy payload bytes"
+    minimum_evidence: ["source/version", "retrieval timestamp", "terms snapshot", "provenance locator"]
+  redistributable_aggregate:
+    route: "permit only exact aggregate fields whose redistribution terms are documented"
+    minimum_evidence: ["exact file or endpoint", "sha256", "licence/terms", "attribution", "transformation log", "withdrawal path"]
+  link_only:
+    route: "retain a provenance link and derived citation metadata; do not redistribute payload"
+    minimum_evidence: ["stable publisher locator", "terms position", "link health observation"]
+  restricted:
+    route: "custodian-controlled processing only; no repository or public-package payload"
+    minimum_evidence: ["custodian authority", "access controls", "retention/deletion rules", "derived-output contract"]
+  unresolved:
+    route: "disabled"
+    minimum_evidence: ["source-specific rights and authority disposition"]
+sources:
+  - source_id: "orphadata"
+    target_class: "metadata_only"
+    current_status: "candidate"
+    next_receipt: "exact release/version, retrieval event, terms and field-level redistribution decision"
+  - source_id: "un-wpp"
+    target_class: "redistributable_aggregate"
+    current_status: "blocked"
+    next_receipt: "publisher-provided exact workbook, sha256, scope, terms and attribution decision"
+  - source_id: "who-ghe"
+    target_class: "redistributable_aggregate"
+    current_status: "blocked"
+    next_receipt: "publisher exact aggregate release/file, sha256, third-party field exclusions and terms decision"
+  - source_id: "controlled-or-custodian-data"
+    target_class: "restricted"
+    current_status: "blocked"
+    next_receipt: "custodian authorization and controlled derived-output contract"
+decision_order:
+  - "record exact source and terms evidence"
+  - "obtain source-specific rights/data-governance disposition"
+  - "run independent accessibility and reproduction checks on the exact real-data candidate"
+  - "record accountable owner release/bounded/revise/stop decision"
+stop_triggers:
+  - "terms or custodian authority is unknown"
+  - "source bytes or fields cannot be bound to an exact version and hash"
+  - "restricted payload would enter a repository, wheel, archive or public API"
+  - "missingness, suppression, provenance or withdrawal controls are incomplete"
