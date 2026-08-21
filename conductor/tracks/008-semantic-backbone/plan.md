@@ -190,3 +190,14 @@
   HPO provenance renderer and negative hash-drift test without changing any
   semantic candidate or gate state. Evidence: focused Track 008 tests and the
   full repository validation gate.
+
+## Exact ICD metadata preparation — 2026-08-21
+
+- [x] Bind the already-observed WHO ICD-11 MMS `2026-01` English API v2
+  release-metadata response to an exact endpoint, date, size and SHA-256 while
+  retaining private response bytes, unresolved terms, unassessed mapping
+  fitness and disabled activation. Evidence:
+  `docs/track-008-icd11-mms-2026-01-metadata-packet.yml` and
+  `tests/test_track008_icd11_metadata_packet.py`. This does not complete the
+  parent source-pinning task, validate a mapping, authorize redistribution or
+  change the bounded provisional v0.4 semantic candidate.
