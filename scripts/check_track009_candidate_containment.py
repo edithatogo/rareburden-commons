@@ -16,6 +16,8 @@ MERGE_COMMIT = "a9ef5b1ffdba55a0d45faf670d8679d890e414d6"
 MERGE_TREE = "6fa0fd46a54db0970ba04611f6cf90443525b9b7"
 MANIFEST = Path("manifests/ledger/track-009-v0.4-candidate-2026-08-21.json")
 MANIFEST_SHA256 = "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5"
+DECISION = Path("docs/decisions/2026-08-21-track-009-post-merge-options.yml")
+DECISION_SHA256 = "d6b7454973c87d650fb381f5a5b7b152e3b75dcbab41599c99536dc504958562"
 ALLOWED_INPUTS = {
     "examples/ledger/public-foundation-synthetic.yml",
     "examples/ledger/economic-social-synthetic.yml",
@@ -58,6 +60,20 @@ def validate(root: Path) -> None:
     manifest_path = root / MANIFEST
     if _sha256(manifest_path) != MANIFEST_SHA256:
         raise CandidateContainmentError("candidate manifest hash drift")
+    decision_path = root / DECISION
+    if _sha256(decision_path) != DECISION_SHA256:
+        raise CandidateContainmentError("bounded owner disposition hash drift")
+    decision = _load_yaml(decision_path)
+    owner_decision = decision.get("owner_decision", {})
+    if (
+        decision.get("candidate", {}).get("commit") != MERGE_COMMIT
+        or decision.get("candidate", {}).get("tree") != MERGE_TREE
+        or decision.get("candidate", {}).get("evidence_manifest_sha256") != MANIFEST_SHA256
+        or owner_decision.get("status") != "recorded"
+        or owner_decision.get("selected_option_id") != "A"
+        or owner_decision.get("decided_by") != "edithatogo"
+    ):
+        raise CandidateContainmentError("bounded owner disposition scope drift")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if (
         manifest.get("candidate_status") != "prepared_synthetic_only_not_frozen"

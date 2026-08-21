@@ -146,3 +146,8 @@
   `scripts/check_track009_candidate_containment.py` and focused negative tests.
   Track 009 remains blocked, inactive, incomplete and unfrozen; Track 010
   remains ineligible.
+- [x] Record the repository owner's explicit selection of recommended Option A
+  against the exact merged candidate and bind its receipt hash into freeze
+  readiness and containment validation. This owner-operated disposition permits
+  reversible synthetic preparation and containment only; it is not independent
+  review and does not satisfy any review, activation, freeze or release gate.
