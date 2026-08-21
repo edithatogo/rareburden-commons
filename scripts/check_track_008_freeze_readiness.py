@@ -23,7 +23,6 @@ FALSE_CLAIMS = {
     "approved_ontology_pins",
     "naming_authority",
     "independent_semantic_review",
-    "contract_frozen",
     "track_complete",
 }
 CANDIDATE_FALSE_CLAIMS = {
@@ -243,29 +242,67 @@ def validate(path: Path, root: Path) -> None:
         not COMMIT.fullmatch(str(disposition.get("exact_candidate_commit", "")))
         or not COMMIT.fullmatch(str(disposition.get("exact_candidate_tree", "")))
         or disposition.get("recommended_option") != "A"
-        or disposition.get("owner_decision_state") != "pending"
-        or disposition.get("effect")
-        != "none_until_owner_selects_an_option_for_this_exact_candidate"
+        or disposition.get("owner_decision_state") != "recorded_option_A"
+        or disposition.get("effect") != "authorizes_exact_bounded_contract_freeze_only"
     ):
-        raise Track008ReadinessError("final owner disposition must remain exact and pending")
+        raise Track008ReadinessError("final owner disposition must remain exact and recorded")
     decision_packet = _repository_path(root, disposition.get("decision_packet"))
     decision_hash = str(disposition.get("decision_packet_sha256", ""))
     if not SHA256.fullmatch(decision_hash) or _sha256(decision_packet) != decision_hash:
         raise Track008ReadinessError("final owner disposition packet hash drift")
+    decision = _load(decision_packet)
+    owner_decision = decision.get("owner_decision", {})
+    if (
+        decision.get("candidate", {}).get("commit") != disposition.get("exact_candidate_commit")
+        or decision.get("candidate", {}).get("tree") != disposition.get("exact_candidate_tree")
+        or owner_decision.get("status") != "recorded"
+        or owner_decision.get("selected_option_id") != "A"
+        or owner_decision.get("decided_by") != "edithatogo"
+    ):
+        raise Track008ReadinessError("recorded owner decision identity or candidate drift")
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
-        if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):
-            raise Track008ReadinessError("freeze requires an exact 40-character candidate commit")
-        if not SHA256.fullmatch(str(freeze.get("semantic_manifest_sha256", ""))):
-            raise Track008ReadinessError("freeze requires an exact semantic manifest SHA-256")
+        if freeze.get("exact_candidate_commit") != disposition.get(
+            "exact_candidate_commit"
+        ) or freeze.get("exact_candidate_tree") != disposition.get("exact_candidate_tree"):
+            raise Track008ReadinessError("freeze candidate revision must match the owner decision")
+        if freeze.get("semantic_manifest_sha256") != candidate_binding.get(
+            "candidate_manifest_sha256"
+        ):
+            raise Track008ReadinessError("freeze semantic manifest must match the candidate")
         if not freeze.get("blocking_findings_resolved") or not freeze.get(
             "accountable_freeze_decision"
         ):
             raise Track008ReadinessError(
                 "freeze requires resolved findings and accountable decision"
             )
+        if freeze.get("resolution_scope") != "bounded_provisional_non_clinical_contract_only":
+            raise Track008ReadinessError("freeze finding resolution scope is too broad or missing")
+        for path_field, hash_field in (
+            ("migration_impact_receipt", "migration_impact_sha256"),
+            ("freeze_receipt", "freeze_receipt_sha256"),
+        ):
+            evidence_path = _repository_path(root, freeze.get(path_field))
+            expected = str(freeze.get(hash_field, ""))
+            if not SHA256.fullmatch(expected) or _sha256(evidence_path) != expected:
+                raise Track008ReadinessError(f"freeze evidence hash drift: {path_field}")
+        if freeze.get("accountable_freeze_decision") != disposition.get("decision_packet"):
+            raise Track008ReadinessError("freeze accountable decision binding drift")
+        receipt = _load(_repository_path(root, freeze.get("freeze_receipt")))
+        if (
+            receipt.get("freeze_status") != "frozen_bounded_provisional_non_clinical"
+            or receipt.get("candidate", {}).get("commit") != freeze.get("exact_candidate_commit")
+            or receipt.get("candidate", {}).get("tree") != freeze.get("exact_candidate_tree")
+            or receipt.get("candidate", {}).get("manifest_sha256")
+            != freeze.get("semantic_manifest_sha256")
+            or receipt.get("owner_decision", {}).get("sha256") != decision_hash
+            or receipt.get("claims", {}).get("track_complete") is not False
+        ):
+            raise Track008ReadinessError("freeze receipt identity, scope or claims drift")
     elif freeze.get("state") != "pending":
         raise Track008ReadinessError("freeze gate state must be pending or satisfied")
+    if claims.get("contract_frozen") is not (freeze.get("state") == "satisfied"):
+        raise Track008ReadinessError("contract-frozen claim must match the freeze gate")
 
 
 def main() -> int:
@@ -279,8 +316,8 @@ def main() -> int:
         print(f"Track 008 freeze readiness failed: {exc}")
         return 1
     print(
-        "Track 008 readiness passed; approval, independent review and v0.4 freeze "
-        "remain separate gates."
+        "Track 008 readiness passed; the bounded v0.4 contract state is internally "
+        "consistent and Track completion remains a separate gate."
     )
     return 0
 

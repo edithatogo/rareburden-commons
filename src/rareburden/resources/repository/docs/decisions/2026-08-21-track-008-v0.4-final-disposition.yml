@@ -95,4 +95,12 @@ recommendation:
     completion and all clinical, community, independence and external-authority
     claims remain blocked.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T00:14:17Z"
+  rationale: >-
+    Approve the exact hash-bound candidate as a bounded provisional,
+    uncertainty-preserving and non-clinical semantic contract. Keep Track 008
+    incomplete and retain every clinical, community, independence,
+    comprehensive-coverage, partnership and external-approval claim as false.

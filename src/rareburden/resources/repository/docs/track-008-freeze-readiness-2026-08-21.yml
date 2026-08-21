@@ -78,27 +78,32 @@ final_owner_disposition_candidate:
   exact_candidate_commit: "bdce109e0fc917e2f9f8e178120c97b3e00dc0d6"
   exact_candidate_tree: "1c804aa7cb90a74bad77559341cabfc758061284"
   decision_packet: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
-  decision_packet_sha256: "7d070fd38253aa67f5d2e8d1e3a268da022457aafd1487fc44d2446a5651072e"
+  decision_packet_sha256: "30d837e274ae2f775378d93c0436063c57bb29d0d1257535105217746e8de701"
   recommended_option: "A"
-  owner_decision_state: "pending"
-  effect: "none_until_owner_selects_an_option_for_this_exact_candidate"
+  owner_decision_state: "recorded_option_A"
+  effect: "authorizes_exact_bounded_contract_freeze_only"
 contract_freeze_gate:
-  exact_candidate_commit: ""
-  semantic_manifest_sha256: ""
-  migration_impact_receipt: ""
-  blocking_findings_resolved: false
-  accountable_freeze_decision: ""
-  state: "pending"
+  exact_candidate_commit: "bdce109e0fc917e2f9f8e178120c97b3e00dc0d6"
+  exact_candidate_tree: "1c804aa7cb90a74bad77559341cabfc758061284"
+  semantic_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+  migration_impact_receipt: "manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json"
+  migration_impact_sha256: "fbe48ba1f582a5b6e15b6ccee3f875c58b827348f31e00367e78c3ee140685bf"
+  blocking_findings_resolved: true
+  resolution_scope: "bounded_provisional_non_clinical_contract_only"
+  accountable_freeze_decision: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
+  freeze_receipt: "docs/track-008-v0.4-freeze-receipt-2026-08-21.yml"
+  freeze_receipt_sha256: "6239f64a09182d6688efeb661899cd0e50bd9fde899492bb6100a26069a86a8d"
+  state: "satisfied"
 claims:
   approved_ontology_pins: false
   naming_authority: false
   independent_semantic_review: false
-  contract_frozen: false
+  contract_frozen: true
   track_complete: false
 governance:
   repository_panel_output: "advisory"
   owner_disposition: "owner_operated_not_independent_review"
   automated_validation_effect: "readiness_only_not_approval_review_or_freeze"
 next_action:
-  repository_owned: "preserve the hash-bound provisional candidate, reconcile it with bounded public HPO evidence, and re-run the source and naming challenge"
+  repository_owned: "preserve and monitor the exact frozen contract; invalidate it on any bound hash or scope drift"
   external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"

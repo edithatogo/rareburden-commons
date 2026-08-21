@@ -25,7 +25,7 @@ def test_current_track_008_blockers_are_consistent() -> None:
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
-        (("claims", "contract_frozen", True), "claims must remain false"),
+        (("claims", "track_complete", True), "claims must remain false"),
         (("governance", "repository_panel_output", "independent"), "must remain advisory"),
         (("governance", "owner_disposition", "independent_review"), "cannot be independent"),
     ],
@@ -61,18 +61,18 @@ def test_readiness_rejects_provisional_candidate_path_escape(tmp_path: Path) -> 
         validate(_candidate(tmp_path, document), ROOT)
 
 
-def test_provisional_binding_does_not_freeze_or_unblock_track_009() -> None:
+def test_provisional_binding_does_not_supply_the_recorded_freeze() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     assert document["provisional_candidate_binding"]["status"] == (
         "synthetic_public_readiness_only"
     )
-    assert document["contract_freeze_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "satisfied"
     assert document["v0_4_candidate_binding"]["status"] == ("owner_approved_preparation_not_frozen")
     assert document["claims"] == {
         "approved_ontology_pins": False,
         "naming_authority": False,
         "independent_semantic_review": False,
-        "contract_frozen": False,
+        "contract_frozen": True,
         "track_complete": False,
     }
 
@@ -88,7 +88,9 @@ def test_v0_4_candidate_keeps_external_authority_claims_false() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     assert document["v0_4_candidate_binding"]["review_status"] == ("owner_operated_not_independent")
     assert document["naming_and_semantic_gate"]["state"] == "pending"
-    assert document["contract_freeze_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "satisfied"
+    assert document["claims"]["track_complete"] is False
+    assert document["claims"]["independent_semantic_review"] is False
 
 
 def test_v0_4_candidate_binds_generated_rows() -> None:
@@ -101,16 +103,30 @@ def test_v0_4_candidate_binds_generated_rows() -> None:
     assert derived[mapping_path]["rows"] == 9758
 
 
-def test_final_disposition_remains_pending_and_exact() -> None:
+def test_final_disposition_is_recorded_and_exact() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     disposition = document["final_owner_disposition_candidate"]
     assert disposition["exact_candidate_commit"] == ("bdce109e0fc917e2f9f8e178120c97b3e00dc0d6")
-    assert disposition["owner_decision_state"] == "pending"
-    assert document["contract_freeze_gate"]["state"] == "pending"
+    assert disposition["owner_decision_state"] == "recorded_option_A"
+    assert document["contract_freeze_gate"]["state"] == "satisfied"
 
 
 def test_readiness_rejects_unbound_freeze(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
-    document["contract_freeze_gate"]["state"] = "satisfied"
-    with pytest.raises(Track008ReadinessError, match="exact 40-character"):
+    document["contract_freeze_gate"]["exact_candidate_commit"] = ""
+    with pytest.raises(Track008ReadinessError, match="must match the owner decision"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_freeze_receipt_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["contract_freeze_gate"]["freeze_receipt_sha256"] = "0" * 64
+    with pytest.raises(Track008ReadinessError, match="freeze evidence hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_contract_claim_gate_mismatch(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["claims"]["contract_frozen"] = False
+    with pytest.raises(Track008ReadinessError, match="contract-frozen claim"):
         validate(_candidate(tmp_path, document), ROOT)

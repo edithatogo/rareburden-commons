@@ -1,0 +1,58 @@
+schema_version: "1.0.0"
+track: "008-semantic-backbone"
+contract: "v0.4"
+freeze_status: "frozen_bounded_provisional_non_clinical"
+frozen_at_utc: "2026-08-21T00:14:17Z"
+accountable_owner: "edithatogo"
+owner_decision:
+  selected_option_id: "A"
+  path: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
+  sha256: "30d837e274ae2f775378d93c0436063c57bb29d0d1257535105217746e8de701"
+candidate:
+  commit: "bdce109e0fc917e2f9f8e178120c97b3e00dc0d6"
+  tree: "1c804aa7cb90a74bad77559341cabfc758061284"
+  manifest: "manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json"
+  manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+  migration_receipt: "manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json"
+  migration_receipt_sha256: "fbe48ba1f582a5b6e15b6ccee3f875c58b827348f31e00367e78c3ee140685bf"
+  challenge_findings: "docs/track-008-v0.4-candidate-challenge-2026-08-21.yml"
+  challenge_findings_sha256: "895d310f05c2a964c62b16a0972684d476ad9b03ee9e53d6d26e5dc8ebe0c3db"
+scope:
+  mapping_rows: 9758
+  mapping_relation: "source_asserted_mondo_skos_exact_match"
+  confidence: "moderate"
+  permitted_use: "provisional_uncertainty_preserving_non_clinical_semantic_alignment"
+  naming: "provisional_owner_operated_source_native_labels_only"
+  owner_defined_groupings: 0
+  public_sources:
+    - "exact hash-identified Orphadata July 2026 permitted subset"
+    - "exact hash-identified MONDO assets"
+    - "nine individually verified public HPO ontology-core objects"
+  exclusions: >-
+    Mixed-rights, controlled, credentialed and insufficiently evidenced sources
+    remain excluded or metadata-only as recorded in the candidate manifest.
+invalidation:
+  - "any candidate commit, tree, source, evidence or derived-artifact hash drift"
+  - "discovery of third-party, mixed-rights or controlled content in an allowlisted asset"
+  - "use as clinical equivalence, diagnostic guidance or treatment guidance"
+  - "removal or obscuring of provisional, uncertainty-preserving or non-clinical qualifications"
+residual_gates:
+  track_status: "blocked"
+  source_expansion: "pending_source_specific_rights_and_credential_evidence"
+  clinical_or_semantic_methods_disposition: "pending"
+  patient_community_naming_disposition: "pending"
+  independent_semantic_review: "pending"
+claims:
+  contract_frozen: true
+  track_complete: false
+  approved_ontology_pins: false
+  naming_authority: false
+  clinical_validation: false
+  patient_community_authority: false
+  independent_review: false
+  comprehensive_or_representative_coverage: false
+  partnership_or_external_approval: false
+effect: >-
+  Freezes only the exact bounded provisional non-clinical v0.4 contract. It
+  does not complete Track 008, authorize source expansion, supply external
+  authority or activate clinical use.

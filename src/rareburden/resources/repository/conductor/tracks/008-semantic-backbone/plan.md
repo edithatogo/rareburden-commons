@@ -176,9 +176,14 @@
 - [x] Prepare and present the final exact hashes, migration impact, bounded
   challenge and two fallback options for owner disposition. Evidence:
   `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. The
-  decision remains pending; do not freeze or complete Track 008 automatically.
-- [ ] Record the owner's exact-candidate disposition and, only if selected,
-  apply the bounded contract-freeze state without marking Track 008 complete.
+  decision was subsequently recorded against this exact candidate.
+- [x] Record the owner's selection of Option A and apply the bounded
+  provisional, uncertainty-preserving, non-clinical contract freeze without
+  marking Track 008 complete. Evidence:
+  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml` and
+  `docs/track-008-v0.4-freeze-receipt-2026-08-21.yml`. Source expansion,
+  clinical and patient/community dispositions, independent semantic review
+  and every external-authority claim remain open or false.
 
 ## Review fixes — 2026-08-21
 
