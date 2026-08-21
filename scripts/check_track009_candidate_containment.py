@@ -47,9 +47,10 @@ def _sha256(path: Path) -> str:
 
 
 def _git_tree(root: Path, commit: str) -> str:
+    git_root = root if (root / ".git").exists() else Path(__file__).parents[1]
     completed = subprocess.run(
         ["git", "rev-parse", f"{commit}^{{tree}}"],
-        cwd=root,
+        cwd=git_root,
         check=True,
         capture_output=True,
         text=True,
