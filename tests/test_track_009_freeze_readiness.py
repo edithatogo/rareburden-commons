@@ -22,6 +22,21 @@ def test_current_track_009_blockers_are_consistent_and_assigned() -> None:
     validate(READINESS, ROOT)
 
 
+def test_bounded_track_008_freeze_does_not_satisfy_track_009_dependency() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    dependency = document["upstream_dependencies"][1]
+    observation = document["upstream_semantic_observation"]
+    assert dependency == {
+        "track": "008-semantic-backbone",
+        "required_status": "complete",
+        "observed_status": "blocked",
+        "state": "pending",
+    }
+    assert observation["observation_status"] == ("bounded_freeze_observed_dependency_unsatisfied")
+    assert document["claims"]["empirical_parameter_activation"] is False
+    assert document["claims"]["contract_frozen"] is False
+
+
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
@@ -59,4 +74,53 @@ def test_resolved_issue_and_freeze_require_evidence(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
     document["contract_freeze_gate"]["state"] = "satisfied"
     with pytest.raises(Track009ReadinessError, match="exact 40-character"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_upstream_observation_rejects_evidence_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["upstream_semantic_observation"]["track_008_readiness_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="evidence drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_upstream_observation_rejects_dependency_bypass(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["upstream_semantic_observation"]["observation_status"] = "dependency_satisfied"
+    with pytest.raises(Track009ReadinessError, match="non-activating"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_v0_4_candidate_remains_synthetic_and_unfrozen() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    candidate = document["v0_4_candidate_preparation"]
+    assert candidate["status"] == "prepared_synthetic_only_not_frozen"
+    assert document["review_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "pending"
+    disposition = document["bounded_owner_disposition"]
+    assert disposition["selected_option"] == "A"
+    assert disposition["governance_status"] == "owner_operated_not_independent_review"
+
+
+def test_bounded_owner_disposition_does_not_satisfy_review_or_freeze() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    assert document["bounded_owner_disposition"]["status"] == (
+        "authorized_bounded_synthetic_preparation_only"
+    )
+    assert document["review_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "pending"
+    assert set(document["claims"].values()) == {False}
+
+
+def test_bounded_owner_disposition_rejects_receipt_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["bounded_owner_disposition"]["decision_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="receipt hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_v0_4_candidate_rejects_manifest_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["v0_4_candidate_preparation"]["candidate_manifest_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="candidate evidence drift"):
         validate(_candidate(tmp_path, document), ROOT)

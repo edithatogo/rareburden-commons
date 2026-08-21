@@ -20,7 +20,7 @@ repository registration, Track 013's synthetic quality reconciliation, the
 source-archive rights matrix and the licensed-private capacity decision. Track
 014's exact bounded atlas surface is bound at merge
 `22388a74e2d8f2c4ff1d59f828279ffabad3b5a7` and SHA-256
-`70b3832c8c3fce31e83c318762ff623bcf0582201b844e77fd157d70ae21c60d`.
+`da10b08ec7f80b0bb922ade51223c35acc7c9088fdbeb2680134589579d83703`.
 
 Publisher licences, third-party rights and controlled-environment rules remain
 facts. Neither owner disposition nor agent advice can create missing rights,

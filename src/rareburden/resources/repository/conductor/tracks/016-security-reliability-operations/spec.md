@@ -4,11 +4,11 @@
 
 Harden RareBurden Commons and its release/node pathways so the supported v1 scope can be operated, monitored, recovered and maintained safely.
 
-This is a single-developer repository. The owner may produce clearly labelled
+This is a single-accountable-human repository. The owner may produce clearly labelled
 owner-operated repository evidence; that evidence never becomes independent
-operator or independent-security evidence by relabelling. A privately
-identified backup role may remain privacy-preserving, but acceptance criterion
-8 is not complete until its scope and handoff evidence are bound.
+operator or independent-security evidence by relabelling. There is no backup
+owner or co-maintainer. Recovery procedures reduce continuity risk without
+creating another accountable role.
 
 ## Required outputs
 
@@ -33,7 +33,8 @@ identified backup role may remain privacy-preserving, but acceptance criterion
 5. Backup, recovery, incident and rollback exercises succeed.
 6. Logs and diagnostics contain no sensitive values or credentials.
 7. Reference workloads meet performance budgets.
-8. Named primary and backup owners exist for security and operations.
+8. The sole owner is named for security and operations; recovery, incapacity
+   and credential-compromise procedures fail closed without inventing a backup owner.
 
 ## Non-goals
 

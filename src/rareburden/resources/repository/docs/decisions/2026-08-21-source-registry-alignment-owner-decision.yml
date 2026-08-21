@@ -1,0 +1,84 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "002-public-source-acquisition"
+candidate:
+  commit: "43fd917085e8aae747bff58ccde5e04d6cfc774a"
+  tree: "cd8e608dad8631988f76ac52c11e0f44e35290c1"
+  evidence_manifest_sha256: "7e67ace973688976c5e5f681ca9b60ef555cc401512fe9585d6848d784721487"
+panel:
+  perspectives:
+    - "scientific methods and interpretation"
+    - "source rights and data governance"
+    - "repository engineering and reproducibility"
+  non_representation_statement: >-
+    Role-separated agents supplied simulated advisory analysis only. They are
+    not independent reviewers, community representatives, custodians,
+    licensors or approval authorities.
+evidence:
+  references:
+    - "catalog/data_sources.yml"
+    - "docs/source-archive-decision-matrix-2026-08-15.yml"
+    - "docs/source-index-metadata-gap-register-2026-08-21.yml"
+    - "docs/single-owner-agent-governance.yml"
+  observed_facts:
+    - "The repository-declared catalogue and archival matrix each contain the same 22 source IDs."
+    - "The six newly catalogued terminology or knowledge-source families and WHO GHED are blocked from acquisition and analytical activation."
+    - "The exact implementation candidate passed the complete offline repository gate with 1061 tests."
+  simulated_assessments:
+    - "Metadata-only alignment improves gap visibility without adding empirical evidence."
+    - "Blocked status is required because candidate status would enter the gap-map capability universe."
+    - "WHO GHED needs indicator, perspective, unit, currency or PPP, price-year and comparability review before estimand use."
+  cannot_infer:
+    - "source selection, access authorization, retention permission or activation"
+    - "raw-data redistribution permission or publisher approval"
+    - "empirical completeness, scientific validity or external validation"
+    - "actual community participation, representation, consent or endorsement"
+uncertainty:
+  - "Exact editions, releases, languages, files, fields, licence terms and storage permissions remain unresolved for the blocked sources."
+  - "Set equality covers only the repository-declared candidate universe and is not global source completeness."
+dissent:
+  - "Deferring all catalogue additions until exact releases and licences are known would reduce apparent scope, but would preserve known indexing gaps."
+stop_triggers:
+  - "Any workflow treats a blocked catalogue record as an active capability or empirical input."
+  - "Any raw-byte route lacks exact artifact-level rights, access and storage evidence."
+  - "Any description equates registry parity with metadata, archive, empirical or global completeness."
+options:
+  - id: "A"
+    title: "Align as blocked metadata only"
+    disposition: "accept"
+    trade_offs:
+      - "Improves discoverability and exact registry parity while increasing the apparent source count without increasing empirical coverage."
+    contingencies:
+      - "Keep exact release selection, acquisition, activation and publication as separate future decisions."
+    rationale: "This records known source families and their unresolved gates without manufacturing permission or evidence fitness."
+    minimum_evidence:
+      - "Schema-valid blocked records, exact source-ID parity, negative gap-map tests and synchronized runtime assets."
+  - id: "B"
+    title: "Defer alignment"
+    disposition: "defer"
+    trade_offs:
+      - "Avoids an expanded apparent source universe but leaves known catalogue and matrix gaps unresolved."
+    contingencies:
+      - "Retain the gap register until exact source releases and terms are available."
+    rationale: "This is safer only if the catalogue cannot represent unresolved sources without implying availability."
+    minimum_evidence:
+      - "Exact edition, file, terms and storage evidence for every deferred source family."
+  - id: "C"
+    title: "Activate sources"
+    disposition: "stop"
+    trade_offs:
+      - "Would appear to expand analytical capability while overstating scientific readiness and rights authority."
+    contingencies:
+      - "Reconsider only source by source after exact rights and estimand-fitness evidence exists."
+    rationale: "Catalogue indexing, agent advice and owner operation cannot create publisher rights or empirical validity."
+    minimum_evidence:
+      - "Exact source rights, release identity, acquisition receipt, estimand fitness and a new owner disposition."
+recommendation:
+  option_id: "A"
+  rationale: "The bounded alignment closes a documentation inconsistency while preserving every empirical, rights and release gate."
+owner_decision:
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T04:21:50Z"
+  rationale: "The owner instructed the panel process and approved proceeding with the recommendations; the accepted scope is metadata alignment only."

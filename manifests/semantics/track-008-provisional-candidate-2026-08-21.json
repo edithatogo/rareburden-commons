@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "track": "008-semantic-backbone",
+  "candidate_status": "provisional_synthetic_public_only",
+  "source_commit": "649b78c3ddfa64820f7507e9ff3ca39f3506a8b7",
+  "source_tree": "a93f8f81284e9480759cdcc9c4d337fa95d4fd67",
+  "mapping_fingerprint": "map-d2ba0c52d070db31bb5db4a9",
+  "identifier_interpretation": "The RBC-SYNTHETIC system and SYNTH-DX-* codes are unmistakably synthetic assurance tokens. They do not establish correspondence, mapping fitness, clinical meaning, source rights or permission to redistribute source records.",
+  "artifacts": [
+    {"path": "schemas/disease-hierarchy.schema.json", "sha256": "cd5c5f3f16f65c4fd64f8b4a0c976135906d600fd7fe662ba27961d2b9e2c194"},
+    {"path": "schemas/ontology-mapping.schema.json", "sha256": "3f08e77281aa4374c90b934808c65a33dd42d577ab90923fcd3e33bbdf0d04ae"},
+    {"path": "examples/semantics/bronchiectasis-synthetic.yml", "sha256": "497d3e19aef1f03b0a4a0b356b3129f813ec6a9a4d63490666965caf1882d144"},
+    {"path": "examples/semantics/monogenic-counts-synthetic.yml", "sha256": "cdd0ca6bc9108cb90decb75859c37db35b167afc6cf73eef8db858051d399517"},
+    {"path": "examples/semantics/orpha-to-synthetic-mapping.yml", "sha256": "47e9d43fcde22e83c72c0346e546a8b2223972737383ea3f8fcae464e46e1069"},
+    {"path": "examples/semantics/paediatric-burden-synthetic.yml", "sha256": "8544bd1af1550e74287328b4584449deb1bd2449ff92227a9f3a959d8fdead4e"},
+    {"path": "examples/semantics/rare-within-common-synthetic.yml", "sha256": "e915365d825e4b4b5d75ff214c86ac2e2de38ffdab7fdbb8892cd610410438a8"},
+    {"path": "examples/semantics/releases/orpha-to-synthetic-v0.1.0.md", "sha256": "c59cd113ce9930fd2cdb3bfc6866f4d185a033425aec632c22ea4b6a41de650b"}
+  ],
+  "claims": {
+    "approved_ontology_pins": false,
+    "clinical_fitness": false,
+    "patient_community_authority": false,
+    "independent_review": false,
+    "v0_4_contract_frozen": false,
+    "track_009_unblocked": false
+  }
+}

@@ -68,32 +68,34 @@
       "source_id": "human-phenotype-ontology",
       "role": "phenotype_ontology_candidate",
       "release": "v2026-06-23",
-      "artifact": "seven digest-pinned core ontology and annotation artifacts",
+      "artifact": "nine individually hash-identified ontology-core assets",
       "artifact_sha256": null,
-      "release_evidence": "docs/track-002-source-verification-2026-08-15.yml",
-      "licence_state": "embedded_terms_route_inaccessible_exact_terms_unresolved",
-      "redistribution": "public_mirror_disabled",
-      "byte_route": "private_licensed_archive_only",
-      "semantic_use": "disabled_pending_exact_terms_and_mapping_review",
-      "owner_disposition": "asset_by_asset_only_uncleared_assets_metadata_only_or_excluded",
+      "release_evidence": "manifests/hpo/asset-rights-matrix-2026-08-16.json",
+      "licence_state": "official_hpo_conditions_observed_asset_specific",
+      "redistribution": "exact_unmodified_ontology_core_only_with_acknowledgement_version_and_no_endorsement",
+      "byte_route": "public_exact_asset_allowlist",
+      "semantic_use": "non_clinical_phenotype_identifier_and_hierarchy_candidate",
+      "owner_disposition": "nine_ontology_core_assets_included_all_other_asset_classes_metadata_only_or_excluded",
       "limitations": [
-        "no_public_bytes",
+        "no_annotations_or_mappings",
+        "no_merged_imports",
+        "no_translations",
         "no_diagnostic_use",
-        "annotation_provenance_required"
+        "not_complete_hpo_public_frontier"
       ],
-      "release_evidence_sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"
+      "release_evidence_sha256": "67fa69c94311c7e49fae00e5c20ebd09e6acd1ceb0ba8135af1eea777422cf09"
     },
     {
       "source_id": "mondo-disease-ontology",
       "role": "disease_ontology_alignment_candidate",
       "release": "v2026-08-04",
-      "artifact": "mondo-rare.owl; mondo.json; mondo.owl",
+      "artifact": "three individually hash-identified release assets: mondo-rare.owl; mondo.json; mondo.owl",
       "artifact_sha256": null,
       "release_evidence": "docs/track-002-source-verification-2026-08-15.yml",
       "licence_state": "exact_release_cc_by_4_0_observed",
       "redistribution": "permitted_with_attribution",
       "byte_route": "public_or_private_rights_filtered_archive",
-      "semantic_use": "metadata_only_pending_mapping_review",
+      "semantic_use": "non_clinical_alignment_candidate_pending_row_level_review",
       "owner_disposition": "included_in_exact_hash_identified_allowlist_subject_to_mapping_fitness_review",
       "limitations": [
         "no_clinical_validity",
@@ -163,5 +165,5 @@
     "production_activation": false,
     "v0_4_contract_frozen": false
   },
-  "inventory_sha256": "458f5159382a631a573497b7ea71f9b9f79c37f2331b00b79897d522f5dba1ec"
+  "inventory_sha256": "33eba99430af2f69b79d473aa83fd9702f5191fde2ef8059016ca5706ee163e9"
 }

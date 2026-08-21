@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+track: 015-governance-partnership-policy
+status: accepted
+decision:
+  decided_by: edithatogo
+  accountable_role: repository_owner_and_sole_accountable_human
+  instruction: remove_third_party_aspects_unless_truly_necessary
+  recorded_at: "2026-08-21"
+adopted_model:
+  advice: role_separated_simulated_agents
+  decision: repository_owner
+  independent_or_additional_human_advice_required: false
+  constituted_governance_body_required: false
+repository_gates_reclassified_as_agent_advice:
+  - community_and_harm
+  - scientific_and_methods
+  - rights_and_data_use_review
+  - policy_user_framing
+  - governance_tabletop
+  - programme_and_release_readiness
+external_facts_retained_only_if_activated:
+  - publisher_or_licensor_rights
+  - controlled_data_custodian_permission
+  - confirmed_partnership_or_endorsement
+  - country_node_or_jurisdictional_authority
+  - unrelated_community_or_indigenous_consent_or_representation
+  - unqualified_global_or_representative_claim
+decision_rule: >-
+  Agent advice plus owner disposition completes repository governance. A
+  third-party receipt is required only before activating a capability or claim
+  that depends on that third party's rights, permission, relationship,
+  representation or jurisdictional authority.
+remaining_track_blocker:
+  track: 013-quality-validation-gap-equity
+  required_state: complete
+prohibited_inferences:
+  - agent_advice_is_independent_human_review
+  - owner_decision_creates_third_party_rights
+  - inactive_external_capability_is_approved

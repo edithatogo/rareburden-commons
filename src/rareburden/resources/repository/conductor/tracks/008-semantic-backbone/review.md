@@ -80,3 +80,19 @@ validator rejects hidden findings, premature completion/freeze claims, panel
 independence claims and owner-operated work labelled as independent review.
 It neither approves ontology pins nor supplies clinical, patient/community or
 independent semantic authority; Track 008 therefore remains blocked.
+
+### Single-owner governance reconciliation — 2026-08-21
+
+Repository governance result: **agent-panel and owner-disposition work is
+complete for the bounded provisional non-clinical candidate**. Under ADR-0009,
+independent human review is not a repository gate: role-separated agents advise
+and the repository owner is the sole accountable decision-maker. The exact
+Option A disposition therefore closes the repository review task without
+creating an independence claim.
+
+Track 008 remains **blocked and incomplete**. The continuing blockers are
+factual or scope-specific: unresolved licence and redistribution terms for
+excluded source classes, source-specific mapping fitness, clinical validity,
+and actual-community naming authority for any use that would claim community
+participation, consent, endorsement or representation. Owner and agent work
+cannot self-attest those external facts or authorities.

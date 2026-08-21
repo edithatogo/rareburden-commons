@@ -1,0 +1,111 @@
+schema_version: "1.0.0"
+track: "014-atlas-api-release"
+status: "repository_design_hypotheses_not_user_research"
+scope: "synthetic and reviewed aggregate release surfaces only"
+publication_authorized: false
+hosted_api_authorized: false
+external_validation_observed: false
+
+shared_requirements:
+  - "Identify release, source manifest, geography, period and population."
+  - "Distinguish observed inputs, modelled estimates, assumptions and missingness."
+  - "Expose uncertainty, quality, limitations and overlap risk in text."
+  - "Offer citation, provenance, licence and machine-readable package links."
+  - "Use aggregate-only, keyboard-readable and non-colour-only presentation."
+
+journeys:
+  - id: "patient_family_organisation"
+    audience: "patient"
+    goal: "Understand what evidence exists, what is missing and what cannot yet support an advocacy claim."
+    entry_point: "Accessible static disease-group or geography summary."
+    decisions:
+      - "Is the value observed, modelled or unavailable?"
+      - "Are uncertainty, limitations and non-estimability visible in plain language?"
+    outputs:
+      - "Accessible text summary and citation."
+      - "Evidence-gap and correction or withdrawal status."
+    required_evidence:
+      - "Exact release identity and evidence status."
+      - "Patient/community acceptable-use review for any public candidate."
+    stop_conditions:
+      - "Do not imply patient/community endorsement from this repository-authored journey."
+      - "Do not present missingness as zero or rank unsupported estimates."
+
+  - id: "policy_public_health"
+    audience: "policy"
+    goal: "Assess whether an aggregate result is suitable for a bounded planning question."
+    entry_point: "Static geography summary with quality and scope filters."
+    decisions:
+      - "Does the population, period and case definition match the policy question?"
+      - "Are uncertainty, transportability and overlap limitations decision-relevant?"
+    outputs:
+      - "Downloadable aggregate package and limitations statement."
+      - "Provenance path to source and transformation records."
+    required_evidence:
+      - "Reviewed source, parameter and quality dispositions."
+      - "Explicit geography and intended-use scope."
+    stop_conditions:
+      - "Do not imply governmental endorsement, official statistics or global representativeness."
+      - "Stop when quality or intended-use evidence is insufficient."
+
+  - id: "researcher_analyst"
+    audience: "research"
+    goal: "Reproduce or inspect an aggregate result and its uncertainty from immutable artifacts."
+    entry_point: "Versioned package or read-only API-shaped response."
+    decisions:
+      - "Do static, package and API identities and records agree?"
+      - "Can the result be reproduced from the cited release without mutable working data?"
+    outputs:
+      - "Versioned aggregate data, schema, checksums and provenance."
+      - "Machine-readable uncertainty, limitations and lifecycle status."
+    required_evidence:
+      - "Exact candidate, environment and artifact hashes."
+      - "Separately executed reproduction receipt for a public release claim."
+    stop_conditions:
+      - "Do not infer empirical validity from synthetic reproducibility."
+      - "Reject identity, schema, checksum or parity drift."
+
+  - id: "data_custodian_operator"
+    audience: "custodian"
+    goal: "Determine whether an output is aggregate, disclosure-safe and within an approved release boundary."
+    entry_point: "Release manifest, reviewed-artifact register and lifecycle status."
+    decisions:
+      - "Are all inputs approved and redistribution states explicit?"
+      - "Does the output remain aggregate-only and within custodian disclosure rules?"
+    outputs:
+      - "Fail-closed release manifest and reviewed-artifact inventory."
+      - "Correction, withdrawal or supersession route."
+    required_evidence:
+      - "Custodian approval for controlled-data-derived outputs."
+      - "Exact licence, access and disclosure-control dispositions."
+    stop_conditions:
+      - "Never expose participant-level, row-level or small-cell data."
+      - "Stop on missing approval, unresolved rights or disclosure-rule failure."
+
+  - id: "funder_payer_hta"
+    audience: "funder"
+    goal: "Assess evidence maturity, gaps and bounded investment relevance without treating estimates as commitments."
+    entry_point: "Portfolio-level static summary with evidence and gap classifications."
+    decisions:
+      - "Which outputs are review-ready, provisional, missing or non-estimable?"
+      - "Which evidence gaps limit comparison or resource-allocation interpretation?"
+    outputs:
+      - "Quality- and uncertainty-labelled aggregate summary."
+      - "Citable gap inventory and release limitations."
+    required_evidence:
+      - "Comparable definitions, periods, currencies or perspectives where applicable."
+      - "Explicit conflict, funding and independence statements."
+    stop_conditions:
+      - "Do not imply funding endorsement, partnership or procurement fitness."
+      - "Do not rank geographies or diseases when evidence is not comparable."
+
+validation_boundary:
+  repository_owner_may:
+    - "revise these design hypotheses"
+    - "test synthetic navigation and contract behavior"
+  still_required:
+    - "independent accessibility and patient/community review"
+    - "real-user usability evidence"
+    - "source and redistribution clearance"
+    - "separately executed reproduction"
+    - "release authority and explicit publication decision"

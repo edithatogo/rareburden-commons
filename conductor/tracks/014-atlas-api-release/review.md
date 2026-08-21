@@ -101,3 +101,65 @@ consistency, independent reproduction, archive/DOI authority and release
 content audit are outstanding. Track 014 remains **Planned** and is not
 archive-eligible. No atlas/API beta or public publication is authorised by
 this review.
+
+## Plan-state reconciliation — 2026-08-21
+
+Later bounded evidence supersedes the stale API/package-contract and parity
+findings above. The static page, aggregate package, read-only API,
+release-surface schemas, reviewed-artifact boundary,
+citation/provenance/licence/digest fields, parity tests, text alternatives and
+disabled-publication invariant are implemented for synthetic preparation.
+
+This does not complete user research, uncertainty and quality presentation, a
+full demonstrator/country product, independent accessibility review,
+archive/DOI workflow, clean independent reproduction, real-source activation
+or any beta/public release decision. Track 014 therefore remains Planned; this
+reconciliation corrects task states without claiming publication, external
+review or release authority.
+
+## Bounded user journeys — 2026-08-21
+
+Five repository-authored journeys now define the intended decision path for
+patient/family organisations, policy/public-health users, researchers,
+custodian operators and funder/payer/HTA users. Each lane identifies its entry
+point, decisions, outputs, required evidence and fail-closed stop conditions.
+
+The journeys are explicitly design hypotheses. They do not constitute user
+research, patient/community endorsement, accessibility acceptance, custodian
+approval, funding endorsement or release authority. Real-user and independent
+accessibility evidence remain pending before a public candidate can rely on
+these journeys as validated usability evidence.
+
+## Evidence-presentation component contract — 2026-08-21
+
+Repository review result: **Pass for the bounded design contract and synthetic
+fail-closed scenarios**. One schema-validated contract defines provenance,
+uncertainty, domain-level quality and explicit missingness components, then
+maps the same scientific facts into the five repository-authored journey
+profiles. Positive scenarios preserve explicit uncertainty and null
+missingness; negative scenarios reject missing-as-zero, unexplained uncertainty
+and opaque composite quality scores.
+
+This closes only the repository-owned component-definition task. It does not
+show that any interface is understandable or accessible to real users, that a
+source is cleared for redistribution, that an exact candidate was reproduced,
+or that publication is authorised. Independent accessibility and real-user
+usability evidence remain pending.
+
+## Accessibility preparation and bounded static product set — 2026-08-21
+
+Repository review result: **Pass for contract-level accessibility preparation
+and three synthetic static product models**. The shared release identity now
+projects into gap, synthetic-country and demonstrator products with required
+headings, text alternatives, explicit non-colour status labels, visible
+`not_assessed` state and missing-not-zero semantics. Synthetic country
+identifiers are restricted to the ISO user-assigned `XAA`–`XZZ` range so they
+cannot silently represent a real jurisdiction.
+
+The repository-owned accessibility review remains advisory and records
+keyboard/assistive-technology behavior and plain-language comprehension as not
+independently assessed. The main accessibility design-review task therefore
+remains pending, as do real-user evidence, patient/community acceptable-use
+review and public-candidate authorization. The product-set task is complete
+only for the bounded synthetic/static implementation; it does not establish an
+empirical country profile, public demonstrator or released gap atlas.

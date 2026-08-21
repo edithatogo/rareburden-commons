@@ -108,3 +108,75 @@
   `docs/track-009-freeze-readiness-2026-08-21.yml`,
   `scripts/check_track_009_freeze_readiness.py` and focused negative tests.
   Track 009 remains blocked and all accountable review/freeze tasks stay open.
+
+## Post-Track 008 bounded-freeze reconciliation — 2026-08-21
+
+- [x] Bind Track 009's dormant synthetic preparation to the exact bounded
+  Track 008 candidate, owner decision and readiness hashes while retaining the
+  declared completion dependency as unsatisfied. Evidence:
+  `docs/decisions/2026-08-21-track-009-post-track-008-reconciliation.yml` and
+  `docs/track-009-freeze-readiness-2026-08-21.yml`. Track 009 remains blocked,
+  inactive and unfrozen; the agent panel is advisory and the owner's
+  disposition authorizes reversible preparation only.
+- [x] Generate deterministic JSON exports for both synthetic ledgers and bind
+  their schema, inputs, outputs and self-baseline migration receipt in an exact
+  provisional candidate manifest. Evidence:
+  `manifests/ledger/track-009-v0.4-candidate-2026-08-21.json`,
+  `manifests/ledger/track-009-v0.4-migration-impact-2026-08-21.json` and
+  `scripts/build_track009_v04_candidate.py`. This is review preparation only;
+  empirical activation, accountable reviews and the v0.4 ledger freeze remain
+  false or pending.
+
+## Review fixes — 2026-08-21
+
+- [x] Emit candidate JSON as explicit UTF-8 bytes with LF line endings so
+  deterministic regeneration produces identical evidence on Windows, macOS
+  and Linux. Evidence: hosted Windows portability finding and the candidate
+  builder reproducibility test.
+
+## Exact post-merge advisory preparation — 2026-08-21
+
+- [x] Bind a schema-valid, role-separated advisory packet to the exact merged
+  Track 009 candidate and retain the owner decision as pending. Evidence:
+  `docs/decisions/2026-08-21-track-009-post-merge-options.yml`. The panel is
+  simulated and advisory; it is not independent review or owner disposition.
+- [x] Add fail-closed containment validation for the exact candidate commit,
+  tree, manifest, synthetic input/export allowlist, source identifiers,
+  semantic identifiers and non-empirical warnings. Evidence:
+  `scripts/check_track009_candidate_containment.py` and focused negative tests.
+  Track 009 remains blocked, inactive, incomplete and unfrozen; Track 010
+  remains ineligible.
+- [x] Record the repository owner's explicit selection of recommended Option A
+  against the exact merged candidate and bind its receipt hash into freeze
+  readiness and containment validation. This owner-operated disposition permits
+  reversible synthetic preparation and containment only; it is not independent
+  review and does not satisfy any review, activation, freeze or release gate.
+
+## Operational regeneration assurance — 2026-08-21
+
+- [x] Make the operational containment gate regenerate the two synthetic ledger
+  exports, migration receipt and candidate manifest twice in isolated temporary
+  roots and require byte equality with each other and the hash-bound checked-in
+  candidate. Evidence: `scripts/check_track009_candidate_containment.py` and
+  `tests/test_track009_candidate_containment.py`. This demonstrates bounded
+  same-process, same-environment repository reproducibility only, not an
+  independent clean-install or cross-environment reproduction. Equality does
+  not validate estimands, denominators, uncertainty calibration or propagation,
+  model correctness, source fitness or real-data reproducibility. Track 009
+  remains blocked, synthetic-only, provisional and unfrozen, and it creates no
+  empirical, rights, review or Track 010 eligibility claim.
+
+## Synthetic source-to-profile-role structural check — 2026-08-21
+
+- [x] Add a provisional source-to-bound-profile-role structural schema, an exact matrix
+  for every currently bound synthetic demonstrator-profile role, and a
+  fail-closed validator. Evidence:
+  `schemas/source-profile-role-structural-assessment.schema.json`,
+  `examples/ledger/source-profile-role-structural-synthetic.yml`,
+  `scripts/check_track009_source_profile_role.py` and focused negative
+  tests. The matrix rejects the generic population count as a monogenic-diabetes
+  or bronchiectasis disease denominator and leaves both the assumed aetiologic
+  fraction and paediatric all-residents context unassessed. No target estimand
+  is defined by the non-binding profiles. This exercises but does not
+  resolve EPI-MED-01/02; empirical fitness, rights, review, freeze and Track 010
+  eligibility remain blocked.

@@ -1,108 +1,121 @@
-schema_version: '1.0.0'
+schema_version: '1.1.0'
 track: 015-governance-partnership-policy
 attempted_at: '2026-08-21'
-status: blocked_external_authority_and_dependencies
+status: blocked_dependency_only_external_activation_excluded
 track_completion_authorized: false
-unsafe_premise_rejected: repository-owner or agent action cannot constitute or
-  impersonate patient/community, Indigenous, custodian, institutional, partner,
-  scientific, data-governance or release authority
+internal_governance_model:
+  repository_model: single_person_repo
+  decision_maker: repository_owner
+  panels: role_separated_simulated_advisory_agents
+  grouped_advice_fields: [options, contingencies, rationale, trade_offs, recommendation]
+  independent_or_additional_human_advice_required: false
+  constituted_governance_body_required: false
+  repository_data_custodian: repository_owner
+  applicable_indigenous_authority: repository_owner
+  authority_basis: attributable_owner_declaration
+  remuneration: none
+  amount: 0
+
+boundary: >-
+  Agent advice plus owner disposition completes repository governance. A
+  third-party receipt is required only before activating a capability or claim
+  that depends on that party's rights, permission, relationship,
+  representation or jurisdictional authority.
 
 dependency_blockers:
-  - track: 007-landscape-novelty
-    required_state: complete
-    current_state: in_review
-    self_attestable: false
   - track: 013-quality-validation-gap-equity
     required_state: complete
     current_state: blocked
-    self_attestable: false
 
-external_gates:
-  - id: patient_community_constitution
+repository_governance_gates_completed:
+  - id: community_harm_advice
     acceptance_criteria: [1]
-    status: pending
-    accountable_authority: constituted Patient and Community Council
-    required_receipts:
-      - approved charter and appointments
-      - quorum, voting and reserved-decision rules
-      - budget and paid-remuneration authority
-      - conflicts and dissent record
-    self_attestable: false
-  - id: scientific_data_and_node_authority
+    evidence: docs/track-015-patient-community-governance-advice-2026-08-20.yml
+    decision_model: role_separated_agent_advice_and_owner_disposition
+  - id: methods_rights_and_node_advice
     acceptance_criteria: [2]
-    status: pending
-    accountable_authority: constituted methods, data-governance/ethics and node bodies
-    required_receipts:
-      - named appointments and accepted remits
-      - operational decision and escalation routes
-      - custodian-defined controlled-node policy where activated
-    self_attestable: false
+    evidence: docs/single-owner-agent-governance.yml
+    decision_model: role_separated_agent_advice_and_owner_disposition
   - id: operating_policy_approval_and_test
     acceptance_criteria: [3, 4]
-    status: pending
-    accountable_authority: constituted governance bodies and authorised facilitator
-    required_receipts:
-      - approved acceptable-use, harm, benefit-sharing and correction policies
-      - approved authorship, complaints, appeals and funder-independence policies
-      - authorised tabletop record with conflicts, dissent, actions and owners
-    self_attestable: false
-  - id: indigenous_and_country_node_authority
+    evidence: docs/decisions/2026-08-21-track-015-owner-operating-policy-disposition.yml
+    decision_model: role_separated_agent_advice_and_owner_disposition
+  - id: owner_scope_and_conditional_authority
     acceptance_criteria: [5]
-    status: pending
-    accountable_authority: applicable Indigenous authority and participating country nodes
-    required_receipts:
-      - jurisdiction-specific CARE and Indigenous Data Sovereignty disposition
-      - country-node agreement and accreditation decision
-      - withdrawal, correction and benefit-sharing terms
-    self_attestable: false
-  - id: relationship_and_partner_evidence
-    acceptance_criteria: [6]
-    status: pending
-    accountable_authority: each named relationship owner and counterparty
-    required_receipts:
-      - evidence-backed relationship register
-      - written agreement before any confirmed, partner or endorsement claim
-      - custodian-specific minimum data and method ask disposition
-    self_attestable: false
-  - id: geographic_and_global_claim_authority
+    evidence: docs/decisions/2026-08-21-owner-custodian-indigenous-authority.md
+    decision_model: owner_declaration_with_unrelated_scope_excluded
+  - id: bounded_geographic_claims
     acceptance_criteria: [7]
-    status: pending
-    accountable_authority: constituted governance with represented jurisdictions
-    required_receipts:
-      - policy-user framing review
-      - representation and LMIC-led participation evidence
-      - approved bounded geographic claim language
-    self_attestable: false
-  - id: v1_governance_readiness
+    evidence: docs/track-015-policy-user-tabletop-2026-08-21.yml
+    decision_model: role_separated_agent_advice_and_owner_disposition
+  - id: bounded_governance_readiness
     acceptance_criteria: [8]
-    status: pending
-    accountable_authority: constituted governance and release authority
-    required_receipts:
-      - disposition of every blocking finding
-      - exact-candidate acceptable-use and product-scope decision
-      - release, bound, revise or stop decision with expiry
+    evidence: conductor/tracks/015-governance-partnership-policy/review.md
+    decision_model: role_separated_agent_advice_and_owner_disposition
+
+conditional_external_fact_gates:
+  - id: publisher_or_licensor_rights
+    status: not_applicable_until_material_used
+    accountable_authority: applicable publisher or licensor
+    required_receipts: [scope_matched_terms_or_licence]
+    self_attestable: false
+  - id: controlled_data_custodian_permission
+    status: not_applicable_until_controlled_data_activated
+    accountable_authority: applicable custodian
+    required_receipts: [permitted_scope_outputs_and_operating_terms]
+    self_attestable: false
+  - id: relationship_or_endorsement
+    status: not_applicable_until_claimed
+    accountable_authority: named counterparty
+    required_receipts: [written_relationship_or_endorsement_confirmation]
+    self_attestable: false
+  - id: country_node_or_jurisdictional_authority
+    status: not_applicable_until_node_activated
+    accountable_authority: applicable node custodian and jurisdictional authority
+    required_receipts: [node_agreement_authority_and_withdrawal_terms]
+    self_attestable: false
+  - id: unrelated_community_or_indigenous_authority
+    status: not_applicable_until_consent_or_representation_claimed
+    accountable_authority: applicable unrelated community or Indigenous authority
+    required_receipts: [scope_matched_consent_or_representation_and_withdrawal_route]
+    self_attestable: false
+  - id: unqualified_global_or_representative_claim
+    status: not_applicable_while_claim_prohibited
+    accountable_authority: represented jurisdictions and applicable communities
+    required_receipts: [representation_and_LMIC_led_participation_evidence]
     self_attestable: false
 
 repository_evidence_completed:
   - bounded single-owner and role-separated agent-panel controls
+  - owner-approved integrated operating policy and owner-operated tabletop
   - relationship claim-state and correction/withdrawal enforcement
-  - non-binding governance, decision-register and tabletop templates
-  - patient/community-governance advisory lane and owner disposition
+  - non-contact partnership map and bounded geographic claims
   - exact candidate, tree and scope-manifest binding
 
 safe_continuation:
-  - keep every relationship unconfirmed without written counterparty evidence
-  - maintain synthetic-only tests, templates and review packets
-  - route attributable receipts to the decision register without public sensitive detail
-  - rerun exact-candidate review after any material evidence or authority change
+  - use role-separated agents for repository advisory challenge
+  - keep every third-party-dependent capability or claim inactive until evidenced
+  - rerun the affected exact-candidate review after any material scope change
 
-prohibited_completion_claims:
-  - Track 015 complete
-  - constituted patient or community governance
-  - Indigenous authority or consent
-  - custodian, ethics, privacy, legal or partner approval
+prohibited_activation_claims:
+  - independent human review
+  - authority or consent for unrelated Indigenous peoples or communities
+  - third-party custodian, publisher, licensor or partner approval
   - global representativeness
-  - real-data, public-release or redistribution activation
+  - controlled-data or country-node activation
 
-resume_condition: all dependencies complete and every applicable gate has an
-  attributable, scope-matched receipt from its accountable authority
+resume_condition: >-
+  Track 013 reaches complete. Conditional external receipts are required only
+  before their corresponding third-party-dependent capability or claim is
+  activated.
+
+bounded_scope_supersession:
+  status: superseded_for_bounded_repository_track_completion
+  decision: docs/decisions/2026-08-21-track-015-bounded-closeout.yml
+  conditional_register: docs/track-015-external-activation-register-2026-08-21.yml
+  effect: >-
+    This blocker record remains historical evidence for the broader product
+    and externally activated scope. The owner later narrowed Track 015
+    completion to bounded repository governance. Track 013 product evidence
+    and optional external activation are not completed or waived; they are
+    conditional work outside the archived track's acceptance criteria.

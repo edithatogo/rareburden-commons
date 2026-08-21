@@ -1,0 +1,73 @@
+schema_version: "1.0.0"
+track: 015-governance-partnership-policy
+status: simulated_candidate_pending_owner_disposition
+policy_candidate: docs/track-015-operating-policy-candidate-2026-08-21.yml
+exercise_model: role_separated_simulated_advisory_agents
+decision_maker: repository_owner
+independent_or_human_review: false
+remuneration: {model: unpaid, amount: 0}
+inputs: synthetic_scenarios_only
+public_or_external_activation: false
+
+scenarios:
+  - id: source_withdrawal
+    perspectives: [rights_data_use, community_harm, operations_release]
+    options: [freeze_and_supersede, narrow_unaffected_scope, continue_unchanged]
+    recommendation: freeze_and_supersede
+    immediate_action: freeze_affected_acquisition_and_output
+    rationale: Changed source authority invalidates continued use until scope is reconciled.
+    trade_off: Availability is reduced while provenance and lawful use are protected.
+    contingency: Restore only a lawfully supported replacement with new provenance.
+    public_wording: Affected output withdrawn pending source-rights reconciliation.
+    stop_trigger: source_or_rights_basis_unresolved
+  - id: global_ranking_pressure
+    perspectives: [methods_evidence, community_harm, policy_usability]
+    options: [publish_bounded_comparison, defer_comparison, publish_global_ranking]
+    recommendation: publish_bounded_comparison
+    immediate_action: remove_global_and_ranking_language
+    rationale: Missingness and representation do not support an unqualified global ranking.
+    trade_off: The output is less rhetorically simple but more scientifically and socially defensible.
+    contingency: Defer comparison if uncertainty and coverage cannot be made prominent.
+    public_wording: Bounded comparison of available evidence; not a global ranking.
+    stop_trigger: representation_or_uncertainty_is_obscured
+  - id: funder_veto_request
+    perspectives: [scientific_methods, programme_governance, community_harm]
+    options: [reject_veto_and_disclose, narrow_funded_scope, accept_veto]
+    recommendation: reject_veto_and_disclose
+    immediate_action: reject_result_or_method_veto
+    rationale: A funder cannot control valid methods or suppress an adverse result for advantage.
+    trade_off: Funding may be lost while methodological integrity is preserved.
+    contingency: Narrow or end the funded scope if independence cannot be maintained.
+    public_wording: Funding and material conflicts are disclosed; the funder does not control results.
+    stop_trigger: funder_control_cannot_be_removed
+  - id: stigmatizing_language
+    perspectives: [community_harm, accessibility_language, scientific_methods]
+    options: [revise_and_retest, withdraw_summary, publish_unchanged]
+    recommendation: revise_and_retest
+    immediate_action: freeze_affected_summary
+    rationale: Harmful framing can distort interpretation even when numerical content is correct.
+    trade_off: Publication is delayed while language and accessibility are corrected.
+    contingency: Withdraw the summary if the harm cannot be acceptably bounded.
+    public_wording: Summary corrected after a framing and accessibility review.
+    stop_trigger: material_stigma_or_context_collapse_remains
+  - id: node_disclosure_risk
+    perspectives: [privacy_security, rights_data_use, node_operations]
+    options: [block_export_and_reconfigure, release_coarser_aggregate, release_as_is]
+    recommendation: block_export_and_reconfigure
+    immediate_action: block_export
+    rationale: A valid analysis does not override disclosure or custodian output controls.
+    trade_off: Utility may decrease when aggregation or suppression is strengthened.
+    contingency: Release only an allowed coarser aggregate after controls pass.
+    public_wording: Output withheld because disclosure controls were not satisfied.
+    stop_trigger: custodian_or_disclosure_requirement_unresolved
+
+exercise_findings:
+  blocking:
+    - owner disposition on the operating-policy option is pending
+    - no third-party node, partnership or controlled-data authority is activated
+  bounded:
+    - every unsafe option fails closed to freeze, narrow, withdraw or defer
+    - complaints and appeals remain owner-decided and are not independent
+  recommendation: adopt_option_A_then_record_owner_tabletop_disposition
+owner_disposition:
+  status: pending

@@ -18,6 +18,7 @@ def test_archive_matrix_covers_active_and_future_source_types() -> None:
         "orphadata-science",
         "un-world-population-prospects",
         "who-global-health-estimates",
+        "who-global-health-expenditure-database",
         "world-bank-indicators-api",
         "mondo-disease-ontology",
         "human-phenotype-ontology",
@@ -40,6 +41,7 @@ def test_archive_matrix_covers_active_and_future_source_types() -> None:
 def test_unknown_or_third_party_rights_never_enable_public_raw() -> None:
     records = {record["source_id"]: record for record in _matrix()["decisions"]}
     assert records["who-global-health-estimates"]["public_raw"].startswith("prohibited")
+    assert records["who-global-health-expenditure-database"]["public_raw"].startswith("prohibited")
     assert records["genomics-england-panelapp"]["public_raw"].startswith("prohibited")
     assert records["ihme-gbd-results"]["public_raw"].startswith("prohibited")
     assert records["oecd-data-explorer"]["public_raw"].startswith("prohibited")
@@ -120,7 +122,7 @@ def test_public_archive_receipt_is_exact_and_rights_filtered() -> None:
 def test_public_raw_eligibility_does_not_mean_publication() -> None:
     payload = _matrix()
     assert payload["infrastructure"]["public_raw_release"] == (
-        "requires_source_specific_owner_release_decision"
+        "requires_exact_source_rights_evidence_and_owner_release_decision"
     )
     records = {record["source_id"]: record for record in payload["decisions"]}
     for source_id in (

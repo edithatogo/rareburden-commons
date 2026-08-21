@@ -1,0 +1,107 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "010-public-burden-engine"
+candidate:
+  commit: "22edd34e3bedeabe57fa9deb4b45be6b9498034a"
+  tree: "eda9bbcc46a3a63fd1ee5999dae1b2de32d8f3e8"
+  evidence_manifest_sha256: "9382b5a1ea47e455fd10862767e0de900022ac12bc2931db7629d2a898cf65f2"
+panel:
+  perspectives:
+    - "simulated scientific and statistical software perspective"
+    - "simulated patient-community harm perspective"
+    - "simulated engineering and reproducibility perspective"
+    - "simulated security and release perspective"
+  non_representation_statement: >-
+    These owner-requested agent simulations are advisory only. They are not
+    independent scientific-software review, patient or community participation,
+    clinical review, consent, endorsement, production approval or release authority.
+evidence:
+  references:
+    - "manifests/burden/track-010-synthetic-candidate-2026-08-21.json"
+    - "manifests/burden/track-010-compatibility-impact-2026-08-21.json"
+    - "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json"
+    - "docs/track-010-alpha-freeze-readiness-2026-08-21.yml"
+    - "docs/track-010-engine-review-packet.md"
+    - "https://github.com/edithatogo/rareburden-commons/pull/231"
+  observed_facts:
+    - "The exact merge contains a deterministic synthetic pre-alpha manifest and compatibility-impact receipt."
+    - "The candidate is hash-bound to the provisional Track 009 candidate, dependency lock, synthetic engine receipt and feature-disabled Track 003 profile."
+    - "Track 009 remains blocked and unfrozen and therefore does not satisfy Track 010's dependency."
+    - "Every approval, independent-review, alpha-freeze, activation, Track 003 eligibility, public-readiness and release claim remains false."
+  simulated_assessments:
+    - "A minimal disposable synthetic candidate exposes integration and numerical-engineering risks without authorizing an alpha interface."
+    - "Exact hashes establish repository reproducibility and provenance, not scientific validity or interpretation fitness."
+    - "Versioned provisional adapters and automatic invalidation reduce the risk of a de facto stable interface."
+    - "Descriptive synthetic computation is safer than standardised, comparative, attributable or causal estimands at this stage."
+  cannot_infer:
+    - "scientific, epidemiological, clinical or statistical fitness"
+    - "patient or community authority"
+    - "independent scientific-software review"
+    - "Track 009 completion or Track 003 eligibility"
+    - "alpha freeze, empirical activation, production approval, public readiness or release authority"
+uncertainty:
+  - "Track 009 completion or qualifying review may require changes to the provisional adapter and interface."
+  - "Synthetic deterministic behavior does not demonstrate empirical calibration, transportability or uncertainty fitness."
+  - "A useful pre-alpha candidate may attract accidental downstream coupling despite explicit unstable labels."
+dissent:
+  - "The simulated security perspective prefers retaining only generic safeguards if provisional adapters cannot remain isolated from stable surfaces."
+  - "The simulated scientific perspective rejects standardised, comparative, attributable and causal outputs until their exact estimands receive accountable review."
+stop_triggers:
+  - "Any candidate commit, tree, manifest, compatibility, dependency-lock, upstream ledger or Track 003 profile hash drift."
+  - "Any empirical, controlled, clinical, credentialed, private or production input entering the preparation path."
+  - "Any failed provenance, deterministic-regeneration, rollback, recovery or security check."
+  - "Any unresolved high- or critical-severity security, scientific or governance finding."
+  - "Any claim of independent review, alpha freeze, Track 003 eligibility, production readiness, public readiness or release authority."
+options:
+  - id: "A"
+    title: "Retain disposable synthetic candidate"
+    disposition: "accept"
+    trade_offs:
+      - "Exposes integration and numerical risks early while requiring regeneration after upstream drift."
+      - "Creates residual risk of accidental coupling to an explicitly unstable interface."
+    contingencies:
+      - "Invalidate and regenerate after any stop trigger or material Track 009 change."
+      - "Keep comparative, standardised, attributable, causal, empirical and production paths disabled."
+    rationale: "This retains the most reversible engineering value while preserving the serial dependency and every accountable review and freeze gate."
+    minimum_evidence:
+      - "Exact commit, tree, candidate, compatibility and dependency hashes validate."
+      - "Synthetic-only regeneration, failure-mode and containment tests pass."
+      - "Track 010 remains blocked, pre-alpha, incomplete and unfrozen."
+  - id: "B"
+    title: "Retain generic safeguards only"
+    disposition: "narrow"
+    trade_offs:
+      - "Reduces provisional-interface coupling but discards useful integration evidence and increases later rebuilding."
+    contingencies:
+      - "Retain only interface-neutral provenance, security, recovery and reproducibility controls."
+    rationale: "Use this if the provisional Track 009 adapter cannot remain isolated and disposable."
+    minimum_evidence:
+      - "A narrowed manifest excluding engine and Track 003 interface bindings."
+  - id: "C"
+    title: "Defer until Track 009 completion"
+    disposition: "defer"
+    trade_offs:
+      - "Provides the strictest dependency boundary but delays discovery and increases future integration drift."
+    contingencies:
+      - "Preserve the exact merge as historical evidence and rebuild after qualifying upstream completion."
+    rationale: "Use this if synthetic containment, replaceability or reliable invalidation cannot be maintained."
+    minimum_evidence:
+      - "Track 009 completion plus qualifying scientific, engineering, patient-community and independent scientific-software receipts."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    Retain the exact candidate only as disposable, clearly labelled synthetic
+    pre-alpha preparation, with Option B's interface-isolation safeguards. This
+    captures reversible engineering value without satisfying any dependency,
+    review, alpha-freeze, Track 003 or release gate.
+owner_decision:
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T12:13:18Z"
+  rationale: >-
+    As sole accountable repository owner and maintainer, I accept recommended
+    Option A for this exact candidate only as disposable, clearly labelled
+    synthetic pre-alpha preparation. This is owner-operated governance, not
+    independent review, scientific approval, alpha freeze, Track 003
+    eligibility, production approval, public readiness or release authority.

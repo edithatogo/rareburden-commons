@@ -1,0 +1,66 @@
+schema_version: "1.0.0"
+track: 015-governance-partnership-policy
+status: completed_owner_operated_bounded_tabletop
+exercise_model: role_prompted_agent_advice_with_owner_adopted_policy
+independent_or_human_review: false
+public_or_external_activation: false
+policy_binding:
+  path: docs/track-015-operating-policy-candidate-2026-08-21.yml
+  sha256: d4d1dcfc73d33e4818e1a81e2ca472766b8df67659a36f2191083346f5bee17f
+  owner_disposition_path: docs/decisions/2026-08-21-track-015-owner-operating-policy-disposition.yml
+  owner_disposition_sha256: 37ce188b267ca3edcf967f74dfb45045276b27a6652c6ef7e3ab93c4956ef753
+policy_user_perspective:
+  role: public_policy_analyst_without_project_authority
+  findings:
+    - id: wording
+      severity: medium
+      disposition: bounded
+      finding: Global and representative language is not supported by current coverage.
+      action: Use bounded geography, source, period and missingness statements only.
+    - id: actionability
+      severity: medium
+      disposition: bounded
+      finding: Synthetic and provisional estimates cannot support allocation or eligibility decisions.
+      action: Restrict use to methods demonstration and evidence-gap planning.
+    - id: comparability
+      severity: medium
+      disposition: bounded
+      finding: Cross-country comparison requires harmonised estimands and visible source differences.
+      action: Suppress ranking and expose non-comparability.
+geographic_claim_disposition:
+  approved: bounded_named_geographies_only
+  global_claim: prohibited
+  representativeness_claim: prohibited
+  missingness_required: true
+scenarios:
+  - id: source_withdrawal
+    outcome: freeze_and_supersede
+    blocking_finding: false
+  - id: global_ranking_pressure
+    outcome: publish_bounded_comparison_or_defer
+    blocking_finding: false
+  - id: funder_veto_request
+    outcome: reject_veto_and_disclose
+    blocking_finding: false
+  - id: stigmatizing_language
+    outcome: revise_and_retest_or_withdraw
+    blocking_finding: false
+  - id: node_disclosure_risk
+    outcome: block_export_and_reconfigure
+    blocking_finding: false
+findings_closure:
+  critical_open: 0
+  high_open: 0
+  medium_bounded: 3
+  external_facts_pending:
+    - third_party_rights_and_permissions
+    - country_node_or_custodian_authority
+    - partnership_or_endorsement
+    - production_or_stable_release_authority
+owner_readiness_disposition: bounded_repository_governance_ready_external_activation_disabled
+stop_triggers:
+  - unqualified_global_or_representative_claim
+  - allocation_or_eligibility_use
+  - unresolved_comparability_hidden_from_users
+  - external_relationship_or_authority_inferred
+

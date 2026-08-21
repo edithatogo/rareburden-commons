@@ -1,5 +1,5 @@
 schema_version: 0.1.0
-last_updated: '2026-07-18'
+last_updated: '2026-08-21'
 sources:
 - source_id: orphadata-science
   name: Orphadata Science
@@ -155,7 +155,7 @@ sources:
   custodian: World Health Organization
   domains:
   - health_expenditure
-  access_class: open_download_api
+  access_class: public_web_registration
   data_level: aggregate
   geographic_scope: 195 countries and territories
   primary_uses:
@@ -163,24 +163,32 @@ sources:
   - national expenditure denominators
   - disease-spending discovery where available
   access_url: https://apps.who.int/nha/database/DocumentationCentre/Index/en
-  access_route: Download the consolidated GHED file and accompanying documentation
-    from the documentation centre.
-  licence: WHO database terms; verify terms for each release and derived product
-  redistribution: conditional
+  access_route: Register release metadata only; do not retrieve or retain bytes until
+    exact file and field-level terms are dispositioned.
+  licence: WHO database terms; exact release, file, field and third-party rights unverified
+  redistribution: unknown
   registration_required: false
   version_strategy: Record the GHED release month, indicator definitions, currency/unit
     and extraction date.
   limitations:
   - National totals do not directly attribute spending to rare disease.
   - Functional and disease detail varies substantially by country.
-  status: approved
-  last_verified: '2026-07-18'
+  status: blocked
+  last_verified: '2026-08-21'
   verification:
     metadata_review:
       status: preliminary
-      verified_at: '2026-07-18'
-      evidence: Initial metadata and access-route review; live acquisition and licence
-        review remain separate gates.
+      verified_at: '2026-08-21'
+      evidence: Source-level metadata is indexed; exact release and indicator selection
+        remain open.
+    acquisition_test:
+      status: blocked
+      verified_at: '2026-08-21'
+      evidence: No exact release or file is selected for retrieval or retention.
+    terms_review:
+      status: blocked
+      verified_at: '2026-08-21'
+      evidence: File, field, third-party, storage and redistribution rights remain unresolved.
   geographic_levels:
   - global
   - regional
@@ -460,6 +468,156 @@ sources:
   last_verified: '2026-08-15'
   geographic_levels:
   - global
+  maximum_geographic_resolution: global
+- source_id: human-phenotype-ontology
+  name: Human Phenotype Ontology
+  custodian: HPO Consortium
+  domains: [ontology, phenotype, gene_disease]
+  access_class: open_download_api
+  data_level: knowledge_base
+  geographic_scope: Global knowledge resource
+  primary_uses: [phenotype terminology, versioned phenotype mapping research]
+  access_url: https://hpo.jax.org/data/ontology
+  access_route: Register exact release-asset metadata; retrieve only assets with a file-level rights disposition.
+  licence: Asset-specific terms; ontology-core and annotation or mapping assets require separate review
+  redistribution: unknown
+  registration_required: false
+  version_strategy: Pin release tag, asset name, publisher digest, checksum and asset-class rights disposition.
+  limitations:
+  - Catalogue presence is not evidence of diagnostic validity, population frequency or burden.
+  - Translation, annotation, mapping and imported assets may have rights distinct from ontology-core files.
+  status: blocked
+  last_verified: '2026-08-21'
+  verification:
+    metadata_review: {status: preliminary, verified_at: '2026-08-21', evidence: Exact bounded release metadata exists; mixed-rights use remains blocked.}
+    acquisition_test: {status: blocked, verified_at: '2026-08-21', evidence: Metadata indexing does not activate acquisition; exact asset allowlisting is required.}
+    terms_review: {status: blocked, verified_at: '2026-08-21', evidence: Rights are artifact-specific and cannot be inferred from public availability.}
+  geographic_levels: [global]
+  maximum_geographic_resolution: global
+- source_id: who-icd-10-11
+  name: WHO ICD-10 and ICD-11 classification family
+  custodian: World Health Organization
+  domains: [coding]
+  access_class: public_web_registration
+  data_level: knowledge_base
+  geographic_scope: International classification with edition, language and jurisdiction-specific use
+  primary_uses: [candidate disease-code representation, versioned classification mapping research]
+  access_url: https://www.who.int/standards/classifications/classification-of-diseases
+  access_route: Register metadata for a possible edition and language; access requires applicable WHO authorization and terms.
+  licence: WHO ICD licence and API terms; exact edition, language and use unselected
+  redistribution: 'no'
+  registration_required: true
+  version_strategy: Pin ICD version, edition, release, language, interface or artifact identity and licence.
+  limitations:
+  - ICD-10 and ICD-11 editions and languages are not interchangeable.
+  - Mappings may be directional, lossy, ambiguous or unmapped and do not establish burden evidence.
+  status: blocked
+  last_verified: '2026-08-21'
+  verification:
+    metadata_review: {status: preliminary, verified_at: '2026-08-21', evidence: Source family indexed; no exact edition or language selected.}
+    acquisition_test: {status: blocked, verified_at: '2026-08-21', evidence: Acquisition disabled until an exact licensed route is selected.}
+    terms_review: {status: blocked, verified_at: '2026-08-21', evidence: 'Edition, language, API and redistribution terms remain unresolved.'}
+  geographic_levels: [global]
+  maximum_geographic_resolution: global
+- source_id: omim
+  name: Online Mendelian Inheritance in Man
+  custodian: Johns Hopkins University
+  domains: [gene_disease, phenotype]
+  access_class: public_web_registration
+  data_level: knowledge_base
+  geographic_scope: Global curated knowledge resource
+  primary_uses: [authorized disease-gene identifier research, metadata-only mapping provenance]
+  access_url: https://www.omim.org/downloads
+  access_route: Register non-expressive metadata only; content access requires exact account and licence authorization.
+  licence: OMIM access and licence terms
+  redistribution: 'no'
+  registration_required: true
+  version_strategy: Pin authorized download identity, retrieval date, checksum and applicable licence.
+  limitations:
+  - OMIM is curated disease-gene knowledge, not prevalence, outcome, service-use or causal-effect evidence.
+  - Public identifiers do not permit redistribution of proprietary content.
+  status: blocked
+  last_verified: '2026-08-21'
+  verification:
+    metadata_review: {status: preliminary, verified_at: '2026-08-21', evidence: Metadata-only family indexed from the rights matrix.}
+    acquisition_test: {status: blocked, verified_at: '2026-08-21', evidence: No authorized exact download is selected.}
+    terms_review: {status: blocked, verified_at: '2026-08-21', evidence: No public raw-data or private-cloud route is inferred.}
+  geographic_levels: [global]
+  maximum_geographic_resolution: global
+- source_id: snomed-ct
+  name: SNOMED CT International Edition
+  custodian: SNOMED International
+  domains: [coding]
+  access_class: public_web_registration
+  data_level: knowledge_base
+  geographic_scope: International terminology subject to affiliate and territory terms
+  primary_uses: [authorized clinical terminology mapping, versioned coding provenance]
+  access_url: https://www.snomed.org/get-snomed
+  access_route: Register non-expressive metadata; artifact access requires affiliate authorization and an exact edition.
+  licence: SNOMED CT Affiliate Licence Agreement and applicable national member terms
+  redistribution: 'no'
+  registration_required: true
+  version_strategy: Pin edition, release date, territory authorization, checksum and licence disposition.
+  limitations:
+  - Catalogue indexing does not establish affiliate authorization or cloud-storage permission.
+  - Versioned terminology mappings do not validate disease definitions or burden estimates.
+  status: blocked
+  last_verified: '2026-08-21'
+  verification:
+    metadata_review: {status: preliminary, verified_at: '2026-08-21', evidence: International-edition metadata family indexed.}
+    acquisition_test: {status: blocked, verified_at: '2026-08-21', evidence: No exact authorized edition is activated.}
+    terms_review: {status: blocked, verified_at: '2026-08-21', evidence: 'Affiliate, territory and storage terms require exact authorization.'}
+  geographic_levels: [global]
+  maximum_geographic_resolution: global
+- source_id: snomed-ct-national-edition-germany
+  name: SNOMED CT German National Edition
+  custodian: BfArM and SNOMED International
+  domains: [coding]
+  access_class: public_web_registration
+  data_level: knowledge_base
+  geographic_scope: Germany national terminology edition
+  primary_uses: [authorized German national-edition mapping, edition-specific terminology provenance]
+  access_url: https://www.bfarm.de/EN/Code-systems/Terminologies/SNOMED-CT/_node.html
+  access_route: Register metadata only; access requires affiliate, German extension, territory and storage authorization.
+  licence: SNOMED CT Affiliate Licence Agreement plus German national-extension terms
+  redistribution: 'no'
+  registration_required: true
+  version_strategy: Pin international dependency, German edition, release, language, checksum and terms.
+  limitations:
+  - The German edition is distinct from the international edition and other national extensions.
+  - Catalogue presence grants neither public redistribution nor private-cloud permission.
+  status: blocked
+  last_verified: '2026-08-21'
+  verification:
+    metadata_review: {status: preliminary, verified_at: '2026-08-21', evidence: Intended national-edition family indexed without selecting an artifact.}
+    acquisition_test: {status: blocked, verified_at: '2026-08-21', evidence: Authenticated inventory and agreement disposition remain pending.}
+    terms_review: {status: blocked, verified_at: '2026-08-21', evidence: 'Affiliate, extension, territory and storage permissions remain unresolved.'}
+  geographic_levels: [national]
+  maximum_geographic_resolution: national
+- source_id: meddra
+  name: Medical Dictionary for Regulatory Activities
+  custodian: ICH and MedDRA MSSO
+  domains: [coding]
+  access_class: public_web_registration
+  data_level: knowledge_base
+  geographic_scope: International regulatory terminology with subscription and language-specific access
+  primary_uses: [authorized adverse-event terminology mapping, versioned regulatory coding provenance]
+  access_url: https://www.meddra.org/subscription/process
+  access_route: Register metadata only; portal access requires exact subscription, release, language and storage authorization.
+  licence: ICH MedDRA MSSO subscriber terms
+  redistribution: 'no'
+  registration_required: true
+  version_strategy: Pin release, language, subscriber authorization, checksum and storage disposition.
+  limitations:
+  - MedDRA is not disease prevalence, outcome or burden evidence.
+  - Subscriber access does not imply public redistribution or private-cloud storage permission.
+  status: blocked
+  last_verified: '2026-08-21'
+  verification:
+    metadata_review: {status: preliminary, verified_at: '2026-08-21', evidence: Metadata-only subscriber family indexed.}
+    acquisition_test: {status: blocked, verified_at: '2026-08-21', evidence: No authenticated portal artifact is selected or activated.}
+    terms_review: {status: blocked, verified_at: '2026-08-21', evidence: 'Subscription, release, language and storage permissions remain unresolved.'}
+  geographic_levels: [global]
   maximum_geographic_resolution: global
 - source_id: all-of-us-public-tier
   name: All of Us Public Tier

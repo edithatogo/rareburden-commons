@@ -1,10 +1,15 @@
 # Contributing
 
-RareBurden Commons is a single-developer repository. Repository-owned review
+RareBurden Commons has one accountable human: repository owner and sole
+maintainer `edithatogo`. Repository-owned review
 uses role-separated agent panels and an attributable owner disposition; no
 independent human, constituted-community or institutional approval is claimed
 or required for repository work. Publisher, custodian and third-party rights
 remain external facts and are kept fail-closed.
+
+Agents, bots and external evidence providers are not maintainers, approvers or
+accountable repository role-holders. A future human role requires an explicit
+dated governance transition.
 
 ## Before proposing a change
 

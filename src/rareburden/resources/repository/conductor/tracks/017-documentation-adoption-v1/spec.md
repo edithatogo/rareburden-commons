@@ -11,7 +11,7 @@ Prove that the supported platform can be understood, reproduced, operated and ma
 - accessibility and usability review;
 - two role-separated usability-agent assessments and a separately recorded
   owner-operated node/analyst run;
-- maintainer, reviewer and incident-owner roster with backups;
+- sole-owner maintainer, review and incident-accountability statement;
 - contribution, succession, deprecation and support processes;
 - costed sustainability and institutional-host plan;
 - complete v1 acceptance evidence index;
@@ -27,7 +27,8 @@ Prove that the supported platform can be understood, reproduced, operated and ma
 3. Two clean release-candidate builds and one separately recorded owner-operated
    clean-environment reproduction produce equivalent reviewed outputs.
 4. Documentation examples and links pass automated checks.
-5. Maintainer, review, incident and succession roles have primary and backup owners.
+5. The sole owner holds maintainer, review and incident accountability; the
+   incapacity and succession pathway fails closed without inventing a backup owner.
 6. Ongoing infrastructure and release costs have an approved operating model.
 7. The final multi-lane review records release, bounded exclusion, revise or stop.
 8. Published v1 artefacts verify from public instructions.
@@ -52,9 +53,8 @@ institutional or external approval. Publisher rights and controlled-data rules
 remain evidence-bound facts. Stable release remains fail-closed until every
 criterion above has exact candidate-bound evidence.
 
-For the bounded non-production synthetic/public candidate, the owner accepts
-the single-owner operating limitation and does not require redundant backup
-ownership. This does not establish backup continuity or a stable support
-promise. A stable or production decision must either provide qualifying
-continuity evidence or record a new explicit risk decision for its exact
-candidate.
+The owner accepts the single-owner operating limitation. Recovery procedures
+and a future succession pathway may preserve state but do not create a second
+accountable human. Stable or production decisions require an exact-candidate
+owner risk disposition and remain fail-closed during owner incapacity or
+credential compromise.

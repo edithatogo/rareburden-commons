@@ -34,4 +34,11 @@ contains sensitive material.
 
 ## Stable-v1 security target
 
-Before v1.0, the project must have a tested threat model, locked release dependencies, secret/dependency/licence scanning, SBOM, build provenance, signed or attested artefacts, incident response, backup/recovery, rollback and named primary and backup security owners. The blocking criteria are in `docs/v1-acceptance-criteria.md`.
+Before v1.0, the project must have a tested threat model, locked release
+dependencies, secret/dependency/licence scanning, SBOM, build provenance,
+signed or attested artefacts, incident response, backup/recovery and rollback.
+`edithatogo` is the sole accountable security owner. Recovery procedures and
+encrypted recovery material may reduce continuity risk but do not create a
+backup owner or co-maintainer. Owner unavailability or suspected credential
+compromise freezes protected changes, production operations and releases. The
+blocking criteria are in `docs/v1-acceptance-criteria.md`.

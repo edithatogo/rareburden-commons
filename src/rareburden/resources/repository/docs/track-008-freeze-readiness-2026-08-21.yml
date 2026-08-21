@@ -21,7 +21,7 @@ source_release_gate:
     - "mapping-fitness scope"
     - "public or private byte route"
   unresolved_sources:
-    - "human-phenotype-ontology"
+    - "human-phenotype-ontology excluded mixed-rights asset classes"
     - "umls-2026aa"
     - "snomed-ct-uts-current"
     - "who-icd-api-observation"
@@ -35,8 +35,8 @@ naming_and_semantic_gate:
       finding: "source-specific mapping fitness remains unreviewed"
       required_accountable_evidence: "clinical or semantic methods disposition bound to the exact candidate"
     - id: "RIGHTS-MED-01"
-      finding: "HPO exact terms and WHO redistribution remain unresolved"
-      required_accountable_evidence: "source or rights-holder terms disposition for the exact release and route"
+      finding: "HPO is cleared only for nine exact ontology-core assets; other HPO classes and WHO redistribution remain unresolved"
+      required_accountable_evidence: "preserve the exact HPO asset allowlist and obtain source or rights-holder disposition before expanding it or WHO routing"
     - id: "RIGHTS-MED-02"
       finding: "UMLS and SNOMED rights remain vocabulary and edition specific"
       required_accountable_evidence: "edition-specific licence and redistribution disposition"
@@ -45,26 +45,62 @@ naming_and_semantic_gate:
       required_accountable_evidence: "attributable clinical and patient/community naming disposition"
   clinical_receipt: ""
   patient_community_receipt: ""
-  independent_semantic_review_receipt: ""
-  owner_disposition: ""
+  owner_disposition: "docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml"
   state: "pending"
+provisional_candidate_binding:
+  status: "synthetic_public_readiness_only"
+  source_commit: "649b78c3ddfa64820f7507e9ff3ca39f3506a8b7"
+  source_tree: "a93f8f81284e9480759cdcc9c4d337fa95d4fd67"
+  candidate_manifest: "manifests/semantics/track-008-provisional-candidate-2026-08-21.json"
+  candidate_manifest_sha256: "c7092a8989284b6097262063854f0aed2ce89adbabf0eb55bbc6c957bc829661"
+  migration_impact_receipt: "manifests/semantics/track-008-provisional-migration-impact-2026-08-21.json"
+  migration_impact_sha256: "0f9f072c2de150753c1bfc6cde63bc3536c57fcfa59a4e9f136daf6521736c32"
+  advisory_options: "docs/track-008-provisional-candidate-advice-2026-08-21.yml"
+  advisory_options_sha256: "d99d7d786f65cd32b29b74ca672777a9df1ba13969ff3b437784b88aa8c62e45"
+  invalidation: "any artifact, commit, tree or evidence hash drift"
+  effect: "none_on_approval_naming_independent_review_freeze_or_track_009"
+v0_4_candidate_binding:
+  status: "owner_accepted_bounded_contract_frozen"
+  source_commit: "881f09152eae597fb376ced664bcfb6cabb07a7f"
+  source_tree: "795edb37102a727da43b0ef5038b9faa65912b34"
+  candidate_manifest: "manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json"
+  candidate_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+  migration_impact_receipt: "manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json"
+  migration_impact_sha256: "fbe48ba1f582a5b6e15b6ccee3f875c58b827348f31e00367e78c3ee140685bf"
+  owner_preparation_decision: "docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml"
+  owner_preparation_decision_sha256: "5b9df76111ef81ea237e08390c5f59356096f3e1b1b2ccf14c78245c50adfccc"
+  challenge_findings: "docs/track-008-v0.4-candidate-challenge-2026-08-21.yml"
+  challenge_findings_sha256: "895d310f05c2a964c62b16a0972684d476ad9b03ee9e53d6d26e5dc8ebe0c3db"
+  review_status: "owner_operated_not_independent"
+  effect: "bounded_provisional_non_clinical_contract_freeze_only_no_track_completion"
+final_owner_disposition_candidate:
+  exact_candidate_commit: "47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd"
+  exact_candidate_tree: "af2bc0074ae6c77a65f8c47da04431b08baca77f"
+  decision_packet: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
+  decision_packet_sha256: "b7d09cfa9987991007fab783d407013335946da65e9825ff3af682154c1b219f"
+  recommended_option: "A"
+  owner_decision_state: "accepted_option_a"
+  effect: "bounded_provisional_non_clinical_contract_freeze_only"
 contract_freeze_gate:
-  exact_candidate_commit: ""
-  semantic_manifest_sha256: ""
-  migration_impact_receipt: ""
-  blocking_findings_resolved: false
-  accountable_freeze_decision: ""
-  state: "pending"
+  exact_candidate_commit: "47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd"
+  semantic_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+  migration_impact_receipt: "manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json"
+  blocking_findings_resolved: true
+  resolution_scope: "bounded provisional non-clinical candidate only; source-rights expansion, clinical-validity and actual-community naming-authority findings remain pending"
+  accountable_freeze_decision: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
+  state: "satisfied"
 claims:
   approved_ontology_pins: false
   naming_authority: false
   independent_semantic_review: false
-  contract_frozen: false
+  contract_frozen: true
   track_complete: false
 governance:
   repository_panel_output: "advisory"
   owner_disposition: "owner_operated_not_independent_review"
-  automated_validation_effect: "readiness_only_not_approval_review_or_freeze"
+  independent_human_review_gate: "not_applicable_single_person_repository"
+  accountable_decision_maker: "repository_owner"
+  automated_validation_effect: "validates_recorded_scoped_freeze_only_not_approval_independent_review_track_completion_or_external_authority"
 next_action:
-  repository_owned: "re-run bounded source and naming challenge against the reconciled exact candidate; preserve provisional contracts"
-  external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"
+  repository_owned: "preserve the frozen hash-bound bounded candidate and invalidate it on any recorded stop trigger"
+  external: "obtain only the accountable source-rights, source-specific mapping-fitness, clinical-validity and actual-community naming-authority evidence required for any proposed scope expansion"

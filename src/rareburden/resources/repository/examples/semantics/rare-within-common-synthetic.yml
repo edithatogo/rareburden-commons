@@ -47,8 +47,8 @@ entities:
   parents:
   - monogenic-diabetes
   codes:
-  - system: ORPHA
-    code: '552'
+  - system: RBC-SYNTHETIC
+    code: SYNTH-DX-A
   definition: Synthetic MODY demonstration entity.
   limitations:
   - No empirical estimates are attached.
@@ -59,8 +59,8 @@ entities:
   parents:
   - monogenic-diabetes
   codes:
-  - system: ORPHA
-    code: '791'
+  - system: RBC-SYNTHETIC
+    code: SYNTH-DX-B
   definition: Synthetic neonatal diabetes demonstration entity.
   limitations:
   - No empirical estimates are attached.

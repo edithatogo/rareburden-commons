@@ -4,16 +4,41 @@
 
 ## Phase 1 — Product and information design
 
-- [ ] Define user journeys for patient, policy, research, custodian and funder users.
-- [ ] Define atlas pages, data package and API contracts. `[C-01]`
-- [ ] Define provenance, uncertainty, quality and missingness components.
+- [x] Define bounded user journeys for patient, policy, research, custodian and
+  funder users. Evidence:
+  `docs/track-014-bounded-user-journeys-2026-08-21.yml` and
+  `tests/test_track014_user_journeys.py`. These are repository design
+  hypotheses, not user research, endorsement or accessibility approval.
+- [x] Define the bounded static page, aggregate data-package and read-only API
+  contracts. Evidence: `schemas/atlas-static-projection.schema.json`,
+  `schemas/atlas-api-response.schema.json` and
+  `docs/track-014-bounded-reconciliation-2026-08-16.md`. These synthetic
+  contracts do not activate a hosted API or public atlas. `[C-01]`
+- [x] Define provenance, uncertainty, quality and missingness components.
+  Evidence: `docs/track-014-evidence-presentation-contract-2026-08-21.yml`,
+  `schemas/atlas-evidence-presentation-contract.schema.json`,
+  `examples/atlas/evidence-presentation-fixtures.yml` and
+  `tests/test_track014_evidence_presentation_contract.py` define one shared
+  scientific-fact contract, five audience profiles and fail-closed synthetic
+  scenarios. This is repository design evidence, not user research or
+  independent accessibility approval.
 - [ ] Complete accessibility design review. `[M-23]`
 
 ## Phase 2 — Release contracts
 
-- [ ] Define release-manifest and public-output schemas.
-- [ ] Implement reviewed-artifact-only build boundary.
-- [ ] Implement citation, licence, checksum and provenance packaging.
+- [x] Define release-manifest and bounded output schemas. Evidence:
+  `schemas/release-manifest.schema.json`,
+  `schemas/atlas-release-surface.schema.json`,
+  `schemas/atlas-static-projection.schema.json` and
+  `schemas/atlas-api-response.schema.json`.
+- [x] Implement reviewed-artifact-only build boundary. Evidence:
+  `rareburden.atlas.build_atlas_release_candidate` and
+  `tests/test_atlas_package.py` reject missing review receipts, unresolved
+  licence states, invalid digests and package/API drift.
+- [x] Implement bounded citation, licence, checksum and provenance packaging.
+  Evidence: the release-surface contract requires citation/provenance IDs and
+  hash-bound reviewed artifacts with explicit redistribution disposition. This
+  is synthetic preparation, not public redistribution clearance.
 - [x] Implement correction, withdrawal and supersession metadata. Evidence:
   `rareburden.atlas.build_atlas_release_notice`,
   `rareburden.atlas.build_atlas_release_status`,
@@ -23,10 +48,23 @@
 
 ## Phase 3 — Atlas and API
 
-- [ ] Build static demonstrator, country and gap products.
-- [ ] Build versioned aggregate data package and API.
-- [ ] Add consistency tests across static, package and API outputs.
-- [ ] Add documentation and accessible text alternatives.
+- [x] Build bounded static demonstrator, synthetic-country and gap products.
+  Evidence: `rareburden.atlas.build_static_product_set`,
+  `schemas/atlas-static-product-set.schema.json` and
+  `tests/test_track014_static_product_set.py` generate three accessible,
+  content-addressed product models from one immutable prepared package. The
+  country identifier is restricted to the user-assigned `XAA`–`XZZ` range;
+  every product remains synthetic, metadata-only and unpublished.
+- [x] Build a versioned synthetic aggregate data package and read-only API
+  projection. Evidence: `rareburden.atlas.build_gap_package`,
+  `rareburden.atlas.build_gap_api_response` and `tests/test_atlas_package.py`.
+- [x] Add consistency tests across static, package and API outputs. Evidence:
+  `tests/test_track014_bounded_reconciliation.py` binds their exact release,
+  package, surface and lifecycle identities and rejects drift.
+- [x] Add bounded documentation and accessible text alternatives. Evidence:
+  `docs/track-014-accessibility-checklist.md`, the static projection's
+  `text_alternative`, and `tests/test_atlas_accessibility.py`. Independent
+  accessibility and patient/community review remain pending.
 
 ## Phase 4 — Reproducible release
 
@@ -47,8 +85,11 @@
 - [x] Prepared `docs/track-014-atlas-api-review-packet.md` with exact
   source-rights, semantic, accessibility, reproducibility and release-authority
   evidence requests.
-- [ ] Keep atlas/API publication disabled until upstream review and accountable
-  dispositions are complete.
+- [x] Keep atlas/API publication disabled while upstream review and accountable
+  dispositions are incomplete. Evidence:
+  `manifests/atlas/track-014-bounded-release-surface-2026-08-16.json` and its
+  validator require publication and release claims to remain false. This
+  records the current invariant and does not authorize later activation.
 
 ## Implementation planning — 2026-08-02
 

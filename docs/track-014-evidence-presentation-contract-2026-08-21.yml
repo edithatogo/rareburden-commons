@@ -1,0 +1,139 @@
+schema_version: "1.0.0"
+track: "014-atlas-api-release"
+status: "repository_design_hypothesis"
+publication_authorized: false
+external_validation_observed: false
+hypothesis: >-
+  Users can interpret provenance, uncertainty, quality and missingness across
+  the five bounded journeys when scientific facts remain identical and only
+  their order, explanation depth and decision emphasis vary by audience.
+
+shared_invariants:
+  - "The same release and evidence facts must be used in every journey profile."
+  - "Observed inputs, transformed parameters, modelled estimates and assumptions must be labelled distinctly."
+  - "Missing, not assessed and non-estimable states must never be rendered as zero."
+  - "Uncertainty must be shown or its unavailable reason must be explicit."
+  - "Quality domains must remain separate and must not be collapsed into an opaque score."
+  - "Every visual state must have a text equivalent and colour must not carry meaning alone."
+  - "Unsupported comparison, ranking, release or endorsement claims must fail closed."
+
+components:
+  provenance:
+    purpose: "Let a reader identify and audit the exact evidence and transformation chain."
+    required_fields:
+      - "release_id"
+      - "source_manifest_id"
+      - "source_release_or_version"
+      - "geography"
+      - "period"
+      - "population"
+      - "case_definition_and_ontology_version"
+      - "access_and_licence_state"
+      - "transformation_or_model_id"
+      - "citation_and_checksum_links"
+    display_rules:
+      - "Show a concise source summary before the expandable transformation chain."
+      - "Label unresolved licence, source-version or review states explicitly."
+      - "Keep immutable identifiers available in static, package and API-shaped representations."
+    text_alternative: >-
+      State the source, release or version, geography, period, population,
+      definition, transformation and licence state in text.
+    fail_closed_when:
+      - "An exact release, source manifest, material transformation or redistribution state is absent or inconsistent."
+
+  uncertainty:
+    purpose: "Expose what is quantitatively and structurally uncertain without implying false precision."
+    required_fields:
+      - "estimate_status"
+      - "interval_or_range"
+      - "interval_level_or_interpretation"
+      - "method"
+      - "parameter_uncertainty"
+      - "structural_uncertainty"
+      - "transportability_uncertainty"
+      - "unavailable_reason"
+    display_rules:
+      - "Distinguish statistical intervals, sensitivity ranges and structural scenarios."
+      - "Do not use a zero-width interval to represent unassessed uncertainty."
+      - "Show the material assumptions and uncertainty exclusions next to the estimate."
+    text_alternative: >-
+      State the estimate status, uncertainty form and level, method, material
+      assumptions, structural scenarios and any uncertainty that was not assessed.
+    fail_closed_when:
+      - "An estimate is shown without uncertainty or an explicit unavailable reason."
+
+  quality:
+    purpose: "Expose domain-level evidence fitness without manufacturing an endorsement score."
+    required_fields:
+      - "evidence_status"
+      - "domain_judgements"
+      - "intended_use"
+      - "transportability"
+      - "limitations"
+      - "review_state"
+      - "conflicts_and_independence"
+    display_rules:
+      - "Keep source, bias, precision, directness, consistency, transportability and missingness judgements separate."
+      - "Show the intended-use disposition and blockers rather than a weighted quality score."
+      - "Label repository review as owner-operated and not independent review."
+    text_alternative: >-
+      Summarise each assessed quality domain, the intended-use disposition,
+      material limitations, review state and conflicts or independence statement.
+    fail_closed_when:
+      - "A domain is silently upgraded, a blocker is hidden or an opaque composite score replaces domain judgements."
+
+  missingness:
+    purpose: "Make absent, unassessed and non-estimable evidence visible and decision-relevant."
+    required_fields:
+      - "state"
+      - "reason"
+      - "affected_field_or_scope"
+      - "consequence"
+      - "remediation_or_next_evidence"
+    display_rules:
+      - "Use explicit states including missing, not_assessed, not_applicable and non_estimable."
+      - "Render an unavailable value as text and null machine data, never numeric zero."
+      - "Do not infer absence, sufficiency or comparability from a missing record."
+    text_alternative: >-
+      State what is missing or unassessed, why, which scope is affected, the
+      interpretation consequence and the evidence needed to resolve it.
+    fail_closed_when:
+      - "Missingness is converted to zero, omitted from a comparison or treated as evidence of absence."
+
+journey_profiles:
+  - journey_id: "patient_family_organisation"
+    audience: "patient"
+    component_order: ["missingness", "uncertainty", "provenance", "quality"]
+    emphasis: "Plain-language limits, what is known, what is missing and whether an advocacy statement is supportable."
+    stop_condition: "Stop before an unsupported claim or any implication of patient/community endorsement."
+  - journey_id: "policy_public_health"
+    audience: "policy"
+    component_order: ["quality", "uncertainty", "provenance", "missingness"]
+    emphasis: "Fitness for the stated population, period and planning question, including transportability and overlap."
+    stop_condition: "Stop when intended-use, comparability or official-statistics authority is absent."
+  - journey_id: "researcher_analyst"
+    audience: "research"
+    component_order: ["provenance", "uncertainty", "quality", "missingness"]
+    emphasis: "Immutable identifiers, methods, assumptions, checksums and cross-surface parity."
+    stop_condition: "Reject identity, checksum, schema or scientific-fact drift."
+  - journey_id: "data_custodian_operator"
+    audience: "custodian"
+    component_order: ["provenance", "quality", "missingness", "uncertainty"]
+    emphasis: "Approval, licence, disclosure-control and aggregate-only release boundaries."
+    stop_condition: "Stop on missing approval, unresolved rights, small cells or disclosure-rule failure."
+  - journey_id: "funder_payer_hta"
+    audience: "funder"
+    component_order: ["quality", "missingness", "uncertainty", "provenance"]
+    emphasis: "Evidence maturity, comparability and gaps without implying endorsement, commitment or procurement fitness."
+    stop_condition: "Do not rank or compare when definitions, evidence or uncertainty are not comparable."
+
+validation_boundary:
+  repository_evidence_can_establish:
+    - "Schema completeness, deterministic terminology and fail-closed behavior for synthetic fixtures."
+    - "Parity of scientific facts and component coverage across the five journey profiles."
+  still_required:
+    - "Independent accessibility review."
+    - "Real-user usability evidence, including patient/community participation."
+    - "Source, licence and redistribution clearance for an exact candidate."
+    - "Separately executed reproduction of an exact candidate."
+    - "Release authority and an explicit publication decision."

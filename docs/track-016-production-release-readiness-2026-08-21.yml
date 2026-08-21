@@ -17,7 +17,7 @@ candidate_input:
   exact_release_candidate: false
   evidence:
     - path: "manifests/operations/track-016-bounded-operations-2026-08-16.json"
-      sha256: "a3e6d50944fce0b645bcdcd9bc7bcfc8ae14ef4bcfb06dc9e2682d6fb8424240"
+      sha256: "624df5a290e78296ca2d27b1953bea2de1de61869c99f2d95a328bda8670dfe3"
     - path: "docs/track-016-owner-operated-exercise-receipt-2026-08-16.json"
       sha256: "b31435c60e2e3986eb1befaf33d2682fe9747e09ee416e423f7e62f754b95c58"
     - path: "docs/release-policy.md"

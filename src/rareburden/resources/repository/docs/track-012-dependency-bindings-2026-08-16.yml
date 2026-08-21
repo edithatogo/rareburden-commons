@@ -3,9 +3,9 @@ dependencies:
   - {track_id: "004", artifact: docs/federated-node-004-independent-synthetic-run.md, sha256: 1f2b3774e2948e6eafc56d2408ae7d9bd5c865d3c839d07cd12294b5be88bb81}
   - {track_id: "005", artifact: examples/ledger/economic-social-synthetic.yml, sha256: 4d773a9cac101b722d98a5364a279fc5c8c1740b24f8c1c02f7894217b97b29b}
   - {track_id: "008", artifact: examples/semantics/paediatric-burden-synthetic.yml, sha256: 8544bd1af1550e74287328b4584449deb1bd2449ff92227a9f3a959d8fdead4e}
-  - {track_id: "009", artifact: manifests/ledger/track-009-source-release-bindings-2026-08-16.json, sha256: 56b232807e71e3c43f7ff691dc9985deec13ea59756133a28991fff62e181267}
-  - {track_id: "010", artifact: manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json, sha256: dc050724fb70a95885954be5b8f77243851da63f3fcbf1c837e1d307bfa131fd}
-  - {track_id: "011", artifact: manifests/demonstrators/track-011-bounded-synthetic-receipt-2026-08-16.json, sha256: 7976281d07bf15bfda6947921bfc277c5db0b19463ea49a90ac0e301468bf5b6}
+  - {track_id: "009", artifact: manifests/ledger/track-009-source-release-bindings-2026-08-16.json, sha256: c6ab77c5477a97016df5db28a8db17b20449a812de29ebe24802682037d129f3}
+  - {track_id: "010", artifact: manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json, sha256: 81826bff754050e4dec8a21a6c9a11a11bdb9126493bb4d96c36dc1c8e9af5bc}
+  - {track_id: "011", artifact: manifests/demonstrators/track-011-bounded-synthetic-receipt-2026-08-16.json, sha256: 653b5b4242c12108f2975c7dfe122fcf4f3d2a7e1e28404c245bd9e67fccdc2e}
 claims:
   controlled_data_activation: false
   clinical_interpretation: false

@@ -20,7 +20,12 @@
 - [x] Define mutually exclusive aggregation nodes and non-tree relationships. `[M-05, S-02]` Evidence: hierarchy conservation and aggregation-contract tests.
 - [x] Define syndrome/aetiology and multi-diagnosis rules. Evidence: explicit
   relation and aggregation contracts in synthetic hierarchy fixtures.
-- [ ] Obtain clinical-methods and community/harm naming challenge from agents and owner disposition.
+- [x] Run the clinical-methods and simulated community/harm naming challenge
+  through role-separated agents and record the repository-owner disposition.
+  Evidence: `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml` and
+  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. This is an
+  owner-operated simulation, not clinical validation, lived-experience
+  participation or authority for any unrelated community.
 
 ## Phase 3 — Implementation
 
@@ -35,7 +40,11 @@
 
 ## Phase 4 — Review and compatibility
 
-- [ ] Run role-separated semantic/methods agent-panel review and owner disposition.
+- [x] Run role-separated semantic/methods agent-panel review and owner
+  disposition. Evidence: `docs/track-008-bounded-agent-review-2026-08-16.yml`,
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml` and the exact
+  Option A owner disposition. The agent panel is advisory and not independent
+  human review.
 - [x] Add schema migration and ontology-update impact tests for synthetic
   mapping releases. Evidence: `tests/test_semantics.py` covers deterministic
   release diffs, added/removed/changed impact summaries and migration receipts;
@@ -52,7 +61,10 @@
   `docs/track-008-semantic-review-packet.md` records fail-closed handling for
   unmapped, ambiguous and deprecated relations plus explicit residual overlap;
   source-pinned semantic authority remains open.
-- [ ] Freeze v0.4 semantic contracts for dependent tracks.
+- [x] Freeze the exact bounded provisional non-clinical v0.4 semantic contract
+  for dependency integration. Evidence: the hash-bound Option A disposition
+  and satisfied scoped freeze gate. This is not Track 008 completion or
+  authority to activate excluded sources, clinical use or public naming.
 
 ## Review fixes — 2026-07-27
 
@@ -87,10 +99,18 @@
   Evidence: `docs/track-008-panel-assurance-report-2026-08-03.yml` and
   `docs/track-008-bounded-agent-review-2026-08-16.yml`. Both outputs are
   advisory; neither is owner disposition or independent review.
-- [ ] Obtain clinical/community agent-panel naming recommendation and owner disposition.
-- [ ] Pin approved source releases and confirm licence/redistribution terms.
-- [ ] Freeze v0.4 semantic contracts only after all blocking findings and
-  upstream Track 002/007 gates are closed.
+- [x] Obtain the simulated clinical/community agent-panel naming recommendation
+  and owner disposition for the bounded candidate. This closes the repository
+  governance task only; clinical validity and actual-community participation,
+  consent, endorsement and authority remain unclaimed.
+- [x] Pin the approved bounded source releases and exact public asset allowlist.
+  Evidence: the v0.4 candidate manifest binds Orphadata, MONDO and nine cleared
+  HPO ontology-core objects; all other source classes remain excluded.
+- [x] Freeze the bounded v0.4 semantic contract after upstream Track 002/007
+  reconciliation and resolution of findings within the narrowed non-clinical
+  scope. Expansion findings remain open and fail closed.
+- [ ] Obtain source- or rights-holder evidence before expanding the exact asset
+  allowlist or redistributing any currently excluded source class.
 
 ## Bounded source reconciliation — 2026-08-16
 
@@ -130,6 +150,17 @@
   `scripts/check_track_008_freeze_readiness.py` and focused negative tests.
   This is readiness preparation only; all parent blocking tasks remain open.
 
+## Exact-candidate readiness — 2026-08-21
+
+- [x] Bind the unchanged synthetic/public semantic substrate to its source
+  commit, tree, artifact hashes and deterministic self-baseline migration
+  receipt. Evidence:
+  `manifests/semantics/track-008-provisional-candidate-2026-08-21.json`,
+  `manifests/semantics/track-008-provisional-migration-impact-2026-08-21.json`
+  and `docs/track-008-provisional-candidate-advice-2026-08-21.yml`. This packet
+  is advisory readiness evidence only: source approval, naming authority,
+  v0.4 freeze and Track 009 activation remain blocked.
+
 ## Post-upstream reconciliation — 2026-08-21
 
 - [x] Reconcile the archived Track 002/007 outcomes into the bounded source
@@ -138,3 +169,57 @@
   Orphadata/MONDO allowlist, keeps HPO asset-specific, and leaves WHO and
   controlled sources disabled. This satisfies dependency ordering only; it
   does not establish mapping fitness, naming authority or freeze v0.4.
+
+## Owner-approved v0.4 candidate preparation — 2026-08-21
+
+- [x] Prepare the exact bounded v0.4 candidate using the approved Orphadata,
+  MONDO and nine individually cleared HPO ontology-core objects; preserve typed
+  uncertainty, non-clinical use, provisional owner-operated naming and all
+  controlled or mixed-rights exclusions. Evidence:
+  `manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json`,
+  `manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json` and
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml`, with the owner
+  preparation decision in
+  `docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml`.
+  This records owner authorization to prepare, not a contract freeze,
+  independent review, clinical validation or Track 008 completion.
+- [x] Generate 9,758 provisional exact-release ORPHA-to-MONDO mapping rows,
+  preserve 9,758 paired source labels and 20,413 HPO source-native labels,
+  exclude 27 MONDO assertions absent from the exact Orphadata release, and
+  re-run the bounded challenge. Evidence:
+  `manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json`,
+  `manifests/semantics/track-008-v0.4-provisional-naming.json`,
+  `manifests/semantics/track-008-v0.4-row-generation-receipt.json` and
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml`. Rows remain
+  provisional, moderate-confidence and non-clinical; no new groupings were
+  created.
+- [x] Prepare and present the final exact hashes, migration impact, bounded
+  challenge and two fallback options for owner disposition. Evidence:
+  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. The
+  decision remains pending; do not freeze or complete Track 008 automatically.
+- [x] Record the owner's exact-candidate Option A disposition for commit
+  `47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd` and tree
+  `af2bc0074ae6c77a65f8c47da04431b08baca77f`, and apply only the bounded
+  provisional non-clinical contract freeze. Track 008 remains blocked and
+  incomplete; source-rights expansion, clinical validity and actual-community
+  naming-authority gates remain pending. Independent human review is not a
+  gate in this single-person repository; agent panels advise and the owner
+  decides.
+
+## Review fixes — 2026-08-21
+
+- [x] Resolve full-gate lint findings in the candidate-binding validator,
+  HPO provenance renderer and negative hash-drift test without changing any
+  semantic candidate or gate state. Evidence: focused Track 008 tests and the
+  full repository validation gate.
+
+## Exact ICD metadata preparation — 2026-08-21
+
+- [x] Bind the already-observed WHO ICD-11 MMS `2026-01` English API v2
+  release-metadata response to an exact endpoint, date, size and SHA-256 while
+  retaining private response bytes, unresolved terms, unassessed mapping
+  fitness and disabled activation. Evidence:
+  `docs/track-008-icd11-mms-2026-01-metadata-packet.yml` and
+  `tests/test_track008_icd11_metadata_packet.py`. This does not complete the
+  parent source-pinning task, validate a mapping, authorize redistribution or
+  change the bounded provisional v0.4 semantic candidate.

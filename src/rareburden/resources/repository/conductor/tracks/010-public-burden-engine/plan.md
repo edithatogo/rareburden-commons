@@ -110,3 +110,31 @@
   closure. Evidence: `docs/track-010-alpha-freeze-readiness-2026-08-21.yml`,
   `scripts/check_track_010_alpha_freeze_readiness.py` and negative tests.
   Both parent blocking tasks remain open.
+
+## Exact synthetic candidate preparation — 2026-08-21
+
+- [x] Prepare a deterministic, disposable pre-alpha candidate manifest and
+  compatibility-impact receipt bound to the exact provisional Track 009
+  candidate, bounded owner disposition, synthetic engine receipt, dependency
+  lock and feature-disabled Track 003 profile. Evidence:
+  `manifests/burden/track-010-synthetic-candidate-2026-08-21.json`,
+  `manifests/burden/track-010-compatibility-impact-2026-08-21.json` and
+  `scripts/build_track010_synthetic_candidate.py`. This is reversible synthetic
+  preparation only: Track 009 remains an unsatisfied dependency, Track 010 is
+  not an alpha and is unfrozen, and Track 003 remains ineligible.
+- [x] Record the repository owner's explicit selection of recommended Option A
+  for the exact merged candidate and bind the decision hash into alpha-freeze
+  readiness. The owner-operated disposition authorizes disposable synthetic
+  pre-alpha preparation only; it is not independent scientific-software review
+  and does not satisfy Track 009, review, alpha-freeze, Track 003, production,
+  public-readiness or release gates.
+
+## Operational containment assurance — 2026-08-21
+
+- [x] Add the exact accepted Track 010 candidate to the full repository gate,
+  regenerate its manifest and compatibility receipt twice in isolated temporary
+  roots, verify all bound artifact hashes, and reject stable-adapter, empirical,
+  alpha, Track 003 eligibility or authority drift. Evidence:
+  `scripts/check_track010_candidate_containment.py`, focused negative tests and
+  `make check`. This is same-environment synthetic reproducibility and
+  containment evidence only, not scientific validity or independent review.

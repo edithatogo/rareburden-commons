@@ -1,0 +1,52 @@
+schema_version: "1.0.0"
+track: 015-governance-partnership-policy
+status: accepted_bounded_repository_policy
+decision:
+  selected_option: A
+  disposition: accept
+  decided_by: edithatogo
+  accountable_role: repository_owner_and_sole_accountable_human
+  recorded_at: "2026-08-21"
+  instruction: proceed_with_your_recommendations
+  governance_status: owner_operated_not_independent_review
+exact_candidate:
+  commit: 81d743006ccd84d4bc4ba40ece8db23bd5a969ea
+  tree: eb236628505dbbd7e5c2e8c08c70e32757ad9d57
+  operating_policy_path: docs/track-015-operating-policy-candidate-2026-08-21.yml
+  operating_policy_sha256: d4d1dcfc73d33e4818e1a81e2ca472766b8df67659a36f2191083346f5bee17f
+  tabletop_path: docs/track-015-governance-tabletop-candidate-2026-08-21.yml
+  tabletop_sha256: 59b55b2657dd3d527d6f4e4397cfc11565dce9d6e1bc87e32bd03d6529cfbbbc
+  options_path: docs/decisions/2026-08-21-track-015-operating-policy-options.yml
+  options_sha256: 1fddb6a5e9fe506544e3e75297a0c4e3dc2e1fa84d1623e565b7f334aeb82644
+adopted_scope:
+  - acceptable_use_harm_benefit_sharing_and_corrections
+  - authorship_complaints_appeals_and_funder_independence
+  - CARE_aligned_repository_node_terms
+  - inactive_by_default_country_node_agreement_and_accreditation_process
+tabletop_disposition:
+  status: accepted_as_owner_operated_repository_exercise
+  scenario_count: 5
+  external_activation: false
+retained_boundaries:
+  independent_or_additional_human_review: false
+  third_party_permission: not_claimed
+  unrelated_community_or_indigenous_authority: not_claimed
+  partnership_or_endorsement: not_claimed
+  country_node_activation: false
+  controlled_data_activation: false
+  public_or_stable_release_authority: false
+  global_representativeness: false
+stop_triggers:
+  - source_or_rights_basis_unresolved
+  - representation_or_uncertainty_is_obscured
+  - funder_control_cannot_be_removed
+  - material_stigma_or_context_collapse_remains
+  - custodian_or_disclosure_requirement_unresolved
+invalidation:
+  material_change_requires_new_disposition: true
+  triggers:
+    - policy_scope_change
+    - jurisdiction_or_law_change
+    - controlled_or_third_party_data_activation
+    - country_node_activation
+    - partnership_or_external_authority_claim

@@ -1,31 +1,31 @@
 schema_version: 0.1.0
-mapping_set_id: orpha-to-synthetic-diabetes
-title: Synthetic ORPHA-to-RareBurden mapping set
+mapping_set_id: synthetic-source-to-rareburden-diabetes
+title: Synthetic source-to-RareBurden mapping set
 version: 0.1.0
-source_system: ORPHA
-source_version: synthetic-2026-07
+source_system: RBC-SYNTHETIC
+source_version: fixture-2026-08
 target_system: RareBurden synthetic hierarchy
 target_version: 0.1.0
 mappings:
-- source_code: '552'
+- source_code: SYNTH-DX-A
   target_code: mody
   relation: exact
   confidence: high
   status: accepted
   rationale: Synthetic mapping for assurance.
   evidence_refs:
-  - synthetic-fixture-orphadata-552
-- source_code: '791'
+  - synthetic-fixture-dx-a
+- source_code: SYNTH-DX-B
   target_code: neonatal-diabetes
   relation: exact
   confidence: high
   status: accepted
   rationale: Synthetic mapping for assurance.
   evidence_refs:
-  - synthetic-fixture-orphadata-791
+  - synthetic-fixture-dx-b
 limitations:
 - This mapping set is synthetic and not a clinical terminology product.
-- Source codes are synthetic assurance references, not production terminology identifiers.
+- Source system and codes are unmistakably synthetic assurance tokens, not production terminology identifiers.
 - Accepted mappings and mutually-exclusive examples are illustrative only; real-world overlap,
   coverage and exhaustiveness have not been established.
 - Residual or unresolved categories must not be interpreted as a clinical diagnosis.

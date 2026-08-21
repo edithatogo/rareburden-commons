@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -33,6 +35,14 @@ REVIEW_RECEIPTS = {
 }
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
+CANDIDATE_EFFECT = (
+    "dormant_synthetic_preparation_only_no_dependency_satisfaction_review_"
+    "alpha_freeze_or_track_003_eligibility"
+)
+BOUNDED_DISPOSITION_EFFECT = (
+    "disposable_synthetic_pre_alpha_preparation_only_no_dependency_review_"
+    "freeze_track_003_or_release_authority"
+)
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -43,6 +53,37 @@ def _load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise Track010ReadinessError(f"{path} must contain a mapping")
     return value
+
+
+def _sha256(path: Path) -> str:
+    try:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+    except OSError as exc:
+        raise Track010ReadinessError(f"cannot hash {path}: {exc}") from exc
+
+
+def _repository_path(root: Path, value: object) -> Path:
+    if not isinstance(value, str) or not value:
+        raise Track010ReadinessError("candidate evidence path is missing")
+    candidate = (root / value).resolve()
+    try:
+        candidate.relative_to(root.resolve())
+    except ValueError as exc:
+        raise Track010ReadinessError("candidate evidence path escapes repository") from exc
+    return candidate
+
+
+def _git_tree(root: Path, commit: str) -> str:
+    try:
+        return subprocess.run(
+            ["git", "rev-parse", f"{commit}^{{tree}}"],
+            cwd=root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise Track010ReadinessError("cannot resolve candidate source revision") from exc
 
 
 def _status(root: Path, track: str) -> str:
@@ -80,6 +121,72 @@ def validate(path: Path, root: Path) -> None:
     expected = "satisfied" if observed == "complete" else "pending"
     if dependency.get("state") != expected:
         raise Track010ReadinessError("Track 009 dependency gate state mismatch")
+
+    candidate = document.get("synthetic_candidate_preparation", {})
+    source_commit = str(candidate.get("source_commit", ""))
+    source_tree = str(candidate.get("source_tree", ""))
+    if (
+        candidate.get("status") != "prepared_synthetic_only_not_alpha_not_frozen"
+        or candidate.get("effect") != CANDIDATE_EFFECT
+        or not COMMIT.fullmatch(source_commit)
+        or not COMMIT.fullmatch(source_tree)
+        or _git_tree(root, source_commit) != source_tree
+    ):
+        raise Track010ReadinessError("synthetic candidate identity or bounded effect drift")
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("compatibility_receipt", "compatibility_receipt_sha256"),
+    ):
+        expected_hash = str(candidate.get(hash_field, ""))
+        if (
+            not SHA256.fullmatch(expected_hash)
+            or _sha256(_repository_path(root, candidate.get(path_field))) != expected_hash
+        ):
+            raise Track010ReadinessError(f"synthetic candidate evidence drift: {path_field}")
+    candidate_manifest = json.loads(
+        _repository_path(root, candidate.get("candidate_manifest")).read_text(encoding="utf-8")
+    )
+    if (
+        candidate_manifest.get("candidate_status") != "prepared_synthetic_only_not_alpha_not_frozen"
+        or candidate_manifest.get("source_commit") != source_commit
+        or candidate_manifest.get("source_tree") != source_tree
+        or any(value is not False for value in candidate_manifest.get("claims", {}).values())
+    ):
+        raise Track010ReadinessError("synthetic candidate claims or provenance drift")
+
+    disposition = document.get("bounded_owner_disposition", {})
+    disposition_commit = str(disposition.get("exact_candidate_commit", ""))
+    disposition_tree = str(disposition.get("exact_candidate_tree", ""))
+    if (
+        disposition.get("status") != "authorized_disposable_synthetic_pre_alpha_only"
+        or not COMMIT.fullmatch(disposition_commit)
+        or not COMMIT.fullmatch(disposition_tree)
+        or _git_tree(root, disposition_commit) != disposition_tree
+        or disposition.get("candidate_manifest_sha256")
+        != candidate.get("candidate_manifest_sha256")
+        or disposition.get("selected_option") != "A"
+        or disposition.get("authority") != "repository_owner_sole_accountable_human"
+        or disposition.get("governance_status") != "owner_operated_not_independent_review"
+        or disposition.get("effect") != BOUNDED_DISPOSITION_EFFECT
+    ):
+        raise Track010ReadinessError("bounded owner disposition scope or candidate drift")
+    decision_path = _repository_path(root, disposition.get("decision"))
+    decision_sha256 = str(disposition.get("decision_sha256", ""))
+    if not SHA256.fullmatch(decision_sha256) or _sha256(decision_path) != decision_sha256:
+        raise Track010ReadinessError("bounded owner disposition receipt hash drift")
+    decision = _load(decision_path)
+    owner_decision = decision.get("owner_decision", {})
+    if (
+        decision.get("simulation_status") != "simulated_role_separated_advisory_panel"
+        or decision.get("candidate", {}).get("commit") != disposition_commit
+        or decision.get("candidate", {}).get("tree") != disposition_tree
+        or decision.get("candidate", {}).get("evidence_manifest_sha256")
+        != disposition.get("candidate_manifest_sha256")
+        or owner_decision.get("status") != "recorded"
+        or owner_decision.get("selected_option_id") != "A"
+        or owner_decision.get("decided_by") != "edithatogo"
+    ):
+        raise Track010ReadinessError("bounded owner disposition receipt overstates authority")
 
     review = document.get("review_gate", {})
     if review.get("repository_panel_status") != "advisory":

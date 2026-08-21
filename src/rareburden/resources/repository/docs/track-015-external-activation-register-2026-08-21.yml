@@ -1,0 +1,45 @@
+schema_version: '1.0.0'
+register_id: track-015-external-activation-conditions-2026-08-21
+origin_track: 015-governance-partnership-policy
+status: standing_conditional_register
+track_completion_blocking: false
+default_activation: false
+owner: repository_owner_sole_accountable_human
+scope_statement: >-
+  These conditions govern optional future external activation and are outside
+  the completed bounded repository-governance scope of archived Track 015.
+  Their presence is not evidence that an external relationship or permission
+  exists.
+conditions:
+  - id: unrelated_community_or_indigenous_authority
+    applies_when: a claim relies on authority, representation, consent or endorsement from an unrelated community or Indigenous people
+    state: not_applicable_until_requested
+    required_fact: attributable scope-specific authority and withdrawal terms
+  - id: country_node_or_controlled_data
+    applies_when: a country node or controlled-data environment is proposed for activation
+    state: not_applicable_until_requested
+    required_fact: custodian-defined access, disclosure, retention, correction and withdrawal terms
+  - id: publisher_licensor_or_third_party_rights
+    applies_when: repository use exceeds rights already documented for an exact source release
+    state: not_applicable_until_requested
+    required_fact: exact publisher or licensor terms covering the proposed use
+  - id: partnership_endorsement_or_hosting
+    applies_when: a relationship state would move from proposed to confirmed
+    state: not_applicable_until_requested
+    required_fact: attributable written counterparty evidence defining scope and expiry
+  - id: public_production_or_stable_release
+    applies_when: an exact candidate is proposed for production, public-stable or representative release
+    state: not_applicable_until_requested
+    required_fact: exact-candidate owner disposition after applicable rights and safety checks
+activation_protocol:
+  - identify the exact candidate, scope and condition that became applicable
+  - record attributable evidence without exposing confidential material
+  - run role-separated advisory agent challenge and automated validation
+  - record the repository owner's accept, narrow, revise, defer or stop decision
+  - preserve correction, withdrawal, expiry and supersession routes
+prohibited_inferences:
+  - archived Track 015 authorizes an external relationship
+  - agent advice creates community, custodian, publisher or partner authority
+  - public availability creates redistribution permission
+  - a proposed relationship is a partnership or endorsement
+  - bounded repository governance authorizes production or stable release

@@ -22,6 +22,19 @@ from scripts.check_track014_release_surface import (
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json"
+PLAN = ROOT / "conductor/tracks/014-atlas-api-release/plan.md"
+
+
+def test_track014_plan_reconciles_bounded_work_without_closing_release_gates() -> None:
+    plan = PLAN.read_text(encoding="utf-8")
+    assert plan.count("- [x]") == 26
+    assert plan.count("- [ ]") == 7
+    assert "Define bounded user journeys" in plan
+    assert "Complete accessibility design review" in plan
+    assert "Add immutable archive/DOI" in plan
+    assert "Publish v0.8 beta only after Track 013 approval" in plan
+    assert "Activate real sources or publish any beta/stable surface" in plan
+    assert "do not activate a hosted API or public atlas" in plan
 
 
 def _surface() -> tuple[dict, dict, dict, dict]:

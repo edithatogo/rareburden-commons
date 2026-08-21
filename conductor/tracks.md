@@ -13,19 +13,20 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 002 | Public-source acquisition and provenance adapters | Archived | Must | v0.3.0 | Data Engineering Lead | 001, 006 |
 | 007 | Landscape, adjacency, novelty and partnership map | Archived | Must | v0.3.0 | Programme and Evidence Synthesis Leads | 001, 006 |
 | 018 | Scholarly provenance, protocol transparency and reproducibility | Archived | Must | v0.3.0 | Methods Assurance and Research Software Leads | 001, 006 |
-| 008 | Semantic backbone and burden-purpose hierarchy | Blocked | Must | v0.4.0 | Semantic Methods Lead | 002, 007 |
-| 009 | Evidence and parameter ledger | Blocked | Must | v0.4.0 | Epidemiology and Data Architecture Leads | 002, 008 |
-| 010 | Public burden engine and uncertainty framework | Blocked | Must | v0.5.0 | Statistical and Scientific Software Leads | 009 |
-| 003 | Monogenic diabetes rare-within-common demonstrator | Blocked | Must | v0.5.0 | Clinical and Epidemiology Leads | 008, 009, 010 |
-| 004 | Federated country-node execution package | Blocked | Must | v0.6.0 | Node Architecture and Data Governance Leads | 006, 009, 010 |
-| 011 | Bronchiectasis rare-aetiology demonstrator | Blocked | Must | v0.6.0 | Respiratory Clinical and Epidemiology Leads | 008, 009, 010 |
-| 005 | Patient, family, economic and social burden module | Blocked | Must | v0.7.0 | Health Economics and Patient-Reported Outcomes Leads | 009, 010 |
-| 012 | Collective paediatric rare-disease burden demonstrator | Blocked | Must | v0.7.0 | Paediatric, Administrative Data and Health Economics Leads | 004, 005, 008, 009, 010 |
-| 013 | Quality, validation, gap mapping and equity assurance | Blocked | Must | v0.8.0 | Methods Assurance and Equity Leads | 003, 005, 007, 010, 011, 012 |
-| 014 | Atlas, API and reproducible release engineering | Planned | Must | v0.8.0 | Product, Data and Release Engineering Leads | 002, 009, 010, 013 |
-| 015 | Operational governance, partnerships and policy translation | Blocked | Must | v0.9.0 | Programme Director and Patient Community Co-chair | 006, 007, 013 |
-| 016 | Security, reliability, performance and operations | Planned | Must | v0.9.0 | Security and Site Reliability Leads | 004, 014 |
-| 017 | Documentation, adoption, sustainability and stable v1 release | Planned | Must | v1.0.0 | Product, Documentation and Programme Leads | 013, 014, 015, 016 |
+| 008 | Semantic backbone and burden-purpose hierarchy | Blocked | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 007 |
+| 009 | Evidence and parameter ledger | Blocked | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 008 |
+| 010 | Public burden engine and uncertainty framework | Blocked | Must | v0.5.0 | Repository owner (sole accountable human) | 009 |
+| 003 | Monogenic diabetes rare-within-common demonstrator | Blocked | Must | v0.5.0 | Repository owner (sole accountable human) | 008, 009, 010 |
+| 004 | Federated country-node execution package | Blocked | Must | v0.6.0 | Repository owner (sole accountable human) | 006, 009, 010 |
+| 011 | Bronchiectasis rare-aetiology demonstrator | Blocked | Must | v0.6.0 | Repository owner (sole accountable human) | 008, 009, 010 |
+| 005 | Patient, family, economic and social burden module | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 009, 010 |
+| 012 | Collective paediatric rare-disease burden demonstrator | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 004, 005, 008, 009, 010 |
+| 013 | Quality, validation, gap mapping and equity assurance | Blocked | Must | v0.8.0 | Repository owner (sole accountable human) | 003, 005, 007, 010, 011, 012 |
+| 014 | Atlas, API and reproducible release engineering | Planned | Must | v0.8.0 | Repository owner (sole accountable human) | 002, 009, 010, 013 |
+| 015 | Operational governance, partnerships and policy translation | Complete | Must | v0.9.0 | Repository owner (sole accountable human) | 006, 007, 013 |
+| 016 | Security, reliability, performance and operations | Planned | Must | v0.9.0 | Repository owner (sole accountable human) | 004, 014 |
+| 017 | Documentation, adoption, sustainability and stable v1 release | Planned | Must | v1.0.0 | Repository owner (sole accountable human) | 013, 014, 015, 016 |
+| 021 | External governance and partnership activation | Planned | Should | v1.1.0 | Repository owner (sole accountable human) | 015, 017 |
 
 ## Status definitions
 
@@ -55,17 +56,18 @@ under `docs/decisions/ADR-0009-agent-panel-owner-governance.md`. Track plans
 must not imply another maintainer, human reviewer or independent review. Panels
 advise and the repository owner records the accountable disposition.
 
-The repository owner (`edithatogo`) is also the accountable scientist, sole
-developer and primary operator. Owner-operated implementation, scientific
+The repository owner (`edithatogo`) is the sole accountable human, owner,
+maintainer, scientist, developer, operator, security decision-maker and release
+decision-maker. Owner-operated implementation, scientific
 review, validation, support preparation, reproduction and bounded release
 decisions are permitted and must be labelled as owner-operated repository
 evidence, not independent approval or external validation. The community/harm
 lane is an owner-executed simulated-community challenge and never represents
 actual participation, consultation, consent or endorsement.
-A privacy-preserving backup-owner role is owner-attested as accepted but remains
-conditional until its scope, escalation, expiry and handoff evidence are
-recorded. Owner-operated operator/security evidence and owner release decisions
-must be labelled accurately and bound to the exact candidate.
+No backup owner, co-maintainer, agent, bot or external evidence provider holds
+repository accountability. Recovery material and procedures do not confer
+authority. Owner-operated operator/security evidence and owner release
+decisions must be labelled accurately and bound to the exact candidate.
 
 The dependency-ordered panel workflow for methods, community/harm,
 rights/data-use, operator/security and release advice is documented
@@ -75,6 +77,11 @@ controlled-data custodian policies remain factual constraints.
 
 The current candidate-bound ledger is maintained in
 [`docs/remaining-gates-current-state-2026-08-03.md`](../docs/remaining-gates-current-state-2026-08-03.md).
+
+Track 015 is archived after bounded repository-governance completion. Its
+optional external-activation conditions remain fail-closed in
+[`docs/track-015-external-activation-register-2026-08-21.yml`](../docs/track-015-external-activation-register-2026-08-21.yml)
+and do not imply partnership, authority, rights or release approval.
 
 The dependency-ordered downstream preparation boundary for Tracks 008–017 is
 maintained in

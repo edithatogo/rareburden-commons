@@ -1,0 +1,50 @@
+{
+  "candidate_contract": "v0.4-provisional",
+  "candidate_status": "prepared_synthetic_only_not_frozen",
+  "claims": {
+    "contract_frozen": false,
+    "data_governance_approval": false,
+    "empirical_parameter_activation": false,
+    "engineering_approval": false,
+    "epidemiology_approval": false,
+    "independent_review": false,
+    "track_complete": false
+  },
+  "exports": [
+    {
+      "ledger_id": "public-foundation-synthetic-ledger",
+      "parameters": 2,
+      "path": "manifests/ledger/track-009-v0.4-public-foundation-synthetic.json",
+      "sha256": "de3ef65cecc08785e8175a5d326a2be4f8adb6374cac22e83442ebbe7072fee0"
+    },
+    {
+      "ledger_id": "economic-social-synthetic-ledger",
+      "parameters": 1,
+      "path": "manifests/ledger/track-009-v0.4-economic-social-synthetic.json",
+      "sha256": "3c4a36431d5f8c992a044e449972907a9b5005f2c733df608556a2ffc8c21da2"
+    }
+  ],
+  "input_ledgers": [
+    {
+      "path": "examples/ledger/public-foundation-synthetic.yml",
+      "sha256": "b0aef6e12893fb469f4993285f4d5d9621f810af3e08f686ec3235d0cfd51a76"
+    },
+    {
+      "path": "examples/ledger/economic-social-synthetic.yml",
+      "sha256": "4d773a9cac101b722d98a5364a279fc5c8c1740b24f8c1c02f7894217b97b29b"
+    }
+  ],
+  "invalidation": "any input, export, schema, upstream semantic or evidence hash drift",
+  "migration_receipt": {
+    "path": "manifests/ledger/track-009-v0.4-migration-impact-2026-08-21.json",
+    "sha256": "79f95631d38b6020c308ae01050f6a41a12e5aa3e3e4437d6f9c03002c7f8372"
+  },
+  "schema": {
+    "path": "schemas/parameter-ledger.schema.json",
+    "sha256": "f58ffd67c9b55d9cffecbc4c050e957e3092ca1bb2c383a54f0a9310d0ad4821"
+  },
+  "schema_version": "1.0.0",
+  "source_commit": "067e67f25802e0350c68d9ee25cecd10fdd52676",
+  "source_tree": "1a2ad9562cad826558d04b4da1fe920795a7ea51",
+  "track": "009-evidence-parameter-ledger"
+}

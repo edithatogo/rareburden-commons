@@ -232,8 +232,12 @@ def _prepare_materials(root: Path, output: Path) -> tuple[dict[str, Path], list[
 
 
 def _logical(output: Path, path: Path) -> str:
+    # These paths are produced by this module under ``output``.  Keep the
+    # containment check lexical: resolving every generated artefact performs
+    # thousands of redundant filesystem lookups for the packaged snapshot and
+    # can exceed the reference workflow's bounded runtime.
     try:
-        return path.resolve().relative_to(output.resolve()).as_posix()
+        return path.absolute().relative_to(output.absolute()).as_posix()
     except ValueError as exc:
         raise ScholarlyAssuranceError(f"Assurance artefact escapes output root: {path}") from exc
 

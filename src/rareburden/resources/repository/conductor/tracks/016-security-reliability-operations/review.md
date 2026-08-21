@@ -93,10 +93,11 @@ overstated operator model. The bounded retention/access policy is operative for
 repository-owned synthetic/public records only.
 
 The evidence is owner-operated and therefore does not satisfy independent
-operator or independent-security gates. The private backup owner is
-owner-attested, but the scoped, expiring, hash-bound handoff remains incomplete.
-Production operations, controlled data, SLA, stable release and release
-authority remain pending and fail closed.
+operator or independent-security gates. The historical private-backup proposal
+is superseded by ADR-0011: recovery-material holders receive no repository
+authority, and owner-incapacity or credential-compromise procedures fail
+closed. Production operations, controlled data, SLA, stable release and
+release authority remain pending and fail closed.
 
 ## Readiness reconciliation — 2026-08-21
 
@@ -108,11 +109,22 @@ files by SHA-256. This is preparation input, not an exact release candidate.
 
 The validator rejects production activation, release authorization,
 independence or completed-handoff claims without the corresponding receipts.
-Owner-reported private backup acceptance remains recorded, while scope,
-escalation, expiry, revocation and a hash-bound exercise remain pending.
-Python 3.13 remains the release runtime. Production operations remain disabled;
-Tracks 004 and 014, independent operator/security evidence, exact-candidate
-owner disposition and separate release authority remain open.
+The historical private-backup proposal is superseded by the single-accountable-
+human decision; recovery procedures do not create a backup owner. Python 3.13
+remains the release runtime. Production operations remain disabled; Tracks 004
+and 014, independent operator/security evidence and separate release authority
+remain open. The exact-candidate owner disposition is recorded below but does
+not close any of those gates.
+
+## Plan-state reconciliation — 2026-08-21
+
+Earlier checklist entries are reconciled to the later evidence without changing
+the Track's Planned status. ADR-0011 closes only the repository-owned decision
+to remove the backup-owner model; the exact-candidate owner disposition closes
+only owner-operated governance; and the Python 3.13 and disabled-production
+entries record current invariants. Qualifying independent operator/security
+receipts, production operations after Tracks 004 and 014, and separate release
+authority remain explicitly in progress.
 
 ## Exact-candidate owner disposition — 2026-08-21
 

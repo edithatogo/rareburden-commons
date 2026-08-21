@@ -22,11 +22,11 @@ def validate_with(tracks: Path, roadmap: Path = ROADMAP) -> None:
 
 def test_seed_roadmap_is_valid() -> None:
     summary = validate_roadmap_files(ROADMAP, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
-    assert summary.release_count == 10
-    assert summary.track_count == 18
+    assert summary.release_count == 11
+    assert summary.track_count == 19
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
-    assert summary.track_status_counts.get("complete", 0) == 0
+    assert summary.track_status_counts["complete"] == 1
     assert summary.track_status_counts["archived"] == 5
 
 
@@ -109,6 +109,13 @@ def test_archived_track_may_target_current_release(tmp_path: Path) -> None:
     shutil.copytree(ROOT / "conductor" / "archive", tmp_path / "archive")
 
     validate_with(tracks)
+
+
+def test_complete_track_may_be_preserved_in_archive_before_planned_release() -> None:
+    summary = validate_roadmap_files(ROADMAP, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
+
+    assert summary.track_status_counts["complete"] == 1
+    assert (ROOT / "conductor/archive/015-governance-partnership-policy/spec.md").is_file()
 
 
 def test_released_release_requires_complete_tracks(tmp_path: Path) -> None:

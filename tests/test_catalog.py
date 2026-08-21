@@ -56,3 +56,25 @@ def test_controlled_source_cannot_be_freely_redistributable() -> None:
 
     with pytest.raises(CatalogValidationError, match="individual-level sources"):
         validate_catalog(invalid, schema)
+
+
+def test_restricted_source_families_are_indexed_but_fail_closed() -> None:
+    records = {source["source_id"]: source for source in load_yaml(CATALOG)["sources"]}
+    restricted = {
+        "human-phenotype-ontology",
+        "who-icd-10-11",
+        "omim",
+        "snomed-ct",
+        "snomed-ct-national-edition-germany",
+        "meddra",
+    }
+    assert restricted <= records.keys()
+    for source_id in restricted:
+        source = records[source_id]
+        assert source["status"] == "blocked"
+        assert source["verification"]["acquisition_test"]["status"] == "blocked"
+        assert source["verification"]["terms_review"]["status"] == "blocked"
+
+    ghed = records["who-global-health-expenditure-database"]
+    assert ghed["status"] == "blocked"
+    assert ghed["redistribution"] == "unknown"

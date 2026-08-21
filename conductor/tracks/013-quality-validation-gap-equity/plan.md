@@ -3,19 +3,23 @@
 ## Phase 1 — Assurance framework
 
 - [x] Define evidence quality, bias and transportability dimensions. `[M-21, S-07]` Evidence: evidence-assessment, transportability and quality-disposition schemas/validators; summary documented in `docs/quality-validation-013-reference.md`.
-- [ ] Define validation types, calibration thresholds and model criticism.
-- [ ] Define release-language rules by evidence maturity.
+- [x] Define validation types, bounded calibration thresholds and model
+  criticism. Evidence: `docs/quality-validation-013-protocol.md`.
+- [x] Define release-language rules by evidence maturity. Evidence:
+  `docs/quality-validation-013-protocol.md`.
 - [x] Define GATHER-aligned reporting checklist. Evidence: `src/rareburden/reporting.py` and reporting checklist schema.
 
 ## Phase 2 — Gap and equity mapping
 
 - [x] Define parameter-by-geography sufficiency taxonomy. `[M-26]` Evidence: gap-map schema uses explicit `sufficiency: not_assessed` until empirical validation.
 - [x] Generate machine-readable gap map from source and ledger records. Evidence: `src/rareburden/gapmap.py` and reference gap-map workflow.
-- [ ] Add rendered coverage, missingness and controlled-data-ask products.
-- [~] Add LMIC, underserved-population and Indigenous governance assessment.
-  Repository-owned metadata-only scaffold: `schemas/equity-gap-review.schema.json`,
-  `examples/quality/equity-gap-review-synthetic.yml` and its fail-closed test;
-  empirical coverage and governance review remain open.
+- [x] Add rendered coverage, missingness and conditional controlled-data-ask
+  products. Evidence: `docs/track-013-public-data-gap-map-2026-08-21.json` and
+  `docs/track-013-public-data-gap-map-2026-08-21.md`.
+- [x] Add a role-separated agent assessment of LMIC, underserved-population
+  and Indigenous governance risks. Evidence:
+  `examples/quality/equity-gap-review-synthetic.yml`; real-population coverage
+  and unrelated authority remain conditional external facts.
 
 ## Phase 3 — Demonstrator validation
 
@@ -27,9 +31,19 @@
 ## Phase 4 — Independent assurance
 
 - [ ] Run a separately executed owner-operated reproduction of at least one analysis; record it as repository evidence, not independent approval. `[S-10]`
-- [ ] Complete patient/community harm and interpretation review.
-- [ ] Complete scientific assurance report and disposition log.
-- [ ] Block, narrow or approve outputs for the atlas beta.
+- [x] Complete simulated community/harm and interpretation advice without
+  claiming lived experience or representation.
+- [x] Complete role-separated scientific assurance report and owner disposition.
+- [x] Narrow atlas-beta outputs to synthetic and metadata-only assurance until
+  empirical dependency evidence exists. Evidence for all three tasks:
+  `docs/track-013-agent-assurance-closeout-2026-08-21.yml`.
+
+## Agent-advice closeout — 2026-08-21
+
+- [x] Remove independent-advice and constituted-review requirements; use
+  role-separated agent advice plus owner disposition, while retaining external
+  evidence only for activated empirical, rights, representation or authority
+  claims. Evidence: `docs/decisions/2026-08-21-track-013-agent-advice-boundary.yml`.
 
 ## Dependency review — 2026-07-27
 

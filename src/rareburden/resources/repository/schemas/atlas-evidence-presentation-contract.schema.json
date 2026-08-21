@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/atlas-evidence-presentation-contract.schema.json",
+  "title": "Bounded atlas evidence-presentation contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "track",
+    "status",
+    "publication_authorized",
+    "external_validation_observed",
+    "hypothesis",
+    "shared_invariants",
+    "components",
+    "journey_profiles",
+    "validation_boundary"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "track": {"const": "014-atlas-api-release"},
+    "status": {"const": "repository_design_hypothesis"},
+    "publication_authorized": {"const": false},
+    "external_validation_observed": {"const": false},
+    "hypothesis": {"type": "string", "minLength": 1},
+    "shared_invariants": {
+      "type": "array",
+      "minItems": 6,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "components": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provenance", "uncertainty", "quality", "missingness"],
+      "properties": {
+        "provenance": {"$ref": "#/$defs/component"},
+        "uncertainty": {"$ref": "#/$defs/component"},
+        "quality": {"$ref": "#/$defs/component"},
+        "missingness": {"$ref": "#/$defs/component"}
+      }
+    },
+    "journey_profiles": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/journeyProfile"}
+    },
+    "validation_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository_evidence_can_establish", "still_required"],
+      "properties": {
+        "repository_evidence_can_establish": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "still_required": {
+          "type": "array",
+          "minItems": 5,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "purpose",
+        "required_fields",
+        "display_rules",
+        "text_alternative",
+        "fail_closed_when"
+      ],
+      "properties": {
+        "purpose": {"type": "string", "minLength": 1},
+        "required_fields": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "display_rules": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "text_alternative": {"type": "string", "minLength": 1},
+        "fail_closed_when": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "journeyProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["journey_id", "audience", "component_order", "emphasis", "stop_condition"],
+      "properties": {
+        "journey_id": {"type": "string", "minLength": 1},
+        "audience": {
+          "enum": ["patient", "policy", "research", "custodian", "funder"]
+        },
+        "component_order": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"enum": ["provenance", "uncertainty", "quality", "missingness"]}
+        },
+        "emphasis": {"type": "string", "minLength": 1},
+        "stop_condition": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

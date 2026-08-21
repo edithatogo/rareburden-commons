@@ -1,0 +1,123 @@
+schema_version: "1.0.0"
+packet_id: "track-008-icd11-mms-2026-01-metadata"
+as_of: "2026-08-21"
+status: "exact_metadata_observation_candidate_only"
+purpose: >-
+  Bind one already-observed WHO ICD-11 MMS release identity for future semantic
+  compatibility assessment without retrieving classification content,
+  validating mappings, activating a source or asserting redistribution rights.
+
+source:
+  source_id: "who-icd-10-11"
+  publisher: "World Health Organization"
+  product: "ICD-11 for Mortality and Morbidity Statistics"
+  linearization: "mms"
+  release_id: "2026-01"
+  release_date: "2026-01-17"
+  language: "en"
+  language_state: "release_language_not_prerelease_in_observed_metadata"
+  api_version: "v2"
+  canonical_endpoint_path: "/icd/release/11/2026-01/mms"
+  official_documentation: "https://icd.who.int/docs/icd-api/APIDoc-Version2/"
+
+observation_binding:
+  observed_at: "2026-08-15T15:42:11+00:00"
+  manifest: "manifests/classifications/who-icd-api-inventory-2026-08-16.json"
+  manifest_sha256: "8f6d13eae2c65325b828b15bab7fd94b1c31188647bba34b2ed9802ca96a1f72"
+  http_status: 200
+  response_size_bytes: 2056
+  response_sha256: "6970171bdfeb9972113bc35865d57731007975530db9d6dc401dcb4985506c81"
+  response_visibility: "private_licensed_archive_only"
+  public_packet_contains_response_bytes: false
+
+scientific_role:
+  permitted_now:
+    - "release-identity and semantic-change planning"
+    - "synthetic compatibility-test parameterization"
+    - "future mapping-review scope definition"
+  prohibited_now:
+    - "clinical or diagnostic use"
+    - "case-definition validation"
+    - "burden numerator or denominator evidence"
+    - "mapping correctness or coverage claims"
+    - "production semantic activation"
+  interpretation: >-
+    This packet identifies an observed release-level API response. It does not
+    show that any RareBurden mapping was derived from, checked against or is
+    compatible with the corresponding classification content.
+
+rights_and_access:
+  access_observation: "authenticated API response was previously observed"
+  current_credential_use: false
+  terms_state: "WHO_ICD_licence_and_API_terms_require_exact_use_disposition"
+  access_authorized_by_packet: false
+  acquisition_authorized_by_packet: false
+  retention_authorized_by_packet: false
+  retention_observation: "repository receipt reports an existing private response observation; this packet creates no retention permission"
+  public_metadata: "permitted_repository_evidence"
+  public_raw_redistribution: false
+  activation_state: "disabled_rights_and_mapping_fitness"
+  owner_or_agent_can_create_publisher_permission: false
+
+uncertainty:
+  - "The response hash identifies release metadata bytes, not the complete MMS terminology graph."
+  - "English availability does not establish language completeness or cross-language equivalence."
+  - "Release identity does not establish mapping fitness for any demonstrator entity."
+  - "API availability and private retention do not establish public redistribution rights."
+
+future_minimum_evidence:
+  mapping_assessment:
+    - "lawful access to the exact 2026-01 MMS content required for the stated purpose"
+    - "versioned mapping inputs and directional relation semantics"
+    - "unmapped, ambiguous, broader, narrower and deprecated counts"
+    - "demonstrator-specific impact and sensitivity assessment"
+  activation:
+    - "exact WHO terms and permitted-use disposition"
+    - "owner source-use decision bound to exact evidence"
+    - "methods, rights and engineering review of the exact mapping candidate"
+  redistribution:
+    - "express file, response and field-level redistribution authority"
+    - "required attribution, notices and withdrawal procedure"
+
+stop_triggers:
+  - "A workflow treats this packet as classification content or a mapping release."
+  - "The MMS linearization, release, language or API version is silently substituted."
+  - "Any public artifact includes response or terminology bytes without exact rights evidence."
+  - "Any empirical, clinical, completeness or external-approval claim is inferred from this packet."
+
+panel_options:
+  - id: "A"
+    title: "Prepare exact ICD metadata observation packet"
+    recommendation: "recommended"
+    trade_off: "Highest cross-track semantic utility, but no mapping or empirical readiness is added."
+    contingency: "Keep all content, rights, mapping-fitness and activation gates disabled."
+  - id: "B"
+    title: "Prepare GHED metadata packet instead"
+    recommendation: "defer"
+    trade_off: "Useful for economic context, but no uniquely selected immutable GHED release is currently bound."
+    contingency: "Reconsider after indicator, perspective, unit, price-year and artifact identity are selected."
+  - id: "C"
+    title: "Prepare restricted terminology gap packet"
+    recommendation: "narrow_only"
+    trade_off: "Documents access gaps but has less immediate cross-track value and greater licence risk."
+    contingency: "Permit non-expressive metadata only; never imply licence acceptance or content access."
+
+panel_advice:
+  methods: "recommend ICD metadata observation because it has the strongest exact release identity and cross-track semantic value"
+  rights: "recommend ICD-11 MMS 2026-01 English as metadata-only selection candidate with every authority flag false"
+  engineering: "dissent: prefer a GHED selection-readiness packet because it has less semantic and provenance coupling"
+  owner_operated_simulated_community: "metadata-only framing avoids content publication but creates no participation, representation or endorsement"
+  advice_is_independent_review: false
+  recommendation: "option_A_narrow_exact_metadata_observation_only"
+  rationale: "Track 008 explicitly requires pinned ICD release identity; the packet preserves the engineering concern by prohibiting mapping or activation and avoiding changes to binding manifests."
+
+claims:
+  exact_release_metadata_observed: true
+  classification_content_public: false
+  mapping_validated: false
+  scientific_fitness_established: false
+  production_activation: false
+  redistribution_authorized: false
+  independent_review: false
+  external_validation: false
+  community_participation: false

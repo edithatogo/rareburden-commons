@@ -1,11 +1,11 @@
 schema_version: "1.0"
-status: owner_approved_aggressive_archival
+status: bounded_owner_disposition_external_rights_unresolved
 as_of: "2026-08-15"
 infrastructure:
   canonical_governance: github:edithatogo/rareburden-commons
   private_raw_archive: huggingface:edithatogo/rareburden-commons-source-archive
   public_metadata_catalogue: huggingface:edithatogo/dataset-estate-registry
-  public_raw_release: requires_source_specific_owner_release_decision
+  public_raw_release: requires_exact_source_rights_evidence_and_owner_release_decision
   public_rights_filtered_archive: huggingface:edithatogo/rareburden-commons-open-source-snapshots@795150a6b45937228023b97602e6b770ae7f192b
   canonical_ontology_archive: huggingface:edithatogo/hpo-licensed-ontology-archive
   duplication_policy: reference_existing_exact_hashes_instead_of_uploading_duplicate_bytes
@@ -41,6 +41,15 @@ decisions:
     public_raw: prohibited_pending_exact_field_rights
     github: hash_metadata_extraction_manifest_and_lawful_derived_outputs_only
     conditions: [unmodified_private_copy, preserve_attribution, withdrawal_route, no_activation]
+  - source_id: who-global-health-expenditure-database
+    dataset_type: public_aggregate_health_expenditure_database
+    licence: WHO_database_terms_release_and_field_level_rights_unverified
+    exact_release: pending_indicator_and_release_selection
+    private_archive: metadata_hash_only_until_exact_release_terms_third_party_fields_and_storage_basis_are_dispositioned
+    public_raw: prohibited_until_exact_file_and_field_level_redistribution_rights_are_verified
+    github: identifiers_metadata_queries_hashes_and_non_expressive_documentation_only
+    conditions: [indicator_selection, release_pin, currency_and_unit_pin, price_year_and_PPP_basis, perspective_pin, third_party_field_review, preserve_attribution, no_activation]
+    scientific_boundary: national_expenditure_context_not_disease_specific_economic_burden
   - source_id: world-bank-indicators-api
     dataset_type: public_versioned_api_response
     licence: CC_BY_4_0_observed_for_series

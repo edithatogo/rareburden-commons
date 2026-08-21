@@ -1,0 +1,106 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "009-evidence-parameter-ledger"
+candidate:
+  commit: "a9ef5b1ffdba55a0d45faf670d8679d890e414d6"
+  tree: "6fa0fd46a54db0970ba04611f6cf90443525b9b7"
+  evidence_manifest_sha256: "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5"
+panel:
+  perspectives:
+    - "simulated epidemiology and estimand-fitness perspective"
+    - "simulated rights and data-governance perspective"
+    - "simulated engineering and reproducibility perspective"
+    - "simulated security and release perspective"
+  non_representation_statement: >-
+    These owner-requested agent simulations are advisory only. They are not
+    independent review, human or community participation, custodian authority,
+    consent, endorsement, partnership, production approval or release authority.
+evidence:
+  references:
+    - "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json"
+    - "manifests/ledger/track-009-v0.4-migration-impact-2026-08-21.json"
+    - "docs/track-009-freeze-readiness-2026-08-21.yml"
+    - "docs/track-009-ledger-review-packet.md"
+    - "https://github.com/edithatogo/rareburden-commons/pull/217"
+  observed_facts:
+    - "The exact merge contains deterministic exports for three explicitly synthetic parameters."
+    - "Hosted security, dependency, portability, Python and reproducibility checks passed for the exact pull-request head before merge."
+    - "Track 008 remains blocked and therefore does not satisfy Track 009's declared completion dependency."
+    - "All candidate approval, activation, independent-review, freeze and completion claims remain false."
+  simulated_assessments:
+    - "The candidate is suitable as a reversible synthetic preparation baseline if provenance and synthetic-only containment remain machine-enforced."
+    - "Descriptive ledger preparation is lower risk than standardised, comparative, causal or attributable estimands."
+    - "Exact commit and tree binding establishes reproducibility, not epidemiological fitness, data-use authority or release readiness."
+    - "Technical replaceability and rejection of non-synthetic inputs reduce the risk of provisional contracts becoming de facto stable interfaces."
+  cannot_infer:
+    - "epidemiological or estimand fitness for any empirical parameter"
+    - "source rights, custodian permission, credentials or live-access capacity"
+    - "data-governance or engineering approval"
+    - "independent review or patient-community authority"
+    - "contract freeze, production readiness, public readiness or release authority"
+uncertainty:
+  - "Qualifying review may require changes to population, period, measure, metric, uncertainty or alternative-selection contracts."
+  - "Future source terms or upstream semantic changes may invalidate the provisional candidate."
+  - "A merged preparation can create accidental downstream coupling despite explicit provisional labels."
+dissent:
+  - "The simulated security perspective prefers retaining only cross-cutting controls if provisional ledger semantics cannot remain isolated from stable surfaces."
+  - "The simulated epidemiology perspective would defer all standardised, comparative, causal and attributable estimands pending accountable methods evidence."
+stop_triggers:
+  - "Any candidate commit, tree, manifest, input, export, schema, migration or upstream semantic hash drift."
+  - "Any empirical, controlled, credentialed, private or production input entering the preparation path."
+  - "Any failed provenance, deterministic-regeneration, tamper-detection or recovery check."
+  - "Any unresolved high- or critical-severity security or data-governance finding."
+  - "Any claim of approval, independent review, freeze, completion, production readiness, public readiness or release authority."
+options:
+  - id: "A"
+    title: "Retain bounded candidate with containment"
+    disposition: "accept"
+    trade_offs:
+      - "Preserves reproducible preparation and reduces later integration risk while adding maintenance for fail-closed containment tests."
+      - "The provisional candidate may still attract downstream coupling and must remain replaceable."
+    contingencies:
+      - "Invalidate and rebind after any stop trigger or material Track 008 change."
+      - "Keep every non-descriptive estimand and every empirical or controlled input disabled."
+    rationale: "This captures the most reversible engineering value while preserving every accountable scientific, governance and freeze gate."
+    minimum_evidence:
+      - "Exact commit, tree, manifest and artifact hashes validate."
+      - "Synthetic-only provenance and stable-surface rejection tests pass."
+      - "Track 009 remains blocked, inactive, incomplete and unfrozen."
+  - id: "B"
+    title: "Retain cross-cutting controls only"
+    disposition: "narrow"
+    trade_offs:
+      - "Minimises premature semantic commitment but requires more rebuilding after upstream completion."
+    contingencies:
+      - "Quarantine provisional ledgers and retain only validators, provenance, security and recovery machinery."
+    rationale: "Use this if candidate-specific schemas or identifiers cannot remain isolated from stable release surfaces."
+    minimum_evidence:
+      - "A new narrowed manifest and migration receipt exclude candidate-specific ledger semantics."
+  - id: "C"
+    title: "Defer all candidate use"
+    disposition: "defer"
+    trade_offs:
+      - "Provides the strictest dependency boundary but discards validated preparation and increases later drift cost."
+    contingencies:
+      - "Preserve the merge as historical evidence and rebuild only after Track 008 completion and qualifying review."
+    rationale: "Use this if synthetic containment or technical replaceability cannot be demonstrated reliably."
+    minimum_evidence:
+      - "Track 008 completion and exact-candidate epidemiology, data-governance and engineering receipts."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    Retain the exact candidate only as reversible, clearly labelled synthetic
+    preparation and add Option B's containment safeguards. This maximises safe
+    repository-owned progress without satisfying any review or freeze gate.
+owner_decision:
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T06:27:02Z"
+  rationale: >-
+    As sole accountable repository owner and maintainer, I accept the panel's
+    recommendation for this exact candidate only as reversible, clearly
+    labelled synthetic preparation with fail-closed containment safeguards.
+    This is owner-operated governance, not independent review, approval of any
+    empirical or controlled input, contract freeze, production approval,
+    public-readiness determination or release authority.

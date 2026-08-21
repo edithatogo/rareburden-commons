@@ -120,9 +120,13 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 - **[004-federated-node-runner — Federated country-node execution package](../conductor/tracks/004-federated-node-runner/spec.md)** — portable local execution and approved aggregate outputs.
 - **[013-quality-validation-gap-equity — Quality, validation, gap mapping and equity assurance](../conductor/tracks/013-quality-validation-gap-equity/spec.md)** — exposes what can and cannot be estimated and constrains representation claims.
 - **[014-atlas-api-release — Atlas, API and reproducible release engineering](../conductor/tracks/014-atlas-api-release/spec.md)** — accessible, machine-readable and decision-relevant releases.
-- **[015-governance-partnership-policy — Operational governance, partnerships and policy translation](../conductor/tracks/015-governance-partnership-policy/spec.md)** — operational patient/community, scientific and locally governed decision rights.
+- **[015-governance-partnership-policy — Operational governance, partnerships and policy translation](../conductor/archive/015-governance-partnership-policy/spec.md)** — archives bounded single-owner repository governance and fail-closed policy translation without activating external authority, partnerships or release rights.
 - **[016-security-reliability-operations — Security, reliability, performance and operations](../conductor/tracks/016-security-reliability-operations/spec.md)** — supply chain, incident, recovery, performance, support and release evidence.
 - **[017-documentation-adoption-v1 — Documentation, adoption, sustainability and stable v1 release](../conductor/tracks/017-documentation-adoption-v1/spec.md)** — independent usability, reproduction, support, succession and launch decision.
+
+### Deferred post-v1 activation
+
+- **[021-external-governance-activation — External governance and partnership activation](../conductor/tracks/021-external-governance-activation/spec.md)** — preserves constituted governance, third-party authority, country-node, partnership and global-representation gates outside the bounded single-owner v1 scope.
 
 ## 7. Critical path
 
