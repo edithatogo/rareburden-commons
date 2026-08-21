@@ -36,7 +36,7 @@ FALSE_CLAIMS = {
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
 OBSERVATION_EFFECT = (
-    "dormant_synthetic_preparation_only_no_dependency_satisfaction_activation_review_or_freeze"
+    "dormant_synthetic_preparation_only_dependency_satisfied_without_activation_review_or_freeze"
 )
 BOUNDED_DISPOSITION_EFFECT = (
     "reversible_synthetic_preparation_and_containment_only_no_review_activation_freeze_or_release"
@@ -132,7 +132,7 @@ def validate(path: Path, root: Path) -> None:
 
     observation = document.get("upstream_semantic_observation", {})
     if (
-        observation.get("observation_status") != "bounded_freeze_observed_dependency_unsatisfied"
+        observation.get("observation_status") != "bounded_completion_observed_dependency_satisfied"
         or observation.get("effect") != OBSERVATION_EFFECT
     ):
         raise Track009ReadinessError("Track 008 observation must remain non-activating")
@@ -163,9 +163,9 @@ def validate(path: Path, root: Path) -> None:
     track_008_decision = _load(_repository_path(root, observation.get("track_008_owner_decision")))
     preparation = _load(_repository_path(root, observation.get("advisory_and_owner_preparation")))
     if (
-        track_008.get("status") != "blocked"
+        track_008.get("status") != "complete"
         or track_008.get("contract_freeze_gate", {}).get("state") != "satisfied"
-        or track_008.get("claims", {}).get("track_complete") is not False
+        or track_008.get("claims", {}).get("track_complete") is not True
         or track_008.get("final_owner_disposition_candidate", {}).get("exact_candidate_commit")
         != candidate_commit
         or track_008.get("final_owner_disposition_candidate", {}).get("exact_candidate_tree")

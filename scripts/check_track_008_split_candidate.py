@@ -133,6 +133,30 @@ def _git_blob_sha256(root: Path, commit: str, relative: str) -> str:
 def validate(candidate_path: Path, root: Path) -> None:
     """Validate exact binding, prospective scope, and unchanged dependency state."""
     candidate = _mapping(candidate_path)
+    if candidate.get("status") == "superseded_by_bounded_completion_scope":
+        decision_path = candidate.get("superseded_by")
+        if not isinstance(decision_path, str) or not (root / decision_path).is_file():
+            raise Track008SplitError(
+                "superseded candidate must name its bounded completion decision"
+            )
+        try:
+            decision = yaml.safe_load((root / decision_path).read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, yaml.YAMLError) as exc:
+            raise Track008SplitError(f"cannot read superseding decision: {exc}") from exc
+        if not isinstance(decision, dict) or decision.get("track_id") != "008-semantic-backbone":
+            raise Track008SplitError("superseding decision must identify Track 008")
+        owner_decision = decision.get("owner_decision", {})
+        effect = decision.get("effect", {})
+        if (
+            owner_decision.get("selected_option") != "A"
+            or effect.get("track_008_status") != "complete_for_bounded_scope"
+        ):
+            raise Track008SplitError("superseding decision must complete only the bounded scope")
+        metadata = _metadata(root, "008-semantic-backbone")
+        dependency = _metadata(root, "009-evidence-parameter-ledger")
+        if metadata.get("status") != "complete" or dependency.get("status") != "blocked":
+            raise Track008SplitError("bounded completion must not activate Track 009")
+        return
     if candidate.get("schema_version") != "1.1.0":
         raise Track008SplitError("schema_version must be 1.1.0")
     if candidate.get("status") != "prospective_scope_change_candidate_preparation_only":

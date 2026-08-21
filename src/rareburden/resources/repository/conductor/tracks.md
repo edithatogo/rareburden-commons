@@ -13,7 +13,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 002 | Public-source acquisition and provenance adapters | Archived | Must | v0.3.0 | Data Engineering Lead | 001, 006 |
 | 007 | Landscape, adjacency, novelty and partnership map | Archived | Must | v0.3.0 | Programme and Evidence Synthesis Leads | 001, 006 |
 | 018 | Scholarly provenance, protocol transparency and reproducibility | Archived | Must | v0.3.0 | Methods Assurance and Research Software Leads | 001, 006 |
-| 008 | Semantic backbone and burden-purpose hierarchy | Blocked | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 007 |
+| 008 | Semantic backbone and burden-purpose hierarchy | Complete (bounded non-clinical core) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 007 |
 | 009 | Evidence and parameter ledger | Blocked | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 008 |
 | 010 | Public burden engine and uncertainty framework | Blocked | Must | v0.5.0 | Repository owner (sole accountable human) | 009 |
 | 003 | Monogenic diabetes rare-within-common demonstrator | Blocked | Must | v0.5.0 | Repository owner (sole accountable human) | 008, 009, 010 |

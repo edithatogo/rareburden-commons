@@ -81,6 +81,17 @@ independence claims and owner-operated work labelled as independent review.
 It neither approves ontology pins nor supplies clinical, patient/community or
 independent semantic authority; Track 008 therefore remains blocked.
 
+### Bounded completion review — 2026-08-22
+
+Repository review result: **Pass for bounded completion only**. The selective
+decision records the exact Orphadata, MONDO and nine HPO ontology-core asset
+allowlist, the provisional non-clinical effects, prohibited claims and the
+source-rights, clinical-use, community-authority and production-release gates
+that remain outside this track's bounded completion. The repository owner is
+the sole accountable human; agent-panel output is advisory and is not
+independent, clinical, community, custodian or external approval. Track 009
+remains blocked on its own evidence and freeze gates.
+
 ### Single-owner governance reconciliation — 2026-08-21
 
 Repository governance result: **agent-panel and owner-disposition work is

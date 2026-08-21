@@ -22,17 +22,17 @@ def test_current_track_009_blockers_are_consistent_and_assigned() -> None:
     validate(READINESS, ROOT)
 
 
-def test_bounded_track_008_freeze_does_not_satisfy_track_009_dependency() -> None:
+def test_bounded_track_008_completion_satisfies_only_the_upstream_dependency() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     dependency = document["upstream_dependencies"][1]
     observation = document["upstream_semantic_observation"]
     assert dependency == {
         "track": "008-semantic-backbone",
         "required_status": "complete",
-        "observed_status": "blocked",
-        "state": "pending",
+        "observed_status": "complete",
+        "state": "satisfied",
     }
-    assert observation["observation_status"] == ("bounded_freeze_observed_dependency_unsatisfied")
+    assert observation["observation_status"] == ("bounded_completion_observed_dependency_satisfied")
     assert document["claims"]["empirical_parameter_activation"] is False
     assert document["claims"]["contract_frozen"] is False
 

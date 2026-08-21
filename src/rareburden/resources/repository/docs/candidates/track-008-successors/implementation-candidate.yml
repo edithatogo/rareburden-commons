@@ -1,5 +1,6 @@
 schema_version: "1.0.0"
-status: prepared_not_applied
+status: superseded_by_bounded_completion_scope
+superseded_by: docs/decisions/2026-08-22-track-008-bounded-completion.yml
 architecture_decision: "docs/decisions/2026-08-21-track-008-successor-architecture.yml"
 authorized_scope: "prepare_separate_atomic_implementation_candidate"
 live_state_baseline:
