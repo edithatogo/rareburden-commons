@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "track": "008-semantic-backbone",
   "candidate_status": "provisional_synthetic_public_only",
-  "source_commit": "5f0d8dc31e019c3ac9c3dea537a2083617b8f758",
-  "source_tree": "d4f9236f4c283329d3b11387768ec9b777aa7823",
+  "source_commit": "649b78c3ddfa64820f7507e9ff3ca39f3506a8b7",
+  "source_tree": "a93f8f81284e9480759cdcc9c4d337fa95d4fd67",
   "mapping_fingerprint": "map-d2ba0c52d070db31bb5db4a9",
   "identifier_interpretation": "The RBC-SYNTHETIC system and SYNTH-DX-* codes are unmistakably synthetic assurance tokens. They do not establish correspondence, mapping fitness, clinical meaning, source rights or permission to redistribute source records.",
   "artifacts": [
