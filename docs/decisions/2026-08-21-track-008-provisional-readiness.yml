@@ -24,7 +24,7 @@ evidence:
     - docs/track-008-source-release-inventory-2026-08-03.yml
   observed_facts:
     - The reconciled candidate is based on current main and preserves both post-upstream reconciliation and exact-candidate readiness records.
-    - The manifest identifies eight schema or synthetic-fixture artifacts at source commit 5f0d8dc31e019c3ac9c3dea537a2083617b8f758 and tree d4f9236f4c283329d3b11387768ec9b777aa7823.
+    - The manifest identifies eight schema or synthetic-fixture artifacts at reachable merged source commit 649b78c3ddfa64820f7507e9ff3ca39f3506a8b7 and tree a93f8f81284e9480759cdcc9c4d337fa95d4fd67.
     - The validator resolves the declared Git tree and hashes both historical blobs and current working-tree artifacts.
     - The migration receipt is enforced as a self-baseline drift check only.
     - Focused governance and Track 008 tests and lint passed on Python 3.13 for this preparation candidate.

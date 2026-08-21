@@ -50,10 +50,10 @@ naming_and_semantic_gate:
   state: "pending"
 provisional_candidate_binding:
   status: "synthetic_public_readiness_only"
-  source_commit: "5f0d8dc31e019c3ac9c3dea537a2083617b8f758"
-  source_tree: "d4f9236f4c283329d3b11387768ec9b777aa7823"
+  source_commit: "649b78c3ddfa64820f7507e9ff3ca39f3506a8b7"
+  source_tree: "a93f8f81284e9480759cdcc9c4d337fa95d4fd67"
   candidate_manifest: "manifests/semantics/track-008-provisional-candidate-2026-08-21.json"
-  candidate_manifest_sha256: "07f027111746d505ab8cd45491acc471e13a1d5b4da45b73f5464a44252b0f81"
+  candidate_manifest_sha256: "c7092a8989284b6097262063854f0aed2ce89adbabf0eb55bbc6c957bc829661"
   migration_impact_receipt: "manifests/semantics/track-008-provisional-migration-impact-2026-08-21.json"
   migration_impact_sha256: "0f9f072c2de150753c1bfc6cde63bc3536c57fcfa59a4e9f136daf6521736c32"
   advisory_options: "docs/track-008-provisional-candidate-advice-2026-08-21.yml"
