@@ -171,3 +171,9 @@
   This qualifies only tested synthetic engineering assurance; memory,
   migration-fixture, cross-environment, resource, security and independent
   software-review findings remain open.
+- [x] Record the owner-attributable personal patient/community self-assessment
+  for the exact candidate. Evidence:
+  `docs/track-010-owner-personal-patient-community-self-assessment-2026-08-22.yml`.
+  This records personal harm, accessibility, framing and acceptable-use
+  conditions only; broader community authority, representation, consent,
+  endorsement and external evidence remain pending.

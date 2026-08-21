@@ -1,0 +1,55 @@
+receipt_schema_version: "0.1.0"
+receipt_id: "track-010-owner-attributable-personal-patient-community-perspective-2026-08-22"
+gate: "patient_community_personal_perspective"
+decision: "accept_with_conditions_for_internal_harm_and_framing_controls"
+authority_status: "personal_owner_perspective_not_qualifying_community_authority"
+accountable:
+  person_or_body: "edithatogo repository owner"
+  role: "repository_owner_and_self_described_patient_community_member"
+  organisation_or_constituency: "RareBurden Commons single-developer repository"
+  authority_basis: "Attributable personal perspective and repository owner decision only"
+  conflict_of_interest: "Owner, developer, scientist and participant are the same person"
+  representation_boundary: "Not representative of any broader patient, community or Indigenous constituency"
+decision_date_utc: "2026-08-21T19:49:09Z"
+expiry_or_review_date_utc: "2026-09-21T19:49:09Z"
+subject:
+  repository: "edithatogo/rareburden-commons"
+  track: "010-public-burden-engine"
+  candidate_commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  candidate_tree: "56851ea539a3503175e253dd7949b28abc474082"
+  candidate_manifest: "manifests/burden/track-010-alpha-candidate-2026-08-21.json"
+  candidate_manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+  challenge_sha256: "23a2f244aea32d317d1caaab1a694f039eacd2b8127174b85a3929ea8cec77d9"
+materials_reviewed:
+  - "docs/track-010-engine-review-packet.md"
+  - "docs/reviews/track-010-patient-community-advisory-2026-08-22.yml"
+  - "docs/track-010-alpha-candidate-challenge-2026-08-21.yml"
+  - "docs/burden-engine-010-reference.md"
+personal_findings:
+  harms:
+    - "Synthetic outputs could be mistaken for observed prevalence, lived experience or community burden."
+    - "Aggregate estimates may erase heterogeneity, diagnostic barriers, unmet need and culturally specific meanings."
+    - "Rankings or comparisons could enable stigma, profiling, rationing or service-eligibility misuse."
+  accessibility_and_framing:
+    - "Use plain-language uncertainty and synthetic-only labels at every output boundary."
+    - "Do not present expected populations, case fractions or intervals as individual risk, eligibility, clinical guidance or community priorities."
+    - "Provide a durable correction and harm-reporting route for repository materials."
+  acceptable_use_conditions:
+    - "Non-clinical synthetic assurance and technical documentation only."
+    - "No individual decisions, diagnosis, treatment, ranking, rationing, policing, insurance, employment, immigration or service-eligibility use."
+  benefit_or_return_expectations: "No community benefit, return, partnership or endorsement is claimed; any future engagement must define scope and return separately."
+limitations_and_dissent:
+  - "This is a personal owner perspective, not community consultation, representation, consent, endorsement, cultural-safety evidence or Indigenous authority."
+  - "Simulated panel advice may miss lived harms, cultural context and access barriers."
+  - "A stricter option would defer all community-facing interpretation pending attributable external evidence."
+correction_withdrawal_route: "Owner may amend or withdraw this personal self-assessment through a superseding dated receipt; hash-bound candidate changes invalidate it."
+stop_triggers:
+  - "Wording generalises the owner's perspective to patients or communities."
+  - "Consent, endorsement, partnership, authority or representation is inferred from this receipt."
+  - "Synthetic output is used clinically, individually, representatively or for eligibility/rationing decisions."
+  - "Candidate or artifact hash drift, unsafe or stigmatizing framing, or loss of a correction route."
+attestation:
+  submitted_by: "edithatogo repository owner"
+  submitted_at_utc: "2026-08-21T19:49:09Z"
+  signature_or_approval_record: "Owner selected Option A after review of the exact-candidate patient/community advisory panel outputs."
+  supersedes_receipt_id: ""

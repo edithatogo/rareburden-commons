@@ -78,3 +78,10 @@ The owner-attributable bounded engineering disposition is recorded in
 the tested synthetic engineering scope; it does not establish independent
 scientific-software review, production fitness, security certification,
 cross-environment reproduction or complete migration evidence.
+
+The owner-attributable personal patient/community self-assessment is recorded
+in `docs/track-010-owner-personal-patient-community-self-assessment-2026-08-22.yml`.
+It supplies personal harm, accessibility, framing and acceptable-use controls
+only. It is not community authority, representation, consent, endorsement,
+clinical validation or independent review; the broader authority gate remains
+pending.
