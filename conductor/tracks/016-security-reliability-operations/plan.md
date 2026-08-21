@@ -112,8 +112,11 @@
 
 - [x] Prepared `docs/track-016-operations-review-packet.md` with exact
   security, runtime, recovery, privacy, supply-chain and owner evidence.
-- [ ] Keep production pathways and support promises disabled until agent-panel
-  review, owner disposition and backup-role continuity evidence are recorded.
+- [x] Keep production pathways and support promises disabled while qualifying
+  independent review, production-operation and release-authority evidence is
+  absent. Evidence: the fail-closed readiness envelope in
+  `docs/track-016-production-release-readiness-2026-08-21.yml`; this records the
+  current disabled state and does not authorize later activation.
 
 ## Implementation planning — 2026-08-02
 
@@ -135,17 +138,19 @@
   `tests/test_synthetic_operations_receipt.py`.
 - [x] Implement and execute owner-operated clean-environment backup, restore and rollback
   exercises with redacted, hash-bound receipts.
-- [ ] Replace the historical backup-role proposal with owner-incapacity,
+- [x] Replace the historical backup-role proposal with owner-incapacity,
   credential-compromise and recovery procedures that fail closed and confer no
-  continuing authority on a recovery-material holder.
+  continuing authority on a recovery-material holder. Evidence:
+  `docs/decisions/ADR-0011-single-accountable-human-enforcement.md`.
 - [x] Record bounded repository-owner primary acceptance and explicit
   unassigned-backup contingency. Evidence:
   `docs/decisions/2026-08-03-owner-operated-operations-acceptance.md`; this
   does not close the qualifying operational-owner gate.
-- [~] Complete agent security/operator challenge and repository-owner release
-  disposition before activation. Owner-operated exact-candidate exercises pass
-  in `docs/track-016-owner-operated-exercise-receipt-2026-08-16.json`; agent
-  review, independent evidence and release disposition remain separate.
+- [~] Complete qualifying independent security/operator challenge before
+  activation. Owner-operated exact-candidate exercises pass in
+  `docs/track-016-owner-operated-exercise-receipt-2026-08-16.json`, and the
+  repository-owner disposition is recorded separately; neither is independent
+  evidence or release authority.
 - [x] Prepare the candidate-bound independent-operator and security evidence
   plan with panel and owner-operated boundaries. Evidence:
   `docs/track-016-independent-security-operator-plan-2026-08-03.md`; the
@@ -171,8 +176,11 @@
 - [x] Record a time-limited bounded owner disposition for the frozen
   synthetic/public candidate. Evidence:
   `docs/decisions/2026-08-03-owner-bounded-release-disposition.md`.
-- [ ] Record a new exact-candidate repository-owner release disposition before
-  any stable-v1, hosted, controlled-data or production claim.
+- [x] Record a new exact-candidate repository-owner disposition before any
+  stable-v1, hosted, controlled-data or production claim. Evidence:
+  `docs/decisions/2026-08-21-track-016-owner-exact-candidate-disposition.md`;
+  this is owner-operated governance, not release authority or production
+  approval.
 
 ## Clean-node rehearsal follow-up — 2026-08-03
 
@@ -182,9 +190,10 @@
 - [x] Run a supplemental network-disabled Python 3.14 rehearsal. Evidence:
   `dist/offline-install-receipt.json`; this is local compatibility evidence,
   not an independent operator receipt or release approval.
-- [ ] Keep the release runtime at Python 3.13 unless a separately recorded
+- [x] Keep the release runtime at Python 3.13 unless a separately recorded
   compatibility decision changes the support matrix and refreshes the frozen
-  candidate.
+  candidate. Evidence: the readiness envelope and current release-policy
+  support matrix retain Python 3.13 as normative.
 
 ## Option B cross-cutting security control — 2026-08-20
 
