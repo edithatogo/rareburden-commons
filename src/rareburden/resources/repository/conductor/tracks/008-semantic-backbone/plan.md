@@ -173,8 +173,12 @@
   `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml`. Rows remain
   provisional, moderate-confidence and non-clinical; no new groupings were
   created.
-- [ ] Present the final exact hashes, migration impact and bounded challenge
-  for owner disposition; do not freeze or complete Track 008 automatically.
+- [x] Prepare and present the final exact hashes, migration impact, bounded
+  challenge and two fallback options for owner disposition. Evidence:
+  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. The
+  decision remains pending; do not freeze or complete Track 008 automatically.
+- [ ] Record the owner's exact-candidate disposition and, only if selected,
+  apply the bounded contract-freeze state without marking Track 008 complete.
 
 ## Review fixes — 2026-08-21
 

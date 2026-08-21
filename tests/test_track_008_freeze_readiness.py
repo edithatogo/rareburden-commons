@@ -101,6 +101,14 @@ def test_v0_4_candidate_binds_generated_rows() -> None:
     assert derived[mapping_path]["rows"] == 9758
 
 
+def test_final_disposition_remains_pending_and_exact() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    disposition = document["final_owner_disposition_candidate"]
+    assert disposition["exact_candidate_commit"] == ("bdce109e0fc917e2f9f8e178120c97b3e00dc0d6")
+    assert disposition["owner_decision_state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "pending"
+
+
 def test_readiness_rejects_unbound_freeze(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
     document["contract_freeze_gate"]["state"] = "satisfied"

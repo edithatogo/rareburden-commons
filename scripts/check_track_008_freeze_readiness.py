@@ -238,6 +238,20 @@ def validate(path: Path, root: Path) -> None:
             artifact_path
         ) != artifact.get("sha256"):
             raise Track008ReadinessError("v0.4 derived candidate artifact hash drift")
+    disposition = document.get("final_owner_disposition_candidate", {})
+    if (
+        not COMMIT.fullmatch(str(disposition.get("exact_candidate_commit", "")))
+        or not COMMIT.fullmatch(str(disposition.get("exact_candidate_tree", "")))
+        or disposition.get("recommended_option") != "A"
+        or disposition.get("owner_decision_state") != "pending"
+        or disposition.get("effect")
+        != "none_until_owner_selects_an_option_for_this_exact_candidate"
+    ):
+        raise Track008ReadinessError("final owner disposition must remain exact and pending")
+    decision_packet = _repository_path(root, disposition.get("decision_packet"))
+    decision_hash = str(disposition.get("decision_packet_sha256", ""))
+    if not SHA256.fullmatch(decision_hash) or _sha256(decision_packet) != decision_hash:
+        raise Track008ReadinessError("final owner disposition packet hash drift")
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
         if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):
