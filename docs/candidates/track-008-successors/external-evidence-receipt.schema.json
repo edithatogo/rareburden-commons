@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.example/schemas/track-008-external-evidence-receipt.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "receipt_id", "evidence_kind", "status", "issuer", "observed_at", "candidate_commit", "candidate_tree", "methods", "conflicts", "artifact_sha256", "expires_or_invalidates_on"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "receipt_id": {"type": "string", "minLength": 1},
+    "evidence_kind": {"enum": ["source_rights", "derivative_rights", "clinical_methods", "patient_community_review", "independent_review", "renderer_context", "correction_withdrawal"]},
+    "status": {"enum": ["pending", "qualifying", "rejected", "expired", "withdrawn"]},
+    "issuer": {"type": "string", "minLength": 1},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "candidate_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "candidate_tree": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "methods": {"type": "string", "minLength": 1},
+    "conflicts": {"type": "array", "items": {"type": "string"}},
+    "artifact_sha256": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "expires_or_invalidates_on": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}
+  }
+}
