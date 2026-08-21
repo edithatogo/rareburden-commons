@@ -129,3 +129,12 @@
   `docs/track-008-freeze-readiness-2026-08-21.yml`,
   `scripts/check_track_008_freeze_readiness.py` and focused negative tests.
   This is readiness preparation only; all parent blocking tasks remain open.
+
+## Post-upstream reconciliation — 2026-08-21
+
+- [x] Reconcile the archived Track 002/007 outcomes into the bounded source
+  inventory. Evidence: `docs/track-008-source-release-inventory-2026-08-03.yml`
+  now binds the Track 002 owner disposition, recognizes only the exact
+  Orphadata/MONDO allowlist, keeps HPO asset-specific, and leaves WHO and
+  controlled sources disabled. This satisfies dependency ordering only; it
+  does not establish mapping fitness, naming authority or freeze v0.4.

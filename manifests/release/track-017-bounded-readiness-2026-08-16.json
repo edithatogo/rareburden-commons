@@ -37,11 +37,11 @@
     ]
   },
   "evidence_bindings": [
-    {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "4fb89cfc523bc36d064e05132970f3f4d13d7ba5b7d039677cd3cad9124a04b1"},
+    {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "74ce4e9c51e6d0308242d3f3ccd8f59bfbb973ab78ce97c3b741e7f7796bc211"},
     {"id": "owner_backup_attestation", "artifact": "docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md", "sha256": "e6d95d03f8346be577caff6291af8f1808d33b765ba2b3b266973ef7c31f9257"},
-    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "52f61977b932fb9162e60f8ebf210b72b4bacc3a15c8cd446b724a556982677e"},
-    {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "dd2e97dc8be451144ca2c865afaf96e2b720dcf34a4b3020c55504ce3f887dc0"},
-    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "953a124d1b86af277717aee73a73f5298f964f8ae7ef53d3346929a0bad5eb1c"},
+    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "c8d99555bb185182ed9c28b0da9f48023593ca4cdc1fef2ee82418bea93540fd"},
+    {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "70b3832c8c3fce31e83c318762ff623bcf0582201b844e77fd157d70ae21c60d"},
+    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "39391f12d746bfb394544afe42829e19c2301f86f0ea1a59e582053f504a96f8"},
     {"id": "release_authority_plan", "artifact": "docs/release-authority-receipt-plan-2026-08-03.yml", "sha256": "62f3ae25755d6441ab54f3f1c1d8c1fb73732e0f3546cd1168eac685863581ae"},
     {"id": "candidate_reconciliation", "artifact": "docs/release-candidate-evidence-reconciliation-2026-08-04.yml", "sha256": "8da971dca2173bb6fa17245a2d6c490d103abdc6c0df7e7fba17c653e44a7cb0"}
   ],
@@ -49,7 +49,7 @@
     "track": "016",
     "artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json",
     "status": "bound",
-    "sha256": "4b16a2f045b265bfb3537b43b900c84c753e831d3ab4176c0660ddd1c2b65c0e",
+    "sha256": "9d58bf676384420506aefb1660cb3c816064228e72e20afc879b34a676496135",
     "merge_commit": "18910840fee787bbe2ae7d7eff40b944539a11f4"
   },
   "owner_disposition_receipt": {

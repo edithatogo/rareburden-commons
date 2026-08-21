@@ -108,12 +108,12 @@ def test_patient_community_advice_keeps_non_self_attestable_gates_pending() -> N
     }
 
 
-def test_completion_attempt_uses_single_owner_internal_governance() -> None:
+def test_completion_attempt_remains_blocked_on_external_authority() -> None:
     closure = yaml.safe_load(EXTERNAL_GATE_CLOSURE.read_text(encoding="utf-8"))
     metadata = json.loads(TRACK_METADATA.read_text(encoding="utf-8"))
 
     assert metadata["status"] == "blocked"
-    assert closure["status"] == "superseded_by_single_owner_governance_for_internal_gates"
+    assert closure["status"] == "blocked_external_authority_and_dependencies"
     assert closure["track_completion_authorized"] is False
     assert all(blocker["self_attestable"] is False for blocker in closure["dependency_blockers"])
     assert all(
@@ -121,20 +121,3 @@ def test_completion_attempt_uses_single_owner_internal_governance() -> None:
         for gate in closure["external_gates"]
     )
     assert "Track 015 complete" in closure["prohibited_completion_claims"]
-    assert closure["internal_governance_correction"] == {
-        "repository_model": "single_person_repo",
-        "decision_maker": "repository_owner",
-        "panels": "role_separated_advisory_agents",
-        "remuneration": "none",
-        "amount": 0,
-        "grouped_advice_fields": [
-            "options",
-            "contingencies",
-            "rationale",
-            "trade_offs",
-            "recommendation",
-        ],
-        "repository_data_custodian": "repository_owner",
-        "applicable_indigenous_authority": "repository_owner",
-        "independent_human_review_planned": False,
-    }

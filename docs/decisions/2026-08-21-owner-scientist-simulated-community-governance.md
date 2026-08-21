@@ -19,10 +19,11 @@ The owner also approves this community/harm boundary:
 > participation, representation, consultation, endorsement, consent or
 > independent review.
 
-This decision supplements ADR-0010's single-owner/all-accountable-roles model
-and applies prospectively to material repository decisions. Agents
-must present options, contingencies, rationale, trade-offs and recommendations
-before the owner records an attributable disposition.
+This decision is implemented by ADR-0010's prospective simulated-panel and
+owner-decision model and applies prospectively to material repository
+decisions. Agents must present two or three options; options, contingencies,
+rationale, trade-offs, minimum evidence and recommendations must precede the
+owner's attributable disposition bound to the exact candidate.
 
 ## Operating model
 

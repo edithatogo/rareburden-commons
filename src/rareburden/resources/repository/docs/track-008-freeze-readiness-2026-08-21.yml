@@ -66,5 +66,5 @@ governance:
   owner_disposition: "owner_operated_not_independent_review"
   automated_validation_effect: "readiness_only_not_approval_review_or_freeze"
 next_action:
-  repository_owned: "preserve provisional contracts and validate incoming exact-candidate receipts"
+  repository_owned: "re-run bounded source and naming challenge against the reconciled exact candidate; preserve provisional contracts"
   external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"
