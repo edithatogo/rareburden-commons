@@ -89,4 +89,12 @@ recommendation:
     Reconcile and harden the actual atomic application candidate before asking
     the owner to authorize live registration or dependency migration.
 owner_decision:
-  status: pending
+  status: recorded
+  selected_option_id: B
+  decided_by: edithatogo
+  decided_at_utc: "2026-08-21T12:08:12Z"
+  rationale: >-
+    Revise and rebind the prepared implementation candidate before any live
+    application decision. Keep all live track, registry, roadmap and dependency
+    states unchanged while adding exact manifests, executable receipt and mode
+    gates, atomic-effect and rollback validation, and a fresh simulated-panel packet.
