@@ -26,7 +26,8 @@
   "gates": [
     {"id": "accessibility-independent-review", "kind": "external", "status": "pending", "evidence": "docs/track-014-repository-accessibility-review-2026-08-21.yml"},
     {"id": "real-user-usability", "kind": "human", "status": "pending", "evidence": "docs/track-014-repository-accessibility-review-2026-08-21.yml"},
-    {"id": "clean-environment-reproduction", "kind": "owner", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/plan.md"},
+    {"id": "clean-environment-reproduction", "kind": "owner", "status": "satisfied", "evidence": "docs/track-014-owner-installed-reproduction-receipt-2026-08-22.json"},
+    {"id": "independent-reproduction", "kind": "external", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/review.md"},
     {"id": "archive-doi-authority", "kind": "release", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/review.md"},
     {"id": "track-013-approval", "kind": "dependency", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/review.md"},
     {"id": "real-source-redistribution", "kind": "rights", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/review.md"},

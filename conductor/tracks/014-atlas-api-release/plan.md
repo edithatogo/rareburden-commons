@@ -69,7 +69,10 @@
 ## Phase 4 — Reproducible release
 
 - [ ] Add immutable archive/DOI and research-object workflow. `[S-09]`
-- [ ] Build and verify from a clean environment.
+- [x] Build and verify from a clean environment. Evidence:
+  `docs/track-014-owner-installed-reproduction-receipt-2026-08-22.json` records
+  installed-wheel doctor, synthetic reference workflow and synthetic-node
+  passes. The run is owner-operated and explicitly not independent reproduction.
 - [ ] Complete owner-operated clean-environment reproduction and agent-panel release-content audit.
 - [ ] Publish v0.8 beta only after Track 013 approval.
 

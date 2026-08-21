@@ -197,3 +197,13 @@ No archive move is authorized: archiving an incomplete, non-superseded track
 would destroy lifecycle meaning and overstate release readiness. Reopen the
 track only when the named evidence is supplied or the scope is formally
 superseded with an accountable decision.
+
+## Owner-installed reproduction preparation — 2026-08-22
+
+The installed-wheel check passed for the exact candidate recorded in
+`docs/track-014-owner-installed-reproduction-receipt-2026-08-22.json`:
+package doctor, synthetic reference workflow verification and synthetic-node
+policy/ledger checks all passed from a temporary unrelated working directory.
+This closes only the repository-owned clean-environment preparation task. The
+receipt is explicitly owner-operated and non-independent; independent
+reproduction and release-authority gates remain pending.
