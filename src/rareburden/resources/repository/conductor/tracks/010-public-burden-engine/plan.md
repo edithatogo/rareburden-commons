@@ -165,3 +165,9 @@
   This qualifies only the narrowly bounded synthetic contract and does not
   establish independent review, empirical validity, clinical validity,
   transportability, production fitness or alpha freeze.
+- [x] Record the owner-attributable bounded engineering disposition for the
+  exact candidate. Evidence:
+  `docs/track-010-engineering-owner-receipt-2026-08-22.yml`.
+  This qualifies only tested synthetic engineering assurance; memory,
+  migration-fixture, cross-environment, resource, security and independent
+  software-review findings remain open.

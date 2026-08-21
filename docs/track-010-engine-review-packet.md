@@ -72,3 +72,9 @@ in `docs/track-010-scientific-statistical-owner-receipt-2026-08-22.yml`. It
 qualifies only the synthetic contract scope stated there; it is not independent
 review and does not establish empirical, clinical, transportability or
 production validity.
+
+The owner-attributable bounded engineering disposition is recorded in
+`docs/track-010-engineering-owner-receipt-2026-08-22.yml`. It qualifies only
+the tested synthetic engineering scope; it does not establish independent
+scientific-software review, production fitness, security certification,
+cross-environment reproduction or complete migration evidence.

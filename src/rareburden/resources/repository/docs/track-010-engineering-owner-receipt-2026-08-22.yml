@@ -1,0 +1,61 @@
+receipt_schema_version: "0.1.0"
+receipt_id: "track-010-owner-attributable-bounded-engineering-2026-08-22"
+gate: "engineering"
+decision: "bounded_synthetic_engineering_assurance_only"
+accountable:
+  person_or_body: "edithatogo repository owner"
+  role: "repository_owner_engineering_authority"
+  organisation_or_constituency: "RareBurden Commons single-developer repository"
+  contact_or_record_locator: "Owner decision recorded in this receipt"
+  independence_or_authority_basis: "Owner-attributable bounded engineering disposition"
+  conflict_of_interest: "Owner and developer; not independent of implementation"
+  quorum_or_selection_basis: "Single-owner decision after role-separated engineering advisory panel input"
+decision_date_utc: "2026-08-21T19:42:29Z"
+expiry_or_review_date_utc: "2026-09-21T19:42:29Z"
+subject:
+  repository: "edithatogo/rareburden-commons"
+  track: "010-public-burden-engine"
+  candidate_commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  candidate_tree: "56851ea539a3503175e253dd7949b28abc474082"
+  candidate_manifest: "manifests/burden/track-010-alpha-candidate-2026-08-21.json"
+  candidate_manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+  engine_manifest_sha256: "dd74d5b5b4a061512b189094621740992454f87589810b134eb86dbaad455a64"
+  compatibility_migration_sha256: "dcd7ad550413646ee52c511300bb5b6813b32678ac2b90f72f606c835aabbb08"
+  benchmark_reproducibility_sha256: "f6c5f6e8e0649b25b3cc9854e54aedb5bfdb25daec3360e8894bf1469ef3393d"
+evidence:
+  references:
+    - "docs/track-010-engine-review-packet.md"
+    - "docs/reviews/track-010-engineering-advisory-2026-08-22.yml"
+    - "manifests/burden/track-010-alpha-compatibility-migration-receipt-2026-08-21.json"
+    - "manifests/burden/track-010-alpha-benchmark-reproducibility-receipt-2026-08-21.json"
+  protocol_versions: ["track-010-exact-candidate-2026-08-21", "owner-gated-agent-review-preparation-2026-08-22"]
+  commands: ["make PYTHON='uv run python' check"]
+  environment: "repository-owned bounded engineering disposition"
+  retained_outputs: ["docs/track-010-engineering-owner-receipt-2026-08-22.yml"]
+  discrepancy_log: "No candidate hash discrepancy observed; residual engineering limitations remain open."
+criterion_disposition:
+  deterministic_correctness: "bounded_pass_in_tested_scope"
+  invalid_input_and_fail_closed_boundaries: "bounded_pass_in_tested_scope"
+  lineage_and_compatibility: "identity_bound_preparation_pass"
+  reproducibility: "local_recorded_seed_and_golden_output_pass"
+  benchmark: "synthetic_process_cpu_regression_guard_pass"
+  memory_budget: "not_evidenced"
+  migration_proof: "declarative_identity_receipt_only_fixture_and_rollback_not_evidenced"
+  independent_reproduction: "not_evidenced"
+  independent_scientific_software_review: "not_satisfied"
+conditions:
+  - "This receipt is owner-attributable and not independent scientific-software review."
+  - "The benchmark is a bounded synthetic workload, not a production capacity or latency guarantee."
+  - "Complete dependency/runtime closure, fixture-bound migration comparison, rollback evidence and resource testing remain required before any alpha-freeze consideration."
+  - "Any candidate, engine, ledger, interface, migration, benchmark or dependency hash drift invalidates this receipt."
+  - "No security certification, hosted operation, production fitness, clinical validity or external approval is inferred."
+dissent_or_limitations:
+  - "The advisory panel identified missing cross-environment reproduction, memory/resource evidence, hostile-input and concurrency testing."
+  - "The migration receipt asserts no data loss but lacks a machine-verifiable before/after fixture and rollback transcript."
+  - "A stricter disposition would narrow to compatibility/reproducibility only or defer until independent review."
+restricted_evidence_pointer: ""
+attestation:
+  submitted_by: "edithatogo repository owner"
+  submitted_at_utc: "2026-08-21T19:42:29Z"
+  signature_or_approval_record: "Owner selected Option A after review of the exact-candidate engineering advisory panel outputs."
+  supersedes_receipt_id: ""
