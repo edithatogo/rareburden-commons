@@ -3,8 +3,8 @@ status: prepared_not_applied
 architecture_decision: "docs/decisions/2026-08-21-track-008-successor-architecture.yml"
 authorized_scope: "prepare_separate_atomic_implementation_candidate"
 live_state_baseline:
-  conductor_tracks_sha256: "ac6c856792bfde9c8f365cab07bc13e275f641c95b430a6897a3c2bfa2edb530"
-  conductor_roadmap_sha256: "22909b6380d35284a6eac88a9cab150bf01fa3ea472922247593df0585cd6459"
+  conductor_tracks_sha256: "36158f169f1edec45cd3a652089bd4633906318872c0cc4d04badfbcbd00d2fb"
+  conductor_roadmap_sha256: "abbb1e93e5cc57d838a442bedea38bbeb20260460e402dd6d713713c2ee00fc8"
   track_008_metadata_sha256: "7b001439662982fd0b29cf471b550ee3579ca782ace869e407e4cfe1e75efb25"
   track_009_metadata_sha256: "eeea9ea317607bd14857814f14f1f0e2b9799ff0b872156e75c3fda17d0226fb"
 candidate_files:
