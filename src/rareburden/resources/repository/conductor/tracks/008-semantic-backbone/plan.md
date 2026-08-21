@@ -194,8 +194,8 @@
   `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml`, with the owner
   preparation decision in
   `docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml`.
-  This records owner authorization to prepare, not a contract freeze,
-  independent review, clinical validation or Track 008 completion.
+  This records the historical preparation decision; the later bounded
+  completion decision is authoritative for the exact non-clinical scope.
 - [x] Generate 9,758 provisional exact-release ORPHA-to-MONDO mapping rows,
   preserve 9,758 paired source labels and 20,413 HPO source-native labels,
   exclude 27 MONDO assertions absent from the exact Orphadata release, and
@@ -208,16 +208,17 @@
   created.
 - [x] Prepare and present the final exact hashes, migration impact, bounded
   challenge and two fallback options for owner disposition. Evidence:
-  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. The
-  decision remains pending; do not freeze or complete Track 008 automatically.
+  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml` and the
+  subsequent owner decision in
+  `docs/decisions/2026-08-22-track-008-bounded-completion.yml`.
 - [x] Record the owner's exact-candidate Option A disposition for commit
   `47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd` and tree
   `af2bc0074ae6c77a65f8c47da04431b08baca77f`, and apply only the bounded
-  provisional non-clinical contract freeze. Track 008 remains blocked and
-  incomplete; source-rights expansion, clinical validity and actual-community
-  naming-authority gates remain pending. Independent human review is not a
-  gate in this single-person repository; agent panels advise and the owner
-  decides.
+  provisional non-clinical contract freeze. Track 008 is complete for this
+  bounded scope; source-rights expansion, clinical validity and actual-community
+  naming-authority gates remain conditional expansion gates. Independent human
+  review is not a gate in this single-person repository; agent panels advise and
+  the owner decides.
 
 ## Review fixes — 2026-08-21
 
@@ -236,3 +237,14 @@
   `tests/test_track008_icd11_metadata_packet.py`. This does not complete the
   parent source-pinning task, validate a mapping, authorize redistribution or
   change the bounded provisional v0.4 semantic candidate.
+
+## Bounded completion reconciliation — 2026-08-22
+
+- [x] Record completion of the exact provisional non-clinical semantic core
+  after the Track 002/007 dependency outcomes, with role-separated agent
+  advice and owner disposition. Evidence:
+  `docs/decisions/2026-08-22-track-008-bounded-completion.yml`.
+- [x] Preserve source-rights, mapping-fitness, clinical-validity,
+  community-authority and production-release conditions as explicit expansion
+  gates. No additional or independent human review is required for the
+  bounded repository scope.

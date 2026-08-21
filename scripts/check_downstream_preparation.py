@@ -133,10 +133,19 @@ def validate(plan_path: Path, root: Path) -> None:
         raise DownstreamPreparationError("tracks must cover each Option B lane exactly once")
     if any(not row.get("preparation") or not row.get("blocked") for row in rows.values()):
         raise DownstreamPreparationError("every track must define preparation and blocking gates")
+    allowed_contract_states = {
+        "008": {"provisional", "complete_for_bounded_scope"},
+        "009": {"provisional"},
+        "010": {"provisional"},
+    }
     for track in FREEZE_ORDER:
         row = rows.get(track)
-        if not isinstance(row, dict) or row.get("contract_state") != "provisional":
-            raise DownstreamPreparationError(f"track {track} contract must remain provisional")
+        if (
+            not isinstance(row, dict)
+            or row.get("contract_state") not in allowed_contract_states[track]
+        ):
+            expected = ", ".join(sorted(allowed_contract_states[track]))
+            raise DownstreamPreparationError(f"track {track} contract must be one of: {expected}")
         if not row.get("blocked"):
             raise DownstreamPreparationError(f"track {track} must retain blocking gates")
 

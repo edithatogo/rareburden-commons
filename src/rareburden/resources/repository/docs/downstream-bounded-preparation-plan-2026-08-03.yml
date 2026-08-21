@@ -22,9 +22,9 @@ prohibited_claims:
   - "release_authority"
 tracks:
   - track: "008"
-    contract_state: "provisional"
+    contract_state: "complete_for_bounded_scope"
     preparation: "semantic schemas, ontology pins, mappings and ambiguity fixtures"
-    blocked: ["clinical_naming_review", "patient_community_review", "v0.4_semantic_freeze"]
+    blocked: ["source_expansion_rights", "clinical_mapping_fitness", "patient_community_authority", "production_release"]
   - track: "009"
     contract_state: "provisional"
     preparation: "ledger IDs, provenance, uncertainty and synthetic parameter links"
