@@ -97,6 +97,26 @@ def test_v0_4_candidate_remains_synthetic_and_unfrozen() -> None:
     assert candidate["status"] == "prepared_synthetic_only_not_frozen"
     assert document["review_gate"]["state"] == "pending"
     assert document["contract_freeze_gate"]["state"] == "pending"
+    disposition = document["bounded_owner_disposition"]
+    assert disposition["selected_option"] == "A"
+    assert disposition["governance_status"] == "owner_operated_not_independent_review"
+
+
+def test_bounded_owner_disposition_does_not_satisfy_review_or_freeze() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    assert document["bounded_owner_disposition"]["status"] == (
+        "authorized_bounded_synthetic_preparation_only"
+    )
+    assert document["review_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "pending"
+    assert set(document["claims"].values()) == {False}
+
+
+def test_bounded_owner_disposition_rejects_receipt_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["bounded_owner_disposition"]["decision_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="receipt hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
 
 
 def test_v0_4_candidate_rejects_manifest_drift(tmp_path: Path) -> None:

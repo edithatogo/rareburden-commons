@@ -146,3 +146,22 @@
   `scripts/check_track009_candidate_containment.py` and focused negative tests.
   Track 009 remains blocked, inactive, incomplete and unfrozen; Track 010
   remains ineligible.
+- [x] Record the repository owner's explicit selection of recommended Option A
+  against the exact merged candidate and bind its receipt hash into freeze
+  readiness and containment validation. This owner-operated disposition permits
+  reversible synthetic preparation and containment only; it is not independent
+  review and does not satisfy any review, activation, freeze or release gate.
+
+## Operational regeneration assurance — 2026-08-21
+
+- [x] Make the operational containment gate regenerate the two synthetic ledger
+  exports, migration receipt and candidate manifest twice in isolated temporary
+  roots and require byte equality with each other and the hash-bound checked-in
+  candidate. Evidence: `scripts/check_track009_candidate_containment.py` and
+  `tests/test_track009_candidate_containment.py`. This demonstrates bounded
+  same-process, same-environment repository reproducibility only, not an
+  independent clean-install or cross-environment reproduction. Equality does
+  not validate estimands, denominators, uncertainty calibration or propagation,
+  model correctness, source fitness or real-data reproducibility. Track 009
+  remains blocked, synthetic-only, provisional and unfrozen, and it creates no
+  empirical, rights, review or Track 010 eligibility claim.

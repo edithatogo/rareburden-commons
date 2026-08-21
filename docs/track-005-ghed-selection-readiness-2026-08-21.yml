@@ -1,0 +1,125 @@
+schema_version: "1.0.0"
+packet_id: "track-005-ghed-selection-readiness-2026-08-21"
+as_of: "2026-08-21"
+status: "selection_prepared_exact_release_unselected"
+purpose: >-
+  Specify the evidence needed to select and assess a WHO Global Health
+  Expenditure Database artifact without selecting a release, retrieving data,
+  or treating national expenditure as rare-disease spending.
+
+source_family:
+  source_id: "who-global-health-expenditure-database"
+  custodian: "World Health Organization"
+  locator: "https://apps.who.int/nha/database/DocumentationCentre/Index/en"
+  locator_role: "official metadata discovery only"
+  exact_release: null
+  exact_file: null
+  artifact_sha256: null
+  indicator: null
+  geography: null
+  observation_period: null
+
+intended_scientific_role:
+  permitted_now:
+    - "synthetic selection-rule and validation-test design"
+    - "requirements definition for national health-financing context"
+    - "data-gap documentation"
+  prohibited_now:
+    - "rare-disease expenditure estimation"
+    - "cost-of-illness numerator or denominator evidence"
+    - "cross-country ranking or causal interpretation"
+    - "empirical calibration, validation or publication"
+  interpretation: >-
+    National health-expenditure aggregates may provide system context after
+    exact selection and comparability review. They do not directly attribute
+    expenditure to rare disease, households or particular clinical pathways.
+
+selection_dimensions:
+  artifact_identity:
+    - "release identifier and publication date"
+    - "immutable file name, format, size and cryptographic checksum"
+    - "official release metadata and supersession relationship"
+  estimand_alignment:
+    - "indicator code, label, numerator and denominator"
+    - "financing perspective and included expenditure functions"
+    - "geography and observation period"
+    - "reported unit, scale and per-capita or aggregate expression"
+    - "nominal or real valuation basis"
+    - "currency, exchange-rate or PPP series, base and price year"
+  comparability:
+    - "accounting framework and revision status"
+    - "country coverage, missingness and break-in-series flags"
+    - "methods changes and known cross-country comparability limits"
+    - "third-party fields and their separate rights"
+
+minimum_quality_evidence:
+  provenance:
+    - "exact official locator and retrieval timestamp"
+    - "release notes, definitions and machine-readable metadata"
+    - "byte-level checksum and retained acquisition receipt if lawful"
+  validation:
+    - "schema, type, unit and range checks"
+    - "duplicate country-period-indicator detection"
+    - "missingness and revision-profile summaries"
+    - "reconciliation to published totals where a lawful reference exists"
+  uncertainty_and_interpretation:
+    - "separate measurement, conversion and missing-data uncertainty"
+    - "scenario analysis for PPP, exchange-rate and price-year choices"
+    - "no disease attribution without additional fit-for-purpose evidence"
+    - "no precision beyond the least precise input or transformation"
+
+rights_and_operations:
+  terms_state: "unresolved_exact_release_file_field_and_output_rights"
+  access_authorized_by_packet: false
+  acquisition_authorized_by_packet: false
+  retention_authorized_by_packet: false
+  empirical_use_authorized_by_packet: false
+  production_activation: false
+  public_raw_redistribution: false
+  credentials_requested_or_used: false
+  bytes_retrieved_or_retained: false
+  catalogue_status_changed: false
+  owner_or_agent_can_create_publisher_permission: false
+
+future_decisions:
+  select_candidate:
+    requires:
+      - "one exact release, file and indicator set"
+      - "declared perspective, geography, period, unit and valuation basis"
+      - "scientific relevance and comparability disposition"
+  acquire_or_retain:
+    requires:
+      - "exact access, storage and retention terms"
+      - "field-level third-party rights disposition"
+      - "owner decision bound to the exact artifact"
+  publish_outputs_or_raw_data:
+    requires:
+      - "express output or redistribution authority for the exact fields"
+      - "disclosure, attribution and withdrawal rules"
+      - "separate owner release decision"
+
+stop_triggers:
+  - "A release, file, indicator or valuation basis is silently assumed."
+  - "Metadata availability is represented as permission to retrieve or retain bytes."
+  - "National health expenditure is represented as rare-disease expenditure."
+  - "Missing observations are interpreted as zero expenditure."
+  - "The packet is treated as empirical validation, external approval or production activation."
+
+panel_disposition:
+  methods: "safe only as requirements; require exact estimand, unit, price-year, comparability and uncertainty choices before empirical use"
+  rights: "safe only with release, file, field, storage and output rights unresolved and every authority flag false"
+  engineering: "recommended next because it has lower semantic coupling, provided exact_release_unselected is machine-tested"
+  owner_operated_simulated_community: "interpretation challenge only; no actual participation, representation, consultation or endorsement"
+  advice_is_independent_review: false
+  owner_selection: "prepare_requirements_only"
+
+claims:
+  source_family_indexed: true
+  exact_release_selected: false
+  raw_data_archived: false
+  scientific_fitness_established: false
+  empirical_validation: false
+  redistribution_authorized: false
+  independent_review: false
+  external_approval: false
+  community_participation: false
