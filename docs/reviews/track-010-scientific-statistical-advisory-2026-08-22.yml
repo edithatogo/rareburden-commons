@@ -1,0 +1,57 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 010-public-burden-engine
+candidate:
+  commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  tree: "56851ea539a3503175e253dd7949b28abc474082"
+  evidence_manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+panel:
+  perspectives: [methods_evidence, uncertainty_bias, owner_governance]
+  non_representation_statement: Simulated advisory perspectives only; not independent scientific review, clinical validation, lived-experience testimony, community representation, consent or approval.
+evidence:
+  references: [manifests/burden/track-010-alpha-candidate-2026-08-21.json, docs/burden-engine-010-reference.md, docs/track-010-alpha-candidate-challenge-2026-08-21.yml]
+  observed_facts:
+    - Candidate empirical_parameter_count is zero and activation is synthetic_only.
+    - Supported uncertainty is seeded beta propagation and independent-product decomposition; unsupported correlation remains rejected.
+    - Candidate claims retain alpha_interface_frozen=false and empirical_or_production_activation=false.
+  simulated_assessments:
+    - The estimand and uncertainty boundaries are internally coherent for synthetic assurance, subject to owner review.
+    - No evidence supports empirical validity, transportability, clinical interpretation or scientific approval.
+  cannot_infer: [empirical burden validity, representativeness, clinical validity, independent review, patient/community authority, external approval]
+uncertainty:
+  - No empirical parameters are present; conclusions are limited to contract behavior.
+  - Scientific/statistical review is simulated and owner-operated, not independent.
+  - Unsupported dependence structures may materially change results and remain out of scope.
+dissent:
+  - A stricter disposition would defer any semantic or estimand approval until accountable scientific review is separately evidenced.
+stop_triggers:
+  - Any candidate, engine or ledger hash drift.
+  - Any attempt to describe synthetic outputs as empirical, clinical or validated burden estimates.
+  - Any unresolved critical estimand, dependence or uncertainty finding.
+options:
+  - id: A
+    title: Retain bounded synthetic contract and defer alpha freeze
+    disposition: defer
+    trade_offs: [Preserves fail-closed scientific boundaries, Leaves scientific approval and alpha freeze unresolved]
+    contingencies: [Keep correlation unsupported, regenerate on hash drift, obtain accountable scientific disposition]
+    rationale: The candidate demonstrates deterministic synthetic behavior but not scientific validity.
+    minimum_evidence: [Owner disposition of this receipt, candidate-bound accountable scientific/statistical review]
+  - id: B
+    title: Narrow to deterministic estimands only
+    disposition: narrow
+    trade_offs: [Reduces uncertainty interpretation risk, Removes supported uncertainty outputs from any future interface claim]
+    contingencies: [Revise interface manifest and rerun compatibility evidence]
+    rationale: A narrower contract may be appropriate if uncertainty interpretation is not accepted.
+    minimum_evidence: [Owner selection, revised exact manifest and migration receipt]
+  - id: C
+    title: Stop pending independent scientific review
+    disposition: stop
+    trade_offs: [Maximizes assurance conservatism, Prevents further synthetic preparation]
+    contingencies: [Preserve candidate immutable and record stop reason]
+    rationale: Stop if the owner considers simulated advice insufficient for preparation.
+    minimum_evidence: [Owner stop decision and retained candidate hashes]
+recommendation:
+  option_id: A
+  rationale: Retain bounded synthetic assurance while preserving the independent and accountable review gate.
+owner_decision:
+  status: pending

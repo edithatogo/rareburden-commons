@@ -56,3 +56,13 @@ dissent and stop triggers. The owner must approve, revise, defer or reject each
 receipt. Agent output remains owner-operated advisory evidence and cannot be
 represented as independent scientific-software review, patient/community
 authority, consent, endorsement, clinical validation or external approval.
+
+The prepared receipts are:
+
+- `docs/reviews/track-010-scientific-statistical-advisory-2026-08-22.yml`
+- `docs/reviews/track-010-engineering-advisory-2026-08-22.yml`
+- `docs/reviews/track-010-patient-community-advisory-2026-08-22.yml`
+- `docs/reviews/track-010-scientific-software-advisory-2026-08-22.yml`
+
+Each packet remains `owner_decision.status: pending`; none closes an alpha,
+independence, community-authority or external-approval gate.

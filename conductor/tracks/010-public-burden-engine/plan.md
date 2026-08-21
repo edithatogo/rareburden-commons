@@ -150,3 +150,10 @@
   Owner selected Option A; production of the receipts is now permitted as
   preparation work, while the alpha-freeze and independent-review gates remain
   pending.
+- [x] Produce the four exact-candidate advisory receipts under the approved
+  preparation contract. Evidence:
+  `docs/reviews/track-010-scientific-statistical-advisory-2026-08-22.yml`,
+  `docs/reviews/track-010-engineering-advisory-2026-08-22.yml`,
+  `docs/reviews/track-010-patient-community-advisory-2026-08-22.yml` and
+  `docs/reviews/track-010-scientific-software-advisory-2026-08-22.yml`.
+  All four remain pending owner disposition and explicitly non-independent.

@@ -1,0 +1,57 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 010-public-burden-engine
+candidate:
+  commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  tree: "56851ea539a3503175e253dd7949b28abc474082"
+  evidence_manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+panel:
+  perspectives: [simulated_harm, accessibility_interpretation, owner_governance]
+  non_representation_statement: Simulated owner-operated harm and usability challenge only; not lived experience, patient or community representation, consent, Indigenous authority, endorsement or approval.
+evidence:
+  references: [manifests/burden/track-010-alpha-candidate-2026-08-21.json, docs/track-010-alpha-candidate-challenge-2026-08-21.yml, docs/single-owner-agent-governance.yml]
+  observed_facts:
+    - Candidate outputs are synthetic-only, non-clinical and explicitly bounded.
+    - Governance rules state simulated community perspectives cannot create consent, representation, authority or endorsement.
+    - Candidate claims do not include patient/community approval or external approval.
+  simulated_assessments:
+    - Public framing should foreground uncertainty, synthetic scope, non-clinical use and the absence of community validation.
+    - The safest interpretation is internal owner-operated challenge preparation, not community consultation.
+  cannot_infer: [patient experience, community priorities, consent, representation, Indigenous authority, endorsement, clinical safety]
+uncertainty:
+  - No patient, community or Indigenous participant evidence is present.
+  - Simulated harm analysis may miss lived harms, cultural context and access barriers.
+  - Synthetic outputs cannot establish acceptability or benefit in affected communities.
+dissent:
+  - A stricter disposition would stop any public-facing interpretation until attributable community evidence exists.
+stop_triggers:
+  - Any wording implying community authority, consultation, endorsement or consent.
+  - Any clinical, patient-level or individualized interpretation.
+  - Any attempt to use this packet as a substitute for actual community evidence.
+options:
+  - id: A
+    title: Continue internal simulated harm and framing challenge
+    disposition: accept
+    trade_offs: [Improves bounded communication and harm awareness, Does not provide community authority or consent]
+    contingencies: [Label every output simulated and owner-operated, retain non-clinical claims]
+    rationale: Simulated challenge is useful as a safety prompt when its authority limits are explicit.
+    minimum_evidence: [Owner disposition, exact candidate binding, retained non-representation statement]
+  - id: B
+    title: Restrict to private engineering documentation
+    disposition: narrow
+    trade_offs: [Reduces public misinterpretation risk, Limits usability and framing preparation]
+    contingencies: [Keep packet private and exclude it from release claims]
+    rationale: Narrow scope is appropriate if even bounded public framing is premature.
+    minimum_evidence: [Owner selection and release-scope update]
+  - id: C
+    title: Stop pending attributable community evidence
+    disposition: stop
+    trade_offs: [Avoids simulated-authority confusion, Blocks all community-facing interpretation work]
+    contingencies: [Do not seek or imply consent; preserve packet as non-authoritative record]
+    rationale: Stop if the owner requires actual community evidence before any usability framing.
+    minimum_evidence: [Owner stop decision and named evidence requirement]
+recommendation:
+  option_id: A
+  rationale: Continue only as an explicitly simulated internal harm and framing challenge; do not represent it as community review.
+owner_decision:
+  status: pending

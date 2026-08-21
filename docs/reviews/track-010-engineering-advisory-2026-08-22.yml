@@ -1,0 +1,57 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 010-public-burden-engine
+candidate:
+  commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  tree: "56851ea539a3503175e253dd7949b28abc474082"
+  evidence_manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+panel:
+  perspectives: [reproducibility, compatibility_performance, safety_maintainability]
+  non_representation_statement: Simulated advisory perspectives only; not independent scientific-software review, security certification, clinical validation, community representation or approval.
+evidence:
+  references: [manifests/burden/track-010-alpha-candidate-2026-08-21.json, manifests/burden/track-010-alpha-compatibility-migration-receipt-2026-08-21.json, manifests/burden/track-010-alpha-benchmark-reproducibility-receipt-2026-08-21.json]
+  observed_facts:
+    - Full repository validation previously passed with 1066 tests and the bounded benchmark under its synthetic workload.
+    - Compatibility, migration and reproducibility artifacts are hash-bound to the candidate.
+    - Alpha interface remains prepared_not_frozen.
+  simulated_assessments:
+    - The candidate is suitable for continued bounded synthetic engineering assurance.
+    - The evidence does not establish independent software review, production fitness or operational approval.
+  cannot_infer: [independent review, production fitness, security certification, clinical validity, external approval]
+uncertainty:
+  - Benchmark evidence is synthetic and workload-bounded.
+  - No hosted deployment, production traffic or independent maintainer review is represented.
+  - Runtime behavior outside the recorded interface and environment is unassessed.
+dissent:
+  - A stricter engineering disposition would require an independent software reviewer before any interface freeze.
+stop_triggers:
+  - Any exact candidate or artifact hash drift.
+  - Reproducibility, migration, benchmark or safety check failure.
+  - Any request to treat owner-operated tests as independent review.
+options:
+  - id: A
+    title: Continue bounded synthetic engineering preparation
+    disposition: accept
+    trade_offs: [Advances reproducibility and migration readiness, Does not close independent review or alpha freeze]
+    contingencies: [Rerun full checks after changes, preserve hashes and fail closed on drift]
+    rationale: Existing receipts support continued non-activating engineering preparation.
+    minimum_evidence: [Owner disposition, exact-candidate receipt retention, repeated validation]
+  - id: B
+    title: Narrow to internal compatibility testing
+    disposition: narrow
+    trade_offs: [Reduces release interpretation risk, Omits broader benchmark claims]
+    contingencies: [Rewrite release packet and retain interface as draft]
+    rationale: Use if benchmark scope is considered too narrow for preparation.
+    minimum_evidence: [Owner selection and revised scope record]
+  - id: C
+    title: Defer all engineering preparation
+    disposition: defer
+    trade_offs: [Maximum conservatism, Delays migration and reproducibility learning]
+    contingencies: [Freeze candidate bytes and do not mutate interface]
+    rationale: Defer if any critical engineering concern remains unresolved.
+    minimum_evidence: [Owner deferral and named blocking finding]
+recommendation:
+  option_id: A
+  rationale: Continue only bounded synthetic engineering assurance while preserving independent review as a separate gate.
+owner_decision:
+  status: pending

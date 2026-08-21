@@ -1,0 +1,57 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 010-public-burden-engine
+candidate:
+  commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  tree: "56851ea539a3503175e253dd7949b28abc474082"
+  evidence_manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+panel:
+  perspectives: [software_correctness, reproducibility_maintenance, governance_boundary]
+  non_representation_statement: Simulated advisory perspectives only; not independent scientific-software review, external certification, clinical validation, community representation or approval.
+evidence:
+  references: [manifests/burden/track-010-alpha-candidate-2026-08-21.json, manifests/burden/track-010-alpha-compatibility-migration-receipt-2026-08-21.json, manifests/burden/track-010-alpha-benchmark-reproducibility-receipt-2026-08-21.json, docs/track-010-engine-review-packet.md]
+  observed_facts:
+    - Candidate has deterministic compatibility, migration, benchmark and reproducibility receipts bound to its exact hashes.
+    - Full repository validation passed, including 1066 tests, typing, formatting and safety checks.
+    - The repository owner is the sole accountable human and agent maintainers are prohibited.
+  simulated_assessments:
+    - Repository evidence supports a bounded synthetic software-assurance statement.
+    - Exact hash binding and fail-closed claims are adequate for continued preparation but not independent review.
+  cannot_infer: [independent scientific-software review, production fitness, security certification, scientific approval, external approval]
+uncertainty:
+  - The panel is simulated and owner-operated.
+  - Validation is local and does not establish hosted CI, independent reproduction or production operation.
+  - Future dependency or environment drift may invalidate current receipts.
+dissent:
+  - An independent reviewer could identify defects not visible to owner-operated tests and should remain a required gate.
+stop_triggers:
+  - Candidate or bound artifact hash drift.
+  - Any failed validation, migration mismatch, reproducibility mismatch or unresolved critical finding.
+  - Any representation of this packet as independent review.
+options:
+  - id: A
+    title: Retain advisory software-assurance preparation
+    disposition: accept
+    trade_offs: [Improves exact-candidate readiness, Leaves independent review and freeze unresolved]
+    contingencies: [Rerun full checks on changes, keep alpha_interface_frozen=false]
+    rationale: Current evidence supports continued bounded software assurance only.
+    minimum_evidence: [Owner disposition, exact hash retention, repeatable validation]
+  - id: B
+    title: Narrow to reproducibility and migration only
+    disposition: narrow
+    trade_offs: [Reduces interpretation of correctness, Excludes broader maintainability observations]
+    contingencies: [Update review packet and release wording]
+    rationale: Narrow scope may better match the available evidence.
+    minimum_evidence: [Owner selection and revised scope record]
+  - id: C
+    title: Defer pending independent software review
+    disposition: defer
+    trade_offs: [Preserves strongest gate, Delays further preparation]
+    contingencies: [Preserve immutable candidate and do not freeze interfaces]
+    rationale: Defer if advisory evidence is not sufficient for continued preparation.
+    minimum_evidence: [Owner deferral and named independent-review requirement]
+recommendation:
+  option_id: A
+  rationale: Retain bounded advisory software assurance while preserving independent review as a mandatory separate gate.
+owner_decision:
+  status: pending
