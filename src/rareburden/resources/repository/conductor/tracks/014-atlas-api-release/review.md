@@ -116,3 +116,16 @@ archive/DOI workflow, clean independent reproduction, real-source activation
 or any beta/public release decision. Track 014 therefore remains Planned; this
 reconciliation corrects task states without claiming publication, external
 review or release authority.
+
+## Bounded user journeys — 2026-08-21
+
+Five repository-authored journeys now define the intended decision path for
+patient/family organisations, policy/public-health users, researchers,
+custodian operators and funder/payer/HTA users. Each lane identifies its entry
+point, decisions, outputs, required evidence and fail-closed stop conditions.
+
+The journeys are explicitly design hypotheses. They do not constitute user
+research, patient/community endorsement, accessibility acceptance, custodian
+approval, funding endorsement or release authority. Real-user and independent
+accessibility evidence remain pending before a public candidate can rely on
+these journeys as validated usability evidence.

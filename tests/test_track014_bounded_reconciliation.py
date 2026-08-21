@@ -27,9 +27,9 @@ PLAN = ROOT / "conductor/tracks/014-atlas-api-release/plan.md"
 
 def test_track014_plan_reconciles_bounded_work_without_closing_release_gates() -> None:
     plan = PLAN.read_text(encoding="utf-8")
-    assert plan.count("- [x]") == 23
-    assert plan.count("- [ ]") == 10
-    assert "Define user journeys" in plan
+    assert plan.count("- [x]") == 24
+    assert plan.count("- [ ]") == 9
+    assert "Define bounded user journeys" in plan
     assert "Complete accessibility design review" in plan
     assert "Add immutable archive/DOI" in plan
     assert "Publish v0.8 beta only after Track 013 approval" in plan
