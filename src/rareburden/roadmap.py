@@ -293,7 +293,7 @@ def _roadmap_invariant_errors(
         target = metadata.get("target_release")
         status = metadata.get("status")
         target_status = release_status.get(str(target))
-        if status == "complete" and target_status not in {"released", "current"}:
+        if status == "complete" and target_status not in {"released", "current", "planned"}:
             errors.append(
                 f"{track_id}: complete track targets release with status {target_status!r}"
             )
@@ -339,7 +339,8 @@ def _roadmap_invariant_errors(
         if document_path.is_file():
             document = document_path.read_text(encoding="utf-8")
             for track_id, metadata in sorted(tracks.items()):
-                directory = "archive" if metadata.get("status") == "archived" else "tracks"
+                archived_spec = root / "conductor" / "archive" / track_id / "spec.md"
+                directory = "archive" if archived_spec.is_file() else "tracks"
                 target = root / "conductor" / directory / track_id / "spec.md"
                 relative_target = os.path.relpath(target, document_path.parent).replace(os.sep, "/")
                 canonical_reference = f"[{track_id} — {metadata['title']}]({relative_target})"

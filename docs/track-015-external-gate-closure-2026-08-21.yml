@@ -108,3 +108,14 @@ resume_condition: >-
   Track 013 reaches complete. Conditional external receipts are required only
   before their corresponding third-party-dependent capability or claim is
   activated.
+
+bounded_scope_supersession:
+  status: superseded_for_bounded_repository_track_completion
+  decision: docs/decisions/2026-08-21-track-015-bounded-closeout.yml
+  conditional_register: docs/track-015-external-activation-register-2026-08-21.yml
+  effect: >-
+    This blocker record remains historical evidence for the broader product
+    and externally activated scope. The owner later narrowed Track 015
+    completion to bounded repository governance. Track 013 product evidence
+    and optional external activation are not completed or waived; they are
+    conditional work outside the archived track's acceptance criteria.
