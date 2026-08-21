@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/source-profile-role-structural-assessment.schema.json",
+  "title": "RareBurden synthetic source-to-bound-profile-role structural assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "track",
+    "status",
+    "profiles",
+    "ledger",
+    "assessments",
+    "claims",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "track": {"const": "009-evidence-parameter-ledger"},
+    "status": {"const": "synthetic_profile_role_contract_exercise_only"},
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^examples/demonstrators/.+\\.yml$"}
+    },
+    "ledger": {"const": "examples/ledger/public-foundation-synthetic.yml"},
+    "assessments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/assessment"}
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "empirical_estimand_fitness",
+        "epi_med_01_resolved",
+        "epi_med_02_resolved",
+        "rights_or_retention_authorized",
+        "independent_review",
+        "contract_frozen",
+        "track_010_eligible"
+      ],
+      "properties": {
+        "empirical_estimand_fitness": {"const": false},
+        "epi_med_01_resolved": {"const": false},
+        "epi_med_02_resolved": {"const": false},
+        "rights_or_retention_authorized": {"const": false},
+        "independent_review": {"const": false},
+        "contract_frozen": {"const": false},
+        "track_010_eligible": {"const": false}
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 10},
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assessment_id",
+        "demonstrator_id",
+        "protocol_id",
+        "role",
+        "target_estimand",
+        "parameter_id",
+        "source_release_id",
+        "source_scope",
+        "proposed_role",
+        "measure",
+        "metric",
+        "unit",
+        "population",
+        "geography",
+        "period",
+        "aggregation_level",
+        "numerator_or_state",
+        "denominator_or_exposure",
+        "case_definition_state",
+        "transformations",
+        "missingness_rule",
+        "overlap_rule",
+        "uncertainty",
+        "evidence_assessment_ids",
+        "transportability_assessment_ids",
+        "alternative_group",
+        "dimension_dispositions",
+        "overall_disposition",
+        "scientific_fitness",
+        "rights",
+        "activation_state",
+        "rationale",
+        "unresolved_questions"
+      ],
+      "properties": {
+        "assessment_id": {"type": "string", "pattern": "^spr-[a-z0-9-]+$"},
+        "demonstrator_id": {"type": "string", "minLength": 3},
+        "protocol_id": {"type": "string", "pattern": "^RBC-P[0-9]{3}$"},
+        "role": {"type": "string", "minLength": 3},
+        "target_estimand": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "estimand_id", "revision"],
+          "properties": {
+            "state": {"const": "undefined_nonbinding_profile_role"},
+            "estimand_id": {"const": null},
+            "revision": {"const": null}
+          }
+        },
+        "parameter_id": {"type": "string", "minLength": 3},
+        "source_release_id": {"enum": [null, "synthetic-un-wpp-2026-07"]},
+        "source_scope": {"enum": ["synthetic_release", "synthetic_assumption"]},
+        "proposed_role": {
+          "enum": [
+            "numerator",
+            "denominator",
+            "fraction",
+            "population_context",
+            "semantic_identifier",
+            "hierarchy",
+            "mapping",
+            "context_only"
+          ]
+        },
+        "measure": {"type": "string", "minLength": 1},
+        "metric": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "population": {"type": "string", "minLength": 1},
+        "geography": {"type": "string", "minLength": 1},
+        "period": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["start", "end", "time_basis"],
+          "properties": {
+            "start": {"type": "string", "format": "date"},
+            "end": {"type": "string", "format": "date"},
+            "time_basis": {"enum": ["period_count", "point_prevalence", "period_prevalence", "incidence", "context_only", "unspecified"]}
+          }
+        },
+        "aggregation_level": {"enum": ["person", "event", "episode", "aggregate_context"]},
+        "numerator_or_state": {"type": "string", "minLength": 3},
+        "denominator_or_exposure": {"type": "string", "minLength": 3},
+        "case_definition_state": {"enum": ["synthetic_only", "unresolved", "not_applicable"]},
+        "transformations": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "transformation_ids"],
+          "properties": {
+            "state": {"enum": ["direct", "lossless", "assumption_dependent", "unknown"]},
+            "transformation_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 3}
+            }
+          }
+        },
+        "missingness_rule": {"type": "string", "minLength": 3},
+        "overlap_rule": {"type": "string", "minLength": 3},
+        "uncertainty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "distribution", "scale", "dependence_requirement"],
+          "properties": {
+            "status": {"enum": ["quantified", "not_quantified", "not_applicable"]},
+            "distribution": {"type": ["string", "null"]},
+            "scale": {"type": "string", "minLength": 2},
+            "dependence_requirement": {"type": "string", "minLength": 3}
+          }
+        },
+        "evidence_assessment_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^eqa-[0-9a-f]{24}$"}
+        },
+        "transportability_assessment_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^tra-[0-9a-f]{24}$"}
+        },
+        "alternative_group": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["group_id", "completeness", "selection_state"],
+          "properties": {
+            "group_id": {"type": "string", "minLength": 3},
+            "completeness": {"enum": ["complete_for_current_bound_profile_inventory", "incomplete"]},
+            "selection_state": {"enum": ["retained_for_contract_test", "rejected", "unassessed"]}
+          }
+        },
+        "dimension_dispositions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "population",
+            "geography",
+            "period_time_basis",
+            "measure_metric_unit",
+            "aggregation_numerator_denominator",
+            "case_definition_semantics",
+            "transformations",
+            "missingness_overlap",
+            "uncertainty"
+          ],
+          "properties": {
+            "population": {"$ref": "#/$defs/dimensionDisposition"},
+            "geography": {"$ref": "#/$defs/dimensionDisposition"},
+            "period_time_basis": {"$ref": "#/$defs/dimensionDisposition"},
+            "measure_metric_unit": {"$ref": "#/$defs/dimensionDisposition"},
+            "aggregation_numerator_denominator": {"$ref": "#/$defs/dimensionDisposition"},
+            "case_definition_semantics": {"$ref": "#/$defs/dimensionDisposition"},
+            "transformations": {"$ref": "#/$defs/dimensionDisposition"},
+            "missingness_overlap": {"$ref": "#/$defs/dimensionDisposition"},
+            "uncertainty": {"$ref": "#/$defs/dimensionDisposition"}
+          }
+        },
+        "overall_disposition": {"enum": ["synthetic_structural_compatibility", "incompatible", "unassessed"]},
+        "scientific_fitness": {"const": "not_assessed"},
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["payload_visibility", "access_authority", "retention_authority", "redistribution_state", "permitted_use_state"],
+          "properties": {
+            "payload_visibility": {"enum": ["synthetic_public", "none"]},
+            "access_authority": {"const": "not_applicable_synthetic"},
+            "retention_authority": {"const": "not_applicable_synthetic"},
+            "redistribution_state": {"const": "synthetic_repository_owned_only"},
+            "permitted_use_state": {"const": "synthetic_contract_testing_only"}
+          }
+        },
+        "activation_state": {"const": "disabled_synthetic_only"},
+        "rationale": {"type": "string", "minLength": 20},
+        "unresolved_questions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 5}
+        }
+      }
+    },
+    "dimensionDisposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["disposition", "rationale"],
+      "properties": {
+        "disposition": {"enum": ["compatible", "incompatible", "unclear", "not_applicable"]},
+        "rationale": {"type": "string", "minLength": 10}
+      }
+    }
+  }
+}
