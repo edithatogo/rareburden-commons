@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+request_status: "prepared_not_sent"
+track: "010-public-burden-engine"
+gate: "independent_scientific_software_review"
+candidate:
+  commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  tree: "56851ea539a3503175e253dd7949b28abc474082"
+  manifest: "manifests/burden/track-010-alpha-candidate-2026-08-21.json"
+  manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+  engine_manifest_sha256: "dd74d5b5b4a061512b189094621740992454f87589810b134eb86dbaad455a64"
+  ledger_receipt_sha256: "da51226da021a287eb8f732378cafce00c8b5f874c3c6a25616e1a7a3b044aef"
+  track_003_interface_manifest_sha256: "9725f803dde25c8c8d8010a40b653f241bccec7f399f71bd707138bfd9b51b3d"
+  compatibility_migration_sha256: "dcd7ad550413646ee52c511300bb5b6813b32678ac2b90f72f606c835aabbb08"
+  benchmark_reproducibility_sha256: "f6c5f6e8e0649b25b3cc9854e54aedb5bfdb25daec3360e8894bf1469ef3393d"
+scope:
+  intended_use: "bounded synthetic alpha-candidate engineering assurance; no production or clinical use"
+  included_questions:
+    - "Correctness, units, invalid-input and fail-closed behavior"
+    - "Lineage, API/interface compatibility and migration behavior"
+    - "Reproducibility from exact checkout, locked dependencies and recorded commands"
+    - "Numerical stability, malformed-input handling and unsupported-operation rejection"
+    - "Resource, memory, concurrency, interruption and hostile-input boundaries"
+    - "Maintainability, execution-path closure, dependency closure and reproducibility risks"
+  excluded_claims: [clinical_validity, empirical_validity, patient_community_authority, production_certification, security_certification, external_approval]
+required_reviewer_independence:
+  must_be: [attributable_person_or_body, separate_from_owner, separate_from_candidate_authoring_and_maintenance, separate_from_agent_panel_generation, conflict_disclosed]
+  cannot_be: [edithatogo, candidate_author, candidate_maintainer, repository_owner, agent_panel, automated_test]
+requested_method:
+  - "Inspect the exact candidate checkout and all listed hashes."
+  - "Use a clean or disposable environment and record runtime/OS/dependency digests."
+  - "Run public reproduction, migration, numerical-safety and full validation commands."
+  - "Compare output hashes and preserve discrepancies without maintainer repair."
+  - "Inspect source, schemas, interfaces, dependency closure, resource behavior and maintainability."
+  - "Record severity, unresolved blockers, uncertainty, dissent, remediation and stop triggers."
+required_return_receipt:
+  fields: [reviewer_identity, role_and_organisation, independence_statement, conflicts, candidate_hashes, environment, commands, output_hashes, evidence_reviewed, findings, severity, uncertainty, dissent, disposition, conditions, residual_risk_owner, review_date, expiry_or_review_date]
+  dispositions: [pass, bounded, revise, stop]
+  note: "A returned receipt does not create clinical, community, production, security or release approval. Owner disposition is recorded separately."
+known_open_findings:
+  - "Complete execution-path and dependency/runtime hash closure is not yet evidenced."
+  - "Migration evidence lacks fixture-level before/after comparison and rollback transcript."
+  - "No clean-environment or cross-platform independent reproduction is present."
+  - "Memory, concurrency, interruption, hostile-input and resource-exhaustion evidence is incomplete."
+  - "Independent scientific-software review is not yet satisfied."
+stop_triggers:
+  - "Any candidate, dependency, runtime or artifact hash drift before review completion."
+  - "Unresolved critical correctness, safety, data-loss, reproducibility or maintainability finding."
+  - "Reviewer conflict, unattributable response or inability to reproduce the exact candidate."
+  - "Any attempt to label owner, agent or automated evidence as independent review."
+owner_boundary:
+  status: "pending_external_reviewer"
+  owner_role: "sole accountable repository owner and eventual disposition authority"
+  not_sent: true

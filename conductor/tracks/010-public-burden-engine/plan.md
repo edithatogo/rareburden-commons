@@ -34,9 +34,16 @@
 - [x] Add unit, property, golden, convergence and numerical-stability tests. Evidence: `tests/test_burden_numerical_assurance.py`, existing burden/ledger suites and explicit overflow/negative-product rejection.
 - [x] Add negative tests for incompatible DALY/cost shortcuts. Evidence: `tests/test_burden.py` and `tests/test_quality_edges.py`.
 - [x] Benchmark the bounded synthetic reference workload. Evidence: `scripts/check_burden_benchmark.py`, its fail-closed tests and the `make burden-benchmark` release gate; timing is an engineering guard, not scientific validation.
-- [ ] Run role-separated scientific-software agent-panel review and owner disposition.
-  The repository-owned bounded synthetic quality disposition is prepared, but
-  it is not an agent-panel or clinical disposition.
+- [x] Run role-separated scientific-software agent-panel review and owner
+  disposition. Evidence:
+  `docs/reviews/track-010-scientific-software-advisory-2026-08-22.yml` and the
+  owner-attributable engineering/software assurance records. The panel and
+  owner disposition remain advisory and do not satisfy independent review.
+- [x] Prepare the exact-hash-bound independent scientific-software reviewer
+  packet. Evidence:
+  `docs/track-010-independent-scientific-software-review-request-2026-08-22.yml`.
+  It is prepared but not sent; an attributable reviewer separate from the
+  owner, author, maintainer and agent panel remains required.
 
 ## Phase 5 — Release
 

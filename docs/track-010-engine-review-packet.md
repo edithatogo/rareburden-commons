@@ -85,3 +85,11 @@ It supplies personal harm, accessibility, framing and acceptable-use controls
 only. It is not community authority, representation, consent, endorsement,
 clinical validation or independent review; the broader authority gate remains
 pending.
+
+The independent scientific-software review request is prepared but not sent in
+`docs/track-010-independent-scientific-software-review-request-2026-08-22.yml`.
+It requires an attributable reviewer separate from the owner, candidate
+authoring/maintenance and agent panel, with exact checkout, clean-environment
+reproduction, dependency closure, migration, numerical/resource and
+maintainability findings. Until a qualifying receipt is returned and separately
+dispositioned, the independent gate remains pending.
