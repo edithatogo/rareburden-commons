@@ -12,6 +12,17 @@ upstream_dependencies:
     required_status: "complete"
     observed_status: "blocked"
     state: "pending"
+upstream_contract_reconciliation:
+  status: "owner_decision_required"
+  freeze_recording_commit: "f55bb24b193b4df187c5688e799edd5b61ae208e"
+  freeze_recording_tree: "dcbe43be70c9dcac3dc45c0f6964667d5a8378f6"
+  track_008_freeze_receipt: "docs/track-008-v0.4-freeze-receipt-2026-08-21.yml"
+  track_008_freeze_receipt_sha256: "6239f64a09182d6688efeb661899cd0e50bd9fde899492bb6100a26069a86a8d"
+  decision_packet: "docs/decisions/2026-08-21-track-009-upstream-dependency-disposition.yml"
+  decision_packet_sha256: "f22d07820e95f27c1d34b3dc1f5a27a46f8f93e80ebb8e3a156655598de45dd2"
+  recommended_option: "A"
+  owner_decision_state: "pending"
+  effect: "none_until_owner_selects_an_option_for_this_exact_upstream_freeze"
 blocking_data_contract_issues:
   - id: "EPI-MED-01"
     finding: "source availability does not establish parameter estimand fitness"
@@ -60,5 +71,5 @@ governance:
   owner_disposition: "owner_operated_not_independent_review"
   automated_validation_effect: "readiness_and_assignment_only_not_approval_review_or_freeze"
 next_action:
-  repository_owned: "preserve provisional contracts and validate exact-candidate review receipts"
-  external_or_accountable: "complete Track 008, resolve assigned findings and record the required review and freeze decisions"
+  repository_owned: "preserve provisional contracts and the exact Track 008 freeze binding"
+  external_or_accountable: "owner disposition of the upstream dependency options before any exact Track 009 candidate preparation"

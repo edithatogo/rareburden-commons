@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -33,6 +34,26 @@ FALSE_CLAIMS = {
 }
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
+
+
+def _sha256(path: Path) -> str:
+    try:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+    except OSError as exc:
+        raise Track009ReadinessError(f"cannot hash {path}: {exc}") from exc
+
+
+def _repository_path(root: Path, value: object) -> Path:
+    if not isinstance(value, str) or not value:
+        raise Track009ReadinessError("Track 009 evidence path is missing")
+    candidate = (root / value).resolve()
+    try:
+        candidate.relative_to(root.resolve())
+    except ValueError as exc:
+        raise Track009ReadinessError(
+            f"Track 009 evidence path escapes repository: {value}"
+        ) from exc
+    return candidate
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -90,6 +111,46 @@ def validate(path: Path, root: Path) -> None:
         expected_state = "satisfied" if observed in {"complete", "archived"} else "pending"
         if row.get("state") != expected_state:
             raise Track009ReadinessError(f"dependency gate state mismatch for {row['track']}")
+
+    reconciliation = document.get("upstream_contract_reconciliation", {})
+    if (
+        reconciliation.get("status") != "owner_decision_required"
+        or reconciliation.get("recommended_option") != "A"
+        or reconciliation.get("owner_decision_state") != "pending"
+        or reconciliation.get("effect")
+        != "none_until_owner_selects_an_option_for_this_exact_upstream_freeze"
+        or not COMMIT.fullmatch(str(reconciliation.get("freeze_recording_commit", "")))
+        or not COMMIT.fullmatch(str(reconciliation.get("freeze_recording_tree", "")))
+    ):
+        raise Track009ReadinessError(
+            "upstream contract reconciliation must remain exact and pending"
+        )
+    for path_field, hash_field in (
+        ("track_008_freeze_receipt", "track_008_freeze_receipt_sha256"),
+        ("decision_packet", "decision_packet_sha256"),
+    ):
+        evidence_path = _repository_path(root, reconciliation.get(path_field))
+        expected = str(reconciliation.get(hash_field, ""))
+        if not SHA256.fullmatch(expected) or _sha256(evidence_path) != expected:
+            raise Track009ReadinessError(
+                f"upstream reconciliation evidence hash drift: {path_field}"
+            )
+    upstream_receipt = _load(_repository_path(root, reconciliation.get("track_008_freeze_receipt")))
+    if (
+        upstream_receipt.get("freeze_status") != "frozen_bounded_provisional_non_clinical"
+        or upstream_receipt.get("claims", {}).get("contract_frozen") is not True
+        or upstream_receipt.get("claims", {}).get("track_complete") is not False
+    ):
+        raise Track009ReadinessError("Track 008 receipt does not preserve bounded freeze state")
+    decision_packet = _load(_repository_path(root, reconciliation.get("decision_packet")))
+    if (
+        decision_packet.get("track") != "009-evidence-parameter-ledger"
+        or decision_packet.get("recommendation", {}).get("option_id") != "A"
+        or decision_packet.get("owner_decision", {}).get("status") != "pending"
+        or decision_packet.get("upstream_evidence", {}).get("freeze_receipt_sha256")
+        != reconciliation.get("track_008_freeze_receipt_sha256")
+    ):
+        raise Track009ReadinessError("Track 009 upstream decision packet identity or state drift")
 
     issues = document.get("blocking_data_contract_issues")
     if not isinstance(issues, list) or {row.get("id") for row in issues} != REQUIRED_ISSUES:

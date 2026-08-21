@@ -1,0 +1,70 @@
+schema_version: "1.0.0"
+simulation_status: "owner_operated_not_independent_review"
+track: "009-evidence-parameter-ledger"
+decision: "interpret_track_008_dependency_after_bounded_contract_freeze"
+upstream_evidence:
+  freeze_recording_commit: "f55bb24b193b4df187c5688e799edd5b61ae208e"
+  freeze_recording_tree: "dcbe43be70c9dcac3dc45c0f6964667d5a8378f6"
+  semantic_candidate_commit: "bdce109e0fc917e2f9f8e178120c97b3e00dc0d6"
+  semantic_candidate_tree: "1c804aa7cb90a74bad77559341cabfc758061284"
+  freeze_receipt: "docs/track-008-v0.4-freeze-receipt-2026-08-21.yml"
+  freeze_receipt_sha256: "6239f64a09182d6688efeb661899cd0e50bd9fde899492bb6100a26069a86a8d"
+  semantic_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+observed_state:
+  track_008_status: "blocked"
+  track_008_contract_frozen: true
+  track_009_current_dependency_rule: "track_008_complete"
+  track_009_dependency_state: "pending"
+  track_009_contract_frozen: false
+  track_009_empirical_parameter_activation: false
+cannot_infer:
+  - "Track 008 completion from its bounded semantic contract freeze"
+  - "epidemiology, data-governance or engineering approval"
+  - "fitness of any empirical parameter for an estimand"
+  - "permission to use private, restricted, controlled or credentialed sources"
+  - "clinical validation, community authority, partnership or external approval"
+options:
+  - id: "A"
+    title: "Permit exact Track 009 candidate preparation"
+    disposition: "narrow_dependency_exception"
+    trade_offs:
+      - "Allows a hash-bound ledger candidate, migration receipt and repeated challenge to be prepared without falsely completing Track 008."
+      - "Creates a narrow distinction between upstream contract readiness and whole-track completion that must remain explicit in validators and release claims."
+    contingencies:
+      - "Preparation remains synthetic or metadata-only; empirical activation and Track 009 freeze remain separate owner gates."
+      - "Any Track 008 freeze hash or scope drift invalidates the Track 009 candidate."
+      - "No controlled, credentialed, private or insufficiently evidenced source may enter the candidate."
+    minimum_evidence:
+      - "Owner selects this option against the exact upstream freeze receipt and recording commit."
+      - "A validator enforces that the exception authorizes candidate preparation only."
+      - "The resulting ledger export, schema/migration receipt, source-semantic-transformation manifest and repeated challenge are hash-bound before a freeze decision."
+  - id: "B"
+    title: "Retain whole-track completion prerequisite"
+    disposition: "defer"
+    trade_offs:
+      - "Preserves the original dependency wording with no policy exception."
+      - "Blocks Track 009 preparation indefinitely while Track 008 intentionally remains incomplete for external-authority reasons unrelated to the frozen non-clinical contract."
+    contingencies:
+      - "Continue only generic synthetic tests that do not form a v0.4 candidate."
+    minimum_evidence:
+      - "No new evidence is required; the current fail-closed state remains in force."
+  - id: "C"
+    title: "Prepare a synthetic-only ledger candidate"
+    disposition: "narrow_scope"
+    trade_offs:
+      - "Avoids empirical and semantic activation questions but provides less useful integration evidence."
+      - "Still requires an explicit exception to the current whole-track completion wording."
+    contingencies:
+      - "Exclude all empirical parameter values and bind only synthetic fixtures and contract behavior."
+    minimum_evidence:
+      - "Owner selects the synthetic-only scope and a new exact candidate manifest is produced."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    The exact Track 008 semantic contract is the upstream artifact Track 009
+    needs for bounded integration, while the reasons Track 008 remains
+    incomplete concern broader external authority. Permit preparation only,
+    retain empirical activation and the Track 009 freeze as later exact owner
+    decisions, and invalidate on any upstream drift.
+owner_decision:
+  status: "pending"

@@ -51,6 +51,30 @@ def test_readiness_rejects_hidden_or_unassigned_issue(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
+def test_upstream_reconciliation_is_exact_pending_and_non_activating() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    reconciliation = document["upstream_contract_reconciliation"]
+    assert reconciliation["owner_decision_state"] == "pending"
+    assert reconciliation["recommended_option"] == "A"
+    assert document["upstream_dependencies"][1]["state"] == "pending"
+    assert document["claims"]["empirical_parameter_activation"] is False
+    assert document["claims"]["contract_frozen"] is False
+
+
+def test_readiness_rejects_upstream_reconciliation_hash_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["upstream_contract_reconciliation"]["decision_packet_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="reconciliation evidence hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_premature_upstream_decision(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["upstream_contract_reconciliation"]["owner_decision_state"] = "recorded_option_A"
+    with pytest.raises(Track009ReadinessError, match="must remain exact and pending"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
 def test_resolved_issue_and_freeze_require_evidence(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
     document["blocking_data_contract_issues"][0]["status"] = "resolved"

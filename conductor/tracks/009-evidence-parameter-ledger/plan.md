@@ -108,3 +108,10 @@
   `docs/track-009-freeze-readiness-2026-08-21.yml`,
   `scripts/check_track_009_freeze_readiness.py` and focused negative tests.
   Track 009 remains blocked and all accountable review/freeze tasks stay open.
+- [x] Reconcile the exact bounded Track 008 contract freeze with Track 009's
+  older whole-track-completion prerequisite and prepare three owner options.
+  Evidence:
+  `docs/decisions/2026-08-21-track-009-upstream-dependency-disposition.yml`
+  and `docs/track-009-freeze-readiness-2026-08-21.yml`. The recommended narrow
+  exception permits exact candidate preparation only; it is pending owner
+  selection and does not freeze Track 009 or activate empirical parameters.
