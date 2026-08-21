@@ -48,7 +48,13 @@
 
 ## Phase 3 — Atlas and API
 
-- [ ] Build static demonstrator, country and gap products.
+- [x] Build bounded static demonstrator, synthetic-country and gap products.
+  Evidence: `rareburden.atlas.build_static_product_set`,
+  `schemas/atlas-static-product-set.schema.json` and
+  `tests/test_track014_static_product_set.py` generate three accessible,
+  content-addressed product models from one immutable prepared package. The
+  country identifier is restricted to the user-assigned `XAA`–`XZZ` range;
+  every product remains synthetic, metadata-only and unpublished.
 - [x] Build a versioned synthetic aggregate data package and read-only API
   projection. Evidence: `rareburden.atlas.build_gap_package`,
   `rareburden.atlas.build_gap_api_response` and `tests/test_atlas_package.py`.
