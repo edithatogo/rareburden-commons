@@ -22,6 +22,21 @@ def test_current_track_009_blockers_are_consistent_and_assigned() -> None:
     validate(READINESS, ROOT)
 
 
+def test_bounded_track_008_freeze_does_not_satisfy_track_009_dependency() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    dependency = document["upstream_dependencies"][1]
+    observation = document["upstream_semantic_observation"]
+    assert dependency == {
+        "track": "008-semantic-backbone",
+        "required_status": "complete",
+        "observed_status": "blocked",
+        "state": "pending",
+    }
+    assert observation["observation_status"] == ("bounded_freeze_observed_dependency_unsatisfied")
+    assert document["claims"]["empirical_parameter_activation"] is False
+    assert document["claims"]["contract_frozen"] is False
+
+
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
@@ -59,4 +74,18 @@ def test_resolved_issue_and_freeze_require_evidence(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
     document["contract_freeze_gate"]["state"] = "satisfied"
     with pytest.raises(Track009ReadinessError, match="exact 40-character"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_upstream_observation_rejects_evidence_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["upstream_semantic_observation"]["track_008_readiness_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="evidence drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_upstream_observation_rejects_dependency_bypass(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["upstream_semantic_observation"]["observation_status"] = "dependency_satisfied"
+    with pytest.raises(Track009ReadinessError, match="non-activating"):
         validate(_candidate(tmp_path, document), ROOT)

@@ -12,6 +12,21 @@ upstream_dependencies:
     required_status: "complete"
     observed_status: "blocked"
     state: "pending"
+upstream_semantic_observation:
+  observation_status: "bounded_freeze_observed_dependency_unsatisfied"
+  observed_repository_commit: "12176a4bfb92f8dfcb0257997e903bc1da615284"
+  observed_repository_tree: "2126062a179a5a7f0da6d7e7f79edcd5def923b4"
+  track_008_candidate_commit: "47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd"
+  track_008_candidate_tree: "af2bc0074ae6c77a65f8c47da04431b08baca77f"
+  track_008_semantic_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+  track_008_owner_decision: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
+  track_008_owner_decision_sha256: "b7d09cfa9987991007fab783d407013335946da65e9825ff3af682154c1b219f"
+  track_008_readiness: "docs/track-008-freeze-readiness-2026-08-21.yml"
+  track_008_readiness_sha256: "1bf9b43605ec7eb1f299047aa4546b9639bf3d4419bbbecd371589ed095e2674"
+  advisory_and_owner_preparation: "docs/decisions/2026-08-21-track-009-post-track-008-reconciliation.yml"
+  advisory_and_owner_preparation_sha256: "853dd184b65b45dbb016457c76135b3105b9844142c3f71d295c332c00c5ab84"
+  invalidation: "any upstream candidate, decision, readiness or evidence hash drift"
+  effect: "dormant_synthetic_preparation_only_no_dependency_satisfaction_activation_review_or_freeze"
 blocking_data_contract_issues:
   - id: "EPI-MED-01"
     finding: "source availability does not establish parameter estimand fitness"
@@ -60,5 +75,5 @@ governance:
   owner_disposition: "owner_operated_not_independent_review"
   automated_validation_effect: "readiness_and_assignment_only_not_approval_review_or_freeze"
 next_action:
-  repository_owned: "preserve provisional contracts and validate exact-candidate review receipts"
+  repository_owned: "preserve dormant synthetic contracts, security controls and exact upstream drift checks"
   external_or_accountable: "complete Track 008, resolve assigned findings and record the required review and freeze decisions"
