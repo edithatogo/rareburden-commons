@@ -39,6 +39,13 @@ def test_synthetic_candidate_rejects_manifest_drift(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
+def test_bounded_owner_disposition_rejects_receipt_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["bounded_owner_disposition"]["decision_sha256"] = "0" * 64
+    with pytest.raises(Track010ReadinessError, match="receipt hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
 @pytest.mark.parametrize(
     ("section", "field", "value", "message"),
     [

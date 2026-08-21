@@ -122,3 +122,9 @@
   `scripts/build_track010_synthetic_candidate.py`. This is reversible synthetic
   preparation only: Track 009 remains an unsatisfied dependency, Track 010 is
   not an alpha and is unfrozen, and Track 003 remains ineligible.
+- [x] Record the repository owner's explicit selection of recommended Option A
+  for the exact merged candidate and bind the decision hash into alpha-freeze
+  readiness. The owner-operated disposition authorizes disposable synthetic
+  pre-alpha preparation only; it is not independent scientific-software review
+  and does not satisfy Track 009, review, alpha-freeze, Track 003, production,
+  public-readiness or release gates.
