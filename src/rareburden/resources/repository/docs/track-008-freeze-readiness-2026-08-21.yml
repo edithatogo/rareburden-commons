@@ -99,7 +99,7 @@ claims:
 governance:
   repository_panel_output: "advisory"
   owner_disposition: "owner_operated_not_independent_review"
-  automated_validation_effect: "readiness_only_not_approval_review_or_freeze"
+  automated_validation_effect: "validates_recorded_scoped_freeze_only_not_approval_independent_review_track_completion_or_external_authority"
 next_action:
   repository_owned: "preserve the frozen hash-bound bounded candidate and invalidate it on any recorded stop trigger"
   external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"

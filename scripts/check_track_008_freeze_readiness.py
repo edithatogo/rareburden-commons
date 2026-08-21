@@ -150,6 +150,11 @@ def validate(path: Path, root: Path) -> None:
         raise Track008ReadinessError("repository panel output must remain advisory")
     if governance.get("owner_disposition") != "owner_operated_not_independent_review":
         raise Track008ReadinessError("owner disposition cannot be independent review")
+    if governance.get("automated_validation_effect") != (
+        "validates_recorded_scoped_freeze_only_not_approval_independent_review_"
+        "track_completion_or_external_authority"
+    ):
+        raise Track008ReadinessError("automation cannot grant approval, review or authority")
 
     claims = document.get("claims", {})
     if any(claims.get(name) is not False for name in FALSE_CLAIMS):

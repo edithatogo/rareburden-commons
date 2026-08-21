@@ -23,6 +23,14 @@ def test_current_track_008_blockers_are_consistent() -> None:
     validate(READINESS, ROOT)
 
 
+def test_automation_validates_but_does_not_grant_authority() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    assert document["governance"]["automated_validation_effect"] == (
+        "validates_recorded_scoped_freeze_only_not_approval_independent_review_"
+        "track_completion_or_external_authority"
+    )
+
+
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
