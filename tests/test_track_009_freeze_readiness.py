@@ -25,7 +25,7 @@ def test_current_track_009_blockers_are_consistent_and_assigned() -> None:
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
-        (("claims", "contract_frozen", True), "claims must remain false"),
+        (("claims", "empirical_parameter_activation", True), "claims must remain false"),
         (("governance", "repository_panel_output", "independent"), "must remain advisory"),
         (("governance", "owner_disposition", "independent_review"), "cannot be independent"),
     ],
@@ -58,7 +58,7 @@ def test_upstream_reconciliation_is_recorded_and_non_activating() -> None:
     assert reconciliation["recommended_option"] == "A"
     assert document["upstream_dependencies"][1]["state"] == "pending"
     assert document["claims"]["empirical_parameter_activation"] is False
-    assert document["claims"]["contract_frozen"] is False
+    assert document["claims"]["contract_frozen"] is True
 
 
 def test_readiness_rejects_upstream_reconciliation_hash_drift(tmp_path: Path) -> None:
@@ -75,13 +75,13 @@ def test_readiness_rejects_premature_upstream_decision(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
-def test_exact_candidate_is_synthetic_only_and_unfrozen() -> None:
+def test_exact_candidate_is_synthetic_only_and_freeze_is_separate() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     candidate = document["v0_4_candidate_binding"]
     assert candidate["parameter_count"] == 2
     assert candidate["empirical_parameter_count"] == 0
     assert candidate["status"] == "prepared_not_frozen"
-    assert document["contract_freeze_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "satisfied"
 
 
 def test_readiness_rejects_candidate_hash_drift(tmp_path: Path) -> None:
@@ -91,13 +91,13 @@ def test_readiness_rejects_candidate_hash_drift(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
-def test_final_disposition_is_exact_pending_and_non_activating() -> None:
+def test_final_disposition_is_exact_recorded_and_non_activating() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     disposition = document["final_owner_disposition_candidate"]
     assert disposition["exact_candidate_commit"] == ("55f58f7b5f7522fa9b988c4e57dc967969cca7b7")
-    assert disposition["owner_decision_state"] == "pending"
+    assert disposition["owner_decision_state"] == "recorded_option_A"
     assert document["claims"]["empirical_parameter_activation"] is False
-    assert document["contract_freeze_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "satisfied"
 
 
 def test_readiness_rejects_final_disposition_hash_drift(tmp_path: Path) -> None:
@@ -113,6 +113,20 @@ def test_resolved_issue_and_freeze_require_evidence(tmp_path: Path) -> None:
     with pytest.raises(Track009ReadinessError, match="requires a receipt"):
         validate(_candidate(tmp_path, document), ROOT)
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
-    document["contract_freeze_gate"]["state"] = "satisfied"
-    with pytest.raises(Track009ReadinessError, match="exact 40-character"):
+    document["contract_freeze_gate"]["exact_candidate_commit"] = ""
+    with pytest.raises(Track009ReadinessError, match="candidate or artifact binding drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_freeze_receipt_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["contract_freeze_gate"]["freeze_receipt_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="freeze evidence hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_readiness_rejects_contract_claim_gate_mismatch(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["claims"]["contract_frozen"] = False
+    with pytest.raises(Track009ReadinessError, match="contract-frozen claim"):
         validate(_candidate(tmp_path, document), ROOT)

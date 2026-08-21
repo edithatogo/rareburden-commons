@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+track: "009-evidence-parameter-ledger"
+contract: "v0.4"
+freeze_status: "frozen_synthetic_non_empirical"
+frozen_at_utc: "2026-08-21T05:06:25Z"
+accountable_owner: "edithatogo"
+owner_decision:
+  selected_option_id: "A"
+  path: "docs/decisions/2026-08-21-track-009-v0.4-final-disposition.yml"
+  sha256: "a87d8f514c371b2faee3c14148b3166e855c758c741f0d7814b64b0c7267db2d"
+candidate:
+  commit: "55f58f7b5f7522fa9b988c4e57dc967969cca7b7"
+  tree: "59c720c68ccbe91c35dc2e3b07900a68a76b6431"
+  manifest: "manifests/ledger/track-009-v0.4-ledger-candidate-2026-08-21.json"
+  manifest_sha256: "caf21cf6d35bd69d26ffa48c35188b73284906fd4bf3cacaa44a9d5bdd7bacb8"
+  ledger_export: "examples/ledger/public-foundation-synthetic.yml"
+  ledger_export_sha256: "b0aef6e12893fb469f4993285f4d5d9621f810af3e08f686ec3235d0cfd51a76"
+  schema_and_migration_receipt: "manifests/ledger/track-009-v0.4-schema-migration-receipt-2026-08-21.json"
+  schema_and_migration_receipt_sha256: "3b7f5d35b1c123753ed599f43fb8f36dac2480303f66dcf60738a0b191ab521f"
+  source_semantic_transformation_bindings: "manifests/ledger/track-009-v0.4-source-semantic-transformation-bindings-2026-08-21.json"
+  source_semantic_transformation_bindings_sha256: "b56f5aecb14b50f3385aa87f4f2ceb1fa45c1371d2f9ca2d75e4bda7143dc834"
+  challenge_findings: "docs/track-009-v0.4-candidate-challenge-2026-08-21.yml"
+  challenge_findings_sha256: "96edd2a9bd1f2f611b56a21e1ae85dd538024c4dc353a291c06a78ef85402ade"
+scope:
+  parameter_count: 2
+  empirical_parameter_count: 0
+  source_state: "synthetic_only"
+  migration_state: "identity_validated_not_activated"
+  permitted_use: "synthetic_contract_and_engineering_assurance_only"
+invalidation:
+  - "any candidate commit, tree, schema, ledger, upstream semantic or evidence hash drift"
+  - "addition or activation of any empirical parameter"
+  - "use of private, restricted, controlled, credentialed or insufficiently evidenced source content"
+  - "representation as epidemiology, clinical, custodian, community or independent approval"
+residual_gates:
+  track_status: "blocked"
+  empirical_parameter_activation: "blocked"
+  unresolved_medium_findings: ["EPI-MED-01", "EPI-MED-02", "GOV-MED-01"]
+  epidemiology_disposition: "pending"
+  data_governance_disposition: "pending"
+  engineering_disposition: "pending"
+claims:
+  contract_frozen: true
+  empirical_parameter_activation: false
+  epidemiology_approval: false
+  data_governance_approval: false
+  engineering_approval: false
+  independent_review: false
+  track_complete: false
+  downstream_track_010_activated: false
+effect: >-
+  Freezes only the exact synthetic non-empirical v0.4 ledger contract. It does
+  not activate real parameters, resolve empirical findings, complete Track 009
+  or authorize Track 010.

@@ -44,10 +44,10 @@ final_owner_disposition_candidate:
   exact_candidate_commit: "55f58f7b5f7522fa9b988c4e57dc967969cca7b7"
   exact_candidate_tree: "59c720c68ccbe91c35dc2e3b07900a68a76b6431"
   decision_packet: "docs/decisions/2026-08-21-track-009-v0.4-final-disposition.yml"
-  decision_packet_sha256: "09a859ec3ee2725a10f0edf9c1ebd849396034f855f224cec6570e8ad8a315a0"
+  decision_packet_sha256: "a87d8f514c371b2faee3c14148b3166e855c758c741f0d7814b64b0c7267db2d"
   recommended_option: "A"
-  owner_decision_state: "pending"
-  effect: "none_until_owner_selects_an_option_for_this_exact_candidate"
+  owner_decision_state: "recorded_option_A"
+  effect: "authorizes_exact_synthetic_non_empirical_contract_freeze_only"
 blocking_data_contract_issues:
   - id: "EPI-MED-01"
     finding: "source availability does not establish parameter estimand fitness"
@@ -76,25 +76,30 @@ review_gate:
   owner_disposition: ""
   state: "pending"
 contract_freeze_gate:
-  exact_candidate_commit: ""
-  ledger_export_sha256: ""
-  schema_and_migration_receipt: ""
-  source_semantic_transformation_manifest_sha256: ""
-  unresolved_issue_disposition: ""
-  blocking_findings_resolved: false
-  accountable_freeze_decision: ""
-  state: "pending"
+  exact_candidate_commit: "55f58f7b5f7522fa9b988c4e57dc967969cca7b7"
+  exact_candidate_tree: "59c720c68ccbe91c35dc2e3b07900a68a76b6431"
+  ledger_export_sha256: "b0aef6e12893fb469f4993285f4d5d9621f810af3e08f686ec3235d0cfd51a76"
+  schema_and_migration_receipt: "manifests/ledger/track-009-v0.4-schema-migration-receipt-2026-08-21.json"
+  schema_and_migration_receipt_sha256: "3b7f5d35b1c123753ed599f43fb8f36dac2480303f66dcf60738a0b191ab521f"
+  source_semantic_transformation_manifest_sha256: "b56f5aecb14b50f3385aa87f4f2ceb1fa45c1371d2f9ca2d75e4bda7143dc834"
+  unresolved_issue_disposition: "remain_open_and_blocking_for_any_empirical_expansion"
+  blocking_findings_resolved: true
+  resolution_scope: "synthetic_non_empirical_contract_only"
+  accountable_freeze_decision: "docs/decisions/2026-08-21-track-009-v0.4-final-disposition.yml"
+  freeze_receipt: "docs/track-009-v0.4-freeze-receipt-2026-08-21.yml"
+  freeze_receipt_sha256: "da51226da021a287eb8f732378cafce00c8b5f874c3c6a25616e1a7a3b044aef"
+  state: "satisfied"
 claims:
   empirical_parameter_activation: false
   epidemiology_approval: false
   data_governance_approval: false
   engineering_approval: false
-  contract_frozen: false
+  contract_frozen: true
   track_complete: false
 governance:
   repository_panel_output: "advisory"
   owner_disposition: "owner_operated_not_independent_review"
   automated_validation_effect: "readiness_and_assignment_only_not_approval_review_or_freeze"
 next_action:
-  repository_owned: "preserve the exact candidate revision and bound evidence while owner disposition is pending"
+  repository_owned: "preserve and monitor the exact synthetic-only freeze; invalidate it on any bound hash or scope drift"
   external_or_accountable: "retain epidemiology, data-governance and engineering findings unless separately evidenced"

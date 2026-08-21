@@ -64,4 +64,11 @@ recommendation:
     real parameter values. Track completion, empirical activation and every
     accountable or external approval remain separate blocked gates.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T05:06:25Z"
+  rationale: >-
+    Freeze only the exact synthetic, non-empirical ledger contract. Keep
+    empirical parameter activation, Track 009 completion and all epidemiology,
+    data-governance, engineering and external-authority claims false.

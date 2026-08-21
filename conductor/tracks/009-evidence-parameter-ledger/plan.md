@@ -128,4 +128,10 @@
   hashes and prepare three final owner options. Evidence:
   `docs/decisions/2026-08-21-track-009-v0.4-final-disposition.yml`. The
   recommended Option A freezes only the synthetic non-empirical contract; the
-  decision remains pending and no freeze or downstream activation is inferred.
+  owner subsequently selected this exact option.
+- [x] Record the owner's exact Option A disposition and freeze the bounded
+  synthetic, non-empirical v0.4 contract. Evidence:
+  `docs/decisions/2026-08-21-track-009-v0.4-final-disposition.yml` and
+  `docs/track-009-v0.4-freeze-receipt-2026-08-21.yml`. Track 009 remains
+  incomplete, empirical activation remains false, and EPI-MED-01, EPI-MED-02
+  and GOV-MED-01 remain open for every empirical expansion.

@@ -29,7 +29,6 @@ FALSE_CLAIMS = {
     "epidemiology_approval",
     "data_governance_approval",
     "engineering_approval",
-    "contract_frozen",
     "track_complete",
 }
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
@@ -202,11 +201,11 @@ def validate(path: Path, root: Path) -> None:
         disposition.get("exact_candidate_commit") != "55f58f7b5f7522fa9b988c4e57dc967969cca7b7"
         or disposition.get("exact_candidate_tree") != "59c720c68ccbe91c35dc2e3b07900a68a76b6431"
         or disposition.get("recommended_option") != "A"
-        or disposition.get("owner_decision_state") != "pending"
+        or disposition.get("owner_decision_state") != "recorded_option_A"
         or disposition.get("effect")
-        != "none_until_owner_selects_an_option_for_this_exact_candidate"
+        != "authorizes_exact_synthetic_non_empirical_contract_freeze_only"
     ):
-        raise Track009ReadinessError("final Track 009 disposition must remain exact and pending")
+        raise Track009ReadinessError("final Track 009 disposition must remain exact and recorded")
     disposition_path = _repository_path(root, disposition.get("decision_packet"))
     disposition_hash = str(disposition.get("decision_packet_sha256", ""))
     if not SHA256.fullmatch(disposition_hash) or _sha256(disposition_path) != disposition_hash:
@@ -220,7 +219,9 @@ def validate(path: Path, root: Path) -> None:
         or disposition_packet.get("candidate", {}).get("manifest_sha256")
         != candidate_binding.get("candidate_manifest_sha256")
         or disposition_packet.get("recommendation", {}).get("option_id") != "A"
-        or disposition_packet.get("owner_decision", {}).get("status") != "pending"
+        or disposition_packet.get("owner_decision", {}).get("status") != "recorded"
+        or disposition_packet.get("owner_decision", {}).get("selected_option_id") != "A"
+        or disposition_packet.get("owner_decision", {}).get("decided_by") != "edithatogo"
     ):
         raise Track009ReadinessError("final Track 009 disposition identity or state drift")
 
@@ -245,11 +246,14 @@ def validate(path: Path, root: Path) -> None:
 
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
-        if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):
-            raise Track009ReadinessError("freeze requires an exact 40-character candidate commit")
-        for field in ("ledger_export_sha256", "source_semantic_transformation_manifest_sha256"):
-            if not SHA256.fullmatch(str(freeze.get(field, ""))):
-                raise Track009ReadinessError(f"freeze requires an exact SHA-256 for {field}")
+        if (
+            freeze.get("exact_candidate_commit") != disposition.get("exact_candidate_commit")
+            or freeze.get("exact_candidate_tree") != disposition.get("exact_candidate_tree")
+            or freeze.get("ledger_export_sha256") != candidate_binding.get("ledger_export_sha256")
+            or freeze.get("source_semantic_transformation_manifest_sha256")
+            != candidate_binding.get("source_semantic_transformation_bindings_sha256")
+        ):
+            raise Track009ReadinessError("freeze candidate or artifact binding drift")
         required = (
             "schema_and_migration_receipt",
             "unresolved_issue_disposition",
@@ -261,8 +265,38 @@ def validate(path: Path, root: Path) -> None:
             raise Track009ReadinessError(
                 "freeze requires resolved findings and accountable evidence"
             )
+        if (
+            freeze.get("resolution_scope") != "synthetic_non_empirical_contract_only"
+            or freeze.get("unresolved_issue_disposition")
+            != "remain_open_and_blocking_for_any_empirical_expansion"
+            or freeze.get("accountable_freeze_decision") != disposition.get("decision_packet")
+        ):
+            raise Track009ReadinessError("freeze scope or residual issue disposition drift")
+        for path_field, hash_field in (
+            ("schema_and_migration_receipt", "schema_and_migration_receipt_sha256"),
+            ("freeze_receipt", "freeze_receipt_sha256"),
+        ):
+            evidence_path = _repository_path(root, freeze.get(path_field))
+            expected = str(freeze.get(hash_field, ""))
+            if not SHA256.fullmatch(expected) or _sha256(evidence_path) != expected:
+                raise Track009ReadinessError(f"freeze evidence hash drift: {path_field}")
+        receipt = _load(_repository_path(root, freeze.get("freeze_receipt")))
+        if (
+            receipt.get("freeze_status") != "frozen_synthetic_non_empirical"
+            or receipt.get("candidate", {}).get("commit") != freeze.get("exact_candidate_commit")
+            or receipt.get("candidate", {}).get("tree") != freeze.get("exact_candidate_tree")
+            or receipt.get("candidate", {}).get("ledger_export_sha256")
+            != freeze.get("ledger_export_sha256")
+            or receipt.get("owner_decision", {}).get("sha256") != disposition_hash
+            or receipt.get("scope", {}).get("empirical_parameter_count") != 0
+            or receipt.get("claims", {}).get("empirical_parameter_activation") is not False
+            or receipt.get("claims", {}).get("track_complete") is not False
+        ):
+            raise Track009ReadinessError("freeze receipt identity, scope or claims drift")
     elif freeze.get("state") != "pending":
         raise Track009ReadinessError("freeze gate state must be pending or satisfied")
+    if claims.get("contract_frozen") is not (freeze.get("state") == "satisfied"):
+        raise Track009ReadinessError("contract-frozen claim must match the freeze gate")
 
 
 def main() -> int:
@@ -276,8 +310,8 @@ def main() -> int:
         print(f"Track 009 freeze readiness failed: {exc}")
         return 1
     print(
-        "Track 009 readiness passed; review decisions and v0.4 ledger freeze "
-        "remain separate accountable gates."
+        "Track 009 readiness passed; the synthetic non-empirical v0.4 freeze is "
+        "internally consistent and empirical activation remains separately blocked."
     )
     return 0
 
