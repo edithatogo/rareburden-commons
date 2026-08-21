@@ -106,18 +106,19 @@ independence claims, and freezes lacking exact candidate, ledger-export,
 source/semantic/transformation, migration and accountable-decision evidence.
 No finding is resolved and no review or freeze authority is inferred.
 
-### Bounded agent-owner review closeout — 2026-08-22
+### Bounded synthetic technical sub-completion — 2026-08-22
 
-Repository review result: **Pass for bounded synthetic assurance; Track 009
-remains blocked and unfrozen**. Track 008 is complete for its exact bounded
-provisional non-clinical semantic core, so the Track 009 challenge was rerun
-against the current dependency state. The epidemiology/estimand, rights/data-
-use and engineering perspectives remain role-separated agent advice, and the
-repository owner recorded the disposition in
-`docs/decisions/2026-08-22-track-009-agent-owner-closeout.yml`.
+Repository review result: **Pass for the scoped synthetic technical slice only**.
+The exact candidate, schema, migration self-baseline, deterministic exports and
+bound-profile-role structural matrix are hash-bound and fail closed. The owner
+accepted a bounded sub-completion after methods, engineering and rights-panel
+advice. This does not mark the global track complete, freeze the v0.4 contract,
+resolve empirical estimand fitness or alternative selection, authorize rights or
+retention, or permit Track 010 alpha, Track 003, production or release claims.
 
-The three existing medium findings remain pending: empirical estimand fitness,
-source/custodian rights and engineering/release review evidence. No empirical,
-controlled, clinical, patient/community, independent-review, contract-freeze,
-production or release claim is made. Track 009 stays `blocked`; only the
-bounded synthetic preparation lane is retained.
+EPI-MED-01, EPI-MED-02 and GOV-MED-01 remain explicit global blockers. Their
+status is pending outside this synthetic candidate, not resolved by fixtures or
+owner/agent advice. Any source, schema, profile, input, export, lock or upstream
+hash drift invalidates the receipt and requires regeneration and a new owner
+disposition. Agent-panel and owner-operated evidence remain advisory and
+non-independent.

@@ -1,0 +1,101 @@
+from __future__ import annotations
+
+import copy
+import hashlib
+import json
+from pathlib import Path
+
+import pytest
+import yaml
+
+from scripts.check_track009_bounded_synthetic_receipt import (
+    RECEIPT,
+    SCHEMA,
+    Track009SyntheticReceiptError,
+    validate,
+)
+
+ROOT = Path(__file__).parents[1]
+
+
+def _receipt() -> dict:
+    return yaml.safe_load((ROOT / RECEIPT).read_text(encoding="utf-8"))
+
+
+def _case_root(tmp_path: Path, receipt: dict) -> Path:
+    for relative in (
+        RECEIPT,
+        SCHEMA,
+        Path(receipt["candidate"]["profile_role_matrix"]),
+        Path(receipt["candidate"]["manifest"]),
+        Path(receipt["candidate"]["migration_receipt"]),
+        Path(receipt["candidate"]["schema"]),
+        Path(receipt["review_packet"]["path"]),
+        Path("schemas/parameter-ledger.schema.json"),
+        Path("schemas/agent-owner-decision-packet.schema.json"),
+        Path("schemas/demonstrator-ledger-profile.schema.json"),
+        Path("examples/ledger/public-foundation-synthetic.yml"),
+        Path("examples/demonstrators/003-ledger-profile.yml"),
+        Path("examples/demonstrators/011-ledger-profile.yml"),
+        Path("examples/demonstrators/012-ledger-profile.yml"),
+    ):
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes((ROOT / relative).read_bytes())
+    target = tmp_path / RECEIPT
+    target.write_text(yaml.safe_dump(receipt, sort_keys=False), encoding="utf-8")
+    return tmp_path
+
+
+def test_bounded_receipt_passes_and_keeps_global_track_blocked() -> None:
+    validate(ROOT)
+    receipt = _receipt()
+    assert receipt["status"] == "bounded_synthetic_nonclinical_candidate_complete"
+    assert all(value is False for value in receipt["claims"].values())
+    assert (
+        hashlib.sha256(
+            (ROOT / receipt["candidate"]["profile_role_matrix"]).read_bytes()
+        ).hexdigest()
+        == receipt["candidate"]["profile_role_matrix_sha256"]
+    )
+
+
+def test_receipt_rejects_claim_drift(tmp_path: Path) -> None:
+    receipt = _receipt()
+    receipt["claims"]["track_complete"] = True
+    with pytest.raises(ValueError, match="Schema validation failed"):
+        validate(_case_root(tmp_path, receipt))
+
+
+def test_receipt_rejects_candidate_hash_drift(tmp_path: Path) -> None:
+    receipt = _receipt()
+    receipt["candidate"]["profile_role_matrix_sha256"] = "0" * 64
+    with pytest.raises(Track009SyntheticReceiptError, match="candidate hash drift"):
+        validate(_case_root(tmp_path, receipt))
+
+
+def test_receipt_rejects_repository_binding_drift(tmp_path: Path) -> None:
+    receipt = _receipt()
+    receipt["candidate"]["repository_tree"] = "0" * 40
+    with pytest.raises(Track009SyntheticReceiptError, match="repository candidate binding drift"):
+        validate(_case_root(tmp_path, receipt))
+
+
+def test_receipt_rejects_global_blocker_removal(tmp_path: Path) -> None:
+    receipt = copy.deepcopy(_receipt())
+    receipt["global_blockers"].pop()
+    with pytest.raises(ValueError, match="Schema validation failed"):
+        validate(_case_root(tmp_path, receipt))
+
+
+def test_receipt_rejects_empirical_candidate_manifest(tmp_path: Path) -> None:
+    receipt = _receipt()
+    root = _case_root(tmp_path, receipt)
+    manifest_path = root / receipt["candidate"]["manifest"]
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["claims"]["empirical_parameter_activation"] = True
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    receipt["candidate"]["manifest_sha256"] = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+    (root / RECEIPT).write_text(yaml.safe_dump(receipt, sort_keys=False), encoding="utf-8")
+    with pytest.raises(Track009SyntheticReceiptError, match="overstates synthetic scope"):
+        validate(root)

@@ -15,6 +15,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	track-008-successor-implementation-candidate-check \
 	track-009-freeze-readiness-check \
 	track-009-source-profile-role-check \
+	track-009-bounded-synthetic-receipt-check \
 	track-010-alpha-freeze-readiness-check \
 	track-010-candidate-containment-check \
 	track-016-production-release-readiness-check \
@@ -71,6 +72,11 @@ track-009-source-profile-role-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track009_source_profile_role.py \
 		examples/ledger/source-profile-role-structural-synthetic.yml \
 		--schema schemas/source-profile-role-structural-assessment.schema.json --root .
+
+track-009-bounded-synthetic-receipt-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track009_bounded_synthetic_receipt.py \
+		docs/track-009-bounded-synthetic-technical-receipt-2026-08-22.yml \
+		--schema schemas/track-009-bounded-synthetic-technical-receipt.schema.json --root .
 
 track-010-alpha-freeze-readiness-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track_010_alpha_freeze_readiness.py \
@@ -215,7 +221,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check single-owner-agent-governance-check track-008-freeze-readiness-check track-008-split-candidate-check track-008-successor-implementation-candidate-check track-009-freeze-readiness-check track-009-source-profile-role-check track-010-alpha-freeze-readiness-check track-010-candidate-containment-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check single-owner-agent-governance-check track-008-freeze-readiness-check track-008-split-candidate-check track-008-successor-implementation-candidate-check track-009-freeze-readiness-check track-009-source-profile-role-check track-009-bounded-synthetic-receipt-check track-010-alpha-freeze-readiness-check track-010-candidate-containment-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility
