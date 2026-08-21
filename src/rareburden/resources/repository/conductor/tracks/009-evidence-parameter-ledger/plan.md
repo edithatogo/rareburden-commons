@@ -126,3 +126,10 @@
   `scripts/build_track009_v04_candidate.py`. This is review preparation only;
   empirical activation, accountable reviews and the v0.4 ledger freeze remain
   false or pending.
+
+## Review fixes — 2026-08-21
+
+- [x] Emit candidate JSON as explicit UTF-8 bytes with LF line endings so
+  deterministic regeneration produces identical evidence on Windows, macOS
+  and Linux. Evidence: hosted Windows portability finding and the candidate
+  builder reproducibility test.
