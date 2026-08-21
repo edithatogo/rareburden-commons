@@ -232,14 +232,23 @@ def _prepare_materials(root: Path, output: Path) -> tuple[dict[str, Path], list[
 
 
 def _logical(output: Path, path: Path) -> str:
-    # These paths are produced by this module under ``output``.  Keep the
-    # containment check lexical: resolving every generated artefact performs
-    # thousands of redundant filesystem lookups for the packaged snapshot and
-    # can exceed the reference workflow's bounded runtime.
+    # Avoid resolving every generated artefact: the packaged snapshot contains
+    # hundreds of files and repeated realpath calls exceed the workflow's
+    # bounded runtime.  The lexical check is paired with an explicit rejection
+    # of symlinked descendants, so a pre-existing output subdirectory cannot
+    # make an apparently in-root artefact escape the declared output root.
     try:
-        return path.absolute().relative_to(output.absolute()).as_posix()
+        relative = path.absolute().relative_to(output.absolute())
     except ValueError as exc:
         raise ScholarlyAssuranceError(f"Assurance artefact escapes output root: {path}") from exc
+    parent = output.absolute()
+    for component in relative.parts[:-1]:
+        parent /= component
+        if parent.is_symlink():
+            raise ScholarlyAssuranceError(
+                f"Assurance artefact uses unsafe symlinked output directory: {path}"
+            )
+    return relative.as_posix()
 
 
 def _artifact(
