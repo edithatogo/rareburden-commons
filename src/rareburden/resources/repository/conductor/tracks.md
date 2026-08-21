@@ -22,7 +22,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 005 | Patient, family, economic and social burden module | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 009, 010 |
 | 012 | Collective paediatric rare-disease burden demonstrator | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 004, 005, 008, 009, 010 |
 | 013 | Quality, validation, gap mapping and equity assurance | Blocked | Must | v0.8.0 | Repository owner (sole accountable human) | 003, 005, 007, 010, 011, 012 |
-| 014 | Atlas, API and reproducible release engineering | Planned | Must | v0.8.0 | Repository owner (sole accountable human) | 002, 009, 010, 013 |
+| 014 | Atlas, API and reproducible release engineering | Blocked | Must | v0.8.0 | Repository owner (sole accountable human) | 002, 009, 010, 013 |
 | 015 | Operational governance, partnerships and policy translation | Complete | Must | v0.9.0 | Repository owner (sole accountable human) | 006, 007, 013 |
 | 016 | Security, reliability, performance and operations | Planned | Must | v0.9.0 | Repository owner (sole accountable human) | 004, 014 |
 | 017 | Documentation, adoption, sustainability and stable v1 release | Planned | Must | v1.0.0 | Repository owner (sole accountable human) | 013, 014, 015, 016 |

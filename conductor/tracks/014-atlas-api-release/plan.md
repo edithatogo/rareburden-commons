@@ -140,3 +140,11 @@
   cross-surface identity mismatch.
 - [ ] Activate real sources or publish any beta/stable surface only after the
   remaining gates are satisfied for an exact candidate.
+
+## Review fixes — 2026-08-22
+
+- [x] Reject symlinked descendants when assigning logical paths to generated
+  assurance artefacts. Evidence: `45dad19` retains the bounded runtime
+  improvement while preventing a pre-existing output-directory symlink from
+  escaping the declared artefact root; `tests/test_reference.py` exercises the
+  fail-closed case.
