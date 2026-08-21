@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "track": "008-semantic-backbone",
+  "candidate_contract": "v0.4",
+  "candidate_status": "prepared_not_frozen",
+  "source_commit": "881f09152eae597fb376ced664bcfb6cabb07a7f",
+  "source_tree": "795edb37102a727da43b0ef5038b9faa65912b34",
+  "semantic_policy": {
+    "permitted_relations": ["exact", "broader", "narrower", "approximate", "ambiguous", "unmapped"],
+    "ambiguous_default": "fail_closed_unresolved",
+    "use_scope": "non_clinical_identifier_alignment_only",
+    "naming": "provisional_owner_operated_not_community_approved",
+    "clinical_or_diagnostic_inference": false
+  },
+  "public_source_allowlist": [
+    {
+      "source_id": "orphadata-science-alignments",
+      "release": "Orphanet knowledge base release of July 2026",
+      "name": "en_product1.xml",
+      "bytes": 54026799,
+      "sha256": "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb",
+      "licence_state": "CC BY 4.0 observed for exact file",
+      "semantic_use": "conditional_identifier_alignment_only"
+    },
+    {
+      "source_id": "mondo-disease-ontology",
+      "release": "v2026-08-04",
+      "assets": [
+        {"name": "mondo-rare.owl", "bytes": 160016657, "sha256": "87361d63636436611e27d408be53606f8e831a2fd6ab70a4969ec54d19cb66d3"},
+        {"name": "mondo.json", "bytes": 107497863, "sha256": "7cf8f1df31185555a21f5ffaf36663ca420671a9bc234fc737eb9bfa977ecd60"},
+        {"name": "mondo.owl", "bytes": 254105311, "sha256": "afb2e699abf77082253ef51cca5f8531c8e4023ea0acc32ff3709818d0788a88"}
+      ],
+      "licence_state": "CC BY 4.0 observed for exact release",
+      "semantic_use": "non_clinical_alignment_candidate"
+    },
+    {
+      "source_id": "human-phenotype-ontology",
+      "release": "v2026-06-23",
+      "licence_state": "official HPO conditions observed; exact unmodified ontology-core route only",
+      "semantic_use": "non_clinical_phenotype_identifier_and_hierarchy_candidate",
+      "assets": [
+        {"name": "hp-base.json", "bytes": 23226592, "sha256": "998e4cfff81674736a4f6af937d6b3e55c64cb813ad384f686ffc60d5546da79"},
+        {"name": "hp-base.obo", "bytes": 11782967, "sha256": "dac5b0b7780ff076e83be7c329b3dcc7f93e469da5bef5bddc903cba9e1ad8ab"},
+        {"name": "hp-base.owl", "bytes": 49479533, "sha256": "8aab8c4d7f11189def5d4e64c17190dfc90a495fe9f49a451ea2caefc174e153"},
+        {"name": "hp-simple-non-classified.json", "bytes": 23019501, "sha256": "79d4cf6efe189000ac2c589b2e79cb27dc200e3389e6451cb775164e43f6d737"},
+        {"name": "hp-simple-non-classified.obo", "bytes": 11222391, "sha256": "031b8f63b1a3e3d7e43e90444f7a2186b806e1125babf61d046d43e69209e6e3"},
+        {"name": "hp-simple-non-classified.owl", "bytes": 30621247, "sha256": "e2e7526a99cef11dbd1bbe3e3784b738c4a5286f0f1cae7fcbca8f3555375783"},
+        {"name": "hp.json", "bytes": 23019454, "sha256": "3b646565695329aa399e937883c68d5d424d0df5eaab2f22baa0e08d44fdbe87"},
+        {"name": "hp.obo", "bytes": 11222341, "sha256": "a5092cbdf605f568403cf7380d9173014015692433b2cc631bc5c1b053876b1b"},
+        {"name": "hp.owl", "bytes": 77796135, "sha256": "01851cf5121af28b2fd1d252d98977a565abf5c1fbc7901d10c8580d5996dfb4"}
+      ],
+      "excluded_asset_classes": ["annotations_and_mappings", "merged_imports", "translations", "build_reports"]
+    }
+  ],
+  "excluded_or_metadata_only_sources": [
+    "WPP 2024",
+    "WHO GHE and WHO ICD",
+    "PanelApp",
+    "UMLS",
+    "SNOMED CT",
+    "MedDRA",
+    "MLDS",
+    "OMIM",
+    "all credentialed, controlled, mixed-rights or insufficiently evidenced sources"
+  ],
+  "repository_artifacts": [
+    {"path": "schemas/disease-hierarchy.schema.json", "sha256": "cd5c5f3f16f65c4fd64f8b4a0c976135906d600fd7fe662ba27961d2b9e2c194"},
+    {"path": "schemas/ontology-mapping.schema.json", "sha256": "3f08e77281aa4374c90b934808c65a33dd42d577ab90923fcd3e33bbdf0d04ae"},
+    {"path": "examples/semantics/orpha-to-synthetic-mapping.yml", "sha256": "30822b77b3b4d1728dde6d062f95b3eb136c7a8f6352b4c3c435576fe8839572"},
+    {"path": "examples/semantics/releases/orpha-to-synthetic-v0.1.0.md", "sha256": "fe8997b2abc9aa3a54049d20d0bd1a5aa98478c6614707437c394f982baa2782"}
+  ],
+  "derived_candidate_artifacts": [
+    {"path": "manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json", "sha256": "ae617b0826ce17915ddeff73be78f5b10f88bb9e89df634a86c0921d51df188e", "rows": 9758},
+    {"path": "manifests/semantics/track-008-v0.4-provisional-naming.json", "sha256": "a4cb8c3cbb0e7f3dc0ad013252301ff811c0a07711161748ed57196baabee05f"},
+    {"path": "manifests/semantics/track-008-v0.4-row-generation-receipt.json", "sha256": "e2531c99e4f06c2079b447309969589fc1d305e3ad0cf46d906e4ccb5056ad46"}
+  ],
+  "evidence": [
+    {"path": "docs/track-002-source-verification-2026-08-15.yml", "sha256": "5fbb29896456b0465efb381a9e6bfa4435bdec824e4e8ba081dcb54b5a267624"},
+    {"path": "manifests/hpo/asset-rights-matrix-2026-08-16.json", "sha256": "67fa69c94311c7e49fae00e5c20ebd09e6acd1ceb0ba8135af1eea777422cf09"},
+    {"path": "docs/huggingface-public-shift-followup-2026-08-21.yml", "sha256": "9dee3c4567b89812ab831984e6fae432a8e1288d88b9f61ffdc36c8f96ec5367"}
+  ],
+  "claims": {
+    "comprehensive_coverage": false,
+    "clinical_validation": false,
+    "patient_community_authority": false,
+    "independent_review": false,
+    "partnership_or_external_approval": false,
+    "contract_frozen": false,
+    "track_complete": false
+  },
+  "source_selection_note": "Rows were generated from the exact hash-verified public archive copy because the versionless live route was not accepted without the approved digest.",
+  "invalidation": "Any source, asset, evidence, repository artifact, derived artifact, commit or tree drift requires a new manifest and challenge."
+}

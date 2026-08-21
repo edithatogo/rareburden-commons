@@ -149,3 +149,40 @@
   Orphadata/MONDO allowlist, keeps HPO asset-specific, and leaves WHO and
   controlled sources disabled. This satisfies dependency ordering only; it
   does not establish mapping fitness, naming authority or freeze v0.4.
+
+## Owner-approved v0.4 candidate preparation — 2026-08-21
+
+- [x] Prepare the exact bounded v0.4 candidate using the approved Orphadata,
+  MONDO and nine individually cleared HPO ontology-core objects; preserve typed
+  uncertainty, non-clinical use, provisional owner-operated naming and all
+  controlled or mixed-rights exclusions. Evidence:
+  `manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json`,
+  `manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json` and
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml`, with the owner
+  preparation decision in
+  `docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml`.
+  This records owner authorization to prepare, not a contract freeze,
+  independent review, clinical validation or Track 008 completion.
+- [x] Generate 9,758 provisional exact-release ORPHA-to-MONDO mapping rows,
+  preserve 9,758 paired source labels and 20,413 HPO source-native labels,
+  exclude 27 MONDO assertions absent from the exact Orphadata release, and
+  re-run the bounded challenge. Evidence:
+  `manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json`,
+  `manifests/semantics/track-008-v0.4-provisional-naming.json`,
+  `manifests/semantics/track-008-v0.4-row-generation-receipt.json` and
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml`. Rows remain
+  provisional, moderate-confidence and non-clinical; no new groupings were
+  created.
+- [x] Prepare and present the final exact hashes, migration impact, bounded
+  challenge and two fallback options for owner disposition. Evidence:
+  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. The
+  decision remains pending; do not freeze or complete Track 008 automatically.
+- [ ] Record the owner's exact-candidate disposition and, only if selected,
+  apply the bounded contract-freeze state without marking Track 008 complete.
+
+## Review fixes — 2026-08-21
+
+- [x] Resolve full-gate lint findings in the candidate-binding validator,
+  HPO provenance renderer and negative hash-drift test without changing any
+  semantic candidate or gate state. Evidence: focused Track 008 tests and the
+  full repository validation gate.

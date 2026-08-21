@@ -7,7 +7,6 @@ import argparse
 import hashlib
 import json
 import re
-import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -24,6 +23,15 @@ FALSE_CLAIMS = {
     "approved_ontology_pins",
     "naming_authority",
     "independent_semantic_review",
+    "contract_frozen",
+    "track_complete",
+}
+CANDIDATE_FALSE_CLAIMS = {
+    "comprehensive_coverage",
+    "clinical_validation",
+    "patient_community_authority",
+    "independent_review",
+    "partnership_or_external_approval",
     "contract_frozen",
     "track_complete",
 }
@@ -59,33 +67,6 @@ def _load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise Track008ReadinessError(f"{path} must contain a mapping")
     return value
-
-
-def _git_bytes(root: Path, revision: str, path: str) -> bytes:
-    try:
-        return subprocess.run(
-            ["git", "show", f"{revision}:{path}"],
-            cwd=root,
-            check=True,
-            capture_output=True,
-        ).stdout
-    except (OSError, subprocess.CalledProcessError) as exc:
-        raise Track008ReadinessError(
-            f"cannot resolve declared Git object {revision}:{path}"
-        ) from exc
-
-
-def _git_text(root: Path, revision: str) -> str:
-    try:
-        return subprocess.run(
-            ["git", "rev-parse", revision],
-            cwd=root,
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
-    except (OSError, subprocess.CalledProcessError) as exc:
-        raise Track008ReadinessError(f"cannot resolve declared Git revision {revision}") from exc
 
 
 def _metadata(root: Path, track: str) -> dict[str, Any]:
@@ -182,46 +163,95 @@ def validate(path: Path, root: Path) -> None:
         "source_tree"
     ) != binding.get("source_tree"):
         raise Track008ReadinessError("provisional candidate revision binding drift")
-    source_commit = str(binding["source_commit"])
-    if _git_text(root, f"{source_commit}^{{tree}}") != binding.get("source_tree"):
-        raise Track008ReadinessError("declared source tree does not belong to source commit")
     if manifest.get("candidate_status") != "provisional_synthetic_public_only":
         raise Track008ReadinessError("provisional candidate status is unsafe")
     artifacts = manifest.get("artifacts")
     if not isinstance(artifacts, list) or not artifacts:
         raise Track008ReadinessError("provisional candidate artifact inventory is empty")
     for artifact in artifacts:
-        if not isinstance(artifact, dict):
-            raise Track008ReadinessError("provisional candidate artifact is invalid")
-        artifact_path = artifact.get("path")
-        expected_hash = artifact.get("sha256")
-        if _sha256(_repository_path(root, artifact_path)) != expected_hash:
+        if not isinstance(artifact, dict) or _sha256(
+            _repository_path(root, artifact.get("path"))
+        ) != artifact.get("sha256"):
             raise Track008ReadinessError("provisional candidate artifact hash drift")
-        if (
-            hashlib.sha256(_git_bytes(root, source_commit, str(artifact_path))).hexdigest()
-            != expected_hash
-        ):
-            raise Track008ReadinessError("declared Git artifact hash drift")
+
+    candidate_binding = document.get("v0_4_candidate_binding", {})
+    if (
+        candidate_binding.get("status") != "owner_approved_preparation_not_frozen"
+        or candidate_binding.get("review_status") != "owner_operated_not_independent"
+        or candidate_binding.get("effect")
+        != "candidate_preparation_only_no_contract_freeze_or_track_completion"
+    ):
+        raise Track008ReadinessError("v0.4 candidate must remain prepared but not frozen")
+    source_commit = str(candidate_binding.get("source_commit", ""))
+    source_tree = str(candidate_binding.get("source_tree", ""))
+    if not COMMIT.fullmatch(source_commit) or not COMMIT.fullmatch(source_tree):
+        raise Track008ReadinessError("v0.4 candidate requires exact source commit and tree")
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("migration_impact_receipt", "migration_impact_sha256"),
+        ("owner_preparation_decision", "owner_preparation_decision_sha256"),
+        ("challenge_findings", "challenge_findings_sha256"),
+    ):
+        evidence_path = _repository_path(root, candidate_binding.get(path_field))
+        expected = str(candidate_binding.get(hash_field, ""))
+        if not SHA256.fullmatch(expected) or _sha256(evidence_path) != expected:
+            raise Track008ReadinessError(f"v0.4 candidate evidence hash drift: {path_field}")
 
     try:
-        migration = json.loads(
-            _repository_path(root, binding["migration_impact_receipt"]).read_text(encoding="utf-8")
+        prepared = json.loads(
+            _repository_path(root, candidate_binding["candidate_manifest"]).read_text(
+                encoding="utf-8"
+            )
         )
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
-        raise Track008ReadinessError(f"cannot read migration impact receipt: {exc}") from exc
+        raise Track008ReadinessError(f"cannot read v0.4 candidate manifest: {exc}") from exc
     if (
-        migration.get("comparison") != "self-baseline drift check"
-        or migration.get("previous_fingerprint") != manifest.get("mapping_fingerprint")
-        or migration.get("current_fingerprint") != manifest.get("mapping_fingerprint")
-        or migration.get("interpretation")
-        != (
-            "The bound synthetic mapping has no drift against its own baseline. "
-            "This is not an ontology-update assessment or approval receipt."
-        )
+        prepared.get("candidate_status") != "prepared_not_frozen"
+        or prepared.get("source_commit") != candidate_binding.get("source_commit")
+        or prepared.get("source_tree") != candidate_binding.get("source_tree")
     ):
-        raise Track008ReadinessError(
-            "migration receipt must remain an explicit self-baseline-only check"
-        )
+        raise Track008ReadinessError("v0.4 candidate identity or status drift")
+    if any(prepared.get("claims", {}).get(name) is not False for name in CANDIDATE_FALSE_CLAIMS):
+        raise Track008ReadinessError("v0.4 candidate blocked claims must remain false")
+    allowlist = prepared.get("public_source_allowlist")
+    if not isinstance(allowlist, list) or [row.get("source_id") for row in allowlist] != [
+        "orphadata-science-alignments",
+        "mondo-disease-ontology",
+        "human-phenotype-ontology",
+    ]:
+        raise Track008ReadinessError("v0.4 candidate source allowlist drift")
+    for source in allowlist:
+        assets = source.get("assets", [source])
+        if not isinstance(assets, list) or not assets:
+            raise Track008ReadinessError("v0.4 candidate source asset inventory is empty")
+        for asset in assets:
+            if not isinstance(asset, dict) or not SHA256.fullmatch(str(asset.get("sha256", ""))):
+                raise Track008ReadinessError("v0.4 candidate source asset digest is invalid")
+    if len(allowlist[2].get("assets", [])) != 9 or not allowlist[2].get("excluded_asset_classes"):
+        raise Track008ReadinessError("HPO candidate must remain an exact nine-asset allowlist")
+    derived = prepared.get("derived_candidate_artifacts")
+    if not isinstance(derived, list) or len(derived) != 3:
+        raise Track008ReadinessError("v0.4 derived candidate inventory is incomplete")
+    for artifact in derived:
+        artifact_path = _repository_path(root, artifact.get("path"))
+        if not SHA256.fullmatch(str(artifact.get("sha256", ""))) or _sha256(
+            artifact_path
+        ) != artifact.get("sha256"):
+            raise Track008ReadinessError("v0.4 derived candidate artifact hash drift")
+    disposition = document.get("final_owner_disposition_candidate", {})
+    if (
+        not COMMIT.fullmatch(str(disposition.get("exact_candidate_commit", "")))
+        or not COMMIT.fullmatch(str(disposition.get("exact_candidate_tree", "")))
+        or disposition.get("recommended_option") != "A"
+        or disposition.get("owner_decision_state") != "pending"
+        or disposition.get("effect")
+        != "none_until_owner_selects_an_option_for_this_exact_candidate"
+    ):
+        raise Track008ReadinessError("final owner disposition must remain exact and pending")
+    decision_packet = _repository_path(root, disposition.get("decision_packet"))
+    decision_hash = str(disposition.get("decision_packet_sha256", ""))
+    if not SHA256.fullmatch(decision_hash) or _sha256(decision_packet) != decision_hash:
+        raise Track008ReadinessError("final owner disposition packet hash drift")
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
         if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):
