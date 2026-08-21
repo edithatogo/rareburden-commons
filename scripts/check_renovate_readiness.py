@@ -32,9 +32,7 @@ def validate_renovate_readiness(root: Path) -> dict[str, Any]:
     if not isinstance(ignored_paths, list) or not required_ignored_paths.issubset(
         set(ignored_paths)
     ):
-        raise RenovateReadinessError(
-            "generated requirements exports must be ignored by Renovate"
-        )
+        raise RenovateReadinessError("generated requirements exports must be ignored by Renovate")
     if (root / ".github" / "dependabot.yml").exists() or (
         root / ".github" / "dependabot.yaml"
     ).exists():
