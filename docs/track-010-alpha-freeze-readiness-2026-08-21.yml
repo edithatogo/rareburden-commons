@@ -8,6 +8,16 @@ upstream_dependency:
   required_status: "complete"
   observed_status: "blocked"
   state: "pending"
+synthetic_candidate_preparation:
+  status: "prepared_synthetic_only_not_alpha_not_frozen"
+  source_commit: "b99615dfc72c1133d9c18a0530415ce639d628aa"
+  source_tree: "0fc30cf4235aa6d03a9c0b2dc98b21aacbde5cfc"
+  candidate_manifest: "manifests/burden/track-010-synthetic-candidate-2026-08-21.json"
+  candidate_manifest_sha256: "9382b5a1ea47e455fd10862767e0de900022ac12bc2931db7629d2a898cf65f2"
+  compatibility_receipt: "manifests/burden/track-010-compatibility-impact-2026-08-21.json"
+  compatibility_receipt_sha256: "ab9586e10fc98108204c9d759840d15022d6526eba9d85d9bc1877dc8cb42a7d"
+  effect: "dormant_synthetic_preparation_only_no_dependency_satisfaction_review_alpha_freeze_or_track_003_eligibility"
+  invalidation: "any upstream, candidate, interface, artifact or dependency-lock drift or failed provenance/reproduction/security check"
 review_gate:
   review_packet: "docs/track-010-engine-review-packet.md"
   scientific_statistical_receipt: ""
