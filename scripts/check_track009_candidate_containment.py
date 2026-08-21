@@ -6,11 +6,18 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Any
 
 import yaml
+
+try:
+    from scripts.build_track009_v04_candidate import build
+except ModuleNotFoundError:  # Direct script execution has scripts/ on sys.path.
+    from build_track009_v04_candidate import build
 
 MERGE_COMMIT = "a9ef5b1ffdba55a0d45faf670d8679d890e414d6"
 MERGE_TREE = "6fa0fd46a54db0970ba04611f6cf90443525b9b7"
@@ -26,6 +33,9 @@ ALLOWED_EXPORTS = {
     "manifests/ledger/track-009-v0.4-public-foundation-synthetic.json",
     "manifests/ledger/track-009-v0.4-economic-social-synthetic.json",
 }
+SCHEMA = Path("schemas/parameter-ledger.schema.json")
+MIGRATION = Path("manifests/ledger/track-009-v0.4-migration-impact-2026-08-21.json")
+REGENERATED_ARTIFACTS = {*ALLOWED_EXPORTS, MANIFEST.as_posix(), MIGRATION.as_posix()}
 
 
 class CandidateContainmentError(ValueError):
@@ -52,6 +62,57 @@ def _load_yaml(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise CandidateContainmentError(f"expected mapping in {path}")
     return value
+
+
+def verify_regeneration(root: Path, manifest: dict[str, Any]) -> None:
+    """Regenerate twice in isolation and require exact checked-in bytes."""
+    source_commit = manifest.get("source_commit")
+    source_tree = manifest.get("source_tree")
+    ledger_paths = [Path(row["path"]) for row in manifest.get("input_ledgers", [])]
+    if {path.as_posix() for path in ledger_paths} != ALLOWED_INPUTS:
+        raise CandidateContainmentError("candidate synthetic input order or inventory drift")
+    export_by_ledger = {row["ledger_id"]: Path(row["path"]) for row in manifest.get("exports", [])}
+    export_paths: list[Path] = []
+    for ledger_path in ledger_paths:
+        ledger = _load_yaml(root / ledger_path)
+        try:
+            export_paths.append(export_by_ledger[ledger["ledger_id"]])
+        except KeyError as exc:
+            raise CandidateContainmentError("candidate export inventory drift") from exc
+
+    runs: list[Path] = []
+    with tempfile.TemporaryDirectory(prefix="track009-regeneration-") as temporary:
+        temporary_root = Path(temporary)
+        for index in range(2):
+            run_root = temporary_root / f"run-{index + 1}"
+            runs.append(run_root)
+            for relative in [SCHEMA, *ledger_paths]:
+                target = run_root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(root / relative, target)
+            build(
+                root=run_root,
+                source_commit=str(source_commit),
+                source_tree=str(source_tree),
+                schema=SCHEMA,
+                ledgers=ledger_paths,
+                exports=export_paths,
+                manifest=MANIFEST,
+                migration=MIGRATION,
+            )
+
+        for relative_value in sorted(REGENERATED_ARTIFACTS):
+            relative = Path(relative_value)
+            first = (runs[0] / relative).read_bytes()
+            second = (runs[1] / relative).read_bytes()
+            if first != second:
+                raise CandidateContainmentError(
+                    f"nondeterministic regeneration drift: {relative.as_posix()}"
+                )
+            if first != (root / relative).read_bytes():
+                raise CandidateContainmentError(
+                    f"checked-in candidate regeneration drift: {relative.as_posix()}"
+                )
 
 
 def validate(root: Path) -> None:
@@ -108,6 +169,8 @@ def validate(root: Path) -> None:
                     "non-synthetic semantic identifier entered candidate"
                 )
 
+    verify_regeneration(root, manifest)
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -118,7 +181,10 @@ def main() -> int:
     except (CandidateContainmentError, OSError, subprocess.CalledProcessError) as exc:
         print(f"Track 009 candidate containment failed: {exc}")
         return 1
-    print("Track 009 exact merged candidate remains synthetic-only, provisional and unfrozen.")
+    print(
+        "Track 009 exact merged candidate regenerates byte-for-byte and remains "
+        "synthetic-only, provisional and unfrozen."
+    )
     return 0
 
 
