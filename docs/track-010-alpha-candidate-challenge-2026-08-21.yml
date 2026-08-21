@@ -1,0 +1,40 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track: "010-public-burden-engine"
+candidate_scope: "exact synthetic non-empirical alpha-interface preparation"
+authority_boundary: >-
+  Owner-operated repository challenge only; not independent scientific-
+  software, scientific, statistical, engineering, clinical or patient/community review.
+lanes:
+  - role: "simulated scientific and statistical"
+    findings:
+      - severity: "medium"
+        finding: "Synthetic numerical behavior does not validate a real estimand or dependence model."
+        disposition: "Keep empirical use false and unsupported correlation fail-closed."
+      - severity: "medium"
+        finding: "Synthetic parameter labels include an observed status but no real-world observation."
+        disposition: "Preserve the explicit synthetic source and non-empirical interpretation at every output boundary."
+  - role: "simulated engineering"
+    findings:
+      - severity: "low"
+        finding: "Candidate identity depends on exact engine, schema, ledger, interface and assurance hashes."
+        disposition: "Any bound drift invalidates the candidate."
+  - role: "simulated patient-community harm"
+    findings:
+      - severity: "medium"
+        finding: "A numerical burden output can be mistaken for a patient-community endorsed real estimate."
+        disposition: "Retain synthetic and non-clinical labels and prohibit authority or representativeness claims."
+critical_findings: 0
+unresolved_medium_findings:
+  - "real estimand and dependence fitness"
+  - "synthetic observed-status interpretation risk"
+  - "patient/community interpretation and authority"
+recommendation: "present exact synthetic alpha candidate for owner disposition"
+claims:
+  scientific_approval: false
+  engineering_approval: false
+  patient_community_approval: false
+  independent_review: false
+  alpha_interface_frozen: false
+  empirical_or_production_activation: false
+  track_complete: false

@@ -65,4 +65,11 @@ recommendation:
     preparation only, keep alpha freeze and all accountable review gates
     separate, and invalidate the candidate on any upstream drift.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T12:17:33Z"
+  rationale: >-
+    Permit preparation of an exact synthetic alpha candidate against the
+    frozen Track 009 synthetic ledger contract. This does not freeze the alpha
+    interface, activate empirical or production use, or supply external review.

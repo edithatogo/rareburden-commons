@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "track": "010-public-burden-engine",
+  "candidate_interface": "alpha",
+  "candidate_status": "prepared_not_frozen",
+  "preparation_source_commit": "8e43db10d6871c14aaad70dc45ad7b067c97b32a",
+  "preparation_source_tree": "1fc370eb173251659f99e82a96f2ef17eaa76f9b",
+  "owner_preparation_decision": {
+    "path": "docs/decisions/2026-08-21-track-010-upstream-dependency-disposition.yml",
+    "sha256": "86b135c91e3354e982fd3e0a32ef4cb5a11b55bc7b03edc875abc6cc0e87f20c",
+    "selected_option_id": "A"
+  },
+  "engine_manifest": {
+    "path": "manifests/burden/track-010-alpha-engine-manifest-2026-08-21.json",
+    "sha256": "dd74d5b5b4a061512b189094621740992454f87589810b134eb86dbaad455a64"
+  },
+  "track_009_ledger_binding": {
+    "path": "docs/track-009-v0.4-freeze-receipt-2026-08-21.yml",
+    "sha256": "da51226da021a287eb8f732378cafce00c8b5f874c3c6a25616e1a7a3b044aef",
+    "empirical_parameter_count": 0
+  },
+  "track_003_interface_manifest": {
+    "path": "manifests/burden/track-010-track-003-interface-manifest-2026-08-21.json",
+    "sha256": "9725f803dde25c8c8d8010a40b653f241bccec7f399f71bd707138bfd9b51b3d"
+  },
+  "compatibility_and_migration_receipt": {
+    "path": "manifests/burden/track-010-alpha-compatibility-migration-receipt-2026-08-21.json",
+    "sha256": "dcd7ad550413646ee52c511300bb5b6813b32678ac2b90f72f606c835aabbb08"
+  },
+  "benchmark_and_reproducibility_receipt": {
+    "path": "manifests/burden/track-010-alpha-benchmark-reproducibility-receipt-2026-08-21.json",
+    "sha256": "f6c5f6e8e0649b25b3cc9854e54aedb5bfdb25daec3360e8894bf1469ef3393d"
+  },
+  "challenge": {
+    "path": "docs/track-010-alpha-candidate-challenge-2026-08-21.yml",
+    "sha256": "23a2f244aea32d317d1caaab1a694f039eacd2b8127174b85a3929ea8cec77d9"
+  },
+  "invalidation": "any bound engine, ledger, interface, assurance, commit or tree hash drift",
+  "claims": {
+    "scientific_approval": false,
+    "engineering_approval": false,
+    "patient_community_approval": false,
+    "independent_review": false,
+    "alpha_interface_frozen": false,
+    "empirical_or_production_activation": false,
+    "track_003_activated": false,
+    "track_complete": false
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "track": "010-public-burden-engine",
+  "candidate_interface": "alpha",
+  "status": "identity_compatible_not_activated",
+  "upstream_ledger": {
+    "freeze_receipt": "docs/track-009-v0.4-freeze-receipt-2026-08-21.yml",
+    "freeze_receipt_sha256": "da51226da021a287eb8f732378cafce00c8b5f874c3c6a25616e1a7a3b044aef",
+    "parameter_count": 2,
+    "empirical_parameter_count": 0
+  },
+  "compatibility": {
+    "ledger_ids_bound": true,
+    "parameter_fingerprints_bound": true,
+    "result_lineage_bound": true,
+    "units_and_population_fail_closed": true,
+    "data_loss": false
+  },
+  "migration": {
+    "source_interface": "v0.1.0 synthetic draft",
+    "target_interface": "alpha candidate",
+    "activation": false,
+    "changed_empirical_outputs": 0
+  },
+  "claims": {
+    "scientific_approval": false,
+    "alpha_interface_frozen": false,
+    "empirical_or_production_activation": false
+  }
+}

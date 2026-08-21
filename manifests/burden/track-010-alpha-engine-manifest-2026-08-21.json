@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "track": "010-public-burden-engine",
+  "candidate_interface": "alpha",
+  "status": "prepared_not_frozen",
+  "engine_assets": [
+    {"path": "src/rareburden/burden.py", "sha256": "c814f9b98b382fe87b5beb12b6398f27fd7b6364912faac372de7f41cb1bc57e"},
+    {"path": "src/rareburden/burden_assurance.py", "sha256": "955f8684affa270467f713b7023b0f2ba169c168ba89e1fb6c03309532dd04e5"},
+    {"path": "src/rareburden/uncertainty.py", "sha256": "5ef2853d73e3ac84c1fb73629e42b7821ad9173cf229c0b42bce9d77e6bc8517"},
+    {"path": "schemas/analysis-result.schema.json", "sha256": "64c100832a739071d587c304e1a723c872de30f18c0f56d48488579ace577c03"},
+    {"path": "schemas/uncertainty-decomposition.schema.json", "sha256": "7fe06ff5aebf718b5758bd649e4372fb1b725a5735b92201359e9d8ca04a95a0"}
+  ],
+  "supported_scope": [
+    "deterministic expected affected population",
+    "rare-aetiology composition",
+    "seeded independent synthetic uncertainty propagation",
+    "bounded structural scenarios and explicit non-estimability"
+  ],
+  "excluded_scope": [
+    "empirical parameter activation",
+    "unsupported correlation or dependence inference",
+    "DALY, YLD, YLL, cost, clinical or policy shortcuts",
+    "production activation"
+  ],
+  "claims": {
+    "scientific_approval": false,
+    "clinical_validation": false,
+    "alpha_interface_frozen": false,
+    "empirical_or_production_activation": false,
+    "track_complete": false
+  }
+}

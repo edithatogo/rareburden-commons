@@ -46,10 +46,10 @@ def test_satisfied_review_requires_independent_and_accountable_receipts(tmp_path
         validate(_candidate(tmp_path, document), ROOT)
 
 
-def test_upstream_reconciliation_is_exact_pending_and_non_activating() -> None:
+def test_upstream_reconciliation_is_recorded_and_non_activating() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     reconciliation = document["upstream_contract_reconciliation"]
-    assert reconciliation["owner_decision_state"] == "pending"
+    assert reconciliation["owner_decision_state"] == "recorded_option_A"
     assert reconciliation["recommended_option"] == "A"
     assert document["upstream_dependency"]["state"] == "pending"
     assert document["claims"]["alpha_interface_frozen"] is False
@@ -65,8 +65,24 @@ def test_readiness_rejects_upstream_reconciliation_hash_drift(tmp_path: Path) ->
 
 def test_readiness_rejects_premature_upstream_decision(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
-    document["upstream_contract_reconciliation"]["owner_decision_state"] = "recorded_option_A"
-    with pytest.raises(Track010ReadinessError, match="must remain exact and pending"):
+    document["upstream_contract_reconciliation"]["owner_decision_state"] = "pending"
+    with pytest.raises(Track010ReadinessError, match="must remain exact and recorded"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_exact_alpha_candidate_is_synthetic_only_and_unfrozen() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    candidate = document["alpha_candidate_binding"]
+    assert candidate["empirical_parameter_count"] == 0
+    assert candidate["status"] == "prepared_not_frozen"
+    assert document["alpha_freeze_gate"]["state"] == "pending"
+    assert document["claims"]["alpha_interface_frozen"] is False
+
+
+def test_readiness_rejects_alpha_candidate_hash_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["alpha_candidate_binding"]["candidate_manifest_sha256"] = "0" * 64
+    with pytest.raises(Track010ReadinessError, match="candidate evidence hash drift"):
         validate(_candidate(tmp_path, document), ROOT)
 
 

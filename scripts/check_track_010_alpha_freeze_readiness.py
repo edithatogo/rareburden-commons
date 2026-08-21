@@ -104,16 +104,16 @@ def validate(path: Path, root: Path) -> None:
 
     reconciliation = document.get("upstream_contract_reconciliation", {})
     if (
-        reconciliation.get("status") != "owner_decision_required"
+        reconciliation.get("status") != "owner_approved_candidate_preparation"
         or reconciliation.get("recommended_option") != "A"
-        or reconciliation.get("owner_decision_state") != "pending"
+        or reconciliation.get("owner_decision_state") != "recorded_option_A"
         or reconciliation.get("effect")
-        != "none_until_owner_selects_an_option_for_this_exact_upstream_freeze"
+        != "exact_synthetic_candidate_preparation_only_no_alpha_freeze_or_activation"
         or not COMMIT.fullmatch(str(reconciliation.get("freeze_recording_commit", "")))
         or not COMMIT.fullmatch(str(reconciliation.get("freeze_recording_tree", "")))
     ):
         raise Track010ReadinessError(
-            "upstream contract reconciliation must remain exact and pending"
+            "upstream contract reconciliation must remain exact and recorded"
         )
     for path_field, hash_field in (
         ("track_009_freeze_receipt", "track_009_freeze_receipt_sha256"),
@@ -137,11 +137,62 @@ def validate(path: Path, root: Path) -> None:
     if (
         decision_packet.get("track") != "010-public-burden-engine"
         or decision_packet.get("recommendation", {}).get("option_id") != "A"
-        or decision_packet.get("owner_decision", {}).get("status") != "pending"
+        or decision_packet.get("owner_decision", {}).get("status") != "recorded"
+        or decision_packet.get("owner_decision", {}).get("selected_option_id") != "A"
+        or decision_packet.get("owner_decision", {}).get("decided_by") != "edithatogo"
         or decision_packet.get("upstream_evidence", {}).get("freeze_receipt_sha256")
         != reconciliation.get("track_009_freeze_receipt_sha256")
     ):
         raise Track010ReadinessError("Track 010 upstream decision packet identity or state drift")
+
+    candidate_binding = document.get("alpha_candidate_binding", {})
+    if (
+        candidate_binding.get("status") != "prepared_not_frozen"
+        or candidate_binding.get("effect")
+        != "candidate_preparation_only_no_alpha_freeze_track_003_or_production_activation"
+        or candidate_binding.get("empirical_parameter_count") != 0
+        or not COMMIT.fullmatch(str(candidate_binding.get("preparation_source_commit", "")))
+        or not COMMIT.fullmatch(str(candidate_binding.get("preparation_source_tree", "")))
+    ):
+        raise Track010ReadinessError("alpha candidate scope or revision binding drift")
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("engine_manifest", "engine_manifest_sha256"),
+        ("track_009_ledger_receipt", "track_009_ledger_receipt_sha256"),
+        ("track_003_interface_manifest", "track_003_interface_manifest_sha256"),
+        (
+            "compatibility_and_migration_receipt",
+            "compatibility_and_migration_receipt_sha256",
+        ),
+        (
+            "benchmark_and_reproducibility_receipt",
+            "benchmark_and_reproducibility_receipt_sha256",
+        ),
+        ("challenge_findings", "challenge_findings_sha256"),
+    ):
+        evidence_path = _repository_path(root, candidate_binding.get(path_field))
+        expected_hash = str(candidate_binding.get(hash_field, ""))
+        if not SHA256.fullmatch(expected_hash) or _sha256(evidence_path) != expected_hash:
+            raise Track010ReadinessError(f"alpha candidate evidence hash drift: {path_field}")
+    try:
+        candidate = json.loads(
+            _repository_path(root, candidate_binding.get("candidate_manifest")).read_text(
+                encoding="utf-8"
+            )
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise Track010ReadinessError(f"cannot read alpha candidate manifest: {exc}") from exc
+    if (
+        candidate.get("candidate_status") != "prepared_not_frozen"
+        or candidate.get("track_009_ledger_binding", {}).get("empirical_parameter_count") != 0
+        or candidate.get("engine_manifest", {}).get("sha256")
+        != candidate_binding.get("engine_manifest_sha256")
+        or candidate.get("claims", {}).get("alpha_interface_frozen") is not False
+        or candidate.get("claims", {}).get("empirical_or_production_activation") is not False
+        or candidate.get("claims", {}).get("track_003_activated") is not False
+        or candidate.get("claims", {}).get("track_complete") is not False
+    ):
+        raise Track010ReadinessError("alpha candidate identity, scope or claims drift")
 
     review = document.get("review_gate", {})
     if review.get("repository_panel_status") != "advisory":

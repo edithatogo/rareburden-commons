@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "track": "010-public-burden-engine",
+  "status": "synthetic_assurance_not_external_validation",
+  "reference_receipt": {
+    "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",
+    "sha256": "81826bff754050e4dec8a21a6c9a11a11bdb9126493bb4d96c36dc1c8e9af5bc"
+  },
+  "quality_disposition": {
+    "path": "docs/track-010-bounded-quality-disposition-2026-08-16.yml",
+    "sha256": "5107082bd16211430b4fb559376157ecec36e741cbf0d31b9d4d675dbca4649a"
+  },
+  "reference_documentation": {
+    "path": "docs/burden-engine-010-reference.md",
+    "sha256": "090cb17472cbdff0dd95aead2ea63a02e9a0f1fd0b346fa45bbaa8b207dabc27"
+  },
+  "benchmark": {
+    "workload": "synthetic-independent-product",
+    "iterations": 10000,
+    "seed": 20260731,
+    "maximum_process_cpu_seconds": 15.0,
+    "scientific_output_sha256": "a22833dbe273df624861cb191e079287102e5fd6adec790191292a90b19564fd"
+  },
+  "reproducibility": {
+    "deterministic_seed": true,
+    "versioned_random_stream": "rareburden.pcg32-box-muller-marsaglia-tsang.v1",
+    "golden_output_bound": true
+  },
+  "claims": {
+    "performance_certification": false,
+    "scientific_validation": false,
+    "independent_review": false,
+    "production_readiness": false
+  }
+}

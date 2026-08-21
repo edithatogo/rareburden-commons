@@ -116,5 +116,12 @@
   `docs/decisions/2026-08-21-track-010-upstream-dependency-disposition.yml`
   and `docs/track-010-alpha-freeze-readiness-2026-08-21.yml`. The recommended
   narrow exception permits exact synthetic alpha-candidate preparation only;
-  it remains pending owner selection and does not freeze an interface, activate
-  empirical or production use, or supply accountable review.
+  the owner selected it without freezing an interface, activating empirical or
+  production use, or supplying accountable review.
+- [x] Prepare the exact synthetic alpha candidate with engine, frozen-ledger,
+  Track 003 interface, compatibility/migration, benchmark/reproducibility and
+  repeated challenge bindings. Evidence:
+  `manifests/burden/track-010-alpha-candidate-2026-08-21.json` and its bound
+  artifacts plus `docs/track-010-alpha-candidate-challenge-2026-08-21.yml`.
+  Empirical parameter count is zero; all approval, interface-freeze, Track 003
+  activation, production activation and Track completion claims remain false.

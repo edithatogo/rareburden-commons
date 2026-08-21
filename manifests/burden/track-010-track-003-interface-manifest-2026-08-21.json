@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "track": "010-public-burden-engine",
+  "consumer_track": "003-monogenic-diabetes-demonstrator",
+  "binding_status": "prepared_not_activated_or_frozen",
+  "interfaces": [
+    {"path": "docs/track-003-estimand-denominator-contract-v0.1.0.yml", "sha256": "b69cd5d016bf7bb2b47ee957fc59edf9184614225c888802606da8cd848e8358"},
+    {"path": "docs/track-003-population-state-contract-v0.1.0.yml", "sha256": "9b207d5215f9fb66bc577f15d71191db43daf6cbde4bd886b99f4edbe11aff91"}
+  ],
+  "permitted_use": "synthetic_contract_compatibility_assurance_only",
+  "claims": {
+    "track_003_activated": false,
+    "clinical_estimand_approved": false,
+    "alpha_interface_frozen": false
+  }
+}
