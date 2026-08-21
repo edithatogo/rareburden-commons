@@ -45,7 +45,6 @@ naming_and_semantic_gate:
       required_accountable_evidence: "attributable clinical and patient/community naming disposition"
   clinical_receipt: ""
   patient_community_receipt: ""
-  independent_semantic_review_receipt: ""
   owner_disposition: "docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml"
   state: "pending"
 provisional_candidate_binding:
@@ -87,7 +86,7 @@ contract_freeze_gate:
   semantic_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
   migration_impact_receipt: "manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json"
   blocking_findings_resolved: true
-  resolution_scope: "bounded provisional non-clinical candidate only; external naming, clinical, community, rights and independent-review findings remain pending"
+  resolution_scope: "bounded provisional non-clinical candidate only; source-rights expansion, clinical-validity and actual-community naming-authority findings remain pending"
   accountable_freeze_decision: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
   state: "satisfied"
 claims:
@@ -99,7 +98,9 @@ claims:
 governance:
   repository_panel_output: "advisory"
   owner_disposition: "owner_operated_not_independent_review"
+  independent_human_review_gate: "not_applicable_single_person_repository"
+  accountable_decision_maker: "repository_owner"
   automated_validation_effect: "validates_recorded_scoped_freeze_only_not_approval_independent_review_track_completion_or_external_authority"
 next_action:
   repository_owned: "preserve the frozen hash-bound bounded candidate and invalidate it on any recorded stop trigger"
-  external: "obtain the accountable source, clinical, patient/community and independent semantic evidence listed above"
+  external: "obtain only the accountable source-rights, source-specific mapping-fitness, clinical-validity and actual-community naming-authority evidence required for any proposed scope expansion"

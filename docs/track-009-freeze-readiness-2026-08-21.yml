@@ -22,7 +22,7 @@ upstream_semantic_observation:
   track_008_owner_decision: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
   track_008_owner_decision_sha256: "b7d09cfa9987991007fab783d407013335946da65e9825ff3af682154c1b219f"
   track_008_readiness: "docs/track-008-freeze-readiness-2026-08-21.yml"
-  track_008_readiness_sha256: "1bf9b43605ec7eb1f299047aa4546b9639bf3d4419bbbecd371589ed095e2674"
+  track_008_readiness_sha256: "19b89a8bbb2a14edd781ae20e9f367273caa331e496307a449ec12f19bf70c40"
   advisory_and_owner_preparation: "docs/decisions/2026-08-21-track-009-post-track-008-reconciliation.yml"
   advisory_and_owner_preparation_sha256: "853dd184b65b45dbb016457c76135b3105b9844142c3f71d295c332c00c5ab84"
   invalidation: "any upstream candidate, decision, readiness or evidence hash drift"
