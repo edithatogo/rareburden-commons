@@ -1,0 +1,75 @@
+schema_version: "1.0.0"
+status: prepared_not_applied
+track_id: 008-semantic-backbone
+purpose: >-
+  Rebind the non-operative successor implementation candidate to the exact
+  current main baseline before any registration, dependency migration or mode
+  activation decision.
+repository_model:
+  accountable_human: edithatogo
+  panel_status: simulated_role_separated_advisory_only
+  independent_human_review: false
+  remuneration: none
+  community_representation: false
+candidate:
+  repository_commit: 3fdc5076a4ea64b307421a4967fa962cc0413547
+  repository_tree: 6f9f204dcb0bac97325c4ec30c5d4434d6fa787a
+  implementation_manifest: docs/candidates/track-008-successors/implementation-candidate.yml
+  implementation_manifest_sha256: 24ab0a82a05b8c16e8c48626ea5625b77137be5b2dc08fd31a7c6b267f049c6f
+  mode_manifest_sha256: 92376c1571fbdea5694d30872a6b20abb71392330584fdc06c211cab36eab55f
+  migration_manifest_sha256: e4ad4b812d7d43e7b3725a61e6b219f189dea3f58896b2e53f720cbfd994f84e
+  candidate_status: prepared_not_applied
+validation:
+  exact_candidate_validator: scripts/check_track_008_successor_implementation_candidate.py
+  exact_candidate_result: passed_no_live_state_changed
+  focused_tests: tests/test_track_008_successor_implementation_candidate.py
+  focused_test_result: 25_passed
+  programme_validation: passed
+panel:
+  perspectives:
+    - simulated_methods_evidence
+    - simulated_rights_provenance
+    - simulated_community_harm
+    - simulated_engineering_release
+  observed:
+    - Exact candidate hashes bind to current main and remain byte-checked.
+    - Both successors remain blocked and unregistered.
+    - Unknown and high-risk semantic modes fail closed behind successor and external evidence gates.
+    - All six proposed application effects are declared atomic with a whole-change rollback.
+  assessed:
+    - The candidate is suitable for owner review of preparation completeness.
+    - The validator proves structure and containment, not rights, clinical fitness, community authority or permission to apply.
+  cannot_infer:
+    - source or derivative rights
+    - clinical or semantic-methods fitness
+    - patient or community participation, consent, endorsement or authority
+    - independent human review or release authority
+    - permission to register successors, migrate dependencies or activate modes
+  dissent:
+    - Rights and harm perspectives require attributable external receipts before any non-synthetic or public-facing mode.
+    - Engineering and release perspectives require a separately authorized atomic application and rollback rehearsal before live mutation.
+recommendation:
+  option_id: B
+  title: retain preparation-only state pending exact owner application decision
+  rationale: >-
+    The exact candidate is now reconciled to current main, but the recorded
+    owner authorization covers preparation and rebind only. Keeping live state
+    unchanged preserves the blocked baseline and prevents a panel packet from
+    being mistaken for application authority.
+  contingencies:
+    - Reject the candidate if any hash, consumer, mode, receipt or rollback assertion drifts.
+    - Keep Track 008, Track 009 and both successors blocked if any atomic effect cannot be applied and rolled back as one change.
+    - Do not treat simulated panels or owner preparation approval as clinical, community, rights-holder, independent or external approval.
+owner_decision:
+  status: pending
+  required_action: exact_owner_decision_before_any_live_application
+  applied: false
+claims:
+  track_008_complete: false
+  successor_registered: false
+  track_009_unblocked: false
+  semantic_mode_active: false
+  rights_cleared: false
+  clinical_validated: false
+  community_authority: false
+  independent_review: false
