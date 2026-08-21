@@ -2,8 +2,8 @@ schema_version: "1.0.0"
 simulation_status: "simulated_role_separated_advisory_panel"
 track_id: "008-semantic-backbone"
 candidate:
-  commit: "bdce109e0fc917e2f9f8e178120c97b3e00dc0d6"
-  tree: "1c804aa7cb90a74bad77559341cabfc758061284"
+  commit: "fa9109e09a91ea5dfc975c54921a3f2f1f79c016"
+  tree: "81d32f8a2ea7f4b8d385e0c23cef4af6742bb09d"
   evidence_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
 panel:
   perspectives:
