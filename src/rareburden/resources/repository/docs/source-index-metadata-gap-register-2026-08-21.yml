@@ -8,33 +8,18 @@ scope:
   boundary: "repository-declared candidate universe only; not global source completeness"
 
 reconciliation:
-  catalogue_records: 16
-  archival_matrix_records: 21
-  overlap_records: 15
+  catalogue_records: 22
+  archival_matrix_records: 22
+  overlap_records: 22
   union_records: 22
-  all_sources_indexed: false
+  all_sources_indexed: true
   all_exact_release_metadata_archived: false
   all_raw_bytes_archived: false
   all_raw_bytes_publicly_redistributable: false
 
-catalogue_only:
-  - source_id: "who-global-health-expenditure-database"
-    gap: "missing archival-matrix disposition and exact selected release packet"
-    next_evidence: "release, file, checksum, terms, third-party fields, retention and redistribution decision"
+catalogue_only: []
 
-archival_matrix_only:
-  - source_id: "human-phenotype-ontology"
-    catalogue_action: "add as an explicit source family distinct from general semantic candidates"
-  - source_id: "who-icd-10-11"
-    catalogue_action: "add selected edition/language family only after exact scope is chosen"
-  - source_id: "omim"
-    catalogue_action: "add metadata-only restricted source entry"
-  - source_id: "snomed-ct"
-    catalogue_action: "add metadata-only licensed terminology entry"
-  - source_id: "snomed-ct-national-edition-germany"
-    catalogue_action: "add only if the national edition remains an intended project source"
-  - source_id: "meddra"
-    catalogue_action: "add metadata-only subscriber source entry"
+archival_matrix_only: []
 
 exact_snapshot_metadata_archived:
   status: "bounded_not_exhaustive"
@@ -86,8 +71,6 @@ raw_publication:
   prohibited_or_unknown: "all other raw-byte routes remain source-, release-, field-, agreement- and purpose-specific"
 
 recommended_order:
-  - "add the six matrix-only candidates to the catalogue as restricted or metadata-only entries without activating them"
-  - "add a GHED archival-matrix disposition or explicitly remove it from intended acquisition scope"
   - "create exact release packets only after selection/access is lawful"
   - "promote further raw bytes only from a new exact file-level rights manifest and owner disposition"
 
