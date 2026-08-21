@@ -177,6 +177,46 @@ def validate(path: Path, root: Path) -> None:
     ).get("semantic_manifest_sha256"):
         raise Track009ReadinessError("Track 008 semantic manifest binding drift")
 
+    candidate = document.get("v0_4_candidate_preparation", {})
+    if (
+        candidate.get("status") != "prepared_synthetic_only_not_frozen"
+        or candidate.get("effect")
+        != "exact_synthetic_review_preparation_only_no_activation_review_or_freeze"
+    ):
+        raise Track009ReadinessError("v0.4 candidate must remain synthetic preparation only")
+    candidate_commit = str(candidate.get("source_commit", ""))
+    candidate_tree = str(candidate.get("source_tree", ""))
+    if (
+        not COMMIT.fullmatch(candidate_commit)
+        or not COMMIT.fullmatch(candidate_tree)
+        or _git_text(root, f"{candidate_commit}^{{tree}}") != candidate_tree
+    ):
+        raise Track009ReadinessError("v0.4 candidate source commit and tree drift")
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("migration_impact_receipt", "migration_impact_sha256"),
+        ("review_preparation", "review_preparation_sha256"),
+    ):
+        expected = str(candidate.get(hash_field, ""))
+        if (
+            not SHA256.fullmatch(expected)
+            or _sha256(_repository_path(root, candidate.get(path_field))) != expected
+        ):
+            raise Track009ReadinessError(f"v0.4 candidate evidence drift: {path_field}")
+    candidate_manifest = json.loads(
+        _repository_path(root, candidate.get("candidate_manifest")).read_text(encoding="utf-8")
+    )
+    if (
+        candidate_manifest.get("candidate_status") != "prepared_synthetic_only_not_frozen"
+        or candidate_manifest.get("source_commit") != candidate_commit
+        or candidate_manifest.get("source_tree") != candidate_tree
+        or any(value is not False for value in candidate_manifest.get("claims", {}).values())
+    ):
+        raise Track009ReadinessError("v0.4 candidate identity or blocked claims drift")
+    for artifact in candidate_manifest.get("exports", []):
+        if _sha256(_repository_path(root, artifact.get("path"))) != artifact.get("sha256"):
+            raise Track009ReadinessError("v0.4 candidate export hash drift")
+
     issues = document.get("blocking_data_contract_issues")
     if not isinstance(issues, list) or {row.get("id") for row in issues} != REQUIRED_ISSUES:
         raise Track009ReadinessError("all three bounded-review issues must remain explicit")

@@ -89,3 +89,18 @@ def test_upstream_observation_rejects_dependency_bypass(tmp_path: Path) -> None:
     document["upstream_semantic_observation"]["observation_status"] = "dependency_satisfied"
     with pytest.raises(Track009ReadinessError, match="non-activating"):
         validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_v0_4_candidate_remains_synthetic_and_unfrozen() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    candidate = document["v0_4_candidate_preparation"]
+    assert candidate["status"] == "prepared_synthetic_only_not_frozen"
+    assert document["review_gate"]["state"] == "pending"
+    assert document["contract_freeze_gate"]["state"] == "pending"
+
+
+def test_v0_4_candidate_rejects_manifest_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["v0_4_candidate_preparation"]["candidate_manifest_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="candidate evidence drift"):
+        validate(_candidate(tmp_path, document), ROOT)
