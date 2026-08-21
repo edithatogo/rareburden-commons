@@ -125,3 +125,8 @@
   artifacts plus `docs/track-010-alpha-candidate-challenge-2026-08-21.yml`.
   Empirical parameter count is zero; all approval, interface-freeze, Track 003
   activation, production activation and Track completion claims remain false.
+- [x] Bind the resulting candidate to exact commit `68a1d31`, tree and artifact
+  hashes and prepare three final owner options. Evidence:
+  `docs/decisions/2026-08-21-track-010-alpha-final-disposition.yml`. Deferral is
+  recommended because the required accountable and independent review receipts
+  are absent; the alpha freeze remains pending.

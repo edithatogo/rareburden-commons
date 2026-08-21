@@ -194,6 +194,33 @@ def validate(path: Path, root: Path) -> None:
     ):
         raise Track010ReadinessError("alpha candidate identity, scope or claims drift")
 
+    disposition = document.get("final_owner_disposition_candidate", {})
+    if (
+        disposition.get("exact_candidate_commit") != "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+        or disposition.get("exact_candidate_tree") != "56851ea539a3503175e253dd7949b28abc474082"
+        or disposition.get("recommended_option") != "A"
+        or disposition.get("owner_decision_state") != "pending"
+        or disposition.get("effect")
+        != "none_until_owner_selects_an_option_for_this_exact_candidate"
+    ):
+        raise Track010ReadinessError("final Track 010 disposition must remain exact and pending")
+    disposition_path = _repository_path(root, disposition.get("decision_packet"))
+    disposition_hash = str(disposition.get("decision_packet_sha256", ""))
+    if not SHA256.fullmatch(disposition_hash) or _sha256(disposition_path) != disposition_hash:
+        raise Track010ReadinessError("final Track 010 disposition packet hash drift")
+    disposition_packet = _load(disposition_path)
+    if (
+        disposition_packet.get("candidate", {}).get("commit")
+        != disposition.get("exact_candidate_commit")
+        or disposition_packet.get("candidate", {}).get("tree")
+        != disposition.get("exact_candidate_tree")
+        or disposition_packet.get("candidate", {}).get("manifest_sha256")
+        != candidate_binding.get("candidate_manifest_sha256")
+        or disposition_packet.get("recommendation", {}).get("option_id") != "A"
+        or disposition_packet.get("owner_decision", {}).get("status") != "pending"
+    ):
+        raise Track010ReadinessError("final Track 010 disposition identity or state drift")
+
     review = document.get("review_gate", {})
     if review.get("repository_panel_status") != "advisory":
         raise Track010ReadinessError("repository panel output must remain advisory")

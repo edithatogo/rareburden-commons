@@ -39,6 +39,14 @@ alpha_candidate_binding:
   challenge_findings_sha256: "23a2f244aea32d317d1caaab1a694f039eacd2b8127174b85a3929ea8cec77d9"
   empirical_parameter_count: 0
   effect: "candidate_preparation_only_no_alpha_freeze_track_003_or_production_activation"
+final_owner_disposition_candidate:
+  exact_candidate_commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  exact_candidate_tree: "56851ea539a3503175e253dd7949b28abc474082"
+  decision_packet: "docs/decisions/2026-08-21-track-010-alpha-final-disposition.yml"
+  decision_packet_sha256: "c70065b520cdb61a3f989656e69c7a3c53ad35971914d5f3e0996107c1bb8ace"
+  recommended_option: "A"
+  owner_decision_state: "pending"
+  effect: "none_until_owner_selects_an_option_for_this_exact_candidate"
 review_gate:
   review_packet: "docs/track-010-engine-review-packet.md"
   scientific_statistical_receipt: ""
@@ -71,5 +79,5 @@ claims:
 governance:
   automated_validation_effect: "readiness_only_not_approval_independent_review_or_freeze"
 next_action:
-  repository_owned: "present the exact alpha candidate revision, hashes, compatibility, assurance and challenge for final owner disposition"
+  repository_owned: "preserve the exact candidate and bound evidence while final owner disposition is pending"
   external_or_accountable: "retain scientific, engineering, patient/community and independent-review gates unless separately evidenced"

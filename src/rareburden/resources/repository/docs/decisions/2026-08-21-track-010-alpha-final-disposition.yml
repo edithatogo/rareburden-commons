@@ -1,0 +1,71 @@
+schema_version: "1.0.0"
+simulation_status: "owner_operated_not_independent_review"
+track: "010-public-burden-engine"
+candidate:
+  commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
+  tree: "56851ea539a3503175e253dd7949b28abc474082"
+  manifest: "manifests/burden/track-010-alpha-candidate-2026-08-21.json"
+  manifest_sha256: "6cccb10ca8fc7bc5b4c66b3f20dab4e1ca485aeab6f7121e1cb116787b1bd9a6"
+  engine_manifest_sha256: "dd74d5b5b4a061512b189094621740992454f87589810b134eb86dbaad455a64"
+  ledger_receipt_sha256: "da51226da021a287eb8f732378cafce00c8b5f874c3c6a25616e1a7a3b044aef"
+  track_003_interface_manifest_sha256: "9725f803dde25c8c8d8010a40b653f241bccec7f399f71bd707138bfd9b51b3d"
+  compatibility_migration_sha256: "dcd7ad550413646ee52c511300bb5b6813b32678ac2b90f72f606c835aabbb08"
+  benchmark_reproducibility_sha256: "f6c5f6e8e0649b25b3cc9854e54aedb5bfdb25daec3360e8894bf1469ef3393d"
+  challenge_sha256: "23a2f244aea32d317d1caaab1a694f039eacd2b8127174b85a3929ea8cec77d9"
+observed_scope:
+  empirical_parameter_count: 0
+  activation: "synthetic_only"
+  critical_findings: 0
+  unresolved_medium_findings: 3
+  accountable_review_receipts_present: 0
+cannot_infer:
+  - "scientific, statistical, engineering or clinical validity"
+  - "patient/community authority, consent or endorsement"
+  - "independent scientific-software review"
+  - "empirical or production fitness"
+  - "Track 003 activation, partnership or external approval"
+options:
+  - id: "A"
+    title: "Defer alpha freeze for accountable review"
+    disposition: "defer"
+    trade_offs:
+      - "Preserves the current alpha-freeze acceptance contract and avoids converting synthetic testing into accountable validation."
+      - "Leaves the exact candidate prepared but not frozen while review coordination remains open-ended."
+    contingencies:
+      - "Keep the candidate immutable and regenerate it on any bound hash drift."
+      - "Continue only non-activating synthetic assurance while receipts are pending."
+    minimum_evidence:
+      - "Scientific/statistical, engineering, patient/community and independent scientific-software receipts bound to this exact candidate."
+      - "Owner disposition of their findings and any required fixes."
+  - id: "B"
+    title: "Freeze a synthetic-only alpha exception"
+    disposition: "narrow_exception"
+    trade_offs:
+      - "Stabilizes the executable interface sooner for synthetic engineering use."
+      - "Requires an explicit change to the current rule that alpha freeze needs all accountable reviews and creates a higher risk of downstream overclaiming."
+    contingencies:
+      - "Track 003, empirical and production activation remain false."
+      - "Every output must remain visibly synthetic, non-clinical and non-independent."
+    minimum_evidence:
+      - "Owner explicitly approves the exact rule exception and synthetic-only scope."
+      - "A revised validator and freeze receipt preserve every excluded claim and invalidate on drift."
+  - id: "C"
+    title: "Stabilize an internal contract snapshot"
+    disposition: "narrow_scope"
+    trade_offs:
+      - "Provides a durable internal engineering baseline without calling it an alpha-interface freeze."
+      - "Does not satisfy the Track 003 alpha dependency or advance formal release readiness."
+    contingencies:
+      - "Retain alpha_interface_frozen=false and mark the snapshot internal synthetic assurance only."
+    minimum_evidence:
+      - "Owner selects the internal-only designation against this exact candidate."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    Track 010's acceptance contract expressly requires accountable and
+    independent review for an alpha freeze. The current evidence demonstrates
+    deterministic synthetic engineering behavior only. Preserve the exact
+    candidate and defer the alpha freeze rather than weaken that gate by
+    implication.
+owner_decision:
+  status: "pending"

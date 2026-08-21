@@ -86,6 +86,23 @@ def test_readiness_rejects_alpha_candidate_hash_drift(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
+def test_final_disposition_is_exact_pending_and_recommends_deferral() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    disposition = document["final_owner_disposition_candidate"]
+    assert disposition["exact_candidate_commit"] == ("68a1d31c623161a323d90f2b2de95d3b1a11a1a3")
+    assert disposition["recommended_option"] == "A"
+    assert disposition["owner_decision_state"] == "pending"
+    assert document["review_gate"]["state"] == "pending"
+    assert document["alpha_freeze_gate"]["state"] == "pending"
+
+
+def test_readiness_rejects_final_disposition_hash_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["final_owner_disposition_candidate"]["decision_packet_sha256"] = "0" * 64
+    with pytest.raises(Track010ReadinessError, match="disposition packet hash drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
 def test_alpha_freeze_requires_exact_candidate_binding(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
     document["alpha_freeze_gate"]["state"] = "satisfied"
