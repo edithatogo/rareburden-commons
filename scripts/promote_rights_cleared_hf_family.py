@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stream one rights-cleared family from private HF storage to a public dataset."""
+"""Fail-closed preparation for a future exact-file HF promotion."""
 
 from __future__ import annotations
 
@@ -17,8 +17,8 @@ REQUIRED_CONDITIONS = {"preserve_exact_bytes", "record_source_revision", "record
 
 def load_family(path: Path, family_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
-    if payload.get("status") != "exact_rights_cleared_private_to_public_promotion":
-        raise ValueError("promotion manifest is not rights-cleared")
+    if payload.get("status") != "bounded_exact_file_candidate_no_promotion":
+        raise ValueError("promotion manifest is not a bounded candidate")
     matches = [item for item in payload["families"] if item["id"] == family_id]
     if len(matches) != 1:
         raise ValueError("family must resolve exactly once")
@@ -41,6 +41,12 @@ def sha256_file(path: Path) -> str:
 
 
 def promote(manifest: Path, family_id: str, *, max_bytes: int) -> dict[str, Any]:
+    payload = json.loads(manifest.read_text(encoding="utf-8"))
+    if payload.get("promotion_enabled") is not True:
+        raise RuntimeError(
+            "raw promotion is quarantined; require an exact-file rights manifest, "
+            "owner disposition and atomic destination receipt"
+        )
     from huggingface_hub import HfApi, hf_hub_download  # type: ignore[import-not-found]
 
     payload, family = load_family(manifest, family_id)
