@@ -199,11 +199,13 @@ def validate(path: Path, root: Path) -> None:
         disposition.get("exact_candidate_commit") != "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
         or disposition.get("exact_candidate_tree") != "56851ea539a3503175e253dd7949b28abc474082"
         or disposition.get("recommended_option") != "A"
-        or disposition.get("owner_decision_state") != "pending"
+        or disposition.get("owner_decision_state") != "recorded_option_A"
         or disposition.get("effect")
-        != "none_until_owner_selects_an_option_for_this_exact_candidate"
+        != "exact_candidate_preserved_alpha_freeze_deferred_pending_accountable_reviews"
     ):
-        raise Track010ReadinessError("final Track 010 disposition must remain exact and pending")
+        raise Track010ReadinessError(
+            "final Track 010 disposition must record exact Option A deferral"
+        )
     disposition_path = _repository_path(root, disposition.get("decision_packet"))
     disposition_hash = str(disposition.get("decision_packet_sha256", ""))
     if not SHA256.fullmatch(disposition_hash) or _sha256(disposition_path) != disposition_hash:
@@ -217,7 +219,9 @@ def validate(path: Path, root: Path) -> None:
         or disposition_packet.get("candidate", {}).get("manifest_sha256")
         != candidate_binding.get("candidate_manifest_sha256")
         or disposition_packet.get("recommendation", {}).get("option_id") != "A"
-        or disposition_packet.get("owner_decision", {}).get("status") != "pending"
+        or disposition_packet.get("owner_decision", {}).get("status") != "recorded"
+        or disposition_packet.get("owner_decision", {}).get("selected_option_id") != "A"
+        or disposition_packet.get("owner_decision", {}).get("decided_by") != "edithatogo"
     ):
         raise Track010ReadinessError("final Track 010 disposition identity or state drift")
 

@@ -130,3 +130,7 @@
   `docs/decisions/2026-08-21-track-010-alpha-final-disposition.yml`. Deferral is
   recommended because the required accountable and independent review receipts
   are absent; the alpha freeze remains pending.
+- [x] Record the owner's selection of recommended Option A against the exact
+  candidate. The candidate remains preserved but not frozen; Track 003 and
+  empirical or production use remain inactive while candidate-bound accountable
+  review receipts and owner disposition of their findings are pending.

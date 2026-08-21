@@ -68,4 +68,12 @@ recommendation:
     candidate and defer the alpha freeze rather than weaken that gate by
     implication.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T12:58:52Z"
+  rationale: >-
+    Preserve the exact synthetic candidate and defer the Track 010 alpha
+    freeze until the required scientific/statistical, engineering,
+    patient/community and independent scientific-software review receipts are
+    bound to it and their findings receive owner disposition.

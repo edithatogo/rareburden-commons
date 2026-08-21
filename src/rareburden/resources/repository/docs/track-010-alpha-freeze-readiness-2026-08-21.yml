@@ -43,10 +43,10 @@ final_owner_disposition_candidate:
   exact_candidate_commit: "68a1d31c623161a323d90f2b2de95d3b1a11a1a3"
   exact_candidate_tree: "56851ea539a3503175e253dd7949b28abc474082"
   decision_packet: "docs/decisions/2026-08-21-track-010-alpha-final-disposition.yml"
-  decision_packet_sha256: "c70065b520cdb61a3f989656e69c7a3c53ad35971914d5f3e0996107c1bb8ace"
+  decision_packet_sha256: "4de7532113d77021b3ed45848d6061c2d7e96c69e5a2f60c07f5b9b26d7b1d05"
   recommended_option: "A"
-  owner_decision_state: "pending"
-  effect: "none_until_owner_selects_an_option_for_this_exact_candidate"
+  owner_decision_state: "recorded_option_A"
+  effect: "exact_candidate_preserved_alpha_freeze_deferred_pending_accountable_reviews"
 review_gate:
   review_packet: "docs/track-010-engine-review-packet.md"
   scientific_statistical_receipt: ""
@@ -79,5 +79,5 @@ claims:
 governance:
   automated_validation_effect: "readiness_only_not_approval_independent_review_or_freeze"
 next_action:
-  repository_owned: "preserve the exact candidate and bound evidence while final owner disposition is pending"
-  external_or_accountable: "retain scientific, engineering, patient/community and independent-review gates unless separately evidenced"
+  repository_owned: "preserve the exact candidate and invalidate it on any bound hash drift"
+  external_or_accountable: "obtain candidate-bound scientific/statistical, engineering, patient/community and independent scientific-software review receipts, then record owner disposition of their findings"
