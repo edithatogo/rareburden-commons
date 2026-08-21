@@ -128,3 +128,13 @@
   pre-alpha preparation only; it is not independent scientific-software review
   and does not satisfy Track 009, review, alpha-freeze, Track 003, production,
   public-readiness or release gates.
+
+## Operational containment assurance — 2026-08-21
+
+- [x] Add the exact accepted Track 010 candidate to the full repository gate,
+  regenerate its manifest and compatibility receipt twice in isolated temporary
+  roots, verify all bound artifact hashes, and reject stable-adapter, empirical,
+  alpha, Track 003 eligibility or authority drift. Evidence:
+  `scripts/check_track010_candidate_containment.py`, focused negative tests and
+  `make check`. This is same-environment synthetic reproducibility and
+  containment evidence only, not scientific validity or independent review.
