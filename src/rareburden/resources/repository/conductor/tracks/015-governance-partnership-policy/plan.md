@@ -24,6 +24,20 @@
 - [ ] Implement Indigenous Data Sovereignty and CARE-aligned node terms.
 - [ ] Create country-node agreement and accreditation process.
 
+### Candidate preparation — 2026-08-21
+
+- [x] Prepare and negatively test one integrated, unpaid operating-policy
+  candidate covering all four Phase 2 tasks. Evidence:
+  `docs/track-015-operating-policy-candidate-2026-08-21.yml`,
+  `scripts/check_track015_operating_policy_candidate.py` and
+  `tests/test_track015_operating_policy_candidate.py`.
+- [x] Present grouped options, trade-offs, contingencies, rationale and a
+  recommendation through three simulated advisory perspectives. Evidence:
+  `docs/decisions/2026-08-21-track-015-operating-policy-options.yml`.
+- [ ] Record the owner's option-specific disposition; until then the four
+  Phase 2 approval/implementation tasks remain pending and no external path is
+  activated.
+
 ## Phase 3 — Partnerships and funding
 
 - [ ] Complete adjacency-informed partner and funder map.
@@ -64,6 +78,12 @@
 - [ ] Run an authorised governance tabletop and record decisions; external
   facilitator, patient/community authority and governance appointments remain
   required.
+- [x] Prepare and negatively test a five-scenario simulated tabletop candidate
+  against the pending operating-policy package without recording owner approval
+  or external activation. Evidence:
+  `docs/track-015-governance-tabletop-candidate-2026-08-21.yml`,
+  `scripts/check_track015_governance_tabletop_candidate.py` and
+  `tests/test_track015_governance_tabletop_candidate.py`.
 
 ## Preparation refresh — 2026-08-01
 
