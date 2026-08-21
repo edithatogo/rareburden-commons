@@ -52,6 +52,7 @@ This directory is the persistent source of truth for the project's context-drive
 ## Active work
 
 - [Private Hugging Face archival destination](../docs/huggingface-private-archive-2026-08-15.yml)
+- [Track 021 — External governance and partnership activation](tracks/021-external-governance-activation/index.md)
 
 ## Completed work
 
@@ -60,6 +61,7 @@ This directory is the persistent source of truth for the project's context-drive
 - [Track 006 — v1 delivery system](archive/006-v1-delivery-system/spec.md) and [review](archive/006-v1-delivery-system/review.md)
 - [Track 018 — Scholarly provenance and reproducibility](archive/018-scholarly-provenance-reproducibility/spec.md) and [review](archive/018-scholarly-provenance-reproducibility/review.md)
 - [Track 007 — Bounded landscape and adjacency](archive/007-landscape-novelty/spec.md) and [review](archive/007-landscape-novelty/review.md)
+- [Track 015 — Bounded operational governance and policy translation](archive/015-governance-partnership-policy/spec.md) and [review](archive/015-governance-partnership-policy/review.md)
 
 ## Lifecycle
 

@@ -98,7 +98,8 @@
   relationship evidence requirements.
 - [x] Keep partnership and endorsement states unactivated unless attributable
   counterparty evidence is recorded; repository governance decisions use
-  role-separated agent advice and owner disposition.
+  role-separated agent advice and owner disposition. Optional activation is
+  tracked in `docs/track-015-external-activation-register-2026-08-21.yml`.
 
 ## Bounded repository reconciliation — 2026-08-16
 
@@ -144,7 +145,8 @@
 - [x] Keep authority for unrelated communities or country nodes, publisher
   rights, third-party custodian policy and real-data permissions inactive
   unless attributable evidence exists; these are conditional activation facts,
-  not requirements for bounded repository advice or owner decisions.
+  not requirements for bounded repository advice or owner decisions. Evidence:
+  `docs/track-015-external-activation-register-2026-08-21.yml`.
 
 ## Completion attempt — 2026-08-21
 
@@ -154,11 +156,13 @@
 - [x] Record the track as blocked rather than self-attesting constituted bodies,
   approvals, remuneration, partnership, global representation or release
   authority. Evidence: Track 015 metadata, register and review.
-- [ ] Complete the Track 013 dependency. If a third-party-dependent capability
-  is later activated, first receive its scope-matched receipt under
-  `docs/track-015-external-gate-closure-2026-08-21.yml` and rerun the affected
-  exact-candidate review; no independent-advice or constituted-body gate is
-  required for bounded repository governance.
+- [x] Formally narrow completion to bounded repository governance while Track
+  013 remains a downstream product-evidence dependency. Transfer any future
+  third-party-dependent activation to
+  `docs/track-015-external-activation-register-2026-08-21.yml`, without waiver
+  or inferred approval. Evidence:
+  `docs/decisions/2026-08-21-track-015-bounded-closeout.yml`; a future
+  activation requires a new exact-candidate review and owner decision.
 
 ## Agent-advice and external-fact boundary — 2026-08-21
 
@@ -179,3 +183,16 @@
   `scripts/check_single_owner_agent_governance.py`. Historical role metadata
   remains provenance; external evidence and independent-review boundaries are
   not waived.
+
+## Review fixes and bounded archival — 2026-08-21
+
+- [x] Reconcile the completed repository-governance acceptance criteria with
+  the historical dependency and external-activation blocker record; preserve
+  it and add an explicit bounded-scope supersession.
+- [x] Add negative validation proving archival cannot activate an external
+  relationship, remove a conditional gate or manufacture third-party rights.
+- [x] Archive the validated track while preserving its registry entry and
+  future activation conditions.
+- [x] Permit a completed track to be preserved in the archive before its
+  planned release and resolve the human-roadmap link from its actual location;
+  retain release-status and unchecked-task validation.

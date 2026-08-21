@@ -72,3 +72,21 @@ demonstrator triangulation, uncertainty decomposition, independent
 reproduction, patient/community review, and scientific disposition remain
 outstanding. Prerequisite tracks 003, 005, 007, 010, 011 and 012 are not all
 complete. Track 013 therefore remains **blocked** and is not archive-eligible.
+
+### Agent-advice repository closeout — 2026-08-21
+
+The owner directed the programme to use role-separated agents for advice and
+remove independent or third-party advisory requirements unless genuinely
+necessary. The repository now has an adopted validation and release-language
+protocol, deterministic machine-readable and rendered public-data gap maps, a
+reviewed metadata-only equity/harm assessment, and a five-lane agent assurance
+report with owner disposition. The atlas scope is narrowed to synthetic and
+metadata-only outputs.
+
+Repository review result: **Pass for bounded repository assurance**. External
+evidence is retained only for empirical comparisons, third-party rights or
+custodian permission, unrelated consent/representation, or unqualified global
+claims actually activated. Track 013 remains blocked by Tracks 003, 005, 010,
+011 and 012; their incomplete empirical candidates prevent the four
+triangulation tasks and a qualifying separate reproduction. This is a data and
+dependency boundary, not an independent-advice requirement.

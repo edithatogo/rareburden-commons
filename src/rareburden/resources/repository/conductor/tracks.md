@@ -23,9 +23,10 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 012 | Collective paediatric rare-disease burden demonstrator | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 004, 005, 008, 009, 010 |
 | 013 | Quality, validation, gap mapping and equity assurance | Blocked | Must | v0.8.0 | Repository owner (sole accountable human) | 003, 005, 007, 010, 011, 012 |
 | 014 | Atlas, API and reproducible release engineering | Planned | Must | v0.8.0 | Repository owner (sole accountable human) | 002, 009, 010, 013 |
-| 015 | Operational governance, partnerships and policy translation | Blocked | Must | v0.9.0 | Repository owner (sole accountable human) | 006, 007, 013 |
+| 015 | Operational governance, partnerships and policy translation | Complete | Must | v0.9.0 | Repository owner (sole accountable human) | 006, 007, 013 |
 | 016 | Security, reliability, performance and operations | Planned | Must | v0.9.0 | Repository owner (sole accountable human) | 004, 014 |
 | 017 | Documentation, adoption, sustainability and stable v1 release | Planned | Must | v1.0.0 | Repository owner (sole accountable human) | 013, 014, 015, 016 |
+| 021 | External governance and partnership activation | Planned | Should | v1.1.0 | Repository owner (sole accountable human) | 015, 017 |
 
 ## Status definitions
 
@@ -76,6 +77,11 @@ controlled-data custodian policies remain factual constraints.
 
 The current candidate-bound ledger is maintained in
 [`docs/remaining-gates-current-state-2026-08-03.md`](../docs/remaining-gates-current-state-2026-08-03.md).
+
+Track 015 is archived after bounded repository-governance completion. Its
+optional external-activation conditions remain fail-closed in
+[`docs/track-015-external-activation-register-2026-08-21.yml`](../docs/track-015-external-activation-register-2026-08-21.yml)
+and do not imply partnership, authority, rights or release approval.
 
 The dependency-ordered downstream preparation boundary for Tracks 008–017 is
 maintained in
