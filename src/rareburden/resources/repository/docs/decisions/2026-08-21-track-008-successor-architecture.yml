@@ -1,0 +1,94 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 008-semantic-backbone
+candidate:
+  commit: "9b35ab4660137624000bed114d0ced120d7d62a9"
+  tree: "e75a24401a90b1dea7af563580d6527fe0d5270a"
+  evidence_manifest_sha256: "4809721d8d9d506592da6dcf642cf6459d503e94a5382f608353d0fcfc7ae8f9"
+panel:
+  perspectives: [simulated_methods_evidence, simulated_rights_provenance, simulated_community_harm, simulated_engineering_release]
+  non_representation_statement: >-
+    Simulated advisory perspectives only; not clinical or independent review,
+    lived-experience testimony, patient or community representation, consent,
+    rights-holder permission, endorsement or external approval.
+evidence:
+  references:
+    - docs/track-008a-008b-scope-candidate-2026-08-21.yml
+    - docs/track-008a-008b-dependency-analysis-2026-08-21.md
+    - conductor/tracks/008-semantic-backbone/spec.md
+    - docs/track-008-freeze-readiness-2026-08-21.yml
+  observed_facts:
+    - Historical Track 008 and Track 009 remain blocked; no successor is registered or active.
+    - The proposal maps all eight required outputs, seven acceptance criteria, the review gate and v1 contributions.
+    - The two hash-identified mapping and naming derivatives already exist in public Git history.
+    - Existing public availability is not retraction, rights clearance, activation, rendering or further-release permission.
+    - The candidate proposes distinct successor IDs 019 and 020 and default-deny mode-specific gates.
+    - Sixteen focused tests, the validator and lint passed locally on Python 3.13.
+  simulated_assessments:
+    - Distinct successor identities best preserve historical meaning and prevent generic completion from implying external assurance.
+    - The exact proposal is suitable for an architecture decision, while implementation remains a separate exact-candidate decision.
+    - Proposed containment should stop additional repository-controlled publication, export, rendering, activation and promotion; it cannot retract Git history.
+  cannot_infer:
+    - rights clearance or permission for derivatives
+    - clinical or semantic mapping fitness
+    - patient or community naming authority, acceptability, consent or representation
+    - independent review or external approval
+    - Track 008 completion, successor registration or Track 009 activation
+uncertainty:
+  - Exact derivative and field-level third-party rights remain unresolved.
+  - No attributable clinical or patient/community review exists for real labels, groupings or mappings.
+  - Hosted Python 3.12-3.14 and cross-platform checks are not evidence for this local content commit.
+dissent:
+  - The simulated harm perspective requires persistent provisional, non-clinical and non-community-approved context before any renderer or export.
+  - The rights perspective requires exact rights disposition before any additional publication, rendering, activation or promotion of the exposed derivatives.
+stop_triggers:
+  - Any candidate commit, tree, proposal hash, artifact hash or main-base drift.
+  - Any successor registration, completion or dependency change inferred from this architecture decision.
+  - Historical Track 008 being marked complete or treated as satisfying patient/community review.
+  - Track 019 alone enabling source-derived, empirical, public-facing, clinical, patient-facing or authority-bearing use.
+  - Existing Git exposure being described as rights clearance, retraction or confidentiality.
+  - Simulated or owner review being represented as clinical, community, rights-holder, independent or external approval.
+options:
+  - id: A
+    title: Select distinct-successor architecture for later implementation
+    disposition: narrow
+    trade_offs:
+      - Preserves historical Track 008 meaning and creates explicit bounded-infrastructure and external-assurance gates.
+      - Requires successor specifications, reference migration and atomic mode-gate implementation.
+    contingencies:
+      - Keep historical Track 008, both proposed successors and Track 009 blocked until a separate exact implementation packet is decided.
+      - If a consumer cannot express the mode gate, leave it blocked on historical Track 008.
+      - If derivative rights fail, exclude the artifacts from future release surfaces and preserve a transparent correction record.
+    rationale: The architecture is bounded, traceable and fail-closed without changing live programme state.
+    minimum_evidence:
+      - Exact candidate 9b35ab4660137624000bed114d0ced120d7d62a9 and tree e75a24401a90b1dea7af563580d6527fe0d5270a.
+      - Proposal SHA-256 4809721d8d9d506592da6dcf642cf6459d503e94a5382f608353d0fcfc7ae8f9.
+      - Explicit owner decision limited to architecture selection and implementation-candidate preparation.
+  - id: B
+    title: Revise architecture evidence before selection
+    disposition: revise
+    trade_offs:
+      - Adds implementation-grade mode, consumer and rollback detail before architecture selection.
+      - Delays a decision and may duplicate work in the later implementation candidate.
+    contingencies:
+      - Add separate modes for empirical, public-facing, clinical, patient-facing and authority-bearing use, then re-panel.
+    rationale: Appropriate if the owner requires implementation-grade enforcement in the architecture artifact itself.
+    minimum_evidence:
+      - Superseding exact candidate, negative tests and a new pending packet.
+  - id: C
+    title: Defer the split and retain historical Track 008
+    disposition: defer
+    trade_offs:
+      - Avoids migration complexity but leaves Track 008 and Track 009 blocked under the original contract.
+    contingencies:
+      - Preserve the bounded v0.4 freeze and revisit only with new evidence or a new architecture.
+    rationale: Deferral is safest if successor migration is not currently wanted.
+    minimum_evidence:
+      - No additional evidence; preserve current blocked states.
+recommendation:
+  option_id: A
+  rationale: >-
+    Select the distinct-successor architecture only, then prepare a separate
+    atomic implementation candidate with all status and dependency gates still closed.
+owner_decision:
+  status: pending
