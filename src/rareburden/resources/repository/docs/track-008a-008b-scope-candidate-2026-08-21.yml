@@ -1,0 +1,97 @@
+schema_version: "1.1.0"
+status: "superseded_by_bounded_completion_scope"
+superseded_by: "docs/decisions/2026-08-22-track-008-bounded-completion.yml"
+owner_authorization:
+  decided_by: "edithatogo"
+  decided_at: "2026-08-21"
+  authorized_action: "prepare_scope_change_candidate_and_dependency_analysis"
+  prohibited_effects: ["mark_track_008_or_successors_complete", "register_or_activate_successor_tracks", "unblock_or_activate_track_009", "infer_final_owner_disposition"]
+baseline:
+  repository_commit: "a4127a6"
+  repository_tree: "15efe672d7aacaecf951d2881d9e05805eeeddc7"
+  track_008_spec_sha256: "55a2bdcb5feecc6bdb53183d2672777e9657c3598fae57bf0f292a6d149fb338"
+  track_008_plan_sha256: "6c821db1f236f3c013e4c8f789d912b2590cac9364ff51bb2825ac94754fa1c3"
+  track_008_metadata_sha256: "7b001439662982fd0b29cf471b550ee3579ca782ace869e407e4cfe1e75efb25"
+  track_008_readiness_sha256: "19b89a8bbb2a14edd781ae20e9f367273caa331e496307a449ec12f19bf70c40"
+  track_008_final_disposition_sha256: "b7d09cfa9987991007fab783d407013335946da65e9825ff3af682154c1b219f"
+  track_009_metadata_sha256: "eeea9ea317607bd14857814f14f1f0e2b9799ff0b872156e75c3fda17d0226fb"
+  track_009_readiness_sha256: "ad06f2c9c211a50cc6d1f28954ff0029989cf3a377fc54205a84242495a5bdca"
+historical_track:
+  canonical_id: "008-semantic-backbone"
+  treatment: "preserved_umbrella_blocked_pending_exact_supersession_decision"
+proposed_tracks:
+  - {alias: "008A", canonical_id: "019-bounded-semantic-infrastructure", proposed_title: "Bounded non-clinical semantic infrastructure", candidate_state: "proposed_not_registered_or_active"}
+  - {alias: "008B", canonical_id: "020-clinical-community-semantic-assurance", proposed_title: "Clinical, community and extended-source semantic assurance", candidate_state: "proposed_not_registered_or_active"}
+artifact_routes:
+  - class: "repository_synthetic_fixtures"
+    route: "repository_distributable_with_persistent_synthetic_non_clinical_context"
+    successor_gate: ["019-bounded-semantic-infrastructure"]
+  - class: "exact_unmodified_allowlisted_source_assets"
+    route: "source_specific_recorded_route_only"
+    exact_allowlist: ["orphadata_july_2026_en_product1_xml", "mondo_v2026_08_04_three_assets", "hpo_v2026_06_23_nine_ontology_core_assets"]
+    successor_gate: ["019-bounded-semantic-infrastructure"]
+  - class: "source_derived_mapping_or_extracted_label_artifacts"
+    route: "already_public_in_git_no_additional_repository_owned_publication_export_rendering_activation_or_promotion_pending_rights_disposition"
+    public_exposure_observed_at: "2026-08-21"
+    artifacts:
+      - {path: "manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json", sha256: "ae617b0826ce17915ddeff73be78f5b10f88bb9e89df634a86c0921d51df188e"}
+      - {path: "manifests/semantics/track-008-v0.4-provisional-naming.json", sha256: "a4cb8c3cbb0e7f3dc0ad013252301ff811c0a07711161748ed57196baabee05f"}
+    proposed_containment: "do_not_additionally_publish_export_render_activate_or_promote_pending_exact_rights_and_scope_disposition; historical_git_availability_persists"
+    successor_gate: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
+  - class: "controlled_mixed_or_unresolved_sources"
+    route: "private_or_metadata_only"
+    examples: ["hpo_excluded_classes", "who_icd", "umls", "snomed_ct", "omim", "meddra_mlds", "panelapp"]
+    successor_gate: ["020-clinical-community-semantic-assurance"]
+dependency_analysis:
+  current_track_009: {status: "blocked", dependencies: ["002-public-source-acquisition", "008-semantic-backbone"], activation: false}
+  preparation_candidate_effect: "none"
+  proposed_modes:
+    synthetic_internal_preparation:
+      depends_on: ["019-bounded-semantic-infrastructure"]
+      prohibited: ["empirical_activation", "source_derived_use", "clinical_use", "patient_facing_use", "public_semantic_authority"]
+    exact_unmodified_source_asset_handling:
+      depends_on: ["019-bounded-semantic-infrastructure"]
+      additional_gate: "exact_source_specific_rights_route"
+      prohibited: ["field_extraction", "derivative_publication", "empirical_semantic_activation", "clinical_use", "patient_facing_use"]
+    source_derived_empirical_public_clinical_or_authority_bearing:
+      depends_on: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
+      additional_gate: "exact_artifact_rights_fitness_and_authority_evidence"
+    default: "deny_unknown_or_unlabelled_mode"
+  implementation_requirement: "atomic_machine_enforcement_before_any_track_008_or_009_status_or_dependency_change"
+downstream_consumer_inventory:
+  - {track: "003-monogenic-diabetes-demonstrator", current_reference: "008 dependency", proposed_gate: "mode_specific_019_or_019_plus_020"}
+  - {track: "009-evidence-parameter-ledger", current_reference: "008 dependency and plan", proposed_gate: "mode_specific_019_or_019_plus_020"}
+  - {track: "011-bronchiectasis-demonstrator", current_reference: "008 dependency", proposed_gate: "mode_specific_019_or_019_plus_020"}
+  - {track: "012-paediatric-burden-demonstrator", current_reference: "008 dependency", proposed_gate: "mode_specific_019_or_019_plus_020"}
+  - {track: "014-atlas-api-release", current_reference: "008 plan reference", proposed_gate: "019_plus_020_for_public_semantic_output"}
+requirement_transfer_matrix:
+  - {id: "RO-1", source: "Required output 1 disease-definition and ontology-mapping schemas", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "RO-2", source: "Required output 2 pinned ORDO/ORPHA ICD-10/11 MONDO OMIM HPO and selected terminology", disposition: "split", destination: "019 exact allowlist; 020 ORDO-versus-Orphadata ICD-10 ICD-11 OMIM extended-HPO MedDRA/MLDS and other selected terminology"}
+  - {id: "RO-3", source: "Required output 3 mapping provenance confidence and ambiguity", disposition: "split", destination: "019 representation; 020 real-source fitness and derivative rights"}
+  - {id: "RO-4", source: "Required output 4 burden-purpose hierarchy or linearisation", disposition: "split", destination: "019 bounded mechanics; 020 empirical clinical or authority-bearing fitness"}
+  - {id: "RO-5", source: "Required output 5 overlap rules", disposition: "split", destination: "019 bounded mechanics; 020 empirical clinical or authority-bearing fitness"}
+  - {id: "RO-6", source: "Required output 6 version-diff and migration tooling", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "RO-7", source: "Required output 7 human-readable reports and machine-readable releases", disposition: "split", destination: "019 synthetic/internal reports; 020 source-derived public or authority-bearing release"}
+  - {id: "RO-8", source: "Required output 8 golden difficult and ambiguous fixtures", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "AC-1", source: "Acceptance criterion 1 stable identifiers and source versions", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "AC-2", source: "Acceptance criterion 2 explicit uncertain mappings", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "AC-3", source: "Acceptance criterion 3 conservation and parent-child tests", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "AC-4", source: "Acceptance criterion 4 demonstrator reconstruction", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "AC-5", source: "Acceptance criterion 5 ontology-update diff and invalidation", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "AC-6", source: "Acceptance criterion 6 patient/community naming and aggregation review", disposition: "transfer", destination: "020-clinical-community-semantic-assurance"}
+  - {id: "AC-7", source: "Acceptance criterion 7 migration and deprecation rules", disposition: "transfer", destination: "019-bounded-semantic-infrastructure"}
+  - {id: "REV-1", source: "Protocol review gate semantic clinical patient/community and engineering review", disposition: "split", destination: "019 simulated internal challenge only; 020 attributable clinical community and independent review"}
+  - {id: "V1-1", source: "v1 contributions V1-SCI-02 and V1-DATA-05", disposition: "split", destination: "019 bounded controls; 020 before empirical clinical public-authority satisfaction"}
+claims:
+  track_008_complete: false
+  track_008a_complete: false
+  track_008b_complete: false
+  track_009_unblocked: false
+  scope_change_approved: false
+  clinical_validation: false
+  patient_community_authority: false
+  derivative_publication_rights_complete: false
+  independent_review: false
+next_gate:
+  required: "new_simulated_panel_packet_and_exact_candidate_owner_disposition"
+  effect_until_satisfied: "preserve_current_track_and_dependency_states"

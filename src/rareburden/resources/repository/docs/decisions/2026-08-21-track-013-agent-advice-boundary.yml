@@ -1,0 +1,36 @@
+schema_version: "1.0.0"
+track: 013-quality-validation-gap-equity
+status: accepted
+decision:
+  decided_by: edithatogo
+  accountable_role: repository_owner_and_sole_accountable_human
+  instruction: proceed_with_recommended_agent_advice_sequence
+  recorded_at: "2026-08-21"
+adopted_model:
+  advice: role_separated_simulated_agents
+  decision: repository_owner
+  independent_or_additional_human_advice_required: false
+repository_advice_lanes:
+  - scientific_and_methods
+  - community_harm_and_interpretation
+  - equity_and_accessibility
+  - rights_and_data_use
+  - programme_and_release
+external_facts_retained_only_if_activated:
+  - empirical_comparison_evidence
+  - third_party_data_rights_or_custodian_permission
+  - unrelated_community_or_indigenous_consent_or_representation
+  - unqualified_global_or_representative_claim
+current_scope: synthetic_and_metadata_only
+current_disposition: narrow_and_continue
+remaining_dependencies:
+  - 003-monogenic-diabetes-demonstrator
+  - 005-economic-social-burden
+  - 010-public-burden-engine
+  - 011-bronchiectasis-demonstrator
+  - 012-paediatric-burden-demonstrator
+prohibited_inferences:
+  - agent_advice_is_independent_human_review
+  - metadata_availability_is_empirical_sufficiency
+  - synthetic_reproduction_is_empirical_validation
+  - owner_decision_creates_external_rights_or_representation

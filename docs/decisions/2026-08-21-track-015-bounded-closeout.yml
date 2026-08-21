@@ -1,0 +1,32 @@
+schema_version: '1.0.0'
+decision_id: track-015-bounded-closeout-2026-08-21
+track: 015-governance-partnership-policy
+recorded_at: '2026-08-21'
+accountable_role: repository_owner_sole_accountable_human
+status: owner_approved
+selected_option: archive_bounded_repository_governance
+owner_direction: >-
+  Proceed with the recommendation to close and archive Track 015 for the
+  completed single-owner repository-governance scope and retain future
+  external activation conditions in a standing fail-closed register.
+completed_scope:
+  - single-owner decision model and role-separated advisory agent panels
+  - operating, acceptable-use, correction, conflict and appeal policies
+  - inactive-by-default country-node and relationship-state controls
+  - non-contact partnership map and zero-cash free-tier sustainability posture
+  - bounded policy translation and owner-operated governance tabletop
+excluded_future_scope:
+  - authority for unrelated communities or Indigenous peoples
+  - third-party publisher, licensor or custodian permissions
+  - activated country nodes or controlled-data environments
+  - confirmed partnership, endorsement or institutional hosting
+  - production, public-stable or globally representative release claims
+conditional_register: docs/track-015-external-activation-register-2026-08-21.yml
+historical_blocker_record: docs/track-015-external-gate-closure-2026-08-21.yml
+effects:
+  track_status: complete
+  track_location: conductor/archive/015-governance-partnership-policy
+  external_activation_authorized: false
+  third_party_rights_changed: false
+  partnership_or_endorsement_confirmed: false
+  future_scope_requires_new_exact_candidate_decision: true

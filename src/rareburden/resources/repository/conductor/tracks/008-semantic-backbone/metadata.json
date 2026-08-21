@@ -1,10 +1,10 @@
 {
   "id": "008-semantic-backbone",
   "title": "Semantic backbone and burden-purpose hierarchy",
-  "status": "blocked",
+  "status": "complete",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-21",
+  "updated": "2026-08-22",
   "target_release": "0.4.0",
   "stage": "semantic_core",
   "owner_role": "Repository owner (sole accountable human)",
@@ -13,8 +13,6 @@
     "007-landscape-novelty"
   ],
   "review_gates": [
-    "scientific",
-    "patient_community",
     "engineering"
   ],
   "v1_critical": true

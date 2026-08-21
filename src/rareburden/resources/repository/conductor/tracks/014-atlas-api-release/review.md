@@ -163,7 +163,6 @@ remains pending, as do real-user evidence, patient/community acceptable-use
 review and public-candidate authorization. The product-set task is complete
 only for the bounded synthetic/static implementation; it does not establish an
 empirical country profile, public demonstrator or released gap atlas.
-
 ## Review rerun — 2026-08-22
 
 **Finding (High, remediated):** the bounded-runtime optimization in

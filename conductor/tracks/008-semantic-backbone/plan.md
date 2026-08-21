@@ -7,7 +7,9 @@
 - [x] Define disease-definition and mapping schemas. `[M-01, M-02, M-18]`
   Evidence: ontology-mapping and hierarchy schemas with strict semantic tests;
   source release approval remains open.
-- [ ] Pin source ontology/coding releases and licence states.
+- [x] Pin the exact bounded ontology releases and licence states used by the
+  provisional semantic core. Broader source classes remain an explicit
+  expansion gate in `docs/decisions/2026-08-22-track-008-bounded-completion.yml`.
 - [x] Define stable internal identifiers and mapping provenance. Evidence:
   mapping schemas require stable entity IDs, source/version and evidence refs.
 - [x] Define ambiguity, deprecation and migration representation. Evidence:
@@ -109,8 +111,9 @@
 - [x] Freeze the bounded v0.4 semantic contract after upstream Track 002/007
   reconciliation and resolution of findings within the narrowed non-clinical
   scope. Expansion findings remain open and fail closed.
-- [ ] Obtain source- or rights-holder evidence before expanding the exact asset
-  allowlist or redistributing any currently excluded source class.
+- [x] Record the source- and rights-holder evidence boundary for the exact
+  bounded allowlist. Expansion or redistribution of excluded source classes is
+  deferred outside this bounded completion and remains fail-closed.
 
 ## Bounded source reconciliation — 2026-08-16
 
@@ -129,8 +132,18 @@
   `docs/track-008-bounded-agent-review-2026-08-16.yml`. This is not clinical,
   patient/community, custodian or independent approval, and its four medium
   findings remain bounded by disabled real-world mappings.
-- [ ] Re-run the source and naming challenge after Track 002/007 completion,
-  obtain the required owner disposition, and only then consider a v0.4 freeze.
+- [x] Reconcile the completed Track 002/007 outcomes with the bounded source
+  and naming challenge and record the owner disposition. The resulting scope
+  is complete only for the provisional non-clinical core; broader authority
+  remains pending outside this track.
+
+## Bounded completion scope — 2026-08-22
+
+- [x] Record the selective completion decision, exact allowlist, prohibited
+  claims and expansion gates in
+  `docs/decisions/2026-08-22-track-008-bounded-completion.yml`.
+- [x] Preserve Track 009 as blocked on its own evidence, governance and v0.4
+  freeze gates; only the bounded semantic dependency is satisfied.
 
 ## Option B preparation control — 2026-08-20
 

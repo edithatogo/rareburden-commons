@@ -16,7 +16,7 @@
   },
   "compatibility_receipt": {
     "path": "manifests/burden/track-010-compatibility-impact-2026-08-21.json",
-    "sha256": "ab9586e10fc98108204c9d759840d15022d6526eba9d85d9bc1877dc8cb42a7d"
+    "sha256": "303fc578b290a0089d263f7ea9dc2644ff09a20f9fe34b189686b7412a2ce3ad"
   },
   "engine_receipt": {
     "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",

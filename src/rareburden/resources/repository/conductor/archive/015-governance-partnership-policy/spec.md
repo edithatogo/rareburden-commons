@@ -6,6 +6,11 @@ Make the sole-owner decision model operational and create partner- and
 policy-ready materials without implying unconfirmed endorsement, access or
 shared repository authority.
 
+Completion is bounded to repository-owned governance, preparation and
+fail-closed claim controls. Activating a country node, controlled dataset,
+external partnership, endorsement or public-stable release is a separately
+versioned future action governed by the standing external-activation register.
+
 ## Required outputs
 
 - role-separated advisory-agent terms and a narrow external-fact receipt
@@ -38,12 +43,19 @@ shared repository authority.
    for an activated claim or capability that depends on someone else's rights,
    permission, relationship, representation or jurisdictional authority.
 
+An optional external condition becomes applicable only when the owner proposes
+that specific activation. Track 013 remains a downstream product-evidence
+dependency, but it does not keep the bounded governance-control package
+perpetually incomplete while representative and global claims remain disabled.
+
 ## Non-goals
 
 - creating nominal committees or implying shared repository authority;
 - treating consultation as consent;
 - storing relationship-sensitive operations material in the public repository when confidentiality is required;
 - criticising adjacent institutions to create a partnership case.
+- activating a country node, controlled-data source, partnership, endorsement,
+  institutional host, production service or public-stable release.
 
 ## Current bounded repository operating model
 
@@ -63,6 +75,10 @@ is required only when the proposed scope actually relies on a third party,
 including a licence, controlled-data permission, confirmed relationship,
 country-node activation, unrelated community or Indigenous authority, or an
 unqualified representative/global claim.
+
+Future external activation conditions are maintained in
+`docs/track-015-external-activation-register-2026-08-21.yml`. Archival does not
+satisfy, waive or infer those conditions.
 
 ## v1 contribution
 

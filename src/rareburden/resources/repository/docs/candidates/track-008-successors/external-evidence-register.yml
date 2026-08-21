@@ -1,0 +1,11 @@
+schema_version: "1.0.0"
+status: candidate_not_active
+receipt_schema: "docs/candidates/track-008-successors/external-evidence-receipt.schema.json"
+receipts: []
+qualification_rule: "only_schema_valid_receipts_with_status_qualifying_and_exact_candidate_and_artifact_binding_can_satisfy_a_named_gate"
+claims:
+  any_gate_satisfied: false
+  rights_cleared: false
+  clinical_validated: false
+  patient_community_review_complete: false
+  independent_review_complete: false

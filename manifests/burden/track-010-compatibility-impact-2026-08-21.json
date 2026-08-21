@@ -11,7 +11,7 @@
   "comparison": "exact provisional Track 009 and Track 003 structural binding",
   "dependency_lock": {
     "path": "uv.lock",
-    "sha256": "23ae5b2d839259837569e2c5b9817c5d9ae2bd10fbb6f39a138093cddc373958"
+    "sha256": "2a0b76b88a5ee9be65b3618f1f29dec52d2298acbd4302ffaf1ceb532f7c5ef5"
   },
   "engine": {
     "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",

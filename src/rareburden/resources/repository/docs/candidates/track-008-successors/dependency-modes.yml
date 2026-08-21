@@ -1,0 +1,34 @@
+schema_version: "1.0.0"
+status: candidate_not_active
+default: deny_unknown_or_unlabelled_mode
+modes:
+  synthetic_internal_preparation:
+    required_tracks: ["019-bounded-semantic-infrastructure"]
+    required_external_evidence: []
+    prohibited_outputs: ["source_derived_use", "empirical_activation", "public_facing_semantics", "clinical_use", "patient_facing_use", "authority_claim"]
+  exact_unmodified_source_asset_handling:
+    required_tracks: ["019-bounded-semantic-infrastructure"]
+    required_external_evidence: ["exact_source_specific_rights_route"]
+    prohibited_outputs: ["field_extraction", "derivative_publication", "empirical_activation", "public_facing_semantics", "clinical_use", "patient_facing_use", "authority_claim"]
+  source_derived_use:
+    required_tracks: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
+    required_external_evidence: ["exact_derivative_rights", "field_level_third_party_disposition", "mapping_fitness"]
+  empirical_activation:
+    required_tracks: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
+    required_external_evidence: ["exact_source_and_derivative_rights", "candidate_specific_methods_fitness"]
+  public_facing_semantics:
+    required_tracks: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
+    required_external_evidence: ["exact_rights", "persistent_context_tests", "correction_withdrawal_plan"]
+  clinical_use:
+    required_tracks: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
+    required_external_evidence: ["attributable_clinical_methods_review", "exact_rights", "candidate_specific_validation"]
+  patient_facing_use:
+    required_tracks: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
+    required_external_evidence: ["attributable_patient_community_review", "accessibility_and_harm_review", "exact_rights"]
+  authority_bearing_claim:
+    required_tracks: ["019-bounded-semantic-infrastructure", "020-clinical-community-semantic-assurance"]
+    required_external_evidence: ["attributable_authority_receipt"]
+claims:
+  active: false
+  dependencies_migrated: false
+  track_009_unblocked: false

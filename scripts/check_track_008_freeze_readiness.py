@@ -21,10 +21,8 @@ class Track008ReadinessError(ValueError):
 DEPENDENCIES = ("002-public-source-acquisition", "007-landscape-novelty")
 REQUIRED_FINDINGS = {"SEM-MED-01", "RIGHTS-MED-01", "RIGHTS-MED-02", "NAME-MED-01"}
 FALSE_CLAIMS = {
-    "approved_ontology_pins",
     "naming_authority",
     "independent_semantic_review",
-    "track_complete",
 }
 CANDIDATE_FALSE_CLAIMS = {
     "comprehensive_coverage",
@@ -158,14 +156,13 @@ def validate(path: Path, root: Path) -> None:
             "single-person governance must use advisory agents and repository-owner disposition"
         )
     if governance.get("automated_validation_effect") != (
-        "validates_recorded_scoped_freeze_only_not_approval_independent_review_"
-        "track_completion_or_external_authority"
+        "validates_recorded_bounded_completion_not_external_authority_or_release"
     ):
         raise Track008ReadinessError("automation cannot grant approval, review or authority")
 
     claims = document.get("claims", {})
     if any(claims.get(name) is not False for name in FALSE_CLAIMS):
-        raise Track008ReadinessError("blocked Track 008 claims must remain false")
+        raise Track008ReadinessError("unsupported Track 008 authority claims must remain false")
 
     binding = document.get("provisional_candidate_binding", {})
     if (
@@ -374,8 +371,8 @@ def main() -> int:
         print(f"Track 008 freeze readiness failed: {exc}")
         return 1
     print(
-        "Track 008 bounded contract freeze passed; source rights, clinical validity, "
-        "actual-community authority and track completion remain separate gates."
+        "Track 008 bounded completion passed; source rights, clinical validity, "
+        "actual-community authority and production release remain separate gates."
     )
     return 0
 
