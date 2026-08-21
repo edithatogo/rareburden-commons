@@ -41,3 +41,10 @@
   valuation, overlap, missingness, distributional and co-design decisions.
   Evidence: `docs/track-005-economic-review-packet.md`; dependencies and
   health-economics, ethics, governance and patient/community review remain open.
+
+## GHED source-selection readiness — 2026-08-21
+
+- [x] Prepare a requirements-only WHO GHED selection-readiness packet. Evidence:
+  `docs/track-005-ghed-selection-readiness-2026-08-21.yml`; the exact release,
+  file, indicators, terms and scientific fitness remain unselected or unresolved,
+  and no bytes were retrieved, retained, activated or authorized for publication.
