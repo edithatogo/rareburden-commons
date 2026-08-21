@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Track 008 freeze readiness without granting approval or freezing contracts."""
+"""Validate the bounded Track 008 freeze without granting external authority."""
 
 from __future__ import annotations
 
@@ -24,7 +24,6 @@ FALSE_CLAIMS = {
     "approved_ontology_pins",
     "naming_authority",
     "independent_semantic_review",
-    "contract_frozen",
     "track_complete",
 }
 CANDIDATE_FALSE_CLAIMS = {
@@ -236,12 +235,12 @@ def validate(path: Path, root: Path) -> None:
 
     candidate_binding = document.get("v0_4_candidate_binding", {})
     if (
-        candidate_binding.get("status") != "owner_approved_preparation_not_frozen"
+        candidate_binding.get("status") != "owner_accepted_bounded_contract_frozen"
         or candidate_binding.get("review_status") != "owner_operated_not_independent"
         or candidate_binding.get("effect")
-        != "candidate_preparation_only_no_contract_freeze_or_track_completion"
+        != "bounded_provisional_non_clinical_contract_freeze_only_no_track_completion"
     ):
-        raise Track008ReadinessError("v0.4 candidate must remain prepared but not frozen")
+        raise Track008ReadinessError("v0.4 candidate must remain bounded and owner accepted")
     source_commit = str(candidate_binding.get("source_commit", ""))
     source_tree = str(candidate_binding.get("source_tree", ""))
     if not COMMIT.fullmatch(source_commit) or not COMMIT.fullmatch(source_tree):
@@ -303,15 +302,25 @@ def validate(path: Path, root: Path) -> None:
         not COMMIT.fullmatch(str(disposition.get("exact_candidate_commit", "")))
         or not COMMIT.fullmatch(str(disposition.get("exact_candidate_tree", "")))
         or disposition.get("recommended_option") != "A"
-        or disposition.get("owner_decision_state") != "pending"
-        or disposition.get("effect")
-        != "none_until_owner_selects_an_option_for_this_exact_candidate"
+        or disposition.get("owner_decision_state") != "accepted_option_a"
+        or disposition.get("effect") != "bounded_provisional_non_clinical_contract_freeze_only"
     ):
-        raise Track008ReadinessError("final owner disposition must remain exact and pending")
+        raise Track008ReadinessError("final owner disposition must remain exact and accepted")
     decision_packet = _repository_path(root, disposition.get("decision_packet"))
     decision_hash = str(disposition.get("decision_packet_sha256", ""))
     if not SHA256.fullmatch(decision_hash) or _sha256(decision_packet) != decision_hash:
         raise Track008ReadinessError("final owner disposition packet hash drift")
+    decision = _load(decision_packet).get("owner_decision", {})
+    if (
+        decision.get("status") != "accepted"
+        or decision.get("selected_option") != "A"
+        or decision.get("governance_status") != "owner_operated_not_independent_review"
+        or decision.get("exact_candidate_commit") != disposition.get("exact_candidate_commit")
+        or decision.get("exact_candidate_tree") != disposition.get("exact_candidate_tree")
+        or decision.get("evidence_manifest_sha256")
+        != candidate_binding.get("candidate_manifest_sha256")
+    ):
+        raise Track008ReadinessError("owner decision does not bind the exact Option A candidate")
     freeze = document.get("contract_freeze_gate", {})
     if freeze.get("state") == "satisfied":
         if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):
@@ -324,8 +333,22 @@ def validate(path: Path, root: Path) -> None:
             raise Track008ReadinessError(
                 "freeze requires resolved findings and accountable decision"
             )
+        if (
+            freeze.get("exact_candidate_commit") != disposition.get("exact_candidate_commit")
+            or freeze.get("semantic_manifest_sha256")
+            != candidate_binding.get("candidate_manifest_sha256")
+            or freeze.get("migration_impact_receipt")
+            != candidate_binding.get("migration_impact_receipt")
+            or freeze.get("accountable_freeze_decision") != disposition.get("decision_packet")
+            or not str(freeze.get("resolution_scope", "")).startswith(
+                "bounded provisional non-clinical candidate only"
+            )
+        ):
+            raise Track008ReadinessError("freeze does not bind the bounded Option A evidence")
     elif freeze.get("state") != "pending":
         raise Track008ReadinessError("freeze gate state must be pending or satisfied")
+    if claims.get("contract_frozen") is not (freeze.get("state") == "satisfied"):
+        raise Track008ReadinessError("contract freeze claim must match the scoped freeze gate")
 
 
 def main() -> int:
@@ -339,8 +362,8 @@ def main() -> int:
         print(f"Track 008 freeze readiness failed: {exc}")
         return 1
     print(
-        "Track 008 readiness passed; approval, independent review and v0.4 freeze "
-        "remain separate gates."
+        "Track 008 bounded contract freeze passed; external approval, independent review "
+        "and track completion remain separate gates."
     )
     return 0
 
