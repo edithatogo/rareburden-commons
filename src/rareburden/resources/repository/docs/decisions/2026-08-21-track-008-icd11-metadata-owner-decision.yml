@@ -1,0 +1,86 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "008-semantic-backbone"
+candidate:
+  commit: "60b46eb77c2afb3e495499aa504a13977605dcb2"
+  tree: "24f3445fd021f50a534c752218a26451cb08c89b"
+  evidence_manifest_sha256: "5b40b17159306a4874c22666c5fa1a9388f6298de17b899fecc7ab3ca7d016ae"
+panel:
+  perspectives:
+    - "scientific methods and interpretation"
+    - "source rights and data governance"
+    - "repository engineering and reproducibility"
+  non_representation_statement: >-
+    Agents supplied role-separated simulated advice only. They are not
+    independent reviewers, community representatives, WHO, licensors,
+    custodians or external approval authorities.
+evidence:
+  references:
+    - "docs/track-008-icd11-mms-2026-01-metadata-packet.yml"
+    - "manifests/classifications/who-icd-api-inventory-2026-08-16.json"
+    - "docs/track-002-who-icd-api-archive-2026-08-16.md"
+    - "docs/single-owner-agent-governance.yml"
+  observed_facts:
+    - "The checked-in inventory identifies ICD-11 MMS 2026-01, English, API v2, release date 2026-01-17."
+    - "The exact release-metadata response observation has status 200, size 2056 bytes and a recorded SHA-256."
+    - "No new credential use, network retrieval, response bytes, mapping rows or source activation are in the candidate."
+  simulated_assessments:
+    - "Methods and rights advice preferred ICD because it has the strongest exact-release evidence and direct Track 008 relevance."
+    - "Engineering preferred a GHED readiness packet because it would have less semantic and provenance coupling."
+    - "The narrow packet addresses the dissent by prohibiting mapping, content, scientific-fitness and activation claims."
+  cannot_infer:
+    - "permission to access, acquire, retain or redistribute WHO classification content"
+    - "mapping correctness, coverage, clinical validity or scientific fitness"
+    - "production activation, partnership, endorsement or external validation"
+    - "actual community participation, representation, consent or approval"
+uncertainty:
+  - "The response hash identifies release metadata bytes, not the complete terminology graph."
+  - "No demonstrator mapping has been assessed against this release."
+  - "Exact permitted-use and redistribution terms remain unresolved."
+dissent:
+  - "Engineering recommends preparing a GHED selection-readiness packet first to avoid semantic coupling; GHED cannot yet be called an exact-release packet."
+stop_triggers:
+  - "Any workflow treats the metadata observation as classification content or a mapping release."
+  - "Any release, language, linearization or API version is silently substituted."
+  - "Any public artifact includes response or terminology bytes without exact rights evidence."
+  - "Any empirical, clinical, completeness or external-approval claim is inferred."
+options:
+  - id: "A"
+    title: "Bind exact ICD metadata observation"
+    disposition: "accept"
+    trade_offs:
+      - "Provides the strongest exact release identity and Track 008 utility, while adding no mapping or empirical readiness."
+    contingencies:
+      - "Keep content, access, retention, rights, mapping-fitness and activation gates disabled."
+    rationale: "Track 008 explicitly requires pinned ICD release identity and existing repository evidence supports this narrow observation."
+    minimum_evidence:
+      - "Exact inventory binding, negative authority flags, focused tests and synchronized runtime assets."
+  - id: "B"
+    title: "Prepare GHED readiness first"
+    disposition: "defer"
+    trade_offs:
+      - "Has less semantic coupling but lacks a selected immutable release, file, checksum and field-level terms."
+    contingencies:
+      - "Prepare a requirements-only packet with every release field unresolved."
+    rationale: "This preserves engineering's lower-coupling alternative but cannot yet satisfy an exact-release objective."
+    minimum_evidence:
+      - "Indicator, perspective, unit, currency or PPP, price year, release, artifact and rights selection."
+  - id: "C"
+    title: "Defer all source packets"
+    disposition: "defer"
+    trade_offs:
+      - "Avoids any selection implication but makes no progress on Track 008 release identity."
+    contingencies:
+      - "Reopen when exact content rights and mapping-purpose evidence exist."
+    rationale: "This is the most conservative option if metadata selection cannot remain operationally isolated."
+    minimum_evidence:
+      - "A demonstrated inability to keep the packet excluded from content and activation workflows."
+recommendation:
+  option_id: "A"
+  rationale: "The exact metadata observation is useful and auditable while every substantive scientific and rights gate remains closed."
+owner_decision:
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-21T06:34:47Z"
+  rationale: "The owner instructed the role-separated panel process and approved proceeding with recommendations; only the bounded metadata observation is accepted."
