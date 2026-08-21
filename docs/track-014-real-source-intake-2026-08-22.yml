@@ -13,10 +13,10 @@ source_receipts:
   - source_id: "un-world-population-prospects"
     catalogue_locator: "catalog/data_sources.yml#un-world-population-prospects"
     intended_class: "aggregate_conditional"
-    catalogue_licence: "United Nations data terms; confirm terms for each redistribution use"
-    catalogue_redistribution: "conditional"
+    catalogue_licence: "CC BY 3.0 IGO as identified by the official UN Population Division Data Portal/API and WPP 2024 publication record"
+    catalogue_redistribution: "yes_with_attribution_and_notice"
     exact_receipt_status: "pending"
-    next_evidence: ["WPP revision/variant", "exact workbook or endpoint", "geography/age/sex scope", "retrieval timestamp", "sha256", "redistribution decision"]
+    next_evidence: ["WPP revision/variant", "exact workbook or endpoint", "geography/age/sex scope", "retrieval timestamp", "sha256", "attribution and CC BY 3.0 IGO notice"]
   - source_id: "who-global-health-estimates"
     catalogue_locator: "catalog/data_sources.yml#who-global-health-estimates"
     intended_class: "aggregate_conditional"

@@ -5,7 +5,9 @@ observations:
   - source_id: "un-world-population-prospects"
     publisher_route: "https://population.un.org/wpp/"
     observed: "WPP 2024 provides downloadable Excel/CSV outputs and an open API for 237 countries or areas, with estimates and projections from 1950 to 2100."
-    rights_state: "exact redistribution terms for the selected file/fields still require source-specific receipt"
+    terms_locator: "https://population.un.org/dataportalapi/index.html"
+    observed_terms: "The official Data Portal API identifies a Creative Commons CC BY 3.0 IGO licence; the UN publication record for WPP 2024 also identifies CC BY 3.0 IGO."
+    rights_state: "permissive_use_supported_with_attribution_and_notice; exact selected file/response hash and scope still required"
     activation: false
   - source_id: "who-global-health-estimates"
     publisher_route: "https://www.who.int/data/global-health-estimates/"
