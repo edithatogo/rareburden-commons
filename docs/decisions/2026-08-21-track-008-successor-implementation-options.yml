@@ -1,0 +1,92 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 008-semantic-backbone
+candidate:
+  commit: "666d44e8e85097700584a4c67a4565dd2b0f0447"
+  tree: "c24ec8cf8aa983560afc62e4b64b18eedb5ad427"
+  evidence_manifest_sha256: "e445ed67942057c9febfe406198f58bb47d7eb860b143760fe1c9af1e67e2fa5"
+panel:
+  perspectives: [simulated_methods_evidence, simulated_rights_provenance, simulated_community_harm, simulated_engineering_release]
+  non_representation_statement: >-
+    Simulated advisory perspectives only; not clinical or independent review,
+    lived-experience testimony, patient or community representation, consent,
+    rights-holder permission, endorsement or external approval.
+evidence:
+  references:
+    - docs/candidates/track-008-successors/implementation-candidate.yml
+    - docs/candidates/track-008-successors/dependency-modes.yml
+    - docs/candidates/track-008-successors/reference-migration.yml
+    - docs/candidates/track-008-successors/019-spec.md
+    - docs/candidates/track-008-successors/020-spec.md
+  observed_facts:
+    - Candidate 666d44e adds non-operative candidate documents, a validator and tests; it does not change live tracks or dependencies.
+    - Both successor metadata candidates are blocked and historical Track 008 is proposed as superseded-not-complete.
+    - Eight semantic-use modes are explicit, unknown modes deny, and every high-risk mode names Tracks 019 and 020 plus external evidence labels.
+    - Local Python 3.14 make check passed with 1111 tests.
+    - The branch is behind current origin/main and has no hosted exact-head evidence.
+  simulated_assessments:
+    - The design preserves the intended identity, harm and rights boundaries.
+    - The current validator proves candidate structure, not operational receipt validity, atomic application or rights clearance.
+    - Live application requires a reconciled exact candidate with executable gates and rollback evidence.
+  cannot_infer:
+    - operative successor registration, dependency migration or mode enforcement
+    - rights clearance, clinical fitness or patient/community authority
+    - independent review, hosted CI approval or merge readiness
+    - Track 008 completion or Track 009 activation
+uncertainty:
+  - Current-main reconciliation may change the exact candidate and runtime-asset manifest.
+  - External-evidence labels do not establish issuers, methods, conflicts, dates, expiry or candidate binding.
+  - Historical Git availability of derived artifacts persists and is not remedied by candidate containment text.
+dissent:
+  - Rights review accepts the design but requires executable receipt and containment controls before application.
+  - Harm/release review requires an exact rollback rehearsal and hosted cross-platform checks before application.
+stop_triggers:
+  - Any live registration, archival or dependency migration before a new exact application packet.
+  - Partial application of the six atomic effects or inability to restore the prior blocked state.
+  - Track 019 alone enabling source-derived, empirical, public-facing, clinical, patient-facing or authority-bearing use.
+  - Evidence labels or metadata being treated as attributable receipts, rights or approval.
+  - Historical Track 008 being marked complete, deleted or rewritten.
+  - Candidate, main base, artifact or evidence hash drift.
+options:
+  - id: A
+    title: Authorize atomic application with contingencies
+    disposition: narrow
+    trade_offs:
+      - Moves faster but grants application authority before executable receipt, rollback and exact-effect controls exist.
+    contingencies:
+      - Do not apply until current-main reconciliation, validator hardening and hosted checks are complete.
+      - Abort the whole change if any atomic effect cannot apply or roll back.
+    rationale: The architecture is sound, but too much enforcement would remain conditional after selection.
+    minimum_evidence:
+      - Reconciled exact head, complete effect manifest, rollback rehearsal and hosted Python 3.12-3.14 checks.
+  - id: B
+    title: Revise and rebind before application decision
+    disposition: revise
+    trade_offs:
+      - Adds one review cycle but makes atomicity, evidence receipts and requirement preservation auditable before authority is granted.
+    contingencies:
+      - Keep all live states unchanged while reconciling and hardening.
+      - If a consumer or rollback cannot be proven, retain its historical blocked dependency.
+    rationale: Exact-candidate governance is strongest when operative controls are present before the owner authorizes application.
+    minimum_evidence:
+      - Current-main exact commit, tree and per-file SHA-256 manifest.
+      - Executable default-deny mode and attributable-receipt validators.
+      - Exact source, derivative, consumer, atomic-effect and rollback assertions with negative tests.
+      - Hosted Python 3.12-3.14, coverage, portability and security checks.
+  - id: C
+    title: Defer successor implementation
+    disposition: defer
+    trade_offs:
+      - Avoids migration risk but leaves historical Track 008 and Track 009 blocked.
+    contingencies:
+      - Retain the candidate as non-operative preparation and rebind before future use.
+    rationale: Appropriate if no further migration work is currently desired.
+    minimum_evidence:
+      - No additional evidence; preserve current blocked states.
+recommendation:
+  option_id: B
+  rationale: >-
+    Reconcile and harden the actual atomic application candidate before asking
+    the owner to authorize live registration or dependency migration.
+owner_decision:
+  status: pending
