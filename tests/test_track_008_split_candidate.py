@@ -64,10 +64,32 @@ def test_split_candidate_rejects_baseline_hash_drift(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
-def test_split_candidate_rejects_public_source_derived_artifacts(tmp_path: Path) -> None:
+def test_split_candidate_rejects_source_derived_republication(tmp_path: Path) -> None:
     document = _document()
     document["artifact_routes"][2]["route"] = "public"
-    with pytest.raises(Track008SplitError, match="must remain private"):
+    with pytest.raises(Track008SplitError, match="must remain quarantined"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_split_candidate_rejects_synthetic_context_loss(tmp_path: Path) -> None:
+    document = _document()
+    document["artifact_routes"][0]["route"] = "repository_distributable"
+    with pytest.raises(Track008SplitError, match="must preserve context"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_split_candidate_rejects_exact_source_allowlist_expansion(tmp_path: Path) -> None:
+    document = _document()
+    document["artifact_routes"][1]["exact_allowlist"].append("unknown_asset")
+    with pytest.raises(Track008SplitError, match="allowlist or route has drifted"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_split_candidate_rejects_synthetic_mode_bypass(tmp_path: Path) -> None:
+    document = _document()
+    modes = document["dependency_analysis"]["proposed_modes"]
+    modes["synthetic_internal_preparation"]["prohibited"].remove("clinical_use")
+    with pytest.raises(Track008SplitError, match="synthetic mode boundary"):
         validate(_candidate(tmp_path, document), ROOT)
 
 

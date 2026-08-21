@@ -41,6 +41,16 @@ REQUIRED_CONSUMERS = {
     "012-paediatric-burden-demonstrator",
     "014-atlas-api-release",
 }
+EXPECTED_ROUTE_CLASSES = {
+    "repository_synthetic_fixtures",
+    "exact_unmodified_allowlisted_source_assets",
+    "source_derived_mapping_or_extracted_label_artifacts",
+    "controlled_mixed_or_unresolved_sources",
+}
+DERIVED_QUARANTINE_ROUTE = (
+    "already_public_repository_artifacts_quarantined_from_activation_and_"
+    "further_release_pending_rights_disposition"
+)
 FALSE_CLAIMS = {
     "track_008a_complete",
     "track_008_complete",
@@ -180,17 +190,47 @@ def validate(candidate_path: Path, root: Path) -> None:
     if any(not row.get("source") or not row.get("destination") for row in transfers):
         raise Track008SplitError("each requirement transfer needs source and destination")
 
-    routes = {row.get("class"): row for row in candidate.get("artifact_routes", [])}
+    route_rows = candidate.get("artifact_routes", [])
+    routes = {row.get("class"): row for row in route_rows if isinstance(row, dict)}
+    if set(routes) != EXPECTED_ROUTE_CLASSES or len(route_rows) != len(EXPECTED_ROUTE_CLASSES):
+        raise Track008SplitError("artifact route classes are incomplete or duplicated")
+    synthetic = routes["repository_synthetic_fixtures"]
+    if synthetic != {
+        "class": "repository_synthetic_fixtures",
+        "route": "repository_distributable_with_persistent_synthetic_non_clinical_context",
+        "successor_gate": ["019-bounded-semantic-infrastructure"],
+    }:
+        raise Track008SplitError("synthetic artifact route must preserve context")
+    exact_assets = routes["exact_unmodified_allowlisted_source_assets"]
+    if exact_assets.get("route") != "source_specific_recorded_route_only" or set(
+        exact_assets.get("exact_allowlist", [])
+    ) != {
+        "orphadata_july_2026_en_product1_xml",
+        "mondo_v2026_08_04_three_assets",
+        "hpo_v2026_06_23_nine_ontology_core_assets",
+    }:
+        raise Track008SplitError("exact source allowlist or route has drifted")
     derived = routes.get("source_derived_mapping_or_extracted_label_artifacts", {})
-    if derived.get(
-        "route"
-    ) != "private_non_activated_pending_derivative_and_third_party_rights" or derived.get(
+    if (
+        derived.get("route")
+        != DERIVED_QUARANTINE_ROUTE
+        or derived.get("successor_gate")
+        != [
+            "019-bounded-semantic-infrastructure",
+            "020-clinical-community-semantic-assurance",
+        ]
+    ):
+        raise Track008SplitError(
+            "source-derived artifacts must remain quarantined and assurance-gated"
+        )
+    for artifact in derived.get("artifacts", []):
+        if artifact.get("sha256") != _sha256(root / artifact.get("path", "")):
+            raise Track008SplitError("public source-derived artifact hash drift")
+    controlled = routes["controlled_mixed_or_unresolved_sources"]
+    if controlled.get("route") != "private_or_metadata_only" or controlled.get(
         "successor_gate"
-    ) != [
-        "019-bounded-semantic-infrastructure",
-        "020-clinical-community-semantic-assurance",
-    ]:
-        raise Track008SplitError("source-derived artifacts must remain private and assurance-gated")
+    ) != ["020-clinical-community-semantic-assurance"]:
+        raise Track008SplitError("controlled or unresolved source route has drifted")
 
     dependency = candidate.get("dependency_analysis")
     if not isinstance(dependency, dict):
@@ -205,6 +245,23 @@ def validate(candidate_path: Path, root: Path) -> None:
     if dependency.get("preparation_candidate_effect") != "none":
         raise Track008SplitError("preparation candidate cannot change dependencies")
     modes = dependency.get("proposed_modes", {})
+    synthetic_mode = modes.get("synthetic_internal_preparation", {})
+    if synthetic_mode.get("depends_on") != ["019-bounded-semantic-infrastructure"] or set(
+        synthetic_mode.get("prohibited", [])
+    ) != {
+        "empirical_activation",
+        "source_derived_use",
+        "clinical_use",
+        "patient_facing_use",
+        "public_semantic_authority",
+    }:
+        raise Track008SplitError("synthetic mode boundary has drifted")
+    exact_mode = modes.get("exact_unmodified_source_asset_handling", {})
+    if (
+        exact_mode.get("depends_on") != ["019-bounded-semantic-infrastructure"]
+        or exact_mode.get("additional_gate") != "exact_source_specific_rights_route"
+    ):
+        raise Track008SplitError("exact-asset mode boundary has drifted")
     empirical = modes.get("source_derived_empirical_public_clinical_or_authority_bearing", {})
     if (
         empirical.get("depends_on")
@@ -220,6 +277,8 @@ def validate(candidate_path: Path, root: Path) -> None:
     consumer_ids = [row.get("track") for row in consumers if isinstance(row, dict)]
     if set(consumer_ids) != REQUIRED_CONSUMERS or len(consumer_ids) != len(REQUIRED_CONSUMERS):
         raise Track008SplitError("downstream consumer inventory is incomplete or duplicated")
+    if any(not row.get("proposed_gate") for row in consumers):
+        raise Track008SplitError("each downstream consumer requires a proposed gate")
 
     if _metadata(root, "008-semantic-backbone").get("status") != "blocked":
         raise Track008SplitError("current Track 008 metadata must remain blocked")

@@ -56,9 +56,11 @@ need an atomic, machine-enforced mode-specific dependency contract:
 
 - Successor IDs create migration work, but preserve the meaning of historical
   Track 008 and prevent generic dependency satisfaction.
-- Current evidence does not itself clear publication of extracted mapping or
-  label derivatives. Such outputs must remain non-activated or private unless
-  exact derivative-use evidence is recorded.
+- The mapping and naming derivatives already occur in public Git history; they
+  are not confidential or private. That exposure does not clear rights,
+  activation, republication, rendering or external product use. The exact
+  hash-identified artifacts remain quarantined from activation and further
+  release until an exact derivative-use disposition is recorded.
 - Simulated panels cannot become patient/community participation, clinical
   validation, rights-holder permission or independent review.
 - The transfer matrix accounts individually for eight required outputs, seven
