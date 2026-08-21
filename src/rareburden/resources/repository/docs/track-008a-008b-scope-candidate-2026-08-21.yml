@@ -1,0 +1,91 @@
+schema_version: "1.0.0"
+status: "prospective_scope_change_candidate_preparation_only"
+owner_authorization:
+  decided_by: "edithatogo"
+  decided_at: "2026-08-21"
+  authorized_action: "prepare_scope_change_candidate_and_dependency_analysis"
+  prohibited_effects:
+    - "mark_track_008a_complete"
+    - "mark_track_008b_complete"
+    - "unblock_or_activate_track_009"
+    - "infer_final_owner_disposition"
+baseline:
+  repository_commit: "81d743006ccd84d4bc4ba40ece8db23bd5a969ea"
+  repository_tree: "eb236628505dbbd7e5c2e8c08c70e32757ad9d57"
+  track_008_spec_sha256: "1f39ed12d857d5f7bff791675c8055b8cb4a3cee03517cf42c86101317a872a7"
+  track_008_plan_sha256: "0e880e066fc78f5a7a74426d73a925139efd2c694ca38c7cc63d35b6574bc27f"
+  track_008_metadata_sha256: "7b001439662982fd0b29cf471b550ee3579ca782ace869e407e4cfe1e75efb25"
+  track_008_readiness_sha256: "1bf9b43605ec7eb1f299047aa4546b9639bf3d4419bbbecd371589ed095e2674"
+  track_008_final_disposition_sha256: "b7d09cfa9987991007fab783d407013335946da65e9825ff3af682154c1b219f"
+  track_009_metadata_sha256: "eeea9ea317607bd14857814f14f1f0e2b9799ff0b872156e75c3fda17d0226fb"
+  track_009_readiness_sha256: "069d7c0fa73278975aae8de52e3951dec99aa7951e6cb1319e1e6548c4d2da7d"
+proposed_tracks:
+  - alias: "008A"
+    canonical_id: "008-semantic-backbone"
+    proposed_title: "Bounded non-clinical semantic infrastructure"
+    candidate_state: "blocked_pending_exact_scope_disposition"
+    retained_outputs:
+      - "versioned disease-definition, hierarchy and mapping schemas"
+      - "stable internal identifiers and explicit ambiguity relations"
+      - "hash-bound provisional ORPHA-to-MONDO interoperability rows"
+      - "source-native provisional naming artifacts"
+      - "hierarchy conservation, overlap, migration and deprecation controls"
+      - "synthetic demonstrator fixtures and deterministic release tooling"
+    narrowed_acceptance:
+      - "every distributed artifact has an exact source, transformation, rights route and hash"
+      - "uncertain, one-to-many and unsupported mappings fail closed"
+      - "actual candidate hierarchy and overlap checks pass"
+      - "synthetic demonstrator definitions reconstruct from the bounded release"
+      - "updates produce a reviewable migration diff and invalidate affected outputs"
+      - "all labels and mappings remain visibly provisional and non-clinical"
+      - "no clinical, community-authority, comprehensive-coverage or independent-review claim is made"
+    deferred_to: "019-clinical-community-semantic-assurance"
+  - alias: "008B"
+    canonical_id: "019-clinical-community-semantic-assurance"
+    proposed_title: "Clinical, community and extended-source semantic assurance"
+    candidate_state: "proposed_not_registered_or_active"
+    transferred_obligations:
+      - "attributable patient and community review of naming and aggregation harms"
+      - "clinical and semantic-methods mapping-fitness review"
+      - "independent semantic and engineering review"
+      - "derivative-publication and field-level third-party rights dispositions"
+      - "extended HPO, WHO ICD, UMLS, SNOMED CT and OMIM source decisions"
+      - "patient-facing, clinical, representative or production semantic authorization"
+dependency_analysis:
+  current_track_009:
+    status: "blocked"
+    dependency: "008-semantic-backbone"
+    activation: false
+  preparation_candidate_effect: "none"
+  proposed_after_final_owner_disposition:
+    non_clinical_synthetic_mode:
+      depends_on: ["008-semantic-backbone"]
+      track_019_gate: "not_required_for_synthetic_non_clinical_preparation"
+      prohibited_claims: ["empirical_activation", "clinical_use", "patient_facing_use", "public_authority"]
+    empirical_or_public_semantic_mode:
+      depends_on: ["008-semantic-backbone", "019-clinical-community-semantic-assurance"]
+      track_019_gate: "required_and_complete"
+    implementation_requirement: "machine_enforced_mode_specific_gate_before_any_dependency_change"
+transferred_requirement_register:
+  - original_requirement: "pinned extended source families"
+    destination: "019-clinical-community-semantic-assurance"
+  - original_requirement: "patient/community naming and aggregation review"
+    destination: "019-clinical-community-semantic-assurance"
+  - original_requirement: "clinical mapping-fitness review"
+    destination: "019-clinical-community-semantic-assurance"
+  - original_requirement: "independent semantic review"
+    destination: "019-clinical-community-semantic-assurance"
+  - original_requirement: "bounded non-clinical schemas, mappings, hierarchy and migration"
+    destination: "008-semantic-backbone"
+claims:
+  track_008a_complete: false
+  track_008b_complete: false
+  track_009_unblocked: false
+  scope_change_approved: false
+  clinical_validation: false
+  patient_community_authority: false
+  derivative_publication_rights_complete: false
+  independent_review: false
+next_gate:
+  required: "new_simulated_panel_packet_and_exact_candidate_owner_disposition"
+  effect_until_satisfied: "preserve_current_track_and_dependency_states"
