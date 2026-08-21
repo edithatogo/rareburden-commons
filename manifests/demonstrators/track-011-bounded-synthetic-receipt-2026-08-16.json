@@ -22,13 +22,13 @@
     {
       "artifact": "manifests/ledger/track-009-source-release-bindings-2026-08-16.json",
       "scope": "synthetic ledger source-link assurance only",
-      "sha256": "56b232807e71e3c43f7ff691dc9985deec13ea59756133a28991fff62e181267",
+      "sha256": "c6ab77c5477a97016df5db28a8db17b20449a812de29ebe24802682037d129f3",
       "track_id": "009"
     },
     {
       "artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",
       "scope": "bounded synthetic burden-engine reconciliation only",
-      "sha256": "dc050724fb70a95885954be5b8f77243851da63f3fcbf1c837e1d307bfa131fd",
+      "sha256": "81826bff754050e4dec8a21a6c9a11a11bdb9126493bb4d96c36dc1c8e9af5bc",
       "track_id": "010"
     }
   ],
@@ -73,7 +73,7 @@
     "No age, geography, setting, diagnostic-capacity or clinical inference is permitted."
   ],
   "multi_aetiology_count": 80.0,
-  "receipt_id": "demo-b78ff3c4c7fe971eae54b14b",
+  "receipt_id": "demo-91ef25288abcd9ae57052bc6",
   "schema_version": "0.1.0",
   "unaccounted_count": 70.0,
   "unknown_count": 150.0

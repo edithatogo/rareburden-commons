@@ -39,9 +39,9 @@
   "evidence_bindings": [
     {"id": "owner_agent_panel_governance", "artifact": "docs/decisions/ADR-0009-agent-panel-owner-governance.md", "sha256": "74ce4e9c51e6d0308242d3f3ccd8f59bfbb973ab78ce97c3b741e7f7796bc211"},
     {"id": "owner_backup_attestation", "artifact": "docs/decisions/2026-08-15-public-source-data-use-and-backup-owner.md", "sha256": "e6d95d03f8346be577caff6291af8f1808d33b765ba2b3b266973ef7c31f9257"},
-    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "c8d99555bb185182ed9c28b0da9f48023593ca4cdc1fef2ee82418bea93540fd"},
-    {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "70b3832c8c3fce31e83c318762ff623bcf0582201b844e77fd157d70ae21c60d"},
-    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "aa0ff4fd642bc50a49b0845b1c7038e830bbc79f8dea5a08a9074404e02bb1ea"},
+    {"id": "bounded_quality_evidence", "artifact": "manifests/assurance/track-013-bounded-reconciliation-2026-08-16.json", "sha256": "3273769bdc1f93583187c53b65837fa89721a36b1a6b994604cf2998fe32f873"},
+    {"id": "bounded_release_surface", "artifact": "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json", "sha256": "da10b08ec7f80b0bb922ade51223c35acc7c9088fdbeb2680134589579d83703"},
+    {"id": "bounded_governance", "artifact": "manifests/governance/track-015-bounded-reconciliation-2026-08-16.json", "sha256": "6c50d1f8b4cf8081840cb62f66c4c121b68cb66e41601eda08f3c547c4d87191"},
     {"id": "release_authority_plan", "artifact": "docs/release-authority-receipt-plan-2026-08-03.yml", "sha256": "62f3ae25755d6441ab54f3f1c1d8c1fb73732e0f3546cd1168eac685863581ae"},
     {"id": "candidate_reconciliation", "artifact": "docs/release-candidate-evidence-reconciliation-2026-08-04.yml", "sha256": "8da971dca2173bb6fa17245a2d6c490d103abdc6c0df7e7fba17c653e44a7cb0"}
   ],
@@ -49,7 +49,7 @@
     "track": "016",
     "artifact": "manifests/operations/track-016-bounded-operations-2026-08-16.json",
     "status": "bound",
-    "sha256": "c7430c5be12c3eece9e109a57ca3b0472f7dff3ff57c0bb722db6e273be687c6",
+    "sha256": "cb75637e3090abd0a2b58f74d436397a6c21a06cecc800d3a6d16eed9d238566",
     "merge_commit": "18910840fee787bbe2ae7d7eff40b944539a11f4"
   },
   "owner_disposition_receipt": {

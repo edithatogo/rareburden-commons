@@ -1,0 +1,98 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "008-semantic-backbone"
+candidate:
+  commit: "fa9109e09a91ea5dfc975c54921a3f2f1f79c016"
+  tree: "81d32f8a2ea7f4b8d385e0c23cef4af6742bb09d"
+  evidence_manifest_sha256: "b5781bd40601f84dc7e566dc6ff1e26bd21031a8d046af65cd50158cfec9f290"
+panel:
+  perspectives:
+    - "simulated rights and data-use perspective"
+    - "simulated semantic-methods perspective"
+    - "simulated patient-community harm perspective"
+    - "simulated engineering and release perspective"
+  non_representation_statement: >-
+    These are owner-operated simulations, not independent clinical review,
+    lived-experience participation, community representation, consent,
+    endorsement, partnership or external approval.
+evidence:
+  references:
+    - "manifests/semantics/track-008-v0.4-freeze-candidate-2026-08-21.json"
+    - "manifests/semantics/track-008-v0.4-orpha-mondo-mappings.json"
+    - "manifests/semantics/track-008-v0.4-provisional-naming.json"
+    - "manifests/semantics/track-008-v0.4-row-generation-receipt.json"
+    - "manifests/semantics/track-008-v0.4-migration-impact-2026-08-21.json"
+    - "docs/track-008-v0.4-candidate-challenge-2026-08-21.yml"
+  observed_facts:
+    - "The exact candidate commit contains 9,758 provisional ORPHA-to-MONDO rows derived from the intersection of two hash-verified releases."
+    - "Twenty-seven MONDO Orphanet assertions absent from the exact Orphadata release are excluded and listed."
+    - "No ORPHA code in the intersection has multiple MONDO targets."
+    - "The naming candidate preserves 9,758 paired source labels and 20,413 HPO source-native labels and creates no owner-defined groupings."
+    - "All mappings remain provisional, moderate-confidence and non-clinical."
+  simulated_assessments:
+    - "The rights boundary is acceptable only while the exact asset allowlist and exclusions remain hash-bound."
+    - "The mapping relation records MONDO's exactMatch assertion and must not be represented as independent clinical equivalence."
+    - "Source-native provisional labels reduce invention risk but do not supply patient or community authority."
+    - "The exact candidate can be frozen as a bounded provisional contract without completing Track 008."
+  cannot_infer:
+    - "clinical validity, diagnostic fitness or treatment suitability"
+    - "comprehensive or representative disease or phenotype coverage"
+    - "patient or community approval"
+    - "independent review"
+    - "partnership, endorsement or external approval"
+uncertainty:
+  - "Source publishers may revise mappings, labels, terms or asset composition in later releases."
+  - "The 9,758 rows have not received independent clinical or patient-community review."
+  - "Source-native label differences may still create accessibility or harm concerns."
+dissent:
+  - "The simulated harm perspective prefers deferral until accountable community review if public display will emphasize disease names over identifiers."
+  - "The simulated methods perspective accepts freeze only if exactMatch remains explicitly source-asserted and provisional."
+stop_triggers:
+  - "Any candidate commit, tree, source, evidence or derived-artifact hash drift."
+  - "Discovery of third-party, mixed-rights or controlled content in an allowlisted asset."
+  - "Any use that treats provisional mappings as clinical equivalence or diagnostic guidance."
+  - "Any claim of independent review, community authority, comprehensive coverage, partnership or external approval."
+options:
+  - id: "A"
+    title: "Freeze the bounded provisional contract"
+    disposition: "accept"
+    trade_offs:
+      - "Provides a stable v0.4 integration contract now while retaining explicit uncertainty and authority limits."
+      - "Residual clinical and naming assurance remains open, so Track 008 cannot be completed."
+    contingencies:
+      - "Any drift invalidates the freeze and requires a new candidate, migration diff, challenge and owner decision."
+      - "Public presentation must keep provisional, non-clinical and non-independent labels visible."
+    rationale: "No critical finding remains within the narrowed non-clinical scope, and every included row and label is exactly hash-bound."
+    minimum_evidence:
+      - "Owner selects this exact commit, tree and evidence-manifest hash."
+      - "All recorded artifact hashes validate and the full repository gate passes."
+      - "Track completion and external-authority claims remain false."
+  - id: "B"
+    title: "Defer freeze for external review"
+    disposition: "defer"
+    trade_offs:
+      - "May improve clinical and lived-experience assurance but introduces an open-ended coordination dependency."
+    contingencies:
+      - "Keep the current candidate immutable and regenerate it if any source or artifact changes before review."
+    rationale: "Appropriate if the owner wants stronger assurance before even a provisional non-clinical contract is stabilized."
+    minimum_evidence:
+      - "Attributable reviewer role, conflicts, method and findings bound to the exact candidate."
+  - id: "C"
+    title: "Narrow to source registry only"
+    disposition: "narrow"
+    trade_offs:
+      - "Minimizes semantic interpretation risk but removes the 9,758-row interoperability value."
+    contingencies:
+      - "Retain mapping and naming artifacts as non-activated evidence for a future version."
+    rationale: "Available if the owner does not accept source-asserted exactMatch relations without external review."
+    minimum_evidence:
+      - "A revised manifest excluding mapping and naming artifacts and a new migration receipt."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    Freeze only the exact bounded provisional, non-clinical contract. The
+    evidence supports stable interoperability within that scope, while Track
+    completion and all clinical, community, independence and external-authority
+    claims remain blocked.
+owner_decision:
+  status: "pending"
