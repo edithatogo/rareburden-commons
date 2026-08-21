@@ -1,0 +1,24 @@
+{
+  "candidate_contract": "v0.4-provisional",
+  "comparison": "self-baseline deterministic regeneration check",
+  "current_schema_sha256": "f58ffd67c9b55d9cffecbc4c050e957e3092ca1bb2c383a54f0a9310d0ad4821",
+  "exports": [
+    {
+      "ledger_id": "public-foundation-synthetic-ledger",
+      "parameters": 2,
+      "path": "manifests/ledger/track-009-v0.4-public-foundation-synthetic.json",
+      "sha256": "de3ef65cecc08785e8175a5d326a2be4f8adb6374cac22e83442ebbe7072fee0"
+    },
+    {
+      "ledger_id": "economic-social-synthetic-ledger",
+      "parameters": 1,
+      "path": "manifests/ledger/track-009-v0.4-economic-social-synthetic.json",
+      "sha256": "3c4a36431d5f8c992a044e449972907a9b5005f2c733df608556a2ffc8c21da2"
+    }
+  ],
+  "interpretation": "The synthetic exports reproduce their own candidate baseline. This is not an approved schema migration, empirical validation or ledger freeze.",
+  "previous_schema_sha256": "f58ffd67c9b55d9cffecbc4c050e957e3092ca1bb2c383a54f0a9310d0ad4821",
+  "schema_path": "schemas/parameter-ledger.schema.json",
+  "schema_version": "1.0.0",
+  "track": "009-evidence-parameter-ledger"
+}

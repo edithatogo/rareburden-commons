@@ -118,3 +118,18 @@
   `docs/track-009-freeze-readiness-2026-08-21.yml`. Track 009 remains blocked,
   inactive and unfrozen; the agent panel is advisory and the owner's
   disposition authorizes reversible preparation only.
+- [x] Generate deterministic JSON exports for both synthetic ledgers and bind
+  their schema, inputs, outputs and self-baseline migration receipt in an exact
+  provisional candidate manifest. Evidence:
+  `manifests/ledger/track-009-v0.4-candidate-2026-08-21.json`,
+  `manifests/ledger/track-009-v0.4-migration-impact-2026-08-21.json` and
+  `scripts/build_track009_v04_candidate.py`. This is review preparation only;
+  empirical activation, accountable reviews and the v0.4 ledger freeze remain
+  false or pending.
+
+## Review fixes — 2026-08-21
+
+- [x] Emit candidate JSON as explicit UTF-8 bytes with LF line endings so
+  deterministic regeneration produces identical evidence on Windows, macOS
+  and Linux. Evidence: hosted Windows portability finding and the candidate
+  builder reproducibility test.
