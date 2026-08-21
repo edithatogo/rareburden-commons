@@ -1,0 +1,100 @@
+schema_version: "1.0.0"
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 008-semantic-backbone
+candidate:
+  commit: "bf1232aa93f6a8ab29bb76fb07ed5ff8a52a7bf1"
+  tree: "13c381006c21711c327f83835782a099c473b63b"
+  evidence_manifest_sha256: "c7092a8989284b6097262063854f0aed2ce89adbabf0eb55bbc6c957bc829661"
+panel:
+  perspectives:
+    - simulated_semantic_methods_and_evidence
+    - simulated_rights_data_use_and_provenance
+    - simulated_patient_community_harm
+    - simulated_engineering_and_release_assurance
+  non_representation_statement: >-
+    Simulated advisory perspectives only; not clinical or independent review,
+    lived-experience testimony, patient or community representation, consent,
+    endorsement, partnership, licensor permission or external approval.
+evidence:
+  references:
+    - manifests/semantics/track-008-provisional-candidate-2026-08-21.json
+    - docs/track-008-freeze-readiness-2026-08-21.yml
+    - docs/decisions/2026-08-21-track-008-provisional-readiness.yml
+    - tests/test_track_008_freeze_readiness.py
+  observed_facts:
+    - PR 184 was squash-merged as commit 649b78c3ddfa64820f7507e9ff3ca39f3506a8b7 with tree a93f8f81284e9480759cdcc9c4d337fa95d4fd67.
+    - The former source commit 5f0d8dc31e019c3ac9c3dea537a2083617b8f758 is not an ancestor of that squash merge and does not resolve in a fresh clone of main.
+    - All eight accepted artifact SHA-256 values match the corresponding blobs at merge commit 649b78c3ddfa64820f7507e9ff3ca39f3506a8b7.
+    - Commit bf1232aa93f6a8ab29bb76fb07ed5ff8a52a7bf1 records the durable rebind without changing those eight semantic artifacts.
+    - Commit dddb5ed099f8932fa45644325bb9a0404f34387c restores the mutated evidence file byte-for-byte on Windows.
+  simulated_assessments:
+    - The durable rebind repairs fresh-clone reproducibility without expanding the accepted readiness-only scope.
+    - A new owner ratification is appropriate because the former packet's exact-binding stop trigger was activated.
+  cannot_infer:
+    - source rights, mapping fitness, clinical validity or diagnostic meaning
+    - patient or community naming authority, acceptability, consent or representation
+    - comprehensive, representative, multilingual or geographically complete coverage
+    - independent review, partnership, endorsement or external approval
+    - Track 008 completion or Track 009 activation
+uncertainty:
+  - This correction proves only the identity of the eight listed blobs, not real-source provenance, fitness or authority.
+  - Newer Track 008 v0.4 candidate preparation and disposition remain separate exact-candidate decisions.
+dissent:
+  - The simulated governance perspective rejects silently carrying the former exact-candidate disposition onto changed evidence hashes.
+  - The simulated engineering perspective supports the correction because clean-clone resolution and byte equality are demonstrated.
+stop_triggers:
+  - Any mismatch among the eight prior, merge-commit and working-tree artifact hashes.
+  - Any semantic artifact, source route, rights disposition, scope or closed gate change attributed to this correction.
+  - Any dependence on PR-only Git objects or local reflogs for validation.
+  - Any inference of rights, clinical or community authority, Track 008 completion or Track 009 activation from this correction.
+options:
+  - id: A
+    title: Ratify durable provenance correction
+    disposition: narrow
+    trade_offs:
+      - Restores durable fresh-clone reproducibility with an additional governance receipt.
+      - Changes administrative evidence identifiers while leaving semantic bytes and readiness-only scope unchanged.
+    contingencies:
+      - Keep every rights, fitness, clinical, community and independent-review limitation in force.
+      - Supersede this packet on any artifact, source, terms, rendering or evidence change.
+    rationale: >-
+      The eight artifacts are byte-identical at the durable squash-merge commit,
+      so the correction repairs provenance without reopening substantive scope.
+    minimum_evidence:
+      - Fresh-clone resolution of merge commit 649b78c3ddfa64820f7507e9ff3ca39f3506a8b7 and tree a93f8f81284e9480759cdcc9c4d337fa95d4fd67.
+      - SHA-256 equality for all eight artifacts and a schema-valid recorded packet.
+      - Hosted Python 3.12, 3.13 and 3.14 plus portability checks on the exact ratification head.
+  - id: B
+    title: Defer provenance correction
+    disposition: defer
+    trade_offs:
+      - Avoids ratifying the changed binding but leaves the correction without an attributable owner receipt.
+    contingencies:
+      - Treat the corrected binding as administratively pending.
+    rationale: Defer if durable equivalence cannot be independently reproduced.
+    minimum_evidence:
+      - A later clean-clone proof and exact-candidate packet.
+  - id: C
+    title: Withdraw provisional binding
+    disposition: stop
+    trade_offs:
+      - Removes the readiness binding but loses useful bounded provenance controls.
+    contingencies:
+      - Recreate readiness evidence only from a durable main-ancestry candidate.
+    rationale: Withdraw if any artifact differs or scope has changed.
+    minimum_evidence:
+      - Evidence of mismatch, scope drift or an unresolvable durable commit.
+recommendation:
+  option_id: A
+  rationale: >-
+    Ratify the durable rebind because blob equality is demonstrated and the
+    correction changes neither semantic content nor any substantive gate.
+owner_decision:
+  status: recorded
+  selected_option_id: A
+  decided_by: edithatogo
+  decided_at_utc: "2026-08-21T01:04:03Z"
+  rationale: >-
+    Ratify the durable provenance correction only; it does not confer source
+    rights, mapping or clinical fitness, community authority, independent
+    review, Track 008 completion or Track 009 activation.
