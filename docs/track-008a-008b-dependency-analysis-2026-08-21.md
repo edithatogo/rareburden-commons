@@ -59,8 +59,10 @@ need an atomic, machine-enforced mode-specific dependency contract:
 - The mapping and naming derivatives already occur in public Git history; they
   are not confidential or private. That exposure does not clear rights,
   activation, republication, rendering or external product use. The exact
-  hash-identified artifacts remain quarantined from activation and further
-  release until an exact derivative-use disposition is recorded.
+  hash-identified artifacts are proposed for no additional repository-owned
+  publication, export, rendering, activation or promotion until an exact
+  derivative-use disposition is recorded. Historical Git availability persists;
+  this proposal cannot retract prior distribution.
 - Simulated panels cannot become patient/community participation, clinical
   validation, rights-holder permission or independent review.
 - The transfer matrix accounts individually for eight required outputs, seven
