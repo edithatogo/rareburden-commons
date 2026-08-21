@@ -27,6 +27,14 @@ def validate_renovate_readiness(root: Path) -> dict[str, Any]:
         raise RenovateReadinessError("bounded Renovate pull-request limits changed")
     if not config.get("schedule"):
         raise RenovateReadinessError("Renovate schedule must remain explicit")
+    ignored_paths = config.get("ignorePaths")
+    required_ignored_paths = {"requirements.txt", "requirements-dev.txt"}
+    if not isinstance(ignored_paths, list) or not required_ignored_paths.issubset(
+        set(ignored_paths)
+    ):
+        raise RenovateReadinessError(
+            "generated requirements exports must be ignored by Renovate"
+        )
     if (root / ".github" / "dependabot.yml").exists() or (
         root / ".github" / "dependabot.yaml"
     ).exists():
@@ -35,6 +43,7 @@ def validate_renovate_readiness(root: Path) -> dict[str, Any]:
         "schema_version": "1.0",
         "status": "repository_configuration_ready",
         "dependency_dashboard_configured": True,
+        "generated_requirements_exports_ignored": True,
         "hosted_app_execution_observed": False,
         "hosted_evidence_required": "Renovate-authored Dependency Dashboard or pull request",
     }

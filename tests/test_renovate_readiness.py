@@ -23,6 +23,7 @@ def _valid_config() -> dict:
         "prConcurrentLimit": 5,
         "prHourlyLimit": 2,
         "schedule": ["before 6am on monday"],
+        "ignorePaths": ["requirements.txt", "requirements-dev.txt"],
     }
 
 
@@ -56,3 +57,10 @@ def test_readiness_rejects_competing_dependabot(tmp_path: Path) -> None:
     (root / ".github" / "dependabot.yml").write_text("version: 2\n", encoding="utf-8")
     with pytest.raises(RenovateReadinessError, match="compete"):
         validate_renovate_readiness(root)
+
+
+def test_readiness_rejects_generated_requirement_updates(tmp_path: Path) -> None:
+    config = _valid_config()
+    config["ignorePaths"] = ["requirements.txt"]
+    with pytest.raises(RenovateReadinessError, match="generated requirements"):
+        validate_renovate_readiness(_write_root(tmp_path, config))

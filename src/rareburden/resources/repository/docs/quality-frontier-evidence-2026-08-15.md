@@ -33,6 +33,10 @@ software assurance, not scientific, clinical, rights, patient/community or relea
   remains pending until this workflow revision runs.
 - Renovate is the sole dependency-update bot. `renovate.json` inherits
   `github>edithatogo/renovate-config`; Dependabot configuration is intentionally absent.
+- `requirements.txt` and `requirements-dev.txt` are generated exports of `uv.lock`, so
+  Renovate must not update them directly. Dependency changes originate in
+  `pyproject.toml` or lock-file maintenance; the repository export checks then verify
+  that all three representations agree.
   A Dependency Dashboard or Renovate PR is still required as hosted proof that app access works.
   `scripts/check_renovate_readiness.py` now validates these repository-owned prerequisites
   offline and explicitly reports `hosted_app_execution_observed: false`; passing that check is
