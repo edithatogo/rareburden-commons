@@ -105,3 +105,19 @@ issues, unsupported resolution, premature approval/freeze claims, panel
 independence claims, and freezes lacking exact candidate, ledger-export,
 source/semantic/transformation, migration and accountable-decision evidence.
 No finding is resolved and no review or freeze authority is inferred.
+
+### Bounded agent-owner review closeout — 2026-08-22
+
+Repository review result: **Pass for bounded synthetic assurance; Track 009
+remains blocked and unfrozen**. Track 008 is complete for its exact bounded
+provisional non-clinical semantic core, so the Track 009 challenge was rerun
+against the current dependency state. The epidemiology/estimand, rights/data-
+use and engineering perspectives remain role-separated agent advice, and the
+repository owner recorded the disposition in
+`docs/decisions/2026-08-22-track-009-agent-owner-closeout.yml`.
+
+The three existing medium findings remain pending: empirical estimand fitness,
+source/custodian rights and engineering/release review evidence. No empirical,
+controlled, clinical, patient/community, independent-review, contract-freeze,
+production or release claim is made. Track 009 stays `blocked`; only the
+bounded synthetic preparation lane is retained.

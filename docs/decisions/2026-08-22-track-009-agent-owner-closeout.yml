@@ -1,0 +1,46 @@
+schema_version: "1.0.0"
+track_id: "009-evidence-parameter-ledger"
+decision_type: "bounded_agent_owner_review_closeout"
+decided_at_utc: "2026-08-22T00:00:00Z"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+dependency_state:
+  track_002: "archived"
+  track_008: "complete_for_bounded_scope"
+candidate:
+  manifest: "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json"
+  migration_receipt: "manifests/ledger/track-009-v0.4-migration-impact-2026-08-21.json"
+  scope: "synthetic_reversible_preparation_only"
+panel:
+  status: "role_separated_agent_advice"
+  perspectives:
+    - "epidemiology and estimand fitness"
+    - "rights and data-use"
+    - "engineering and reproducibility"
+  rerun_reason: "Track 008 bounded dependency completion"
+  independent_review: false
+  external_authority: false
+owner_disposition:
+  status: "bounded_preparation_retained"
+  rationale: >-
+    Retain the exact synthetic candidate and containment controls as reversible
+    preparation. Do not activate empirical or controlled inputs and do not
+    freeze the v0.4 ledger contract until the pending findings have qualifying
+    evidence.
+pending_findings:
+  - id: "EPI-MED-01"
+    status: "pending"
+    evidence_required: "empirical estimand and denominator fitness"
+  - id: "RIGHTS-01"
+    status: "pending"
+    evidence_required: "source or custodian rights and data-use evidence"
+  - id: "ENG-01"
+    status: "pending"
+    evidence_required: "engineering/release review and exact operational evidence"
+claims:
+  track_009_complete: false
+  contract_frozen: false
+  empirical_activation: false
+  controlled_data_activation: false
+  independent_review: false
+  release_authority: false
