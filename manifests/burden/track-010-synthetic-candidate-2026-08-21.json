@@ -1,0 +1,43 @@
+{
+  "candidate_interface": "provisional-pre-alpha",
+  "candidate_status": "prepared_synthetic_only_not_alpha_not_frozen",
+  "claims": {
+    "alpha_interface_frozen": false,
+    "empirical_or_production_activation": false,
+    "engineering_approval": false,
+    "independent_review": false,
+    "patient_community_approval": false,
+    "public_readiness": false,
+    "release_authority": false,
+    "scientific_approval": false,
+    "track_003_eligible": false,
+    "track_009_dependency_satisfied": false,
+    "track_complete": false
+  },
+  "compatibility_receipt": {
+    "path": "manifests/burden/track-010-compatibility-impact-2026-08-21.json",
+    "sha256": "ab9586e10fc98108204c9d759840d15022d6526eba9d85d9bc1877dc8cb42a7d"
+  },
+  "engine_receipt": {
+    "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",
+    "sha256": "81826bff754050e4dec8a21a6c9a11a11bdb9126493bb4d96c36dc1c8e9af5bc"
+  },
+  "invalidation": "any upstream, candidate, interface, artifact or dependency-lock drift; any failed provenance or reproduction check; or any unresolved high/critical finding",
+  "permitted_scope": [
+    "deterministic synthetic descriptive computation",
+    "unit and invariant failure testing",
+    "provenance, reproduction, recovery and security preparation"
+  ],
+  "schema_version": "1.0.0",
+  "source_commit": "b99615dfc72c1133d9c18a0530415ce639d628aa",
+  "source_tree": "0fc30cf4235aa6d03a9c0b2dc98b21aacbde5cfc",
+  "track": "010-public-burden-engine",
+  "track_003_interface_profile": {
+    "path": "examples/demonstrators/003-ledger-profile.yml",
+    "sha256": "b79a41752279db0b73ca721b9a8eaed383be63513c083eefc0d43635ccfaec98"
+  },
+  "track_009_candidate": {
+    "path": "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json",
+    "sha256": "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5"
+  }
+}
