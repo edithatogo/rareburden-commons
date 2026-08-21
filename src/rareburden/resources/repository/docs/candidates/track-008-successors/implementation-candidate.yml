@@ -16,6 +16,19 @@ candidate_files:
   - "docs/candidates/track-008-successors/020-metadata.json"
   - "docs/candidates/track-008-successors/dependency-modes.yml"
   - "docs/candidates/track-008-successors/reference-migration.yml"
+  - "docs/candidates/track-008-successors/external-evidence-receipt.schema.json"
+  - "docs/candidates/track-008-successors/external-evidence-register.yml"
+candidate_file_sha256:
+  "docs/candidates/track-008-successors/019-spec.md": "b79ce2d6412a346cb64550d7c2bc164c75c7aacf65e75df59ddcdd0f872a5152"
+  "docs/candidates/track-008-successors/019-plan.md": "5984a76c58c966424d3ceaaac24b579759d40414af981a27c883aef9c5d797c0"
+  "docs/candidates/track-008-successors/019-metadata.json": "b0f6d7faaf5ac0498b88d24c4c6c3150ae3dc67257c3bc406cf6ba67d74bbf83"
+  "docs/candidates/track-008-successors/020-spec.md": "6e83da7cbceeef8be43317a5679901723e32cc2e7d27ee18cf96f1c75729cfbb"
+  "docs/candidates/track-008-successors/020-plan.md": "2644279040ff5aa5a01281a9bce56e5f146f99df38a96cd1cdd15f3524b09765"
+  "docs/candidates/track-008-successors/020-metadata.json": "84791bda57c15d11d5b9fa67f138b4de049e64e978a732176e9fcf287ab6217e"
+  "docs/candidates/track-008-successors/dependency-modes.yml": "92376c1571fbdea5694d30872a6b20abb71392330584fdc06c211cab36eab55f"
+  "docs/candidates/track-008-successors/reference-migration.yml": "e4ad4b812d7d43e7b3725a61e6b219f189dea3f58896b2e53f720cbfd994f84e"
+  "docs/candidates/track-008-successors/external-evidence-receipt.schema.json": "8ac8fce5a91013039405cb4194eea72f3d847b00a298af296727a63c53d9a48e"
+  "docs/candidates/track-008-successors/external-evidence-register.yml": "6f7494858d84b0bb71082288886e32fc0d7a8e85fa9080c6092dadd620a0a149"
 required_atomic_effects: ["register_019", "register_020", "archive_008_as_superseded_not_complete", "migrate_operational_references", "install_default_deny_mode_validator", "regenerate_runtime_assets"]
 prohibited_current_effects: ["modify_live_track_registry", "modify_live_roadmap", "modify_live_track_metadata", "register_successor", "complete_any_track", "unblock_track_009", "activate_semantic_mode"]
 next_gate: "new_simulated_panel_packet_and_exact_implementation_candidate_owner_disposition"

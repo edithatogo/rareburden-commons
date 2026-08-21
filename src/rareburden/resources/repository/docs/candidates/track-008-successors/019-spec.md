@@ -28,6 +28,11 @@ activation or promotion by this track. Historical Git availability persists.
 5. Updates produce reviewable diffs and invalidate affected outputs.
 6. Migration and deprecation rules are machine tested.
 7. Unknown semantic-use modes deny by default.
+8. Every distributed exact-unmodified asset has exact source-specific rights,
+   route, hash, attribution and notice evidence.
+9. The two already-public derived artifacts remain unavailable for additional
+   repository-owned publication, export, rendering, activation or promotion
+   unless Track 020 and exact derivative-rights evidence both pass.
 
 ## Non-goals
 
