@@ -11,17 +11,25 @@ def test_source_index_metadata_gap_register_reconciles_union() -> None:
     )
     reconciliation = register["reconciliation"]
     assert reconciliation == {
-        "catalogue_records": 16,
-        "archival_matrix_records": 21,
-        "overlap_records": 15,
+        "catalogue_records": 22,
+        "archival_matrix_records": 22,
+        "overlap_records": 22,
         "union_records": 22,
-        "all_sources_indexed": False,
+        "all_sources_indexed": True,
         "all_exact_release_metadata_archived": False,
         "all_raw_bytes_archived": False,
         "all_raw_bytes_publicly_redistributable": False,
     }
-    assert {row["source_id"] for row in register["catalogue_only"]} == {
-        "who-global-health-expenditure-database"
-    }
-    assert len(register["archival_matrix_only"]) == 6
+    assert register["catalogue_only"] == []
+    assert register["archival_matrix_only"] == []
     assert register["claims"]["global_completeness"] is False
+
+
+def test_catalogue_and_archival_matrix_have_exact_source_id_parity() -> None:
+    catalogue = yaml.safe_load((ROOT / "catalog/data_sources.yml").read_text())
+    matrix = yaml.safe_load(
+        (ROOT / "docs/source-archive-decision-matrix-2026-08-15.yml").read_text()
+    )
+    assert {row["source_id"] for row in catalogue["sources"]} == {
+        row["source_id"] for row in matrix["decisions"]
+    }

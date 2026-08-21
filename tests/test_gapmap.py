@@ -35,6 +35,32 @@ def test_gap_map_does_not_treat_domain_only_match_as_sufficient() -> None:
     assert row["status"] == "unavailable"
 
 
+def test_blocked_terminology_records_do_not_become_capability_candidates() -> None:
+    result = build_domain_gap_map(
+        load_mapping(CATALOG),
+        {
+            "title": "Blocked terminology check",
+            "needs": [
+                {
+                    "need_id": "coding",
+                    "label": "Coding terminology",
+                    "domain": "coding",
+                    "scope": "synthetic check",
+                    "required_data_levels": ["knowledge_base"],
+                }
+            ],
+        },
+    )
+    row = result["rows"][0]
+    for source_id in (
+        "who-icd-10-11",
+        "snomed-ct",
+        "snomed-ct-national-edition-germany",
+        "meddra",
+    ):
+        assert source_id not in row["candidate_source_ids"]
+
+
 def test_duplicate_need_is_rejected() -> None:
     requirements = deepcopy(load_mapping(REQUIREMENTS))
     requirements["needs"].append(deepcopy(requirements["needs"][0]))
