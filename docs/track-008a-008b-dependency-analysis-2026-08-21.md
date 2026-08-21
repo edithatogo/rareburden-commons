@@ -8,16 +8,16 @@ authority is inferred.
 
 ## Proposed identities
 
-- **008A** retains canonical ID `008-semantic-backbone` and would become the
-  bounded non-clinical semantic infrastructure track.
-- **008B** would use the schema-compatible canonical ID
-  `019-clinical-community-semantic-assurance` and would hold attributable
+- Historical `008-semantic-backbone` remains a blocked umbrella unless an exact
+  supersession candidate is later approved.
+- **008A** would use `019-bounded-semantic-infrastructure`.
+- **008B** would use `020-clinical-community-semantic-assurance` and hold attributable
   clinical, community, independent-review, extended-source and derivative-use
   obligations.
 
-The existing numeric ID is retained for 008A to avoid silently invalidating
-historical manifests and downstream references. The 008B alias is descriptive;
-the repository metadata schema requires three-digit numeric canonical IDs.
+Distinct successor IDs prevent a future bare `Track 008 complete` status from
+being mistaken for satisfaction of the historical clinical/community contract.
+They require an explicit reference migration, which is analysed but not enacted here.
 
 ## Requirement transfer
 
@@ -40,28 +40,29 @@ The preparation candidate makes **no dependency change**. Track 009 remains
 blocked on canonical Track 008 and cannot infer satisfaction from the bounded
 v0.4 freeze or this proposal.
 
-If the split is later approved, Track 009 would need a machine-enforced
-mode-specific dependency contract:
+If the split is later approved, Track 009 and every inventoried consumer would
+need an atomic, machine-enforced mode-specific dependency contract:
 
-- synthetic and non-clinical preparation may depend on completed 008A, while
+- synthetic internal preparation may depend on completed 008A, while
   empirical activation, clinical use, patient-facing output and authority
   claims remain prohibited;
-- any empirical or public semantic mode must also require completed 008B;
+- exact unmodified source assets additionally require their source-specific route;
+- any source-derived, empirical, public-facing, clinical, patient-facing or
+  authority-bearing mode must also require completed 008B and exact evidence;
 - any Track 008A, Track 008B or evidence-hash drift invalidates the affected
   downstream mode and requires a new panel and owner decision.
 
 ## Risks and contingencies
 
-- A same-ID narrowing could be mistaken for completion of the original Track
-  008 contract. Titles, release notes and dependency gates must identify 008A's
-  bounded non-clinical scope wherever completion is later considered.
+- Successor IDs create migration work, but preserve the meaning of historical
+  Track 008 and prevent generic dependency satisfaction.
 - Current evidence does not itself clear publication of extracted mapping or
   label derivatives. Such outputs must remain non-activated or private unless
   exact derivative-use evidence is recorded.
 - Simulated panels cannot become patient/community participation, clinical
   validation, rights-holder permission or independent review.
-- If the final panel rejects same-ID narrowing, create two new successor IDs and
-  leave Track 008 blocked as the historical umbrella.
+- The transfer matrix accounts individually for eight required outputs, seven
+  acceptance criteria, the protocol review gate and both v1 contributions.
 
 ## Required final evidence
 
