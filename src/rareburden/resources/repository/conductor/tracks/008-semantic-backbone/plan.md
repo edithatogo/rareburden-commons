@@ -20,7 +20,12 @@
 - [x] Define mutually exclusive aggregation nodes and non-tree relationships. `[M-05, S-02]` Evidence: hierarchy conservation and aggregation-contract tests.
 - [x] Define syndrome/aetiology and multi-diagnosis rules. Evidence: explicit
   relation and aggregation contracts in synthetic hierarchy fixtures.
-- [ ] Obtain clinical-methods and community/harm naming challenge from agents and owner disposition.
+- [x] Run the clinical-methods and simulated community/harm naming challenge
+  through role-separated agents and record the repository-owner disposition.
+  Evidence: `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml` and
+  `docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml`. This is an
+  owner-operated simulation, not clinical validation, lived-experience
+  participation or authority for any unrelated community.
 
 ## Phase 3 — Implementation
 
@@ -35,7 +40,11 @@
 
 ## Phase 4 — Review and compatibility
 
-- [ ] Run role-separated semantic/methods agent-panel review and owner disposition.
+- [x] Run role-separated semantic/methods agent-panel review and owner
+  disposition. Evidence: `docs/track-008-bounded-agent-review-2026-08-16.yml`,
+  `docs/track-008-v0.4-candidate-challenge-2026-08-21.yml` and the exact
+  Option A owner disposition. The agent panel is advisory and not independent
+  human review.
 - [x] Add schema migration and ontology-update impact tests for synthetic
   mapping releases. Evidence: `tests/test_semantics.py` covers deterministic
   release diffs, added/removed/changed impact summaries and migration receipts;
@@ -52,7 +61,10 @@
   `docs/track-008-semantic-review-packet.md` records fail-closed handling for
   unmapped, ambiguous and deprecated relations plus explicit residual overlap;
   source-pinned semantic authority remains open.
-- [ ] Freeze v0.4 semantic contracts for dependent tracks.
+- [x] Freeze the exact bounded provisional non-clinical v0.4 semantic contract
+  for dependency integration. Evidence: the hash-bound Option A disposition
+  and satisfied scoped freeze gate. This is not Track 008 completion or
+  authority to activate excluded sources, clinical use or public naming.
 
 ## Review fixes — 2026-07-27
 
@@ -87,10 +99,18 @@
   Evidence: `docs/track-008-panel-assurance-report-2026-08-03.yml` and
   `docs/track-008-bounded-agent-review-2026-08-16.yml`. Both outputs are
   advisory; neither is owner disposition or independent review.
-- [ ] Obtain clinical/community agent-panel naming recommendation and owner disposition.
-- [ ] Pin approved source releases and confirm licence/redistribution terms.
-- [ ] Freeze v0.4 semantic contracts only after all blocking findings and
-  upstream Track 002/007 gates are closed.
+- [x] Obtain the simulated clinical/community agent-panel naming recommendation
+  and owner disposition for the bounded candidate. This closes the repository
+  governance task only; clinical validity and actual-community participation,
+  consent, endorsement and authority remain unclaimed.
+- [x] Pin the approved bounded source releases and exact public asset allowlist.
+  Evidence: the v0.4 candidate manifest binds Orphadata, MONDO and nine cleared
+  HPO ontology-core objects; all other source classes remain excluded.
+- [x] Freeze the bounded v0.4 semantic contract after upstream Track 002/007
+  reconciliation and resolution of findings within the narrowed non-clinical
+  scope. Expansion findings remain open and fail closed.
+- [ ] Obtain source- or rights-holder evidence before expanding the exact asset
+  allowlist or redistributing any currently excluded source class.
 
 ## Bounded source reconciliation — 2026-08-16
 
@@ -139,7 +159,7 @@
   `manifests/semantics/track-008-provisional-migration-impact-2026-08-21.json`
   and `docs/track-008-provisional-candidate-advice-2026-08-21.yml`. This packet
   is advisory readiness evidence only: source approval, naming authority,
-  independent review, v0.4 freeze and Track 009 activation remain blocked.
+  v0.4 freeze and Track 009 activation remain blocked.
 
 ## Post-upstream reconciliation — 2026-08-21
 
@@ -181,8 +201,10 @@
   `47f1a9159e85bfa8112c18ca1c1c69b29e99b4cd` and tree
   `af2bc0074ae6c77a65f8c47da04431b08baca77f`, and apply only the bounded
   provisional non-clinical contract freeze. Track 008 remains blocked and
-  incomplete; external naming, clinical, patient/community, rights and
-  independent-review gates remain pending.
+  incomplete; source-rights expansion, clinical validity and actual-community
+  naming-authority gates remain pending. Independent human review is not a
+  gate in this single-person repository; agent panels advise and the owner
+  decides.
 
 ## Review fixes — 2026-08-21
 

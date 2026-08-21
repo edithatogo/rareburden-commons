@@ -150,6 +150,13 @@ def validate(path: Path, root: Path) -> None:
         raise Track008ReadinessError("repository panel output must remain advisory")
     if governance.get("owner_disposition") != "owner_operated_not_independent_review":
         raise Track008ReadinessError("owner disposition cannot be independent review")
+    if (
+        governance.get("independent_human_review_gate") != "not_applicable_single_person_repository"
+        or governance.get("accountable_decision_maker") != "repository_owner"
+    ):
+        raise Track008ReadinessError(
+            "single-person governance must use advisory agents and repository-owner disposition"
+        )
     if governance.get("automated_validation_effect") != (
         "validates_recorded_scoped_freeze_only_not_approval_independent_review_"
         "track_completion_or_external_authority"
@@ -367,8 +374,8 @@ def main() -> int:
         print(f"Track 008 freeze readiness failed: {exc}")
         return 1
     print(
-        "Track 008 bounded contract freeze passed; external approval, independent review "
-        "and track completion remain separate gates."
+        "Track 008 bounded contract freeze passed; source rights, clinical validity, "
+        "actual-community authority and track completion remain separate gates."
     )
     return 0
 
