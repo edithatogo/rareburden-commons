@@ -180,3 +180,21 @@ test exercises the escape attempt; the reference workflow remains reproducible.
 Planned: independent accessibility and real-user usability evidence, archive or
 DOI workflow, separately executed reproduction, real-source rights and release
 authority are all still required.
+
+## Blocker disposition — 2026-08-22
+
+Track 014 is **Blocked**, not Complete or Archived. The repository-owned
+synthetic/static implementation and review remediation pass all local gates,
+but the acceptance-critical boundaries remain unresolved:
+
+- independent accessibility review and real-user usability evidence;
+- clean-environment and separately executed reproduction;
+- archive/DOI authority and immutable research-object release;
+- Track 013 approval and real-source redistribution rights;
+- exact owner release-content and beta/public-release decision.
+
+These are represented as machine-readable pending gates in `metadata.json`.
+No archive move is authorized: archiving an incomplete, non-superseded track
+would destroy lifecycle meaning and overstate release readiness. Reopen the
+track only when the named evidence is supplied or the scope is formally
+superseded with an accountable decision.

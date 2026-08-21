@@ -1,10 +1,10 @@
 {
   "id": "014-atlas-api-release",
   "title": "Atlas, API and reproducible release engineering",
-  "status": "planned",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-21",
+  "updated": "2026-08-22",
   "target_release": "0.8.0",
   "stage": "public_products",
   "owner_role": "Repository owner (sole accountable human)",
@@ -22,5 +22,14 @@
     "security",
     "release"
   ],
-  "v1_critical": true
+  "v1_critical": true,
+  "gates": [
+    {"id": "accessibility-independent-review", "kind": "external", "status": "pending", "evidence": "docs/track-014-repository-accessibility-review-2026-08-21.yml"},
+    {"id": "real-user-usability", "kind": "human", "status": "pending", "evidence": "docs/track-014-repository-accessibility-review-2026-08-21.yml"},
+    {"id": "clean-environment-reproduction", "kind": "owner", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/plan.md"},
+    {"id": "archive-doi-authority", "kind": "release", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/review.md"},
+    {"id": "track-013-approval", "kind": "dependency", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/review.md"},
+    {"id": "real-source-redistribution", "kind": "rights", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/review.md"},
+    {"id": "owner-release-decision", "kind": "human", "status": "pending", "evidence": "conductor/tracks/014-atlas-api-release/plan.md"}
+  ]
 }
