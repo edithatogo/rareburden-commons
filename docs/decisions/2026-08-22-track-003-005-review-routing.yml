@@ -1,0 +1,92 @@
+schema_version: "1.0.0"
+decision_id: "track-003-005-review-routing-2026-08-22"
+status: "advice_presented_pending_owner_disposition"
+scope:
+  tracks:
+    - "003-monogenic-diabetes-demonstrator"
+    - "004-federated-node-runner"
+    - "005-economic-social-burden"
+  purpose: "Route unresolved review gates to advisory agents and reserve accountable dispositions to the repository owner."
+  no_activation: true
+agent_advisory_lanes:
+  - id: "clinical_scientific_review"
+    tracks: ["003", "004", "005"]
+    advice_questions:
+      - "Are the proposed entities, estimands, denominators, assumptions and interpretations scientifically coherent and appropriately bounded?"
+      - "What evidence, validation, uncertainty, transportability and stop conditions are required before activation?"
+      - "Which claims must remain synthetic, scenario-based, deferred or disabled?"
+    output: "role-separated advice with options, trade-offs, contingencies, uncertainty, dissent and stop triggers"
+    authority: "advisory_only"
+  - id: "patient_community_review_or_codesign"
+    tracks: ["003", "004", "005"]
+    advice_questions:
+      - "What harms, framing, language, accessibility, equity and acceptable-use risks require mitigation?"
+      - "What genuine participation, co-design, remuneration and representation evidence is required?"
+      - "Which outputs must remain disabled until constituted community input exists?"
+    output: "role-separated advice with options, trade-offs, contingencies, uncertainty, dissent and stop triggers"
+    authority: "advisory_only"
+  - id: "data_governance_and_custodian_approval"
+    tracks: ["003", "004", "005"]
+    label_boundary: "This is an advisory review lane; it does not grant custodian, ethics or data-governance authority."
+    external_authority_required: true
+    advice_questions:
+      - "What lawful basis, purpose limitation, retention, withdrawal, access, disclosure and export controls are required?"
+      - "Which decisions belong to a named custodian, ethics or governance authority rather than this repository?"
+      - "What exact receipts are required before controlled data, pilot or production claims can be enabled?"
+    output: "role-separated advice with options, trade-offs, contingencies, uncertainty, dissent and stop triggers"
+    authority: "advisory_only"
+  - id: "health_economics_and_ethics_review"
+    tracks: ["005"]
+    advice_questions:
+      - "Are burden domains, valuation bases, survey burden and interpretation defensible for the stated scope?"
+      - "What ethics, consent, remuneration and participant-protection conditions would be required before human participation?"
+    output: "role-separated advice with options, trade-offs, contingencies, uncertainty, dissent and stop triggers"
+    authority: "advisory_only"
+  - id: "independent_operator_review"
+    tracks: ["004"]
+    advice_questions:
+      - "What second-operator, deployment, incident and withdrawal evidence is required for a federated pilot?"
+    output: "role-separated advice with options, trade-offs, contingencies, uncertainty, dissent and stop triggers"
+    authority: "advisory_only"
+owner_decision_lanes:
+  - id: "security_engineering_approval"
+    tracks: ["003", "004", "005"]
+    accountable_human: "edithatogo"
+    owner_roles: ["owner", "maintainer", "security_decision_maker"]
+    owner_declared_roles: ["scientist", "clinician"]
+    role_boundary: "Owner role labels are repository-accountability labels only; they do not establish independent clinical, scientific, ethics, community or custodian authority."
+    required_output: "explicit owner disposition with scope, residual risk, contingencies and stop triggers"
+    authority: "owner_operated_repository_scope_only"
+    does_not_create: ["independent_review", "custodian_authority", "patient_community_consent", "external_scientific_approval"]
+decision_protocol:
+  agent_advice_must_be_presented_to_owner: true
+  owner_disposition_required_before_track_advance: true
+  unresolved_external_authority: "defer_or_stop"
+  simulated_or_owner_operated_evidence_is_not_independent_review: true
+  required_packet_schema: "schemas/agent-owner-decision-packet.schema.json"
+panel_advice:
+  recommendation: "Retain synthetic-only preparation, keep Tracks 003, 004 and 005 blocked, and do not activate clinical, patient-facing, empirical or controlled-data claims."
+  rationale: "The panel supports the routing mechanism but confirms that agent advice and owner-operated repository work cannot substitute for attributable clinical/scientific review, patient/community participation, health-economics/ethics review, custodian authorization or an independent second operator."
+  options:
+    - option: "A"
+      decision: "Continue synthetic-only preparation"
+      trade_off: "Lowest immediate harm and governance risk, but external review, co-design and custodian gates remain unmet."
+      contingency: "Revisit only when named authorities, scope-bound receipts and required participation records exist."
+    - option: "B"
+      decision: "Commission the required external reviews and compensated accessible co-design"
+      trade_off: "Stronger legitimacy and readiness evidence, with material time, cost, accessibility and coordination requirements."
+      contingency: "Keep all activation and promotion disabled until each receipt is attributable and scope-bound."
+    - option: "C"
+      decision: "Narrow acceptance criteria to repository preparation only"
+      trade_off: "Fastest path to a bounded engineering artifact, while explicitly leaving clinical, community, economics, ethics and custodian claims unresolved."
+      contingency: "Do not describe the result as approved, co-designed, independently reviewed or suitable for controlled deployment."
+  uncertainty:
+    - "No jurisdiction, constituted governance body, named custodian, exact controlled dataset or external review protocol has been identified."
+    - "Agent simulation is not evidence of patient/community representation, consent, clinical validity, ethics approval or independent operation."
+  dissent:
+    - "Owner custodian status is sufficient only for owner-controlled synthetic repository material, not third-party rights, controlled data, community participation or cross-organization export."
+  stop_triggers:
+    - "Any synthetic or owner-operated artifact is described as clinical approval, community co-design, independent review or custodian authorization."
+    - "Controlled or participant data is enabled without a named authority, exact scope, withdrawal/incident terms and a bound receipt."
+    - "Required dissent, uncertainty, provenance, rights, denominators, transportability or accessibility evidence is missing."
+  owner_disposition: "pending"

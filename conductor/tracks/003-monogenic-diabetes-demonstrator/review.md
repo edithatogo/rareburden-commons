@@ -1,5 +1,9 @@
 # Track 003 dependency review — Monogenic diabetes rare-within-common demonstrator
 
+## Owner-directed review routing — 2026-08-22
+
+Clinical/scientific, patient/community and data-governance/custodian questions are routed to role-separated advisory agents. Their advice must be presented to the repository owner in an owner decision packet with options, trade-offs, contingencies, uncertainty, dissent and stop triggers. Security/engineering approval is routed to the owner as an owner-operated decision. None of these routes creates independent review, community consent, custodian authority or external scientific approval.
+
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 008, 009 and 010
 

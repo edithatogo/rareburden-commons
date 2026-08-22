@@ -1,6 +1,6 @@
 # Track 005 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; health-economics, ethics and patient/community authority remain separate gates.
+> Review routing (owner direction, 2026-08-22): clinical/scientific, patient/community and data-governance/custodian questions are sent to role-separated advisory agents and presented to the repository owner for disposition. Security/engineering approval is an explicit owner-operated decision lane. Agent advice and owner-operated evidence do not create independent, community or custodian approval.
 
 ## Phase 1 — Method and governance
 
