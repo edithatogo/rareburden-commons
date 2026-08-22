@@ -69,7 +69,10 @@
 ## Phase 4 — Reproducible release
 
 - [ ] Add immutable archive/DOI and research-object workflow. `[S-09]`
-- [ ] Build and verify from a clean environment.
+- [x] Build and verify from a clean environment. Evidence:
+  `docs/track-014-owner-installed-reproduction-receipt-2026-08-22.json` records
+  installed-wheel doctor, synthetic reference workflow and synthetic-node
+  passes. The run is owner-operated and explicitly not independent reproduction.
 - [ ] Complete owner-operated clean-environment reproduction and agent-panel release-content audit.
 - [ ] Publish v0.8 beta only after Track 013 approval.
 
@@ -140,3 +143,11 @@
   cross-surface identity mismatch.
 - [ ] Activate real sources or publish any beta/stable surface only after the
   remaining gates are satisfied for an exact candidate.
+
+## Review fixes — 2026-08-22
+
+- [x] Reject symlinked descendants when assigning logical paths to generated
+  assurance artefacts. Evidence: `45dad19` retains the bounded runtime
+  improvement while preventing a pre-existing output-directory symlink from
+  escaping the declared artefact root; `tests/test_reference.py` exercises the
+  fail-closed case.

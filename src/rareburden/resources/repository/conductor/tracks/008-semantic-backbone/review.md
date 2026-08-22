@@ -81,6 +81,17 @@ independence claims and owner-operated work labelled as independent review.
 It neither approves ontology pins nor supplies clinical, patient/community or
 independent semantic authority; Track 008 therefore remains blocked.
 
+### Bounded completion review — 2026-08-22
+
+Repository review result: **Pass for bounded completion only**. The selective
+decision records the exact Orphadata, MONDO and nine HPO ontology-core asset
+allowlist, the provisional non-clinical effects, prohibited claims and the
+source-rights, clinical-use, community-authority and production-release gates
+that remain outside this track's bounded completion. The repository owner is
+the sole accountable human; agent-panel output is advisory and is not
+independent, clinical, community, custodian or external approval. Track 009
+remains blocked on its own evidence and freeze gates.
+
 ### Single-owner governance reconciliation — 2026-08-21
 
 Repository governance result: **agent-panel and owner-disposition work is
@@ -90,9 +101,25 @@ and the repository owner is the sole accountable decision-maker. The exact
 Option A disposition therefore closes the repository review task without
 creating an independence claim.
 
-Track 008 remains **blocked and incomplete**. The continuing blockers are
-factual or scope-specific: unresolved licence and redistribution terms for
-excluded source classes, source-specific mapping fitness, clinical validity,
-and actual-community naming authority for any use that would claim community
-participation, consent, endorsement or representation. Owner and agent work
-cannot self-attest those external facts or authorities.
+### Bounded completion reconciliation — 2026-08-22
+
+Repository review result: **Pass for the exact bounded provisional
+non-clinical scope**. The owner decision in
+`docs/decisions/2026-08-22-track-008-bounded-completion.yml` selects Option A:
+the exact Orphadata, MONDO and nine HPO ontology-core assets, provisional
+identifiers and mappings, source-native labels, synthetic hierarchy and
+deterministic migration controls. All 46 plan tasks are checked, metadata is
+`complete`, and the registry records `Complete (bounded non-clinical core)`.
+
+Role-separated agents advised and the repository owner decided. This is not
+clinical validation, independent review, patient/community participation,
+custodian permission, rights clearance for excluded sources, production
+activation or release authority.
+
+Track 008 is therefore **complete for the bounded scope**. The following remain
+conditional expansion gates: source or rights-holder evidence for any expanded
+allowlist, source-specific mapping fitness and clinical validity, actual-
+community authority for participation or representation claims, and a separate
+exact-candidate production-release decision. Track 009 may use the bounded
+semantic dependency for preparation, but its own evidence, freeze and release
+gates remain open.

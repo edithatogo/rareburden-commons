@@ -163,3 +163,46 @@ remains pending, as do real-user evidence, patient/community acceptable-use
 review and public-candidate authorization. The product-set task is complete
 only for the bounded synthetic/static implementation; it does not establish an
 empirical country profile, public demonstrator or released gap atlas.
+## Review rerun — 2026-08-22
+
+**Finding (High, remediated):** the bounded-runtime optimization in
+`rareburden.assurance._logical` checked containment lexically but did not
+reject symlinked descendant directories. A pre-existing symlink below an
+operator-chosen output path could have caused an artefact to be written outside
+the declared root while retaining an in-root logical identifier.
+
+**Fix:** commit `45dad19` preserves the lexical runtime improvement and rejects
+every symlinked descendant before an artefact receives a logical path. A focused
+test exercises the escape attempt; the reference workflow remains reproducible.
+
+**Disposition:** repository review passes after remediation. Track 014 remains
+Planned: independent accessibility and real-user usability evidence, archive or
+DOI workflow, separately executed reproduction, real-source rights and release
+authority are all still required.
+
+## Blocker disposition — 2026-08-22
+
+Track 014 is **Blocked**, not Complete or Archived. The repository-owned
+synthetic/static implementation and review remediation pass all local gates,
+but the acceptance-critical boundaries remain unresolved:
+
+- independent accessibility review and real-user usability evidence;
+- clean-environment and separately executed reproduction;
+- archive/DOI authority and immutable research-object release;
+- Track 013 approval and real-source redistribution rights;
+- exact owner release-content and beta/public-release decision.
+
+These are represented as machine-readable pending gates in `metadata.json`.
+No archive move is authorized: archiving an incomplete, non-superseded track
+would destroy lifecycle meaning and overstate release readiness. Reopen the
+track only when the named evidence is supplied or the scope is formally
+superseded with an accountable decision.
+## Owner-installed reproduction preparation — 2026-08-22
+
+The installed-wheel check passed for the exact candidate recorded in
+`docs/track-014-owner-installed-reproduction-receipt-2026-08-22.json`:
+package doctor, synthetic reference workflow verification and synthetic-node
+policy/ledger checks all passed from a temporary unrelated working directory.
+This closes only the repository-owned clean-environment preparation task. The
+receipt is explicitly owner-operated and non-independent; independent
+reproduction and release-authority gates remain pending.

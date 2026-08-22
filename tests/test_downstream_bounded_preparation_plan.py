@@ -32,11 +32,14 @@ def test_downstream_plan_is_bounded_and_dependency_ordered() -> None:
         "017",
     }
     assert all(item["preparation"] and item["blocked"] for item in document["tracks"])
-    assert all(
-        item["contract_state"] == "provisional"
+    states = {
+        item["track"]: item["contract_state"]
         for item in document["tracks"]
         if item["track"] in {"008", "009", "010"}
-    )
+    }
+    assert states["008"] == "complete_for_bounded_scope"
+    assert states["009"] == "provisional"
+    assert states["010"] == "provisional"
 
 
 def test_downstream_plan_has_upstream_revalidation_and_stop_rules() -> None:

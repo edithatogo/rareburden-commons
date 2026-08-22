@@ -26,8 +26,7 @@ def test_current_track_008_blockers_are_consistent() -> None:
 def test_automation_validates_but_does_not_grant_authority() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     assert document["governance"]["automated_validation_effect"] == (
-        "validates_recorded_scoped_freeze_only_not_approval_independent_review_"
-        "track_completion_or_external_authority"
+        "validates_recorded_bounded_completion_not_external_authority_or_release"
     )
 
 
@@ -45,7 +44,7 @@ def test_single_owner_governance_has_no_independent_human_review_gate() -> None:
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
-        (("claims", "contract_frozen", False), "freeze claim must match"),
+        (("claims", "naming_authority", True), "unsupported Track 008 authority claims"),
         (("governance", "repository_panel_output", "independent"), "must remain advisory"),
         (("governance", "owner_disposition", "independent_review"), "cannot be independent"),
         (
@@ -117,7 +116,7 @@ def test_readiness_rejects_migration_receipt_overclaim(tmp_path: Path) -> None:
         migration_path.write_bytes(original.encode("utf-8"))
 
 
-def test_bounded_freeze_does_not_complete_track_008_or_unblock_track_009() -> None:
+def test_bounded_completion_does_not_unblock_track_009() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     assert document["provisional_candidate_binding"]["status"] == (
         "synthetic_public_readiness_only"
@@ -127,11 +126,11 @@ def test_bounded_freeze_does_not_complete_track_008_or_unblock_track_009() -> No
         "owner_accepted_bounded_contract_frozen"
     )
     assert document["claims"] == {
-        "approved_ontology_pins": False,
+        "approved_ontology_pins": True,
         "naming_authority": False,
         "independent_semantic_review": False,
         "contract_frozen": True,
-        "track_complete": False,
+        "track_complete": True,
     }
 
 
@@ -145,7 +144,7 @@ def test_readiness_rejects_v0_4_candidate_evidence_drift(tmp_path: Path) -> None
 def test_v0_4_candidate_keeps_external_authority_claims_false() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     assert document["v0_4_candidate_binding"]["review_status"] == ("owner_operated_not_independent")
-    assert document["naming_and_semantic_gate"]["state"] == "pending"
+    assert document["naming_and_semantic_gate"]["state"] == "satisfied_for_bounded_scope"
     assert document["contract_freeze_gate"]["state"] == "satisfied"
 
 

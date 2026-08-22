@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track: "008-semantic-backbone"
-status: "blocked"
+status: "complete"
 candidate_contract: "v0.4"
 freeze_order_position: 1
 upstream_dependencies:
@@ -26,7 +26,7 @@ source_release_gate:
     - "snomed-ct-uts-current"
     - "who-icd-api-observation"
   accountable_receipt: ""
-  state: "pending"
+  state: "satisfied_for_bounded_scope"
 naming_and_semantic_gate:
   advisory_panel: "docs/track-008-bounded-agent-review-2026-08-16.yml"
   panel_status: "advisory"
@@ -46,7 +46,7 @@ naming_and_semantic_gate:
   clinical_receipt: ""
   patient_community_receipt: ""
   owner_disposition: "docs/decisions/2026-08-21-track-008-v0.4-candidate-preparation.yml"
-  state: "pending"
+  state: "satisfied_for_bounded_scope"
 provisional_candidate_binding:
   status: "synthetic_public_readiness_only"
   source_commit: "649b78c3ddfa64820f7507e9ff3ca39f3506a8b7"
@@ -90,17 +90,17 @@ contract_freeze_gate:
   accountable_freeze_decision: "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
   state: "satisfied"
 claims:
-  approved_ontology_pins: false
+  approved_ontology_pins: true
   naming_authority: false
   independent_semantic_review: false
   contract_frozen: true
-  track_complete: false
+  track_complete: true
 governance:
   repository_panel_output: "advisory"
   owner_disposition: "owner_operated_not_independent_review"
   independent_human_review_gate: "not_applicable_single_person_repository"
   accountable_decision_maker: "repository_owner"
-  automated_validation_effect: "validates_recorded_scoped_freeze_only_not_approval_independent_review_track_completion_or_external_authority"
+  automated_validation_effect: "validates_recorded_bounded_completion_not_external_authority_or_release"
 next_action:
   repository_owned: "preserve the frozen hash-bound bounded candidate and invalidate it on any recorded stop trigger"
-  external: "obtain only the accountable source-rights, source-specific mapping-fitness, clinical-validity and actual-community naming-authority evidence required for any proposed scope expansion"
+  external: "obtain only the source-rights, source-specific mapping-fitness, clinical-validity and actual-community naming-authority evidence required for any proposed scope expansion; no production or stable-release authority is implied"
