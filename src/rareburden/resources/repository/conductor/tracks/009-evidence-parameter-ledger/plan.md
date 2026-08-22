@@ -196,3 +196,14 @@
   `docs/decisions/2026-08-22-track-009-agent-owner-closeout.yml`.
 - [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
   engineering review findings and release evidence remain pending.
+
+## Owner engineering review — 2026-08-22
+
+- [x] Re-verify every recorded v0.4 candidate digest against the post-merge
+  baseline and record owner-operated engineering evidence for finding ENG-01.
+  Evidence: `docs/decisions/2026-08-22-track-009-owner-engineering-review.yml`.
+  Owner-operated only; not an independent review. EPI-MED-01 and RIGHTS-01
+  remain pending external qualifying evidence and the v0.4 ledger contract
+  remains unfrozen.
+- [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
+  engineering review findings and release evidence remain pending.
