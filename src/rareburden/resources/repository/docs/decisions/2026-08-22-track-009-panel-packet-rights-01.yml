@@ -1,0 +1,70 @@
+schema_version: "1.0.0"
+track_id: "009-evidence-parameter-ledger"
+packet_type: "role_separated_agent_panel_advisory"
+finding: "RIGHTS-01 - source rights and data-use posture for the v0.4 ledger freeze"
+packet_id: "track-009-rights-01-panel-2026-08-22"
+prepared_at_utc: "2026-08-22T00:00:00Z"
+independent_review: false
+panel_status: "simulated_role_separated_advisory_only"
+binding:
+  repository_commit: "676fce94327dfeecb8664629b9a068f3a84e3a81"
+  assessed_artifacts:
+    - "docs/decisions/ADR-0009-agent-panel-owner-governance.md"
+    - "docs/decisions/2026-08-22-track-014-real-data-bounded-mandate.yml"
+    - "docs/track-014-who-terms-disposition-2026-08-22.yml"
+    - "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json"
+perspectives:
+  - role: "rights_and_data_use"
+    observed:
+      - "The v0.4 candidate is synthetic-only; both input ledgers and both exports are labelled synthetic with licence_state not_applicable."
+      - "Public-source terms dispositions are now recorded (WHO default CC BY 4.0 posture with exact-receipt requirements; third-party credited fields excluded or separately permitted)."
+      - "No controlled participant data, no custodian-dependent payload and no unreceipted real-source redistribution exists in the candidate."
+    assessed:
+      - >-
+        Under ADR-0009 a synthetic/public-only release excludes claims that
+        need unavailable facts or permissions and therefore needs no custodian
+        receipt. The repository-controlled rights posture for freezing the
+        v0.4 contract over this scope is clean: nothing in the frozen
+        contract redistributes an unreceipted source.
+    cannot_infer:
+      - "Any third-party licensor permission; any future controlled-data custodian policy."
+      - "Rights status of real sources not yet retrieved; those fail closed until exact receipts exist."
+    dissent: []
+  - role: "governance_and_security"
+    observed:
+      - "The real-data mandate prohibits restricted or individual-level payloads anywhere (repository, wheel, archive, API) until separate gates."
+      - "Fail-closed negative tests cover missing provenance and unlawful acquisition outputs."
+    assessed:
+      - "Freezing the contract does not change data posture; it hardens the schema gate through which any future source must pass."
+    cannot_infer:
+      - "Operational security of future hosted surfaces."
+    dissent: []
+  - role: "engineering_and_release"
+    observed:
+      - "Ledger exports are schema-versioned and portable; licence_state is a first-class field."
+    assessed:
+      - "A scope-bounded freeze is implementable without weakening fail-closed release blockers for incomplete mandatory evidence."
+    cannot_infer: []
+    dissent: []
+recommendation:
+  option_id: "A"
+  title: "accept_narrowed_freeze_scope_with_receipt_conditioned_activation"
+  rationale: >-
+    RIGHTS-01 as originally framed required custodian evidence only for scopes
+    the candidate does not touch. Narrow the finding: freeze covers the
+    synthetic-only candidate plus exactly-receipted public aggregates under
+    recorded terms; every other source remains disabled pending exact receipts,
+    and controlled-data deployment stays wholly outside v0.4 scope.
+  conditions:
+    - "Frozen contract embeds licence_state and source-receipt gating so unreceipted sources cannot activate."
+    - "Any controlled-data or third-party-permission scope requires new facts, a fresh packet and owner disposition."
+  contingencies:
+    - "If any recorded terms disposition is withdrawn or corrected by its publisher, narrow or disable affected claims."
+owner_decision:
+  status: "pending"
+claims:
+  custodian_receipt_required_for_this_freeze: false
+  third_party_permission_obtained: false
+  controlled_data_in_scope: false
+  independent_review: false
+  track_009_complete: false

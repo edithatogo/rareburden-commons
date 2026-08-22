@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+track_id: "009-evidence-parameter-ledger"
+decision_type: "finding_routing_reframe"
+decided_at_utc: "2026-08-22T00:00:00Z"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+binding:
+  repository_commit: "676fce94327dfeecb8664629b9a068f3a84e3a81"
+  repository_tree: "ad64ced0c5dbe25ebb27834ade14a77c2bd3d91a"
+  governing_adr: "docs/decisions/ADR-0009-agent-panel-owner-governance.md"
+  gate_plan_option: "A (one cross-track panel programme)"
+routing_change:
+  from: >-
+    The 2026-08-22 closeout framed EPI-MED-01 and RIGHTS-01 as requiring
+    external human or custodian qualifying evidence before the v0.4 ledger
+    contract freeze.
+  to: >-
+    Under ADR-0009 no additional person is a mandatory review gate. Each
+    finding is split into a panel-assessable contract question, routed to the
+    role-separated agent panel for advisory challenge with an exact owner
+    disposition, and a fact-bound activation question that remains gated on
+    recorded facts (exact source receipts, terms evidence) and fails closed.
+split:
+  EPI-MED-01:
+    panel_assessable_now: >-
+      Estimand and denominator contract fitness for the declared synthetic and
+      bounded public-aggregate scope of the v0.4 ledger contracts.
+    stays_fact_bound: >-
+      Empirical parameter validation for any activated real source; governed by
+      docs/decisions/2026-08-22-track-014-real-data-bounded-mandate.yml
+      receipt requirements, not by this freeze.
+  RIGHTS-01:
+    panel_assessable_now: >-
+      Repository-controlled rights posture for the synthetic-only candidate and
+      already-recorded public-source terms dispositions; narrowing scope so the
+      freeze covers exactly what the recorded terms support.
+    stays_fact_bound: >-
+      Any future controlled-data custodian policy or third-party permission;
+      absent such facts the affected claims fail closed and are excluded.
+truthful_labels:
+  - "Agent-panel output is advisory role-separated challenge, never independent, external, constituted-community or licensor approval."
+  - "The repository owner records the attributable disposition for an exact candidate."
+  - "Unresolved third-party rights facts narrow or disable affected claims; they are not waived."
+packets:
+  - "docs/decisions/2026-08-22-track-009-panel-packet-epi-med-01.yml"
+  - "docs/decisions/2026-08-22-track-009-panel-packet-rights-01.yml"
+owner_decision:
+  status: "pending_owner_disposition_on_panel_recommendations"
+claims:
+  contract_frozen: false
+  findings_closed_by_this_record: false
+  empirical_activation: false
+  controlled_data_activation: false
+  independent_review: false

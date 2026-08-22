@@ -1,0 +1,72 @@
+schema_version: "1.0.0"
+track_id: "009-evidence-parameter-ledger"
+packet_type: "role_separated_agent_panel_advisory"
+finding: "EPI-MED-01 - estimand and denominator contract fitness"
+packet_id: "track-009-epi-med-01-panel-2026-08-22"
+prepared_at_utc: "2026-08-22T00:00:00Z"
+independent_review: false
+panel_status: "simulated_role_separated_advisory_only"
+binding:
+  repository_commit: "676fce94327dfeecb8664629b9a068f3a84e3a81"
+  assessed_artifacts:
+    - "conductor/tracks/009-evidence-parameter-ledger/spec.md"
+    - "examples/ledger/public-foundation-synthetic.yml"
+    - "examples/ledger/economic-social-synthetic.yml"
+    - "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json"
+perspectives:
+  - role: "epidemiology_and_methods"
+    observed:
+      - "Ledger records bind every parameter to population_id, geography_id, sex, period, measure, metric, unit and semantic entity IDs; incompatible combinations cannot merge silently."
+      - "evidence_status distinguishes observed, transformed, synthesised, transferred, modelled and assumed; synthetic fixtures are labelled as such with explicit limitations."
+      - "Denominator contracts carry quantified uncertainty and source-release links."
+    assessed:
+      - >-
+        For the declared scope (synthetic preparation plus bounded public
+        aggregates), the estimand and denominator contracts are internally
+        fit for purpose: they encode population alignment, period alignment,
+        measure/metric/unit typing and provenance required by the spec's
+        acceptance criteria 1-7.
+    cannot_infer:
+      - "Empirical sufficiency of any future real-world denominator or fraction; that requires exact source receipts under the real-data mandate."
+      - "Clinical or epidemiological validity of any activated estimate."
+    dissent: []
+  - role: "semantic_and_engineering"
+    observed:
+      - "Schemas reject missing mandatory provenance, uncertainty and evidence status; revision history preserves superseded values."
+      - "The v0.4 candidate manifest binds exports and inputs by sha256 and re-verification against baseline de168db4 passed."
+    assessed:
+      - "Contract freeze would be mechanically sound: schemas, validators and fixtures support a versioned frozen contract with supersession semantics."
+    cannot_infer:
+      - "Fitness of contracts for analytic modes not yet specified (federated execution, modelled transfer beyond current types)."
+    dissent: []
+  - role: "community_and_harm"
+    observed:
+      - "Synthetic parameters explicitly disclaim official-status and avoid implying real denominators for named jurisdictions beyond labelled synthetic assurance values."
+    assessed:
+      - >-
+        No harm pathway is opened by freezing the contract itself; harm risk
+        attaches only when real estimates are activated and published, which
+        remains behind separate gates.
+    cannot_infer:
+      - "Community acceptance of any future published estimate."
+    dissent: []
+recommendation:
+  option_id: "A"
+  title: "accept_freeze_for_synthetic_and_bounded_public_aggregate_scope"
+  rationale: >-
+    The estimand and denominator contracts are fit for the declared v0.4
+    scope. Freeze the contract version for that scope while recording that
+    empirical fitness for activated real sources is out of scope and stays
+    behind exact-receipt activation gates.
+  conditions:
+    - "Frozen contract declares scope: synthetic and exactly-receipted public aggregates only."
+    - "Any scope extension requires a fresh panel packet and owner disposition."
+  contingencies:
+    - "Reject if schema, validator or fixture hashes drift from the bound candidate."
+owner_decision:
+  status: "pending"
+claims:
+  empirical_fitness_proven: false
+  contract_fit_assessed: true
+  independent_review: false
+  track_009_complete: false
