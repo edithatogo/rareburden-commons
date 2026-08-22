@@ -74,6 +74,10 @@
   installed-wheel doctor, synthetic reference workflow and synthetic-node
   passes. The run is owner-operated and explicitly not independent reproduction.
 - [ ] Complete owner-operated clean-environment reproduction and agent-panel release-content audit.
+- [x] Prepare an exact-candidate, non-authorizing release-content audit packet
+  that routes panel advice and unresolved gates to the accountable owner.
+  Evidence: `docs/track-014-release-content-audit-preparation-2026-08-22.json`;
+  the owner decision and all external gates remain pending.
 - [ ] Publish v0.8 beta only after Track 013 approval.
 
 ## Preparatory dependency review — 2026-07-29
@@ -143,6 +147,13 @@
   cross-surface identity mismatch.
 - [ ] Activate real sources or publish any beta/stable surface only after the
   remaining gates are satisfied for an exact candidate.
+
+## Real-data activation preparation — 2026-08-22
+
+- [x] Classify candidate real-data routes and bind their next rights,
+  provenance and authority receipts without activating them. Evidence:
+  `docs/track-014-real-data-readiness-matrix-2026-08-22.yml`; all real-source,
+  redistribution, beta and stable-release flags remain false.
 
 ## Review fixes — 2026-08-22
 

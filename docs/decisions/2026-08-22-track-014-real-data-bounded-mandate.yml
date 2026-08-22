@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+decision_id: "track-014-real-data-bounded-mandate-2026-08-22"
+track: "014-atlas-api-release"
+status: "repository_mandate_recorded_external_and_release_gates_pending"
+decided_by: "edithatogo"
+decision_scope: "real_metadata_and_clearly_redistributable_aggregate_data"
+licence_interpretation:
+  posture: "permissive_according_to_express_grant"
+  required_preservation: ["attribution", "copyright_and_licence_notices", "change_notices", "source_version", "provenance"]
+  non_inferences: ["scientific_sufficiency", "completeness", "representativeness", "clinical_validity", "community_or_custodian_authority"]
+authorized_repository_work:
+  - "capture exact real source metadata and permitted aggregate files or responses"
+  - "hash and bind each source receipt to a candidate manifest"
+  - "transform only within the source terms and record the transformation"
+  - "preserve missingness, suppression, uncertainty, correction and withdrawal metadata"
+  - "run offline schema, provenance, parity and negative-gate validation"
+prohibited_until_separate_gates:
+  - "restricted or individual-level payload in repository, wheel, archive or public API"
+  - "unqualified global, representative, clinical or production claim"
+  - "public beta or stable release"
+  - "archive or DOI publication claim"
+required_before_source_activation:
+  - "exact source/file/endpoint, version, retrieval timestamp, MIME/size and SHA-256"
+  - "source-specific licence and field-level redistribution decision"
+  - "attribution and notice record"
+  - "transformation, missingness, suppression and withdrawal receipts"
+  - "Track 013 conditional approval for metadata/licensed aggregates"
+required_before_beta:
+  - "Track 013 empirical dependency disposition for each claimed output"
+  - "independent accessibility/usability evidence"
+  - "independent or separately executed reproduction evidence"
+  - "accountable owner exact-candidate release/bounded/revise/stop decision"
+recommendation: "Proceed source-by-source with real metadata and expressly redistributable aggregates; keep every unreceipted source disabled."

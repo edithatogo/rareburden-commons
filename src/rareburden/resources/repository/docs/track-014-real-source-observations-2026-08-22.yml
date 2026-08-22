@@ -1,0 +1,39 @@
+schema_version: "0.1.0"
+observed_at: "2026-08-22"
+scope: "official publisher route and terms observations; not an activation receipt"
+observations:
+  - source_id: "un-world-population-prospects"
+    publisher_route: "https://population.un.org/wpp/"
+    observed: "WPP 2024 provides downloadable Excel/CSV outputs and an open API for 237 countries or areas, with estimates and projections from 1950 to 2100."
+    terms_locator: "https://population.un.org/dataportalapi/index.html"
+    observed_terms: "The official Data Portal API identifies a Creative Commons CC BY 3.0 IGO licence; the UN publication record for WPP 2024 also identifies CC BY 3.0 IGO."
+    rights_state: "permissive_use_supported_with_attribution_and_notice; exact selected file/response hash and scope still required"
+    activation: false
+  - source_id: "who-global-health-estimates"
+    publisher_route: "https://www.who.int/data/global-health-estimates/"
+    observed: "WHO GHE publishes downloadable global, regional and country estimates by age, sex and cause for 2000-2021; the page warns that the 2000-2021 estimates are not comparable with earlier releases."
+    terms_locator: "https://data.who.int/about/data/terms-and-conditions"
+    observed_terms: "WHO dataset terms provide CC BY 4.0 unless specifically indicated otherwise, require attribution and prohibit de-identification or false/misleading presentation; third-party credited materials are excluded from the default terms."
+    release_boundary: "2000-2021; do not combine silently with earlier GHE releases"
+    rights_state: "permissive_use_supported_for_WHO_covered_components_with_attribution_and_no_endorsement; third-party fields and asset-specific exceptions excluded"
+    activation: false
+  - source_id: "who-data-terms"
+    publisher_route: "https://data.who.int/about/data/terms-and-conditions"
+    observed: "WHO states that datasets are generally CC BY 4.0 unless specifically indicated otherwise, requires attribution, prohibits de-identification and false/misleading presentation, and excludes third-party credited materials from the default terms."
+    rights_state: "useful terms evidence; does not replace the GHE file-level receipt"
+    activation: false
+  - source_id: "world-bank-indicators-api"
+    publisher_route: "https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview"
+    observed: "The Indicators API provides programmatic access to time-series data and metadata; World Bank states that Data Catalog datasets have specific terms and API use is governed by applicable terms."
+    rights_state: "indicator/data-catalog terms must be bound to the selected output"
+    activation: false
+  - source_id: "orphadata-science"
+    publisher_route: "https://sciences.orphadata.com/orphanet-scientific-knowledge-files/"
+    observed: "Repository catalogue records designated Orphadata Science datasets and APIs as CC BY 4.0 with redistribution permitted."
+    rights_state: "exact biannual release/file and attribution receipt still required"
+    activation: false
+next_receipts:
+  - "download or query one exact candidate per approved source"
+  - "record bytes/MIME/size, SHA-256, scope and retrieval timestamp"
+  - "attach source-specific licence/attribution and third-party exclusions"
+  - "submit the bound packet for Track 013 conditional disposition"
