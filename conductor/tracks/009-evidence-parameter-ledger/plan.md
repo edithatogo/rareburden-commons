@@ -207,3 +207,20 @@
   remains unfrozen.
 - [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
   engineering review findings and release evidence remain pending.
+
+## Findings rerouted to agent-panel adjudication — 2026-08-22
+
+- [x] Reframe EPI-MED-01 and RIGHTS-01 under ADR-0009 Option A: split each
+  into a panel-assessable contract question and a fact-bound activation
+  question. Evidence:
+  `docs/decisions/2026-08-22-track-009-findings-panel-routing.yml`.
+- [x] Run role-separated panel packets and record advisory recommendations
+  for both contract questions. Evidence:
+  `docs/decisions/2026-08-22-track-009-panel-packet-epi-med-01.yml` (accept
+  freeze for synthetic and bounded public-aggregate scope) and
+  `docs/decisions/2026-08-22-track-009-panel-packet-rights-01.yml` (accept
+  narrowed receipt-conditioned scope). Advisory only; never independent or
+  external review.
+- [ ] Owner disposition on both panel recommendations.
+- [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
+  engineering review findings and release evidence remain pending.
