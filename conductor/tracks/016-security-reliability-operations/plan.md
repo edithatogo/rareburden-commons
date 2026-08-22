@@ -5,6 +5,12 @@
 > evidence is allowed and labelled; security/operator review is agent-panel and
 > owner-operated. Recovery procedures do not create a backup owner.
 
+> **Status scope (2026-08-22):** every task below is checked as bounded
+> repository-local preparation only. Track 016 remains **Planned** with
+> hardening not activated: independent security review, backup/restore and
+> rollback evidence, Tracks 004/014 completion and release-authority approval
+> stay open per `review.md`. Checked items are not completion evidence.
+
 ## Phase 1 — Threat model and support scope
 
 - [x] Threat-model repository, acquisition, build, node, API and release boundaries. Evidence: `docs/security-operations-016-reference.md`; independent review remains open.
