@@ -1,0 +1,47 @@
+schema_version: "1.0.0"
+track_id: "009-evidence-parameter-ledger"
+record_type: "owner_operated_engineering_review_receipt"
+recorded_at_utc: "2026-08-22T00:00:00Z"
+recorded_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+independent: false
+baseline:
+  repository_commit: "de168db4c5390e973d93470cc53b9e44845fd0a1"
+  repository_tree: "d20272fdab267c840cbaafb2aee1b24c592ce15b"
+  candidate_manifest: "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json"
+  candidate_manifest_sha256: "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5"
+  drift_check: "all recorded export and input ledger digests re-verified byte-exact against this baseline"
+environment:
+  platform: "macos_owner_operated"
+  dependency_mode: "local_venv_partial_not_locked_harness"
+  note: >-
+    Executed outside the exact locked CI environment; the full locked assurance
+    harness runs in hosted CI on the pull request that carries this record.
+executed_checks:
+  - check: "make track-009-freeze-readiness-check"
+    outcome: "pass"
+    evidence: "Track 009 readiness passed; review decisions and v0.4 ledger freeze remain separate accountable gates."
+  - check: "make track-009-source-profile-role-check"
+    outcome: "pass"
+    evidence: "Synthetic source-to-profile-role matrix passed; empirical fitness, review, freeze and Track 010 eligibility remain blocked."
+  - check: "pytest tests/test_ledger_model.py tests/test_ledger_store.py tests/test_ledger.py"
+    outcome: "pass"
+    evidence: "32 passed, 0 failed."
+  - check: "candidate digest drift verification"
+    outcome: "pass"
+    evidence: "Both v0.4 synthetic export manifests and both input ledgers match their recorded sha256 digests exactly."
+finding_status:
+  ENG-01: "owner_operated_engineering_evidence_recorded"
+  EPI-MED-01: "pending_external_empirical_estimand_and_denominator_fitness"
+  RIGHTS-01: "pending_source_or_custodian_rights_and_data_use_evidence"
+claims:
+  contract_frozen: false
+  track_009_complete: false
+  track_010_eligible: false
+  engineering_finding_closed_for_freeze: false
+  independent_engineering_review: false
+  release_authority: false
+limitations:
+  - "This is owner-operated repository evidence labelled as such; it is not an independent or external engineering review."
+  - "It records partial progress on ENG-01 only; freeze remains prohibited by docs/decisions/2026-08-22-track-009-agent-owner-closeout.yml until all three findings carry qualifying evidence."
+  - "No estimand fitness, rights, custody, empirical activation, controlled data activation or release authority is claimed."

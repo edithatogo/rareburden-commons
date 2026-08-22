@@ -124,3 +124,4 @@
   custodian, patient/community, security and independent-operation decisions.
   Evidence: `docs/track-004-node-review-packet.md`; dependency and external
   gates remain open.
+> Review routing (owner direction, 2026-08-22): clinical/scientific, patient/community and data-governance/custodian questions are sent to role-separated advisory agents and presented to the repository owner for disposition. Security/engineering approval is an explicit owner-operated decision lane. Agent advice and owner-operated evidence do not create independent, community or custodian approval.

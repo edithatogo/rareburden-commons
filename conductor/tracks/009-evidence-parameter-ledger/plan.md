@@ -25,7 +25,12 @@
 
 ## Phase 4 — Review
 
-- [ ] Complete epidemiology, rights/data-use and engineering agent-panel review and owner disposition.
+- [x] Complete role-separated epidemiology, rights/data-use and engineering
+  agent-panel review and owner disposition for the bounded synthetic candidate.
+  Evidence: `docs/track-009-bounded-agent-challenge-2026-08-16.yml`,
+  `docs/decisions/2026-08-21-track-009-post-merge-options.yml` and
+  `docs/decisions/2026-08-22-track-009-agent-owner-closeout.yml`. Agent advice
+  is not independent review or external approval.
 - [x] Validate ledger use with all three demonstrator specifications. Evidence:
   schema-validated non-binding profiles for RBC-P002, RBC-P003 and RBC-P004,
   plus fail-closed binding checks in `rareburden.demonstrator_readiness`. The
@@ -88,8 +93,10 @@
 - [x] Run bounded repository epidemiology, rights and engineering agent
   challenge. Evidence: `docs/track-009-bounded-agent-challenge-2026-08-16.yml`.
   Three medium findings remain controlled by disabled empirical activation.
-- [ ] Record owner disposition and repeat the challenge after Track 008 is
-  complete; do not freeze the v0.4 ledger contract before then.
+- [x] Record owner disposition and repeat the bounded challenge after Track 008
+  completion. Evidence: `docs/decisions/2026-08-22-track-009-agent-owner-closeout.yml`.
+  The three medium findings remain pending and the v0.4 ledger contract is not
+  frozen.
 
 ## Option B preparation control — 2026-08-20
 
@@ -180,3 +187,23 @@
   is defined by the non-binding profiles. This exercises but does not
   resolve EPI-MED-01/02; empirical fitness, rights, review, freeze and Track 010
   eligibility remain blocked.
+
+## Bounded agent-owner review closeout — 2026-08-22
+
+- [x] Reconcile the completed Track 008 bounded dependency, rerun the
+  role-separated epidemiology, rights/data-use and engineering challenge, and
+  record the owner's disposition. Evidence:
+  `docs/decisions/2026-08-22-track-009-agent-owner-closeout.yml`.
+- [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
+  engineering review findings and release evidence remain pending.
+
+## Owner engineering review — 2026-08-22
+
+- [x] Re-verify every recorded v0.4 candidate digest against the post-merge
+  baseline and record owner-operated engineering evidence for finding ENG-01.
+  Evidence: `docs/decisions/2026-08-22-track-009-owner-engineering-review.yml`.
+  Owner-operated only; not an independent review. EPI-MED-01 and RIGHTS-01
+  remain pending external qualifying evidence and the v0.4 ledger contract
+  remains unfrozen.
+- [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
+  engineering review findings and release evidence remain pending.
