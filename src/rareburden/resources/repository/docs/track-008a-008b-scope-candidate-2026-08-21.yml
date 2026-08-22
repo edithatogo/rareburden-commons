@@ -7,8 +7,8 @@ owner_authorization:
   authorized_action: "prepare_scope_change_candidate_and_dependency_analysis"
   prohibited_effects: ["mark_track_008_or_successors_complete", "register_or_activate_successor_tracks", "unblock_or_activate_track_009", "infer_final_owner_disposition"]
 baseline:
-  repository_commit: "3fdc5076a4ea64b307421a4967fa962cc0413547"
-  repository_tree: "6f9f204dcb0bac97325c4ec30c5d4434d6fa787a"
+  repository_commit: "ed6a0dd4551f1a65dfaa08825cb31b472da5ece1"
+  repository_tree: "4fdc2c3c122b2ee02a95f085b297912d65d7c7d1"
   track_008_spec_sha256: "55a2bdcb5feecc6bdb53183d2672777e9657c3598fae57bf0f292a6d149fb338"
   track_008_plan_sha256: "6c821db1f236f3c013e4c8f789d912b2590cac9364ff51bb2825ac94754fa1c3"
   track_008_metadata_sha256: "7b001439662982fd0b29cf471b550ee3579ca782ace869e407e4cfe1e75efb25"

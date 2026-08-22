@@ -12,10 +12,10 @@ repository_model:
   remuneration: none
   community_representation: false
 candidate:
-  repository_commit: 3fdc5076a4ea64b307421a4967fa962cc0413547
-  repository_tree: 6f9f204dcb0bac97325c4ec30c5d4434d6fa787a
+  repository_commit: ed6a0dd4551f1a65dfaa08825cb31b472da5ece1
+  repository_tree: 4fdc2c3c122b2ee02a95f085b297912d65d7c7d1
   implementation_manifest: docs/candidates/track-008-successors/implementation-candidate.yml
-  implementation_manifest_sha256: 24ab0a82a05b8c16e8c48626ea5625b77137be5b2dc08fd31a7c6b267f049c6f
+  implementation_manifest_sha256: 4a7c67c56bf809da15a03810660ce26eee958ac948190bf2e39ffaa4d3a4fdb9
   mode_manifest_sha256: 92376c1571fbdea5694d30872a6b20abb71392330584fdc06c211cab36eab55f
   migration_manifest_sha256: e4ad4b812d7d43e7b3725a61e6b219f189dea3f58896b2e53f720cbfd994f84e
   candidate_status: prepared_not_applied
