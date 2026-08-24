@@ -27,9 +27,9 @@ source_receipts:
   - source_id: "world-bank-indicators-api"
     catalogue_locator: "catalog/data_sources.yml#world-bank-indicators-api"
     intended_class: "aggregate_conditional"
-    catalogue_licence: "catalogue terms require exact indicator and output-rights verification"
-    catalogue_redistribution: "conditional"
+    catalogue_licence: "CC BY 4.0 under World Bank Dataset Terms unless indicator metadata states otherwise; third-party exceptions apply"
+    catalogue_redistribution: "yes_with_indicator_exceptions"
     exact_receipt_status: "pending"
-    next_evidence: ["indicator code and revision", "exact API response", "retrieval timestamp", "sha256", "attribution/notice requirements", "redistribution decision"]
+    next_evidence: ["indicator code and revision", "source/dataset identifier", "exact API response", "retrieval timestamp", "sha256", "World Bank/data-provider attribution", "indicator-level exception check"]
 activation_rule: "No source becomes active until its exact receipt and source-specific rights disposition are attached to the candidate manifest."
 track_013_route: "Submit these exact receipts for bounded metadata/licensed-aggregate approval; retain not_assessed for sufficiency and prohibit representative or clinical claims."

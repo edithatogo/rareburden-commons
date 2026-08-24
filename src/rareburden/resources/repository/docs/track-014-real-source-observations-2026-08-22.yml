@@ -25,7 +25,9 @@ observations:
   - source_id: "world-bank-indicators-api"
     publisher_route: "https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview"
     observed: "The Indicators API provides programmatic access to time-series data and metadata; World Bank states that Data Catalog datasets have specific terms and API use is governed by applicable terms."
-    rights_state: "indicator/data-catalog terms must be bound to the selected output"
+    terms_locator: "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets"
+    observed_terms: "World Bank Dataset Terms permit extraction, copying, sharing, adaptation and API use under CC BY 4.0 unless the dataset or indicator metadata says otherwise; attribution to the World Bank and data providers is required, and third-party data may have separate restrictions."
+    rights_state: "permissive_use_supported_for_default_catalogue_outputs_with_attribution; indicator-level third-party exceptions must be checked"
     activation: false
   - source_id: "orphadata-science"
     publisher_route: "https://sciences.orphadata.com/orphanet-scientific-knowledge-files/"
