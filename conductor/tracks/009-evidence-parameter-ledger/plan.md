@@ -206,7 +206,7 @@
 
 ## Track completion authority
 
-- [ ] Record a separate repository-owner decision authorising Track 009
+- [~] Record a separate repository-owner decision authorising Track 009
   completion. The current bounded freeze disposition explicitly records
   `track_complete: false`; contract freeze is not track completion, empirical
   activation, independent review or release authority.
