@@ -41,6 +41,14 @@ OBSERVATION_EFFECT = (
 BOUNDED_DISPOSITION_EFFECT = (
     "reversible_synthetic_preparation_and_containment_only_no_review_activation_freeze_or_release"
 )
+COMPLETION_DECISION = "docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml"
+COMPLETION_PROHIBITED_EFFECTS = {
+    "empirical_parameter_activation",
+    "controlled_data_activation",
+    "independent_review",
+    "publication_authority",
+    "release_authority",
+}
 
 
 def _repository_path(root: Path, value: object) -> Path:
@@ -116,7 +124,38 @@ def validate(path: Path, root: Path) -> None:
 
     track_metadata = _metadata(root, "009-evidence-parameter-ledger")
     if document.get("status") != track_metadata.get("status"):
-        raise Track009ReadinessError("readiness status must match Track 009 metadata")
+        transition = document.get("bounded_completion_transition", {})
+        decision_path = _repository_path(root, transition.get("decision"))
+        decision_hash = str(transition.get("decision_sha256", ""))
+        if (
+            document.get("status") != "blocked"
+            or track_metadata.get("status") != "complete"
+            or transition.get("status") != "completed_bounded_scope"
+            or transition.get("decision") != COMPLETION_DECISION
+            or not SHA256.fullmatch(decision_hash)
+            or _sha256(decision_path) != decision_hash
+            or transition.get("scope")
+            != "bounded synthetic and exactly-receipted public-aggregate contract only"
+            or set(transition.get("prohibited_effects", [])) != COMPLETION_PROHIBITED_EFFECTS
+        ):
+            raise Track009ReadinessError(
+                "historical readiness status lacks bounded completion transition"
+            )
+        completion = _load(decision_path)
+        completion_claims = completion.get("claims", {})
+        if (
+            completion.get("track_id") != "009-evidence-parameter-ledger"
+            or completion.get("decision_type") != "bounded_track_completion_authorization"
+            or completion.get("decided_by") != "edithatogo"
+            or completion.get("authorization", {}).get("track_complete") is not True
+            or completion_claims.get("contract_frozen") is not True
+            or completion_claims.get("scope_synthetic_and_receipted_public_aggregate_only")
+            is not True
+            or any(
+                completion_claims.get(name) is not False for name in COMPLETION_PROHIBITED_EFFECTS
+            )
+        ):
+            raise Track009ReadinessError("bounded completion decision scope drift")
     dependencies = document.get("upstream_dependencies")
     if not isinstance(dependencies, list) or [row.get("track") for row in dependencies] != list(
         DEPENDENCIES
@@ -301,8 +340,9 @@ def main() -> int:
         print(f"Track 009 freeze readiness failed: {exc}")
         return 1
     print(
-        "Track 009 readiness passed; review decisions and v0.4 ledger freeze "
-        "remain separate accountable gates."
+        "Track 009 readiness passed; historical preparation remains bounded and "
+        "empirical, controlled-data, independent-review, publication and release "
+        "gates remain false."
     )
     return 0
 
