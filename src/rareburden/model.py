@@ -305,6 +305,25 @@ def run_analysis_spec(
     estimand = str(spec["estimand"])
     left = ledger.get(str(spec["left_parameter_id"]))
     right = ledger.get(str(spec["right_parameter_id"]))
+    for parameter in (left, right):
+        semantic_ids = parameter.get("semantic_entity_ids")
+        source_release_ids = parameter.get("source_release_ids")
+        if (
+            not isinstance(semantic_ids, list)
+            or not semantic_ids
+            or any(
+                not isinstance(identifier, str) or not identifier.startswith("synthetic:")
+                for identifier in semantic_ids
+            )
+            or not isinstance(source_release_ids, list)
+            or any(
+                not isinstance(identifier, str) or not identifier.startswith("synthetic-")
+                for identifier in source_release_ids
+            )
+        ):
+            raise ModelError(
+                "synthetic_assurance requires explicitly synthetic parameter provenance"
+            )
     try:
         ledger.require_compatible_context(
             [left["parameter_id"], right["parameter_id"]],

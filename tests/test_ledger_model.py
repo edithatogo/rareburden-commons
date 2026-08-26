@@ -245,3 +245,13 @@ def test_analysis_rejects_incompatible_population_and_period_contexts() -> None:
     ledger = validate_ledger(document, load_mapping(LEDGER_SCHEMA))
     with pytest.raises(ModelError, match="incompatible parameter period contexts"):
         run_analysis_spec(load_mapping(ANALYSIS_PATH), ledger)
+
+
+def test_synthetic_assurance_rejects_relabelled_non_synthetic_provenance() -> None:
+    document = _ledger_document()
+    parameter = document["parameters"][0]  # type: ignore[index]
+    parameter["semantic_entity_ids"] = ["population-au"]
+    parameter["source_release_ids"] = ["official-public-aggregate"]
+    ledger = validate_ledger(document, load_mapping(LEDGER_SCHEMA))
+    with pytest.raises(ModelError, match="explicitly synthetic parameter provenance"):
+        run_analysis_spec(load_mapping(ANALYSIS_PATH), ledger)

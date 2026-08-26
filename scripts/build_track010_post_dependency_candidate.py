@@ -19,6 +19,7 @@ TRACK009_COMPLETION = Path(
 )
 TRACK003_PROFILE = Path("examples/demonstrators/003-ledger-profile.yml")
 REFERENCE = Path("docs/burden-engine-010-reference.md")
+QUALITY_DISPOSITION = Path("docs/track-010-post-dependency-quality-disposition-2026-08-27.yml")
 RESULT_SCHEMA = Path("schemas/analysis-result.schema.json")
 MODEL = Path("src/rareburden/model.py")
 LOCKFILE = Path("uv.lock")
@@ -62,6 +63,7 @@ def build(
             "binding_state": "feature_disabled_provisional_not_eligible",
         },
         "reference_contract": _artifact(root, REFERENCE),
+        "synthetic_quality_disposition": _artifact(root, QUALITY_DISPOSITION),
         "analysis_result_schema": _artifact(root, RESULT_SCHEMA),
         "model_implementation": _artifact(root, MODEL),
         "dependency_lock": _artifact(root, LOCKFILE),

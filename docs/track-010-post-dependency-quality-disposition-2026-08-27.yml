@@ -1,0 +1,18 @@
+schema_version: 1.0.0
+disposition_id: qdp-757f1136634049b87de6ee07
+analysis_id: expected-population-synthetic
+created_at: '2026-08-27T00:00:00Z'
+intended_use: synthetic_assurance
+evidence_assessment_ids:
+  - eqa-9094d747d9be42c39065d97e
+  - eqa-a996c37d962a989e31fd4233
+transportability_assessment_ids:
+  - tra-2a77e6b21b5ed474ad42cadd
+eligible_for_primary_analysis: false
+eligible_for_synthetic_assurance: true
+evidence_decisions:
+  - sensitivity_only
+transportability_decisions:
+  - sensitivity_only
+blockers: []
+note: This is a rule-based disposition, not a numeric or weighted quality score.

@@ -20,6 +20,7 @@ try:
         ENGINE_RECEIPT,
         LOCKFILE,
         MODEL,
+        QUALITY_DISPOSITION,
         REFERENCE,
         RESULT_SCHEMA,
         TRACK003_PROFILE,
@@ -33,6 +34,7 @@ except ModuleNotFoundError:  # Direct execution places scripts/ on sys.path.
         ENGINE_RECEIPT,
         LOCKFILE,
         MODEL,
+        QUALITY_DISPOSITION,
         REFERENCE,
         RESULT_SCHEMA,
         TRACK003_PROFILE,
@@ -56,6 +58,7 @@ BUILD_INPUTS = [
     REFERENCE,
     RESULT_SCHEMA,
     MODEL,
+    QUALITY_DISPOSITION,
     LOCKFILE,
 ]
 EXPECTED_FALSE_CLAIMS = {

@@ -20,6 +20,7 @@ def test_checked_in_post_dependency_candidate_regenerates_byte_for_byte(tmp_path
         Path("docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml"),
         Path("examples/demonstrators/003-ledger-profile.yml"),
         Path("docs/burden-engine-010-reference.md"),
+        Path("docs/track-010-post-dependency-quality-disposition-2026-08-27.yml"),
         Path("schemas/analysis-result.schema.json"),
         Path("src/rareburden/model.py"),
         Path("uv.lock"),

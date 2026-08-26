@@ -61,15 +61,16 @@ treatment, survival and cost models. No result should be interpreted as a
 production burden estimate until Track 009 inputs, semantic definitions and
 scientific review are complete.
 
-`run-analysis` permits an unaccompanied specification only for
-`synthetic_assurance`. Exploratory, primary-estimate and policy-decision uses
-require `--quality-disposition` pointing to a schema-valid, content-addressed
-fitness-for-use record that matches the analysis and intended use and is
-eligible for primary analysis. Execution results always retain `intended_use`,
-`activation_state: not_activated`, a non-authority interpretation and at least
-one limitation. Parameter population and period contexts must match exactly;
-future compatibility rules require an explicit contract rather than silent
-coercion.
+`run-analysis` is fail-closed to `synthetic_assurance` and requires both an
+exact, content-addressed `--quality-disposition` and a
+`--source-release-bindings` receipt. The runner rejects non-synthetic semantic
+or release identities before computation and validates release provenance via
+the bounded wrapper. Exploratory, primary-estimate, policy-decision and public
+aggregate execution remain unimplemented and unavailable. Execution results
+retain their intended-use and non-authority interpretation, and the bounded
+result is labelled `activation_state: synthetic_only`. Parameter population
+and period contexts must match exactly; future compatibility rules require an
+explicit contract rather than silent coercion.
 
 Focused implementation coverage is in `tests/test_burden.py`,
 `tests/test_burden_assurance.py` and `tests/test_quality_edges.py`; the full
