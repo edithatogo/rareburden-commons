@@ -115,4 +115,13 @@ recommendation:
     This recommendation is advisory and grants no activation, freeze or release
     authority.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-26T09:59:23Z"
+  rationale: >-
+    I select Track 010 Option A: revise the bounded interface within synthetic
+    and exactly-receipted public-aggregate scope. This authorizes the bounded
+    remediation and re-review only; it does not authorize empirical or
+    controlled-data activation, independent review, alpha freeze, Track 003
+    eligibility, publication or release.

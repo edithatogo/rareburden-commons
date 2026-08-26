@@ -35,8 +35,8 @@
 - [x] Add negative tests for incompatible DALY/cost shortcuts. Evidence: `tests/test_burden.py` and `tests/test_quality_edges.py`.
 - [x] Benchmark the bounded synthetic reference workload. Evidence: `scripts/check_burden_benchmark.py`, its fail-closed tests and the `make burden-benchmark` release gate; timing is an engineering guard, not scientific validation.
 - [~] Run role-separated scientific-software agent-panel review and owner disposition.
-  The exact role-separated advisory packet recommends revision and awaits the
-  repository owner's disposition. Evidence:
+  The exact role-separated advisory packet recommends revision and records the
+  repository owner's selection of Option A for bounded remediation. Evidence:
   `docs/decisions/2026-08-26-track-010-advisory-review.yml`. This is not
   independent scientific-software, clinical or patient/community review.
 
@@ -140,3 +140,11 @@
   `scripts/check_track010_candidate_containment.py`, focused negative tests and
   `make check`. This is same-environment synthetic reproducibility and
   containment evidence only, not scientific validity or independent review.
+
+## Option A bounded-interface remediation — 2026-08-26
+
+- [~] Enforce exact intended-use disposition and population/period compatibility,
+  preserve portable synthetic interpretation labels, bound simulation memory and
+  seed inputs, and prepare an exact post-dependency candidate for role-separated
+  re-review. Empirical and controlled-data activation, independent review, alpha
+  freeze, Track 003 eligibility, publication and release remain false.

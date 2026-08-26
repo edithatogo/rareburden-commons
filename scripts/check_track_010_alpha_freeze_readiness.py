@@ -257,12 +257,15 @@ def validate(path: Path, root: Path) -> None:
         or advisory.get("candidate", {}).get("tree") != TRACK010_REVIEW_TREE
         or _git_tree(root, TRACK010_REVIEW_COMMIT) != TRACK010_REVIEW_TREE
         or advisory.get("recommendation", {}).get("option_id") != "A"
-        or advisory.get("owner_decision", {}).get("status") != "pending"
+        or advisory.get("owner_decision", {}).get("status") != "recorded"
+        or advisory.get("owner_decision", {}).get("selected_option_id") != "A"
+        or advisory.get("owner_decision", {}).get("decided_by") != "edithatogo"
         or review.get("repository_recommendation") != "revise"
-        or review.get("repository_owner_decision") != "pending"
+        or review.get("repository_owner_decision")
+        != "recorded_option_a_bounded_remediation_only"
         or len(review.get("unresolved_blocking_findings", [])) < 2
     ):
-        raise Track010ReadinessError("repository advisory scope or pending decision drift")
+        raise Track010ReadinessError("repository advisory scope or bounded decision drift")
 
     claims = document.get("claims", {})
     if any(claims.get(name) is not False for name in FALSE_CLAIMS):
