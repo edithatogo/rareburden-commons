@@ -43,12 +43,12 @@ except ModuleNotFoundError:  # Direct execution places scripts/ on sys.path.
         build,
     )
 
-SOURCE_COMMIT = "4ef8a1118b720ad844d0ea7e62dc18a090bc92a1"
-SOURCE_TREE = "c9f153daa76bfe5bfa1343c6c8e91ef10529f11e"
+SOURCE_COMMIT = "201aed1e8435947311c67aacb75bbf8824073ece"
+SOURCE_TREE = "8862e2c0d14daf21f8b38f92b8edcc9f71958eae"
 MANIFEST = Path("manifests/burden/track-010-post-dependency-candidate-2026-08-27.json")
-MANIFEST_SHA256 = "bc48be8368d40cac70ee965e913c837d54fb0f4d638de234b6fb0f681ef22745"
+MANIFEST_SHA256 = "0d84be0df32d2b50786f2c1fa56dca3779cd2b838905709d1c06a0999a05c2c7"
 COMPATIBILITY = Path("manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json")
-COMPATIBILITY_SHA256 = "ee5d9a0cb1f07a293576d330de70cde82040ebf94756a183d9b50f5080118031"
+COMPATIBILITY_SHA256 = "4f85422bcb9ce6adc0be2e3dd39d90efeccd576cab3d45c6be2263d78dd8529a"
 BUILD_INPUTS = [
     ENGINE_RECEIPT,
     ANALYSIS_SPEC,

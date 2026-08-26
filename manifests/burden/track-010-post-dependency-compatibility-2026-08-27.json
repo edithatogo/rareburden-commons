@@ -24,14 +24,18 @@
   "interpretation": "Corrected fail-closed interface and deterministic synthetic execution only; not empirical activation, independent review, Track 003 eligibility, alpha freeze, publication or release authority.",
   "model_implementation": {
     "path": "src/rareburden/model.py",
-    "sha256": "233ed1a9b510cd85707f6cc1ae2bd59c017fdfe5f987a0fb366343d097ab8536"
+    "sha256": "45a46dca0a00ace72c2293845cee158910cf4317dc288e64a691048b9ee8fda5"
   },
   "reference_contract": {
     "path": "docs/burden-engine-010-reference.md",
-    "sha256": "2d20a016a8911fa28549f1b1aadada218c7dd6ef43f50f11eaaec3d4863410e0"
+    "sha256": "6a2d5ac35e961b40a5141be32a38d9590dde66a4ed73b8e47b7a3d9044ec3acc"
   },
   "schema_version": "1.0.0",
   "status": "bounded_post_dependency_preparation_only_not_alpha",
+  "synthetic_quality_disposition": {
+    "path": "docs/track-010-post-dependency-quality-disposition-2026-08-27.yml",
+    "sha256": "6aa181220ffc822ec9ec0418cffd74cdee12a91c56f8133c0999e52bc276d440"
+  },
   "track": "010-public-burden-engine",
   "track_003_interface_profile": {
     "binding_state": "feature_disabled_provisional_not_eligible",
