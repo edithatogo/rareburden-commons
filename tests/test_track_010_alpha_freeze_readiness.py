@@ -26,10 +26,17 @@ def test_synthetic_candidate_does_not_satisfy_dependency_or_alpha_freeze() -> No
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     candidate = document["synthetic_candidate_preparation"]
     assert candidate["status"] == "prepared_synthetic_only_not_alpha_not_frozen"
-    assert document["upstream_dependency"]["state"] == "pending"
+    assert document["upstream_dependency"]["state"] == "satisfied"
     assert document["review_gate"]["state"] == "pending"
     assert document["alpha_freeze_gate"]["state"] == "pending"
     assert set(document["claims"].values()) == {False}
+
+
+def test_track009_dependency_requires_exact_bounded_completion(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["upstream_dependency"]["completion_decision_sha256"] = "0" * 64
+    with pytest.raises(Track010ReadinessError, match="completion binding drift"):
+        validate(_candidate(tmp_path, document), ROOT)
 
 
 def test_synthetic_candidate_rejects_manifest_drift(tmp_path: Path) -> None:
