@@ -53,6 +53,24 @@ def test_bounded_owner_disposition_rejects_receipt_drift(tmp_path: Path) -> None
         validate(_candidate(tmp_path, document), ROOT)
 
 
+def test_repository_advisory_packet_remains_pending_and_blocking(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    review = document["review_gate"]
+    assert review["repository_recommendation"] == "revise"
+    assert review["repository_owner_decision"] == "pending"
+    assert len(review["unresolved_blocking_findings"]) == 3
+    review["repository_owner_decision"] = "recorded"
+    with pytest.raises(Track010ReadinessError, match="pending decision drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_repository_advisory_packet_rejects_hash_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["review_gate"]["repository_advisory_packet_sha256"] = "0" * 64
+    with pytest.raises(Track010ReadinessError, match="packet binding drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
 @pytest.mark.parametrize(
     ("section", "field", "value", "message"),
     [

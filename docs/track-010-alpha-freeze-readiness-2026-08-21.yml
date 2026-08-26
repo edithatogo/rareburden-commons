@@ -41,6 +41,10 @@ bounded_owner_disposition:
   invalidation: "any recorded stop trigger or candidate, compatibility, upstream, dependency-lock, containment or security drift"
 review_gate:
   review_packet: "docs/track-010-engine-review-packet.md"
+  repository_advisory_packet: "docs/decisions/2026-08-26-track-010-advisory-review.yml"
+  repository_advisory_packet_sha256: "9e6d3b6c8a159945fe2747b86af8e4629398d41d423d67fb403bdbcb30f4760c"
+  repository_recommendation: "revise"
+  repository_owner_decision: "pending"
   scientific_statistical_receipt: ""
   engineering_receipt: ""
   patient_community_receipt: ""
@@ -48,7 +52,10 @@ review_gate:
   owner_disposition: ""
   repository_panel_status: "advisory"
   owner_status: "owner_operated_not_independent_review"
-  unresolved_blocking_findings: []
+  unresolved_blocking_findings:
+    - "higher-stakes intended uses can execute without an exact quality disposition"
+    - "population and period compatibility is not enforced during analysis execution"
+    - "the historical pre-alpha candidate is not a post-Track-009 alpha candidate"
   state: "pending"
 alpha_freeze_gate:
   exact_candidate_commit: ""

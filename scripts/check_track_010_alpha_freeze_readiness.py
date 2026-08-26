@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from jsonschema import Draft202012Validator, FormatChecker, ValidationError
 
 
 class Track010ReadinessError(ValueError):
@@ -53,6 +54,9 @@ TRACK009_PROHIBITED_EFFECTS = {
     "publication_authority",
     "release_authority",
 }
+TRACK010_ADVISORY_PACKET = "docs/decisions/2026-08-26-track-010-advisory-review.yml"
+TRACK010_REVIEW_COMMIT = "f35fcf25a336bf6639b86a03f8ea172ab61177e2"
+TRACK010_REVIEW_TREE = "d1496bdb8f3d8dca0e2362ad97ed3368466a02c4"
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -232,6 +236,33 @@ def validate(path: Path, root: Path) -> None:
         raise Track010ReadinessError("satisfied review requires every accountable receipt")
     if review.get("state") not in {"pending", "satisfied"}:
         raise Track010ReadinessError("review gate state must be pending or satisfied")
+    advisory_path = _repository_path(root, review.get("repository_advisory_packet"))
+    advisory_hash = str(review.get("repository_advisory_packet_sha256", ""))
+    if (
+        review.get("repository_advisory_packet") != TRACK010_ADVISORY_PACKET
+        or not SHA256.fullmatch(advisory_hash)
+        or _sha256(advisory_path) != advisory_hash
+    ):
+        raise Track010ReadinessError("repository advisory packet binding drift")
+    advisory = _load(advisory_path)
+    schema = json.loads(
+        (root / "schemas/agent-owner-decision-packet.schema.json").read_text(encoding="utf-8")
+    )
+    try:
+        Draft202012Validator(schema, format_checker=FormatChecker()).validate(advisory)
+    except ValidationError as exc:
+        raise Track010ReadinessError("repository advisory packet schema drift") from exc
+    if (
+        advisory.get("candidate", {}).get("commit") != TRACK010_REVIEW_COMMIT
+        or advisory.get("candidate", {}).get("tree") != TRACK010_REVIEW_TREE
+        or _git_tree(root, TRACK010_REVIEW_COMMIT) != TRACK010_REVIEW_TREE
+        or advisory.get("recommendation", {}).get("option_id") != "A"
+        or advisory.get("owner_decision", {}).get("status") != "pending"
+        or review.get("repository_recommendation") != "revise"
+        or review.get("repository_owner_decision") != "pending"
+        or len(review.get("unresolved_blocking_findings", [])) < 2
+    ):
+        raise Track010ReadinessError("repository advisory scope or pending decision drift")
 
     claims = document.get("claims", {})
     if any(claims.get(name) is not False for name in FALSE_CLAIMS):

@@ -1,0 +1,118 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "010-public-burden-engine"
+candidate:
+  commit: "f35fcf25a336bf6639b86a03f8ea172ab61177e2"
+  tree: "d1496bdb8f3d8dca0e2362ad97ed3368466a02c4"
+  evidence_manifest_sha256: "a1883f906053367a4129bd8780e83ee2f170879e00bcf019c61a5e1388bfa716"
+panel:
+  perspectives:
+    - "simulated scientific and statistical software perspective"
+    - "simulated engineering and reproducibility perspective"
+    - "simulated patient-community harm and interpretation perspective"
+  non_representation_statement: >-
+    Owner-requested simulated advisory perspectives only. They are not
+    independent scientific-software review, lived experience, patient or
+    community participation, consent, clinical approval, empirical or
+    controlled-data activation, alpha freeze, publication approval or release
+    authority.
+evidence:
+  references:
+    - "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json"
+    - "manifests/burden/track-010-synthetic-candidate-2026-08-21.json"
+    - "docs/track-010-alpha-freeze-readiness-2026-08-21.yml"
+    - "docs/burden-engine-010-reference.md"
+    - "docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml"
+    - "conductor/tracks/010-public-burden-engine/spec.md"
+    - "src/rareburden/model.py"
+    - "src/rareburden/burden_assurance.py"
+    - "src/rareburden/uncertainty.py"
+    - "schemas/analysis-result.schema.json"
+  observed_facts:
+    - "The reviewed repository target is commit f35fcf25a336bf6639b86a03f8ea172ab61177e2 and tree d1496bdb8f3d8dca0e2362ad97ed3368466a02c4."
+    - "The exact executable receipt is synthetic-only and records empirical activation and contract freeze as false."
+    - "Track 009 now satisfies only the bounded synthetic and exactly-receipted public-aggregate dependency; Track 010 has no public-aggregate execution receipt."
+    - "The historical Track 010 candidate remains reproducible and contained, but records the earlier unsatisfied dependency state and cannot be reinterpreted as a post-dependency alpha candidate."
+    - "The complete synchronized baseline passed 1181 tests; focused agent checks also passed containment, readiness, benchmark and Track 010 tests."
+  simulated_assessments:
+    - "HIGH: run_analysis_spec enforces intended-use fitness only when a quality disposition is supplied, while the public CLI does not supply one and higher-stakes intended uses remain schema-valid; this blocks a defensible alpha or public-aggregate interface."
+    - "HIGH: analysis execution checks quantity type and units but does not call the available population and period compatibility guard; mismatched contexts can execute silently and block the general engine contract."
+    - "HIGH FOR FREEZE: the reviewed repository tree, historical merged candidate and embedded source identities are distinct and must not be conflated; a new exact post-dependency candidate is required before freeze consideration."
+    - "MEDIUM: portable result and structural-scenario outputs do not machine-require persistent synthetic interpretation, limitations and uncertainty labels, creating downstream over-interpretation risk."
+    - "MEDIUM: the 10000000-iteration ceiling has no measured peak-memory budget while simulations retain large draw lists; the existing CPU benchmark does not satisfy the alpha memory-budget criterion."
+    - "LOW: seed validation is inconsistent across public simulation primitives, and non-estimable scenarios raise rather than producing a visible scenario-level record."
+    - "The exact bounded synthetic receipt remains acceptable as reproducibility and containment evidence while every activation, freeze, review and release claim stays false."
+  cannot_infer:
+    - "scientific appropriateness of empirical distributions, effective sample sizes, independence or scenario sets"
+    - "clinical, epidemiological or policy validity"
+    - "patient or community acceptance, consent, representation or absence of harm"
+    - "fitness of an exactly-receipted public aggregate because Track 010 has not executed one"
+    - "peak memory behavior at the declared iteration ceiling or universal cross-architecture equivalence"
+    - "independent scientific-software review, alpha freeze, Track 003 eligibility, public readiness or release authority"
+uncertainty:
+  - "The safe bounded wrapper contains the accepted synthetic receipt, but the broader shipped CLI and analysis interface remain less restrictive."
+  - "Exact population and period equality may eventually need a declared compatibility rule; silent mismatch is not acceptable."
+  - "Repository-level synthetic labels can be lost when numerical results are copied into tables, charts or downstream APIs."
+dissent:
+  - "The engineering perspective accepts the bounded advisory packet as-is, while the scientific perspective requires revision before any owner disposition supporting alpha freeze or broader activation."
+  - "The community-harm perspective permits continued synthetic preparation but would defer alpha freeze until output-level labels, scenario uncertainty and visible non-estimability are enforced."
+stop_triggers:
+  - "Any empirical, controlled, private, clinical or unreceipted input entering Track 010."
+  - "Any unresolved high or critical finding."
+  - "Any candidate, dependency, interface, manifest, receipt, provenance or hash drift."
+  - "Any silent context mismatch, imputation, unsupported correlation or direct case-fraction allocation to DALY, YLD, YLL or cost."
+  - "Any conflation of reviewed repository, historical merged-candidate and embedded source identities."
+  - "Any claim of independent review, scientific or community approval, activation, alpha freeze, Track 003 eligibility, public readiness, publication or release authority."
+options:
+  - id: "A"
+    title: "Revise the bounded interface"
+    disposition: "revise"
+    trade_offs:
+      - "Closes the two high-severity fail-closed gaps and improves portable interpretation before a new exact candidate is prepared."
+      - "Requires another bounded implementation and panel verification cycle before owner disposition or freeze consideration."
+    contingencies:
+      - "Keep the existing synthetic receipt as historical bounded assurance evidence."
+      - "Do not create a post-dependency alpha candidate until the high findings are fixed and re-reviewed."
+    rationale: >-
+      Revise intended-use authorization and context compatibility first, then
+      address portable labels and bounded-memory evidence before preparing a
+      new exact candidate.
+    minimum_evidence:
+      - "Fail-closed tests reject higher-stakes intended uses without an exact disposition."
+      - "Fail-closed tests reject undeclared population or period incompatibility."
+      - "A re-review packet binds the corrected exact commit, tree and evidence manifest."
+  - id: "B"
+    title: "Retain synthetic receipt and defer"
+    disposition: "defer"
+    trade_offs:
+      - "Preserves the verified historical synthetic evidence without changing the broader interface."
+      - "Leaves Track 010 blocked and prevents a defensible alpha or public-aggregate candidate."
+    contingencies:
+      - "Expose no new Track 010 execution path and keep every authority claim false."
+    rationale: >-
+      Use this if immediate interface remediation is not desired; the exact
+      synthetic receipt remains useful but cannot support broader claims.
+    minimum_evidence:
+      - "Existing containment and full repository checks remain green."
+  - id: "C"
+    title: "Stop Track 010 preparation"
+    disposition: "stop"
+    trade_offs:
+      - "Eliminates accidental downstream coupling risk."
+      - "Discards near-term value from the bounded engine and delays Track 003 integration work."
+    contingencies:
+      - "Retain immutable historical receipts and disable new Track 010 preparation."
+    rationale: >-
+      Use this only if the high findings cannot be corrected without expanding
+      beyond the authorized bounded scope.
+    minimum_evidence:
+      - "A documented stop disposition and downstream invalidation record."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    Revise the two high-severity fail-closed gaps within synthetic-only scope,
+    preserve the exact historical receipt, and re-review a corrected candidate.
+    This recommendation is advisory and grants no activation, freeze or release
+    authority.
+owner_decision:
+  status: "pending"
