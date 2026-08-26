@@ -139,3 +139,18 @@ bounded synthetic preparation lane is retained.
 - The owner disposition explicitly records `track_complete: false`. It does
   not authorise a Track 009 completion transition, independent review or
   release.
+
+## Bounded track completion — 2026-08-26
+
+**Disposition:** Complete for the bounded synthetic and exactly-receipted
+public-aggregate contract scope only.
+
+- The repository owner separately authorized completion in
+  `docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml`,
+  bound to candidate commit `2ac13c0` and tree `2b8cc238`.
+- `scripts/check_track009_bounded_completion.py` verifies the exact freeze
+  manifest and prior freeze disposition, lifecycle records and fail-closed
+  authority boundary.
+- Empirical parameter activation, controlled-data activation, independent
+  review, publication and release authority remain false. Completion does not
+  satisfy those external or downstream gates.

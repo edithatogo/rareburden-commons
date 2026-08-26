@@ -56,6 +56,7 @@ This directory is the persistent source of truth for the project's context-drive
 
 ## Completed work
 
+- [Track 009 — Bounded evidence and parameter ledger](tracks/009-evidence-parameter-ledger/spec.md) and [review](tracks/009-evidence-parameter-ledger/review.md)
 - [Track 002 — Public-source acquisition](archive/002-public-source-acquisition/spec.md) and [review](archive/002-public-source-acquisition/review.md)
 - [Track 001 — Foundation](archive/001-foundation/spec.md) and [review](archive/001-foundation/review.md)
 - [Track 006 — v1 delivery system](archive/006-v1-delivery-system/spec.md) and [review](archive/006-v1-delivery-system/review.md)

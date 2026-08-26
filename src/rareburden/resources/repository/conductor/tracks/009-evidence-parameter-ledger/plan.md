@@ -206,10 +206,32 @@
 
 ## Track completion authority
 
-- [~] Record a separate repository-owner decision authorising Track 009
-  completion. The current bounded freeze disposition explicitly records
-  `track_complete: false`; contract freeze is not track completion, empirical
-  activation, independent review or release authority.
+- [x] Record a separate repository-owner decision authorising Track 009
+  completion. Evidence: `83352f0` and
+  `docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml`.
+  The completion scope is synthetic and exactly-receipted public aggregates
+  only; empirical activation, controlled-data activation, independent review,
+  publication and release authority remain false.
+
+## Completion review fixes
+
+- [x] Reconcile lifecycle tests with the exact bounded Track 009 completion
+  transition and the now-satisfied Track 010 dependency while preserving all
+  empirical, controlled-data, independent-review, alpha-freeze, publication
+  and release gates as false or pending. Evidence: focused lifecycle and
+  bounded-completion test gate recorded in the completion commit.
+- [x] Reconcile the superseded Track 008 split-candidate validator with the
+  exact bounded Track 009 completion authorization while continuing to reject
+  empirical, controlled-data, independent-review, publication and release
+  activation. Evidence: `5656c65`.
+- [x] Bind the historical 2026-08-21 Track 009 readiness record to the exact
+  2026-08-26 bounded completion decision without rewriting its preparation-era
+  claims or clearing empirical, controlled-data, independent-review,
+  publication or release gates. Evidence: `46e473d`.
+- [x] Update Track 010 readiness to recognize the exact bounded Track 009
+  dependency completion while leaving Track 010 review, alpha freeze,
+  empirical/production activation and Track 003 eligibility blocked. Evidence:
+  `9191963`.
 
 ## Owner engineering review — 2026-08-22
 

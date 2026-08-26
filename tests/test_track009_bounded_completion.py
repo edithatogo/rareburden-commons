@@ -13,6 +13,7 @@ from scripts.check_track009_bounded_completion import (
     FREEZE_MANIFEST,
     BoundedCompletionError,
     validate_authorization,
+    validate_completion_state,
 )
 
 ROOT = Path(__file__).parents[1]
@@ -27,6 +28,10 @@ def _copy_authorization_inputs(destination: Path) -> None:
 
 def test_bounded_completion_authorization_passes() -> None:
     validate_authorization(ROOT)
+
+
+def test_bounded_completion_lifecycle_state_passes() -> None:
+    validate_completion_state(ROOT)
 
 
 def test_bounded_completion_rejects_release_authority(tmp_path: Path) -> None:

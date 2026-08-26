@@ -15,6 +15,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	track-008-successor-implementation-candidate-check \
 	track-009-freeze-readiness-check \
 	track-009-contract-freeze-check \
+	track-009-bounded-completion-check \
 	track-009-source-profile-role-check \
 	track-010-alpha-freeze-readiness-check \
 	track-010-candidate-containment-check \
@@ -70,6 +71,10 @@ track-009-freeze-readiness-check:
 
 track-009-contract-freeze-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/gen_track009_contract_freeze.py --check
+
+track-009-bounded-completion-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track009_bounded_completion.py \
+		--root . --require-complete
 
 track-009-source-profile-role-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track009_source_profile_role.py \
@@ -219,7 +224,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check single-owner-agent-governance-check track-008-freeze-readiness-check track-008-split-candidate-check track-008-successor-implementation-candidate-check track-009-freeze-readiness-check track-009-contract-freeze-check track-009-source-profile-role-check track-010-alpha-freeze-readiness-check track-010-candidate-containment-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check single-owner-agent-governance-check track-008-freeze-readiness-check track-008-split-candidate-check track-008-successor-implementation-candidate-check track-009-freeze-readiness-check track-009-contract-freeze-check track-009-bounded-completion-check track-009-source-profile-role-check track-010-alpha-freeze-readiness-check track-010-candidate-containment-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility

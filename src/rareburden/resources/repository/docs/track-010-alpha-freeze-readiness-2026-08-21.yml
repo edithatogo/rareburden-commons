@@ -6,8 +6,17 @@ freeze_order_position: 3
 upstream_dependency:
   track: "009-evidence-parameter-ledger"
   required_status: "complete"
-  observed_status: "blocked"
-  state: "pending"
+  observed_status: "complete"
+  state: "satisfied"
+  completion_decision: "docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml"
+  completion_decision_sha256: "c8a0618e0c667f6fd5c3bdb4f2f2956b0946e7786a6a6f0d422f887bc0944e84"
+  completion_scope: "bounded synthetic and exactly-receipted public-aggregate contract only"
+  prohibited_effects:
+    - "empirical_parameter_activation"
+    - "controlled_data_activation"
+    - "independent_review"
+    - "publication_authority"
+    - "release_authority"
 synthetic_candidate_preparation:
   status: "prepared_synthetic_only_not_alpha_not_frozen"
   source_commit: "b99615dfc72c1133d9c18a0530415ce639d628aa"
