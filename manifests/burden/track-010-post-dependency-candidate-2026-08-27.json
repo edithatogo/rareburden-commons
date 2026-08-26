@@ -18,7 +18,7 @@
   },
   "compatibility_receipt": {
     "path": "manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json",
-    "sha256": "297e8d8becf1af9330a5aabffca39afc05d8696ad756088069e421655f94e3b8"
+    "sha256": "ee5d9a0cb1f07a293576d330de70cde82040ebf94756a183d9b50f5080118031"
   },
   "engine_receipt": {
     "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-27.json",
@@ -32,8 +32,8 @@
     "provenance, reproduction, recovery and security preparation"
   ],
   "schema_version": "1.0.0",
-  "source_commit": "ccccd6b2fe6881602564bdb78114ff01946e60cf",
-  "source_tree": "3d02e895fac9d35963ca3a726991671b2dcc853a",
+  "source_commit": "4ef8a1118b720ad844d0ea7e62dc18a090bc92a1",
+  "source_tree": "c9f153daa76bfe5bfa1343c6c8e91ef10529f11e",
   "track": "010-public-burden-engine",
   "track_003_interface_profile": {
     "path": "examples/demonstrators/003-ledger-profile.yml",

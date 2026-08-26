@@ -24,7 +24,7 @@
   "interpretation": "Corrected fail-closed interface and deterministic synthetic execution only; not empirical activation, independent review, Track 003 eligibility, alpha freeze, publication or release authority.",
   "model_implementation": {
     "path": "src/rareburden/model.py",
-    "sha256": "3820132c6738442c7ed2c59b5d92ed872ef99127a37df48a917b81f0c12d5275"
+    "sha256": "233ed1a9b510cd85707f6cc1ae2bd59c017fdfe5f987a0fb366343d097ab8536"
   },
   "reference_contract": {
     "path": "docs/burden-engine-010-reference.md",

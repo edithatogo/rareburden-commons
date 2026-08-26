@@ -8,8 +8,8 @@ from scripts.build_track010_post_dependency_candidate import build
 ROOT = Path(__file__).parents[1]
 MANIFEST = Path("manifests/burden/track-010-post-dependency-candidate-2026-08-27.json")
 COMPATIBILITY = Path("manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json")
-SOURCE_COMMIT = "ccccd6b2fe6881602564bdb78114ff01946e60cf"
-SOURCE_TREE = "3d02e895fac9d35963ca3a726991671b2dcc853a"
+SOURCE_COMMIT = "4ef8a1118b720ad844d0ea7e62dc18a090bc92a1"
+SOURCE_TREE = "c9f153daa76bfe5bfa1343c6c8e91ef10529f11e"
 
 
 def test_checked_in_post_dependency_candidate_regenerates_byte_for_byte(tmp_path: Path) -> None:
