@@ -1,0 +1,46 @@
+schema_version: "1.0.0"
+track_id: "009-evidence-parameter-ledger"
+decision_type: "owner_v04_contract_freeze_disposition"
+decided_at_utc: "2026-08-22T00:00:00Z"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+independent_review: false
+panel_basis:
+  routing: "docs/decisions/2026-08-22-track-009-findings-panel-routing.yml"
+  epi_med_01_packet: "docs/decisions/2026-08-22-track-009-panel-packet-epi-med-01.yml"
+  rights_01_packet: "docs/decisions/2026-08-22-track-009-panel-packet-rights-01.yml"
+  engineering_receipt: "docs/decisions/2026-08-22-track-009-owner-engineering-review.yml"
+  panel_status: "simulated_role_separated_advisory_only"
+disposition:
+  EPI-MED-01:
+    ruling: "accepted_within_declared_scope"
+    scope: >-
+      Estimand and denominator contracts are fit for synthetic and
+      exactly-receipted public-aggregate scope; empirical fitness for any
+      activated real source remains behind exact-receipt activation gates.
+  RIGHTS-01:
+    ruling: "accepted_narrowed"
+    scope: >-
+      No custodian receipt is required for the synthetic-only candidate or
+      recorded public-source terms dispositions under ADR-0009. Controlled
+      data remains wholly outside v0.4 scope and fails closed.
+  ENG-01:
+    ruling: "partially_evidenced_owner_operated"
+    note: "Owner-operated engineering receipt recorded in #250; independent engineering review is not claimed and not required by ADR-0009."
+freeze_authorization:
+  authorized: true
+  freeze_manifest: "manifests/ledger/track-009-v0.4-contract-freeze.json"
+  contract_version: "v0.4"
+  effect: >-
+    The v0.4 ledger contract surfaces bound in the freeze manifest are frozen
+    for the declared scope. Changes require a fresh packet, new facts where
+    relevant, and a new owner disposition.
+invalidation: "any bound hash drift, upstream semantic binding drift or publisher terms correction voids this freeze"
+claims:
+  contract_frozen: true
+  scope_synthetic_and_receipted_public_aggregate_only: true
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  independent_review: false
+  track_complete: false
+  release_authority: false

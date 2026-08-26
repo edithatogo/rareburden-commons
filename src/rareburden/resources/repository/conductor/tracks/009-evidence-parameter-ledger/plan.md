@@ -40,7 +40,11 @@
   retaining pending status until exact-candidate evidence exists. Evidence:
   `docs/track-009-freeze-readiness-2026-08-21.yml`; assignment does not resolve
   the three findings or confer epidemiology/data-governance approval.
-- [ ] Freeze v0.4 ledger contracts.
+- [x] Freeze the v0.4 ledger contracts for synthetic and exactly-receipted
+  public-aggregate scope. Evidence:
+  `manifests/ledger/track-009-v0.4-contract-freeze.json`; empirical fitness,
+  controlled-data activation and release authority remain out of scope and
+  fail closed.
 
 ## Preparation refresh — 2026-08-02
 
@@ -194,8 +198,18 @@
   role-separated epidemiology, rights/data-use and engineering challenge, and
   record the owner's disposition. Evidence:
   `docs/decisions/2026-08-22-track-009-agent-owner-closeout.yml`.
-- [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
-  engineering review findings and release evidence remain pending.
+- [x] Freeze the v0.4 ledger contracts for synthetic and exactly-receipted
+  public-aggregate scope. Evidence:
+  `manifests/ledger/track-009-v0.4-contract-freeze.json`; empirical
+  fitness for activated real sources and controlled data remain out of
+  scope behind exact-receipt gates.
+
+## Track completion authority
+
+- [ ] Record a separate repository-owner decision authorising Track 009
+  completion. The current bounded freeze disposition explicitly records
+  `track_complete: false`; contract freeze is not track completion, empirical
+  activation, independent review or release authority.
 
 ## Owner engineering review — 2026-08-22
 
@@ -205,8 +219,11 @@
   Owner-operated only; not an independent review. EPI-MED-01 and RIGHTS-01
   remain pending external qualifying evidence and the v0.4 ledger contract
   remains unfrozen.
-- [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
-  engineering review findings and release evidence remain pending.
+- [x] Freeze the v0.4 ledger contracts for synthetic and exactly-receipted
+  public-aggregate scope. Evidence:
+  `manifests/ledger/track-009-v0.4-contract-freeze.json`; empirical
+  fitness for activated real sources and controlled data remain out of
+  scope behind exact-receipt gates.
 
 ## Findings rerouted to agent-panel adjudication — 2026-08-22
 
@@ -221,6 +238,11 @@
   `docs/decisions/2026-08-22-track-009-panel-packet-rights-01.yml` (accept
   narrowed receipt-conditioned scope). Advisory only; never independent or
   external review.
-- [ ] Owner disposition on both panel recommendations.
-- [ ] Freeze v0.4 ledger contracts. Exact estimand fitness, rights/custody,
-  engineering review findings and release evidence remain pending.
+- [x] Record owner disposition accepting both panel recommendations
+  within their declared scopes. Evidence:
+  `docs/decisions/2026-08-22-track-009-owner-v04-freeze-disposition.yml`.
+- [x] Freeze the v0.4 ledger contracts for synthetic and exactly-receipted
+  public-aggregate scope. Evidence:
+  `manifests/ledger/track-009-v0.4-contract-freeze.json`; empirical
+  fitness for activated real sources and controlled data remain out of
+  scope behind exact-receipt gates.

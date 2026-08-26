@@ -121,3 +121,21 @@ source/custodian rights and engineering/release review evidence. No empirical,
 controlled, clinical, patient/community, independent-review, contract-freeze,
 production or release claim is made. Track 009 stays `blocked`; only the
 bounded synthetic preparation lane is retained.
+
+## v0.4 contract freeze disposition — 2026-08-22
+
+**Decision:** Bounded v0.4 contract freeze accepted; Track 009 remains blocked.
+
+- Owner accepted both agent-panel recommendations within their declared
+  scopes (`docs/decisions/2026-08-22-track-009-owner-v04-freeze-disposition.yml`).
+- Contract surfaces bound in `manifests/ledger/track-009-v0.4-contract-freeze.json`;
+  candidate containment unchanged.
+- EPI-MED-01 and RIGHTS-01 resolved within declared scope; empirical
+  activation of real sources and controlled data remain behind exact-receipt
+  gates and outside v0.4 scope.
+- Completion is bounded: empirical activation of real sources, controlled
+  data and any scope extension remain behind exact-receipt gates and require
+  fresh packets and owner dispositions.
+- The owner disposition explicitly records `track_complete: false`. It does
+  not authorise a Track 009 completion transition, independent review or
+  release.
