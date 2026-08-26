@@ -10,7 +10,7 @@ from statistics import fmean
 from typing import Any
 
 from rareburden import __version__
-from rareburden.ledger import ParameterLedger
+from rareburden.ledger import LedgerError, ParameterLedger
 from rareburden.provenance import content_id, utc_now
 from rareburden.stochastic import StableRandom
 
@@ -22,6 +22,7 @@ class ModelError(ValueError):
 _COUNT_COMPATIBLE_METRICS = {"count", "cases", "prevalence_count", "population"}
 _OUTCOME_METRICS = {"daly", "dalys", "yll", "ylls", "yld", "ylds", "deaths", "cost"}
 _PERSON_UNITS = {"people", "person", "persons"}
+MAX_SIMULATION_ITERATIONS = 100_000
 
 
 @dataclass(frozen=True)
@@ -226,8 +227,10 @@ def simulate_product(
     """Simulate a product under an explicit supported dependence assumption."""
     if iterations < 100:
         raise ModelError("iterations must be at least 100")
-    if iterations > 10_000_000:
-        raise ModelError("iterations must not exceed 10,000,000")
+    if iterations > MAX_SIMULATION_ITERATIONS:
+        raise ModelError(f"iterations must not exceed {MAX_SIMULATION_ITERATIONS:,}")
+    if not isinstance(seed, int) or isinstance(seed, bool) or seed < 0:
+        raise ModelError("seed must be a non-negative integer")
     if not 0 < interval_probability < 1:
         raise ModelError("interval_probability must be between zero and one")
     if dependence != "independent":
@@ -284,24 +287,33 @@ def run_analysis_spec(
     A supplied fitness-for-use disposition becomes an explicit scientific input.
     It must identify this analysis and permit the declared intended use.
     """
+    intended_use = str(spec.get("intended_use", ""))
+    if intended_use != "synthetic_assurance" and quality_disposition is None:
+        raise ModelError(f"{intended_use} requires an exact quality disposition")
     if quality_disposition is not None:
         if quality_disposition.get("analysis_id") != spec.get("analysis_id"):
             raise ModelError("quality disposition analysis_id differs from analysis specification")
         if quality_disposition.get("intended_use") != spec.get("intended_use"):
             raise ModelError("quality disposition intended_use differs from analysis specification")
-        intended_use = str(spec.get("intended_use", ""))
         if intended_use == "synthetic_assurance" and not quality_disposition.get(
             "eligible_for_synthetic_assurance"
         ):
             raise ModelError("quality disposition does not permit synthetic assurance")
-        if intended_use in {"primary_estimate", "policy_decision"} and not quality_disposition.get(
+        if intended_use != "synthetic_assurance" and not quality_disposition.get(
             "eligible_for_primary_analysis"
         ):
-            raise ModelError("quality disposition does not permit primary analysis")
+            raise ModelError("quality disposition does not permit non-synthetic analysis")
 
     estimand = str(spec["estimand"])
     left = ledger.get(str(spec["left_parameter_id"]))
     right = ledger.get(str(spec["right_parameter_id"]))
+    try:
+        ledger.require_compatible_context(
+            [left["parameter_id"], right["parameter_id"]],
+            fields=("population", "period"),
+        )
+    except LedgerError as exc:
+        raise ModelError(str(exc)) from exc
     if estimand == "expected_affected_population":
         if left["quantity_type"] != "population" or right["quantity_type"] != "fraction":
             raise ModelError(
@@ -321,6 +333,9 @@ def run_analysis_spec(
 
     output_unit = str(spec["output_unit"])
     _validate_analysis_units(estimand, left, right, output_unit)
+    limitations = list(spec["limitations"])
+    if not limitations:
+        raise ModelError("analysis limitations must not be empty")
     dependence = str(spec["dependence"])
     summary = simulate_product(
         left["distribution"],
@@ -346,6 +361,15 @@ def run_analysis_spec(
         "analysis_result_id": content_id("ana", core),
         "analysis_id": spec["analysis_id"],
         "estimand": estimand,
+        "intended_use": intended_use,
+        "activation_state": "not_activated",
+        "interpretation": (
+            "Synthetic assurance output; not an empirical burden estimate, activation, "
+            "publication or release authority."
+            if intended_use == "synthetic_assurance"
+            else "Disposition-bound analysis output; execution is not activation, publication "
+            "or release authority."
+        ),
         "ledger_id": ledger.document["ledger_id"],
         "left_parameter_id": left["parameter_id"],
         "left_parameter_fingerprint": core["left_parameter_fingerprint"],
@@ -356,7 +380,7 @@ def run_analysis_spec(
         "dependence_rationale": spec["dependence_rationale"],
         "summary": summary.as_dict(),
         "evidence_statuses": [left["evidence_status"], right["evidence_status"]],
-        "limitations": spec["limitations"],
+        "limitations": limitations,
         "runtime": {
             "software_version": __version__,
             "python_implementation": platform.python_implementation(),
@@ -370,6 +394,7 @@ def run_analysis_spec(
 
 
 __all__ = [
+    "MAX_SIMULATION_ITERATIONS",
     "ModelError",
     "SimulationSummary",
     "apply_case_fraction",

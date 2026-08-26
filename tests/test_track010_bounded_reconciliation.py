@@ -28,6 +28,7 @@ def test_exact_bounded_receipt_is_synthetic_and_dependency_bound() -> None:
     )
     assert result["runtime"].pop("python_version")
     assert committed["runtime"].pop("python_version") == "3.14.5"
+    assert result.pop("intended_use") == "synthetic_assurance"
     assert result == committed
     assert result["activation_state"] == "synthetic_only"
     assert result["contract_frozen"] is False

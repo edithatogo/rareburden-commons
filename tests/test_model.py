@@ -34,6 +34,9 @@ def test_reference_analysis_is_seeded_schema_valid_and_content_identified() -> N
     assert first["created_at"] != second["created_at"]
     assert first["runtime"]["random_engine"].endswith(".v1")
     assert first["summary"]["lower"] < first["summary"]["median"] < first["summary"]["upper"]
+    assert first["intended_use"] == "synthetic_assurance"
+    assert first["activation_state"] == "not_activated"
+    assert first["interpretation"]
 
 
 def test_independence_must_be_explicit_and_supported() -> None:

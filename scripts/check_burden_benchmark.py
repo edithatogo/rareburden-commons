@@ -10,7 +10,7 @@ import time
 from collections.abc import Callable, Sequence
 from typing import Any
 
-from rareburden.model import simulate_product
+from rareburden.model import MAX_SIMULATION_ITERATIONS, simulate_product
 from rareburden.uncertainty import decompose_independent_product
 
 
@@ -41,8 +41,10 @@ def run_benchmark(
     clock: Callable[[], float] = time.process_time,
 ) -> dict[str, Any]:
     """Execute the CPU-only workload and return a process-time-bounded receipt."""
-    if iterations < 100 or iterations > 1_000_000:
-        raise BurdenBenchmarkError("iterations must be between 100 and 1,000,000")
+    if iterations < 100 or iterations > MAX_SIMULATION_ITERATIONS:
+        raise BurdenBenchmarkError(
+            f"iterations must be between 100 and {MAX_SIMULATION_ITERATIONS:,}"
+        )
     if max_seconds <= 0:
         raise BurdenBenchmarkError("max_seconds must be positive")
     started = clock()

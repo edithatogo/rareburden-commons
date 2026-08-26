@@ -6,7 +6,7 @@ import math
 from statistics import fmean
 from typing import Any
 
-from rareburden.model import ModelError, _compile_distribution_sampler
+from rareburden.model import MAX_SIMULATION_ITERATIONS, ModelError, _compile_distribution_sampler
 from rareburden.stochastic import StableRandom
 
 
@@ -33,8 +33,8 @@ def decompose_independent_product(
     project's versioned random stream.  Empirical paired-product variance is reported
     separately so finite-sample closure can be audited rather than silently hidden.
     """
-    if iterations < 100 or iterations > 10_000_000:
-        raise ModelError("iterations must be between 100 and 10,000,000")
+    if iterations < 100 or iterations > MAX_SIMULATION_ITERATIONS:
+        raise ModelError(f"iterations must be between 100 and {MAX_SIMULATION_ITERATIONS:,}")
     if not isinstance(seed, int) or isinstance(seed, bool) or seed < 0:
         raise ModelError("seed must be a non-negative integer")
     rng = StableRandom(seed)

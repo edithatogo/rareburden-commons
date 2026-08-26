@@ -51,6 +51,10 @@ def test_structural_scenarios_are_reproducible_and_lineage_preserving() -> None:
     assert all(item["left_parameter_fingerprint"].startswith("par-") for item in first["scenarios"])
     baseline = next(item for item in first["scenarios"] if item["scenario"] == "baseline")
     assert baseline["absolute_change_from_baseline"] == 0
+    assert baseline["intended_use"] == "synthetic_assurance"
+    assert baseline["activation_state"] == "not_activated"
+    assert baseline["limitations"]
+    assert baseline["lower"] < baseline["mean"] < baseline["upper"]
 
 
 @pytest.mark.parametrize(

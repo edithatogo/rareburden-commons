@@ -62,6 +62,7 @@ from rareburden.provenance import (
     require_automated_acquisition_licence,
     write_json_record,
 )
+from rareburden.quality import validate_quality_disposition
 from rareburden.reference import ReferenceWorkflowError, run_public_foundation_reference
 from rareburden.release import (
     ReleaseManifestError,
@@ -230,6 +231,11 @@ def build_parser() -> argparse.ArgumentParser:
     _add_root_argument(analysis)
     analysis.add_argument("--ledger", type=Path, required=True)
     analysis.add_argument("--analysis", type=Path, required=True)
+    analysis.add_argument(
+        "--quality-disposition",
+        type=Path,
+        help="exact fitness-for-use disposition required for non-synthetic analysis",
+    )
     analysis.add_argument("--output", type=Path)
     analysis.add_argument("--created-at", help="RFC 3339 timestamp for deterministic output")
     _add_json_argument(analysis)
@@ -721,7 +727,23 @@ def _analysis_payload(args: argparse.Namespace, root: Path) -> dict[str, Any]:
         load_mapping(root / "schemas/analysis-specification.schema.json"),
         label="analysis_specification",
     )
-    result = run_analysis_spec(specification, ledger, created_at=args.created_at)
+    disposition = None
+    if args.quality_disposition is not None:
+        disposition_path = resolve_repository_path(
+            root,
+            args.quality_disposition,
+            str(args.quality_disposition),
+        )
+        disposition = validate_quality_disposition(
+            load_mapping(disposition_path),
+            load_mapping(root / "schemas/quality-disposition.schema.json"),
+        )
+    result = run_analysis_spec(
+        specification,
+        ledger,
+        created_at=args.created_at,
+        quality_disposition=disposition,
+    )
     validate_instance(
         result,
         load_mapping(root / "schemas/analysis-result.schema.json"),

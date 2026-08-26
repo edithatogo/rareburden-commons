@@ -216,6 +216,7 @@ def test_source_registration_normalisation_and_gap_map_commands(
     assert (root / "outputs/gap-map.md").is_file()
 
 
+@pytest.mark.timeout(120)
 def test_release_and_reference_workflows_from_cli(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:

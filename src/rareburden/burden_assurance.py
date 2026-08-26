@@ -126,7 +126,14 @@ def run_structural_scenarios(
             "right_parameter_id": result["right_parameter_id"],
             "right_parameter_fingerprint": result["right_parameter_fingerprint"],
             "mean": result["summary"]["mean"],
+            "lower": result["summary"]["lower"],
+            "upper": result["summary"]["upper"],
+            "interval_probability": result["summary"]["interval_probability"],
             "absolute_change_from_baseline": float(result["summary"]["mean"]) - baseline_mean,
+            "intended_use": result["intended_use"],
+            "activation_state": result["activation_state"],
+            "interpretation": result["interpretation"],
+            "limitations": result["limitations"],
         }
         for name, result in sorted(outputs.items())
     ]
