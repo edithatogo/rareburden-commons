@@ -209,11 +209,11 @@ def test_simulation_limits_and_analysis_type_checks() -> None:
         run_analysis_spec(wrong, ledger)
 
 
-def test_higher_stakes_intended_use_requires_an_exact_eligible_disposition() -> None:
+def test_public_analysis_execution_remains_fail_closed_with_a_disposition() -> None:
     ledger = load_ledger(LEDGER_PATH, LEDGER_SCHEMA)
     specification = deepcopy(load_mapping(ANALYSIS_PATH))
     specification["intended_use"] = "policy_decision"
-    with pytest.raises(ModelError, match="requires an exact quality disposition"):
+    with pytest.raises(ModelError, match="public analysis execution is not activated"):
         run_analysis_spec(specification, ledger)
 
     disposition = {
@@ -223,10 +223,19 @@ def test_higher_stakes_intended_use_requires_an_exact_eligible_disposition() -> 
         "eligible_for_primary_analysis": True,
         "eligible_for_synthetic_assurance": False,
     }
-    result = run_analysis_spec(specification, ledger, quality_disposition=disposition)
-    assert result["quality_disposition_id"] == disposition["disposition_id"]
-    assert result["intended_use"] == "policy_decision"
-    assert result["activation_state"] == "not_activated"
+    with pytest.raises(ModelError, match="public analysis execution is not activated"):
+        run_analysis_spec(specification, ledger, quality_disposition=disposition)
+
+
+@pytest.mark.parametrize(
+    "field,value", [("iterations", True), ("iterations", 100.5), ("seed", True), ("seed", 1.5)]
+)
+def test_analysis_rejects_non_integer_iterations_and_seed(field: str, value: object) -> None:
+    ledger = load_ledger(LEDGER_PATH, LEDGER_SCHEMA)
+    specification = deepcopy(load_mapping(ANALYSIS_PATH))
+    specification[field] = value
+    with pytest.raises(ModelError, match=f"{field} must be"):
+        run_analysis_spec(specification, ledger)
 
 
 def test_analysis_rejects_incompatible_population_and_period_contexts() -> None:

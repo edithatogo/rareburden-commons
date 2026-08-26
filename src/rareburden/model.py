@@ -284,25 +284,23 @@ def run_analysis_spec(
 ) -> dict[str, Any]:
     """Execute a bounded, machine-readable two-parameter reference analysis.
 
-    A supplied fitness-for-use disposition becomes an explicit scientific input.
-    It must identify this analysis and permit the declared intended use.
+    This public runner is intentionally synthetic-only until the repository has
+    an implemented, reviewed exact-receipt path for public aggregate execution.
+    A supplied synthetic fitness-for-use disposition remains an explicit input.
     """
     intended_use = str(spec.get("intended_use", ""))
-    if intended_use != "synthetic_assurance" and quality_disposition is None:
-        raise ModelError(f"{intended_use} requires an exact quality disposition")
+    if intended_use != "synthetic_assurance":
+        raise ModelError(
+            "public analysis execution is not activated; "
+            "run_analysis_spec permits synthetic_assurance only"
+        )
     if quality_disposition is not None:
         if quality_disposition.get("analysis_id") != spec.get("analysis_id"):
             raise ModelError("quality disposition analysis_id differs from analysis specification")
         if quality_disposition.get("intended_use") != spec.get("intended_use"):
             raise ModelError("quality disposition intended_use differs from analysis specification")
-        if intended_use == "synthetic_assurance" and not quality_disposition.get(
-            "eligible_for_synthetic_assurance"
-        ):
+        if not quality_disposition.get("eligible_for_synthetic_assurance"):
             raise ModelError("quality disposition does not permit synthetic assurance")
-        if intended_use != "synthetic_assurance" and not quality_disposition.get(
-            "eligible_for_primary_analysis"
-        ):
-            raise ModelError("quality disposition does not permit non-synthetic analysis")
 
     estimand = str(spec["estimand"])
     left = ledger.get(str(spec["left_parameter_id"]))
@@ -337,11 +335,17 @@ def run_analysis_spec(
     if not limitations:
         raise ModelError("analysis limitations must not be empty")
     dependence = str(spec["dependence"])
+    iterations = spec["iterations"]
+    seed = spec["seed"]
+    if not isinstance(iterations, int) or isinstance(iterations, bool):
+        raise ModelError("iterations must be an integer")
+    if not isinstance(seed, int) or isinstance(seed, bool):
+        raise ModelError("seed must be a non-negative integer")
     summary = simulate_product(
         left["distribution"],
         right["distribution"],
-        iterations=int(spec["iterations"]),
-        seed=int(spec["seed"]),
+        iterations=iterations,
+        seed=seed,
         interval_probability=float(spec.get("interval_probability", 0.95)),
         dependence=dependence,
     )
