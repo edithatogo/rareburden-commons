@@ -1,0 +1,49 @@
+{
+  "adapter": {
+    "direct_empirical_input": false,
+    "stable_surface": false,
+    "state": "versioned_provisional"
+  },
+  "analysis_result_schema": {
+    "path": "schemas/analysis-result.schema.json",
+    "sha256": "55624184689e8ce7089ec85abf01ea8aba672ea3a0ce55eabb772a8b3559a094"
+  },
+  "analysis_specification": {
+    "path": "examples/analyses/expected-population-synthetic.yml",
+    "sha256": "0261fdc53f786a42af39a5c80bac9b5d2dfb258c8129952977fd6379636d5320"
+  },
+  "comparison": "corrected Track 010 interface bound to completed Track 009 contract",
+  "dependency_lock": {
+    "path": "uv.lock",
+    "sha256": "2a0b76b88a5ee9be65b3618f1f29dec52d2298acbd4302ffaf1ceb532f7c5ef5"
+  },
+  "engine_receipt": {
+    "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-27.json",
+    "sha256": "c246acaf20f65e11adf65838917d70b38289bb6f792f702800e36cd094d8db42"
+  },
+  "interpretation": "Corrected fail-closed interface and deterministic synthetic execution only; not empirical activation, independent review, Track 003 eligibility, alpha freeze, publication or release authority.",
+  "model_implementation": {
+    "path": "src/rareburden/model.py",
+    "sha256": "3820132c6738442c7ed2c59b5d92ed872ef99127a37df48a917b81f0c12d5275"
+  },
+  "reference_contract": {
+    "path": "docs/burden-engine-010-reference.md",
+    "sha256": "2d20a016a8911fa28549f1b1aadada218c7dd6ef43f50f11eaaec3d4863410e0"
+  },
+  "schema_version": "1.0.0",
+  "status": "bounded_post_dependency_preparation_only_not_alpha",
+  "track": "010-public-burden-engine",
+  "track_003_interface_profile": {
+    "binding_state": "feature_disabled_provisional_not_eligible",
+    "path": "examples/demonstrators/003-ledger-profile.yml",
+    "sha256": "b79a41752279db0b73ca721b9a8eaed383be63513c083eefc0d43635ccfaec98"
+  },
+  "track_009_bounded_completion": {
+    "path": "docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml",
+    "sha256": "c8a0618e0c667f6fd5c3bdb4f2f2956b0946e7786a6a6f0d422f887bc0944e84"
+  },
+  "track_009_contract_freeze": {
+    "path": "manifests/ledger/track-009-v0.4-contract-freeze.json",
+    "sha256": "0b655589377921e55b88109aa121be6070718d6ebf21bc31602019a25039557a"
+  }
+}

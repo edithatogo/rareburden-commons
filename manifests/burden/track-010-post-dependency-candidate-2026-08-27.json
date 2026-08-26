@@ -1,0 +1,50 @@
+{
+  "candidate_interface": "corrected-provisional-pre-alpha",
+  "candidate_status": "prepared_bounded_post_dependency_not_alpha_not_frozen",
+  "claims": {
+    "alpha_interface_frozen": false,
+    "empirical_or_production_activation": false,
+    "engineering_approval": false,
+    "independent_review": false,
+    "patient_community_approval": false,
+    "public_aggregate_execution": false,
+    "public_readiness": false,
+    "publication_authority": false,
+    "release_authority": false,
+    "scientific_approval": false,
+    "track_003_eligible": false,
+    "track_009_dependency_satisfied": true,
+    "track_complete": false
+  },
+  "compatibility_receipt": {
+    "path": "manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json",
+    "sha256": "297e8d8becf1af9330a5aabffca39afc05d8696ad756088069e421655f94e3b8"
+  },
+  "engine_receipt": {
+    "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-27.json",
+    "sha256": "c246acaf20f65e11adf65838917d70b38289bb6f792f702800e36cd094d8db42"
+  },
+  "invalidation": "any source commit, interface, bound artifact, Track 009 contract, dependency-lock or review drift; any failed provenance, reproduction, memory or security check; or any unresolved high or critical finding",
+  "permitted_scope": [
+    "deterministic synthetic descriptive computation",
+    "unit, invariant, intended-use and context compatibility failure testing",
+    "interface preparation for exactly-receipted public aggregates without activation",
+    "provenance, reproduction, recovery and security preparation"
+  ],
+  "schema_version": "1.0.0",
+  "source_commit": "ccccd6b2fe6881602564bdb78114ff01946e60cf",
+  "source_tree": "3d02e895fac9d35963ca3a726991671b2dcc853a",
+  "track": "010-public-burden-engine",
+  "track_003_interface_profile": {
+    "path": "examples/demonstrators/003-ledger-profile.yml",
+    "sha256": "b79a41752279db0b73ca721b9a8eaed383be63513c083eefc0d43635ccfaec98"
+  },
+  "track_009_bounded_completion": {
+    "path": "docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml",
+    "sha256": "c8a0618e0c667f6fd5c3bdb4f2f2956b0946e7786a6a6f0d422f887bc0944e84"
+  },
+  "track_009_contract_freeze": {
+    "path": "manifests/ledger/track-009-v0.4-contract-freeze.json",
+    "sha256": "0b655589377921e55b88109aa121be6070718d6ebf21bc31602019a25039557a"
+  }
+}

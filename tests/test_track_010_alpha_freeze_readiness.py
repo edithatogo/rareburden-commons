@@ -73,6 +73,16 @@ def test_repository_advisory_packet_rejects_hash_drift(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
+def test_corrected_candidate_remains_pre_alpha_and_pending_re_review() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    corrected = document["corrected_post_dependency_candidate"]
+    assert corrected["status"] == "prepared_bounded_post_dependency_not_alpha_not_frozen"
+    assert corrected["review_status"] == "implemented_pending_role_separated_re_review"
+    assert document["review_gate"]["state"] == "pending"
+    assert document["alpha_freeze_gate"]["state"] == "pending"
+    assert set(document["claims"].values()) == {False}
+
+
 @pytest.mark.parametrize(
     ("section", "field", "value", "message"),
     [

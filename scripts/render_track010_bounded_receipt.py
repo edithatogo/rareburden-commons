@@ -16,6 +16,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path())
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--created-at", default="2026-08-16T00:00:00Z")
     args = parser.parse_args()
     root = args.root
     result = run_bounded_synthetic_analysis(
@@ -26,7 +27,7 @@ def main() -> int:
         ),
         load_mapping(root / "manifests/ledger/track-009-source-release-bindings-2026-08-16.json"),
         load_mapping(root / "docs/track-010-bounded-quality-disposition-2026-08-16.yml"),
-        created_at="2026-08-16T00:00:00Z",
+        created_at=args.created_at,
     )
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return 0

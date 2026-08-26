@@ -57,6 +57,8 @@ TRACK009_PROHIBITED_EFFECTS = {
 TRACK010_ADVISORY_PACKET = "docs/decisions/2026-08-26-track-010-advisory-review.yml"
 TRACK010_REVIEW_COMMIT = "f35fcf25a336bf6639b86a03f8ea172ab61177e2"
 TRACK010_REVIEW_TREE = "d1496bdb8f3d8dca0e2362ad97ed3368466a02c4"
+TRACK010_CORRECTED_COMMIT = "ccccd6b2fe6881602564bdb78114ff01946e60cf"
+TRACK010_CORRECTED_TREE = "3d02e895fac9d35963ca3a726991671b2dcc853a"
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -227,6 +229,27 @@ def validate(path: Path, root: Path) -> None:
     ):
         raise Track010ReadinessError("bounded owner disposition receipt overstates authority")
 
+    corrected = document.get("corrected_post_dependency_candidate", {})
+    if (
+        corrected.get("status") != "prepared_bounded_post_dependency_not_alpha_not_frozen"
+        or corrected.get("source_commit") != TRACK010_CORRECTED_COMMIT
+        or corrected.get("source_tree") != TRACK010_CORRECTED_TREE
+        or _git_tree(root, TRACK010_CORRECTED_COMMIT) != TRACK010_CORRECTED_TREE
+        or corrected.get("review_status") != "implemented_pending_role_separated_re_review"
+    ):
+        raise Track010ReadinessError("corrected post-dependency candidate identity drift")
+    for path_field, hash_field in (
+        ("candidate_manifest", "candidate_manifest_sha256"),
+        ("compatibility_receipt", "compatibility_receipt_sha256"),
+        ("engine_receipt", "engine_receipt_sha256"),
+    ):
+        expected_hash = str(corrected.get(hash_field, ""))
+        if (
+            not SHA256.fullmatch(expected_hash)
+            or _sha256(_repository_path(root, corrected.get(path_field))) != expected_hash
+        ):
+            raise Track010ReadinessError(f"corrected candidate evidence drift: {path_field}")
+
     review = document.get("review_gate", {})
     if review.get("repository_panel_status") != "advisory":
         raise Track010ReadinessError("repository panel output must remain advisory")
@@ -261,8 +284,8 @@ def validate(path: Path, root: Path) -> None:
         or advisory.get("owner_decision", {}).get("selected_option_id") != "A"
         or advisory.get("owner_decision", {}).get("decided_by") != "edithatogo"
         or review.get("repository_recommendation") != "revise"
-        or review.get("repository_owner_decision")
-        != "recorded_option_a_bounded_remediation_only"
+        or review.get("repository_owner_decision") != "recorded_option_a_bounded_remediation_only"
+        or review.get("remediation_status") != "implemented_pending_role_separated_re_review"
         or len(review.get("unresolved_blocking_findings", [])) < 2
     ):
         raise Track010ReadinessError("repository advisory scope or bounded decision drift")
