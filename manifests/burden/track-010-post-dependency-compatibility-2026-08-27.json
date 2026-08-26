@@ -19,7 +19,7 @@
   },
   "engine_receipt": {
     "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-27.json",
-    "sha256": "c246acaf20f65e11adf65838917d70b38289bb6f792f702800e36cd094d8db42"
+    "sha256": "1fd16ee544eb08daedebc8a74f0dabd35cd813bcf8b0489edfab5f12ff287dbf"
   },
   "interpretation": "Corrected fail-closed interface and deterministic synthetic execution only; not empirical activation, independent review, Track 003 eligibility, alpha freeze, publication or release authority.",
   "model_implementation": {
@@ -28,7 +28,7 @@
   },
   "reference_contract": {
     "path": "docs/burden-engine-010-reference.md",
-    "sha256": "6a2d5ac35e961b40a5141be32a38d9590dde66a4ed73b8e47b7a3d9044ec3acc"
+    "sha256": "f44bae5abd28e0208b10f6e9217109552b3ba9f9f5553412b0194d8c578dbf87"
   },
   "schema_version": "1.0.0",
   "status": "bounded_post_dependency_preparation_only_not_alpha",

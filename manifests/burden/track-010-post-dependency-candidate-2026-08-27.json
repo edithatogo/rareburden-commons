@@ -18,11 +18,11 @@
   },
   "compatibility_receipt": {
     "path": "manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json",
-    "sha256": "4f85422bcb9ce6adc0be2e3dd39d90efeccd576cab3d45c6be2263d78dd8529a"
+    "sha256": "f99acf10f4eb4aa081b6c265306fce880941914f722b91c11d65c8b156aa876a"
   },
   "engine_receipt": {
     "path": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-27.json",
-    "sha256": "c246acaf20f65e11adf65838917d70b38289bb6f792f702800e36cd094d8db42"
+    "sha256": "1fd16ee544eb08daedebc8a74f0dabd35cd813bcf8b0489edfab5f12ff287dbf"
   },
   "invalidation": "any source commit, interface, bound artifact, Track 009 contract, dependency-lock or review drift; any failed provenance, reproduction, memory or security check; or any unresolved high or critical finding",
   "permitted_scope": [
@@ -32,8 +32,8 @@
     "provenance, reproduction, recovery and security preparation"
   ],
   "schema_version": "1.0.0",
-  "source_commit": "201aed1e8435947311c67aacb75bbf8824073ece",
-  "source_tree": "8862e2c0d14daf21f8b38f92b8edcc9f71958eae",
+  "source_commit": "3258e5fe8d319830006d3583fc8a2aa95f1b67ec",
+  "source_tree": "913116fa49db2f852078816fe38a84efe12b85f6",
   "track": "010-public-burden-engine",
   "track_003_interface_profile": {
     "path": "examples/demonstrators/003-ledger-profile.yml",
