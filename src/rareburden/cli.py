@@ -757,17 +757,8 @@ def _analysis_payload(args: argparse.Namespace, root: Path) -> dict[str, Any]:
         disposition,
         created_at=args.created_at or utc_now(),
     )
-    schema_projection = dict(result)
-    for field in (
-        "source_release_binding_sha256",
-        "contract_frozen",
-        "empirical_parameter_activation",
-        "summary_precision_decimal_places",
-    ):
-        schema_projection.pop(field)
-    schema_projection["activation_state"] = "not_activated"
     validate_instance(
-        schema_projection,
+        result,
         load_mapping(root / "schemas/analysis-result.schema.json"),
         label="analysis_result",
     )

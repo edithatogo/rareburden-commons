@@ -26,7 +26,7 @@ def main() -> int:
             root / "schemas/parameter-ledger.schema.json",
         ),
         load_mapping(root / "manifests/ledger/track-009-source-release-bindings-2026-08-16.json"),
-        load_mapping(root / "docs/track-010-bounded-quality-disposition-2026-08-16.yml"),
+        load_mapping(root / "docs/track-010-post-dependency-quality-disposition-2026-08-27.yml"),
         created_at=args.created_at,
     )
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")

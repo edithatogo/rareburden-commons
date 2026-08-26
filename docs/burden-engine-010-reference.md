@@ -68,7 +68,7 @@ or release identities before computation and validates release provenance via
 the bounded wrapper. Exploratory, primary-estimate, policy-decision and public
 aggregate execution remain unimplemented and unavailable. Execution results
 retain their intended-use and non-authority interpretation, and the bounded
-result is labelled `activation_state: synthetic_only`. Parameter population
+result is labelled `activation_state: not_activated`. Parameter population
 and period contexts must match exactly; future compatibility rules require an
 explicit contract rather than silent coercion.
 

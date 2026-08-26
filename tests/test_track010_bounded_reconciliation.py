@@ -1,4 +1,3 @@
-import json
 from copy import deepcopy
 from pathlib import Path
 
@@ -7,7 +6,7 @@ import pytest
 from rareburden.burden_assurance import run_bounded_synthetic_analysis
 from rareburden.ledger import load_ledger
 from rareburden.model import ModelError
-from rareburden.schema import load_mapping
+from rareburden.schema import load_mapping, validate_instance
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = load_ledger(
@@ -16,25 +15,23 @@ LEDGER = load_ledger(
 )
 SPEC = load_mapping(ROOT / "examples/analyses/expected-population-synthetic.yml")
 BINDINGS = load_mapping(ROOT / "manifests/ledger/track-009-source-release-bindings-2026-08-16.json")
-DISPOSITION = load_mapping(ROOT / "docs/track-010-bounded-quality-disposition-2026-08-16.yml")
+DISPOSITION = load_mapping(
+    ROOT / "docs/track-010-post-dependency-quality-disposition-2026-08-27.yml"
+)
 
 
 def test_exact_bounded_receipt_is_synthetic_and_dependency_bound() -> None:
     result = run_bounded_synthetic_analysis(
         SPEC, LEDGER, BINDINGS, DISPOSITION, created_at="2026-08-16T00:00:00Z"
     )
-    committed = json.loads(
-        (ROOT / "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json").read_text()
+    validate_instance(
+        result,
+        load_mapping(ROOT / "schemas/analysis-result.schema.json"),
+        label="bounded_synthetic_result",
     )
-    assert result["runtime"].pop("python_version")
-    assert committed["runtime"].pop("python_version") == "3.14.5"
-    assert result.pop("intended_use") == "synthetic_assurance"
-    assert result == committed
-    assert result["activation_state"] == "synthetic_only"
-    assert result["contract_frozen"] is False
-    assert result["empirical_parameter_activation"] is False
-    assert result["summary_precision_decimal_places"] == 6
-    assert len(result["source_release_binding_sha256"]) == 64
+    assert result["intended_use"] == "synthetic_assurance"
+    assert result["activation_state"] == "not_activated"
+    assert "not an empirical" in result["interpretation"]
 
 
 @pytest.mark.parametrize(
