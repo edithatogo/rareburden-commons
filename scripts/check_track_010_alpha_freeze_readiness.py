@@ -59,6 +59,9 @@ TRACK010_REVIEW_COMMIT = "f35fcf25a336bf6639b86a03f8ea172ab61177e2"
 TRACK010_REVIEW_TREE = "d1496bdb8f3d8dca0e2362ad97ed3368466a02c4"
 TRACK010_CORRECTED_COMMIT = "3258e5fe8d319830006d3583fc8a2aa95f1b67ec"
 TRACK010_CORRECTED_TREE = "913116fa49db2f852078816fe38a84efe12b85f6"
+TRACK010_RE_REVIEW_PACKET = "docs/decisions/2026-08-27-track-010-post-dependency-re-review.yml"
+TRACK010_RE_REVIEW_COMMIT = "1ed8061483dd4c28528c30c48cc56602e224ea5c"
+TRACK010_RE_REVIEW_TREE = "c8a01f386e16106e06f1b690c663097bc50c3575"
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -235,7 +238,8 @@ def validate(path: Path, root: Path) -> None:
         or corrected.get("source_commit") != TRACK010_CORRECTED_COMMIT
         or corrected.get("source_tree") != TRACK010_CORRECTED_TREE
         or _git_tree(root, TRACK010_CORRECTED_COMMIT) != TRACK010_CORRECTED_TREE
-        or corrected.get("review_status") != "implemented_pending_role_separated_re_review"
+        or corrected.get("review_status")
+        != "role_separated_advisory_re_review_passed_owner_disposition_pending"
     ):
         raise Track010ReadinessError("corrected post-dependency candidate identity drift")
     for path_field, hash_field in (
@@ -285,10 +289,37 @@ def validate(path: Path, root: Path) -> None:
         or advisory.get("owner_decision", {}).get("decided_by") != "edithatogo"
         or review.get("repository_recommendation") != "revise"
         or review.get("repository_owner_decision") != "recorded_option_a_bounded_remediation_only"
-        or review.get("remediation_status") != "implemented_pending_role_separated_re_review"
-        or len(review.get("unresolved_blocking_findings", [])) < 2
+        or review.get("remediation_status")
+        != "implemented_and_role_separated_advisory_re_review_passed"
+        or review.get("unresolved_blocking_findings") != []
     ):
         raise Track010ReadinessError("repository advisory scope or bounded decision drift")
+
+    re_review_path = _repository_path(root, review.get("post_dependency_re_review_packet"))
+    re_review_hash = str(review.get("post_dependency_re_review_packet_sha256", ""))
+    if (
+        review.get("post_dependency_re_review_packet") != TRACK010_RE_REVIEW_PACKET
+        or not SHA256.fullmatch(re_review_hash)
+        or _sha256(re_review_path) != re_review_hash
+    ):
+        raise Track010ReadinessError("post-dependency re-review packet binding drift")
+    re_review = _load(re_review_path)
+    try:
+        Draft202012Validator(schema, format_checker=FormatChecker()).validate(re_review)
+    except ValidationError as exc:
+        raise Track010ReadinessError("post-dependency re-review packet schema drift") from exc
+    if (
+        re_review.get("candidate", {}).get("commit") != TRACK010_RE_REVIEW_COMMIT
+        or re_review.get("candidate", {}).get("tree") != TRACK010_RE_REVIEW_TREE
+        or _git_tree(root, TRACK010_RE_REVIEW_COMMIT) != TRACK010_RE_REVIEW_TREE
+        or re_review.get("recommendation", {}).get("option_id") != "A"
+        or re_review.get("owner_decision", {}).get("status") != "pending"
+        or review.get("post_dependency_re_review_candidate_commit") != TRACK010_RE_REVIEW_COMMIT
+        or review.get("post_dependency_re_review_candidate_tree") != TRACK010_RE_REVIEW_TREE
+        or review.get("post_dependency_re_review_recommendation")
+        != "accept_bounded_pre_alpha_candidate_only"
+    ):
+        raise Track010ReadinessError("post-dependency re-review scope drift")
 
     claims = document.get("claims", {})
     if any(claims.get(name) is not False for name in FALSE_CLAIMS):

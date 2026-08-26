@@ -50,14 +50,19 @@ corrected_post_dependency_candidate:
   engine_receipt: "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-27.json"
   engine_receipt_sha256: "1fd16ee544eb08daedebc8a74f0dabd35cd813bcf8b0489edfab5f12ff287dbf"
   effect: "corrected_fail_closed_interface_preparation_only_no_activation_review_freeze_track_003_publication_or_release_authority"
-  review_status: "implemented_pending_role_separated_re_review"
+  review_status: "role_separated_advisory_re_review_passed_owner_disposition_pending"
 review_gate:
   review_packet: "docs/track-010-engine-review-packet.md"
   repository_advisory_packet: "docs/decisions/2026-08-26-track-010-advisory-review.yml"
   repository_advisory_packet_sha256: "4358306b65f654d71107407817524257dd8a294ba221fedc47a8c149b0ce1bd7"
   repository_recommendation: "revise"
   repository_owner_decision: "recorded_option_a_bounded_remediation_only"
-  remediation_status: "implemented_pending_role_separated_re_review"
+  remediation_status: "implemented_and_role_separated_advisory_re_review_passed"
+  post_dependency_re_review_packet: "docs/decisions/2026-08-27-track-010-post-dependency-re-review.yml"
+  post_dependency_re_review_packet_sha256: "47f602721eb3110b3b3d0cb898f7e2475e2d9f072cc2bc74066045d98f348a06"
+  post_dependency_re_review_candidate_commit: "1ed8061483dd4c28528c30c48cc56602e224ea5c"
+  post_dependency_re_review_candidate_tree: "c8a01f386e16106e06f1b690c663097bc50c3575"
+  post_dependency_re_review_recommendation: "accept_bounded_pre_alpha_candidate_only"
   scientific_statistical_receipt: ""
   engineering_receipt: ""
   patient_community_receipt: ""
@@ -65,10 +70,7 @@ review_gate:
   owner_disposition: ""
   repository_panel_status: "advisory"
   owner_status: "owner_operated_not_independent_review"
-  unresolved_blocking_findings:
-    - "higher-stakes intended uses can execute without an exact quality disposition"
-    - "population and period compatibility is not enforced during analysis execution"
-    - "the historical pre-alpha candidate is not a post-Track-009 alpha candidate"
+  unresolved_blocking_findings: []
   state: "pending"
 alpha_freeze_gate:
   exact_candidate_commit: ""

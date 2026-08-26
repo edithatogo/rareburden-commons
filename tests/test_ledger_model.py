@@ -228,6 +228,30 @@ def test_public_analysis_execution_remains_fail_closed_with_a_disposition() -> N
 
 
 @pytest.mark.parametrize(
+    "mutation,message",
+    [
+        ({"analysis_id": "different-analysis"}, "analysis_id differs"),
+        ({"intended_use": "policy_decision"}, "intended_use differs"),
+        ({"eligible_for_synthetic_assurance": False}, "does not permit synthetic assurance"),
+    ],
+)
+def test_synthetic_quality_disposition_must_match_and_remain_eligible(
+    mutation: dict[str, object], message: str
+) -> None:
+    ledger = load_ledger(LEDGER_PATH, LEDGER_SCHEMA)
+    specification = deepcopy(load_mapping(ANALYSIS_PATH))
+    disposition: dict[str, object] = {
+        "disposition_id": "qdp-757f1136634049b87de6ee07",
+        "analysis_id": specification["analysis_id"],
+        "intended_use": "synthetic_assurance",
+        "eligible_for_synthetic_assurance": True,
+    }
+    disposition.update(mutation)
+    with pytest.raises(ModelError, match=message):
+        run_analysis_spec(specification, ledger, quality_disposition=disposition)
+
+
+@pytest.mark.parametrize(
     "field,value", [("iterations", True), ("iterations", 100.5), ("seed", True), ("seed", 1.5)]
 )
 def test_analysis_rejects_non_integer_iterations_and_seed(field: str, value: object) -> None:
