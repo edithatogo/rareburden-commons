@@ -1,0 +1,35 @@
+schema_version: "1.0.0"
+track_id: "009-evidence-parameter-ledger"
+decision_type: "bounded_track_completion_authorization"
+decided_at_utc: "2026-08-26T08:40:21Z"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+authorization_source: "explicit repository-owner instruction in the active Codex task"
+candidate:
+  commit: "2ac13c0f93c95b4e1133a13790e2359d272f01da"
+  tree: "2b8cc2387a23e68359b39c809d76459a25a7b470"
+  freeze_manifest:
+    path: "manifests/ledger/track-009-v0.4-contract-freeze.json"
+    sha256: "0b655589377921e55b88109aa121be6070718d6ebf21bc31602019a25039557a"
+  freeze_disposition:
+    path: "docs/decisions/2026-08-22-track-009-owner-v04-freeze-disposition.yml"
+    sha256: "275918619c3cc82102535e9b07bd3652f3ac0c94f72ec7078afd86a9e1362532"
+authorization:
+  track_complete: true
+  scope: "bounded synthetic and exactly-receipted public-aggregate contract only"
+  effect: >-
+    Authorizes the repository lifecycle transition of Track 009 to complete
+    within the declared bounded scope. It does not activate empirical
+    parameters or controlled data and does not provide independent review,
+    publication, release or merge authority.
+claims:
+  contract_frozen: true
+  scope_synthetic_and_receipted_public_aggregate_only: true
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  independent_review: false
+  publication_authority: false
+  release_authority: false
+invalidation: >-
+  Any drift in the bound candidate, freeze manifest, freeze disposition or
+  declared claim boundary requires a new repository-owner decision.
