@@ -26,7 +26,7 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.track_count == 19
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.3.0"
-    assert summary.track_status_counts["complete"] == 2
+    assert summary.track_status_counts["complete"] == 3
     assert summary.track_status_counts["archived"] == 5
 
 
@@ -114,7 +114,7 @@ def test_archived_track_may_target_current_release(tmp_path: Path) -> None:
 def test_complete_track_may_be_preserved_in_archive_before_planned_release() -> None:
     summary = validate_roadmap_files(ROADMAP, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
 
-    assert summary.track_status_counts["complete"] == 2
+    assert summary.track_status_counts["complete"] == 3
     assert (ROOT / "conductor/archive/015-governance-partnership-policy/spec.md").is_file()
 
 
@@ -122,8 +122,11 @@ def test_released_release_requires_complete_tracks(tmp_path: Path) -> None:
     roadmap_data = yaml.safe_load(ROADMAP.read_text(encoding="utf-8"))
     roadmap_data["releases"][2]["status"] = "released"
     roadmap_data["releases"][3]["status"] = "released"
-    roadmap_data["releases"][4]["status"] = "current"
-    roadmap = tmp_path / "roadmap.yml"
+    roadmap_data["releases"][4]["status"] = "released"
+    roadmap_data["releases"][5]["status"] = "current"
+    shutil.copytree(ROOT / "docs", tmp_path / "docs")
+    roadmap = tmp_path / "conductor" / "roadmap.yml"
+    roadmap.parent.mkdir()
     roadmap.write_text(yaml.safe_dump(roadmap_data, sort_keys=False), encoding="utf-8")
 
     with pytest.raises(RoadmapValidationError, match="released but tracks are not complete"):

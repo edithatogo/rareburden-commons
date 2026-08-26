@@ -22,6 +22,26 @@ def test_current_track_009_blockers_are_consistent_and_assigned() -> None:
     validate(READINESS, ROOT)
 
 
+def test_historical_readiness_binds_bounded_completion_transition() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    transition = document["bounded_completion_transition"]
+    assert transition["status"] == "completed_bounded_scope"
+    assert set(transition["prohibited_effects"]) == {
+        "empirical_parameter_activation",
+        "controlled_data_activation",
+        "independent_review",
+        "publication_authority",
+        "release_authority",
+    }
+
+
+def test_historical_readiness_rejects_completion_decision_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["bounded_completion_transition"]["decision_sha256"] = "0" * 64
+    with pytest.raises(Track009ReadinessError, match="bounded completion transition"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
 def test_bounded_track_008_completion_satisfies_only_the_upstream_dependency() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     dependency = document["upstream_dependencies"][1]

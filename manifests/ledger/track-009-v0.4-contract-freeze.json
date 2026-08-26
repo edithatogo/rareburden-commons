@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "freeze_id": "track-009-v0.4-ledger-contract-freeze-2026-08-22",
+  "track": "009-evidence-parameter-ledger",
+  "contract_version": "v0.4",
+  "candidate_status": "frozen_synthetic_and_receipted_public_aggregate_scope",
+  "frozen_at_utc": "2026-08-22T00:00:00Z",
+  "frozen_by": "edithatogo",
+  "accountable_role": "repository owner and sole accountable human",
+  "binding_baseline": {
+    "repository_commit": "8285d868fe25c056eed1f2ce37bd64e4baa7a4b5",
+    "candidate_manifest": "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json",
+    "candidate_manifest_sha256": "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5",
+    "note": "Containment-managed candidate keeps status prepared_synthetic_only_not_frozen; this artifact freezes the contract surface, not the candidate."
+  },
+  "scope": "synthetic ledgers and exactly-receipted public aggregates under recorded terms dispositions only",
+  "frozen_contract_surfaces": [
+    {
+      "path": "schemas/parameter-ledger.schema.json",
+      "sha256": "f58ffd67c9b55d9cffecbc4c050e957e3092ca1bb2c383a54f0a9310d0ad4821"
+    },
+    {
+      "path": "schemas/evidence-assessment.schema.json",
+      "sha256": "adfac3942e2b3778b6c3abf6157d5c4db3e6630548f663ceeb03b0b7ac896f1b"
+    },
+    {
+      "path": "schemas/assumption.schema.json",
+      "sha256": "9113a850c86fe6468873ab248c998b9aebf38e211685e55c0affb9f5f9c418dc"
+    },
+    {
+      "path": "schemas/analysis-specification.schema.json",
+      "sha256": "d72c9ba6557b21d10877f8cf8424db7111aff2c3ff1ed6805c2f1f5f5632bde5"
+    }
+  ],
+  "licence_gating": {
+    "requirement": "every ledger record carries licence_state; unreceipted or non-permissive sources cannot activate",
+    "unreceipted_source_activation": "fail_closed"
+  },
+  "advisory_basis": [
+    {
+      "path": "docs/decisions/2026-08-22-track-009-panel-packet-epi-med-01.yml",
+      "sha256": "797d061874dd435d64ef210cb389435ef63789ccb7a781e2f278c397d6154bc7"
+    },
+    {
+      "path": "docs/decisions/2026-08-22-track-009-panel-packet-rights-01.yml",
+      "sha256": "a624233fe76ac4e74d613a4ce2d2aeb2e4b1d48592aa188395d49800c44d3db7"
+    },
+    {
+      "path": "docs/decisions/2026-08-22-track-009-findings-panel-routing.yml",
+      "sha256": "b4ad96113e86c3a4442591e992c51ed1576b1498bfddcb0749220db209d38e3f"
+    },
+    {
+      "path": "docs/decisions/2026-08-22-track-009-owner-engineering-review.yml",
+      "sha256": "ac69decbbca5f27c38e39071391848e450b6518b94a65c25decea73f99cce27d"
+    }
+  ],
+  "owner_disposition": {
+    "path": "docs/decisions/2026-08-22-track-009-owner-v04-freeze-disposition.yml",
+    "sha256": "275918619c3cc82102535e9b07bd3652f3ac0c94f72ec7078afd86a9e1362532"
+  },
+  "invalidation": "any drift in bound contract surfaces, advisory basis, candidate manifest or upstream semantic bindings voids this freeze",
+  "claims": {
+    "contract_frozen": true,
+    "scope_synthetic_and_receipted_public_aggregate_only": true,
+    "empirical_parameter_activation": false,
+    "controlled_data_in_scope": false,
+    "independent_review": false,
+    "track_complete": false,
+    "release_authority": false
+  }
+}

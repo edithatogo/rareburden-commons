@@ -43,6 +43,16 @@ BOUNDED_DISPOSITION_EFFECT = (
     "disposable_synthetic_pre_alpha_preparation_only_no_dependency_review_"
     "freeze_track_003_or_release_authority"
 )
+TRACK009_COMPLETION_DECISION = (
+    "docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml"
+)
+TRACK009_PROHIBITED_EFFECTS = {
+    "empirical_parameter_activation",
+    "controlled_data_activation",
+    "independent_review",
+    "publication_authority",
+    "release_authority",
+}
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -92,9 +102,12 @@ def _status(root: Path, track: str) -> str:
         value = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
         raise Track010ReadinessError(f"cannot read metadata {path}: {exc}") from exc
-    if not isinstance(value, dict) or not isinstance(value.get("status"), str):
+    if not isinstance(value, dict):
         raise Track010ReadinessError(f"metadata {path} has no status")
-    return value["status"]
+    status = value.get("status")
+    if not isinstance(status, str):
+        raise Track010ReadinessError(f"metadata {path} has no status")
+    return status
 
 
 def validate(path: Path, root: Path) -> None:
@@ -121,6 +134,28 @@ def validate(path: Path, root: Path) -> None:
     expected = "satisfied" if observed == "complete" else "pending"
     if dependency.get("state") != expected:
         raise Track010ReadinessError("Track 009 dependency gate state mismatch")
+    if observed == "complete":
+        decision_path = _repository_path(root, dependency.get("completion_decision"))
+        decision_hash = str(dependency.get("completion_decision_sha256", ""))
+        if (
+            dependency.get("completion_decision") != TRACK009_COMPLETION_DECISION
+            or not SHA256.fullmatch(decision_hash)
+            or _sha256(decision_path) != decision_hash
+            or dependency.get("completion_scope")
+            != "bounded synthetic and exactly-receipted public-aggregate contract only"
+            or set(dependency.get("prohibited_effects", [])) != TRACK009_PROHIBITED_EFFECTS
+        ):
+            raise Track010ReadinessError("Track 009 bounded completion binding drift")
+        completion = _load(decision_path)
+        completion_claims = completion.get("claims", {})
+        if (
+            completion.get("track_id") != "009-evidence-parameter-ledger"
+            or completion.get("decision_type") != "bounded_track_completion_authorization"
+            or completion.get("authorization", {}).get("track_complete") is not True
+            or completion_claims.get("contract_frozen") is not True
+            or any(completion_claims.get(name) is not False for name in TRACK009_PROHIBITED_EFFECTS)
+        ):
+            raise Track010ReadinessError("Track 009 completion authority scope drift")
 
     candidate = document.get("synthetic_candidate_preparation", {})
     source_commit = str(candidate.get("source_commit", ""))
@@ -237,7 +272,10 @@ def main() -> int:
     except Track010ReadinessError as exc:
         print(f"Track 010 alpha readiness failed: {exc}")
         return 1
-    print("Track 010 readiness passed; independent review and alpha freeze remain separate gates.")
+    print(
+        "Track 010 readiness passed; Track 009 bounded dependency is satisfied "
+        "while independent review, alpha freeze and activation remain separate gates."
+    )
     return 0
 
 
