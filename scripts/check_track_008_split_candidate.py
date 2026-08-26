@@ -74,6 +74,16 @@ FALSE_CLAIMS = {
     "derivative_publication_rights_complete",
     "independent_review",
 }
+TRACK009_COMPLETION_DECISION = (
+    "docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml"
+)
+TRACK009_COMPLETION_FALSE_CLAIMS = {
+    "empirical_parameter_activation",
+    "controlled_data_activation",
+    "independent_review",
+    "publication_authority",
+    "release_authority",
+}
 
 
 def _mapping(path: Path) -> dict[str, Any]:
@@ -130,6 +140,33 @@ def _git_blob_sha256(root: Path, commit: str, relative: str) -> str:
     return hashlib.sha256(value).hexdigest()
 
 
+def _validate_track009_completion(root: Path) -> None:
+    decision = _mapping(root / TRACK009_COMPLETION_DECISION)
+    candidate = decision.get("candidate", {})
+    authorization = decision.get("authorization", {})
+    claims = decision.get("claims", {})
+    if (
+        decision.get("track_id") != "009-evidence-parameter-ledger"
+        or decision.get("decision_type") != "bounded_track_completion_authorization"
+        or decision.get("decided_by") != "edithatogo"
+        or not isinstance(authorization, dict)
+        or authorization.get("track_complete") is not True
+        or not isinstance(claims, dict)
+        or claims.get("contract_frozen") is not True
+        or claims.get("scope_synthetic_and_receipted_public_aggregate_only") is not True
+        or any(claims.get(name) is not False for name in TRACK009_COMPLETION_FALSE_CLAIMS)
+        or not isinstance(candidate, dict)
+    ):
+        raise Track008SplitError("Track 009 completion authority boundary drift")
+    for key in ("freeze_manifest", "freeze_disposition"):
+        binding = candidate.get(key, {})
+        if not isinstance(binding, dict):
+            raise Track008SplitError(f"Track 009 {key} binding is missing")
+        relative = binding.get("path")
+        if not isinstance(relative, str) or binding.get("sha256") != _sha256(root / relative):
+            raise Track008SplitError(f"Track 009 {key} binding drift")
+
+
 def validate(candidate_path: Path, root: Path) -> None:
     """Validate exact binding, prospective scope, and unchanged dependency state."""
     candidate = _mapping(candidate_path)
@@ -153,9 +190,19 @@ def validate(candidate_path: Path, root: Path) -> None:
         ):
             raise Track008SplitError("superseding decision must complete only the bounded scope")
         metadata = _metadata(root, "008-semantic-backbone")
-        dependency = _metadata(root, "009-evidence-parameter-ledger")
-        if metadata.get("status") != "complete" or dependency.get("status") != "blocked":
-            raise Track008SplitError("bounded completion must not activate Track 009")
+        track009_metadata = _metadata(root, "009-evidence-parameter-ledger")
+        if metadata.get("status") != "complete" or track009_metadata.get("status") not in {
+            "blocked",
+            "complete",
+        }:
+            raise Track008SplitError("bounded completion dependency state drift")
+        if track009_metadata.get("status") == "complete":
+            try:
+                _validate_track009_completion(root)
+            except Track008SplitError as exc:
+                raise Track008SplitError(
+                    "Track 009 completion lacks exact bounded authorization"
+                ) from exc
         return
     if candidate.get("schema_version") != "1.1.0":
         raise Track008SplitError("schema_version must be 1.1.0")
@@ -355,7 +402,10 @@ def main() -> int:
     except Track008SplitError as exc:
         print(f"Track 008 split candidate failed: {exc}")
         return 1
-    print("Track 008 split candidate passed; both tracks and Track 009 remain blocked.")
+    print(
+        "Track 008 split candidate passed; superseded scope remains bounded and "
+        "Track 009 empirical and release activation remain blocked."
+    )
     return 0
 
 
