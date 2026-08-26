@@ -30,7 +30,9 @@ def test_owner_disposition_preserves_every_dependency_and_freeze_gate() -> None:
     assert disposition["status"] == "authorized_disposable_synthetic_pre_alpha_only"
     assert disposition["governance_status"] == "owner_operated_not_independent_review"
     assert document["upstream_dependency"]["state"] == "satisfied"
-    assert document["upstream_dependency"]["completion_decision"] == str(TRACK009_COMPLETION)
+    assert document["upstream_dependency"]["completion_decision"] == (
+        TRACK009_COMPLETION.as_posix()
+    )
     assert document["upstream_dependency"]["completion_scope"] == (
         "bounded synthetic and exactly-receipted public-aggregate contract only"
     )
