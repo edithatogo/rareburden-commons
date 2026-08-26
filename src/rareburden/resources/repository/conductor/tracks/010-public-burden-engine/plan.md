@@ -34,7 +34,7 @@
 - [x] Add unit, property, golden, convergence and numerical-stability tests. Evidence: `tests/test_burden_numerical_assurance.py`, existing burden/ledger suites and explicit overflow/negative-product rejection.
 - [x] Add negative tests for incompatible DALY/cost shortcuts. Evidence: `tests/test_burden.py` and `tests/test_quality_edges.py`.
 - [x] Benchmark the bounded synthetic reference workload. Evidence: `scripts/check_burden_benchmark.py`, its fail-closed tests and the `make burden-benchmark` release gate; timing is an engineering guard, not scientific validation.
-- [ ] Run role-separated scientific-software agent-panel review and owner disposition.
+- [~] Run role-separated scientific-software agent-panel review and owner disposition.
   The repository-owned bounded synthetic quality disposition is prepared, but
   it is not an agent-panel or clinical disposition.
 
