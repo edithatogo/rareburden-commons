@@ -93,4 +93,14 @@ recommendation:
     preparation only; do not authorize public-aggregate execution, activation,
     alpha freeze, publication, release or Track completion.
 owner_decision:
-  status: "pending"
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-27T08:04:03Z"
+  rationale: >-
+    Accept the exact corrected candidate as bounded synthetic pre-alpha
+    preparation. Maximise lawful public archiving through separately
+    rights-filtered archive work, without treating this decision as authority
+    for public-aggregate execution, empirical or controlled-data activation,
+    independent approval, alpha freeze, publication of restricted bytes,
+    release or Track completion.

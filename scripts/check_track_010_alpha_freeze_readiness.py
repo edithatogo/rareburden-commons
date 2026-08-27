@@ -313,11 +313,16 @@ def validate(path: Path, root: Path) -> None:
         or re_review.get("candidate", {}).get("tree") != TRACK010_RE_REVIEW_TREE
         or _git_tree(root, TRACK010_RE_REVIEW_COMMIT) != TRACK010_RE_REVIEW_TREE
         or re_review.get("recommendation", {}).get("option_id") != "A"
-        or re_review.get("owner_decision", {}).get("status") != "pending"
+        or re_review.get("owner_decision", {}).get("status") != "recorded"
+        or re_review.get("owner_decision", {}).get("selected_option_id") != "A"
+        or re_review.get("owner_decision", {}).get("decided_by") != "edithatogo"
         or review.get("post_dependency_re_review_candidate_commit") != TRACK010_RE_REVIEW_COMMIT
         or review.get("post_dependency_re_review_candidate_tree") != TRACK010_RE_REVIEW_TREE
         or review.get("post_dependency_re_review_recommendation")
         != "accept_bounded_pre_alpha_candidate_only"
+        or review.get("corrected_candidate_owner_disposition")
+        != "recorded_option_a_bounded_pre_alpha_only"
+        or review.get("owner_disposition") != TRACK010_RE_REVIEW_PACKET
     ):
         raise Track010ReadinessError("post-dependency re-review scope drift")
 

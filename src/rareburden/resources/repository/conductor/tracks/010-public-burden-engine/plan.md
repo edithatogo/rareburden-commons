@@ -143,8 +143,10 @@
 
 ## Option A bounded-interface remediation — 2026-08-26
 
-- [~] Enforce exact intended-use disposition and population/period compatibility,
+- [x] Enforce exact intended-use disposition and population/period compatibility,
   preserve portable synthetic interpretation labels, bound simulation memory and
   seed inputs, and prepare an exact post-dependency candidate for role-separated
   re-review. Empirical and controlled-data activation, independent review, alpha
-  freeze, Track 003 eligibility, publication and release remain false.
+  freeze, Track 003 eligibility, publication and release remain false. Evidence:
+  `docs/decisions/2026-08-27-track-010-post-dependency-re-review.yml`; the
+  repository owner selected Option A for bounded synthetic pre-alpha retention.

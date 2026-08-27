@@ -82,6 +82,9 @@ def test_corrected_candidate_remains_pre_alpha_and_pending_owner_disposition() -
         == "role_separated_advisory_re_review_passed_owner_disposition_pending"
     )
     assert document["review_gate"]["state"] == "pending"
+    assert document["review_gate"]["corrected_candidate_owner_disposition"] == (
+        "recorded_option_a_bounded_pre_alpha_only"
+    )
     assert document["alpha_freeze_gate"]["state"] == "pending"
     assert set(document["claims"].values()) == {False}
 
