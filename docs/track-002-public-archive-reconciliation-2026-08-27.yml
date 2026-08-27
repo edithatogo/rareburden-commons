@@ -1,0 +1,60 @@
+schema_version: "1.0"
+status: bounded_public_exact_archive_observed
+observed_at_utc: "2026-08-27T08:21:00Z"
+destination:
+  repository: edithatogo/rareburden-commons-open-source-snapshots
+  url: https://huggingface.co/datasets/edithatogo/rareburden-commons-open-source-snapshots
+  visibility: public
+  observed_commit: 3627e5b0b74eed2325868cd15c9dcb064f2a4811
+  observed_file_count: 600
+change:
+  starting_commit: 7f53de277671109c92bf8c4f4ab02c6ef200c51a
+  starting_file_count: 549
+  exact_assets_added: 51
+  mondo_releases_completed:
+    - v2026-07-06
+    - v2026-06-02
+  exact_bytes_bound_in_cursor: 4576927832
+  next_cursor:
+    release_index: 3
+    asset_index: 0
+controls:
+  licence: CC BY 4.0
+  source: official MONDO GitHub release assets
+  byte_identity: sha256_per_asset
+  hosted_verification: exact_destination_digest_or_bounded_redownload
+  batch_limit_bytes: 500000000
+  hosted_run_ids:
+    - 33052561233
+    - 33052659253
+    - 33052756185
+    - 33052931319
+    - 33052991785
+    - 33053147356
+    - 33053385256
+    - 33053457405
+    - 33053525211
+    - 33053587926
+    - 33053662251
+rights_routes:
+  public_full_bytes:
+    - MONDO exact release assets under CC BY 4.0
+    - newly discovered Orphacode and Orphadata assets only when exact CC BY 4.0 terms remain affirmative
+  public_metadata_only:
+    - ClinVar
+    - WHO and WHO-FIC editions without exact artifact redistribution clearance
+    - PanelApp
+    - UMLS
+    - SNOMED CT
+    - MedDRA
+  private_or_local_only:
+    - licensed terminology bytes
+    - authenticated or controlled-data snapshots
+claims:
+  all_mondo_releases_archived: false
+  all_public_sources_archived: false
+  restricted_bytes_public: false
+  empirical_activation: false
+  controlled_data_activation: false
+  independent_review_complete: false
+  release_authority: false

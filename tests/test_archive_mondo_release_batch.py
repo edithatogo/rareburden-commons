@@ -34,7 +34,7 @@ def test_selection_rejects_empty_or_out_of_range() -> None:
 
 
 def test_committed_cursor_resumes_after_hosted_batch() -> None:
-    assert resolve_cursor(None, None) == (1, 7)
+    assert resolve_cursor(None, None) == (3, 0)
     assert resolve_cursor(4, 5) == (4, 5)
     with pytest.raises(ValueError, match="together"):
         resolve_cursor(1, None)
@@ -47,11 +47,12 @@ def test_cursor_binds_contiguous_hosted_receipts_fail_closed() -> None:
         )
     )
     validate_cursor(cursor)
-    assert len(cursor["observed_archived_assets"]) == 7
-    assert sum(item["bytes"] for item in cursor["observed_archived_assets"]) == 726_797_932
+    assert len(cursor["observed_archived_assets"]) == 58
+    assert sum(item["bytes"] for item in cursor["observed_archived_assets"]) == 4_576_927_832
 
-    cursor["hosted_receipts"][2]["asset_index"] = 8
-    with pytest.raises(ValueError, match="indices 3 through 6"):
+    cursor["hosted_receipts"][-1]["asset_start"] = 29
+    cursor["hosted_receipts"][-1]["asset_end"] = 29
+    with pytest.raises(ValueError, match="do not cover"):
         validate_cursor(cursor)
 
 
@@ -71,7 +72,7 @@ def test_cursor_rejects_completeness_or_noncontiguous_archive_claims() -> None:
         )
     )
     cursor["observed_archived_assets"].pop(4)
-    with pytest.raises(ValueError, match="contiguous through asset 6"):
+    with pytest.raises(ValueError, match="contiguous within each release"):
         validate_cursor(cursor)
 
 

@@ -40,15 +40,22 @@ def validate_cursor(cursor: dict[str, Any]) -> None:
     if not isinstance(assets, list) or not assets:
         raise ValueError("MONDO cursor requires observed archived assets")
     coordinates = [(item.get("release_index"), item.get("asset_index")) for item in assets]
-    if coordinates != [(1, index) for index in range(7)]:
-        raise ValueError("MONDO archived asset coordinates must be contiguous through asset 6")
-    if len({item.get("sha256") for item in assets}) != len(assets):
-        raise ValueError("MONDO archived asset digests must be unique")
-    receipts = cursor.get("hosted_receipts")
-    if not isinstance(receipts, list) or [item.get("asset_index") for item in receipts] != list(
-        range(3, 7)
+    if coordinates != sorted(set(coordinates)):
+        raise ValueError("MONDO archived asset coordinates must be unique and ordered")
+    releases = sorted({int(release) for release, _ in coordinates})
+    if releases != list(range(releases[0], releases[-1] + 1)):
+        raise ValueError("MONDO archived releases must be contiguous")
+    for release in releases:
+        indices = [int(index) for item_release, index in coordinates if item_release == release]
+        if indices != list(range(len(indices))):
+            raise ValueError("MONDO archived assets must be contiguous within each release")
+    if not all(
+        isinstance(item.get("sha256"), str) and len(item["sha256"]) == 64 for item in assets
     ):
-        raise ValueError("MONDO hosted receipts must bind asset indices 3 through 6")
+        raise ValueError("MONDO archived asset digests are incomplete")
+    receipts = cursor.get("hosted_receipts")
+    if not isinstance(receipts, list) or not receipts:
+        raise ValueError("MONDO hosted receipts are required")
     for item in receipts:
         if not all(
             isinstance(item.get(field), str) and len(item[field]) == length
@@ -59,12 +66,27 @@ def validate_cursor(cursor: dict[str, Any]) -> None:
             )
         ):
             raise ValueError("MONDO hosted receipt hashes are incomplete")
+        start = item.get("asset_start", item.get("asset_index"))
+        end = item.get("asset_end", item.get("asset_index"))
+        if not isinstance(start, int) or not isinstance(end, int) or start > end:
+            raise ValueError("MONDO hosted receipt range is invalid")
+    covered = {
+        (int(item.get("release_index", 1)), index)
+        for item in receipts
+        for index in range(
+            item.get("asset_start", item.get("asset_index")),
+            item.get("asset_end", item.get("asset_index")) + 1,
+        )
+    }
+    unreceipted_seed = {(1, 0), (1, 1), (1, 2)}
+    if not set(coordinates).issubset(covered | unreceipted_seed):
+        raise ValueError("MONDO hosted receipts do not cover archived coordinates")
     last = cursor.get("last_successful_run", {})
     if (
         last.get("run_id") != receipts[-1].get("run_id")
         or last.get("head_sha") != receipts[-1].get("head_sha")
         or last.get("receipt_sha256") != receipts[-1].get("receipt_sha256")
-        or cursor.get("next") != {"release_index": 1, "asset_index": 7}
+        or cursor.get("next") != {"release_index": releases[-1] + 1, "asset_index": 0}
     ):
         raise ValueError("MONDO next cursor does not follow the last hosted receipt")
 
