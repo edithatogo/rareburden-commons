@@ -1,22 +1,23 @@
 schema_version: "1.0"
 status: bounded_public_exact_archive_observed
-observed_at_utc: "2026-08-27T08:21:00Z"
+observed_at_utc: "2026-08-27T09:05:37Z"
 destination:
   repository: edithatogo/rareburden-commons-open-source-snapshots
   url: https://huggingface.co/datasets/edithatogo/rareburden-commons-open-source-snapshots
   visibility: public
-  observed_commit: 3627e5b0b74eed2325868cd15c9dcb064f2a4811
-  observed_file_count: 600
+  observed_commit: 9a420c5f38d78feb686b8aeb75448df7c17aa302
+  observed_file_count: 629
 change:
   starting_commit: 7f53de277671109c92bf8c4f4ab02c6ef200c51a
   starting_file_count: 549
-  exact_assets_added: 51
+  exact_assets_added: 80
   mondo_releases_completed:
     - v2026-07-06
     - v2026-06-02
-  exact_bytes_bound_in_cursor: 4576927832
+    - v2026-05-05
+  exact_bytes_bound_in_cursor: 6814962064
   next_cursor:
-    release_index: 3
+    release_index: 4
     asset_index: 0
 controls:
   licence: CC BY 4.0
@@ -36,6 +37,12 @@ controls:
     - 33053525211
     - 33053587926
     - 33053662251
+    - 33056398077
+    - 33056475901
+    - 33056570123
+    - 33056639019
+    - 33056714265
+    - 33056791562
 rights_routes:
   public_full_bytes:
     - MONDO exact release assets under CC BY 4.0

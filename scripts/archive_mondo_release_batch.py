@@ -49,6 +49,11 @@ def validate_cursor(cursor: dict[str, Any]) -> None:
         indices = [int(index) for item_release, index in coordinates if item_release == release]
         if indices != list(range(len(indices))):
             raise ValueError("MONDO archived assets must be contiguous within each release")
+    frontier = mondo_releases(json.loads(MANIFEST.read_text(encoding="utf-8")))
+    for release in releases[:-1]:
+        archived_count = sum(item_release == release for item_release, _ in coordinates)
+        if archived_count != len(frontier[release]["assets"]):
+            raise ValueError("MONDO archived release is incomplete before the active cursor")
     if not all(
         isinstance(item.get("sha256"), str) and len(item["sha256"]) == 64 for item in assets
     ):
@@ -70,23 +75,31 @@ def validate_cursor(cursor: dict[str, Any]) -> None:
         end = item.get("asset_end", item.get("asset_index"))
         if not isinstance(start, int) or not isinstance(end, int) or start > end:
             raise ValueError("MONDO hosted receipt range is invalid")
-    covered = {
+    covered_coordinates = [
         (int(item.get("release_index", 1)), index)
         for item in receipts
         for index in range(
             item.get("asset_start", item.get("asset_index")),
             item.get("asset_end", item.get("asset_index")) + 1,
         )
-    }
+    ]
+    if len(covered_coordinates) != len(set(covered_coordinates)):
+        raise ValueError("MONDO hosted receipt ranges overlap")
     unreceipted_seed = {(1, 0), (1, 1), (1, 2)}
-    if not set(coordinates).issubset(covered | unreceipted_seed):
-        raise ValueError("MONDO hosted receipts do not cover archived coordinates")
+    if set(covered_coordinates) != set(coordinates) - unreceipted_seed:
+        raise ValueError("MONDO hosted receipts do not exactly cover archived coordinates")
     last = cursor.get("last_successful_run", {})
+    final_release = releases[-1]
+    final_count = sum(release == final_release for release, _ in coordinates)
+    if final_count == len(frontier[final_release]["assets"]):
+        expected_next = {"release_index": final_release + 1, "asset_index": 0}
+    else:
+        expected_next = {"release_index": final_release, "asset_index": final_count}
     if (
         last.get("run_id") != receipts[-1].get("run_id")
         or last.get("head_sha") != receipts[-1].get("head_sha")
         or last.get("receipt_sha256") != receipts[-1].get("receipt_sha256")
-        or cursor.get("next") != {"release_index": releases[-1] + 1, "asset_index": 0}
+        or cursor.get("next") != expected_next
     ):
         raise ValueError("MONDO next cursor does not follow the last hosted receipt")
 
