@@ -33,6 +33,18 @@ def test_selection_rejects_empty_or_out_of_range() -> None:
         select_assets(releases, release_index=0, asset_start=0, asset_count=0)
 
 
+def test_selection_rejects_nonpublic_terms_or_byte_route() -> None:
+    releases = mondo_releases(json.loads(MANIFEST.read_text(encoding="utf-8")))
+    releases[0]["terms_state"] = "metadata_only"
+    with pytest.raises(ValueError, match="exact public terms"):
+        select_assets(releases, release_index=0, asset_start=0, asset_count=1)
+
+    releases = mondo_releases(json.loads(MANIFEST.read_text(encoding="utf-8")))
+    releases[0]["assets"][0]["byte_route"] = "restricted_no_public_bytes"
+    with pytest.raises(ValueError, match="outside the public route"):
+        select_assets(releases, release_index=0, asset_start=0, asset_count=1)
+
+
 def test_committed_cursor_resumes_after_hosted_batch() -> None:
     assert resolve_cursor(None, None) == (5, 0)
     assert resolve_cursor(4, 5) == (4, 5)

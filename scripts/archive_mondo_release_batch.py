@@ -17,6 +17,8 @@ from typing import Any
 DESTINATION = "edithatogo/rareburden-commons-open-source-snapshots"
 MANIFEST = Path("manifests/classifications/public-history-frontier-2026-08-16.json")
 CURSOR = Path("manifests/classifications/mondo-archive-cursor-2026-08-16.json")
+PUBLIC_ROUTE = "public_CC_BY_4_0_after_exact_digest_dedup"
+PUBLIC_TERMS = "repository_CC_BY_4_0_release_assets"
 
 
 def resolve_cursor(release_index: int | None, asset_start: int | None) -> tuple[int, int]:
@@ -116,6 +118,17 @@ def mondo_releases(document: dict[str, Any]) -> list[dict[str, Any]]:
     return releases
 
 
+def validate_public_release(release: dict[str, Any]) -> None:
+    """Fail closed at the publication boundary to the exact reviewed byte route."""
+    if release.get("terms_state") != PUBLIC_TERMS:
+        raise ValueError("MONDO release lacks the exact public terms state")
+    assets = release.get("assets")
+    if not isinstance(assets, list) or not assets:
+        raise ValueError("MONDO release has no assets")
+    if any(asset.get("byte_route") != PUBLIC_ROUTE for asset in assets):
+        raise ValueError("MONDO release contains an asset outside the public route")
+
+
 def select_assets(
     releases: list[dict[str, Any]], *, release_index: int, asset_start: int, asset_count: int
 ) -> tuple[str, list[dict[str, Any]]]:
@@ -124,6 +137,7 @@ def select_assets(
     if asset_start < 0 or asset_count < 1:
         raise ValueError("asset selection must be positive")
     release = releases[release_index]
+    validate_public_release(release)
     if Path(str(release["release_key"])).name != str(release["release_key"]):
         raise ValueError("unsafe MONDO release key")
     selected = release["assets"][asset_start : asset_start + asset_count]
