@@ -34,7 +34,7 @@ def test_selection_rejects_empty_or_out_of_range() -> None:
 
 
 def test_committed_cursor_resumes_after_hosted_batch() -> None:
-    assert resolve_cursor(None, None) == (4, 0)
+    assert resolve_cursor(None, None) == (5, 0)
     assert resolve_cursor(4, 5) == (4, 5)
     with pytest.raises(ValueError, match="together"):
         resolve_cursor(1, None)
@@ -47,8 +47,8 @@ def test_cursor_binds_contiguous_hosted_receipts_fail_closed() -> None:
         )
     )
     validate_cursor(cursor)
-    assert len(cursor["observed_archived_assets"]) == 87
-    assert sum(item["bytes"] for item in cursor["observed_archived_assets"]) == 6_814_962_064
+    assert len(cursor["observed_archived_assets"]) == 116
+    assert sum(item["bytes"] for item in cursor["observed_archived_assets"]) == 9_061_201_514
 
     cursor["hosted_receipts"][-1]["asset_start"] = 29
     cursor["hosted_receipts"][-1]["asset_end"] = 29
@@ -83,10 +83,10 @@ def test_cursor_rejects_completeness_or_noncontiguous_archive_claims() -> None:
     cursor["observed_archived_assets"] = [
         item
         for item in cursor["observed_archived_assets"]
-        if item["release_index"] != 3 or item["asset_index"] < 5
+        if item["release_index"] != 4 or item["asset_index"] < 5
     ]
     cursor["hosted_receipts"] = [
-        item for item in cursor["hosted_receipts"] if item.get("release_index") != 3
+        item for item in cursor["hosted_receipts"] if item.get("release_index") != 4
     ]
     cursor["hosted_receipts"].append(
         {
@@ -95,7 +95,7 @@ def test_cursor_rejects_completeness_or_noncontiguous_archive_claims() -> None:
             "asset_start": 0,
             "head_sha": "b" * 40,
             "receipt_sha256": "c" * 64,
-            "release_index": 3,
+            "release_index": 4,
             "run_id": 1,
         }
     )

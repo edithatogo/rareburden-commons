@@ -1,26 +1,37 @@
 schema_version: "1.0"
 status: bounded_public_exact_archive_observed
-observed_at_utc: "2026-08-27T09:05:37Z"
+observed_at_utc: "2026-08-28T23:11:32Z"
 destination:
   repository: edithatogo/rareburden-commons-open-source-snapshots
   url: https://huggingface.co/datasets/edithatogo/rareburden-commons-open-source-snapshots
   visibility: public
-  observed_commit: 9a420c5f38d78feb686b8aeb75448df7c17aa302
-  observed_file_count: 629
+  observed_commit: ece0854cf60d4d3cec83cdd1ee2fef00272793b8
+  observed_file_count: 659
 change:
   starting_commit: 7f53de277671109c92bf8c4f4ab02c6ef200c51a
   starting_file_count: 549
-  exact_assets_added: 80
+  exact_assets_added: 109
   mondo_releases_completed:
     - v2026-07-06
     - v2026-06-02
     - v2026-05-05
-  exact_bytes_bound_in_cursor: 6814962064
+    - v2026-04-07
+  exact_bytes_bound_in_cursor: 9061201514
   next_cursor:
-    release_index: 4
+    release_index: 5
     asset_index: 0
 controls:
   licence: CC BY 4.0
+  attribution: MONDO, Monarch Initiative
+  change_notice: exact unmodified release payload bytes; archive paths added only for release identity
+  applicable_notices: notices shipped in each exact release asset remain applicable
+  no_endorsement: true
+  chain_of_title_claimed: false
+  destination_notice:
+    revision: ece0854cf60d4d3cec83cdd1ee2fef00272793b8
+    dataset_card_sha256: cf8baa1c6fb5885a66be6532a4f5f8832beb1c6eb4f28085ab4ea64c27bd1b73
+    mondo_notice_path: notices/mondo-release-history.md
+    mondo_notice_sha256: 38f41d9219b1b35a35acda8739ef252862f5ea2c92eea37fb8b226d5cb4341e8
   source: official MONDO GitHub release assets
   byte_identity: sha256_per_asset
   hosted_verification: exact_destination_digest_or_bounded_redownload
@@ -43,6 +54,12 @@ controls:
     - 33056639019
     - 33056714265
     - 33056791562
+    - 33218850687
+    - 33218940481
+    - 33219019892
+    - 33219088241
+    - 33219149523
+    - 33219209510
 rights_routes:
   public_full_bytes:
     - MONDO exact release assets under CC BY 4.0

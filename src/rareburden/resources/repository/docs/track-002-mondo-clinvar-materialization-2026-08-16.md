@@ -57,9 +57,9 @@ IDs, artifact digests and receipt-file hashes are committed in the cursor. The
 seven observed archived assets total 726,797,932 bytes.
 
 The current reviewed reconciliation is
-`docs/track-002-public-archive-reconciliation-2026-08-27.yml`: it binds 87
-assets and 6,814,962,064 bytes through three completed releases and resumes at
-release index 4, asset index 0. Explicit paired coordinates permit bounded
+`docs/track-002-public-archive-reconciliation-2026-08-27.yml`: it binds 116
+assets and 9,061,201,514 bytes through four completed releases and resumes at
+release index 5, asset index 0. Explicit paired coordinates permit bounded
 replay. A hosted success does not mutate the cursor: each receipt requires
 review and a normal validated cursor update.
 
