@@ -1,16 +1,16 @@
 schema_version: "1.0"
 status: bounded_public_exact_archive_observed
-observed_at_utc: "2026-08-29T03:23:00Z"
+observed_at_utc: "2026-08-29T04:05:32Z"
 destination:
   repository: edithatogo/rareburden-commons-open-source-snapshots
   url: https://huggingface.co/datasets/edithatogo/rareburden-commons-open-source-snapshots
   visibility: public
-  observed_commit: da76ddd6499bb05a05bb0990efa1020f1621f5cc
-  observed_file_count: 816
+  observed_commit: 3ce98671ebbdc75ed4e84b6e3c5b3003ab337558
+  observed_file_count: 972
 change:
   starting_commit: 7f53de277671109c92bf8c4f4ab02c6ef200c51a
   starting_file_count: 549
-  exact_assets_added: 267
+  exact_assets_added: 423
   mondo_releases_completed:
     - v2026-07-06
     - v2026-06-02
@@ -21,9 +21,14 @@ change:
     - v2026-01-06
     - v2025-12-02
     - v2025-11-04
-  exact_bytes_bound_in_cursor: 20335921434
+    - v2025-10-07
+    - v2025-09-02
+    - v2025-08-05
+    - v2025-07-01
+    - v2025-06-03
+  exact_bytes_bound_in_cursor: 31560261021
   next_cursor:
-    release_index: 10
+    release_index: 15
     asset_index: 0
 controls:
   licence: CC BY 4.0
@@ -33,8 +38,8 @@ controls:
   no_endorsement: true
   chain_of_title_claimed: false
   destination_notice:
-    revision: da76ddd6499bb05a05bb0990efa1020f1621f5cc
-    dataset_card_sha256: 93e7e6120739907c27dad14ec052bae92efa2c132999c6f85c4944f9cda5b327
+    revision: 3ce98671ebbdc75ed4e84b6e3c5b3003ab337558
+    dataset_card_sha256: 86ca6410f2d1f714ba6b754127544923c39c8b34ff561314a0bea04e6e310b99
     mondo_notice_path: notices/mondo-release-history.md
     mondo_notice_sha256: 38f41d9219b1b35a35acda8739ef252862f5ea2c92eea37fb8b226d5cb4341e8
   source: official MONDO GitHub release assets
@@ -64,6 +69,17 @@ controls:
     receipt_sha256: 4fae995979b222c8d6690fc2e969c63748ed335808063fa03af978972a627bf6
     artifact_digest_sha256: 2965c8fa3c7490eabd65ca85149fb2e479291f90f1b2f39b0ab11b8149288d29
     next_release_index: 10
+  frontier_five_release_tranche:
+    run_id: 33232479095
+    status: success
+    head_sha: eaec0731fa4f36c9a1e6878586cbffd8be778c71
+    release_indices: [10, 11, 12, 13, 14]
+    completed_assets: 156
+    completed_bytes: 11224339587
+    destination_commits: 30
+    receipt_sha256: dcf11e5ad93a34f6068e30afb986608430a895ba93682ee29180c4b111765a23
+    artifact_digest_sha256: fed73c6f9caff561755651275de7012596ac40cf3e49d3668d1fa86aed6e0818
+    next_release_index: 15
   hosted_run_ids:
     - 33052561233
     - 33052659253
@@ -96,6 +112,7 @@ controls:
     - 33221815433
     - 33222673927
     - 33231093157
+    - 33232479095
 rights_routes:
   public_full_bytes:
     - MONDO exact release assets under CC BY 4.0
