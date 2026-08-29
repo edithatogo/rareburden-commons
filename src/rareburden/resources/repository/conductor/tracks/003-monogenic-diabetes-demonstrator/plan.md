@@ -1,6 +1,6 @@
 # Track 003 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; external clinical and patient/community authority remains a separate gate.
+> Repository-owned review uses the subagent panel under ADR-0009; external clinical and patient/community authority remains a separate gate.
 
 ## Phase 1 — Protocol and definitions
 
@@ -108,3 +108,10 @@
 - [x] Add a fail-closed RBC-P002 bounded registration with exact upstream, semantic, ledger, burden-engine, estimand, population-state and framing hashes plus mutation tests for every prohibited claim. Evidence: `docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml` and `tests/test_track003_bounded_registration.py`.
 - [ ] Complete exact-candidate scientific/methods, engineering and simulated community/harm agent review and record the repository-owner disposition.
 - [ ] Qualify a protocol-compatible synthetic denominator or exact rights-receipted public-aggregate parameter set before any RBC-P002 run.
+
+### Review fixes
+
+- [x] Pin the exact upstream commit/tree rather than accepting an arbitrary resolvable pair.
+- [x] Validate every registered estimand, denominator, entity, population-state dimension and derived quantity against its bound contract, with mutation coverage.
+- [x] Add a current bounded framing overlay that preserves false empirical, controlled-data, independent-review and community-authority claims while retaining the historical guard unchanged.
+- [ ] Re-run the role-separated panel against the corrected exact candidate and record owner disposition only if all blocking findings are closed.

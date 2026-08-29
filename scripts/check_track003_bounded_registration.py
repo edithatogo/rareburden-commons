@@ -19,6 +19,18 @@ class Track003RegistrationError(ValueError):
 
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
+EXPECTED_UPSTREAM_COMMIT = "0b8e57a95ff634505af613c4c17e3fc260a37a53"
+EXPECTED_UPSTREAM_TREE = "44d57c5051874040b816a4fe567b46c60896a9c5"
+EXPECTED_SCOPE = (
+    "Synthetic protocol and interface assurance only. Exactly-receipted public "
+    "aggregates may be prepared for later qualification, but no public aggregate "
+    "is executed or interpreted by this registration."
+)
+EXPECTED_NEXT_GATE = (
+    "Register an exact rights-receipted public-aggregate parameter set under issue "
+    "261, or build a protocol-compatible synthetic diabetes denominator, before "
+    "running RBC-P002."
+)
 FALSE_CLAIMS = {
     "empirical_activation",
     "controlled_data_activation",
@@ -38,6 +50,47 @@ EXPECTED_BINDINGS = {
     "estimand_denominator_contract": "docs/track-003-estimand-denominator-contract-v0.1.0.yml",
     "population_state_contract": "docs/track-003-population-state-contract-v0.1.0.yml",
     "framing_guard": "docs/track-003-framing-interpretation-guard-v0.1.0.yml",
+    "framing_overlay": "docs/track-003-bounded-framing-overlay-2026-08-29.yml",
+}
+
+EXPECTED_ESTIMANDS = {
+    "primary": {
+        "estimand_id": "E-RBC-P002-AETIOLOGIC-PROPORTION",
+        "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+        "unit": "proportion",
+    },
+    "derived": {
+        "estimand_id": "E-RBC-P002-EXPECTED-CASES",
+        "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+        "unit": "people",
+        "interpretation": "modelled_expected_population_not_observed_case_count",
+    },
+    "sensitivities": [
+        "E-RBC-P002-DIAGNOSED-AETIOLOGIC-PROPORTION",
+        "E-RBC-P002-REFERRAL-COHORT-PROPORTION",
+    ],
+    "deferred": ["E-RBC-P002-POPULATION-PREVALENCE"],
+}
+EXPECTED_ENTITY_IDS = [
+    "monogenic-diabetes",
+    "mody",
+    "neonatal-diabetes",
+    "other-monogenic-diabetes",
+]
+EXPECTED_POPULATION_STATES = {
+    "contract": "RBC-P002-POPULATION-STATES-v0.1.0",
+    "required_dimensions": [
+        "diabetes_denominator_eligibility",
+        "monogenic_aetiology_observation",
+        "monogenic_aetiology_latent",
+        "referral_and_testing_selection",
+    ],
+    "required_quantities": [
+        "Q-RBC-P002-DIAGNOSED-CONFIRMED",
+        "Q-RBC-P002-MODELLED-TOTAL",
+        "Q-RBC-P002-MODELLED-UNDIAGNOSED",
+        "Q-RBC-P002-UNCLASSIFIED-OR-UNKNOWN",
+    ],
 }
 
 
@@ -83,12 +136,21 @@ def validate(path: Path, root: Path) -> None:
         or document.get("protocol_id") != "RBC-P002"
         or document.get("protocol_version") != "0.2.0-bounded"
         or document.get("status") != "internally_registered_bounded_synthetic_interface"
+        or document.get("registered_on") != "2026-08-29"
         or document.get("registered_by") != "edithatogo"
+        or document.get("scope") != EXPECTED_SCOPE
+        or document.get("next_gate") != EXPECTED_NEXT_GATE
     ):
         raise Track003RegistrationError("registration identity or bounded status drift")
     upstream = document.get("upstream_candidate", {})
     commit, tree = str(upstream.get("commit", "")), str(upstream.get("tree", ""))
-    if not COMMIT.fullmatch(commit) or not COMMIT.fullmatch(tree) or _tree(root, commit) != tree:
+    if (
+        not COMMIT.fullmatch(commit)
+        or not COMMIT.fullmatch(tree)
+        or commit != EXPECTED_UPSTREAM_COMMIT
+        or tree != EXPECTED_UPSTREAM_TREE
+        or _tree(root, commit) != tree
+    ):
         raise Track003RegistrationError("upstream candidate identity drift")
     bindings = document.get("bindings", {})
     for name, expected_path in EXPECTED_BINDINGS.items():
@@ -102,23 +164,88 @@ def validate(path: Path, root: Path) -> None:
         ):
             raise Track003RegistrationError(f"binding drift: {name}")
     estimands = document.get("registered_estimands", {})
-    if (
-        estimands.get("primary", {}).get("estimand_id") != "E-RBC-P002-AETIOLOGIC-PROPORTION"
-        or estimands.get("primary", {}).get("denominator_id") != "D-RBC-P002-PRIMARY-DIABETES"
-        or estimands.get("derived", {}).get("estimand_id") != "E-RBC-P002-EXPECTED-CASES"
-        or estimands.get("derived", {}).get("interpretation")
-        != "modelled_expected_population_not_observed_case_count"
-        or "E-RBC-P002-POPULATION-PREVALENCE" not in estimands.get("deferred", [])
-    ):
+    if estimands != EXPECTED_ESTIMANDS:
         raise Track003RegistrationError("estimand or denominator scope drift")
+    estimand_contract = _load(root / EXPECTED_BINDINGS["estimand_denominator_contract"])
+    contract_estimands = {
+        item.get("estimand_id"): item for item in estimand_contract.get("estimands", [])
+    }
+    denominator_options = {
+        item.get("denominator_id"): item
+        for item in estimand_contract.get("denominator_options", [])
+    }
+    registered_ids = [
+        estimands["primary"]["estimand_id"],
+        estimands["derived"]["estimand_id"],
+        *estimands["sensitivities"],
+        *estimands["deferred"],
+    ]
+    if any(estimand_id not in contract_estimands for estimand_id in registered_ids):
+        raise Track003RegistrationError("estimand reference is absent from bound contract")
+    for role in ("primary", "derived"):
+        registered = estimands[role]
+        contract_estimand = contract_estimands[registered["estimand_id"]]
+        denominator = denominator_options.get(registered["denominator_id"], {})
+        if contract_estimand.get("unit") != registered["unit"] or registered[
+            "estimand_id"
+        ] not in denominator.get("permitted_estimands", []):
+            raise Track003RegistrationError("estimand unit or denominator reference drift")
     semantic = document.get("synthetic_entity_scope", {})
     if (
         semantic.get("hierarchy_id") != "rare-within-common-synthetic"
         or semantic.get("hierarchy_version") != "0.1.0"
+        or semantic.get("included_entity_ids") != EXPECTED_ENTITY_IDS
         or semantic.get("gene_scope") != "not_registered_synthetic_grouping_only"
         or semantic.get("phenotype_scope") != "not_registered_synthetic_grouping_only"
     ):
         raise Track003RegistrationError("synthetic semantic scope drift")
+    semantic_contract = _load(root / EXPECTED_BINDINGS["semantic_scope"])
+    contract_entity_ids = {
+        entity.get("entity_id") for entity in semantic_contract.get("entities", [])
+    }
+    if any(entity_id not in contract_entity_ids for entity_id in EXPECTED_ENTITY_IDS):
+        raise Track003RegistrationError("entity reference is absent from bound semantic scope")
+    population_states = document.get("population_states", {})
+    if population_states != EXPECTED_POPULATION_STATES:
+        raise Track003RegistrationError("population-state scope drift")
+    population_contract = _load(root / EXPECTED_BINDINGS["population_state_contract"])
+    dimension_ids = {
+        item.get("dimension_id") for item in population_contract.get("state_dimensions", [])
+    }
+    quantity_ids = {
+        item.get("quantity_id") for item in population_contract.get("derived_quantities", [])
+    }
+    if (
+        population_contract.get("contract_id") != population_states["contract"]
+        or any(item not in dimension_ids for item in population_states["required_dimensions"])
+        or any(item not in quantity_ids for item in population_states["required_quantities"])
+    ):
+        raise Track003RegistrationError("population-state reference is absent from bound contract")
+    overlay = _load(root / EXPECTED_BINDINGS["framing_overlay"])
+    expected_authority = {
+        "agent_review_is_advisory_repository_evidence": True,
+        "independent_review": False,
+        "patient_community_approval": False,
+        "community_representation": False,
+        "empirical_activation": False,
+        "controlled_data_activation": False,
+        "public_aggregate_execution": False,
+        "publication_authority": False,
+        "production_release_authority": False,
+    }
+    if (
+        overlay.get("status") != "active_bounded_synthetic_interface"
+        or overlay.get("authority_boundaries") != expected_authority
+        or set(overlay.get("dependency_disposition", {}).values())
+        != {
+            "complete_bounded_semantic_scope_only",
+            "complete_bounded_synthetic_and_exactly_receipted_public_aggregate_scope_only",
+            "complete_bounded_interface_only",
+        }
+        or set(overlay.get("review_disposition", {}).values())
+        != {"pending_exact_candidate_review", "pending"}
+    ):
+        raise Track003RegistrationError("bounded framing overlay drift")
     execution = document.get("execution", {})
     if (
         execution.get("compatible_synthetic_fixture") is not None

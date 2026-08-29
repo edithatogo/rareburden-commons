@@ -19,6 +19,7 @@ bindings:
   estimand_denominator_contract: {path: "docs/track-003-estimand-denominator-contract-v0.1.0.yml", sha256: "b69cd5d016bf7bb2b47ee957fc59edf9184614225c888802606da8cd848e8358"}
   population_state_contract: {path: "docs/track-003-population-state-contract-v0.1.0.yml", sha256: "9b207d5215f9fb66bc577f15d71191db43daf6cbde4bd886b99f4edbe11aff91"}
   framing_guard: {path: "docs/track-003-framing-interpretation-guard-v0.1.0.yml", sha256: "70c491ea91ecbcef96745a49bb9cb12b7719835a2ee4ac1f8a91751ac32e9614"}
+  framing_overlay: {path: "docs/track-003-bounded-framing-overlay-2026-08-29.yml", sha256: "68481ba1d20e522cff2a5b77f19f080d2e23827f3715babba8413bed87e8d76b"}
 registered_estimands:
   primary: {estimand_id: "E-RBC-P002-AETIOLOGIC-PROPORTION", denominator_id: "D-RBC-P002-PRIMARY-DIABETES", unit: "proportion"}
   derived:
@@ -35,8 +36,17 @@ synthetic_entity_scope:
   gene_scope: "not_registered_synthetic_grouping_only"
   phenotype_scope: "not_registered_synthetic_grouping_only"
 population_states:
-  contract: "RBC-P002-POPULATION-STATE-v0.1.0"
-  required_distinctions: ["observed_diagnosed", "latent_modelled_undiagnosed", "unclassified", "outside_target_state"]
+  contract: "RBC-P002-POPULATION-STATES-v0.1.0"
+  required_dimensions:
+    - "diabetes_denominator_eligibility"
+    - "monogenic_aetiology_observation"
+    - "monogenic_aetiology_latent"
+    - "referral_and_testing_selection"
+  required_quantities:
+    - "Q-RBC-P002-DIAGNOSED-CONFIRMED"
+    - "Q-RBC-P002-MODELLED-TOTAL"
+    - "Q-RBC-P002-MODELLED-UNDIAGNOSED"
+    - "Q-RBC-P002-UNCLASSIFIED-OR-UNKNOWN"
 execution:
   compatible_synthetic_fixture: null
   public_aggregate_parameter_set: null
