@@ -543,5 +543,5 @@ claiming independent review, community authority or external approval.
   with one atomic commit per bounded batch while preserving the two-second
   sequential publisher delay and exact post-commit digest verification.
   Evidence: `6f9f551`,
-  `docs/track-002-public-archive-reconciliation-2026-08-27.yml`, independent
-  engineering and rights/provenance review, and 1,212 passing tests.
+  `docs/track-002-public-archive-reconciliation-2026-08-27.yml`, role-separated
+  advisory engineering and rights/provenance review, and 1,212 passing tests.
