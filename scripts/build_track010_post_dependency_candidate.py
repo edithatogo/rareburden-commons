@@ -22,6 +22,7 @@ REFERENCE = Path("docs/burden-engine-010-reference.md")
 QUALITY_DISPOSITION = Path("docs/track-010-post-dependency-quality-disposition-2026-08-27.yml")
 RESULT_SCHEMA = Path("schemas/analysis-result.schema.json")
 MODEL = Path("src/rareburden/model.py")
+CLI = Path("src/rareburden/cli.py")
 LOCKFILE = Path("uv.lock")
 
 
@@ -66,6 +67,7 @@ def build(
         "synthetic_quality_disposition": _artifact(root, QUALITY_DISPOSITION),
         "analysis_result_schema": _artifact(root, RESULT_SCHEMA),
         "model_implementation": _artifact(root, MODEL),
+        "cli_implementation": _artifact(root, CLI),
         "dependency_lock": _artifact(root, LOCKFILE),
         "adapter": {
             "state": "versioned_provisional",

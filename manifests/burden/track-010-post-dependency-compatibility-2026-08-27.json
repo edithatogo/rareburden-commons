@@ -12,6 +12,10 @@
     "path": "examples/analyses/expected-population-synthetic.yml",
     "sha256": "0261fdc53f786a42af39a5c80bac9b5d2dfb258c8129952977fd6379636d5320"
   },
+  "cli_implementation": {
+    "path": "src/rareburden/cli.py",
+    "sha256": "83fcc813dd7bee803cc0fa179c2147c5293bb42d1be7be74edf622da02fdf55e"
+  },
   "comparison": "corrected Track 010 interface bound to completed Track 009 contract",
   "dependency_lock": {
     "path": "uv.lock",
