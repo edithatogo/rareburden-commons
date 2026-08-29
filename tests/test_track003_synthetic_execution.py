@@ -11,6 +11,8 @@ from scripts.check_track003_synthetic_execution import (
     Track003SyntheticExecutionError,
     _scientific_projection,
     validate,
+    validate_authorization,
+    validate_review_receipt,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -69,3 +71,34 @@ def test_scientific_projection_excludes_only_runtime_identity() -> None:
     assert projection["summary"] == result["summary"]
     assert projection["limitations"] == result["limitations"]
     assert projection["activation_state"] == "not_activated"
+
+
+def test_closeout_rejects_reviewed_candidate_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(_document())
+    document["reviewed_candidate"]["commit"] = "0" * 40
+    with pytest.raises(Track003SyntheticExecutionError, match="reviewed candidate drift"):
+        validate(_closeout(tmp_path, document), ROOT)
+
+
+def test_review_receipt_rejects_candidate_drift() -> None:
+    receipt = yaml.safe_load(
+        (
+            ROOT / "docs/reviews/track-003-synthetic-denominator-scientific-agent-2026-08-29.yml"
+        ).read_text(encoding="utf-8")
+    )
+    receipt["reviewed_candidate"]["tree"] = "0" * 40
+    with pytest.raises(Track003SyntheticExecutionError, match="review receipt semantics drift"):
+        validate_review_receipt(receipt, "scientific_methods_agent")
+
+
+def test_authorization_rejects_broadened_or_unbound_decision() -> None:
+    authorization = yaml.safe_load(
+        (
+            ROOT / "docs/decisions/2026-08-29-track-003-synthetic-denominator-disposition.yml"
+        ).read_text(encoding="utf-8")
+    )
+    authorization["decision"]["persisted_output_limit"] = 2
+    with pytest.raises(
+        Track003SyntheticExecutionError, match="owner authorization semantics drift"
+    ):
+        validate_authorization(authorization)
