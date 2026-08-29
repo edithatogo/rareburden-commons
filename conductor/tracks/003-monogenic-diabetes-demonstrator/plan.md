@@ -107,7 +107,7 @@
 - [x] Reconcile completed Tracks 008–010 and advance the internal roadmap to v0.5.0 without claiming package publication or production release. Evidence: `docs/decisions/2026-08-29-bounded-v0.5-roadmap-progression.yml` and `a00078a`.
 - [x] Add a fail-closed RBC-P002 bounded registration with exact upstream, semantic, ledger, burden-engine, estimand, population-state and framing hashes plus mutation tests for every prohibited claim. Evidence: `docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml` and `tests/test_track003_bounded_registration.py`.
 - [x] Complete exact-candidate scientific/methods, engineering and simulated community/harm agent review and record the repository-owner disposition. Evidence: `docs/reviews/track-003-bounded-*-agent-2026-08-29.yml` and `docs/decisions/2026-08-29-track-003-bounded-registration-disposition.yml`.
-- [ ] Qualify a protocol-compatible synthetic denominator or exact rights-receipted public-aggregate parameter set before any RBC-P002 run.
+- [~] Qualify a protocol-compatible synthetic denominator or exact rights-receipted public-aggregate parameter set before any RBC-P002 run.
 
 ### Review fixes
 
