@@ -8,8 +8,8 @@ from scripts.build_track010_post_dependency_candidate import build
 ROOT = Path(__file__).parents[1]
 MANIFEST = Path("manifests/burden/track-010-post-dependency-candidate-2026-08-27.json")
 COMPATIBILITY = Path("manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json")
-SOURCE_COMMIT = "3258e5fe8d319830006d3583fc8a2aa95f1b67ec"
-SOURCE_TREE = "913116fa49db2f852078816fe38a84efe12b85f6"
+SOURCE_COMMIT = "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+SOURCE_TREE = "b9665879958b12e629e2149a391c59532e006129"
 
 
 def test_checked_in_post_dependency_candidate_regenerates_byte_for_byte(tmp_path: Path) -> None:
@@ -23,6 +23,7 @@ def test_checked_in_post_dependency_candidate_regenerates_byte_for_byte(tmp_path
         Path("docs/track-010-post-dependency-quality-disposition-2026-08-27.yml"),
         Path("schemas/analysis-result.schema.json"),
         Path("src/rareburden/model.py"),
+        Path("src/rareburden/cli.py"),
         Path("uv.lock"),
     ]
     for relative in required:
