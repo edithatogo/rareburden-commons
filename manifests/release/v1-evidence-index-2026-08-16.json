@@ -8,7 +8,7 @@
   "evidence_bindings": [
     {"artifact": "docs/v1-acceptance-criteria.md", "sha256": "f485eaf6483e3106fbf6c9b822c71994a2a16ba66d9f67697b10acd24e9fde0a"},
     {"artifact": "docs/requirements-traceability.md", "sha256": "65f5135943023dcfc346f54a1cbaaa74f2f9a11645100a71332c12439be814de"},
-    {"artifact": "conductor/roadmap.yml", "sha256": "abbb1e93e5cc57d838a442bedea38bbeb20260460e402dd6d713713c2ee00fc8"},
+    {"artifact": "conductor/roadmap.yml", "sha256": "0367dc139a0e7b2f23ee47a6ee53187ff0b725c7fd09c4c7836e418af3257e70"},
     {"artifact": "manifests/semantics/track-008-source-release-provenance-2026-08-16.json", "sha256": "7baf67b9cfa649e577a6097b943c3b6366d15d9941a47efbe9b75af3bc91f75b"},
     {"artifact": "manifests/ledger/track-009-source-release-bindings-2026-08-16.json", "sha256": "c6ab77c5477a97016df5db28a8db17b20449a812de29ebe24802682037d129f3"},
     {"artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json", "sha256": "81826bff754050e4dec8a21a6c9a11a11bdb9126493bb4d96c36dc1c8e9af5bc"},
