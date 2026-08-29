@@ -1,0 +1,24 @@
+schema_version: 1.0.0
+track: 003-monogenic-diabetes-demonstrator
+simulation_status: simulated_role_separated_advisory_panel
+perspective: simulated_patient_community_harm_interpretation_agent
+reviewed_candidate:
+  commit: fc6f8d755581ce87d38fc8953f8e20f2c89b56ba
+  tree: 94da74dfee88790fbc6a7da7abfe367b8ca922b8
+  candidate_sha256: 95beebc8a371633a4b2a0d06a214fafc92dab8f212de9e4f857be0faab429f9c
+disposition: pass_synthetic_denominator_qualification
+unresolved_blocking_findings: []
+evidence:
+- Pre-authorization qualification performs no analysis computation.
+- The plan retains blocked status, one persisted synthetic output and all false authority claims.
+- Synthetic, assumed and non-empirical labels and limitations remain explicit.
+limitations:
+- No actual community participation, representation, consultation, endorsement or approval occurred.
+conditions:
+- The output must remain visibly synthetic, modelled and non-empirical.
+- Stop on weakened limitations, broadened use or any community-authority claim.
+authority:
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  recommendation_is_approval: false

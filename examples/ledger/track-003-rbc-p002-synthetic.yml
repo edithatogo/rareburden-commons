@@ -1,0 +1,91 @@
+schema_version: 1.0.0
+ledger_id: track-003-rbc-p002-synthetic-ledger
+title: RBC-P002 protocol-compatible synthetic parameter ledger
+created_at: '2026-08-29T00:00:00Z'
+parameters:
+  - parameter_id: rbc-p002-diabetes-denominator-synthetic
+    parameter_revision: 1
+    label: Synthetic primary diabetes case-count denominator
+    quantity_type: case_count
+    measure: people meeting the synthetic primary diabetes denominator definition
+    metric: count
+    unit: people
+    distribution:
+      type: normal
+      mean: 100000.0
+      standard_deviation: 2500.0
+      minimum: 0.0
+    evidence_status: assumed
+    uncertainty_status: quantified
+    licence_state: not_applicable
+    source_release_ids: []
+    transformation_ids: []
+    semantic_entity_ids:
+      - synthetic:diabetes-denominator-eligible
+    population:
+      population_id: rbc-p002-primary-diabetes-synthetic
+      geography_id: synthetic-rbc-p002
+      sex: all
+      age_min: 0
+      age_max: 100
+    period:
+      start: '2025-01-01'
+      end: '2025-12-31'
+    disease_definition:
+      contract_id: RBC-P002-ESTIMAND-DENOMINATOR-v0.1.0
+      denominator_id: D-RBC-P002-PRIMARY-DIABETES
+      diabetes_case_definition: synthetic-primary-diabetes-case-definition-v1
+      ascertainment_target: all-people-meeting-synthetic-primary-diabetes-definition
+      definition_status: synthetic_assurance_only
+    assumption_rationale: A transparent synthetic diabetes case-count envelope used only to test the registered RBC-P002 denominator role.
+    evidence_assessment_ids:
+      - eqa-8fabe04ca65969d8f4c9c741
+    transportability_assessment_ids: []
+    limitations:
+      - Not an observed, estimated or official diabetes denominator.
+      - The synthetic case definition has no clinical validity.
+  - parameter_id: rbc-p002-aetiologic-fraction-synthetic
+    parameter_revision: 1
+    label: Synthetic monogenic aetiologic fraction within the primary diabetes denominator
+    quantity_type: fraction
+    measure: monogenic aetiology share within the synthetic primary diabetes denominator
+    metric: case_fraction
+    unit: proportion
+    distribution:
+      type: beta
+      alpha: 2.0
+      beta: 98.0
+      minimum: 0.0
+      maximum: 1.0
+    evidence_status: assumed
+    uncertainty_status: quantified
+    licence_state: not_applicable
+    source_release_ids: []
+    transformation_ids: []
+    semantic_entity_ids:
+      - synthetic:monogenic-diabetes
+    population:
+      population_id: rbc-p002-primary-diabetes-synthetic
+      geography_id: synthetic-rbc-p002
+      sex: all
+      age_min: 0
+      age_max: 100
+    period:
+      start: '2025-01-01'
+      end: '2025-12-31'
+    disease_definition:
+      contract_id: RBC-P002-ESTIMAND-DENOMINATOR-v0.1.0
+      estimand_id: E-RBC-P002-AETIOLOGIC-PROPORTION
+      diabetes_case_definition: synthetic-primary-diabetes-case-definition-v1
+      ascertainment_target: all-people-meeting-synthetic-primary-diabetes-definition
+      definition_status: synthetic_assurance_only
+    assumption_rationale: A transparent synthetic beta distribution used only to exercise the bounded rare-within-common analysis path.
+    evidence_assessment_ids:
+      - eqa-18335ab0543ffc33e2be22cc
+    transportability_assessment_ids:
+      - tra-4e44acb90510d4226f97b047
+    limitations:
+      - Not an empirical prevalence or aetiologic-fraction estimate.
+limitations:
+  - Every value is synthetic and must not be cited as an empirical burden estimate.
+  - The ledger is incompatible with clinical, policy, public-aggregate or patient-facing use.

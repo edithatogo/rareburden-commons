@@ -1,0 +1,21 @@
+schema_version: 1.0.0
+execution_plan_id: RBC-P002-SYNTHETIC-EXECUTION-2026-08-29
+status: blocked_pending_exact_review_and_owner_disposition
+command: run-analysis
+ledger: examples/ledger/track-003-rbc-p002-synthetic.yml
+analysis: examples/analyses/track-003-rbc-p002-synthetic.yml
+quality_disposition: docs/track-003-rbc-p002-synthetic-quality-disposition-2026-08-29.yml
+source_release_bindings: manifests/ledger/track-009-source-release-bindings-2026-08-16.json
+created_at: '2026-08-29T00:00:00Z'
+intended_output: manifests/demonstrators/track-003-rbc-p002-synthetic-execution-2026-08-29.json
+execution_limit: one_persisted_provenance_bound_synthetic_assurance_output
+claims:
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  clinical_validity: false
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  publication_authority: false
+  production_release_authority: false

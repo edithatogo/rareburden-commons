@@ -55,8 +55,8 @@ does not promote the existing incompatible population-times-fraction fixture.
 
 Still blocked: clinical gene/phenotype freeze, empirical parameter activation,
 controlled data, public-aggregate execution, independent review, actual
-patient/community authority, publication and production release. Exact-candidate
-The exact-candidate scientific/methods, engineering and simulated harm agent
+patient/community authority, publication and production release. The
+exact-candidate scientific/methods, engineering and simulated harm agent
 reviews passed for candidate `675c38e`, and the repository owner accepted the
 bounded registration in
 `docs/decisions/2026-08-29-track-003-bounded-registration-disposition.yml`.

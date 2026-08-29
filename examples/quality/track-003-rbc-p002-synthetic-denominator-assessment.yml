@@ -1,0 +1,31 @@
+schema_version: 1.0.0
+assessment_id: eqa-8fabe04ca65969d8f4c9c741
+subject:
+  subject_type: parameter
+  subject_id: rbc-p002-diabetes-denominator-synthetic
+assessed_at: '2026-08-29T00:00:00Z'
+assessor:
+  role: RareBurden synthetic assurance harness
+  identifier: track-003-bounded-reference
+  independence: producer
+framework_version: RareBurden-EQA-1.0.0
+domains:
+  - domain: construct_validity
+    judgement: low_concern
+    rationale: The parameter is explicitly a synthetic count of people meeting the bound primary diabetes denominator role.
+    evidence_refs: [RBC-P002-ESTIMAND-DENOMINATOR-v0.1.0]
+  - domain: representativeness
+    judgement: some_concern
+    rationale: The value is deliberately synthetic and cannot support geographic or population inference.
+    evidence_refs: [track-003-synthetic-denominator-candidate]
+  - domain: computational_reproducibility
+    judgement: low_concern
+    rationale: The distribution, context and semantic identifiers are committed and content addressed.
+    evidence_refs: [track-003-synthetic-ledger]
+overall_judgement:
+  decision: direct_use
+  rationale: Suitable only as the compatible case-count envelope for bounded synthetic assurance.
+  unresolved_questions:
+    - No empirical diabetes denominator release has been qualified.
+limitations:
+  - Synthetic assurance record; not an observed diabetes population count.

@@ -1,0 +1,42 @@
+schema_version: 1.0.0
+track_id: 003-monogenic-diabetes-demonstrator
+decision_type: synthetic_denominator_execution_disposition
+decided_on: '2026-08-29'
+decided_by: edithatogo
+accountable_role: repository owner and sole accountable human
+authorization_source: >-
+  Owner instruction to proceed with recommended repository-owned work and use
+  agents for required review.
+candidate:
+  commit: fc6f8d755581ce87d38fc8953f8e20f2c89b56ba
+  tree: 94da74dfee88790fbc6a7da7abfe367b8ca922b8
+  document: docs/track-003-rbc-p002-synthetic-denominator-candidate-2026-08-29.yml
+  candidate_sha256: 95beebc8a371633a4b2a0d06a214fafc92dab8f212de9e4f857be0faab429f9c
+agent_review_receipts:
+  scientific_methods: docs/reviews/track-003-synthetic-denominator-scientific-agent-2026-08-29.yml
+  engineering_reproducibility_security: docs/reviews/track-003-synthetic-denominator-engineering-agent-2026-08-29.yml
+  simulated_patient_community_harm: docs/reviews/track-003-synthetic-denominator-simulated-community-harm-agent-2026-08-29.yml
+decision:
+  synthetic_denominator_qualified: true
+  synthetic_execution_authorized: true
+  persisted_output_limit: 1
+  exact_execution_plan: docs/track-003-rbc-p002-synthetic-execution-plan-2026-08-29.yml
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+claims:
+  agent_panel_review_complete: true
+  independent_review: false
+  scientific_approval: false
+  clinical_approval: false
+  patient_community_approval: false
+  community_representation: false
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  publication_authority: false
+  production_release_authority: false
+reopen_triggers:
+- Candidate, review receipt, execution plan or input hash drift.
+- More than one persisted output or any unbound execution input.
+- Any empirical, clinical, community, publication or production authority claim.
