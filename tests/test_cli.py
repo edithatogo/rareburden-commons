@@ -26,7 +26,10 @@ def test_doctor_json_reports_healthy_repository(capsys: pytest.CaptureFixture[st
     assert payload["ok"] is True
 
 
-def test_estimate_cases_json(capsys: pytest.CaptureFixture[str]) -> None:
+@pytest.mark.parametrize("json_flag", [[], ["--json"]])
+def test_estimate_cases_fails_closed(
+    capsys: pytest.CaptureFixture[str], json_flag: list[str]
+) -> None:
     result = main(
         [
             "estimate-cases",
@@ -42,12 +45,11 @@ def test_estimate_cases_json(capsys: pytest.CaptureFixture[str]) -> None:
             "0.05",
             "--fraction-upper",
             "0.2",
-            "--json",
+            *json_flag,
         ]
     )
-    assert result == 0
-    output = capsys.readouterr().out
-    payload = json.loads(output)
-    assert payload["estimate"] == 100
-    assert payload["lower"] == 45
-    assert payload["upper"] == 220
+    assert result == 1
+    captured = capsys.readouterr()
+    assert captured.out == ""
+    assert "detached numeric inputs cannot satisfy" in captured.err
+    assert "use run-analysis" in captured.err

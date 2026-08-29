@@ -34,7 +34,7 @@ from rareburden.acquisition.normalise import (
     validate_dataset,
     write_dataset,
 )
-from rareburden.burden import BurdenInputError, IntervalEstimate, expected_affected_population
+from rareburden.burden import BurdenInputError
 from rareburden.burden_assurance import run_bounded_synthetic_analysis
 from rareburden.catalog import CatalogValidationError, validate_catalog_files
 from rareburden.gapmap import GapMapError, build_domain_gap_map, render_gap_map_markdown
@@ -250,7 +250,8 @@ def build_parser() -> argparse.ArgumentParser:
     _add_json_argument(analysis)
 
     estimate = subparsers.add_parser(
-        "estimate-cases", help="calculate a deterministic affected-population estimate"
+        "estimate-cases",
+        help="deprecated unsafe detached calculator; use provenance-bound run-analysis",
     )
     estimate.add_argument("--population", type=float, required=True)
     estimate.add_argument("--population-lower", type=float)
@@ -768,30 +769,12 @@ def _analysis_payload(args: argparse.Namespace, root: Path) -> dict[str, Any]:
 
 
 def _estimate_payload(args: argparse.Namespace) -> dict[str, object]:
-    result = expected_affected_population(
-        IntervalEstimate(
-            args.population,
-            args.population_lower,
-            args.population_upper,
-            "people",
-            "observed",
-        ),
-        IntervalEstimate(
-            args.fraction,
-            args.fraction_lower,
-            args.fraction_upper,
-            "proportion",
-            "modelled",
-        ),
+    del args
+    raise ModelError(
+        "estimate-cases is disabled because detached numeric inputs cannot satisfy "
+        "the bounded provenance and synthetic-use contract; use run-analysis with "
+        "an exact ledger, quality disposition, and source-release binding receipt"
     )
-    return {
-        "estimate": result.estimate,
-        "lower": result.lower,
-        "upper": result.upper,
-        "unit": result.unit,
-        "evidence_status": result.evidence_status,
-        "warning": "Endpoint bounds do not encode correlation; use a registered simulation.",
-    }
 
 
 def _gap_payload(args: argparse.Namespace, root: Path) -> dict[str, Any]:
@@ -985,11 +968,6 @@ def _print_payload(command: str, payload: dict[str, Any], as_json: bool) -> None
         print(
             f"Aggregated {payload['aggregation_id']}: {payload['value']} {payload['unit']} "
             f"({payload['coverage']})"
-        )
-    elif command == "estimate-cases":
-        print(
-            f"Estimated cases: {payload['estimate']} ({payload['lower']} to {payload['upper']}) "
-            f"{payload['unit']}"
         )
     elif command == "run-analysis":
         summary = payload["summary"]
