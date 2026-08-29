@@ -56,4 +56,11 @@ does not promote the existing incompatible population-times-fraction fixture.
 Still blocked: clinical gene/phenotype freeze, empirical parameter activation,
 controlled data, public-aggregate execution, independent review, actual
 patient/community authority, publication and production release. Exact-candidate
-agent review and owner disposition are the next repository-owned gate.
+The exact-candidate scientific/methods, engineering and simulated harm agent
+reviews passed for candidate `675c38e`, and the repository owner accepted the
+bounded registration in
+`docs/decisions/2026-08-29-track-003-bounded-registration-disposition.yml`.
+These receipts are advisory repository evidence only and create no independent,
+clinical or community authority. The next repository-owned gate is qualification
+of a protocol-compatible synthetic denominator or exact rights-receipted
+public-aggregate parameter set under issue 261; execution remains disabled.

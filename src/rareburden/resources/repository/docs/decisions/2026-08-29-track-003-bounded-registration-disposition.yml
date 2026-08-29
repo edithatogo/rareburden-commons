@@ -10,6 +10,7 @@ authorization_source: >-
 candidate:
   commit: "675c38e6c09099878c8087f7b722cea32c4d9277"
   tree: "b86f8754fcd6093c1baa6d9189c96d96d4a423e5"
+  git_identity_retention: "receipt_only_not_a_durable_ref_after_squash"
   registration: "docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml"
   registration_sha256: "fceee6bfd1ea62a4413e0e9aa9afab61a5a098a327b884ae94891b85ef7f2cec"
 agent_review_receipts:

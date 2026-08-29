@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import hashlib
-import subprocess
 from pathlib import Path
 
 import yaml
@@ -24,14 +23,6 @@ def test_track003_bounded_review_closeout_is_exact_and_non_activating() -> None:
     candidate = decision["candidate"]
     assert candidate["commit"] == EXPECTED_COMMIT
     assert candidate["tree"] == EXPECTED_TREE
-    actual_tree = subprocess.run(
-        ["git", "rev-parse", f"{EXPECTED_COMMIT}^{{tree}}"],
-        cwd=ROOT,
-        check=True,
-        capture_output=True,
-        text=True,
-    ).stdout.strip()
-    assert actual_tree == EXPECTED_TREE
     registration = ROOT / candidate["registration"]
     assert hashlib.sha256(registration.read_bytes()).hexdigest() == EXPECTED_REGISTRATION_SHA
     assert candidate["registration_sha256"] == EXPECTED_REGISTRATION_SHA
