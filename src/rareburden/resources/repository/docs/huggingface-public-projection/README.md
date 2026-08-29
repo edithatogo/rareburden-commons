@@ -21,8 +21,9 @@ Included:
 
 - Orphadata July 2026 alignment and epidemiology files — CC BY 4.0.
 - Exact MONDO release assets — CC BY 4.0. The currently receipt-bound history
-  covers `v2026-08-04`, `v2026-07-06`, `v2026-06-02`, `v2026-05-05` and
-  `v2026-04-07` and `v2026-03-03`; this is a bounded frontier, not a
+  covers `v2026-08-04`, `v2026-07-06`, `v2026-06-02`, `v2026-05-05`,
+  `v2026-04-07`, `v2026-03-03`, `v2026-02-03`, `v2026-01-06` and
+  `v2025-12-02` through `v2025-11-04`; this is a bounded frontier, not a
   completeness claim.
 - UN World Population Prospects 2024 demographic indicators workbook —
   CC BY 3.0 IGO, excluding any third-party classifications.
