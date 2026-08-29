@@ -9,6 +9,7 @@ import yaml
 from scripts.check_track003_synthetic_execution import (
     FALSE_CLAIMS,
     Track003SyntheticExecutionError,
+    _scientific_projection,
     validate,
 )
 
@@ -54,3 +55,17 @@ def test_execution_rejects_output_hash_drift(tmp_path: Path) -> None:
     document["persisted_output"]["sha256"] = "0" * 64
     with pytest.raises(Track003SyntheticExecutionError, match="binding drift"):
         validate(_closeout(tmp_path, document), ROOT)
+
+
+def test_scientific_projection_excludes_only_runtime_identity() -> None:
+    result = yaml.safe_load(
+        (
+            ROOT / "manifests/demonstrators/track-003-rbc-p002-synthetic-execution-2026-08-29.json"
+        ).read_text(encoding="utf-8")
+    )
+    projection = _scientific_projection(result)
+    assert "runtime" not in projection
+    assert "analysis_result_id" not in projection
+    assert projection["summary"] == result["summary"]
+    assert projection["limitations"] == result["limitations"]
+    assert projection["activation_state"] == "not_activated"

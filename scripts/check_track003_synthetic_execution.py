@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 from pathlib import Path
+from typing import Any
 
 from rareburden.burden_assurance import run_bounded_synthetic_analysis
 from rareburden.ledger import load_ledger
@@ -32,6 +33,13 @@ FALSE_CLAIMS = {
 
 def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _scientific_projection(result: dict[str, Any]) -> dict[str, Any]:
+    """Remove runtime identity while retaining every scientific and boundary field."""
+    return {
+        key: value for key, value in result.items() if key not in {"analysis_result_id", "runtime"}
+    }
 
 
 def validate(closeout_path: Path, root: Path) -> None:
@@ -91,7 +99,9 @@ def validate(closeout_path: Path, root: Path) -> None:
         disposition,
         created_at="2026-08-29T00:00:00Z",
     )
-    if reconstructed != repeated or reconstructed != retained:
+    if reconstructed != repeated or _scientific_projection(reconstructed) != _scientific_projection(
+        retained
+    ):
         raise Track003SyntheticExecutionError("deterministic reconstruction drift")
 
 
