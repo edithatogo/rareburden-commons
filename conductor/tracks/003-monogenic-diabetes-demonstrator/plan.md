@@ -7,7 +7,7 @@
 - [x] Register bounded RBC-P002 v0.2.0 with explicit estimands and denominator options. Evidence: `docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml` and `scripts/check_track003_bounded_registration.py`; execution remains disabled. `[M-01, M-03, S-05]`
 - [x] Bind the synthetic monogenic-diabetes entity scope and hierarchy version while explicitly leaving clinical gene/phenotype scope unfrozen. Evidence: the bounded registration and `docs/decisions/2026-08-29-track-003-bounded-interface-scope.yml`. `[M-02, S-01]`
 - [x] Bind the diagnosed, undiagnosed, modelled, unclassified and out-of-scope population-state contract. Evidence: bounded registration plus `docs/track-003-population-state-contract-v0.1.0.yml`. `[M-04]`
-- [ ] Obtain clinical-methods and community/harm agent-panel review of framing and owner disposition.
+- [x] Obtain clinical-methods and community/harm agent-panel review of framing and owner disposition. Evidence: `docs/reviews/track-003-bounded-scientific-agent-2026-08-29.yml`, `docs/reviews/track-003-bounded-simulated-community-harm-agent-2026-08-29.yml` and `docs/decisions/2026-08-29-track-003-bounded-registration-disposition.yml`; these are advisory repository evidence, not independent, clinical or community authority.
 
 ## Phase 2 — Evidence ledger
 
