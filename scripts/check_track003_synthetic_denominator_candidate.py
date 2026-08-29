@@ -10,6 +10,7 @@ from typing import Any
 
 import yaml
 
+from rareburden.burden_assurance import run_bounded_synthetic_analysis
 from rareburden.ledger import load_ledger
 from rareburden.quality import (
     validate_evidence_assessment,
@@ -27,6 +28,9 @@ class Track003SyntheticCandidateError(ValueError):
 EXPECTED_BINDINGS = {
     "registration": "docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml",
     "estimand_contract": "docs/track-003-estimand-denominator-contract-v0.1.0.yml",
+    "synthetic_ledger_profile": (
+        "examples/demonstrators/003-rbc-p002-synthetic-ledger-profile-v0.2.0.yml"
+    ),
     "ledger": "examples/ledger/track-003-rbc-p002-synthetic.yml",
     "analysis": "examples/analyses/track-003-rbc-p002-synthetic.yml",
     "denominator_assessment": (
@@ -39,6 +43,10 @@ EXPECTED_BINDINGS = {
         "examples/quality/track-003-rbc-p002-synthetic-transportability-assessment.yml"
     ),
     "quality_disposition": ("docs/track-003-rbc-p002-synthetic-quality-disposition-2026-08-29.yml"),
+    "source_release_bindings": (
+        "manifests/ledger/track-009-source-release-bindings-2026-08-16.json"
+    ),
+    "execution_plan": "docs/track-003-rbc-p002-synthetic-execution-plan-2026-08-29.yml",
 }
 FALSE_CLAIMS = {
     "empirical_parameter_activation",
@@ -69,6 +77,32 @@ def _bound_path(root: Path, value: object) -> Path:
     except ValueError as exc:
         raise Track003SyntheticCandidateError("binding path escapes repository") from exc
     return path
+
+
+def validate_required_alignment(denominator: dict[str, Any], fraction: dict[str, Any]) -> None:
+    """Validate every RBC-P002 primary-denominator alignment dimension."""
+    expected_population = {
+        "population_id": "rbc-p002-primary-diabetes-synthetic",
+        "geography_id": "synthetic-rbc-p002",
+        "sex": "all",
+        "age_min": 0,
+        "age_max": 100,
+    }
+    expected_period = {"start": "2025-01-01", "end": "2025-12-31"}
+    if any(
+        parameter.get("population") != expected_population for parameter in (denominator, fraction)
+    ):
+        raise Track003SyntheticCandidateError("population alignment drift")
+    if any(parameter.get("period") != expected_period for parameter in (denominator, fraction)):
+        raise Track003SyntheticCandidateError("period alignment drift")
+    expected_definition = {
+        "diabetes_case_definition": "synthetic-primary-diabetes-case-definition-v1",
+        "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+    }
+    for parameter in (denominator, fraction):
+        definition = parameter.get("disease_definition", {})
+        if any(definition.get(key) != value for key, value in expected_definition.items()):
+            raise Track003SyntheticCandidateError("required alignment drift")
 
 
 def validate(candidate_path: Path, root: Path) -> None:
@@ -111,30 +145,43 @@ def validate(candidate_path: Path, root: Path) -> None:
     if sorted(ledger.records) != sorted(parameter_ids):
         raise Track003SyntheticCandidateError("synthetic parameter set drift")
     denominator, fraction = (ledger.get(item) for item in parameter_ids)
-    expected_population = {
-        "population_id": "rbc-p002-primary-diabetes-synthetic",
-        "geography_id": "synthetic-rbc-p002",
-        "sex": "all",
-        "age_min": 0,
-        "age_max": 100,
-    }
-    expected_period = {"start": "2025-01-01", "end": "2025-12-31"}
     if (
         denominator.get("quantity_type") != "case_count"
         or denominator.get("unit") != "people"
-        or denominator.get("metric") != "case_count"
-        or denominator.get("population") != expected_population
-        or denominator.get("period") != expected_period
+        or denominator.get("metric") != "count"
         or denominator.get("disease_definition", {}).get("denominator_id")
         != "D-RBC-P002-PRIMARY-DIABETES"
         or fraction.get("quantity_type") != "fraction"
         or fraction.get("unit") != "proportion"
-        or fraction.get("population") != expected_population
-        or fraction.get("period") != expected_period
         or fraction.get("disease_definition", {}).get("estimand_id")
         != "E-RBC-P002-AETIOLOGIC-PROPORTION"
     ):
         raise Track003SyntheticCandidateError("parameter compatibility drift")
+
+    validate_required_alignment(denominator, fraction)
+
+    profile = load_mapping(root / EXPECTED_BINDINGS["synthetic_ledger_profile"])
+    if profile.get("requirements") != [
+        {
+            "role": "denominator",
+            "acceptable_quantity_types": ["case_count"],
+            "acceptable_metrics": ["count"],
+            "parameter_id": parameter_ids[0],
+        },
+        {
+            "role": "aetiologic_fraction",
+            "acceptable_quantity_types": ["fraction"],
+            "acceptable_metrics": ["case_fraction"],
+            "parameter_id": parameter_ids[1],
+        },
+    ] or profile.get("required_alignment") != [
+        "geography",
+        "period",
+        "age_band",
+        "diabetes_case_definition",
+        "ascertainment_target",
+    ]:
+        raise Track003SyntheticCandidateError("synthetic ledger profile drift")
 
     analysis = load_mapping(root / EXPECTED_BINDINGS["analysis"])
     validate_instance(
@@ -196,6 +243,42 @@ def validate(candidate_path: Path, root: Path) -> None:
     if failures:
         raise Track003SyntheticCandidateError("quality graph drift: " + "; ".join(failures))
 
+    execution_plan = load_mapping(root / EXPECTED_BINDINGS["execution_plan"])
+    expected_plan = {
+        "command": "run-analysis",
+        "ledger": EXPECTED_BINDINGS["ledger"],
+        "analysis": EXPECTED_BINDINGS["analysis"],
+        "quality_disposition": EXPECTED_BINDINGS["quality_disposition"],
+        "source_release_bindings": EXPECTED_BINDINGS["source_release_bindings"],
+        "created_at": "2026-08-29T00:00:00Z",
+        "intended_output": (
+            "manifests/demonstrators/track-003-rbc-p002-synthetic-execution-2026-08-29.json"
+        ),
+    }
+    if any(execution_plan.get(key) != value for key, value in expected_plan.items()):
+        raise Track003SyntheticCandidateError("execution plan drift")
+    result = run_bounded_synthetic_analysis(
+        analysis,
+        ledger,
+        load_mapping(root / EXPECTED_BINDINGS["source_release_bindings"]),
+        disposition,
+        created_at=expected_plan["created_at"],
+    )
+    repeated_result = run_bounded_synthetic_analysis(
+        analysis,
+        ledger,
+        load_mapping(root / EXPECTED_BINDINGS["source_release_bindings"]),
+        disposition,
+        created_at=expected_plan["created_at"],
+    )
+    if result != repeated_result:
+        raise Track003SyntheticCandidateError("deterministic dry-run drift")
+    validate_instance(
+        result,
+        load_mapping(root / "schemas/analysis-result.schema.json"),
+        label="track003_dry_run_result",
+    )
+
     expected_scope = {
         "estimand_id": "E-RBC-P002-EXPECTED-CASES",
         "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
@@ -209,6 +292,9 @@ def validate(candidate_path: Path, root: Path) -> None:
         "schema_valid": True,
         "compatible_population_context": True,
         "compatible_period_context": True,
+        "compatible_age_band": True,
+        "compatible_diabetes_case_definition": True,
+        "compatible_ascertainment_target": True,
         "compatible_case_count_times_fraction_units": True,
         "quality_graph_closed": True,
         "exact_candidate_review_complete": False,
@@ -220,6 +306,11 @@ def validate(candidate_path: Path, root: Path) -> None:
     claims = candidate.get("claims", {})
     if set(claims) != FALSE_CLAIMS or any(claims[name] is not False for name in FALSE_CLAIMS):
         raise Track003SyntheticCandidateError("activation or authority claim drift")
+    if candidate.get("next_gate") != (
+        "Bind role-separated agent review and repository-owner disposition to the exact "
+        "candidate commit before one provenance-bound synthetic assurance execution."
+    ):
+        raise Track003SyntheticCandidateError("next gate drift")
 
 
 def main() -> int:

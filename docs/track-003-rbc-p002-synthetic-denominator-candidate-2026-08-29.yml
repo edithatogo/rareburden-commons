@@ -8,12 +8,15 @@ created_on: "2026-08-29"
 bindings:
   registration: {path: "docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml", sha256: "fceee6bfd1ea62a4413e0e9aa9afab61a5a098a327b884ae94891b85ef7f2cec"}
   estimand_contract: {path: "docs/track-003-estimand-denominator-contract-v0.1.0.yml", sha256: "b69cd5d016bf7bb2b47ee957fc59edf9184614225c888802606da8cd848e8358"}
-  ledger: {path: "examples/ledger/track-003-rbc-p002-synthetic.yml", sha256: "584d76a865496f59caa1881e093ff708d2a7460e5325aa0bc8074588f9763298"}
+  synthetic_ledger_profile: {path: "examples/demonstrators/003-rbc-p002-synthetic-ledger-profile-v0.2.0.yml", sha256: "6cc3f6f8f16a500cc787db3cfe9ebe52f1e00656e16fc1969b5b96348ebc6673"}
+  ledger: {path: "examples/ledger/track-003-rbc-p002-synthetic.yml", sha256: "9f855cf7a93e4efafdbb2419e5f29199543f2da0b83ee392727eb52ea3503a2e"}
   analysis: {path: "examples/analyses/track-003-rbc-p002-synthetic.yml", sha256: "e7f891cb8cafeee48d69fc3eef8863eb60679f0869b5bb4ac6ff9d09c9cfad58"}
   denominator_assessment: {path: "examples/quality/track-003-rbc-p002-synthetic-denominator-assessment.yml", sha256: "de705187576cda6a614fbf4b20d9ad83ceb25389dec2fc80ae98c5881530620b"}
   fraction_assessment: {path: "examples/quality/track-003-rbc-p002-synthetic-fraction-assessment.yml", sha256: "833ac98634cef778e36862f6cb66ba0192f3ae7bfeb8e02c3a3daf1677c7c580"}
   transportability_assessment: {path: "examples/quality/track-003-rbc-p002-synthetic-transportability-assessment.yml", sha256: "1512c35cd1a786b466ad8c33a4481f19ac852d368249f0fbbe0ddf054a46b015"}
   quality_disposition: {path: "docs/track-003-rbc-p002-synthetic-quality-disposition-2026-08-29.yml", sha256: "1fa97800df6896631cef2cfe62ec80bf98b31b71d6081bb5adaefe40d191309d"}
+  source_release_bindings: {path: "manifests/ledger/track-009-source-release-bindings-2026-08-16.json", sha256: "c6ab77c5477a97016df5db28a8db17b20449a812de29ebe24802682037d129f3"}
+  execution_plan: {path: "docs/track-003-rbc-p002-synthetic-execution-plan-2026-08-29.yml", sha256: "ca0804feac1e4e06c47b9738e60c867d7fb2a36166fe28387c80d2e5fccc7116"}
 registered_scope:
   estimand_id: "E-RBC-P002-EXPECTED-CASES"
   denominator_id: "D-RBC-P002-PRIMARY-DIABETES"
@@ -24,6 +27,9 @@ qualification:
   schema_valid: true
   compatible_population_context: true
   compatible_period_context: true
+  compatible_age_band: true
+  compatible_diabetes_case_definition: true
+  compatible_ascertainment_target: true
   compatible_case_count_times_fraction_units: true
   quality_graph_closed: true
   exact_candidate_review_complete: false

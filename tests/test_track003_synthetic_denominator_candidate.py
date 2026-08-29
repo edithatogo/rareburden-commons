@@ -6,10 +6,12 @@ from pathlib import Path
 import pytest
 import yaml
 
+from rareburden.ledger import load_ledger
 from scripts.check_track003_synthetic_denominator_candidate import (
     FALSE_CLAIMS,
     Track003SyntheticCandidateError,
     validate,
+    validate_required_alignment,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -78,3 +80,34 @@ def test_candidate_rejects_scope_relabelling(tmp_path: Path) -> None:
     document["registered_scope"]["denominator_id"] = "D-RBC-P002-TOTAL-POPULATION"
     with pytest.raises(Track003SyntheticCandidateError, match="registered scope drift"):
         validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_candidate_rejects_next_gate_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(_document())
+    document["next_gate"] = "execute now"
+    with pytest.raises(Track003SyntheticCandidateError, match="next gate drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+@pytest.mark.parametrize(
+    ("location", "field", "value", "message"),
+    [
+        ("population", "geography_id", "other", "population alignment"),
+        ("population", "age_max", 99, "population alignment"),
+        ("period", "end", "2024-12-31", "period alignment"),
+        ("disease_definition", "diabetes_case_definition", "other", "required alignment"),
+        ("disease_definition", "ascertainment_target", "other", "required alignment"),
+    ],
+)
+def test_every_required_alignment_dimension_fails_closed(
+    location: str, field: str, value: object, message: str
+) -> None:
+    ledger = load_ledger(
+        ROOT / "examples/ledger/track-003-rbc-p002-synthetic.yml",
+        ROOT / "schemas/parameter-ledger.schema.json",
+    )
+    denominator = copy.deepcopy(ledger.get("rbc-p002-diabetes-denominator-synthetic"))
+    fraction = copy.deepcopy(ledger.get("rbc-p002-aetiologic-fraction-synthetic"))
+    fraction[location][field] = value
+    with pytest.raises(Track003SyntheticCandidateError, match=message):
+        validate_required_alignment(denominator, fraction)

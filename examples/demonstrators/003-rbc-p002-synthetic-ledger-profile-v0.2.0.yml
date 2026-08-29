@@ -1,0 +1,28 @@
+schema_version: 1.0.0
+demonstrator_id: 003-monogenic-diabetes-demonstrator
+protocol_id: RBC-P002
+status: bounded_synthetic_candidate
+supersedes:
+  path: examples/demonstrators/003-ledger-profile.yml
+  scope: RBC-P002 synthetic assurance only
+  rationale: >-
+    The earlier non-binding profile used a total-population denominator and is
+    incompatible with the registered within-diabetes aetiologic fraction.
+requirements:
+- role: denominator
+  acceptable_quantity_types: [case_count]
+  acceptable_metrics: [count]
+  parameter_id: rbc-p002-diabetes-denominator-synthetic
+- role: aetiologic_fraction
+  acceptable_quantity_types: [fraction]
+  acceptable_metrics: [case_fraction]
+  parameter_id: rbc-p002-aetiologic-fraction-synthetic
+required_alignment:
+- geography
+- period
+- age_band
+- diabetes_case_definition
+- ascertainment_target
+limitations:
+- This profile is synthetic-only and does not activate empirical parameters.
+- It does not supersede the earlier profile for any empirical or public-aggregate use.

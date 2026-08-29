@@ -8,7 +8,7 @@ parameters:
     label: Synthetic primary diabetes case-count denominator
     quantity_type: case_count
     measure: people meeting the synthetic primary diabetes denominator definition
-    metric: case_count
+    metric: count
     unit: people
     distribution:
       type: normal
@@ -34,6 +34,8 @@ parameters:
     disease_definition:
       contract_id: RBC-P002-ESTIMAND-DENOMINATOR-v0.1.0
       denominator_id: D-RBC-P002-PRIMARY-DIABETES
+      diabetes_case_definition: synthetic-primary-diabetes-case-definition-v1
+      ascertainment_target: all-people-meeting-synthetic-primary-diabetes-definition
       definition_status: synthetic_assurance_only
     assumption_rationale: A transparent synthetic diabetes case-count envelope used only to test the registered RBC-P002 denominator role.
     evidence_assessment_ids:
@@ -74,6 +76,8 @@ parameters:
     disease_definition:
       contract_id: RBC-P002-ESTIMAND-DENOMINATOR-v0.1.0
       estimand_id: E-RBC-P002-AETIOLOGIC-PROPORTION
+      diabetes_case_definition: synthetic-primary-diabetes-case-definition-v1
+      ascertainment_target: all-people-meeting-synthetic-primary-diabetes-definition
       definition_status: synthetic_assurance_only
     assumption_rationale: A transparent synthetic beta distribution used only to exercise the bounded rare-within-common analysis path.
     evidence_assessment_ids:
