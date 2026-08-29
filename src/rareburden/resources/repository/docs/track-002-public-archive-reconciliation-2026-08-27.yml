@@ -1,25 +1,28 @@
 schema_version: "1.0"
 status: bounded_public_exact_archive_observed
-observed_at_utc: "2026-08-28T23:56:00Z"
+observed_at_utc: "2026-08-29T00:19:00Z"
 destination:
   repository: edithatogo/rareburden-commons-open-source-snapshots
   url: https://huggingface.co/datasets/edithatogo/rareburden-commons-open-source-snapshots
   visibility: public
-  observed_commit: fd14a67b9d47c65aa05d386effdb430054a4e4dc
-  observed_file_count: 688
+  observed_commit: eca66691a9edb72b19272c8ddec9dc81116dcb93
+  observed_file_count: 786
 change:
   starting_commit: 7f53de277671109c92bf8c4f4ab02c6ef200c51a
   starting_file_count: 549
-  exact_assets_added: 138
+  exact_assets_added: 237
   mondo_releases_completed:
     - v2026-07-06
     - v2026-06-02
     - v2026-05-05
     - v2026-04-07
     - v2026-03-03
-  exact_bytes_bound_in_cursor: 11316218745
+    - v2026-02-03
+    - v2026-01-06
+    - v2025-12-02
+  exact_bytes_bound_in_cursor: 18084035696
   next_cursor:
-    release_index: 6
+    release_index: 9
     asset_index: 0
 controls:
   licence: CC BY 4.0
@@ -37,6 +40,15 @@ controls:
   byte_identity: sha256_per_asset
   hosted_verification: exact_destination_digest_or_bounded_redownload
   batch_limit_bytes: 500000000
+  frontier_partial_run:
+    run_id: 33222673927
+    status: verified_through_release_index_8_then_rate_limited
+    receipt_sha256: d2bb45c16319261c2ebddc804aed7781c232d624a92fee8b4d6d05ae3a9f8af0
+    artifact_digest_sha256: bdfeed9081281c04745b946cc9ed50257f07deb6b4a5a353f49f755545b5cab6
+    completed_assets: 96
+    completed_bytes: 6767816951
+    next_release_index: 9
+    failure: hugging_face_repository_commit_rate_limit_128_per_hour
   hosted_run_ids:
     - 33052561233
     - 33052659253
@@ -67,6 +79,7 @@ controls:
     - 33221709345
     - 33221777654
     - 33221815433
+    - 33222673927
 rights_routes:
   public_full_bytes:
     - MONDO exact release assets under CC BY 4.0

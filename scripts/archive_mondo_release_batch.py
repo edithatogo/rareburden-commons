@@ -11,6 +11,7 @@ import tempfile
 import time
 import urllib.parse
 import urllib.request
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -197,10 +198,34 @@ def verify_remote_object(
     return remote_sha == expected_sha256
 
 
+def commit_asset_batch(api: Any, operations: list[Any], *, release: str) -> None:
+    """Publish all new assets in one atomic HF commit to stay below commit limits."""
+    if not operations:
+        return
+    api.create_commit(
+        repo_id=DESTINATION,
+        repo_type="dataset",
+        operations=operations,
+        commit_message=f"Archive bounded MONDO {release} asset batch",
+    )
+
+
+def pace_source_download(
+    downloaded_count: int, *, sleeper: Callable[[float], None] = time.sleep
+) -> None:
+    """Honor the pinned sequential-source delay between publisher downloads."""
+    if downloaded_count:
+        sleeper(2.0)
+
+
 def archive_batch(
     *, release_index: int, asset_start: int, asset_count: int, max_bytes: int
 ) -> dict[str, Any]:
-    from huggingface_hub import HfApi, hf_hub_download  # type: ignore[import-not-found]
+    from huggingface_hub import (  # type: ignore[import-not-found]
+        CommitOperationAdd,
+        HfApi,
+        hf_hub_download,
+    )
 
     token = os.environ.get("HF_TOKEN")
     if not token:
@@ -222,12 +247,12 @@ def archive_batch(
         raise RuntimeError("MONDO destination must remain public")
     remote = {item.rfilename: item for item in info.siblings}
     receipts = []
+    operations = []
     remaining = max_bytes
     with tempfile.TemporaryDirectory(prefix="rareburden-mondo-") as temporary:
         root = Path(temporary)
         for offset, asset in enumerate(assets, start=asset_start):
-            if receipts:
-                time.sleep(2)
+            pace_source_download(len(receipts))
             name = str(asset["name"])
             if Path(name).name != name or name in {".", ".."}:
                 raise ValueError("unsafe MONDO asset filename")
@@ -256,15 +281,13 @@ def archive_batch(
                     )
                 action = "reused_exact_remote_digest"
             else:
-                api.upload_file(
-                    path_or_fileobj=destination,
-                    path_in_repo=archive_path,
-                    repo_id=DESTINATION,
-                    repo_type="dataset",
-                    commit_message=f"Archive MONDO {release} {name}",
+                operations.append(
+                    CommitOperationAdd(
+                        path_or_fileobj=str(destination),
+                        path_in_repo=archive_path,
+                    )
                 )
                 action = "uploaded_exact_unmodified_asset"
-            destination.unlink()
             receipts.append(
                 {
                     "release_index": release_index,
@@ -279,6 +302,7 @@ def archive_batch(
                     "action": action,
                 }
             )
+        commit_asset_batch(api, operations, release=release)
 
     verified = api.dataset_info(DESTINATION, files_metadata=True)
     remote_after = {item.rfilename: item for item in verified.siblings}

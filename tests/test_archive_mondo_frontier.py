@@ -38,10 +38,10 @@ def test_public_release_requires_exact_terms_and_routes() -> None:
 
 
 def test_committed_frontier_cursor_resolves_at_release_boundary() -> None:
-    assert resolve_release_start(None) == 6
-    assert resolve_release_start(6) == 6
+    assert resolve_release_start(None) == 9
+    assert resolve_release_start(9) == 9
     with pytest.raises(ValueError, match="committed cursor"):
-        resolve_release_start(9)
+        resolve_release_start(10)
 
 
 def test_workflow_module_entrypoint_loads() -> None:
