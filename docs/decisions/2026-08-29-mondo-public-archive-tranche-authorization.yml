@@ -1,0 +1,44 @@
+schema_version: "1.0.0"
+track_id: "002-public-source-acquisition"
+decision_type: "bounded_exact_public_archive_authorization"
+decided_on: "2026-08-29"
+recorded_at_utc: "2026-08-29T04:25:00Z"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+authorization_source: >-
+  Explicit repository-owner instructions in the active Codex task to maximise
+  lawful public archiving, use as much exactly receipted public-aggregate data
+  as possible, address remaining blockers, and complete all remaining bounded
+  work.
+candidate:
+  workflow_head: "eaec0731fa4f36c9a1e6878586cbffd8be778c71"
+  workflow_run_id: 33232479095
+  source_manifest_sha256: "d6f9317203cd0cd7aa352e429fd0467e7758e328084f72c7e0237d86cb89e8d6"
+  release_indices: [10, 11, 12, 13, 14]
+  destination: "edithatogo/rareburden-commons-open-source-snapshots"
+authorization:
+  exact_public_archive: true
+  scope: >-
+    Exact, unmodified MONDO release assets routed as public CC BY 4.0 and
+    verified by per-object digest receipts, within the workflow's 500 MB
+    atomic batch ceiling.
+  maximum_release_count: 5
+  require_exact_hosted_receipts: true
+observed_execution:
+  receipt_sha256: "dcf11e5ad93a34f6068e30afb986608430a895ba93682ee29180c4b111765a23"
+  artifact_digest_sha256: "fed73c6f9caff561755651275de7012596ac40cf3e49d3668d1fa86aed6e0818"
+  public_revision: "3ce98671ebbdc75ed4e84b6e3c5b3003ab337558"
+  completed_assets: 156
+  completed_bytes: 11224339587
+claims:
+  all_mondo_releases_archived: false
+  all_public_sources_archived: false
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  independent_review: false
+  release_authority: false
+limitations: >-
+  This owner decision authorizes only the exact public archive mutation. Agent
+  reviews are advisory and do not create publisher rights, external custodian
+  permission, lived-experience representation, independent human review or a
+  production release decision.
