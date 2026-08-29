@@ -1,0 +1,17 @@
+schema_version: "1.0.0"
+track: "010-public-burden-engine"
+candidate_commit: "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+candidate_tree: "b9665879958b12e629e2149a391c59532e006129"
+status: "bounded_repository_assurance_passed"
+checks:
+  candidate_regeneration: "passed_byte_for_byte"
+  focused_identity_and_readiness_tests: "18_passed"
+  focused_cli_and_containment_tests: "24_passed"
+  memory_peak_bytes: 9607604
+  memory_limit_bytes: 67108864
+  benchmark_maximum_seconds: 15.0
+  full_repository_gate: "1233_passed"
+limitations:
+  - "Repository and agent assurance is not independent or external validation."
+  - "Memory measures Python tracemalloc allocations, not total process RSS."
+  - "Empirical, controlled-data and public-aggregate execution remain unavailable."

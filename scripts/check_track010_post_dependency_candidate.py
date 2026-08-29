@@ -17,6 +17,7 @@ import yaml
 try:
     from scripts.build_track010_post_dependency_candidate import (
         ANALYSIS_SPEC,
+        CLI,
         ENGINE_RECEIPT,
         LOCKFILE,
         MODEL,
@@ -31,6 +32,7 @@ try:
 except ModuleNotFoundError:  # Direct execution places scripts/ on sys.path.
     from build_track010_post_dependency_candidate import (  # type: ignore[no-redef]
         ANALYSIS_SPEC,
+        CLI,
         ENGINE_RECEIPT,
         LOCKFILE,
         MODEL,
@@ -43,12 +45,12 @@ except ModuleNotFoundError:  # Direct execution places scripts/ on sys.path.
         build,
     )
 
-SOURCE_COMMIT = "3258e5fe8d319830006d3583fc8a2aa95f1b67ec"
-SOURCE_TREE = "913116fa49db2f852078816fe38a84efe12b85f6"
+SOURCE_COMMIT = "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+SOURCE_TREE = "b9665879958b12e629e2149a391c59532e006129"
 MANIFEST = Path("manifests/burden/track-010-post-dependency-candidate-2026-08-27.json")
-MANIFEST_SHA256 = "9b5cba5262782b83806db9059414c84fd511a6f2f89b2428bb01deb632791fbf"
+MANIFEST_SHA256 = "985f60fb2c7a254db11e4d7b3ae359e1df9e11260933092e09417132a2ab05b7"
 COMPATIBILITY = Path("manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json")
-COMPATIBILITY_SHA256 = "f99acf10f4eb4aa081b6c265306fce880941914f722b91c11d65c8b156aa876a"
+COMPATIBILITY_SHA256 = "0c24eeb018d41f72b664d62db8122137a117fdbb96f37b1c40e38cdfb95227e3"
 BUILD_INPUTS = [
     ENGINE_RECEIPT,
     ANALYSIS_SPEC,
@@ -58,6 +60,7 @@ BUILD_INPUTS = [
     REFERENCE,
     RESULT_SCHEMA,
     MODEL,
+    CLI,
     QUALITY_DISPOSITION,
     LOCKFILE,
 ]

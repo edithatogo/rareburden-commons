@@ -43,6 +43,21 @@ def test_owner_disposition_preserves_every_dependency_and_freeze_gate() -> None:
         "publication_authority",
         "release_authority",
     ]
-    assert document["review_gate"]["state"] == "pending"
-    assert document["alpha_freeze_gate"]["state"] == "pending"
-    assert set(document["claims"].values()) == {False}
+    assert document["review_gate"]["state"] == "satisfied"
+    assert document["alpha_freeze_gate"]["state"] == "satisfied"
+    assert document["claims"] == {
+        "scientific_approval": False,
+        "engineering_approval": False,
+        "patient_community_approval": False,
+        "community_representation": False,
+        "independent_review": False,
+        "empirical_parameter_activation": False,
+        "controlled_data_activation": False,
+        "public_aggregate_execution": False,
+        "publication_authority": False,
+        "production_release_authority": False,
+        "agent_panel_review_complete": True,
+        "alpha_interface_frozen": True,
+        "empirical_or_production_activation": False,
+        "track_complete": True,
+    }

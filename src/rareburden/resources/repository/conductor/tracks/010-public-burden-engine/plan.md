@@ -1,6 +1,8 @@
 # Track 010 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; scientific, patient/community and engineering dispositions remain separate.
+> Repository-owned review uses the simulated role-separated agent panel under
+> ADR-0009/ADR-0010. Agents advise and the owner decides; no independent-human
+> or actual patient/community review is claimed.
 
 ## Phase 1 — Analysis contracts
 
@@ -34,18 +36,28 @@
 - [x] Add unit, property, golden, convergence and numerical-stability tests. Evidence: `tests/test_burden_numerical_assurance.py`, existing burden/ledger suites and explicit overflow/negative-product rejection.
 - [x] Add negative tests for incompatible DALY/cost shortcuts. Evidence: `tests/test_burden.py` and `tests/test_quality_edges.py`.
 - [x] Benchmark the bounded synthetic reference workload. Evidence: `scripts/check_burden_benchmark.py`, its fail-closed tests and the `make burden-benchmark` release gate; timing is an engineering guard, not scientific validation.
-- [~] Run role-separated scientific-software agent-panel review and owner disposition.
+- [x] Run role-separated scientific-software agent-panel review and owner disposition.
   The exact role-separated advisory packet recommends revision and records the
   repository owner's selection of Option A for bounded remediation. Evidence:
-  `docs/decisions/2026-08-26-track-010-advisory-review.yml`. This is not
-  independent scientific-software, clinical or patient/community review.
+  `docs/decisions/2026-08-26-track-010-advisory-review.yml`. The final exact
+  candidate reviews are bound in `docs/reviews/track-010-alpha-*-2026-08-29.yml`;
+  all blocking findings are resolved. This is not independent scientific-
+  software, clinical or actual patient/community review.
 
 ## Phase 5 — Release
 
 - [x] Produce reproducible public/synthetic reference report. Evidence: `docs/burden-engine-010-reference.md`.
-- [x] Document API/CLI and interpretation limits. Evidence: reference report and `estimate-cases` CLI contract.
-- [ ] Freeze alpha interfaces required by Track 003.
-- [x] Record repository review and residual risks. Evidence: `review.md`; external scientific-software, patient/community and engineering dispositions remain pending.
+- [x] Document API/CLI and interpretation limits. Evidence: reference report,
+  provenance-bound `run-analysis`, and the fail-closed deprecated
+  `estimate-cases` contract.
+- [x] Freeze the bounded synthetic alpha interface required by Track 003.
+  Evidence: `docs/decisions/2026-08-29-track-010-bounded-alpha-freeze.yml`,
+  `docs/track-010-alpha-freeze-readiness-2026-08-21.yml` and exact agent-review
+  receipts. Empirical, controlled-data and public-aggregate execution remain
+  unavailable.
+- [x] Record repository review and residual risks. Evidence: `review.md` and
+  the 2026-08-29 bounded-alpha addendum; agent review is advisory and no
+  independent or actual patient/community approval is claimed.
 
 ## Dependency review — 2026-07-27
 

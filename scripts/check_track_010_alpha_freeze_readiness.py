@@ -23,16 +23,41 @@ FALSE_CLAIMS = {
     "scientific_approval",
     "engineering_approval",
     "patient_community_approval",
+    "community_representation",
+    "empirical_parameter_activation",
+    "controlled_data_activation",
+    "public_aggregate_execution",
+    "publication_authority",
+    "production_release_authority",
     "independent_review",
-    "alpha_interface_frozen",
     "empirical_or_production_activation",
-    "track_complete",
+}
+TRUE_CLAIMS = {"agent_panel_review_complete", "alpha_interface_frozen", "track_complete"}
+FREEZE_DECISION_FALSE_CLAIMS = {
+    "independent_review",
+    "scientific_approval",
+    "engineering_approval",
+    "patient_community_approval",
+    "community_representation",
+    "empirical_parameter_activation",
+    "controlled_data_activation",
+    "public_aggregate_execution",
+    "publication_authority",
+    "production_release_authority",
 }
 REVIEW_RECEIPTS = {
-    "scientific_statistical_receipt",
-    "engineering_receipt",
-    "patient_community_receipt",
-    "independent_scientific_software_receipt",
+    "scientific_statistical_agent_receipt": (
+        "scientific_statistical_agent",
+        ("scientific_approval",),
+    ),
+    "engineering_agent_receipt": (
+        "engineering_reproducibility_security_agent",
+        ("engineering_approval",),
+    ),
+    "simulated_community_harm_agent_receipt": (
+        "simulated_community_harm_interpretation_agent",
+        ("patient_community_approval", "community_representation"),
+    ),
 }
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
@@ -57,9 +82,11 @@ TRACK009_PROHIBITED_EFFECTS = {
 TRACK010_ADVISORY_PACKET = "docs/decisions/2026-08-26-track-010-advisory-review.yml"
 TRACK010_REVIEW_COMMIT = "f35fcf25a336bf6639b86a03f8ea172ab61177e2"
 TRACK010_REVIEW_TREE = "d1496bdb8f3d8dca0e2362ad97ed3368466a02c4"
-TRACK010_CORRECTED_COMMIT = "3258e5fe8d319830006d3583fc8a2aa95f1b67ec"
-TRACK010_CORRECTED_TREE = "913116fa49db2f852078816fe38a84efe12b85f6"
+TRACK010_CORRECTED_COMMIT = "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+TRACK010_CORRECTED_TREE = "b9665879958b12e629e2149a391c59532e006129"
 TRACK010_RE_REVIEW_PACKET = "docs/decisions/2026-08-27-track-010-post-dependency-re-review.yml"
+TRACK010_ALPHA_FREEZE_DECISION = "docs/decisions/2026-08-29-track-010-bounded-alpha-freeze.yml"
+TRACK010_ALPHA_ASSURANCE_RECEIPT = "docs/track-010-alpha-assurance-receipt-2026-08-29.yml"
 TRACK010_RE_REVIEW_COMMIT = "1ed8061483dd4c28528c30c48cc56602e224ea5c"
 TRACK010_RE_REVIEW_TREE = "c8a01f386e16106e06f1b690c663097bc50c3575"
 
@@ -239,7 +266,7 @@ def validate(path: Path, root: Path) -> None:
         or corrected.get("source_tree") != TRACK010_CORRECTED_TREE
         or _git_tree(root, TRACK010_CORRECTED_COMMIT) != TRACK010_CORRECTED_TREE
         or corrected.get("review_status")
-        != "role_separated_advisory_re_review_passed_owner_disposition_pending"
+        != "role_separated_agent_review_passed_owner_freeze_recorded"
     ):
         raise Track010ReadinessError("corrected post-dependency candidate identity drift")
     for path_field, hash_field in (
@@ -259,8 +286,25 @@ def validate(path: Path, root: Path) -> None:
         raise Track010ReadinessError("repository panel output must remain advisory")
     if review.get("owner_status") != "owner_operated_not_independent_review":
         raise Track010ReadinessError("owner disposition cannot be independent review")
-    if review.get("state") == "satisfied" and any(not review.get(item) for item in REVIEW_RECEIPTS):
-        raise Track010ReadinessError("satisfied review requires every accountable receipt")
+    if review.get("state") == "satisfied":
+        for field, (perspective, prohibited_authority) in REVIEW_RECEIPTS.items():
+            receipt = _load(_repository_path(root, review.get(field)))
+            reviewed = receipt.get("reviewed_candidate", {})
+            authority = receipt.get("authority", {})
+            if (
+                receipt.get("track") != "010-public-burden-engine"
+                or receipt.get("simulation_status") != "simulated_role_separated_advisory_panel"
+                or receipt.get("perspective") != perspective
+                or reviewed.get("commit") != TRACK010_CORRECTED_COMMIT
+                or reviewed.get("tree") != TRACK010_CORRECTED_TREE
+                or reviewed.get("manifest_sha256") != corrected.get("candidate_manifest_sha256")
+                or receipt.get("disposition") != "pass_bounded_alpha_freeze"
+                or receipt.get("unresolved_blocking_findings") != []
+                or authority.get("independent_review") is not False
+                or authority.get("recommendation_is_approval") is not False
+                or any(authority.get(name) is not False for name in prohibited_authority)
+            ):
+                raise Track010ReadinessError("agent review receipt scope or identity drift")
     if review.get("state") not in {"pending", "satisfied"}:
         raise Track010ReadinessError("review gate state must be pending or satisfied")
     advisory_path = _repository_path(root, review.get("repository_advisory_packet"))
@@ -322,17 +366,22 @@ def validate(path: Path, root: Path) -> None:
         != "accept_bounded_pre_alpha_candidate_only"
         or review.get("corrected_candidate_owner_disposition")
         != "recorded_option_a_bounded_pre_alpha_only"
-        or review.get("owner_disposition") != TRACK010_RE_REVIEW_PACKET
     ):
         raise Track010ReadinessError("post-dependency re-review scope drift")
 
     claims = document.get("claims", {})
     if any(claims.get(name) is not False for name in FALSE_CLAIMS):
-        raise Track010ReadinessError("blocked Track 010 claims must remain false")
+        raise Track010ReadinessError(
+            "Track 010 external approval and activation claims must remain false"
+        )
+    if any(claims.get(name) is not True for name in TRUE_CLAIMS):
+        raise Track010ReadinessError(
+            "Track 010 bounded review, freeze and completion claims must be true"
+        )
     freeze = document.get("alpha_freeze_gate", {})
     if freeze.get("state") == "satisfied":
-        if not COMMIT.fullmatch(str(freeze.get("exact_candidate_commit", ""))):
-            raise Track010ReadinessError("freeze requires an exact 40-character candidate commit")
+        if freeze.get("exact_candidate_commit") != TRACK010_CORRECTED_COMMIT:
+            raise Track010ReadinessError("freeze requires the exact corrected candidate commit")
         for field in (
             "engine_manifest_sha256",
             "track_009_ledger_manifest_sha256",
@@ -351,6 +400,60 @@ def validate(path: Path, root: Path) -> None:
             raise Track010ReadinessError(
                 "freeze requires compatibility, assurance and decision evidence"
             )
+        for field in required:
+            _repository_path(root, freeze.get(field)).read_bytes()
+        assurance_path = _repository_path(root, freeze.get("benchmark_and_reproducibility_receipt"))
+        assurance_hash = str(freeze.get("benchmark_and_reproducibility_receipt_sha256", ""))
+        if (
+            freeze.get("engine_manifest_sha256") != corrected.get("candidate_manifest_sha256")
+            or freeze.get("track_009_ledger_manifest_sha256")
+            != _sha256(root / "manifests/ledger/track-009-v0.4-contract-freeze.json")
+            or freeze.get("track_003_interface_manifest_sha256")
+            != _sha256(root / "examples/demonstrators/003-ledger-profile.yml")
+            or freeze.get("compatibility_and_migration_receipt")
+            != corrected.get("compatibility_receipt")
+            or freeze.get("benchmark_and_reproducibility_receipt")
+            != TRACK010_ALPHA_ASSURANCE_RECEIPT
+            or not SHA256.fullmatch(assurance_hash)
+            or _sha256(assurance_path) != assurance_hash
+            or freeze.get("accountable_alpha_freeze_decision") != TRACK010_ALPHA_FREEZE_DECISION
+            or review.get("owner_disposition") != TRACK010_ALPHA_FREEZE_DECISION
+        ):
+            raise Track010ReadinessError("alpha freeze evidence binding drift")
+        assurance = _load(assurance_path)
+        assurance_checks = assurance.get("checks", {})
+        full_gate = assurance_checks.get("full_repository_gate")
+        if (
+            assurance.get("schema_version") != "1.0.0"
+            or assurance.get("track") != "010-public-burden-engine"
+            or assurance.get("candidate_commit") != TRACK010_CORRECTED_COMMIT
+            or assurance.get("candidate_tree") != TRACK010_CORRECTED_TREE
+            or assurance.get("status") != "bounded_repository_assurance_passed"
+            or assurance_checks.get("candidate_regeneration") != "passed_byte_for_byte"
+            or assurance_checks.get("focused_identity_and_readiness_tests") != "18_passed"
+            or assurance_checks.get("focused_cli_and_containment_tests") != "24_passed"
+            or not isinstance(assurance_checks.get("memory_peak_bytes"), int)
+            or not isinstance(assurance_checks.get("memory_limit_bytes"), int)
+            or assurance_checks["memory_peak_bytes"] > assurance_checks["memory_limit_bytes"]
+            or assurance_checks.get("benchmark_maximum_seconds") != 15.0
+            or not isinstance(full_gate, str)
+            or not re.fullmatch(r"[1-9][0-9]*_passed", full_gate)
+        ):
+            raise Track010ReadinessError("alpha assurance receipt scope or result drift")
+        freeze_decision = _load(_repository_path(root, TRACK010_ALPHA_FREEZE_DECISION))
+        decision = freeze_decision.get("decision", {})
+        decision_claims = freeze_decision.get("claims", {})
+        if (
+            freeze_decision.get("track_id") != "010-public-burden-engine"
+            or freeze_decision.get("decided_by") != "edithatogo"
+            or freeze_decision.get("candidate", {}).get("commit") != TRACK010_CORRECTED_COMMIT
+            or freeze_decision.get("candidate", {}).get("tree") != TRACK010_CORRECTED_TREE
+            or decision.get("alpha_interface_frozen") is not True
+            or decision.get("track_complete") is not True
+            or decision_claims.get("agent_panel_review_complete") is not True
+            or any(decision_claims.get(name) is not False for name in FREEZE_DECISION_FALSE_CLAIMS)
+        ):
+            raise Track010ReadinessError("accountable alpha freeze decision scope drift")
     elif freeze.get("state") != "pending":
         raise Track010ReadinessError("freeze gate state must be pending or satisfied")
 
@@ -366,8 +469,8 @@ def main() -> int:
         print(f"Track 010 alpha readiness failed: {exc}")
         return 1
     print(
-        "Track 010 readiness passed; Track 009 bounded dependency is satisfied "
-        "while independent review, alpha freeze and activation remain separate gates."
+        "Track 010 bounded alpha readiness passed; agent-panel review and the "
+        "owner freeze are bound while independent review and activation remain false."
     )
     return 0
 

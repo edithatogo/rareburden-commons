@@ -1,10 +1,10 @@
 {
   "id": "010-public-burden-engine",
   "title": "Public burden engine and uncertainty framework",
-  "status": "blocked",
+  "status": "complete",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-27",
+  "updated": "2026-08-29",
   "target_release": "0.5.0",
   "stage": "modelling_core",
   "owner_role": "Repository owner (sole accountable human)",

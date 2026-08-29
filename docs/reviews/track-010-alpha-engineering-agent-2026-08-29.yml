@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+track: "010-public-burden-engine"
+simulation_status: "simulated_role_separated_advisory_panel"
+perspective: "engineering_reproducibility_security_agent"
+reviewed_candidate:
+  commit: "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+  tree: "b9665879958b12e629e2149a391c59532e006129"
+  manifest_sha256: "985f60fb2c7a254db11e4d7b3ae359e1df9e11260933092e09417132a2ab05b7"
+disposition: "pass_bounded_alpha_freeze"
+unresolved_blocking_findings: []
+evidence:
+  - "Candidate and compatibility artifacts regenerate byte-for-byte."
+  - "The CLI implementation is hash-bound in the compatibility receipt."
+  - "Detached estimate-cases execution fails before computation in text and JSON modes."
+  - "No new network, subprocess, secret or dependency surface is introduced."
+limitations:
+  - "Universal cross-architecture byte equivalence is not established."
+  - "Python allocation measurement excludes native and total RSS allocations."
+authority:
+  independent_review: false
+  engineering_approval: false
+  recommendation_is_approval: false

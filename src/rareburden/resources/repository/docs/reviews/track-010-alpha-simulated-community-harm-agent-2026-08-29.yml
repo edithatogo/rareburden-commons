@@ -1,0 +1,25 @@
+schema_version: "1.0.0"
+track: "010-public-burden-engine"
+simulation_status: "simulated_role_separated_advisory_panel"
+perspective: "simulated_community_harm_interpretation_agent"
+reviewed_candidate:
+  commit: "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+  tree: "b9665879958b12e629e2149a391c59532e006129"
+  manifest_sha256: "985f60fb2c7a254db11e4d7b3ae359e1df9e11260933092e09417132a2ab05b7"
+disposition: "pass_bounded_alpha_freeze"
+unresolved_blocking_findings: []
+evidence:
+  - "The high-severity detached estimate-cases bypass is closed."
+  - "Text and JSON paths emit no detached numerical result and direct users to provenance-bound run-analysis."
+  - "Supported results retain synthetic intended use, non-activation, interpretation and limitations."
+limitations:
+  - "This is not lived experience, participation, representation, consent or endorsement."
+  - "Synthetic labels do not establish geographic or disease representativeness."
+stop_triggers:
+  - "Re-enabling detached numeric execution or weakening synthetic and non-authority labels."
+  - "Any empirical, controlled, clinical, policy, DALY or cost use without a separately qualified contract."
+authority:
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  recommendation_is_approval: false

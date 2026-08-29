@@ -26,7 +26,10 @@ Implement a tested reference engine for expected affected populations, rare-aeti
 5. Structural scenarios are reported separately from sampling intervals.
 6. Every result retains lineage to input parameters and analysis specification.
 7. Reference workloads meet documented performance and memory budgets.
-8. Independent scientific-software review finds no unresolved blocking issue.
+8. Exact-candidate role-separated scientific/statistical, engineering and
+   simulated community/harm agent review finds no unresolved blocking issue;
+   the owner records the bounded disposition. This is not independent review
+   or actual patient/community representation.
 
 ## Non-goals
 
@@ -41,4 +44,4 @@ This track implements V1-MOD-01 to V1-MOD-06 and supplies the common engine for 
 
 ## Non-binding protocol draft — burden engine contract v0.1.0 (2026-07-27)
 
-Preparatory only; this does not activate the track or freeze alpha interfaces. Support compatible expected-population and rare-aetiology case-count estimands; outcome and cost estimates require explicit subgroup models. Validate ledger fingerprints, semantic IDs, units, metrics, distributions, dependence rationale, seed and iteration bounds. Propagate fixed, uniform, normal, lognormal and beta uncertainty with recorded seed, engine, iterations and decomposition. Reject direct case-fraction allocation to DALYs, YLD/YLL, deaths or costs and unsupported dependence. Scientific-software, statistical, patient/community and engineering review are required.
+Preparatory only; this does not activate the track or freeze alpha interfaces. Support compatible expected-population and rare-aetiology case-count estimands; outcome and cost estimates require explicit subgroup models. Validate ledger fingerprints, semantic IDs, units, metrics, distributions, dependence rationale, seed and iteration bounds. Propagate fixed, uniform, normal, lognormal and beta uncertainty with recorded seed, engine, iterations and decomposition. Reject direct case-fraction allocation to DALYs, YLD/YLL, deaths or costs and unsupported dependence. Role-separated scientific/statistical, engineering and simulated community/harm agent review plus an accountable-owner disposition are required.
