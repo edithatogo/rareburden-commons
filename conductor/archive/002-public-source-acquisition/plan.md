@@ -563,4 +563,11 @@ claiming independent review, community authority or external approval.
   receipt SHA-256
   `dcf11e5ad93a34f6068e30afb986608430a895ba93682ee29180c4b111765a23`,
   Hugging Face revision `3ce98671ebbdc75ed4e84b6e3c5b3003ab337558`,
+  owner authorization
+  `docs/decisions/2026-08-29-mondo-public-archive-tranche-authorization.yml`,
   and 1,212 passing tests.
+- [x] Remediate the role-separated governance review findings by binding the
+  exact accountable-owner public-archive authorization and adding a dated
+  Track 002 review disposition. Preserve agent review as advisory rather than
+  independent human, community, publisher, custodian or release-authority
+  evidence. Evidence: `b8d79f0` and 1,212 passing tests.
