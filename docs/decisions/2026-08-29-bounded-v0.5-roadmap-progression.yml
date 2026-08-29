@@ -1,0 +1,30 @@
+schema_version: "1.0.0"
+decision_type: "bounded_internal_roadmap_progression"
+decided_on: "2026-08-29"
+decided_by: "edithatogo"
+authorization_source: >-
+  The repository owner approved completion of Tracks 009 and 010, approved
+  release, removed routine merge authorization, and instructed progression
+  through the recommended Track 003 work.
+decision:
+  released_internal_milestones:
+    - "0.3.0"
+    - "0.4.0"
+  current_internal_milestone: "0.5.0"
+  active_track: "003-monogenic-diabetes-demonstrator"
+  scope: >-
+    Repository programme progression for bounded public-source, semantic,
+    ledger and synthetic alpha contracts only.
+claims:
+  package_or_registry_publication: false
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  production_release_authority: false
+reopen_triggers:
+  - "A completed upstream bounded contract is invalidated or superseded."
+  - "Track 003 attempts empirical or controlled execution without exact qualifying receipts."
+  - "A release, approval, representation or publication claim exceeds this decision."
