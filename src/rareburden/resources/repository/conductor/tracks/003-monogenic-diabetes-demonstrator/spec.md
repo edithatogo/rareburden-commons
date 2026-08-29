@@ -28,8 +28,8 @@ For a defined geography, period, age and diabetes denominator, what proportion a
 4. The analysis distinguishes prevalence, diagnosed prevalence, undiagnosed fraction and modelled expected population.
 5. Outcome and cost estimates use subgroup-specific evidence or are labelled as scenarios.
 6. Uncertainty and structural assumptions are visible in all headline results.
-7. Independent diabetes/genetics and methods reviewers approve or have their dissent documented.
-8. Patient/community review confirms acceptable framing and interpretation.
+7. Role-separated scientific/methods and engineering agents challenge the exact bounded candidate, and the repository owner records the disposition; this is not independent or external approval.
+8. A simulated-community/harm agent challenges framing and interpretation, with actual participation, representation, consent, endorsement and patient/community approval remaining false unless separately evidenced.
 
 ## Non-goals
 
@@ -44,4 +44,4 @@ This is the reference rare-within-common analysis for V1-SCI-05 and validates th
 
 ## Non-binding protocol draft — RBC-P002 v0.1.0 (2026-07-27)
 
-Preparatory only; this does not activate the track or freeze dependent contracts. For a declared geography, period, age band and diabetes denominator, estimate monogenic case count and proportion, separating diagnosed, undiagnosed and modelled states. Inputs are versioned semantic entities and ledger parameters for aetiologic fraction, ascertainment, penetrance, referral, outcomes and costs. The primary model is a compatible envelope-times-fraction calculation with seeded simulation; sensitivities cover denominator, age, ancestry, setting, ascertainment, penetrance and referral. Outputs include uncertainty, parameter fingerprints, limitations and reproducibility metadata. Clinical/genetics, epidemiology, patient/community, governance and engineering review are required.
+Preparatory only; this does not activate data execution or freeze clinical contracts. For a declared geography, period, age band and diabetes denominator, estimate monogenic case count and proportion, separating diagnosed, undiagnosed and modelled states. Inputs are versioned semantic entities and ledger parameters for aetiologic fraction, ascertainment, penetrance, referral, outcomes and costs. The primary model is a compatible envelope-times-fraction calculation with seeded simulation; sensitivities cover denominator, age, ancestry, setting, ascertainment, penetrance and referral. Outputs include uncertainty, parameter fingerprints, limitations and reproducibility metadata. Role-separated scientific, engineering and simulated-community/harm agent challenge plus repository-owner disposition are required for the bounded synthetic interface. Clinical approval, empirical validation, actual-community authority and data-use permission remain separate evidence gates.

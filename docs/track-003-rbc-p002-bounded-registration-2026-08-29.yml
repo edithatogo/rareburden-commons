@@ -1,0 +1,59 @@
+schema_version: "1.0.0"
+track: "003-monogenic-diabetes-demonstrator"
+protocol_id: "RBC-P002"
+protocol_version: "0.2.0-bounded"
+status: "internally_registered_bounded_synthetic_interface"
+registered_on: "2026-08-29"
+registered_by: "edithatogo"
+scope: >-
+  Synthetic protocol and interface assurance only. Exactly-receipted public
+  aggregates may be prepared for later qualification, but no public aggregate
+  is executed or interpreted by this registration.
+upstream_candidate:
+  commit: "0b8e57a95ff634505af613c4c17e3fc260a37a53"
+  tree: "44d57c5051874040b816a4fe567b46c60896a9c5"
+bindings:
+  semantic_scope: {path: "examples/semantics/rare-within-common-synthetic.yml", sha256: "e915365d825e4b4b5d75ff214c86ac2e2de38ffdab7fdbb8892cd610410438a8"}
+  ledger_profile: {path: "examples/demonstrators/003-ledger-profile.yml", sha256: "b79a41752279db0b73ca721b9a8eaed383be63513c083eefc0d43635ccfaec98"}
+  burden_engine: {path: "manifests/burden/track-010-post-dependency-candidate-2026-08-27.json", sha256: "985f60fb2c7a254db11e4d7b3ae359e1df9e11260933092e09417132a2ab05b7"}
+  estimand_denominator_contract: {path: "docs/track-003-estimand-denominator-contract-v0.1.0.yml", sha256: "b69cd5d016bf7bb2b47ee957fc59edf9184614225c888802606da8cd848e8358"}
+  population_state_contract: {path: "docs/track-003-population-state-contract-v0.1.0.yml", sha256: "9b207d5215f9fb66bc577f15d71191db43daf6cbde4bd886b99f4edbe11aff91"}
+  framing_guard: {path: "docs/track-003-framing-interpretation-guard-v0.1.0.yml", sha256: "70c491ea91ecbcef96745a49bb9cb12b7719835a2ee4ac1f8a91751ac32e9614"}
+registered_estimands:
+  primary: {estimand_id: "E-RBC-P002-AETIOLOGIC-PROPORTION", denominator_id: "D-RBC-P002-PRIMARY-DIABETES", unit: "proportion"}
+  derived:
+    estimand_id: "E-RBC-P002-EXPECTED-CASES"
+    denominator_id: "D-RBC-P002-PRIMARY-DIABETES"
+    unit: "people"
+    interpretation: "modelled_expected_population_not_observed_case_count"
+  sensitivities: ["E-RBC-P002-DIAGNOSED-AETIOLOGIC-PROPORTION", "E-RBC-P002-REFERRAL-COHORT-PROPORTION"]
+  deferred: ["E-RBC-P002-POPULATION-PREVALENCE"]
+synthetic_entity_scope:
+  hierarchy_id: "rare-within-common-synthetic"
+  hierarchy_version: "0.1.0"
+  included_entity_ids: ["monogenic-diabetes", "mody", "neonatal-diabetes", "other-monogenic-diabetes"]
+  gene_scope: "not_registered_synthetic_grouping_only"
+  phenotype_scope: "not_registered_synthetic_grouping_only"
+population_states:
+  contract: "RBC-P002-POPULATION-STATE-v0.1.0"
+  required_distinctions: ["observed_diagnosed", "latent_modelled_undiagnosed", "unclassified", "outside_target_state"]
+execution:
+  compatible_synthetic_fixture: null
+  public_aggregate_parameter_set: null
+  supported_cli: "run-analysis"
+  detached_estimation: "disabled"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  clinical_entity_freeze: false
+  gene_or_phenotype_freeze: false
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  publication_authority: false
+  production_release_authority: false
+next_gate: >-
+  Register an exact rights-receipted public-aggregate parameter set under issue
+  261, or build a protocol-compatible synthetic diabetes denominator, before
+  running RBC-P002.

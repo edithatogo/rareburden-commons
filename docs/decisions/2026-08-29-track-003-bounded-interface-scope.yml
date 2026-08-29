@@ -1,0 +1,34 @@
+schema_version: "1.0.0"
+track_id: "003-monogenic-diabetes-demonstrator"
+decision_type: "bounded_interface_scope_revision"
+decided_on: "2026-08-29"
+decided_by: "edithatogo"
+selected_option: "activate_synthetic_interface_without_data_execution"
+rationale: >-
+  Tracks 008, 009 and 010 are complete within their bounded contracts. Track
+  003 can register its protocol-facing synthetic interface while leaving
+  clinical definitions, empirical parameters and execution gated.
+allowed:
+  - "Register exact RBC-P002 estimands and denominator roles."
+  - "Bind synthetic semantic entities, population states and upstream interface hashes."
+  - "Use role-separated agents for scientific, engineering and simulated-harm challenge."
+  - "Prepare exact public-aggregate qualification under issue 261."
+not_allowed:
+  - "Freeze a clinical gene or phenotype scope."
+  - "Promote the incompatible population-times-fraction assurance fixture."
+  - "Execute an empirical, controlled-data or public-aggregate analysis."
+  - "Claim independent review, patient/community participation or representation."
+claims:
+  bounded_protocol_interface_active: true
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  clinical_approval: false
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  publication_authority: false
+  production_release_authority: false
+next_gate: >-
+  Qualify either a protocol-compatible synthetic diabetes denominator or an
+  exact rights-receipted public-aggregate parameter set before execution.

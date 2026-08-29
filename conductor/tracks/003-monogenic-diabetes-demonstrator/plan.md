@@ -4,9 +4,9 @@
 
 ## Phase 1 — Protocol and definitions
 
-- [ ] Register RBC-P002 with explicit estimands and denominator options. `[M-01, M-03, S-05]`
-- [ ] Freeze monogenic-diabetes entities, gene/phenotype scope and ontology versions. `[M-02, S-01]`
-- [ ] Define diagnosed, undiagnosed and modelled population states. `[M-04]`
+- [x] Register bounded RBC-P002 v0.2.0 with explicit estimands and denominator options. Evidence: `docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml` and `scripts/check_track003_bounded_registration.py`; execution remains disabled. `[M-01, M-03, S-05]`
+- [x] Bind the synthetic monogenic-diabetes entity scope and hierarchy version while explicitly leaving clinical gene/phenotype scope unfrozen. Evidence: the bounded registration and `docs/decisions/2026-08-29-track-003-bounded-interface-scope.yml`. `[M-02, S-01]`
+- [x] Bind the diagnosed, undiagnosed, modelled, unclassified and out-of-scope population-state contract. Evidence: bounded registration plus `docs/track-003-population-state-contract-v0.1.0.yml`. `[M-04]`
 - [ ] Obtain clinical-methods and community/harm agent-panel review of framing and owner disposition.
 
 ## Phase 2 — Evidence ledger
@@ -101,3 +101,10 @@
   the Phase 2 empirical ledger task and all upstream and external gates remain
   open.
 > Review routing (owner direction, 2026-08-22): clinical/scientific, patient/community and data-governance/custodian questions are sent to role-separated advisory agents and presented to the repository owner for disposition. Security/engineering approval is an explicit owner-operated decision lane. Agent advice and owner-operated evidence do not create independent, community or custodian approval.
+
+## Bounded interface activation — 2026-08-29
+
+- [x] Reconcile completed Tracks 008–010 and advance the internal roadmap to v0.5.0 without claiming package publication or production release. Evidence: `docs/decisions/2026-08-29-bounded-v0.5-roadmap-progression.yml` and `a00078a`.
+- [x] Add a fail-closed RBC-P002 bounded registration with exact upstream, semantic, ledger, burden-engine, estimand, population-state and framing hashes plus mutation tests for every prohibited claim. Evidence: `docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml` and `tests/test_track003_bounded_registration.py`.
+- [ ] Complete exact-candidate scientific/methods, engineering and simulated community/harm agent review and record the repository-owner disposition.
+- [ ] Qualify a protocol-compatible synthetic denominator or exact rights-receipted public-aggregate parameter set before any RBC-P002 run.
