@@ -3,6 +3,34 @@
 **Review date:** 2026-07-27  
 **Decision:** Internal implementation passes for autonomous handoff; production/live-source approval remains open
 
+## Five-release public MONDO tranche addendum — 2026-08-29
+
+Review disposition: **pass for the exact bounded public archive mutation** in
+PR `#263`. Hosted run `33232479095` at workflow head
+`eaec0731fa4f36c9a1e6878586cbffd8be778c71` emitted receipt SHA-256
+`dcf11e5ad93a34f6068e30afb986608430a895ba93682ee29180c4b111765a23`
+and artifact digest
+`fed73c6f9caff561755651275de7012596ac40cf3e49d3668d1fa86aed6e0818`.
+The receipt binds 156 exact MONDO CC BY 4.0 assets and 11,224,339,587 bytes
+across release indices 10–14, with the next cursor at release 15, asset 0.
+The byte-matched public notice is revision
+`3ce98671ebbdc75ed4e84b6e3c5b3003ab337558`.
+
+The accountable owner authorization is recorded in
+`docs/decisions/2026-08-29-mondo-public-archive-tranche-authorization.yml`.
+Role-separated engineering, rights/provenance and governance/evidence agents
+reviewed the exact PR range. Engineering and rights/provenance reported no
+findings. Governance identified the missing owner-authorization citation and
+stale review record; this addendum and the decision record remediate both.
+These reviews are advisory agent work, not independent human, patient/community,
+publisher, custodian or release-authority evidence.
+
+Residual claims remain fail-closed: no MONDO or cross-source completeness,
+empirical activation, controlled-data activation, independent review or
+production release authority is asserted. Local validation passed 1,212 tests,
+and the exact PR head's hosted checks passed before this documentation-only
+review remediation; the updated head requires its own hosted-check observation.
+
 ## Minimal public-release scope disposition — 2026-08-20
 
 The repository owner narrowed public-release preparation to the exact July

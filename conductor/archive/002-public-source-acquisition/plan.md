@@ -553,3 +553,24 @@ claiming independent review, community authority or external approval.
   receipt SHA-256
   `4fae995979b222c8d6690fc2e969c63748ed335808063fa03af978972a627bf6`,
   and 1,212 passing tests.
+- [x] Complete the next five-release atomic tranche in hosted run
+  `33232479095`, bind 156 exact assets and 11,224,339,587 bytes across release
+  indices 10–14, advance the reviewed cursor to release index 15, and publish
+  the byte-matched public dataset notice while retaining false completeness,
+  activation, independent-review and release-authority claims. Evidence:
+  PR `#263`, hosted run `33232479095`, artifact digest
+  `fed73c6f9caff561755651275de7012596ac40cf3e49d3668d1fa86aed6e0818`,
+  receipt SHA-256
+  `dcf11e5ad93a34f6068e30afb986608430a895ba93682ee29180c4b111765a23`,
+  Hugging Face revision `3ce98671ebbdc75ed4e84b6e3c5b3003ab337558`,
+  owner authorization
+  `docs/decisions/2026-08-29-mondo-public-archive-tranche-authorization.yml`,
+  and 1,212 passing tests.
+- [x] Remediate the role-separated governance review findings by binding the
+  exact accountable-owner public-archive authorization and adding a dated
+  Track 002 review disposition. Preserve agent review as advisory rather than
+  independent human, community, publisher, custodian or release-authority
+  evidence. Evidence: PR `#263`,
+  `docs/decisions/2026-08-29-mondo-public-archive-tranche-authorization.yml`,
+  `conductor/archive/002-public-source-acquisition/review.md`, and 1,212
+  passing tests.
