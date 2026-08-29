@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 import yaml
 
+import scripts.check_track_010_alpha_freeze_readiness as readiness_checker
 from scripts.check_track_010_alpha_freeze_readiness import Track010ReadinessError, validate
 
 ROOT = Path(__file__).parents[1]
@@ -22,14 +23,18 @@ def test_current_track_010_blockers_are_consistent() -> None:
     validate(READINESS, ROOT)
 
 
-def test_synthetic_candidate_does_not_satisfy_dependency_or_alpha_freeze() -> None:
+def test_bounded_candidate_satisfies_agent_review_and_alpha_freeze() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     candidate = document["synthetic_candidate_preparation"]
     assert candidate["status"] == "prepared_synthetic_only_not_alpha_not_frozen"
     assert document["upstream_dependency"]["state"] == "satisfied"
-    assert document["review_gate"]["state"] == "pending"
-    assert document["alpha_freeze_gate"]["state"] == "pending"
-    assert set(document["claims"].values()) == {False}
+    assert document["review_gate"]["state"] == "satisfied"
+    assert document["alpha_freeze_gate"]["state"] == "satisfied"
+    assert document["claims"]["agent_panel_review_complete"] is True
+    assert document["claims"]["alpha_interface_frozen"] is True
+    assert document["claims"]["track_complete"] is True
+    assert document["claims"]["independent_review"] is False
+    assert document["claims"]["empirical_or_production_activation"] is False
 
 
 def test_track009_dependency_requires_exact_bounded_completion(tmp_path: Path) -> None:
@@ -73,20 +78,16 @@ def test_repository_advisory_packet_rejects_hash_drift(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
-def test_corrected_candidate_remains_pre_alpha_and_pending_owner_disposition() -> None:
+def test_corrected_candidate_is_exact_source_for_bounded_freeze() -> None:
     document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
     corrected = document["corrected_post_dependency_candidate"]
     assert corrected["status"] == "prepared_bounded_post_dependency_not_alpha_not_frozen"
-    assert (
-        corrected["review_status"]
-        == "role_separated_advisory_re_review_passed_owner_disposition_pending"
-    )
-    assert document["review_gate"]["state"] == "pending"
+    assert corrected["review_status"] == "role_separated_agent_review_passed_owner_freeze_recorded"
+    assert document["review_gate"]["state"] == "satisfied"
     assert document["review_gate"]["corrected_candidate_owner_disposition"] == (
         "recorded_option_a_bounded_pre_alpha_only"
     )
-    assert document["alpha_freeze_gate"]["state"] == "pending"
-    assert set(document["claims"].values()) == {False}
+    assert document["alpha_freeze_gate"]["state"] == "satisfied"
 
 
 def test_post_dependency_re_review_rejects_hash_drift(tmp_path: Path) -> None:
@@ -99,7 +100,12 @@ def test_post_dependency_re_review_rejects_hash_drift(tmp_path: Path) -> None:
 @pytest.mark.parametrize(
     ("section", "field", "value", "message"),
     [
-        ("claims", "alpha_interface_frozen", True, "claims must remain false"),
+        (
+            "claims",
+            "empirical_or_production_activation",
+            True,
+            "approval and activation claims must remain false",
+        ),
         ("review_gate", "repository_panel_status", "independent", "must remain advisory"),
         ("review_gate", "owner_status", "independent_review", "cannot be independent"),
     ],
@@ -113,15 +119,32 @@ def test_readiness_rejects_premature_or_mislabelled_claims(
         validate(_candidate(tmp_path, document), ROOT)
 
 
-def test_satisfied_review_requires_independent_and_accountable_receipts(tmp_path: Path) -> None:
+def test_satisfied_review_requires_exact_agent_receipts(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
-    document["review_gate"]["state"] = "satisfied"
-    with pytest.raises(Track010ReadinessError, match="every accountable receipt"):
+    document["review_gate"]["scientific_statistical_agent_receipt"] = ""
+    with pytest.raises(Track010ReadinessError, match="candidate evidence path is missing"):
         validate(_candidate(tmp_path, document), ROOT)
 
 
 def test_alpha_freeze_requires_exact_candidate_binding(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
-    document["alpha_freeze_gate"]["state"] = "satisfied"
-    with pytest.raises(Track010ReadinessError, match="exact 40-character"):
+    document["alpha_freeze_gate"]["exact_candidate_commit"] = "0" * 40
+    with pytest.raises(Track010ReadinessError, match="exact corrected candidate"):
         validate(_candidate(tmp_path, document), ROOT)
+
+
+@pytest.mark.parametrize("claim", sorted(readiness_checker.FREEZE_DECISION_FALSE_CLAIMS))
+def test_alpha_freeze_decision_rejects_prohibited_authority_claims(
+    claim: str, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    original_load = readiness_checker._load
+
+    def load_with_premature_claim(path: Path) -> dict[str, object]:
+        document = original_load(path)
+        if path.name == "2026-08-29-track-010-bounded-alpha-freeze.yml":
+            document["claims"][claim] = True
+        return document
+
+    monkeypatch.setattr(readiness_checker, "_load", load_with_premature_claim)
+    with pytest.raises(Track010ReadinessError, match="freeze decision scope drift"):
+        validate(READINESS, ROOT)

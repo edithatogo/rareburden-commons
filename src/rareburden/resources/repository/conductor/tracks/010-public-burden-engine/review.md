@@ -3,6 +3,35 @@
 **Review date:** 2026-07-27  
 **Decision:** Bounded synthetic preparation; empirical activation remains blocked
 
+## Bounded alpha freeze review — 2026-08-29
+
+Review disposition: **pass for the bounded synthetic alpha core**. The exact
+candidate is commit `a8b44a5666dc3681f9113ef9289b97d0ee8fccaa`, tree
+`b9665879958b12e629e2149a391c59532e006129`, and candidate manifest SHA-256
+`985f60fb2c7a254db11e4d7b3ae359e1df9e11260933092e09417132a2ab05b7`.
+
+Role-separated scientific/statistical and engineering agents initially passed
+the bounded interface. The simulated community/harm agent found one blocking
+issue: the detached `estimate-cases` command emitted an inadequately labelled
+numeric estimate without the Track 009 ledger, quality-disposition or source-
+release controls. Commit `a8b44a5` disables that calculation in both text and
+JSON modes and directs users to provenance-bound `run-analysis`. The candidate,
+compatibility receipt and readiness bindings were regenerated and all three
+agents passed the corrected exact candidate with no unresolved blocking issue.
+
+The repository owner disposition is
+`docs/decisions/2026-08-29-track-010-bounded-alpha-freeze.yml`. Agent reviews
+remain advisory; the harm lane is not lived experience, community participation,
+representation, consent or endorsement. Scientific, engineering, patient/
+community and independent approval claims remain false.
+
+Residual scope is explicit: the frozen alpha supports bounded synthetic
+analysis and interface preparation for exactly-receipted public aggregates.
+It does not activate empirical parameters, controlled data or public-aggregate
+execution, and grants no publication or production-release authority. Only
+independent multiplicative uncertainty is implemented, and memory assurance
+measures Python allocations rather than total process RSS.
+
 ### Review rerun — 2026-07-29
 
 Repository review result: **Pass with dependency and scientific gates**. The

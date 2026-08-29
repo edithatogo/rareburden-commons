@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track: "010-public-burden-engine"
-status: "blocked"
+status: "complete"
 candidate_interface: "alpha"
 freeze_order_position: 3
 upstream_dependency:
@@ -41,16 +41,16 @@ bounded_owner_disposition:
   invalidation: "any recorded stop trigger or candidate, compatibility, upstream, dependency-lock, containment or security drift"
 corrected_post_dependency_candidate:
   status: "prepared_bounded_post_dependency_not_alpha_not_frozen"
-  source_commit: "3258e5fe8d319830006d3583fc8a2aa95f1b67ec"
-  source_tree: "913116fa49db2f852078816fe38a84efe12b85f6"
+  source_commit: "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+  source_tree: "b9665879958b12e629e2149a391c59532e006129"
   candidate_manifest: "manifests/burden/track-010-post-dependency-candidate-2026-08-27.json"
-  candidate_manifest_sha256: "9b5cba5262782b83806db9059414c84fd511a6f2f89b2428bb01deb632791fbf"
+  candidate_manifest_sha256: "985f60fb2c7a254db11e4d7b3ae359e1df9e11260933092e09417132a2ab05b7"
   compatibility_receipt: "manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json"
-  compatibility_receipt_sha256: "f99acf10f4eb4aa081b6c265306fce880941914f722b91c11d65c8b156aa876a"
+  compatibility_receipt_sha256: "0c24eeb018d41f72b664d62db8122137a117fdbb96f37b1c40e38cdfb95227e3"
   engine_receipt: "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-27.json"
   engine_receipt_sha256: "1fd16ee544eb08daedebc8a74f0dabd35cd813bcf8b0489edfab5f12ff287dbf"
   effect: "corrected_fail_closed_interface_preparation_only_no_activation_review_freeze_track_003_publication_or_release_authority"
-  review_status: "role_separated_advisory_re_review_passed_owner_disposition_pending"
+  review_status: "role_separated_agent_review_passed_owner_freeze_recorded"
 review_gate:
   review_packet: "docs/track-010-engine-review-packet.md"
   repository_advisory_packet: "docs/decisions/2026-08-26-track-010-advisory-review.yml"
@@ -64,35 +64,41 @@ review_gate:
   post_dependency_re_review_candidate_tree: "c8a01f386e16106e06f1b690c663097bc50c3575"
   post_dependency_re_review_recommendation: "accept_bounded_pre_alpha_candidate_only"
   corrected_candidate_owner_disposition: "recorded_option_a_bounded_pre_alpha_only"
-  scientific_statistical_receipt: ""
-  engineering_receipt: ""
-  patient_community_receipt: ""
-  independent_scientific_software_receipt: ""
-  owner_disposition: "docs/decisions/2026-08-27-track-010-post-dependency-re-review.yml"
+  scientific_statistical_agent_receipt: "docs/reviews/track-010-alpha-scientific-agent-2026-08-29.yml"
+  engineering_agent_receipt: "docs/reviews/track-010-alpha-engineering-agent-2026-08-29.yml"
+  simulated_community_harm_agent_receipt: "docs/reviews/track-010-alpha-simulated-community-harm-agent-2026-08-29.yml"
+  owner_disposition: "docs/decisions/2026-08-29-track-010-bounded-alpha-freeze.yml"
   repository_panel_status: "advisory"
   owner_status: "owner_operated_not_independent_review"
   unresolved_blocking_findings: []
-  state: "pending"
+  state: "satisfied"
 alpha_freeze_gate:
-  exact_candidate_commit: ""
-  engine_manifest_sha256: ""
-  track_009_ledger_manifest_sha256: ""
-  track_003_interface_manifest_sha256: ""
-  compatibility_and_migration_receipt: ""
-  benchmark_and_reproducibility_receipt: ""
-  blocking_findings_resolved: false
-  accountable_alpha_freeze_decision: ""
-  state: "pending"
+  exact_candidate_commit: "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+  engine_manifest_sha256: "985f60fb2c7a254db11e4d7b3ae359e1df9e11260933092e09417132a2ab05b7"
+  track_009_ledger_manifest_sha256: "0b655589377921e55b88109aa121be6070718d6ebf21bc31602019a25039557a"
+  track_003_interface_manifest_sha256: "b79a41752279db0b73ca721b9a8eaed383be63513c083eefc0d43635ccfaec98"
+  compatibility_and_migration_receipt: "manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json"
+  benchmark_and_reproducibility_receipt: "docs/track-010-alpha-assurance-receipt-2026-08-29.yml"
+  blocking_findings_resolved: true
+  accountable_alpha_freeze_decision: "docs/decisions/2026-08-29-track-010-bounded-alpha-freeze.yml"
+  state: "satisfied"
 claims:
   scientific_approval: false
   engineering_approval: false
   patient_community_approval: false
+  community_representation: false
   independent_review: false
-  alpha_interface_frozen: false
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  publication_authority: false
+  production_release_authority: false
+  agent_panel_review_complete: true
+  alpha_interface_frozen: true
   empirical_or_production_activation: false
-  track_complete: false
+  track_complete: true
 governance:
   automated_validation_effect: "readiness_only_not_approval_independent_review_or_freeze"
 next_action:
-  repository_owned: "preserve synthetic contracts and validate incoming exact-candidate review receipts"
-  external_or_accountable: "complete Track 009, obtain independent and accountable review, then decide the hash-bound alpha freeze"
+  repository_owned: "begin Track 003 integration against the frozen bounded alpha profile"
+  external_or_accountable: "obtain real source, custodian or empirical evidence before any broader activation"

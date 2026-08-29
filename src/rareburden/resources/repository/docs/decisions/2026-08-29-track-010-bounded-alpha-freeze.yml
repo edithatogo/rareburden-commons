@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+track_id: "010-public-burden-engine"
+decision_type: "bounded_alpha_interface_freeze_and_completion"
+decided_on: "2026-08-29"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+authorization_source: >-
+  Explicit owner approval of Track 010 completion and instruction to proceed
+  with the recommended role-separated agent review and bounded alpha freeze.
+candidate:
+  commit: "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
+  tree: "b9665879958b12e629e2149a391c59532e006129"
+  manifest: "manifests/burden/track-010-post-dependency-candidate-2026-08-27.json"
+  manifest_sha256: "985f60fb2c7a254db11e4d7b3ae359e1df9e11260933092e09417132a2ab05b7"
+agent_review_receipts:
+  scientific_statistical: "docs/reviews/track-010-alpha-scientific-agent-2026-08-29.yml"
+  engineering_reproducibility_security: "docs/reviews/track-010-alpha-engineering-agent-2026-08-29.yml"
+  simulated_community_harm: "docs/reviews/track-010-alpha-simulated-community-harm-agent-2026-08-29.yml"
+decision:
+  selected_option: "freeze_bounded_alpha"
+  alpha_interface_frozen: true
+  track_complete: true
+  scope: >-
+    Bounded synthetic analysis and interface preparation for exactly-receipted
+    public aggregates only. Supported CLI execution is provenance-bound through
+    run-analysis; detached estimate-cases execution remains disabled.
+  track_003_interface_profile_eligible: true
+claims:
+  agent_panel_review_complete: true
+  independent_review: false
+  scientific_approval: false
+  engineering_approval: false
+  patient_community_approval: false
+  community_representation: false
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  publication_authority: false
+  production_release_authority: false
+residual_risks:
+  - "Only independent multiplicative uncertainty is implemented."
+  - "Synthetic assurance does not establish empirical or policy validity."
+  - "Agent harm review is not lived experience or community representation."
+  - "Python allocation measurement does not capture total process RSS."
+reopen_triggers:
+  - "Candidate, schema, dependency, source binding, compatibility or receipt drift."
+  - "Re-enablement of detached numeric estimation."
+  - "Any empirical, controlled, clinical, policy, DALY or cost use outside a separately qualified contract."
