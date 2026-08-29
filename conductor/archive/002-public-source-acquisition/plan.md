@@ -534,3 +534,14 @@ claiming independent review, community authority or external approval.
   reviewed state change and one-artifact canary outside this bounded track. The
   existing capacity pause remains in force; no purchase or capture is
   authorized.
+
+## Public MONDO frontier review fixes — 2026-08-29
+
+- [x] Reconcile hosted partial run `33222673927` through release index 8,
+  preserving 96 exact receipts and advancing the validated cursor to release
+  index 9 without completeness claims. Replace per-asset Hugging Face commits
+  with one atomic commit per bounded batch while preserving the two-second
+  sequential publisher delay and exact post-commit digest verification.
+  Evidence: `6f9f551`,
+  `docs/track-002-public-archive-reconciliation-2026-08-27.yml`, independent
+  engineering and rights/provenance review, and 1,212 passing tests.
