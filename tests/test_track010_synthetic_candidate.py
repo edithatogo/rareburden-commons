@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from pathlib import Path
 
 from scripts.build_track010_synthetic_candidate import build
@@ -10,6 +11,7 @@ MANIFEST = Path("manifests/burden/track-010-synthetic-candidate-2026-08-21.json"
 COMPATIBILITY = Path("manifests/burden/track-010-compatibility-impact-2026-08-21.json")
 SOURCE_COMMIT = "b99615dfc72c1133d9c18a0530415ce639d628aa"
 SOURCE_TREE = "0fc30cf4235aa6d03a9c0b2dc98b21aacbde5cfc"
+BUILD_INPUT_COMMIT = "3fdc5076a4ea64b307421a4967fa962cc0413547"
 
 
 def test_checked_in_candidate_regenerates_byte_for_byte(tmp_path: Path) -> None:
@@ -25,7 +27,14 @@ def test_checked_in_candidate_regenerates_byte_for_byte(tmp_path: Path) -> None:
     for relative in required:
         target = tmp_path / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes((ROOT / relative).read_bytes())
+        target.write_bytes(
+            subprocess.run(
+                ["git", "show", f"{BUILD_INPUT_COMMIT}:{relative.as_posix()}"],
+                cwd=ROOT,
+                check=True,
+                capture_output=True,
+            ).stdout
+        )
     build(
         root=tmp_path,
         source_commit=SOURCE_COMMIT,

@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 from collections.abc import Mapping
 from typing import Any
 
@@ -75,18 +73,11 @@ def run_bounded_synthetic_analysis(
         key: round(value, 6) if isinstance(value, float) else value
         for key, value in result["summary"].items()
     }
-    binding_bytes = json.dumps(
-        source_release_bindings, sort_keys=True, separators=(",", ":")
-    ).encode()
-    return {
-        **result,
-        "source_release_binding_sha256": hashlib.sha256(binding_bytes).hexdigest(),
-        "activation_state": "synthetic_only",
-        "contract_frozen": False,
-        "empirical_parameter_activation": False,
-        "interpretation": "repository-owned synthetic assurance; not an empirical burden estimate",
-        "summary_precision_decimal_places": 6,
-    }
+    result["interpretation"] = (
+        "Repository-owned synthetic assurance; not an empirical burden estimate, "
+        "activation, publication or release authority."
+    )
+    return result
 
 
 def run_structural_scenarios(
@@ -126,7 +117,14 @@ def run_structural_scenarios(
             "right_parameter_id": result["right_parameter_id"],
             "right_parameter_fingerprint": result["right_parameter_fingerprint"],
             "mean": result["summary"]["mean"],
+            "lower": result["summary"]["lower"],
+            "upper": result["summary"]["upper"],
+            "interval_probability": result["summary"]["interval_probability"],
             "absolute_change_from_baseline": float(result["summary"]["mean"]) - baseline_mean,
+            "intended_use": result["intended_use"],
+            "activation_state": result["activation_state"],
+            "interpretation": result["interpretation"],
+            "limitations": result["limitations"],
         }
         for name, result in sorted(outputs.items())
     ]

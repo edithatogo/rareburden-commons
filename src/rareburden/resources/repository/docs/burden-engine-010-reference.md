@@ -43,6 +43,12 @@ It records a digest of the scientific output and enforces a deliberately generou
 engineering time envelope. The timing gate detects gross regressions; it is not
 evidence that an estimand or distribution is scientifically appropriate.
 
+The public simulation primitives fail closed above 100,000 draws. `make
+burden-memory` exercises that ceiling and requires the simulation plus
+decomposition workload to remain below a 64 MiB Python-allocation peak measured
+with `tracemalloc`. This is a bounded engineering envelope, not a total-process
+RSS guarantee or scientific validation.
+
 The assurance suite also includes property bounds, a versioned golden random
 vector, seeded convergence toward a known beta mean, and explicit rejection of
 overflow and negative simulated products.
@@ -54,6 +60,17 @@ envelopes. Those quantities require component-specific onset, severity,
 treatment, survival and cost models. No result should be interpreted as a
 production burden estimate until Track 009 inputs, semantic definitions and
 scientific review are complete.
+
+`run-analysis` is fail-closed to `synthetic_assurance` and requires both an
+exact, content-addressed `--quality-disposition` and a
+`--source-release-bindings` receipt. The runner rejects non-synthetic semantic
+or release identities before computation and validates release provenance via
+the bounded wrapper. Exploratory, primary-estimate, policy-decision and public
+aggregate execution remain unimplemented and unavailable. Execution results
+retain their intended-use and non-authority interpretation, and the bounded
+result is labelled `activation_state: not_activated`. Parameter population
+and period contexts must match exactly; future compatibility rules require an
+explicit contract rather than silent coercion.
 
 Focused implementation coverage is in `tests/test_burden.py`,
 `tests/test_burden_assurance.py` and `tests/test_quality_edges.py`; the full

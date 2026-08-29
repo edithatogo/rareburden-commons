@@ -46,7 +46,9 @@ bound.
 
 ## Remaining work
 
-Hosted run `31900342354` archived and remotely verified asset indices 1-2 for
+The following paragraph records the original 2026-08-16 checkpoint rather than
+the current public-archive frontier. Hosted run `31900342354` archived and
+remotely verified asset indices 1-2 for
 release index 1. Its receipt SHA-256 is
 `222051e2b36000a0af741784afecc1d16c745712ca1cf5f93d3d1a5ef46e1265`.
 Four subsequent hosted runs archived and verified asset indices 3–6 for release
@@ -54,10 +56,12 @@ index 1 without any new source retrieval during this reconciliation. Their run
 IDs, artifact digests and receipt-file hashes are committed in the cursor. The
 seven observed archived assets total 726,797,932 bytes.
 
-The committed cursor resumes at release index 1, asset index 7 when workflow
-coordinates are empty. Explicit paired coordinates permit bounded replay. A
-hosted success does not mutate the cursor: each receipt requires review and a
-normal validated cursor update.
+The current reviewed reconciliation is
+`docs/track-002-public-archive-reconciliation-2026-08-27.yml`: it binds 145
+assets and 11,316,218,745 bytes through five completed releases and resumes at
+release index 6, asset index 0. Explicit paired coordinates permit bounded
+replay. A hosted success does not mutate the cursor: each receipt requires
+review and a normal validated cursor update.
 
 - dispatch bounded MONDO batches incrementally and retain every exact receipt;
 - prioritize small provenance/checksum/diff assets before multi-hundred-MB

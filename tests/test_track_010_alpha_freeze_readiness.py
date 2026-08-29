@@ -53,6 +53,49 @@ def test_bounded_owner_disposition_rejects_receipt_drift(tmp_path: Path) -> None
         validate(_candidate(tmp_path, document), ROOT)
 
 
+def test_repository_advisory_packet_records_bounded_option_a_and_remains_blocking(
+    tmp_path: Path,
+) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    review = document["review_gate"]
+    assert review["repository_recommendation"] == "revise"
+    assert review["repository_owner_decision"] == "recorded_option_a_bounded_remediation_only"
+    assert review["unresolved_blocking_findings"] == []
+    review["repository_owner_decision"] = "recorded_as_freeze_approval"
+    with pytest.raises(Track010ReadinessError, match="bounded decision drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_repository_advisory_packet_rejects_hash_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["review_gate"]["repository_advisory_packet_sha256"] = "0" * 64
+    with pytest.raises(Track010ReadinessError, match="packet binding drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_corrected_candidate_remains_pre_alpha_and_pending_owner_disposition() -> None:
+    document = yaml.safe_load(READINESS.read_text(encoding="utf-8"))
+    corrected = document["corrected_post_dependency_candidate"]
+    assert corrected["status"] == "prepared_bounded_post_dependency_not_alpha_not_frozen"
+    assert (
+        corrected["review_status"]
+        == "role_separated_advisory_re_review_passed_owner_disposition_pending"
+    )
+    assert document["review_gate"]["state"] == "pending"
+    assert document["review_gate"]["corrected_candidate_owner_disposition"] == (
+        "recorded_option_a_bounded_pre_alpha_only"
+    )
+    assert document["alpha_freeze_gate"]["state"] == "pending"
+    assert set(document["claims"].values()) == {False}
+
+
+def test_post_dependency_re_review_rejects_hash_drift(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["review_gate"]["post_dependency_re_review_packet_sha256"] = "0" * 64
+    with pytest.raises(Track010ReadinessError, match="re-review packet binding drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
 @pytest.mark.parametrize(
     ("section", "field", "value", "message"),
     [

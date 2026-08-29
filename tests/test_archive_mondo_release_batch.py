@@ -33,8 +33,20 @@ def test_selection_rejects_empty_or_out_of_range() -> None:
         select_assets(releases, release_index=0, asset_start=0, asset_count=0)
 
 
+def test_selection_rejects_nonpublic_terms_or_byte_route() -> None:
+    releases = mondo_releases(json.loads(MANIFEST.read_text(encoding="utf-8")))
+    releases[0]["terms_state"] = "metadata_only"
+    with pytest.raises(ValueError, match="exact public terms"):
+        select_assets(releases, release_index=0, asset_start=0, asset_count=1)
+
+    releases = mondo_releases(json.loads(MANIFEST.read_text(encoding="utf-8")))
+    releases[0]["assets"][0]["byte_route"] = "restricted_no_public_bytes"
+    with pytest.raises(ValueError, match="outside the public route"):
+        select_assets(releases, release_index=0, asset_start=0, asset_count=1)
+
+
 def test_committed_cursor_resumes_after_hosted_batch() -> None:
-    assert resolve_cursor(None, None) == (1, 7)
+    assert resolve_cursor(None, None) == (6, 0)
     assert resolve_cursor(4, 5) == (4, 5)
     with pytest.raises(ValueError, match="together"):
         resolve_cursor(1, None)
@@ -47,11 +59,12 @@ def test_cursor_binds_contiguous_hosted_receipts_fail_closed() -> None:
         )
     )
     validate_cursor(cursor)
-    assert len(cursor["observed_archived_assets"]) == 7
-    assert sum(item["bytes"] for item in cursor["observed_archived_assets"]) == 726_797_932
+    assert len(cursor["observed_archived_assets"]) == 145
+    assert sum(item["bytes"] for item in cursor["observed_archived_assets"]) == 11_316_218_745
 
-    cursor["hosted_receipts"][2]["asset_index"] = 8
-    with pytest.raises(ValueError, match="indices 3 through 6"):
+    cursor["hosted_receipts"][-1]["asset_start"] = 29
+    cursor["hosted_receipts"][-1]["asset_end"] = 29
+    with pytest.raises(ValueError, match="do not exactly cover"):
         validate_cursor(cursor)
 
 
@@ -71,7 +84,41 @@ def test_cursor_rejects_completeness_or_noncontiguous_archive_claims() -> None:
         )
     )
     cursor["observed_archived_assets"].pop(4)
-    with pytest.raises(ValueError, match="contiguous through asset 6"):
+    with pytest.raises(ValueError, match="contiguous within each release"):
+        validate_cursor(cursor)
+
+    cursor = json.loads(
+        (ROOT / "manifests/classifications/mondo-archive-cursor-2026-08-16.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    cursor["observed_archived_assets"] = [
+        item
+        for item in cursor["observed_archived_assets"]
+        if item["release_index"] != 5 or item["asset_index"] < 5
+    ]
+    cursor["hosted_receipts"] = [
+        item for item in cursor["hosted_receipts"] if item.get("release_index") != 5
+    ]
+    cursor["hosted_receipts"].append(
+        {
+            "artifact_digest_sha256": "a" * 64,
+            "asset_end": 4,
+            "asset_start": 0,
+            "head_sha": "b" * 40,
+            "receipt_sha256": "c" * 64,
+            "release_index": 5,
+            "run_id": 1,
+        }
+    )
+    cursor["last_successful_run"].update(
+        {
+            "head_sha": "b" * 40,
+            "receipt_sha256": "c" * 64,
+            "run_id": 1,
+        }
+    )
+    with pytest.raises(ValueError, match="next cursor"):
         validate_cursor(cursor)
 
 

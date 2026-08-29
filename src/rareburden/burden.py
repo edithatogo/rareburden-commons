@@ -7,6 +7,8 @@ import random
 from dataclasses import dataclass
 from statistics import fmean
 
+MAX_MONTE_CARLO_DRAWS = 100_000
+
 
 class BurdenInputError(ValueError):
     """Raised when an estimand or input violates a scientific contract."""
@@ -115,8 +117,8 @@ def simulate_fraction_product(
         raise BurdenInputError("fraction_mean must be strictly between 0 and 1")
     if not math.isfinite(fraction_effective_sample_size) or fraction_effective_sample_size <= 2:
         raise BurdenInputError("fraction_effective_sample_size must be greater than 2")
-    if draws < 100 or draws > 10_000_000:
-        raise BurdenInputError("draws must be between 100 and 10,000,000")
+    if draws < 100 or draws > MAX_MONTE_CARLO_DRAWS:
+        raise BurdenInputError(f"draws must be between 100 and {MAX_MONTE_CARLO_DRAWS:,}")
     if not unit.strip():
         raise BurdenInputError("unit must not be empty")
 

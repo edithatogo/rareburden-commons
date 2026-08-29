@@ -17,6 +17,8 @@ from typing import Any
 DESTINATION = "edithatogo/rareburden-commons-open-source-snapshots"
 MANIFEST = Path("manifests/classifications/public-history-frontier-2026-08-16.json")
 CURSOR = Path("manifests/classifications/mondo-archive-cursor-2026-08-16.json")
+PUBLIC_ROUTE = "public_CC_BY_4_0_after_exact_digest_dedup"
+PUBLIC_TERMS = "repository_CC_BY_4_0_release_assets"
 
 
 def resolve_cursor(release_index: int | None, asset_start: int | None) -> tuple[int, int]:
@@ -40,15 +42,27 @@ def validate_cursor(cursor: dict[str, Any]) -> None:
     if not isinstance(assets, list) or not assets:
         raise ValueError("MONDO cursor requires observed archived assets")
     coordinates = [(item.get("release_index"), item.get("asset_index")) for item in assets]
-    if coordinates != [(1, index) for index in range(7)]:
-        raise ValueError("MONDO archived asset coordinates must be contiguous through asset 6")
-    if len({item.get("sha256") for item in assets}) != len(assets):
-        raise ValueError("MONDO archived asset digests must be unique")
-    receipts = cursor.get("hosted_receipts")
-    if not isinstance(receipts, list) or [item.get("asset_index") for item in receipts] != list(
-        range(3, 7)
+    if coordinates != sorted(set(coordinates)):
+        raise ValueError("MONDO archived asset coordinates must be unique and ordered")
+    releases = sorted({int(release) for release, _ in coordinates})
+    if releases != list(range(releases[0], releases[-1] + 1)):
+        raise ValueError("MONDO archived releases must be contiguous")
+    for release in releases:
+        indices = [int(index) for item_release, index in coordinates if item_release == release]
+        if indices != list(range(len(indices))):
+            raise ValueError("MONDO archived assets must be contiguous within each release")
+    frontier = mondo_releases(json.loads(MANIFEST.read_text(encoding="utf-8")))
+    for release in releases[:-1]:
+        archived_count = sum(item_release == release for item_release, _ in coordinates)
+        if archived_count != len(frontier[release]["assets"]):
+            raise ValueError("MONDO archived release is incomplete before the active cursor")
+    if not all(
+        isinstance(item.get("sha256"), str) and len(item["sha256"]) == 64 for item in assets
     ):
-        raise ValueError("MONDO hosted receipts must bind asset indices 3 through 6")
+        raise ValueError("MONDO archived asset digests are incomplete")
+    receipts = cursor.get("hosted_receipts")
+    if not isinstance(receipts, list) or not receipts:
+        raise ValueError("MONDO hosted receipts are required")
     for item in receipts:
         if not all(
             isinstance(item.get(field), str) and len(item[field]) == length
@@ -59,12 +73,35 @@ def validate_cursor(cursor: dict[str, Any]) -> None:
             )
         ):
             raise ValueError("MONDO hosted receipt hashes are incomplete")
+        start = item.get("asset_start", item.get("asset_index"))
+        end = item.get("asset_end", item.get("asset_index"))
+        if not isinstance(start, int) or not isinstance(end, int) or start > end:
+            raise ValueError("MONDO hosted receipt range is invalid")
+    covered_coordinates = [
+        (int(item.get("release_index", 1)), index)
+        for item in receipts
+        for index in range(
+            item.get("asset_start", item.get("asset_index")),
+            item.get("asset_end", item.get("asset_index")) + 1,
+        )
+    ]
+    if len(covered_coordinates) != len(set(covered_coordinates)):
+        raise ValueError("MONDO hosted receipt ranges overlap")
+    unreceipted_seed = {(1, 0), (1, 1), (1, 2)}
+    if set(covered_coordinates) != set(coordinates) - unreceipted_seed:
+        raise ValueError("MONDO hosted receipts do not exactly cover archived coordinates")
     last = cursor.get("last_successful_run", {})
+    final_release = releases[-1]
+    final_count = sum(release == final_release for release, _ in coordinates)
+    if final_count == len(frontier[final_release]["assets"]):
+        expected_next = {"release_index": final_release + 1, "asset_index": 0}
+    else:
+        expected_next = {"release_index": final_release, "asset_index": final_count}
     if (
         last.get("run_id") != receipts[-1].get("run_id")
         or last.get("head_sha") != receipts[-1].get("head_sha")
         or last.get("receipt_sha256") != receipts[-1].get("receipt_sha256")
-        or cursor.get("next") != {"release_index": 1, "asset_index": 7}
+        or cursor.get("next") != expected_next
     ):
         raise ValueError("MONDO next cursor does not follow the last hosted receipt")
 
@@ -81,6 +118,17 @@ def mondo_releases(document: dict[str, Any]) -> list[dict[str, Any]]:
     return releases
 
 
+def validate_public_release(release: dict[str, Any]) -> None:
+    """Fail closed at the publication boundary to the exact reviewed byte route."""
+    if release.get("terms_state") != PUBLIC_TERMS:
+        raise ValueError("MONDO release lacks the exact public terms state")
+    assets = release.get("assets")
+    if not isinstance(assets, list) or not assets:
+        raise ValueError("MONDO release has no assets")
+    if any(asset.get("byte_route") != PUBLIC_ROUTE for asset in assets):
+        raise ValueError("MONDO release contains an asset outside the public route")
+
+
 def select_assets(
     releases: list[dict[str, Any]], *, release_index: int, asset_start: int, asset_count: int
 ) -> tuple[str, list[dict[str, Any]]]:
@@ -89,6 +137,7 @@ def select_assets(
     if asset_start < 0 or asset_count < 1:
         raise ValueError("asset selection must be positive")
     release = releases[release_index]
+    validate_public_release(release)
     if Path(str(release["release_key"])).name != str(release["release_key"]):
         raise ValueError("unsafe MONDO release key")
     selected = release["assets"][asset_start : asset_start + asset_count]

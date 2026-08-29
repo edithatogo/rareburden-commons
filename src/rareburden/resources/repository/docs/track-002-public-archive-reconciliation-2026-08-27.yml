@@ -1,0 +1,91 @@
+schema_version: "1.0"
+status: bounded_public_exact_archive_observed
+observed_at_utc: "2026-08-28T23:56:00Z"
+destination:
+  repository: edithatogo/rareburden-commons-open-source-snapshots
+  url: https://huggingface.co/datasets/edithatogo/rareburden-commons-open-source-snapshots
+  visibility: public
+  observed_commit: fd14a67b9d47c65aa05d386effdb430054a4e4dc
+  observed_file_count: 688
+change:
+  starting_commit: 7f53de277671109c92bf8c4f4ab02c6ef200c51a
+  starting_file_count: 549
+  exact_assets_added: 138
+  mondo_releases_completed:
+    - v2026-07-06
+    - v2026-06-02
+    - v2026-05-05
+    - v2026-04-07
+    - v2026-03-03
+  exact_bytes_bound_in_cursor: 11316218745
+  next_cursor:
+    release_index: 6
+    asset_index: 0
+controls:
+  licence: CC BY 4.0
+  attribution: MONDO, Monarch Initiative
+  change_notice: exact unmodified release payload bytes; archive paths added only for release identity
+  applicable_notices: notices shipped in each exact release asset remain applicable
+  no_endorsement: true
+  chain_of_title_claimed: false
+  destination_notice:
+    revision: fd14a67b9d47c65aa05d386effdb430054a4e4dc
+    dataset_card_sha256: 10aa9ebd07ac367f5801e9303082da4f7d0b3a64ce8221eb058d8449cac5472c
+    mondo_notice_path: notices/mondo-release-history.md
+    mondo_notice_sha256: 38f41d9219b1b35a35acda8739ef252862f5ea2c92eea37fb8b226d5cb4341e8
+  source: official MONDO GitHub release assets
+  byte_identity: sha256_per_asset
+  hosted_verification: exact_destination_digest_or_bounded_redownload
+  batch_limit_bytes: 500000000
+  hosted_run_ids:
+    - 33052561233
+    - 33052659253
+    - 33052756185
+    - 33052931319
+    - 33052991785
+    - 33053147356
+    - 33053385256
+    - 33053457405
+    - 33053525211
+    - 33053587926
+    - 33053662251
+    - 33056398077
+    - 33056475901
+    - 33056570123
+    - 33056639019
+    - 33056714265
+    - 33056791562
+    - 33218850687
+    - 33218940481
+    - 33219019892
+    - 33219088241
+    - 33219149523
+    - 33219209510
+    - 33221572447
+    - 33221633300
+    - 33221669443
+    - 33221709345
+    - 33221777654
+    - 33221815433
+rights_routes:
+  public_full_bytes:
+    - MONDO exact release assets under CC BY 4.0
+    - newly discovered Orphacode and Orphadata assets only when exact CC BY 4.0 terms remain affirmative
+  public_metadata_only:
+    - ClinVar
+    - WHO and WHO-FIC editions without exact artifact redistribution clearance
+    - PanelApp
+    - UMLS
+    - SNOMED CT
+    - MedDRA
+  private_or_local_only:
+    - licensed terminology bytes
+    - authenticated or controlled-data snapshots
+claims:
+  all_mondo_releases_archived: false
+  all_public_sources_archived: false
+  restricted_bytes_public: false
+  empirical_activation: false
+  controlled_data_activation: false
+  independent_review_complete: false
+  release_authority: false

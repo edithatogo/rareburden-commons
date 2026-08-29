@@ -1,0 +1,55 @@
+name: bounded MONDO frontier archive to Hugging Face
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_start:
+        description: Optional release index; empty resumes the committed release-boundary cursor
+        required: false
+        default: ""
+        type: string
+      release_count:
+        description: Contiguous rights-cleared releases to archive
+        required: true
+        default: "1"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bounded-mondo-release-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned archive client
+        run: python3 -m pip install --disable-pip-version-check "huggingface-hub==0.36.0"
+      - name: Archive, checkpoint, verify and discard
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          MONDO_RELEASE_START: ${{ inputs.release_start }}
+          MONDO_RELEASE_COUNT: ${{ inputs.release_count }}
+        run: |
+          args=(
+            --release-count "$MONDO_RELEASE_COUNT"
+            --max-bytes 500000000
+            --receipt mondo-frontier-receipt.json
+          )
+          if [[ -n "$MONDO_RELEASE_START" ]]; then
+            args+=(--release-start "$MONDO_RELEASE_START")
+          fi
+          python3 -m scripts.archive_mondo_frontier "${args[@]}"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: mondo-frontier-receipt
+          path: mondo-frontier-receipt.json
+          if-no-files-found: error
+          retention-days: 30

@@ -6,7 +6,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
 import subprocess
 import tempfile
 from pathlib import Path
@@ -41,6 +40,7 @@ MERGED_CANDIDATE_COMMIT = "22edd34e3bedeabe57fa9deb4b45be6b9498034a"
 MERGED_CANDIDATE_TREE = "eda9bbcc46a3a63fd1ee5999dae1b2de32d8f3e8"
 SOURCE_COMMIT = "b99615dfc72c1133d9c18a0530415ce639d628aa"
 SOURCE_TREE = "0fc30cf4235aa6d03a9c0b2dc98b21aacbde5cfc"
+BUILD_INPUT_COMMIT = "3fdc5076a4ea64b307421a4967fa962cc0413547"
 MANIFEST = Path("manifests/burden/track-010-synthetic-candidate-2026-08-21.json")
 MANIFEST_SHA256 = "a1883f906053367a4129bd8780e83ee2f170879e00bcf019c61a5e1388bfa716"
 COMPATIBILITY = Path("manifests/burden/track-010-compatibility-impact-2026-08-21.json")
@@ -89,6 +89,15 @@ def _git_tree(root: Path, commit: str) -> str:
     ).stdout.strip()
 
 
+def _git_bytes(root: Path, commit: str, path: Path) -> bytes:
+    return subprocess.run(
+        ["git", "show", f"{commit}:{path.as_posix()}"],
+        cwd=root,
+        check=True,
+        capture_output=True,
+    ).stdout
+
+
 def _load_json(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
@@ -113,7 +122,7 @@ def _verify_regeneration(root: Path) -> None:
             for relative in BUILD_INPUTS:
                 target = run_root / relative
                 target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(root / relative, target)
+                target.write_bytes(_git_bytes(root, BUILD_INPUT_COMMIT, relative))
             build(
                 root=run_root,
                 source_commit=SOURCE_COMMIT,

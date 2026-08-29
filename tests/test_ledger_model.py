@@ -43,6 +43,9 @@ def test_reference_ledger_analysis_is_reproducible_and_schema_valid() -> None:
     assert first["summary"]["standard_deviation"] > 0
     validate_instance(first, load_mapping(RESULT_SCHEMA), label="result")
     assert ledger.fingerprint("australia-population-synthetic").startswith("par-")
+    assert first["intended_use"] == "synthetic_assurance"
+    assert first["activation_state"] == "not_activated"
+    assert "not an empirical" in first["interpretation"]
     with pytest.raises(LedgerError, match="Unknown parameter_id"):
         ledger.get("missing")
 
@@ -179,12 +182,16 @@ def test_simulation_limits_and_analysis_type_checks() -> None:
     assert summary.standard_deviation == 0
     for kwargs, message in (
         ({"iterations": 99, "seed": 1}, "at least 100"),
-        ({"iterations": 10_000_001, "seed": 1}, "must not exceed"),
+        ({"iterations": 100_001, "seed": 1}, "must not exceed"),
         ({"iterations": 100, "seed": 1, "interval_probability": 1.0}, "between"),
         ({"iterations": 100, "seed": 1, "dependence": "correlated"}, "dependence"),
     ):
         with pytest.raises(ModelError, match=message):
             simulate_product(fixed, fixed, **kwargs)
+
+    for seed in (-1, True, 1.5):
+        with pytest.raises(ModelError, match="seed must be a non-negative integer"):
+            simulate_product(fixed, fixed, iterations=100, seed=seed)  # type: ignore[arg-type]
 
     ledger = load_ledger(LEDGER_PATH, LEDGER_SCHEMA)
     spec = load_mapping(ANALYSIS_PATH)
@@ -200,3 +207,75 @@ def test_simulation_limits_and_analysis_type_checks() -> None:
     wrong["estimand"] = "not-supported"
     with pytest.raises(ModelError, match="Unsupported estimand"):
         run_analysis_spec(wrong, ledger)
+
+
+def test_public_analysis_execution_remains_fail_closed_with_a_disposition() -> None:
+    ledger = load_ledger(LEDGER_PATH, LEDGER_SCHEMA)
+    specification = deepcopy(load_mapping(ANALYSIS_PATH))
+    specification["intended_use"] = "policy_decision"
+    with pytest.raises(ModelError, match="public analysis execution is not activated"):
+        run_analysis_spec(specification, ledger)
+
+    disposition = {
+        "disposition_id": "qdp-0123456789abcdef01234567",
+        "analysis_id": specification["analysis_id"],
+        "intended_use": "policy_decision",
+        "eligible_for_primary_analysis": True,
+        "eligible_for_synthetic_assurance": False,
+    }
+    with pytest.raises(ModelError, match="public analysis execution is not activated"):
+        run_analysis_spec(specification, ledger, quality_disposition=disposition)
+
+
+@pytest.mark.parametrize(
+    "mutation,message",
+    [
+        ({"analysis_id": "different-analysis"}, "analysis_id differs"),
+        ({"intended_use": "policy_decision"}, "intended_use differs"),
+        ({"eligible_for_synthetic_assurance": False}, "does not permit synthetic assurance"),
+    ],
+)
+def test_synthetic_quality_disposition_must_match_and_remain_eligible(
+    mutation: dict[str, object], message: str
+) -> None:
+    ledger = load_ledger(LEDGER_PATH, LEDGER_SCHEMA)
+    specification = deepcopy(load_mapping(ANALYSIS_PATH))
+    disposition: dict[str, object] = {
+        "disposition_id": "qdp-757f1136634049b87de6ee07",
+        "analysis_id": specification["analysis_id"],
+        "intended_use": "synthetic_assurance",
+        "eligible_for_synthetic_assurance": True,
+    }
+    disposition.update(mutation)
+    with pytest.raises(ModelError, match=message):
+        run_analysis_spec(specification, ledger, quality_disposition=disposition)
+
+
+@pytest.mark.parametrize(
+    "field,value", [("iterations", True), ("iterations", 100.5), ("seed", True), ("seed", 1.5)]
+)
+def test_analysis_rejects_non_integer_iterations_and_seed(field: str, value: object) -> None:
+    ledger = load_ledger(LEDGER_PATH, LEDGER_SCHEMA)
+    specification = deepcopy(load_mapping(ANALYSIS_PATH))
+    specification[field] = value
+    with pytest.raises(ModelError, match=f"{field} must be"):
+        run_analysis_spec(specification, ledger)
+
+
+def test_analysis_rejects_incompatible_population_and_period_contexts() -> None:
+    document = _ledger_document()
+    fraction = document["parameters"][1]  # type: ignore[index]
+    fraction["period"] = {"start": "2020-01-01", "end": "2020-12-31"}
+    ledger = validate_ledger(document, load_mapping(LEDGER_SCHEMA))
+    with pytest.raises(ModelError, match="incompatible parameter period contexts"):
+        run_analysis_spec(load_mapping(ANALYSIS_PATH), ledger)
+
+
+def test_synthetic_assurance_rejects_relabelled_non_synthetic_provenance() -> None:
+    document = _ledger_document()
+    parameter = document["parameters"][0]  # type: ignore[index]
+    parameter["semantic_entity_ids"] = ["population-au"]
+    parameter["source_release_ids"] = ["official-public-aggregate"]
+    ledger = validate_ledger(document, load_mapping(LEDGER_SCHEMA))
+    with pytest.raises(ModelError, match="explicitly synthetic parameter provenance"):
+        run_analysis_spec(load_mapping(ANALYSIS_PATH), ledger)

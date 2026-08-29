@@ -20,7 +20,7 @@ def _repository_fixture(tmp_path: Path) -> Path:
     root.mkdir(parents=True, exist_ok=True)
     for name in ("pyproject.toml", "uv.lock"):
         shutil.copy2(ROOT / name, root / name)
-    for name in ("catalog", "conductor", "schemas", "examples", "docs"):
+    for name in ("catalog", "conductor", "schemas", "examples", "docs", "manifests"):
         shutil.copytree(ROOT / name, root / name)
     return root
 
@@ -89,6 +89,10 @@ def test_programme_document_ledger_and_analysis_commands(
                 "examples/ledger/public-foundation-synthetic.yml",
                 "--analysis",
                 "examples/analyses/expected-population-synthetic.yml",
+                "--quality-disposition",
+                "docs/track-010-post-dependency-quality-disposition-2026-08-27.yml",
+                "--source-release-bindings",
+                "manifests/ledger/track-009-source-release-bindings-2026-08-16.json",
                 "--output",
                 "outputs/analysis.json",
                 "--created-at",
@@ -216,6 +220,7 @@ def test_source_registration_normalisation_and_gap_map_commands(
     assert (root / "outputs/gap-map.md").is_file()
 
 
+@pytest.mark.timeout(120)
 def test_release_and_reference_workflows_from_cli(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:

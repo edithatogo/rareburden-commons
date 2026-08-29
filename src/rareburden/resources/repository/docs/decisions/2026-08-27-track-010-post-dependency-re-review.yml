@@ -1,0 +1,106 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "010-public-burden-engine"
+candidate:
+  commit: "1ed8061483dd4c28528c30c48cc56602e224ea5c"
+  tree: "c8a01f386e16106e06f1b690c663097bc50c3575"
+  evidence_manifest_sha256: "9b5cba5262782b83806db9059414c84fd511a6f2f89b2428bb01deb632791fbf"
+panel:
+  perspectives:
+    - "simulated scientific and statistical software perspective"
+    - "simulated engineering and reproducibility perspective"
+    - "simulated patient-community harm and interpretation perspective"
+  non_representation_statement: >-
+    Role-separated repository-agent advice only. This is not independent,
+    human, scientific, engineering, clinical, patient, community, custodian,
+    publication, release or accountable-owner approval.
+evidence:
+  references:
+    - "manifests/burden/track-010-post-dependency-candidate-2026-08-27.json"
+    - "manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json"
+    - "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-27.json"
+    - "docs/track-010-alpha-freeze-readiness-2026-08-21.yml"
+    - "docs/burden-engine-010-reference.md"
+    - "src/rareburden/model.py"
+    - "src/rareburden/burden_assurance.py"
+    - "src/rareburden/cli.py"
+    - "schemas/analysis-result.schema.json"
+  observed_facts:
+    - "The exact corrected candidate is commit 1ed8061483dd4c28528c30c48cc56602e224ea5c and tree c8a01f386e16106e06f1b690c663097bc50c3575."
+    - "The candidate and compatibility artifacts regenerate byte-for-byte."
+    - "The authoritative local gate passed 1197 tests and all hosted PR checks passed at the reviewed head."
+    - "The public runner is synthetic-only and the CLI requires exact quality-disposition and source-release-binding inputs."
+    - "The emitted bounded result directly conforms to the frozen analysis-result schema."
+  simulated_assessments:
+    - "PASS: scientific and statistical review found no blocking issue within bounded synthetic preparation."
+    - "PASS: engineering and reproducibility review found deterministic regeneration, bounded memory and direct schema conformance."
+    - "PASS: harm and interpretation review found intended-use, provenance, context and authority boundaries fail closed."
+  cannot_infer:
+    - "fitness or safety of empirical, controlled-data or public-aggregate execution"
+    - "independent scientific-software review or accountable owner approval"
+    - "clinical, policy, patient or community validity or acceptance"
+    - "alpha freeze, Track 003 eligibility, publication or release authority"
+uncertainty:
+  - "Only independent random-variable products are implemented."
+  - "The memory gate measures Python allocations rather than total process RSS."
+  - "Synthetic provenance is repository-declared and is not empirical validation."
+dissent: []
+stop_triggers:
+  - "Any empirical, controlled, private, clinical, unreceipted or non-synthetic input entering the current execution path."
+  - "Any candidate, receipt, schema, dependency, provenance or exact-identity drift."
+  - "Any claim of independent approval, public-aggregate execution, activation, alpha freeze, publication, release or completion."
+options:
+  - id: "A"
+    title: "Accept bounded pre-alpha candidate"
+    disposition: "accept"
+    trade_offs:
+      - "Records the corrected candidate as bounded preparation without enabling public-aggregate or empirical execution."
+    contingencies:
+      - "Keep every activation, approval, freeze, publication and release gate false."
+    rationale: >-
+      The exact synthetic-only candidate closes the recorded repository-agent
+      blockers and is suitable for bounded pre-alpha retention only.
+    minimum_evidence:
+      - "Accountable owner records an exact bounded disposition for this candidate."
+  - id: "B"
+    title: "Revise again"
+    disposition: "revise"
+    trade_offs:
+      - "Allows further hardening but leaves the corrected candidate pending."
+    contingencies:
+      - "Name any new blocking finding and bind its evidence."
+    rationale: >-
+      Select this if the owner identifies a bounded defect not resolved by the
+      completed advisory cycle.
+    minimum_evidence:
+      - "A specific reproducible blocking finding."
+  - id: "C"
+    title: "Defer disposition"
+    disposition: "defer"
+    trade_offs:
+      - "Preserves the exact evidence while leaving Track 010 pending."
+    contingencies:
+      - "Do not reinterpret elapsed time as approval."
+    rationale: >-
+      Select this when accountable review cannot yet be completed without
+      changing any technical or authority state.
+    minimum_evidence:
+      - "The immutable candidate and advisory packet remain available."
+recommendation:
+  option_id: "A"
+  rationale: >-
+    Accept the exact corrected candidate as bounded synthetic pre-alpha
+    preparation only; do not authorize public-aggregate execution, activation,
+    alpha freeze, publication, release or Track completion.
+owner_decision:
+  status: "recorded"
+  selected_option_id: "A"
+  decided_by: "edithatogo"
+  decided_at_utc: "2026-08-27T08:04:03Z"
+  rationale: >-
+    Accept the exact corrected candidate as bounded synthetic pre-alpha
+    preparation. Maximise lawful public archiving through separately
+    rights-filtered archive work, without treating this decision as authority
+    for public-aggregate execution, empirical or controlled-data activation,
+    independent approval, alpha freeze, publication of restricted bytes,
+    release or Track completion.
