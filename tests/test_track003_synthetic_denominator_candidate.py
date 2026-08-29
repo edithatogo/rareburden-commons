@@ -11,6 +11,7 @@ from scripts.check_track003_synthetic_denominator_candidate import (
     FALSE_CLAIMS,
     Track003SyntheticCandidateError,
     validate,
+    validate_execution_plan,
     validate_required_alignment,
 )
 
@@ -111,3 +112,35 @@ def test_every_required_alignment_dimension_fails_closed(
     fraction[location][field] = value
     with pytest.raises(Track003SyntheticCandidateError, match=message):
         validate_required_alignment(denominator, fraction)
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("schema_version", "9.9.9"),
+        ("execution_plan_id", "other"),
+        ("status", "executable"),
+        ("execution_limit", "unlimited"),
+    ],
+)
+def test_execution_plan_identity_and_boundary_fail_closed(field: str, value: object) -> None:
+    plan = yaml.safe_load(
+        (ROOT / "docs/track-003-rbc-p002-synthetic-execution-plan-2026-08-29.yml").read_text(
+            encoding="utf-8"
+        )
+    )
+    plan[field] = value
+    with pytest.raises(Track003SyntheticCandidateError, match="execution plan drift"):
+        validate_execution_plan(plan)
+
+
+@pytest.mark.parametrize("claim", sorted(FALSE_CLAIMS))
+def test_execution_plan_rejects_every_authority_claim(claim: str) -> None:
+    plan = yaml.safe_load(
+        (ROOT / "docs/track-003-rbc-p002-synthetic-execution-plan-2026-08-29.yml").read_text(
+            encoding="utf-8"
+        )
+    )
+    plan["claims"][claim] = True
+    with pytest.raises(Track003SyntheticCandidateError, match="execution plan drift"):
+        validate_execution_plan(plan)

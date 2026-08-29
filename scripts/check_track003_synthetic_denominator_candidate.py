@@ -10,7 +10,6 @@ from typing import Any
 
 import yaml
 
-from rareburden.burden_assurance import run_bounded_synthetic_analysis
 from rareburden.ledger import load_ledger
 from rareburden.quality import (
     validate_evidence_assessment,
@@ -103,6 +102,28 @@ def validate_required_alignment(denominator: dict[str, Any], fraction: dict[str,
         definition = parameter.get("disease_definition", {})
         if any(definition.get(key) != value for key, value in expected_definition.items()):
             raise Track003SyntheticCandidateError("required alignment drift")
+
+
+def validate_execution_plan(execution_plan: dict[str, Any]) -> None:
+    """Validate the exact blocked, non-computational execution plan."""
+    expected_plan = {
+        "schema_version": "1.0.0",
+        "execution_plan_id": "RBC-P002-SYNTHETIC-EXECUTION-2026-08-29",
+        "status": "blocked_pending_exact_review_and_owner_disposition",
+        "command": "run-analysis",
+        "ledger": EXPECTED_BINDINGS["ledger"],
+        "analysis": EXPECTED_BINDINGS["analysis"],
+        "quality_disposition": EXPECTED_BINDINGS["quality_disposition"],
+        "source_release_bindings": EXPECTED_BINDINGS["source_release_bindings"],
+        "created_at": "2026-08-29T00:00:00Z",
+        "intended_output": (
+            "manifests/demonstrators/track-003-rbc-p002-synthetic-execution-2026-08-29.json"
+        ),
+        "execution_limit": "one_persisted_provenance_bound_synthetic_assurance_output",
+        "claims": dict.fromkeys(FALSE_CLAIMS, False),
+    }
+    if execution_plan != expected_plan:
+        raise Track003SyntheticCandidateError("execution plan drift")
 
 
 def validate(candidate_path: Path, root: Path) -> None:
@@ -244,40 +265,7 @@ def validate(candidate_path: Path, root: Path) -> None:
         raise Track003SyntheticCandidateError("quality graph drift: " + "; ".join(failures))
 
     execution_plan = load_mapping(root / EXPECTED_BINDINGS["execution_plan"])
-    expected_plan = {
-        "command": "run-analysis",
-        "ledger": EXPECTED_BINDINGS["ledger"],
-        "analysis": EXPECTED_BINDINGS["analysis"],
-        "quality_disposition": EXPECTED_BINDINGS["quality_disposition"],
-        "source_release_bindings": EXPECTED_BINDINGS["source_release_bindings"],
-        "created_at": "2026-08-29T00:00:00Z",
-        "intended_output": (
-            "manifests/demonstrators/track-003-rbc-p002-synthetic-execution-2026-08-29.json"
-        ),
-    }
-    if any(execution_plan.get(key) != value for key, value in expected_plan.items()):
-        raise Track003SyntheticCandidateError("execution plan drift")
-    result = run_bounded_synthetic_analysis(
-        analysis,
-        ledger,
-        load_mapping(root / EXPECTED_BINDINGS["source_release_bindings"]),
-        disposition,
-        created_at=expected_plan["created_at"],
-    )
-    repeated_result = run_bounded_synthetic_analysis(
-        analysis,
-        ledger,
-        load_mapping(root / EXPECTED_BINDINGS["source_release_bindings"]),
-        disposition,
-        created_at=expected_plan["created_at"],
-    )
-    if result != repeated_result:
-        raise Track003SyntheticCandidateError("deterministic dry-run drift")
-    validate_instance(
-        result,
-        load_mapping(root / "schemas/analysis-result.schema.json"),
-        label="track003_dry_run_result",
-    )
+    validate_execution_plan(execution_plan)
 
     expected_scope = {
         "estimand_id": "E-RBC-P002-EXPECTED-CASES",

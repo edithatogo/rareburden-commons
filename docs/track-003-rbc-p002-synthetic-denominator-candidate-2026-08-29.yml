@@ -16,7 +16,7 @@ bindings:
   transportability_assessment: {path: "examples/quality/track-003-rbc-p002-synthetic-transportability-assessment.yml", sha256: "1512c35cd1a786b466ad8c33a4481f19ac852d368249f0fbbe0ddf054a46b015"}
   quality_disposition: {path: "docs/track-003-rbc-p002-synthetic-quality-disposition-2026-08-29.yml", sha256: "1fa97800df6896631cef2cfe62ec80bf98b31b71d6081bb5adaefe40d191309d"}
   source_release_bindings: {path: "manifests/ledger/track-009-source-release-bindings-2026-08-16.json", sha256: "c6ab77c5477a97016df5db28a8db17b20449a812de29ebe24802682037d129f3"}
-  execution_plan: {path: "docs/track-003-rbc-p002-synthetic-execution-plan-2026-08-29.yml", sha256: "ca0804feac1e4e06c47b9738e60c867d7fb2a36166fe28387c80d2e5fccc7116"}
+  execution_plan: {path: "docs/track-003-rbc-p002-synthetic-execution-plan-2026-08-29.yml", sha256: "2bbb6558ef3579fc4f13e65ea38573a10997dc93b6a102a0ac1a407fe5620ce8"}
 registered_scope:
   estimand_id: "E-RBC-P002-EXPECTED-CASES"
   denominator_id: "D-RBC-P002-PRIMARY-DIABETES"
