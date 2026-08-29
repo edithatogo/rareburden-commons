@@ -1,0 +1,22 @@
+schema_version: 1.0.0
+track: 003-monogenic-diabetes-demonstrator
+simulation_status: simulated_role_separated_advisory_panel
+perspective: scientific_methods_agent
+reviewed_candidate:
+  commit: fc6f8d755581ce87d38fc8953f8e20f2c89b56ba
+  tree: 94da74dfee88790fbc6a7da7abfe367b8ca922b8
+  candidate_sha256: 95beebc8a371633a4b2a0d06a214fafc92dab8f212de9e4f857be0faab429f9c
+disposition: pass_synthetic_denominator_qualification
+unresolved_blocking_findings: []
+evidence:
+- The synthetic-only profile reconciles the case-count denominator role.
+- Geography, period, age band, diabetes case definition and ascertainment target align exactly.
+- Case count times within-denominator fraction yields modelled people with assumed inputs.
+conditions:
+- Persist only the exact bound synthetic-assurance output after owner disposition.
+- Keep all empirical, clinical, transport, community and external-authority claims false.
+authority:
+  independent_review: false
+  scientific_approval: false
+  clinical_approval: false
+  recommendation_is_approval: false

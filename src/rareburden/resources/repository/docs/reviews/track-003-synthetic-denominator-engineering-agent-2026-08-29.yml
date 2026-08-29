@@ -1,0 +1,22 @@
+schema_version: 1.0.0
+track: 003-monogenic-diabetes-demonstrator
+simulation_status: simulated_role_separated_advisory_panel
+perspective: engineering_reproducibility_security_agent
+reviewed_candidate:
+  commit: fc6f8d755581ce87d38fc8953f8e20f2c89b56ba
+  tree: 94da74dfee88790fbc6a7da7abfe367b8ca922b8
+  candidate_sha256: 95beebc8a371633a4b2a0d06a214fafc92dab8f212de9e4f857be0faab429f9c
+disposition: pass_synthetic_denominator_qualification
+unresolved_blocking_findings: []
+evidence:
+- The full blocked execution plan is exact-mapping validated.
+- Identity, status, one-output limit and all nine false claims are mutation tested.
+- Eighty focused tests, runtime assets, Ruff and diff checks passed.
+conditions:
+- Execute only the bound inputs, timestamp and output path after owner disposition.
+- Validate the persisted result schema, hashes and deterministic reconstruction.
+authority:
+  independent_review: false
+  engineering_approval: false
+  security_approval: false
+  recommendation_is_approval: false
