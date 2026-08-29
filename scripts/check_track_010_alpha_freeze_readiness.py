@@ -46,9 +46,18 @@ FREEZE_DECISION_FALSE_CLAIMS = {
     "production_release_authority",
 }
 REVIEW_RECEIPTS = {
-    "scientific_statistical_agent_receipt": "scientific_statistical_agent",
-    "engineering_agent_receipt": "engineering_reproducibility_security_agent",
-    "simulated_community_harm_agent_receipt": "simulated_community_harm_interpretation_agent",
+    "scientific_statistical_agent_receipt": (
+        "scientific_statistical_agent",
+        ("scientific_approval",),
+    ),
+    "engineering_agent_receipt": (
+        "engineering_reproducibility_security_agent",
+        ("engineering_approval",),
+    ),
+    "simulated_community_harm_agent_receipt": (
+        "simulated_community_harm_interpretation_agent",
+        ("patient_community_approval", "community_representation"),
+    ),
 }
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
@@ -77,6 +86,7 @@ TRACK010_CORRECTED_COMMIT = "a8b44a5666dc3681f9113ef9289b97d0ee8fccaa"
 TRACK010_CORRECTED_TREE = "b9665879958b12e629e2149a391c59532e006129"
 TRACK010_RE_REVIEW_PACKET = "docs/decisions/2026-08-27-track-010-post-dependency-re-review.yml"
 TRACK010_ALPHA_FREEZE_DECISION = "docs/decisions/2026-08-29-track-010-bounded-alpha-freeze.yml"
+TRACK010_ALPHA_ASSURANCE_RECEIPT = "docs/track-010-alpha-assurance-receipt-2026-08-29.yml"
 TRACK010_RE_REVIEW_COMMIT = "1ed8061483dd4c28528c30c48cc56602e224ea5c"
 TRACK010_RE_REVIEW_TREE = "c8a01f386e16106e06f1b690c663097bc50c3575"
 
@@ -277,9 +287,10 @@ def validate(path: Path, root: Path) -> None:
     if review.get("owner_status") != "owner_operated_not_independent_review":
         raise Track010ReadinessError("owner disposition cannot be independent review")
     if review.get("state") == "satisfied":
-        for field, perspective in REVIEW_RECEIPTS.items():
+        for field, (perspective, prohibited_authority) in REVIEW_RECEIPTS.items():
             receipt = _load(_repository_path(root, review.get(field)))
             reviewed = receipt.get("reviewed_candidate", {})
+            authority = receipt.get("authority", {})
             if (
                 receipt.get("track") != "010-public-burden-engine"
                 or receipt.get("simulation_status") != "simulated_role_separated_advisory_panel"
@@ -289,7 +300,9 @@ def validate(path: Path, root: Path) -> None:
                 or reviewed.get("manifest_sha256") != corrected.get("candidate_manifest_sha256")
                 or receipt.get("disposition") != "pass_bounded_alpha_freeze"
                 or receipt.get("unresolved_blocking_findings") != []
-                or receipt.get("authority", {}).get("independent_review") is not False
+                or authority.get("independent_review") is not False
+                or authority.get("recommendation_is_approval") is not False
+                or any(authority.get(name) is not False for name in prohibited_authority)
             ):
                 raise Track010ReadinessError("agent review receipt scope or identity drift")
     if review.get("state") not in {"pending", "satisfied"}:
@@ -389,6 +402,8 @@ def validate(path: Path, root: Path) -> None:
             )
         for field in required:
             _repository_path(root, freeze.get(field)).read_bytes()
+        assurance_path = _repository_path(root, freeze.get("benchmark_and_reproducibility_receipt"))
+        assurance_hash = str(freeze.get("benchmark_and_reproducibility_receipt_sha256", ""))
         if (
             freeze.get("engine_manifest_sha256") != corrected.get("candidate_manifest_sha256")
             or freeze.get("track_009_ledger_manifest_sha256")
@@ -397,10 +412,34 @@ def validate(path: Path, root: Path) -> None:
             != _sha256(root / "examples/demonstrators/003-ledger-profile.yml")
             or freeze.get("compatibility_and_migration_receipt")
             != corrected.get("compatibility_receipt")
+            or freeze.get("benchmark_and_reproducibility_receipt")
+            != TRACK010_ALPHA_ASSURANCE_RECEIPT
+            or not SHA256.fullmatch(assurance_hash)
+            or _sha256(assurance_path) != assurance_hash
             or freeze.get("accountable_alpha_freeze_decision") != TRACK010_ALPHA_FREEZE_DECISION
             or review.get("owner_disposition") != TRACK010_ALPHA_FREEZE_DECISION
         ):
             raise Track010ReadinessError("alpha freeze evidence binding drift")
+        assurance = _load(assurance_path)
+        assurance_checks = assurance.get("checks", {})
+        full_gate = assurance_checks.get("full_repository_gate")
+        if (
+            assurance.get("schema_version") != "1.0.0"
+            or assurance.get("track") != "010-public-burden-engine"
+            or assurance.get("candidate_commit") != TRACK010_CORRECTED_COMMIT
+            or assurance.get("candidate_tree") != TRACK010_CORRECTED_TREE
+            or assurance.get("status") != "bounded_repository_assurance_passed"
+            or assurance_checks.get("candidate_regeneration") != "passed_byte_for_byte"
+            or assurance_checks.get("focused_identity_and_readiness_tests") != "18_passed"
+            or assurance_checks.get("focused_cli_and_containment_tests") != "24_passed"
+            or not isinstance(assurance_checks.get("memory_peak_bytes"), int)
+            or not isinstance(assurance_checks.get("memory_limit_bytes"), int)
+            or assurance_checks["memory_peak_bytes"] > assurance_checks["memory_limit_bytes"]
+            or assurance_checks.get("benchmark_maximum_seconds") != 15.0
+            or not isinstance(full_gate, str)
+            or not re.fullmatch(r"[1-9][0-9]*_passed", full_gate)
+        ):
+            raise Track010ReadinessError("alpha assurance receipt scope or result drift")
         freeze_decision = _load(_repository_path(root, TRACK010_ALPHA_FREEZE_DECISION))
         decision = freeze_decision.get("decision", {})
         decision_claims = freeze_decision.get("claims", {})

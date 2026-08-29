@@ -79,6 +79,7 @@ alpha_freeze_gate:
   track_003_interface_manifest_sha256: "b79a41752279db0b73ca721b9a8eaed383be63513c083eefc0d43635ccfaec98"
   compatibility_and_migration_receipt: "manifests/burden/track-010-post-dependency-compatibility-2026-08-27.json"
   benchmark_and_reproducibility_receipt: "docs/track-010-alpha-assurance-receipt-2026-08-29.yml"
+  benchmark_and_reproducibility_receipt_sha256: "3fd9740be61e0e6b1a3b31eab3094e4572a5f3abc73d470e1172dcb57f0c19e7"
   blocking_findings_resolved: true
   accountable_alpha_freeze_decision: "docs/decisions/2026-08-29-track-010-bounded-alpha-freeze.yml"
   state: "satisfied"

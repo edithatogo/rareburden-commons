@@ -126,11 +126,70 @@ def test_satisfied_review_requires_exact_agent_receipts(tmp_path: Path) -> None:
         validate(_candidate(tmp_path, document), ROOT)
 
 
+@pytest.mark.parametrize(
+    ("receipt_name", "claim"),
+    [
+        ("track-010-alpha-scientific-agent-2026-08-29.yml", "scientific_approval"),
+        ("track-010-alpha-engineering-agent-2026-08-29.yml", "engineering_approval"),
+        (
+            "track-010-alpha-simulated-community-harm-agent-2026-08-29.yml",
+            "patient_community_approval",
+        ),
+        (
+            "track-010-alpha-simulated-community-harm-agent-2026-08-29.yml",
+            "community_representation",
+        ),
+    ],
+)
+@pytest.mark.parametrize("recommendation_claim", [False, True])
+def test_agent_receipts_reject_advisory_authority_claims(
+    receipt_name: str,
+    claim: str,
+    recommendation_claim: bool,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    original_load = readiness_checker._load
+
+    def load_with_claim(path: Path) -> dict[str, object]:
+        document = original_load(path)
+        if path.name == receipt_name:
+            field = "recommendation_is_approval" if recommendation_claim else claim
+            document["authority"][field] = True
+        return document
+
+    monkeypatch.setattr(readiness_checker, "_load", load_with_claim)
+    with pytest.raises(Track010ReadinessError, match="agent review receipt scope"):
+        validate(READINESS, ROOT)
+
+
 def test_alpha_freeze_requires_exact_candidate_binding(tmp_path: Path) -> None:
     document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
     document["alpha_freeze_gate"]["exact_candidate_commit"] = "0" * 40
     with pytest.raises(Track010ReadinessError, match="exact corrected candidate"):
         validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_alpha_freeze_rejects_unbound_assurance_receipt(tmp_path: Path) -> None:
+    document = copy.deepcopy(yaml.safe_load(READINESS.read_text(encoding="utf-8")))
+    document["alpha_freeze_gate"]["benchmark_and_reproducibility_receipt"] = "README.md"
+    with pytest.raises(Track010ReadinessError, match="freeze evidence binding drift"):
+        validate(_candidate(tmp_path, document), ROOT)
+
+
+def test_alpha_freeze_rejects_failed_assurance_result(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    original_load = readiness_checker._load
+
+    def load_with_failed_gate(path: Path) -> dict[str, object]:
+        document = original_load(path)
+        if path.name == "track-010-alpha-assurance-receipt-2026-08-29.yml":
+            document["checks"]["full_repository_gate"] = "failed"
+        return document
+
+    monkeypatch.setattr(readiness_checker, "_load", load_with_failed_gate)
+    with pytest.raises(Track010ReadinessError, match="assurance receipt scope"):
+        validate(READINESS, ROOT)
 
 
 @pytest.mark.parametrize("claim", sorted(readiness_checker.FREEZE_DECISION_FALSE_CLAIMS))

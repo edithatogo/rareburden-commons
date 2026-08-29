@@ -10,7 +10,7 @@ checks:
   memory_peak_bytes: 9607604
   memory_limit_bytes: 67108864
   benchmark_maximum_seconds: 15.0
-  full_repository_gate: "1223_passed"
+  full_repository_gate: "1233_passed"
 limitations:
   - "Repository and agent assurance is not independent or external validation."
   - "Memory measures Python tracemalloc allocations, not total process RSS."
