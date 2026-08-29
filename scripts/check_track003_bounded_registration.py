@@ -92,6 +92,52 @@ EXPECTED_POPULATION_STATES = {
         "Q-RBC-P002-UNCLASSIFIED-OR-UNKNOWN",
     ],
 }
+EXPECTED_FRAMING_OVERLAY = {
+    "schema_version": "1.0.0",
+    "overlay_id": "RBC-P002-BOUNDED-FRAMING-OVERLAY-2026-08-29",
+    "track": "003-monogenic-diabetes-demonstrator",
+    "protocol_id": "RBC-P002",
+    "status": "active_bounded_synthetic_interface",
+    "historical_guard": {
+        "path": "docs/track-003-framing-interpretation-guard-v0.1.0.yml",
+        "sha256": "70c491ea91ecbcef96745a49bb9cb12b7719835a2ee4ac1f8a91751ac32e9614",
+    },
+    "dependency_disposition": {
+        "track_008": "complete_bounded_semantic_scope_only",
+        "track_009": (
+            "complete_bounded_synthetic_and_exactly_receipted_public_aggregate_scope_only"
+        ),
+        "track_010": "complete_bounded_interface_only",
+    },
+    "review_disposition": {
+        "scientific_methods_agent_challenge": "pending_exact_candidate_review",
+        "engineering_agent_challenge": "pending_exact_candidate_review",
+        "simulated_patient_community_harm_agent_challenge": ("pending_exact_candidate_review"),
+        "repository_owner_disposition": "pending",
+    },
+    "authority_boundaries": {
+        "agent_review_is_advisory_repository_evidence": True,
+        "independent_review": False,
+        "patient_community_approval": False,
+        "community_representation": False,
+        "empirical_activation": False,
+        "controlled_data_activation": False,
+        "public_aggregate_execution": False,
+        "publication_authority": False,
+        "production_release_authority": False,
+    },
+    "acceptable_scope": [
+        "synthetic interface assurance",
+        "preparation of exactly-receipted public aggregates for later qualification",
+    ],
+    "prohibited_scope": [
+        "empirical execution",
+        "controlled-data execution",
+        "clinical decision support",
+        "patient or community endorsement claims",
+        "independent or external review claims",
+    ],
+}
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -222,29 +268,7 @@ def validate(path: Path, root: Path) -> None:
     ):
         raise Track003RegistrationError("population-state reference is absent from bound contract")
     overlay = _load(root / EXPECTED_BINDINGS["framing_overlay"])
-    expected_authority = {
-        "agent_review_is_advisory_repository_evidence": True,
-        "independent_review": False,
-        "patient_community_approval": False,
-        "community_representation": False,
-        "empirical_activation": False,
-        "controlled_data_activation": False,
-        "public_aggregate_execution": False,
-        "publication_authority": False,
-        "production_release_authority": False,
-    }
-    if (
-        overlay.get("status") != "active_bounded_synthetic_interface"
-        or overlay.get("authority_boundaries") != expected_authority
-        or set(overlay.get("dependency_disposition", {}).values())
-        != {
-            "complete_bounded_semantic_scope_only",
-            "complete_bounded_synthetic_and_exactly_receipted_public_aggregate_scope_only",
-            "complete_bounded_interface_only",
-        }
-        or set(overlay.get("review_disposition", {}).values())
-        != {"pending_exact_candidate_review", "pending"}
-    ):
+    if overlay != EXPECTED_FRAMING_OVERLAY:
         raise Track003RegistrationError("bounded framing overlay drift")
     execution = document.get("execution", {})
     if (

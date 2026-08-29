@@ -120,6 +120,37 @@ def test_registration_rejects_population_state_drift(
         validate(_candidate(tmp_path, document), ROOT)
 
 
+@pytest.mark.parametrize(
+    ("field", "mutation"),
+    [
+        ("track", "wrong-track"),
+        ("protocol_id", "wrong-protocol"),
+        ("historical_guard", {}),
+        ("dependency_disposition", {"arbitrary": "complete_bounded_interface_only"}),
+        ("review_disposition", {"repository_owner_disposition": "accepted"}),
+        ("acceptable_scope", ["empirical execution"]),
+        ("prohibited_scope", []),
+    ],
+)
+def test_registration_rejects_framing_structure_drift(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+    mutation: object,
+) -> None:
+    original_load = checker._load
+
+    def drifted_load(path: Path) -> dict[str, object]:
+        value = original_load(path)
+        if path.name == "track-003-bounded-framing-overlay-2026-08-29.yml":
+            value[field] = mutation
+        return value
+
+    monkeypatch.setattr(checker, "_load", drifted_load)
+    with pytest.raises(Track003RegistrationError, match="bounded framing overlay drift"):
+        validate(_candidate(tmp_path, _document()), ROOT)
+
+
 def test_registration_rejects_framing_authority_drift(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
