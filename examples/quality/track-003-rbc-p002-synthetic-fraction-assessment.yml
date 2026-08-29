@@ -1,0 +1,31 @@
+schema_version: 1.0.0
+assessment_id: eqa-18335ab0543ffc33e2be22cc
+subject:
+  subject_type: parameter
+  subject_id: rbc-p002-aetiologic-fraction-synthetic
+assessed_at: '2026-08-29T00:00:00Z'
+assessor:
+  role: RareBurden synthetic assurance harness
+  identifier: track-003-bounded-reference
+  independence: producer
+framework_version: RareBurden-EQA-1.0.0
+domains:
+  - domain: construct_validity
+    judgement: some_concern
+    rationale: The fraction is an explicit synthetic assumption aligned to the primary diabetes denominator.
+    evidence_refs: [RBC-P002-ESTIMAND-DENOMINATOR-v0.1.0]
+  - domain: ascertainment
+    judgement: some_concern
+    rationale: No empirical testing, diagnosis or referral process is represented.
+    evidence_refs: [track-003-synthetic-assumption]
+  - domain: computational_reproducibility
+    judgement: low_concern
+    rationale: The beta distribution, seed and compatible population context are committed.
+    evidence_refs: [track-003-synthetic-ledger]
+overall_judgement:
+  decision: sensitivity_only
+  rationale: Appropriate only for synthetic assurance because it is not an epidemiological estimate.
+  unresolved_questions:
+    - Replace with a registered evidence synthesis before empirical use.
+limitations:
+  - The assumed fraction is not an empirical aetiologic fraction.

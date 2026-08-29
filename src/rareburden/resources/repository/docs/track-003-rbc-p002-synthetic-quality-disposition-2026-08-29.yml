@@ -1,0 +1,20 @@
+schema_version: 1.0.0
+analysis_id: track-003-rbc-p002-synthetic
+created_at: '2026-08-29T00:00:00Z'
+intended_use: synthetic_assurance
+evidence_assessment_ids:
+  - eqa-18335ab0543ffc33e2be22cc
+  - eqa-8fabe04ca65969d8f4c9c741
+transportability_assessment_ids:
+  - tra-4e44acb90510d4226f97b047
+eligible_for_primary_analysis: false
+eligible_for_synthetic_assurance: true
+evidence_decisions:
+  - direct_use
+  - sensitivity_only
+transportability_decisions:
+  - sensitivity_only
+blockers:
+  - at least one input is restricted to sensitivity analysis
+note: This is a rule-based disposition, not a numeric or weighted quality score.
+disposition_id: qdp-0c287cfade8b8645565542f0

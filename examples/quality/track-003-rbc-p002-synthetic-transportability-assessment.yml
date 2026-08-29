@@ -1,0 +1,37 @@
+schema_version: 1.0.0
+assessment_id: tra-4e44acb90510d4226f97b047
+parameter_id: rbc-p002-aetiologic-fraction-synthetic
+assessed_at: '2026-08-29T00:00:00Z'
+source_context:
+  geography: Synthetic source context
+  calendar_period: Synthetic 2025 period
+  population: Synthetic primary diabetes denominator
+  case_definition: Synthetic monogenic aetiology grouping
+  ascertainment: No empirical ascertainment
+  health_system: Not applicable
+target_context:
+  geography: Synthetic RBC-P002 context
+  calendar_period: Synthetic 2025 period
+  population: Synthetic primary diabetes denominator
+  case_definition: Synthetic monogenic aetiology grouping
+  ascertainment: No empirical ascertainment
+  health_system: Not applicable
+differences:
+  - domain: other
+    materiality: moderate
+    direction: uncertain
+    rationale: An assumed distribution has no empirical source-to-target transport claim.
+    evidence_refs: [track-003-synthetic-assumption]
+method:
+  strategy: scenario_analysis
+  description: Retain the fraction only as a declared synthetic scenario with explicit uncertainty.
+  assumptions:
+    - No empirical target-population validity is claimed.
+judgement:
+  use: sensitivity_only
+  uncertainty_multiplier: 2.0
+  rationale: Suitable only for bounded synthetic sensitivity assurance.
+validation_plan:
+  - Replace with an exact source-specific transportability assessment before empirical use.
+limitations:
+  - No empirical source-to-target transportability is asserted.

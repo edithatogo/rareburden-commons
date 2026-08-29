@@ -1,0 +1,17 @@
+schema_version: 1.0.0
+analysis_id: track-003-rbc-p002-synthetic
+title: RBC-P002 protocol-compatible synthetic denominator assurance analysis
+estimand: rare_aetiology_cases
+left_parameter_id: rbc-p002-diabetes-denominator-synthetic
+right_parameter_id: rbc-p002-aetiologic-fraction-synthetic
+output_unit: people
+iterations: 10000
+seed: 20260829
+interval_probability: 0.95
+dependence: independent
+dependence_rationale: Independence is an explicit synthetic assurance assumption and is not asserted for any empirical population.
+intended_use: synthetic_assurance
+limitations:
+  - Synthetic protocol compatibility only; no empirical, clinical, policy or patient-facing interpretation is permitted.
+  - The denominator and aetiologic fraction are transparent assumptions rather than observed quantities.
+  - Gene, phenotype, ascertainment, penetrance and clinical entity scope remain unfrozen.

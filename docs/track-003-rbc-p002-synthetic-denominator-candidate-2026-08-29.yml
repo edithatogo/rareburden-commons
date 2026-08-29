@@ -1,0 +1,44 @@
+schema_version: "1.0.0"
+candidate_id: "RBC-P002-SYNTHETIC-DENOMINATOR-2026-08-29"
+track: "003-monogenic-diabetes-demonstrator"
+protocol_id: "RBC-P002"
+status: "candidate_pending_exact_review"
+intended_use: "synthetic_assurance"
+created_on: "2026-08-29"
+bindings:
+  registration: {path: "docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml", sha256: "fceee6bfd1ea62a4413e0e9aa9afab61a5a098a327b884ae94891b85ef7f2cec"}
+  estimand_contract: {path: "docs/track-003-estimand-denominator-contract-v0.1.0.yml", sha256: "b69cd5d016bf7bb2b47ee957fc59edf9184614225c888802606da8cd848e8358"}
+  ledger: {path: "examples/ledger/track-003-rbc-p002-synthetic.yml", sha256: "584d76a865496f59caa1881e093ff708d2a7460e5325aa0bc8074588f9763298"}
+  analysis: {path: "examples/analyses/track-003-rbc-p002-synthetic.yml", sha256: "e7f891cb8cafeee48d69fc3eef8863eb60679f0869b5bb4ac6ff9d09c9cfad58"}
+  denominator_assessment: {path: "examples/quality/track-003-rbc-p002-synthetic-denominator-assessment.yml", sha256: "de705187576cda6a614fbf4b20d9ad83ceb25389dec2fc80ae98c5881530620b"}
+  fraction_assessment: {path: "examples/quality/track-003-rbc-p002-synthetic-fraction-assessment.yml", sha256: "833ac98634cef778e36862f6cb66ba0192f3ae7bfeb8e02c3a3daf1677c7c580"}
+  transportability_assessment: {path: "examples/quality/track-003-rbc-p002-synthetic-transportability-assessment.yml", sha256: "1512c35cd1a786b466ad8c33a4481f19ac852d368249f0fbbe0ddf054a46b015"}
+  quality_disposition: {path: "docs/track-003-rbc-p002-synthetic-quality-disposition-2026-08-29.yml", sha256: "1fa97800df6896631cef2cfe62ec80bf98b31b71d6081bb5adaefe40d191309d"}
+registered_scope:
+  estimand_id: "E-RBC-P002-EXPECTED-CASES"
+  denominator_id: "D-RBC-P002-PRIMARY-DIABETES"
+  denominator_parameter_id: "rbc-p002-diabetes-denominator-synthetic"
+  aetiologic_fraction_parameter_id: "rbc-p002-aetiologic-fraction-synthetic"
+  output_unit: "people"
+qualification:
+  schema_valid: true
+  compatible_population_context: true
+  compatible_period_context: true
+  compatible_case_count_times_fraction_units: true
+  quality_graph_closed: true
+  exact_candidate_review_complete: false
+  owner_disposition_complete: false
+  executable: false
+claims:
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  clinical_validity: false
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  publication_authority: false
+  production_release_authority: false
+next_gate: >-
+  Bind role-separated agent review and repository-owner disposition to the exact
+  candidate commit before one provenance-bound synthetic assurance execution.
