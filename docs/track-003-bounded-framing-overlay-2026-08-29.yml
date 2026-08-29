@@ -1,0 +1,36 @@
+schema_version: "1.0.0"
+overlay_id: "RBC-P002-BOUNDED-FRAMING-OVERLAY-2026-08-29"
+track: "003-monogenic-diabetes-demonstrator"
+protocol_id: "RBC-P002"
+status: "active_bounded_synthetic_interface"
+historical_guard:
+  path: "docs/track-003-framing-interpretation-guard-v0.1.0.yml"
+  sha256: "70c491ea91ecbcef96745a49bb9cb12b7719835a2ee4ac1f8a91751ac32e9614"
+dependency_disposition:
+  track_008: "complete_bounded_semantic_scope_only"
+  track_009: "complete_bounded_synthetic_and_exactly_receipted_public_aggregate_scope_only"
+  track_010: "complete_bounded_interface_only"
+review_disposition:
+  scientific_methods_agent_challenge: "pending_exact_candidate_review"
+  engineering_agent_challenge: "pending_exact_candidate_review"
+  simulated_patient_community_harm_agent_challenge: "pending_exact_candidate_review"
+  repository_owner_disposition: "pending"
+authority_boundaries:
+  agent_review_is_advisory_repository_evidence: true
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  publication_authority: false
+  production_release_authority: false
+acceptable_scope:
+  - "synthetic interface assurance"
+  - "preparation of exactly-receipted public aggregates for later qualification"
+prohibited_scope:
+  - "empirical execution"
+  - "controlled-data execution"
+  - "clinical decision support"
+  - "patient or community endorsement claims"
+  - "independent or external review claims"

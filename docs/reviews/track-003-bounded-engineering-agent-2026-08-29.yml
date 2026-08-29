@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+track: "003-monogenic-diabetes-demonstrator"
+simulation_status: "simulated_role_separated_advisory_panel"
+perspective: "engineering_reproducibility_security_agent"
+reviewed_candidate:
+  commit: "675c38e6c09099878c8087f7b722cea32c4d9277"
+  tree: "b86f8754fcd6093c1baa6d9189c96d96d4a423e5"
+  registration_sha256: "fceee6bfd1ea62a4413e0e9aa9afab61a5a098a327b884ae94891b85ef7f2cec"
+disposition: "pass_bounded_interface_registration"
+unresolved_blocking_findings: []
+evidence:
+  - "The upstream commit/tree pair is pinned rather than merely resolvable."
+  - "Full keyed overlay semantics and registered cross-contract references are mutation tested."
+  - "Runtime assets, focused tests, formatting, lint and diff checks passed."
+limitations:
+  - "Any mutation of the registration or overlay creates a new candidate requiring re-review."
+  - "No empirical execution, deployment or external publication was tested."
+authority:
+  independent_review: false
+  engineering_approval: false
+  security_approval: false
+  recommendation_is_approval: false

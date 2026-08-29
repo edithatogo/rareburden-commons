@@ -1,9 +1,12 @@
 # Track 003 RBC-P002 review packet
 
-**Status:** non-binding preparation; Track 003 remains blocked  
-**Protocol draft:** RBC-P002 v0.1.0  
-**Activation rule:** do not freeze entities, denominators or analysis outputs
-until Tracks 008, 009 and 010 are complete.
+**Status:** bounded interface registration active; data execution disabled
+
+**Protocol:** RBC-P002 v0.2.0-bounded
+
+**Activation rule:** Tracks 008, 009 and 010 are complete within bounded scope.
+Do not freeze clinical genes/phenotypes or execute synthetic, public-aggregate
+or controlled-data analyses until a compatible exact parameter set is qualified.
 
 ## Decisions required
 
@@ -14,7 +17,7 @@ until Tracks 008, 009 and 010 are complete.
 | Diagnosed/undiagnosed/modelled states | State definitions, ascertainment and penetrance assumptions | approve, revise or reject |
 | Evidence and transportability | Ledger records by age, ancestry, setting and referral pathway | approve, revise or bound |
 | Outcome/economic interpretation | Subgroup-specific evidence or clearly labelled scenarios | approve, narrow or reject |
-| Framing and harms | Patient/community review of language, equity and interpretation | approve, revise or dissent |
+| Framing and harms | Simulated-community/harm agent challenge of language, equity and interpretation | advise revise, bound or stop; never community approval |
 
 ## Repository evidence expected
 
@@ -39,11 +42,10 @@ until Tracks 008, 009 and 010 are complete.
 
 ## Safe continuation
 
-Continue synthetic fixtures, schema checks and report scaffolding. Do not freeze
-clinical entities, claim cohort representativeness, apply fractions to
-incompatible outcomes/costs, or produce empirical estimates before upstream
-semantic/ledger/engine contracts and accountable clinical, methods,
-data-governance and patient/community review are complete.
+Continue bounded contract checks, agent challenge and exact public-aggregate
+qualification. Do not freeze clinical entities, claim cohort representativeness,
+apply fractions to incompatible outcomes/costs, or produce an estimate before
+a protocol-compatible parameter set and its rights/provenance receipts pass.
 
 The non-binding framing guard is
 `docs/track-003-framing-interpretation-guard-v0.1.0.yml`. It prepares review

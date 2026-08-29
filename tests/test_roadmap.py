@@ -25,7 +25,7 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.release_count == 11
     assert summary.track_count == 19
     assert summary.v1_critical_track_count == 18
-    assert summary.current_release == "0.3.0"
+    assert summary.current_release == "0.5.0"
     assert summary.track_status_counts["complete"] == 4
     assert summary.track_status_counts["archived"] == 5
 
@@ -135,7 +135,7 @@ def test_released_release_requires_complete_tracks(tmp_path: Path) -> None:
 
 def test_release_status_regression_is_rejected(tmp_path: Path) -> None:
     roadmap_data = yaml.safe_load(ROADMAP.read_text(encoding="utf-8"))
-    roadmap_data["releases"][3]["status"] = "released"
+    roadmap_data["releases"][3]["status"] = "planned"
     roadmap = tmp_path / "roadmap.yml"
     roadmap.write_text(yaml.safe_dump(roadmap_data, sort_keys=False), encoding="utf-8")
 

@@ -2,7 +2,7 @@
 
 **Stable target:** v1.0.0  
 **Normative machine-readable plan:** [`roadmap.yml`](roadmap.yml)  
-**Current release:** v0.3.0 — Evidence acquisition foundation
+**Current release:** v0.5.0 — Public burden engine alpha
 
 Track identifiers 003–005 retain the subjects proposed in v0.1. Execution order is governed by dependencies and target releases, not numeric order.
 
@@ -16,7 +16,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 008 | Semantic backbone and burden-purpose hierarchy | Complete (bounded non-clinical core) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 007 |
 | 009 | Evidence and parameter ledger | Complete (bounded synthetic and receipted-public-aggregate scope) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 008 |
 | 010 | Public burden engine and uncertainty framework | Complete (bounded synthetic alpha core) | Must | v0.5.0 | Repository owner (sole accountable human) | 009 |
-| 003 | Monogenic diabetes rare-within-common demonstrator | Blocked | Must | v0.5.0 | Repository owner (sole accountable human) | 008, 009, 010 |
+| 003 | Monogenic diabetes rare-within-common demonstrator | Active (bounded synthetic/interface reconciliation) | Must | v0.5.0 | Repository owner (sole accountable human) | 008, 009, 010 |
 | 004 | Federated country-node execution package | Blocked | Must | v0.6.0 | Repository owner (sole accountable human) | 006, 009, 010 |
 | 011 | Bronchiectasis rare-aetiology demonstrator | Blocked | Must | v0.6.0 | Repository owner (sole accountable human) | 008, 009, 010 |
 | 005 | Patient, family, economic and social burden module | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 009, 010 |

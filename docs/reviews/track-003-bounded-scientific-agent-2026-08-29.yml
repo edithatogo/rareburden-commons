@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+track: "003-monogenic-diabetes-demonstrator"
+simulation_status: "simulated_role_separated_advisory_panel"
+perspective: "scientific_methods_agent"
+reviewed_candidate:
+  commit: "675c38e6c09099878c8087f7b722cea32c4d9277"
+  tree: "b86f8754fcd6093c1baa6d9189c96d96d4a423e5"
+  registration_sha256: "fceee6bfd1ea62a4413e0e9aa9afab61a5a098a327b884ae94891b85ef7f2cec"
+disposition: "pass_bounded_interface_registration"
+unresolved_blocking_findings: []
+evidence:
+  - "Every registered estimand, entity, population-state dimension and derived quantity resolves against its exact bound contract."
+  - "The exact population-state contract ID, upstream commit/tree and full framing overlay fail closed under mutation."
+  - "Empirical, controlled-data, execution and authority claims remain false."
+limitations:
+  - "No clinical gene or phenotype definition, empirical parameter, transportability or clinical validity was assessed."
+  - "No actual patient or community evidence was assessed."
+authority:
+  independent_review: false
+  scientific_approval: false
+  clinical_approval: false
+  recommendation_is_approval: false
