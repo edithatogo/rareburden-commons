@@ -4,16 +4,6 @@
     "all_releases_archived": false
   },
   "destination": "edithatogo/rareburden-commons-open-source-snapshots",
-  "last_successful_run": {
-    "head_sha": "73efad33e0b054e5d33a932103216b2c8c7dcf8e",
-    "receipt_sha256": "8ceec25177be8652d88e5c48f5ce2ea90618db7218e3c6c4f73265c67f5f74ce",
-    "run_id": 33219209510,
-    "source_manifest_sha256": "d6f9317203cd0cd7aa352e429fd0467e7758e328084f72c7e0237d86cb89e8d6"
-  },
-  "next": {
-    "release_index": 5,
-    "asset_index": 0
-  },
   "hosted_receipts": [
     {
       "artifact_digest_sha256": "911a4f6c3a74dfa1a8b870dcbb76ee38d8aa1de7bc006f62a0571448dc056971",
@@ -44,208 +34,272 @@
       "run_id": 31900862688
     },
     {
-      "run_id": 33052561233,
-      "asset_start": 7,
+      "artifact_digest_sha256": "709f250c275165bb83172a3e42577b2ad590956f95ed3e9124f51973e06cc2dc",
       "asset_end": 10,
+      "asset_start": 7,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "1e40635909f3bedc94489a463932043e4ea0bb8a2149bc62a497a6094799dcf2",
-      "artifact_digest_sha256": "709f250c275165bb83172a3e42577b2ad590956f95ed3e9124f51973e06cc2dc"
+      "run_id": 33052561233
     },
     {
-      "run_id": 33052659253,
-      "asset_start": 11,
+      "artifact_digest_sha256": "ce600412f765282d02ba5c24bf97a418fc4c2ad0c79791a1be3e91dcf7cf6dfb",
       "asset_end": 13,
+      "asset_start": 11,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "e442444062bddc363d19fc5370cab15d7eb6d6b0637c953710aad876186bde09",
-      "artifact_digest_sha256": "ce600412f765282d02ba5c24bf97a418fc4c2ad0c79791a1be3e91dcf7cf6dfb"
+      "run_id": 33052659253
     },
     {
-      "run_id": 33052756185,
-      "asset_start": 14,
+      "artifact_digest_sha256": "3ef5b87f5d70b3174582b09207be1e1469d890017ec6e8cd771df4fcf9962989",
       "asset_end": 18,
+      "asset_start": 14,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "979041058c1caab9082b0658b2796f1af61a28c8877f2b3c6fed90f061e264b3",
-      "artifact_digest_sha256": "3ef5b87f5d70b3174582b09207be1e1469d890017ec6e8cd771df4fcf9962989"
+      "run_id": 33052756185
     },
     {
-      "run_id": 33052931319,
-      "asset_start": 19,
+      "artifact_digest_sha256": "1485bd4e38ea9a9d0905e70bbbbed52c5b4eeb45a22224c7ab23099e507f6cd2",
       "asset_end": 21,
+      "asset_start": 19,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "748fd5cbf2f78e6b30cc93ad9c96ccdc95bc2600a1678186ae548f7f2e4b94e4",
-      "artifact_digest_sha256": "1485bd4e38ea9a9d0905e70bbbbed52c5b4eeb45a22224c7ab23099e507f6cd2"
+      "run_id": 33052931319
     },
     {
-      "run_id": 33052991785,
-      "asset_start": 22,
+      "artifact_digest_sha256": "a31830323cd36d30629af6a13c157d81a065f2a33defdef5afa8c3548923a777",
       "asset_end": 28,
+      "asset_start": 22,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "da24fe527d6d243bfc07e02593ab8d6485d85e564898b74f19e46dc18cd101cc",
-      "artifact_digest_sha256": "a31830323cd36d30629af6a13c157d81a065f2a33defdef5afa8c3548923a777"
+      "run_id": 33052991785
     },
     {
-      "run_id": 33053147356,
-      "release_index": 2,
-      "asset_start": 0,
+      "artifact_digest_sha256": "c1c99a1e50f19da2970066c069636584527830b5afbbd8aa97f8c3adf824c9e8",
       "asset_end": 4,
+      "asset_start": 0,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "4e8fc9cd6839264476842744f7d7eae33651fd5be10d9829a842aa10e81c50c1",
-      "artifact_digest_sha256": "c1c99a1e50f19da2970066c069636584527830b5afbbd8aa97f8c3adf824c9e8"
+      "release_index": 2,
+      "run_id": 33053147356
     },
     {
-      "run_id": 33053385256,
-      "release_index": 2,
-      "asset_start": 5,
+      "artifact_digest_sha256": "9a7aa571b0b4b99cc02dabb58a3083d437135e1a920cbf010b4c042d8aa90fdf",
       "asset_end": 10,
+      "asset_start": 5,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "270e3ea26a321f8f3bba5f44ceb4c4927301c074786c62ce8944bc614d5d1164",
-      "artifact_digest_sha256": "9a7aa571b0b4b99cc02dabb58a3083d437135e1a920cbf010b4c042d8aa90fdf"
+      "release_index": 2,
+      "run_id": 33053385256
     },
     {
-      "run_id": 33053457405,
-      "release_index": 2,
-      "asset_start": 11,
+      "artifact_digest_sha256": "b56b7793a9367cc132e96e9117728388a07a8d9a80d091c2c955e44eee404a12",
       "asset_end": 13,
+      "asset_start": 11,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "22b73fb30dae1f4475e3de21755f8e1db54ba7fab583c8ec89707a601fcddc4e",
-      "artifact_digest_sha256": "b56b7793a9367cc132e96e9117728388a07a8d9a80d091c2c955e44eee404a12"
+      "release_index": 2,
+      "run_id": 33053457405
     },
     {
-      "run_id": 33053525211,
-      "release_index": 2,
-      "asset_start": 14,
+      "artifact_digest_sha256": "99dd57f20ed0c5639a7a3b45f559b89c6663374601d35c8354848d45c5127a03",
       "asset_end": 18,
+      "asset_start": 14,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "155d61935e7c537d4f91ea152375bbcad7312e8dc55906cd5245ee958b4bc514",
-      "artifact_digest_sha256": "99dd57f20ed0c5639a7a3b45f559b89c6663374601d35c8354848d45c5127a03"
+      "release_index": 2,
+      "run_id": 33053525211
     },
     {
-      "run_id": 33053587926,
-      "release_index": 2,
-      "asset_start": 19,
+      "artifact_digest_sha256": "5677d66124b7ec3752aef80ab1334d8934841959311f4926eb12e440c263141b",
       "asset_end": 21,
+      "asset_start": 19,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "dba8047474e93919c64354f512f90dd531a4eb28c6ba0f8ef4bfa0f5d2332d4b",
-      "artifact_digest_sha256": "5677d66124b7ec3752aef80ab1334d8934841959311f4926eb12e440c263141b"
+      "release_index": 2,
+      "run_id": 33053587926
     },
     {
-      "run_id": 33053662251,
-      "release_index": 2,
-      "asset_start": 22,
+      "artifact_digest_sha256": "f3b6f0b1eb7c32c550613bf714f56e78ce757a3f2f656329e3c2ee8efbca3156",
       "asset_end": 28,
+      "asset_start": 22,
       "head_sha": "3cafc1921e6f6d43124b2494d99628b24e7966b3",
       "receipt_sha256": "831cb8901a4bc2edcd8d2ec83938b2e90a110909dff501276be171f54346e6e5",
-      "artifact_digest_sha256": "f3b6f0b1eb7c32c550613bf714f56e78ce757a3f2f656329e3c2ee8efbca3156"
+      "release_index": 2,
+      "run_id": 33053662251
     },
     {
-      "run_id": 33056398077,
-      "release_index": 3,
-      "asset_start": 0,
+      "artifact_digest_sha256": "41788ffc7997283f28132fd683861560b453c6ec1028ef0863ba91b4388e97c0",
       "asset_end": 4,
+      "asset_start": 0,
       "head_sha": "09e87654f851332c03dfd17acaaafff5f352a8ff",
       "receipt_sha256": "a3b0526d71b30056a6764c7b1d9e1499b500f1da5d9a6a257c9596b567d81174",
-      "artifact_digest_sha256": "41788ffc7997283f28132fd683861560b453c6ec1028ef0863ba91b4388e97c0"
+      "release_index": 3,
+      "run_id": 33056398077
     },
     {
-      "run_id": 33056475901,
-      "release_index": 3,
-      "asset_start": 5,
+      "artifact_digest_sha256": "3cec1e36cf625655210a743faabbb6b6dfa5b09c690ef392f671bc8f5457041b",
       "asset_end": 10,
+      "asset_start": 5,
       "head_sha": "09e87654f851332c03dfd17acaaafff5f352a8ff",
       "receipt_sha256": "fdd8ab623d957d85db0ebf07c65d8734436f704ee4fbba3fe3713d7497eb6d45",
-      "artifact_digest_sha256": "3cec1e36cf625655210a743faabbb6b6dfa5b09c690ef392f671bc8f5457041b"
+      "release_index": 3,
+      "run_id": 33056475901
     },
     {
-      "run_id": 33056570123,
-      "release_index": 3,
-      "asset_start": 11,
+      "artifact_digest_sha256": "fd1aa0f3b2263e53166a42ad71b227e35e52a36f7014a524fc83e5c24d1e39b6",
       "asset_end": 13,
+      "asset_start": 11,
       "head_sha": "09e87654f851332c03dfd17acaaafff5f352a8ff",
       "receipt_sha256": "904a83e66a48e366ea4806623efb5475141f518676883d5d72669d9f030ab013",
-      "artifact_digest_sha256": "fd1aa0f3b2263e53166a42ad71b227e35e52a36f7014a524fc83e5c24d1e39b6"
+      "release_index": 3,
+      "run_id": 33056570123
     },
     {
-      "run_id": 33056639019,
-      "release_index": 3,
-      "asset_start": 14,
+      "artifact_digest_sha256": "49e6be54bd3a486a8ee85851c4d689b2097cba0dedf092aa74dcc65429a699ef",
       "asset_end": 18,
+      "asset_start": 14,
       "head_sha": "09e87654f851332c03dfd17acaaafff5f352a8ff",
       "receipt_sha256": "0d907581fb6cafb4a77a6b1aaa520e13deb486664ea735a187be06d944162bba",
-      "artifact_digest_sha256": "49e6be54bd3a486a8ee85851c4d689b2097cba0dedf092aa74dcc65429a699ef"
+      "release_index": 3,
+      "run_id": 33056639019
     },
     {
-      "run_id": 33056714265,
-      "release_index": 3,
-      "asset_start": 19,
+      "artifact_digest_sha256": "96724a034f26f7c56b26415189ba329a8928c09452cc7b0b4d9f1a1a7af07e2d",
       "asset_end": 21,
+      "asset_start": 19,
       "head_sha": "09e87654f851332c03dfd17acaaafff5f352a8ff",
       "receipt_sha256": "3d13130c5212c992668381fa86c8d935e3b095ff397eeb21f0f759fbfe1477d0",
-      "artifact_digest_sha256": "96724a034f26f7c56b26415189ba329a8928c09452cc7b0b4d9f1a1a7af07e2d"
+      "release_index": 3,
+      "run_id": 33056714265
     },
     {
-      "run_id": 33056791562,
-      "release_index": 3,
-      "asset_start": 22,
+      "artifact_digest_sha256": "93e704b99376d2054a2db6d514c255ab515a87169459a8e5c942740cf7500067",
       "asset_end": 28,
+      "asset_start": 22,
       "head_sha": "09e87654f851332c03dfd17acaaafff5f352a8ff",
       "receipt_sha256": "1e3bb7b8bf302351a45754d0630780b16cbd9e9bb783c0d2aadc7ea4635c816a",
-      "artifact_digest_sha256": "93e704b99376d2054a2db6d514c255ab515a87169459a8e5c942740cf7500067"
+      "release_index": 3,
+      "run_id": 33056791562
     },
     {
-      "run_id": 33218850687,
-      "release_index": 4,
-      "asset_start": 0,
+      "artifact_digest_sha256": "76f5e1fae3c57783bfb029e169791112d814e4c7db4fb999bd5101e321cce042",
       "asset_end": 5,
+      "asset_start": 0,
       "head_sha": "73efad33e0b054e5d33a932103216b2c8c7dcf8e",
       "receipt_sha256": "bea16660460e7cfdfa4830eb1969ab1812ee8b210064130961e8acb80b26084f",
-      "artifact_digest_sha256": "76f5e1fae3c57783bfb029e169791112d814e4c7db4fb999bd5101e321cce042"
+      "release_index": 4,
+      "run_id": 33218850687
     },
     {
-      "run_id": 33218940481,
-      "release_index": 4,
-      "asset_start": 6,
+      "artifact_digest_sha256": "0f75ace4b303d2ea310355f963baead2dd5ad708e4cac7db5c75a059f3cf35f1",
       "asset_end": 10,
+      "asset_start": 6,
       "head_sha": "73efad33e0b054e5d33a932103216b2c8c7dcf8e",
       "receipt_sha256": "c2b456f642641fdebda64c6717816b9b5fb23da8deb764f64d17e97d9fabc4f0",
-      "artifact_digest_sha256": "0f75ace4b303d2ea310355f963baead2dd5ad708e4cac7db5c75a059f3cf35f1"
+      "release_index": 4,
+      "run_id": 33218940481
     },
     {
-      "run_id": 33219019892,
-      "release_index": 4,
-      "asset_start": 11,
+      "artifact_digest_sha256": "601e387f5f021b6558b23c289f8c5fa0ed91d664ff072680d087428419eef676",
       "asset_end": 13,
+      "asset_start": 11,
       "head_sha": "73efad33e0b054e5d33a932103216b2c8c7dcf8e",
       "receipt_sha256": "7e951a242881e8a944fd155a247eaec4c8eb0ea20c3c6c6b01d5b83bc1b91823",
-      "artifact_digest_sha256": "601e387f5f021b6558b23c289f8c5fa0ed91d664ff072680d087428419eef676"
+      "release_index": 4,
+      "run_id": 33219019892
     },
     {
-      "run_id": 33219088241,
-      "release_index": 4,
-      "asset_start": 14,
+      "artifact_digest_sha256": "01a0afbf0bf59a25d4c3d1d4b658c41d1f21f672a42ea8671774815dce2d77bb",
       "asset_end": 18,
+      "asset_start": 14,
       "head_sha": "73efad33e0b054e5d33a932103216b2c8c7dcf8e",
       "receipt_sha256": "dfe7ae763e8a30e3051b9477d0925edcb7ea94f1781b6bfedd0cdeef1c49a1bb",
-      "artifact_digest_sha256": "01a0afbf0bf59a25d4c3d1d4b658c41d1f21f672a42ea8671774815dce2d77bb"
+      "release_index": 4,
+      "run_id": 33219088241
     },
     {
-      "run_id": 33219149523,
-      "release_index": 4,
-      "asset_start": 19,
+      "artifact_digest_sha256": "a68c7d6a7c664775221a230a35562a06371afa16b14ae3542e062fd239686241",
       "asset_end": 21,
+      "asset_start": 19,
       "head_sha": "73efad33e0b054e5d33a932103216b2c8c7dcf8e",
       "receipt_sha256": "515a6a8d4793b1f95d4cb3af13612285d7d044a894ce301e89ea59d11e6b51b4",
-      "artifact_digest_sha256": "a68c7d6a7c664775221a230a35562a06371afa16b14ae3542e062fd239686241"
+      "release_index": 4,
+      "run_id": 33219149523
     },
     {
-      "run_id": 33219209510,
-      "release_index": 4,
-      "asset_start": 22,
+      "artifact_digest_sha256": "d15b035be05d473b0758e3fe846ae748984248b0012af83a95a45e8fa2219199",
       "asset_end": 28,
+      "asset_start": 22,
       "head_sha": "73efad33e0b054e5d33a932103216b2c8c7dcf8e",
       "receipt_sha256": "8ceec25177be8652d88e5c48f5ce2ea90618db7218e3c6c4f73265c67f5f74ce",
-      "artifact_digest_sha256": "d15b035be05d473b0758e3fe846ae748984248b0012af83a95a45e8fa2219199"
+      "release_index": 4,
+      "run_id": 33219209510
+    },
+    {
+      "artifact_digest_sha256": "2d38dee48f1f0e84ad7fc5f95c53c0e58dbf79ed40b3c6c2e6c857fccdb547ac",
+      "asset_end": 5,
+      "asset_start": 0,
+      "head_sha": "6c08134922412fd3b6ee18c3d7448f94d9d0bdf7",
+      "receipt_sha256": "7d749f4880b0a837f5cff9bdec7e29f7116915183101c824096a9a5f0ec6bc85",
+      "release_index": 5,
+      "run_id": 33221572447
+    },
+    {
+      "artifact_digest_sha256": "a71583e69b0866b01a7517e2f24e41e468381f6d29ea1a3d4ab65e9d0c97e6e5",
+      "asset_end": 10,
+      "asset_start": 6,
+      "head_sha": "6c08134922412fd3b6ee18c3d7448f94d9d0bdf7",
+      "receipt_sha256": "badad1972044b5e23f412c99f6e8348a220abaab1041de058a58107b65d60931",
+      "release_index": 5,
+      "run_id": 33221633300
+    },
+    {
+      "artifact_digest_sha256": "a080fd229272cffa37206327eea996371316d186f016624efd87422ad847bcc9",
+      "asset_end": 13,
+      "asset_start": 11,
+      "head_sha": "6c08134922412fd3b6ee18c3d7448f94d9d0bdf7",
+      "receipt_sha256": "6a65cde5c0c563403f9c8574adddc03231bb4160dc3feca0896b0949f881fb62",
+      "release_index": 5,
+      "run_id": 33221669443
+    },
+    {
+      "artifact_digest_sha256": "f4fd6df0b71a5793e7e8f9c104ec5b374361a68847d96becab14ff4d28ced930",
+      "asset_end": 18,
+      "asset_start": 14,
+      "head_sha": "6c08134922412fd3b6ee18c3d7448f94d9d0bdf7",
+      "receipt_sha256": "d9b3808cc37ac8c752ed0960362295e3ae01e9b89062929706fdea59f8eef2c5",
+      "release_index": 5,
+      "run_id": 33221709345
+    },
+    {
+      "artifact_digest_sha256": "b97140c5792e51725b265f67a53e00044cb04cfd3e66be17fc6027356ec963b1",
+      "asset_end": 21,
+      "asset_start": 19,
+      "head_sha": "6c08134922412fd3b6ee18c3d7448f94d9d0bdf7",
+      "receipt_sha256": "fed2714b2049ca1566a71d923fe57fbd835ae4a65a7c1b2fc82ed27026b4b75a",
+      "release_index": 5,
+      "run_id": 33221777654
+    },
+    {
+      "artifact_digest_sha256": "0694bffd40dbb616c36d5ebe56b6e90fb914ae1f38fa93d9a2638dfc3b3647ba",
+      "asset_end": 28,
+      "asset_start": 22,
+      "head_sha": "6c08134922412fd3b6ee18c3d7448f94d9d0bdf7",
+      "receipt_sha256": "91cc9b2354079d717c381c994d5b0e4a2827e253b5dcb793019d6a9bf891064a",
+      "release_index": 5,
+      "run_id": 33221815433
     }
   ],
+  "last_successful_run": {
+    "head_sha": "6c08134922412fd3b6ee18c3d7448f94d9d0bdf7",
+    "receipt_sha256": "91cc9b2354079d717c381c994d5b0e4a2827e253b5dcb793019d6a9bf891064a",
+    "run_id": 33221815433,
+    "source_manifest_sha256": "d6f9317203cd0cd7aa352e429fd0467e7758e328084f72c7e0237d86cb89e8d6"
+  },
+  "next": {
+    "asset_index": 0,
+    "release_index": 6
+  },
   "observed_archived_assets": [
     {
       "asset_index": 0,
@@ -942,6 +996,354 @@
       "bytes": 1107,
       "release_index": 4,
       "sha256": "753654c6483dea9b5f84006e411361a57b34c8ac51d919b3286ac433a6467d9e"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/README.md",
+      "asset_index": 0,
+      "bytes": 4090,
+      "licence": "CC BY 4.0",
+      "name": "README.md",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "0d878d02b1720bab27fdb7db2575bd1758f5624a0fafb6657dce4819451b8368",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/README.md"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-base.json",
+      "asset_index": 1,
+      "bytes": 89874897,
+      "licence": "CC BY 4.0",
+      "name": "mondo-base.json",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "6f3a2939b67f921c065101203613a04e1479e3f0b2aa90be6b63441747d8c166",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-base.json"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-base.obo",
+      "asset_index": 2,
+      "bytes": 47669400,
+      "licence": "CC BY 4.0",
+      "name": "mondo-base.obo",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "dc7b18a52c50a4a1bfa3aa267630e2b0a4356f219c8814025187e3c88eb15672",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-base.obo"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-base.owl",
+      "asset_index": 3,
+      "bytes": 228298517,
+      "licence": "CC BY 4.0",
+      "name": "mondo-base.owl",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "6a6b79027d7720cc74f904c68fc640c81f863debb581fb6904e386562b02553d",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-base.owl"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-clingen.json",
+      "asset_index": 4,
+      "bytes": 85339703,
+      "licence": "CC BY 4.0",
+      "name": "mondo-clingen.json",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "28451650c2a0115dbae26e3a2ec4ebc43f26b6adbf22750c73c9c6381b572ca1",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-clingen.json"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-clingen.obo",
+      "asset_index": 5,
+      "bytes": 45981647,
+      "licence": "CC BY 4.0",
+      "name": "mondo-clingen.obo",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "996ebcf5b26dcd4aec04c1cbcd2e6d77c3a062616b7e805c9acfd0d13f8839f3",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-clingen.obo"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-clingen.owl",
+      "asset_index": 6,
+      "bytes": 221126431,
+      "licence": "CC BY 4.0",
+      "name": "mondo-clingen.owl",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "51736d61c0ba37ba73e390094da8488be8b16e16a55fecdc021152a1a0756482",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-clingen.owl"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-clingen_edges.tsv",
+      "asset_index": 7,
+      "bytes": 12591816,
+      "licence": "CC BY 4.0",
+      "name": "mondo-clingen_edges.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "8a7abdfc618a6949fb6fad3a49b083fa32de7ff7fd247a72965341f16cd266dd",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-clingen_edges.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-clingen_nodes.tsv",
+      "asset_index": 8,
+      "bytes": 21360248,
+      "licence": "CC BY 4.0",
+      "name": "mondo-clingen_nodes.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "ec6fe0b7d888ef6993edd08fd812f55ed85c8994378228fe7ce69283608018a1",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-clingen_nodes.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-international.json",
+      "asset_index": 9,
+      "bytes": 103310923,
+      "licence": "CC BY 4.0",
+      "name": "mondo-international.json",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "2d14b26458f0199191990cb5f0a917c8028da2887356d2bccfa2c80192ef1775",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-international.json"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-international.obo",
+      "asset_index": 10,
+      "bytes": 65991672,
+      "licence": "CC BY 4.0",
+      "name": "mondo-international.obo",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "0b13ea2f42cb96566a5bd552ec230a9846ac1961350c6e297885ca8b57d0d88e",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-international.obo"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-international.owl",
+      "asset_index": 11,
+      "bytes": 271105520,
+      "licence": "CC BY 4.0",
+      "name": "mondo-international.owl",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "e90e86bec4470006b6dfec76756bbfd44ccf05c62e13e921deb423022693a91b",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-international.owl"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-rare.json",
+      "asset_index": 12,
+      "bytes": 55990899,
+      "licence": "CC BY 4.0",
+      "name": "mondo-rare.json",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "c36811a02303217c003c5a91cd93a5cc36617fcbe3899e53c407fac6179184f6",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-rare.json"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-rare.obo",
+      "asset_index": 13,
+      "bytes": 34226665,
+      "licence": "CC BY 4.0",
+      "name": "mondo-rare.obo",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "b6b76aa31dc3324265a90af40acff2b8feac41b76f3550bce2d2e8869d0477ba",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-rare.obo"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-rare.owl",
+      "asset_index": 14,
+      "bytes": 163706319,
+      "licence": "CC BY 4.0",
+      "name": "mondo-rare.owl",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "a9290009d23f96497735f677d99957ed3165fca912d958c6e93a9224b3e60af4",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-rare.owl"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-rare_edges.tsv",
+      "asset_index": 15,
+      "bytes": 3772438,
+      "licence": "CC BY 4.0",
+      "name": "mondo-rare_edges.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "7e59738d2162520eb00ee9977706545efabac9b2b5a1dc90f3462a3c4f648310",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-rare_edges.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-rare_nodes.tsv",
+      "asset_index": 16,
+      "bytes": 16371744,
+      "licence": "CC BY 4.0",
+      "name": "mondo-rare_nodes.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "045f8abb34470e6074ea8f1a388f3f38b1e83b623a447ee7d6a7d4e58bff9b7e",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-rare_nodes.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-simple.json",
+      "asset_index": 17,
+      "bytes": 83174300,
+      "licence": "CC BY 4.0",
+      "name": "mondo-simple.json",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "f5117ec6c0d01189a5070a3af14ee8bdd4568ddb40ecf4032c877a9d4f2fd930",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-simple.json"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-simple.obo",
+      "asset_index": 18,
+      "bytes": 45951765,
+      "licence": "CC BY 4.0",
+      "name": "mondo-simple.obo",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "fdfb9d5cb8b073f916837174dce89489ddd84a53f5c86200ebccee1fc6f4b3f2",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-simple.obo"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo-simple.owl",
+      "asset_index": 19,
+      "bytes": 216652356,
+      "licence": "CC BY 4.0",
+      "name": "mondo-simple.owl",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "2b70c04fa7dd4d47eb1e410a6e433491ac09a3ecdf68a7f28404edea65aa440f",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo-simple.owl"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo.json",
+      "asset_index": 20,
+      "bytes": 103341322,
+      "licence": "CC BY 4.0",
+      "name": "mondo.json",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "7b2cf28eac3f647c3bad2fd68b672d72cebef8f87a91381e9fe4b09d15d3648d",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo.json"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo.obo",
+      "asset_index": 21,
+      "bytes": 51259763,
+      "licence": "CC BY 4.0",
+      "name": "mondo.obo",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "9be712b20f187726f5306a4adb0bb50617851c60d1a0fb7615892270ca11bda1",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo.obo"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo.owl",
+      "asset_index": 22,
+      "bytes": 243027702,
+      "licence": "CC BY 4.0",
+      "name": "mondo.owl",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "7df9b4f477b2ea23a771ddde088a745761436fb81541f768fb9bcfaeb726fbdf",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo.owl"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo_edges.tsv",
+      "asset_index": 23,
+      "bytes": 20206441,
+      "licence": "CC BY 4.0",
+      "name": "mondo_edges.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "fd4c34e178702fb659e0422fcd72e7c26c8c8b87091770d11b028ef24cc8dc21",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo_edges.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo_nodes.tsv",
+      "asset_index": 24,
+      "bytes": 24562405,
+      "licence": "CC BY 4.0",
+      "name": "mondo_nodes.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "cdc94c97339776dbbdcb3b2d107371f1ca33b6793b6e2b27c5f6128cea3857a3",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo_nodes.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo_obsoletioncandidates.tsv",
+      "asset_index": 25,
+      "bytes": 95108,
+      "licence": "CC BY 4.0",
+      "name": "mondo_obsoletioncandidates.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "f2c06ebefdbc90f005d8728d4ca14c3241a58ed6eb2f63bdfa82c25e2636db66",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo_obsoletioncandidates.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo_release_diff_changed_terms.tsv",
+      "asset_index": 26,
+      "bytes": 4739,
+      "licence": "CC BY 4.0",
+      "name": "mondo_release_diff_changed_terms.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "76728527e628e9dc8e6c21b2a5e7cfa2d6e56f516ce8f0215203c4f528c4fb69",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo_release_diff_changed_terms.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/mondo_release_diff_new_terms.tsv",
+      "asset_index": 27,
+      "bytes": 17294,
+      "licence": "CC BY 4.0",
+      "name": "mondo_release_diff_new_terms.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "c74bcace95f11d507d22eec1f7fdecbf98f941a422cc505a854ffc93047f7982",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/mondo_release_diff_new_terms.tsv"
+    },
+    {
+      "action": "uploaded_exact_unmodified_asset",
+      "archive_path": "raw/mondo/v2026-03-03/source-versions.tsv",
+      "asset_index": 28,
+      "bytes": 1107,
+      "licence": "CC BY 4.0",
+      "name": "source-versions.tsv",
+      "release": "v2026-03-03",
+      "release_index": 5,
+      "sha256": "352909b2c693f6b96dfabf88dd5651aa1bb99d24ebcc30a08647f8d48151e5c8",
+      "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-03-03/source-versions.tsv"
     }
   ],
   "schema_version": "1.0",

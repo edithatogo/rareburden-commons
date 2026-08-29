@@ -38,8 +38,8 @@ def test_public_release_requires_exact_terms_and_routes() -> None:
 
 
 def test_committed_frontier_cursor_resolves_at_release_boundary() -> None:
-    assert resolve_release_start(None) == 5
-    assert resolve_release_start(5) == 5
+    assert resolve_release_start(None) == 6
+    assert resolve_release_start(6) == 6
     with pytest.raises(ValueError, match="committed cursor"):
         resolve_release_start(9)
 
