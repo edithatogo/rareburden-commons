@@ -1,0 +1,25 @@
+schema_version: "1.0.0"
+track: "003-monogenic-diabetes-demonstrator"
+simulation_status: "simulated_role_separated_advisory_panel"
+perspective: "simulated_patient_community_harm_interpretation_agent"
+reviewed_candidate:
+  commit: "675c38e6c09099878c8087f7b722cea32c4d9277"
+  tree: "b86f8754fcd6093c1baa6d9189c96d96d4a423e5"
+  registration_sha256: "fceee6bfd1ea62a4413e0e9aa9afab61a5a098a327b884ae94891b85ef7f2cec"
+disposition: "pass_bounded_interface_registration"
+unresolved_blocking_findings: []
+evidence:
+  - "Unresolved, unclassified, observed and modelled population states remain explicit and fail closed."
+  - "The current overlay exactly preserves acceptable and prohibited scope and all false authority claims."
+  - "The historical framing guard remains hash bound rather than silently rewritten."
+limitations:
+  - "No actual community participation, representation, consultation, endorsement, consent, approval or lived-experience evidence occurred."
+  - "No empirical or patient-facing output was reviewed."
+stop_triggers:
+  - "Collapse of unresolved states, unlabeled modelled quantities or incompatible denominator transport."
+  - "Stigma, blame, unsupported representativeness or any false activation or authority claim."
+authority:
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  recommendation_is_approval: false

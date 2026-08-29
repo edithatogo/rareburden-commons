@@ -1,0 +1,42 @@
+schema_version: "1.0.0"
+track_id: "003-monogenic-diabetes-demonstrator"
+decision_type: "bounded_interface_registration_disposition"
+decided_on: "2026-08-29"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+authorization_source: >-
+  Owner instruction to proceed with the recommended bounded Track 003 work,
+  use agents for required review and complete remaining repository-owned work.
+candidate:
+  commit: "675c38e6c09099878c8087f7b722cea32c4d9277"
+  tree: "b86f8754fcd6093c1baa6d9189c96d96d4a423e5"
+  registration: "docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml"
+  registration_sha256: "fceee6bfd1ea62a4413e0e9aa9afab61a5a098a327b884ae94891b85ef7f2cec"
+agent_review_receipts:
+  scientific_methods: "docs/reviews/track-003-bounded-scientific-agent-2026-08-29.yml"
+  engineering_reproducibility_security: "docs/reviews/track-003-bounded-engineering-agent-2026-08-29.yml"
+  simulated_patient_community_harm: "docs/reviews/track-003-bounded-simulated-community-harm-agent-2026-08-29.yml"
+decision:
+  selected_option: "accept_bounded_interface_registration"
+  bounded_interface_registered: true
+  track_complete: false
+  execution_authorized: false
+  next_work: >-
+    Qualify a protocol-compatible synthetic denominator or an exact
+    rights-receipted public-aggregate parameter set under issue 261.
+claims:
+  agent_panel_review_complete: true
+  independent_review: false
+  scientific_approval: false
+  clinical_approval: false
+  patient_community_approval: false
+  community_representation: false
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  publication_authority: false
+  production_release_authority: false
+reopen_triggers:
+  - "Candidate, registration, overlay, bound contract, receipt or upstream identity drift."
+  - "Any empirical, controlled-data, clinical, policy or public execution before a separately qualified parameter contract."
+  - "Any independent, community, publication or production authority claim without attributable evidence."
