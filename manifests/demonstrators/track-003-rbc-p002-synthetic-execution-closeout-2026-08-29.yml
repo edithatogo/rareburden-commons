@@ -1,0 +1,36 @@
+schema_version: 1.0.0
+track: 003-monogenic-diabetes-demonstrator
+status: synthetic_assurance_executed
+reviewed_candidate:
+  commit: fc6f8d755581ce87d38fc8953f8e20f2c89b56ba
+  tree: 94da74dfee88790fbc6a7da7abfe367b8ca922b8
+  candidate_sha256: 95beebc8a371633a4b2a0d06a214fafc92dab8f212de9e4f857be0faab429f9c
+authorization:
+  path: docs/decisions/2026-08-29-track-003-synthetic-denominator-disposition.yml
+  sha256: fa9c28e7c1068b3930d5ccbd54d1e5280700634ff0fd034df83a0cca7e85db6c
+review_receipts:
+  scientific_methods: {path: docs/reviews/track-003-synthetic-denominator-scientific-agent-2026-08-29.yml, sha256: 02bfab5bb1fea35d5ce74fb4e015dc74d4a0dfcee88aea28aaf5350658d37fae}
+  engineering_reproducibility_security: {path: docs/reviews/track-003-synthetic-denominator-engineering-agent-2026-08-29.yml, sha256: 34f490a4a245c5bd74a92244b68a52daec4343df69b320bca34074f021fe0b05}
+  simulated_patient_community_harm: {path: docs/reviews/track-003-synthetic-denominator-simulated-community-harm-agent-2026-08-29.yml, sha256: 34a9ad39827acd9a9c6d063328c08aaed9de6d4b0983b9fa9498aacad4e1be97}
+execution_plan:
+  path: docs/track-003-rbc-p002-synthetic-execution-plan-2026-08-29.yml
+  sha256: 2bbb6558ef3579fc4f13e65ea38573a10997dc93b6a102a0ac1a407fe5620ce8
+persisted_output:
+  path: manifests/demonstrators/track-003-rbc-p002-synthetic-execution-2026-08-29.json
+  sha256: 5f8b0ee0637e04a4bb04e2290ed331f5c4c5734878fdb54c350324a8795e6add
+  persisted_output_count: 1
+  activation_state: not_activated
+  intended_use: synthetic_assurance
+claims:
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  clinical_validity: false
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  publication_authority: false
+  production_release_authority: false
+next_gate: >-
+  Empirical parameter qualification remains a separate pending Track 003 task;
+  this synthetic execution does not satisfy it.
