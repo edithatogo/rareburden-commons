@@ -92,3 +92,25 @@ The contract records evidence-family applicability without empirical validation.
 Exact panel evidence is in
 `docs/reviews/track-003-reference-runner-panel-2026-08-30.yml`.
 Retained execution, reproduction, report and final acceptance remain pending.
+
+## Exact package preparation — 2026-08-30
+
+The package manifest binds 74 source/input/environment/interpretation files and
+twelve scenarios with seed 20260830 and 10,000 iterations. Report, CSV and JSON
+rendering are implemented and tested in memory. The CLI fails closed on pending,
+different or stale dispositions, mismatched executed-module roots, changed
+decision bytes and pre-retention candidate drift. Three advisory lanes passed
+after fixes; the exact file receipt is
+`docs/reviews/track-003-reference-package-panel-2026-08-30.yml`.
+This is preparation, not an owner execution decision, empirical validation or
+completed Track 003. Retained output review, reproduction and final acceptance
+remain pending, including explicit adjudication of the noncomparability
+disposition for qualified external evidence.
+
+Hosted review on PR #275 additionally identified missing actual-runtime checks
+and partial-publication risk. Both were fixed with Python 3.13/locked-environment
+validation and staged atomic visibility, covered by 27 package tests and renewed
+advisory bindings in
+`docs/reviews/track-003-reference-package-hosted-fixes-2026-08-30.yml`.
+The candidate manifest is superseded by its updated content hash; no previously
+pending disposition becomes accepted because of these fixes.
