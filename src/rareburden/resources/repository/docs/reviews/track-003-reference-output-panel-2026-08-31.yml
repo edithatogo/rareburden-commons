@@ -1,0 +1,72 @@
+schema_version: "1.0.0"
+panel_assurance: simulated_role_separated_advisory_panel
+status: actual_output_review_passed
+closeout_review:
+  result: pass_all_three_lanes
+  document: docs/track-003-reference-closeout-2026-08-31.md
+  document_sha256: "39da6c2d122fb384b0a99ec92fbe03b25c07c9fde71632b9b999fd35bf3be1cb"
+  corrected_document_links: "All lanes rebound advice after full-checkout-only links became explicit repository paths; outputs unchanged"
+  validator_sha256: "d3b2ec0c63898c024bbb8f39603375858c887f86319aef221be231234d968f56"
+  tests_sha256: "be6ecf0a992e527a8eabe5dacd577621777e55aa42984bd5c707390de190f9df"
+  engineering_focused_tests_passed: 12
+  recommendation: "Apply recorded Option A after full local and hosted checks; original eight-criterion and noncomparability dispositions accepted"
+  continuity_note: "Future bound code or environment changes need explicit continuity; do not regenerate historical candidate hashes"
+candidate_commit: "36f97490626747b76543f59c44220544978ef874"
+candidate_tree: "8e70545e1ffa4eb202ad444e3d68d158ce184f82"
+candidate_manifest_sha256: "b6f50a8b8b10bddceafd16ddaeee17e77fb6eefb8fbfd724cf747378b5a99911"
+decision_sha256: "16ff18f14b6995139a3baca7b3ec90906e3cad128959ce176e7dbc33b0d3a4d2"
+output_sha256:
+  reference-report.md: "2b1318a462c3ba05e68185e0db03c32320808e10bd82acef824659cc33cabcd2"
+  reference-results.json: "2045f12db2697d6bba280175470a878a67227a10b34a8542764119c494b9f289"
+  reference-tables.csv: "315cb384df7be9b2b65387982138f27a6c0a44b4183d12a00407c26cb21dccce"
+lanes:
+  - perspective: scientific_methods
+    agent: outcome_science_review
+    result: pass
+    findings: []
+    observations:
+      - "147 CSV rows agree with JSON and rounded report values; twelve scenarios and finite ordered intervals"
+      - "Point/mean detection partitions, shared-strata identity and perfect-detection outcome invariance pass"
+      - "Synthetic scope meets original criteria subject to reproduction, final mapping and remaining gates"
+      - "Accept applicability/noncomparability assessment; no empirical agreement or validity inferred"
+  - perspective: engineering_security_rights
+    agent: outcome_rights_review
+    result: pass
+    findings: []
+    observations:
+      - "Both execution directories contain exactly three regular files with matching SHA-256 values"
+      - "147 unique metric rows match JSON and formatted report; seed 20260830 and 10000 iterations"
+      - "No empirical source bytes or participant data identified; separate receipts needed for actual execution"
+  - perspective: simulated_community_harm
+    agent: outcome_harm_review
+    result: pass
+    findings: []
+    observations:
+      - "All CSV rows carry synthetic status, units, conditioning and uncertainty warnings"
+      - "Unknown burden remains unavailable; fictional costs and non-causal outcomes are explicit"
+      - "Calculation authority flags must remain false; separate decision supplies bounded permission"
+options:
+  - id: A
+    disposition: accept
+    rationale: "Retain exact reviewed synthetic outputs through the already authorized public-Git route"
+    trade_offs: ["Provides reproducible reference evidence without empirical or external-validity claims"]
+    contingencies: ["Original acceptance mapping, full local and hosted checks must pass before merge"]
+    minimum_evidence: ["Exact reproduction receipts", "Unchanged output hashes", "Recorded Option A"]
+  - id: B
+    disposition: defer
+    rationale: "Defer if a substantive output, integrity or acceptance finding appears"
+    trade_offs: ["Track remains incomplete"]
+    contingencies: ["Resolve the finding without changing the approved outputs silently"]
+    minimum_evidence: ["Documented blocking finding and revised candidate if needed"]
+recommendation: A
+uncertainty:
+  - "Invented distributions and unquantified structural assumptions"
+  - "Source rights, transport, correction and empirical service-use gaps remain open"
+dissent: []
+stop_triggers: [output_hash_drift, reproduction_mismatch, unsupported_claim, unmet_acceptance, failed_ci]
+owner_disposition_reference: docs/decisions/2026-08-31-track-003-reference-execution.json
+owner_disposition_application: "Apply explicit Option A only after its evidence conditions pass; no new owner statement invented"
+independent_review: false
+actual_community_participation: false
+community_representation: false
+production_release: false

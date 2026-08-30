@@ -2,45 +2,35 @@
 
 > Repository-owned review uses the subagent panel under ADR-0009; external clinical and patient/community authority remains a separate gate.
 
+Current acceptance and evidence: [synthetic reference closeout](../../../docs/track-003-reference-closeout-2026-08-31.md). The dated preparation sections below preserve historical status; the current four phases are adjudicated by the exact Option A execution, reproduction and output review. Hosted checks remain a merge gate.
+
 ## Phase 1 — Protocol and definitions
 
-- [x] Register bounded RBC-P002 v0.2.0 with explicit estimands and denominator options. Evidence: `docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml` and `scripts/check_track003_bounded_registration.py`; execution remains disabled. `[M-01, M-03, S-05]`
-- [x] Bind the synthetic monogenic-diabetes entity scope and hierarchy version while explicitly leaving clinical gene/phenotype scope unfrozen. Evidence: the bounded registration and `docs/decisions/2026-08-29-track-003-bounded-interface-scope.yml`. `[M-02, S-01]`
-- [x] Bind the diagnosed, undiagnosed, modelled, unclassified and out-of-scope population-state contract. Evidence: bounded registration plus `docs/track-003-population-state-contract-v0.1.0.yml`. `[M-04]`
-- [x] Obtain clinical-methods and community/harm agent-panel review of framing and owner disposition. Evidence: `docs/reviews/track-003-bounded-scientific-agent-2026-08-29.yml`, `docs/reviews/track-003-bounded-simulated-community-harm-agent-2026-08-29.yml` and `docs/decisions/2026-08-29-track-003-bounded-registration-disposition.yml`; these are advisory repository evidence, not independent, clinical or community authority.
+- [x] Register bounded RBC-P002 with explicit estimands and denominator options. Evidence: `docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml` and the approved reference candidate. [M-01, M-03, S-05]
+- [x] Bind synthetic entity scope and versioned D/E/G definitions; clinical gene/phenotype scope remains unfrozen. Evidence: bounded registration and manifest-bound reference inputs. [M-02, S-01]
+- [x] Bind diagnosed, undiagnosed, modelled, unclassified and out-of-scope state distinctions. Evidence: population-state contract and actual report/CSV/JSON. [M-04]
+- [x] Obtain scientific and simulated harm framing challenge and owner disposition. Evidence: original bounded reviews, output panel and explicit recorded Option A; no independent/clinical/community authority.
 
 ## Phase 2 — Evidence ledger
 
-- [x] Extract and assess aetiologic-fraction evidence by age, phenotype, ancestry and setting. Evidence: `docs/track-003-aetiologic-evidence-qualification-2026-08-30.yml`, its fail-closed validator and 20 mutation tests, and the exact-candidate advisory review at `docs/reviews/track-003-aetiologic-evidence-agent-panel-2026-08-30.yml`. All candidates remain sensitivity-only or unsuitable; synthesis, parameter creation, empirical execution, independent review, community authority, publication and release remain false. `[M-21]`
-- [~] Ledger diagnosis delay, treatment change, complications and service-use evidence. First partial tranche: `9f67cc8`, `docs/track-003-outcome-service-ledger-2026-08-30.yml` and `docs/reviews/track-003-outcome-service-agent-panel-2026-08-30.yml`. Two descriptive source-located aggregates are retained; complications and service-use candidates remain held, with no activated parameter or empirical execution. `[M-04, M-11]`
-  Follow-up: `docs/track-003-outcome-source-qualification-2026-08-30.md` resolves source-location/date and rights-description gaps, flags Pang arithmetic and age-boundary discrepancies, and records the next qualification actions. The exact-document advisory panel receipt is `docs/reviews/track-003-outcome-source-qualification-panel-2026-08-30.yml`. Neither held candidate is promoted; intended-use rights, endpoint/counting-unit verification and exact empirical disposition remain open.
-  Licensed continuation: `docs/track-003-licensed-pathway-evidence-2026-08-30.yml` adds one adult Australian final diagnostic-yield aggregate under verified CC-BY-4.0, without replacing the held UK sources or claiming general utilization. Complication and empirical activation gaps remain open.
-- [~] Define transportability and referral-bias sensitivity parameters. `docs/track-003-transport-sensitivity-contract-2026-08-30.yml` defines seven uncalibrated mechanisms and synthetic-design boundaries; no empirical ranges or accepted parameters are created. This independent preparation proceeds while source-specific holds remain. `[S-07]`
-- [x] Record currently known unresolved evidence gaps and data-access asks. Evidence: `docs/track-003-evidence-gap-register-2026-08-30.yml`; requests remain unsent and gaps remain open. This records the asks, not their resolution or exhaustive evidence coverage. `[M-26]`
-
-The licensed continuation, transport design and gap register have exact-document
-advisory review in `docs/reviews/track-003-licensed-continuation-panel-2026-08-30.yml`
-and offline integrity/mutation checks in `scripts/check_track003_continuation.py`.
+- [x] Extract and assess aetiologic-fraction evidence by age, phenotype, ancestry and setting. Evidence: `docs/track-003-aetiologic-evidence-qualification-2026-08-30.yml`; candidates remain sensitivity-only or unsuitable, not executed empirical inputs. [M-21]
+- [x] Ledger diagnosis delay, treatment change, complications and service-use evidence. Evidence: outcome/service ledger, source-qualification addendum, licensed pathway ledger and gap register. Closeout explicitly accepts descriptive records and held/gap family dispositions, not nonexistent empirical rates. [M-04, M-11]
+- [x] Define transportability and referral-bias sensitivity parameters. Evidence: transport contract, eighteen assumed input records and twelve executed scenarios. These are invented hypothetical parameters, not calibrated empirical ranges. [S-07]
+- [x] Record unresolved evidence gaps and access asks. Evidence: `docs/track-003-evidence-gap-register-2026-08-30.yml`; asks remain unsent and source-specific gaps open. [M-26]
 
 ## Phase 3 — Analysis implementation
 
-- [x] Build a non-binding public/synthetic analysis specification and fixture. Evidence: `examples/analyses/monogenic-diabetes-synthetic.yml` and schema-validation test; empirical activation and contract freeze remain blocked. `[M-18, M-19]`
-- [~] Run primary expected-population and rare-aetiology models. Full original-scope reference preparation: `docs/track-003-full-reference-acceptance-2026-08-30.md`, the deterministic builder `scripts/track003_reference_inputs.py`, its candidate input bundle and contract tests. Eighteen assumed parameters have linked quality/transport records; full runner, exact disposition, primary/scenario output package and reproduction remain pending. `[S-04, S-05]`
-- [~] Add structural, denominator, ascertainment and penetrance scenarios. In-memory arithmetic preparation: `scripts/track003_synthetic_scenarios.py`, `tests/test_track003_synthetic_scenarios.py` and `docs/track-003-synthetic-scenario-assurance-2026-08-30.md`. Synthetic denominator scaling, selection inversion, forward detection partition and conditional carrier penetrance are tested; no new persisted governed execution, empirical calibration or uncertainty interval is supplied. `[M-06]`
-- [~] Add outcome/economic scenarios only where compatible evidence exists. `scripts/track003_reference_runner.py` implements explicitly invented compatible full-year complication/cost and detected-case treatment scenarios in memory; governed outputs and report remain pending. `[S-06]`
-
-The twelve-scenario deterministic/seeded implementation is defined in
-`docs/track-003-reference-runner-contract-2026-08-30.md` and tested in
-`tests/test_track003_reference_runner.py`. Every summary includes units and
-conditioning scope. This is implementation evidence, not retained execution,
-empirical validation or Track 003 completion.
+- [x] Build public/synthetic analysis specification and reference dataset. Evidence: `examples/demonstrators/track-003-reference-inputs.json`, schemas, tests and exact candidate manifest. [M-18, M-19]
+- [x] Run primary expected-population and rare-aetiology models. Evidence: `manifests/demonstrators/track-003-reference-execution-2026-08-31.json` and the three-file results package. [S-04, S-05]
+- [x] Run structural, denominator, ascertainment and penetrance scenarios, with age, calendar, ancestry-applicability and referral assumptions explicit. Twelve seeded scenarios and deterministic plug-ins reproduced exactly. [M-06]
+- [x] Add compatible, explicitly hypothetical outcome/economic scenarios. Full-year eligibility, fictional currency, conditional delay and non-causal treatment change are labelled; no empirical outcome model inferred. [S-06]
 
 ## Phase 4 — Validation and reporting
 
-- [ ] Compare with independent cohort or registry evidence where lawful. `[S-10]`
-- [ ] Complete numerical, scientific and language agent-panel review and owner disposition.
-- [~] Produce reproducible report, data package and limitations summary. `scripts/track003_reference_package.py` implements report/CSV/JSON rendering and fail-closed execution; `manifests/demonstrators/track-003-reference-candidate.json` binds code, inputs, scenarios, environment and interpretation. Exact disposition, retained output inspection and separate reproduction remain pending.
-- [ ] Record review findings and approve, narrow, revise or stop.
+- [x] Compare with independent cohort or registry evidence where lawful. The closeout explicitly adjudicates the bound source applicability/noncomparability assessment: incompatible selected populations/endpoints cannot validate fictional quantities. This is not empirical agreement testing. [S-10]
+- [x] Complete numerical, scientific and language agent-panel review and apply explicit Option A conditions. Evidence: `docs/reviews/track-003-reference-output-panel-2026-08-31.yml` and exact decision.
+- [x] Produce reproducible report, data package and limitations summary. Evidence: `results/track-003-reference-2026-08-31/`, exact two-run receipts, source/environment manifest and closeout instructions.
+- [x] Record findings and conditional approve/revise/stop disposition. All output lanes pass; eight original criteria are mapped in the closeout. Offline retained-evidence validation does not execute analysis. Local and hosted checks must pass before merge.
 
 ## Dependency review — 2026-07-27
 
@@ -122,6 +112,10 @@ empirical validation or Track 003 completion.
 - [x] Qualify a protocol-compatible synthetic denominator before any RBC-P002 run, complete exact scientific, engineering and simulated-harm review, record owner disposition and retain exactly one provenance-bound synthetic assurance output. Evidence: `docs/track-003-rbc-p002-synthetic-denominator-candidate-2026-08-29.yml`, `docs/reviews/track-003-synthetic-denominator-*-2026-08-29.yml`, `docs/decisions/2026-08-29-track-003-synthetic-denominator-disposition.yml` and `manifests/demonstrators/track-003-rbc-p002-synthetic-execution-closeout-2026-08-29.yml`. Empirical, controlled-data, public-aggregate, clinical, independent-review, community, publication and production-release claims remain false.
 
 ### Review fixes
+
+- [x] Update roadmap snapshot counts for Track 003 completion and explicitly mark a copied test fixture incomplete, preserving released-release rejection without relying on unfinished live project work. Evidence: `tests/test_roadmap.py`.
+
+- [x] Add the non-executing retained-evidence validator and twelve mutation checks; restore declared metric order when rendering sorted JSON summaries. Correct full-checkout result/receipt references in installed documentation without changing approved outputs. Evidence: current closeout and rebound output-panel receipt.
 
 - [x] Address PR #275 hosted runtime and atomic-publication findings. Actual Python 3.13 and locked dependencies are checked before execution/retention; staged outputs are flushed and renamed together. Evidence: `docs/reviews/track-003-reference-package-hosted-fixes-2026-08-30.yml`; 27 focused tests pass. Exact owner decision remains pending.
 

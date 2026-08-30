@@ -1,0 +1,2475 @@
+{
+  "claims": {
+    "clinical_validity": false,
+    "community_representation": false,
+    "controlled_data_activation": false,
+    "empirical_activation": false,
+    "execution_authorized": false,
+    "independent_review": false,
+    "production_release_authority": false,
+    "publication_authority": false
+  },
+  "deterministic_interpretation": "Plug-in central values, not nonlinear expectations",
+  "interval_interpretation": "Invented parameter uncertainty; not empirical confidence",
+  "interval_probability": 0.95,
+  "iterations": 10000,
+  "random_engine": "rareburden.pcg32-box-muller-marsaglia-tsang.v1",
+  "scenarios": {
+    "age_stratified": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Disjoint 0-19 and 20-100 strata; assumed odds multipliers",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "adult_expected_people": 2227.7227722772277,
+        "annual_cost": 4960496.04960496,
+        "assumed_case_probability": 0.0248024802480248,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.014881488148814879,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 49.6049604960496,
+        "detected_people": 1488.1488148814879,
+        "expected_people": 2480.24802480248,
+        "modelled_denominator": 100000.0,
+        "treatment_change_people": 595.2595259525951,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 992.099209920992,
+        "young_expected_people": 252.52525252525254
+      },
+      "metric_metadata": {
+        "adult_expected_people": {
+          "conditioning_scope": "expressed cases in disjoint age 20-100 stratum",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "young_expected_people": {
+          "conditioning_scope": "expressed cases in disjoint age 0-19 stratum",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "adult_expected_people": {
+          "lower": 275.8513148462632,
+          "mean": 2227.042988154747,
+          "median": 1871.0230089570512,
+          "standard_deviation": 1534.0985843402796,
+          "upper": 6125.1281376563065
+        },
+        "annual_cost": {
+          "lower": 543191.2132042671,
+          "mean": 4990960.528918454,
+          "median": 3998443.977124767,
+          "standard_deviation": 3865854.975742047,
+          "upper": 14942325.42043032
+        },
+        "assumed_case_probability": {
+          "lower": 0.0030739844819134363,
+          "mean": 0.02481403679700605,
+          "median": 0.020897933911295248,
+          "standard_deviation": 0.017115903691942772,
+          "upper": 0.06818669015935147
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0016584621725361836,
+          "mean": 0.014843401160315415,
+          "median": 0.012109382492872587,
+          "standard_deviation": 0.01121842643412239,
+          "upper": 0.04390778119002198
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 2.4220196945417736,
+          "mean": 50.48285169435915,
+          "median": 32.70706177757253,
+          "standard_deviation": 56.413523940957745,
+          "upper": 196.00686021334064
+        },
+        "detected_people": {
+          "lower": 164.71674099410606,
+          "mean": 1484.551321926204,
+          "median": 1210.876623513937,
+          "standard_deviation": 1123.3036272980871,
+          "upper": 4398.374564722909
+        },
+        "expected_people": {
+          "lower": 306.57442311705057,
+          "mean": 2481.9962311011595,
+          "median": 2082.396112064698,
+          "standard_deviation": 1714.9080971959336,
+          "upper": 6843.591405516393
+        },
+        "modelled_denominator": {
+          "lower": 95105.12979377972,
+          "mean": 100013.31413793631,
+          "median": 100001.56135952496,
+          "standard_deviation": 2515.6317550447893,
+          "upper": 105010.54433172646
+        },
+        "treatment_change_people": {
+          "lower": 52.63809276383808,
+          "mean": 596.5384678303883,
+          "median": 447.03325644863463,
+          "standard_deviation": 531.9668762695112,
+          "upper": 2008.7975589953649
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 90.99843779354556,
+          "mean": 997.4449091749555,
+          "median": 777.0943429686196,
+          "standard_deviation": 818.6557870006687,
+          "upper": 3157.207866105027
+        },
+        "young_expected_people": {
+          "lower": 30.723108270787336,
+          "mean": 254.95324294641247,
+          "median": 211.3730521598393,
+          "standard_deviation": 180.8541039777355,
+          "upper": 718.4532720692011
+        }
+      }
+    },
+    "ascertainment": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Perfect detection counterfactual; no causal outcome benefit",
+        "structural_override": {
+          "detection": 1.0
+        },
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 4000000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.02,
+        "assumed_undetected_given_case_probability": 0.0,
+        "complication_people": 40.0,
+        "detected_people": 2000.0,
+        "expected_people": 2000.0,
+        "modelled_denominator": 100000.0,
+        "treatment_change_people": 800.0,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 0.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 434958.457661344,
+          "mean": 4039865.78146228,
+          "median": 3221779.1550855553,
+          "standard_deviation": 3159204.5545108155,
+          "upper": 12169431.096948674
+        },
+        "assumed_case_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "complication_people": {
+          "lower": 1.939458191343517,
+          "mean": 40.86571936491908,
+          "median": 26.376227839702366,
+          "standard_deviation": 45.98808678939976,
+          "upper": 159.94418508432045
+        },
+        "detected_people": {
+          "lower": 245.49267048543993,
+          "mean": 2009.0172928312059,
+          "median": 1676.942539637117,
+          "standard_deviation": 1403.9231178621947,
+          "upper": 5591.993759383551
+        },
+        "expected_people": {
+          "lower": 245.49267048543993,
+          "mean": 2009.0172928312059,
+          "median": 1676.942539637117,
+          "standard_deviation": 1403.9231178621947,
+          "upper": 5591.993759383551
+        },
+        "modelled_denominator": {
+          "lower": 95105.12979377972,
+          "mean": 100013.31413793631,
+          "median": 100001.56135952496,
+          "standard_deviation": 2515.6317550447893,
+          "upper": 105010.54433172646
+        },
+        "treatment_change_people": {
+          "lower": 76.2802559996008,
+          "mean": 806.6736368801039,
+          "median": 624.7751493828657,
+          "standard_deviation": 673.5383902913863,
+          "upper": 2595.8248761845393
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        }
+      }
+    },
+    "calendar_2030": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "2030 odds contrast; denominator held fixed; not a forecast",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2030
+      },
+      "deterministic": {
+        "annual_cost": 4975124.378109453,
+        "assumed_case_probability": 0.02487562189054727,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.01492537313432836,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 49.75124378109454,
+        "detected_people": 1492.537313432836,
+        "expected_people": 2487.562189054727,
+        "modelled_denominator": 100000.0,
+        "treatment_change_people": 597.0149253731345,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 995.0248756218907
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 543376.5086674831,
+          "mean": 5012493.833738025,
+          "median": 4009011.7112593483,
+          "standard_deviation": 3895904.083016742,
+          "upper": 15034421.634403
+        },
+        "assumed_case_probability": {
+          "lower": 0.003075117149000213,
+          "mean": 0.02492105821478684,
+          "median": 0.020949937027558225,
+          "standard_deviation": 0.01725996120893437,
+          "upper": 0.06872982473541961
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0016603907173568966,
+          "mean": 0.014907505042203686,
+          "median": 0.01214602949578742,
+          "standard_deviation": 0.011308851636381956,
+          "upper": 0.0442225462159143
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 2.4228451020011725,
+          "mean": 50.70200013609401,
+          "median": 32.815367443687336,
+          "standard_deviation": 56.801235966437815,
+          "upper": 197.52105113299152
+        },
+        "detected_people": {
+          "lower": 164.8200014287061,
+          "mean": 1490.9641256846628,
+          "median": 1213.2927887471856,
+          "standard_deviation": 1132.3614782993836,
+          "upper": 4430.470235487177
+        },
+        "expected_people": {
+          "lower": 306.6835412874846,
+          "mean": 2492.703424184445,
+          "median": 2087.5106207972613,
+          "standard_deviation": 1729.3397782285667,
+          "upper": 6896.6200085957025
+        },
+        "modelled_denominator": {
+          "lower": 95105.12979377972,
+          "mean": 100013.31413793631,
+          "median": 100001.56135952496,
+          "standard_deviation": 2515.6317550447893,
+          "upper": 105010.54433172646
+        },
+        "treatment_change_people": {
+          "lower": 52.66449657566272,
+          "mean": 599.1260422788972,
+          "median": 447.9391344229183,
+          "standard_deviation": 535.9686135230673,
+          "upper": 2027.5438731385448
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 91.04269601563699,
+          "mean": 1001.739298499782,
+          "median": 779.0134563902525,
+          "standard_deviation": 824.7604422657752,
+          "upper": 3184.6928638282357
+        }
+      }
+    },
+    "carrier_penetrance": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Conditional person-carrier expression within diabetes",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 4000000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 40.0,
+        "detected_people": 1200.0,
+        "expected_people": 2000.0,
+        "modelled_denominator": 100000.0,
+        "treatment_change_people": 480.0,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 800.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 765708.9642169465,
+          "mean": 4034575.182492188,
+          "median": 3407165.0795859657,
+          "standard_deviation": 2717556.230162097,
+          "upper": 11061888.929377293
+        },
+        "assumed_case_probability": {
+          "lower": 0.004414746667585561,
+          "mean": 0.02008147802777734,
+          "median": 0.01769885109435388,
+          "standard_deviation": 0.01173261807955636,
+          "upper": 0.04968017546257801
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0023242255170860477,
+          "mean": 0.011993210012169903,
+          "median": 0.010230448966796448,
+          "standard_deviation": 0.007762877844860793,
+          "upper": 0.03220807166842548
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 2.749210655550218,
+          "mean": 40.664003307855694,
+          "median": 28.381790731128454,
+          "standard_deviation": 40.378507940137,
+          "upper": 153.2862807285103
+        },
+        "detected_people": {
+          "lower": 231.2412673727755,
+          "mean": 1199.404736150466,
+          "median": 1022.8633473218782,
+          "standard_deviation": 777.202427506767,
+          "upper": 3208.5281827559725
+        },
+        "expected_people": {
+          "lower": 441.0226688121991,
+          "mean": 2008.3489107426271,
+          "median": 1770.9526117100363,
+          "standard_deviation": 1174.6678462674913,
+          "upper": 4982.697561353332
+        },
+        "modelled_denominator": {
+          "lower": 95105.12979377972,
+          "mean": 100013.31413793631,
+          "median": 100001.56135952496,
+          "standard_deviation": 2515.6317550447893,
+          "upper": 105010.54433172646
+        },
+        "treatment_change_people": {
+          "lower": 65.09964666778467,
+          "mean": 481.6421767980373,
+          "median": 382.49164283327127,
+          "standard_deviation": 376.5735946351401,
+          "upper": 1489.3945138094155
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 117.52556052660066,
+          "mean": 808.944174592161,
+          "median": 662.3522541215711,
+          "standard_deviation": 593.3548280683328,
+          "upper": 2349.830422579702
+        }
+      }
+    },
+    "denominator_high": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Compatible denominator scaled by assumed high factor",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 4800000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 48.0,
+        "detected_people": 1440.0,
+        "expected_people": 2400.0,
+        "modelled_denominator": 120000.0,
+        "treatment_change_people": 576.0,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 960.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 521950.14919361274,
+          "mean": 4847838.937754735,
+          "median": 3866134.9861026667,
+          "standard_deviation": 3791045.4654129785,
+          "upper": 14603317.316338409
+        },
+        "assumed_case_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0013309043478059541,
+          "mean": 0.012014953292877575,
+          "median": 0.009757353875265655,
+          "standard_deviation": 0.009175245344379614,
+          "upper": 0.03586651270388373
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 2.32734982961222,
+          "mean": 49.038863237902895,
+          "median": 31.65147340764284,
+          "standard_deviation": 55.18570414727971,
+          "upper": 191.93302210118452
+        },
+        "detected_people": {
+          "lower": 158.33287887904325,
+          "mean": 1442.0036505286541,
+          "median": 1169.5643278672158,
+          "standard_deviation": 1102.4740513941085,
+          "upper": 4307.676140457339
+        },
+        "expected_people": {
+          "lower": 294.59120458252784,
+          "mean": 2410.820751397447,
+          "median": 2012.3310475645403,
+          "standard_deviation": 1684.7077414346336,
+          "upper": 6710.392511260261
+        },
+        "modelled_denominator": {
+          "lower": 114126.15575253566,
+          "mean": 120015.97696552356,
+          "median": 120001.87363142995,
+          "standard_deviation": 3018.7581060537464,
+          "upper": 126012.65319807174
+        },
+        "treatment_change_people": {
+          "lower": 50.61853249629788,
+          "mean": 579.4709612790017,
+          "median": 432.2124177158181,
+          "standard_deviation": 521.3326468433909,
+          "upper": 1969.7528131744084
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 87.5010194890162,
+          "mean": 968.817100868793,
+          "median": 751.0285559619817,
+          "standard_deviation": 802.1119272556714,
+          "upper": 3090.869884021781
+        }
+      }
+    },
+    "denominator_low": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Compatible denominator scaled by assumed low factor",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 3200000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 32.0,
+        "detected_people": 960.0,
+        "expected_people": 1600.0,
+        "modelled_denominator": 80000.0,
+        "treatment_change_people": 384.0,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 640.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 347966.7661290752,
+          "mean": 3231892.6251698243,
+          "median": 2577423.3240684443,
+          "standard_deviation": 2527363.6436086525,
+          "upper": 9735544.877558941
+        },
+        "assumed_case_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0013309043478059541,
+          "mean": 0.012014953292877575,
+          "median": 0.009757353875265655,
+          "standard_deviation": 0.009175245344379614,
+          "upper": 0.03586651270388373
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 1.5515665530748137,
+          "mean": 32.692575491935266,
+          "median": 21.100982271761897,
+          "standard_deviation": 36.79046943151981,
+          "upper": 127.95534806745634
+        },
+        "detected_people": {
+          "lower": 105.55525258602883,
+          "mean": 961.335767019103,
+          "median": 779.7095519114773,
+          "standard_deviation": 734.9827009294057,
+          "upper": 2871.784093638227
+        },
+        "expected_people": {
+          "lower": 196.39413638835194,
+          "mean": 1607.213834264965,
+          "median": 1341.5540317096938,
+          "standard_deviation": 1123.1384942897557,
+          "upper": 4473.595007506841
+        },
+        "modelled_denominator": {
+          "lower": 76084.10383502376,
+          "mean": 80010.65131034904,
+          "median": 80001.24908761997,
+          "standard_deviation": 2012.5054040358325,
+          "upper": 84008.43546538119
+        },
+        "treatment_change_people": {
+          "lower": 33.745688330865256,
+          "mean": 386.3139741860012,
+          "median": 288.1416118105454,
+          "standard_deviation": 347.5550978955939,
+          "upper": 1313.1685421162722
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 58.334012992677465,
+          "mean": 645.8780672458622,
+          "median": 500.6857039746544,
+          "standard_deviation": 534.7412848371143,
+          "upper": 2060.579922681188
+        }
+      }
+    },
+    "model_eligibility": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "model-covered subset only; uncovered burden unavailable",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Assumed same fraction in covered subset; no ancestry biology",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 2000000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 20.0,
+        "detected_people": 600.0,
+        "expected_people": 1000.0,
+        "modelled_denominator": 50000.0,
+        "treatment_change_people": 240.0,
+        "unavailable_denominator": 50000.0,
+        "undetected_people": 400.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 217479.228830672,
+          "mean": 2019932.89073114,
+          "median": 1610889.5775427776,
+          "standard_deviation": 1579602.2772554078,
+          "upper": 6084715.548474337
+        },
+        "assumed_case_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0013309043478059541,
+          "mean": 0.012014953292877575,
+          "median": 0.009757353875265655,
+          "standard_deviation": 0.009175245344379614,
+          "upper": 0.03586651270388373
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 0.9697290956717585,
+          "mean": 20.43285968245954,
+          "median": 13.188113919851183,
+          "standard_deviation": 22.99404339469988,
+          "upper": 79.97209254216023
+        },
+        "detected_people": {
+          "lower": 65.97203286626802,
+          "mean": 600.8348543869392,
+          "median": 487.31846994467327,
+          "standard_deviation": 459.36418808087853,
+          "upper": 1794.8650585238918
+        },
+        "expected_people": {
+          "lower": 122.74633524271997,
+          "mean": 1004.5086464156029,
+          "median": 838.4712698185585,
+          "standard_deviation": 701.9615589310973,
+          "upper": 2795.9968796917756
+        },
+        "modelled_denominator": {
+          "lower": 47552.56489688986,
+          "mean": 50006.657068968154,
+          "median": 50000.78067976248,
+          "standard_deviation": 1257.8158775223947,
+          "upper": 52505.27216586323
+        },
+        "treatment_change_people": {
+          "lower": 21.091055206790784,
+          "mean": 241.44623386625074,
+          "median": 180.08850738159086,
+          "standard_deviation": 217.2219361847462,
+          "upper": 820.7303388226701
+        },
+        "unavailable_denominator": {
+          "lower": 47552.56489688986,
+          "mean": 50006.657068968154,
+          "median": 50000.78067976248,
+          "standard_deviation": 1257.8158775223947,
+          "upper": 52505.27216586323
+        },
+        "undetected_people": {
+          "lower": 36.45875812042336,
+          "mean": 403.6737920286638,
+          "median": 312.92856498415904,
+          "standard_deviation": 334.21330302319643,
+          "upper": 1287.8624516757422
+        }
+      }
+    },
+    "primary": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Independent assumed parameter uncertainty; no event sampling",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 4000000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 40.0,
+        "detected_people": 1200.0,
+        "expected_people": 2000.0,
+        "modelled_denominator": 100000.0,
+        "treatment_change_people": 480.0,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 800.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 434958.457661344,
+          "mean": 4039865.78146228,
+          "median": 3221779.1550855553,
+          "standard_deviation": 3159204.5545108155,
+          "upper": 12169431.096948674
+        },
+        "assumed_case_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0013309043478059541,
+          "mean": 0.012014953292877575,
+          "median": 0.009757353875265655,
+          "standard_deviation": 0.009175245344379614,
+          "upper": 0.03586651270388373
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 1.939458191343517,
+          "mean": 40.86571936491908,
+          "median": 26.376227839702366,
+          "standard_deviation": 45.98808678939976,
+          "upper": 159.94418508432045
+        },
+        "detected_people": {
+          "lower": 131.94406573253605,
+          "mean": 1201.6697087738785,
+          "median": 974.6369398893465,
+          "standard_deviation": 918.7283761617571,
+          "upper": 3589.7301170477836
+        },
+        "expected_people": {
+          "lower": 245.49267048543993,
+          "mean": 2009.0172928312059,
+          "median": 1676.942539637117,
+          "standard_deviation": 1403.9231178621947,
+          "upper": 5591.993759383551
+        },
+        "modelled_denominator": {
+          "lower": 95105.12979377972,
+          "mean": 100013.31413793631,
+          "median": 100001.56135952496,
+          "standard_deviation": 2515.6317550447893,
+          "upper": 105010.54433172646
+        },
+        "treatment_change_people": {
+          "lower": 42.18211041358157,
+          "mean": 482.8924677325015,
+          "median": 360.1770147631817,
+          "standard_deviation": 434.4438723694924,
+          "upper": 1641.4606776453402
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 72.91751624084672,
+          "mean": 807.3475840573276,
+          "median": 625.8571299683181,
+          "standard_deviation": 668.4266060463929,
+          "upper": 2575.7249033514845
+        }
+      }
+    },
+    "referral_selection": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Forward selected fraction only; referral count unavailable",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 4000000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 40.0,
+        "detected_people": 1200.0,
+        "expected_people": 2000.0,
+        "modelled_denominator": 100000.0,
+        "selected_fraction": 0.0392156862745098,
+        "treatment_change_people": 480.0,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 800.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "selected_fraction": {
+          "conditioning_scope": "assumed within selected cohort; count unavailable",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 434958.457661344,
+          "mean": 4039865.78146228,
+          "median": 3221779.1550855553,
+          "standard_deviation": 3159204.5545108155,
+          "upper": 12169431.096948674
+        },
+        "assumed_case_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0013309043478059541,
+          "mean": 0.012014953292877575,
+          "median": 0.009757353875265655,
+          "standard_deviation": 0.009175245344379614,
+          "upper": 0.03586651270388373
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 1.939458191343517,
+          "mean": 40.86571936491908,
+          "median": 26.376227839702366,
+          "standard_deviation": 45.98808678939976,
+          "upper": 159.94418508432045
+        },
+        "detected_people": {
+          "lower": 131.94406573253605,
+          "mean": 1201.6697087738785,
+          "median": 974.6369398893465,
+          "standard_deviation": 918.7283761617571,
+          "upper": 3589.7301170477836
+        },
+        "expected_people": {
+          "lower": 245.49267048543993,
+          "mean": 2009.0172928312059,
+          "median": 1676.942539637117,
+          "standard_deviation": 1403.9231178621947,
+          "upper": 5591.993759383551
+        },
+        "modelled_denominator": {
+          "lower": 95105.12979377972,
+          "mean": 100013.31413793631,
+          "median": 100001.56135952496,
+          "standard_deviation": 2515.6317550447893,
+          "upper": 105010.54433172646
+        },
+        "selected_fraction": {
+          "lower": 0.0049111260605253036,
+          "mean": 0.03901630888941689,
+          "median": 0.03310378590506577,
+          "standard_deviation": 0.02646317970604709,
+          "upper": 0.10561248273458879
+        },
+        "treatment_change_people": {
+          "lower": 42.18211041358157,
+          "mean": 482.8924677325015,
+          "median": 360.1770147631817,
+          "standard_deviation": 434.4438723694924,
+          "upper": 1641.4606776453402
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 72.91751624084672,
+          "mean": 807.3475840573276,
+          "median": 625.8571299683181,
+          "standard_deviation": 668.4266060463929,
+          "upper": 2575.7249033514845
+        }
+      }
+    },
+    "strata_independent": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Independent fraction draws in unnamed disjoint strata",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 4000000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 40.0,
+        "detected_people": 1200.0,
+        "expected_people": 2000.0,
+        "modelled_denominator": 100000.0,
+        "treatment_change_people": 480.0,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 800.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 818784.2800161386,
+          "mean": 4038742.78310093,
+          "median": 3444906.9695041752,
+          "standard_deviation": 2568748.8727407707,
+          "upper": 10463067.716540815
+        },
+        "assumed_case_probability": {
+          "lower": 0.00495064409486353,
+          "mean": 0.02010823234320935,
+          "median": 0.01805111661938763,
+          "standard_deviation": 0.01100193153083276,
+          "upper": 0.04681892185203717
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0025744894707615358,
+          "mean": 0.012063949456334183,
+          "median": 0.010377162037014265,
+          "standard_deviation": 0.007507395300372604,
+          "upper": 0.030970045052337813
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 3.0199349112165645,
+          "mean": 40.6847617489731,
+          "median": 29.111372281641522,
+          "standard_deviation": 38.76695947295767,
+          "upper": 141.5690838959459
+        },
+        "detected_people": {
+          "lower": 257.461067988561,
+          "mean": 1206.4251658285957,
+          "median": 1035.0973691658328,
+          "standard_deviation": 751.4204270670716,
+          "upper": 3094.6766781317074
+        },
+        "expected_people": {
+          "lower": 493.8413099902515,
+          "mean": 2011.0470737573162,
+          "median": 1805.6661754809395,
+          "standard_deviation": 1101.4519849912936,
+          "upper": 4710.347582809302
+        },
+        "modelled_denominator": {
+          "lower": 95105.12979377972,
+          "mean": 100013.31413793631,
+          "median": 100001.56135952496,
+          "standard_deviation": 2515.6317550447893,
+          "upper": 105010.54433172646
+        },
+        "treatment_change_people": {
+          "lower": 70.39576333788628,
+          "mean": 484.28661509554115,
+          "median": 387.9364349022532,
+          "standard_deviation": 363.43815283749376,
+          "upper": 1421.5079877021683
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 135.88777953809276,
+          "mean": 804.6219079287208,
+          "median": 669.9429417007536,
+          "standard_deviation": 549.2523011249741,
+          "upper": 2187.9940566507034
+        }
+      }
+    },
+    "strata_shared": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "full fictional diabetes cohort",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Perfectly shared fraction draw in unnamed disjoint strata",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 4000000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 40.0,
+        "detected_people": 1200.0,
+        "expected_people": 2000.0,
+        "modelled_denominator": 100000.0,
+        "treatment_change_people": 480.0,
+        "unavailable_denominator": 0.0,
+        "undetected_people": 800.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 434958.457661344,
+          "mean": 4039865.78146228,
+          "median": 3221779.1550855553,
+          "standard_deviation": 3159204.5545108155,
+          "upper": 12169431.096948674
+        },
+        "assumed_case_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0013309043478059541,
+          "mean": 0.012014953292877575,
+          "median": 0.009757353875265655,
+          "standard_deviation": 0.009175245344379614,
+          "upper": 0.03586651270388373
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 1.939458191343517,
+          "mean": 40.86571936491908,
+          "median": 26.376227839702366,
+          "standard_deviation": 45.98808678939976,
+          "upper": 159.94418508432045
+        },
+        "detected_people": {
+          "lower": 131.94406573253605,
+          "mean": 1201.6697087738785,
+          "median": 974.6369398893465,
+          "standard_deviation": 918.7283761617571,
+          "upper": 3589.7301170477836
+        },
+        "expected_people": {
+          "lower": 245.49267048543993,
+          "mean": 2009.0172928312059,
+          "median": 1676.942539637117,
+          "standard_deviation": 1403.9231178621947,
+          "upper": 5591.993759383551
+        },
+        "modelled_denominator": {
+          "lower": 95105.12979377972,
+          "mean": 100013.31413793631,
+          "median": 100001.56135952496,
+          "standard_deviation": 2515.6317550447893,
+          "upper": 105010.54433172646
+        },
+        "treatment_change_people": {
+          "lower": 42.18211041358157,
+          "mean": 482.8924677325015,
+          "median": 360.1770147631817,
+          "standard_deviation": 434.4438723694924,
+          "upper": 1641.4606776453402
+        },
+        "unavailable_denominator": {
+          "lower": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "upper": 0.0
+        },
+        "undetected_people": {
+          "lower": 72.91751624084672,
+          "mean": 807.3475840573276,
+          "median": 625.8571299683181,
+          "standard_deviation": 668.4266060463929,
+          "upper": 2575.7249033514845
+        }
+      }
+    },
+    "unclassified": {
+      "context": {
+        "age_range": [
+          0,
+          100
+        ],
+        "cost_price_year": 2025,
+        "cost_unit": "synthetic_currency_units",
+        "denominator_scope": "classified subset only; unclassified burden unavailable",
+        "geography": "synthetic-rbc-p002",
+        "observed_diagnosis": "unavailable_modelled_detection_only",
+        "parameter_binding": "All inputs bound; unused draws retained for stream stability",
+        "parameter_ids": [
+          "rbc-p002-reference-adult-case-odds-ratio",
+          "rbc-p002-reference-aetiologic-fraction",
+          "rbc-p002-reference-annual-complication",
+          "rbc-p002-reference-annual-person-cost",
+          "rbc-p002-reference-calendar-case-odds-ratio",
+          "rbc-p002-reference-carrier-person-fraction",
+          "rbc-p002-reference-denominator-high-scale",
+          "rbc-p002-reference-denominator-low-scale",
+          "rbc-p002-reference-detection",
+          "rbc-p002-reference-diabetes-denominator",
+          "rbc-p002-reference-diagnosis-delay",
+          "rbc-p002-reference-model-eligible-share",
+          "rbc-p002-reference-penetrance",
+          "rbc-p002-reference-referral-selection-ratio",
+          "rbc-p002-reference-treatment-change",
+          "rbc-p002-reference-unclassified-share",
+          "rbc-p002-reference-young-case-odds-ratio",
+          "rbc-p002-reference-young-denominator-share"
+        ],
+        "scenario_assumption": "Assumed same fraction in classified subset; no missing imputation",
+        "structural_override": {},
+        "total_population_prevalence": "unavailable_no_total_population_denominator",
+        "transport_status": "assumed_scenario_applicability_not_empirical_transfer",
+        "year": 2025
+      },
+      "deterministic": {
+        "annual_cost": 3600000.0,
+        "assumed_case_probability": 0.02,
+        "assumed_delay_given_detection_years": 3.0,
+        "assumed_detected_probability": 0.012,
+        "assumed_undetected_given_case_probability": 0.4,
+        "complication_people": 36.0,
+        "detected_people": 1080.0,
+        "expected_people": 1800.0,
+        "modelled_denominator": 90000.0,
+        "treatment_change_people": 432.0,
+        "unavailable_denominator": 9999.999999999998,
+        "undetected_people": 720.0
+      },
+      "metric_metadata": {
+        "annual_cost": {
+          "conditioning_scope": "one full year, constant fictional 2025 prices",
+          "evidence_status": "synthetic_assumption",
+          "unit": "synthetic_currency_units"
+        },
+        "assumed_case_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_delay_given_detection_years": {
+          "conditioning_scope": "assumed historical conditional delay",
+          "evidence_status": "synthetic_assumption",
+          "unit": "years"
+        },
+        "assumed_detected_probability": {
+          "conditioning_scope": "assumed within modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "assumed_undetected_given_case_probability": {
+          "conditioning_scope": "assumed conditional on case",
+          "evidence_status": "synthetic_assumption",
+          "unit": "proportion"
+        },
+        "complication_people": {
+          "conditioning_scope": "one hypothetical event at most per case over full year",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "detected_people": {
+          "conditioning_scope": "modelled detected cases; not observed diagnoses",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "expected_people": {
+          "conditioning_scope": "expressed cases in modelled diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "modelled_denominator": {
+          "conditioning_scope": "model-covered/classified diabetes scope",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "treatment_change_people": {
+          "conditioning_scope": "hypothetical change among detected cases; no benefit",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "unavailable_denominator": {
+          "conditioning_scope": "diabetes population with unavailable aetiology",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        },
+        "undetected_people": {
+          "conditioning_scope": "modelled undetected expressed cases",
+          "evidence_status": "synthetic_assumption",
+          "unit": "people"
+        }
+      },
+      "summaries": {
+        "annual_cost": {
+          "lower": 391462.6118952096,
+          "mean": 3635879.2033160524,
+          "median": 2899601.239577,
+          "standard_deviation": 2843284.099059734,
+          "upper": 10952487.987253807
+        },
+        "assumed_case_probability": {
+          "lower": 0.0024616076664430607,
+          "mean": 0.020085320084091213,
+          "median": 0.01683046907567076,
+          "standard_deviation": 0.014012102611498661,
+          "upper": 0.05575020015704298
+        },
+        "assumed_delay_given_detection_years": {
+          "lower": 1.099022665622961,
+          "mean": 3.0055173523403593,
+          "median": 2.993747568412708,
+          "standard_deviation": 1.153076678883083,
+          "upper": 4.903528917456035
+        },
+        "assumed_detected_probability": {
+          "lower": 0.0013309043478059541,
+          "mean": 0.012014953292877575,
+          "median": 0.009757353875265655,
+          "standard_deviation": 0.009175245344379614,
+          "upper": 0.03586651270388373
+        },
+        "assumed_undetected_given_case_probability": {
+          "lower": 0.1373194196852326,
+          "mean": 0.40099459818585087,
+          "median": 0.3966445852291208,
+          "standard_deviation": 0.14849279039939214,
+          "upper": 0.7040680881339753
+        },
+        "complication_people": {
+          "lower": 1.7455123722091652,
+          "mean": 36.77914742842717,
+          "median": 23.73860505573213,
+          "standard_deviation": 41.389278110459784,
+          "upper": 143.94976657588842
+        },
+        "detected_people": {
+          "lower": 118.74965915928246,
+          "mean": 1081.5027378964905,
+          "median": 877.173245900412,
+          "standard_deviation": 826.8555385455815,
+          "upper": 3230.757105343005
+        },
+        "expected_people": {
+          "lower": 220.94340343689595,
+          "mean": 1808.1155635480854,
+          "median": 1509.2482856734055,
+          "standard_deviation": 1263.5308060759753,
+          "upper": 5032.794383445196
+        },
+        "modelled_denominator": {
+          "lower": 85594.61681440174,
+          "mean": 90011.98272414268,
+          "median": 90001.40522357245,
+          "standard_deviation": 2264.0685795403106,
+          "upper": 94509.48989855382
+        },
+        "treatment_change_people": {
+          "lower": 37.96389937222341,
+          "mean": 434.60322095925136,
+          "median": 324.1593132868636,
+          "standard_deviation": 390.99948513254316,
+          "upper": 1477.3146098808063
+        },
+        "unavailable_denominator": {
+          "lower": 9510.512979377969,
+          "mean": 10001.331413793629,
+          "median": 10000.156135952493,
+          "standard_deviation": 251.56317550447892,
+          "upper": 10501.054433172645
+        },
+        "undetected_people": {
+          "lower": 65.62576461676208,
+          "mean": 726.6128256515949,
+          "median": 563.2714169714862,
+          "standard_deviation": 601.5839454417536,
+          "upper": 2318.1524130163357
+        }
+      }
+    }
+  },
+  "seed": 20260830,
+  "status": "in_memory_synthetic_calculation_not_execution_receipt",
+  "version": "RBC-P002-REFERENCE-RUNNER-v1"
+}
