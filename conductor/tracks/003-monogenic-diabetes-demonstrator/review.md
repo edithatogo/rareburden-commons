@@ -80,3 +80,15 @@ deliverable and preserves the exact-execution and external-fact boundaries.
 The new input builder and bundle implement parameter/definition preparation;
 full scenarios, execution, reproduction, report/package and final disposition
 remain pending. Track 003 remains Active, not Complete.
+
+## Twelve-scenario implementation — 2026-08-30
+
+The in-memory runner now implements primary, denominator, ascertainment,
+carrier/penetrance, forward referral, age, calendar, coverage, unclassified and
+stratum-dependence calculations. All 62 focused tests pass. Advisory review
+identified and resolved ambiguous conditional summaries at empty populations;
+assumed inputs are explicitly named and metric metadata travels with results.
+The contract records evidence-family applicability without empirical validation.
+Exact panel evidence is in
+`docs/reviews/track-003-reference-runner-panel-2026-08-30.yml`.
+Retained execution, reproduction, report and final acceptance remain pending.
