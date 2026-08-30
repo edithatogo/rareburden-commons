@@ -21,6 +21,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	track-003-bounded-registration-check \
 	track-003-synthetic-denominator-candidate-check \
 	track-003-synthetic-execution-check \
+	track-003-aetiologic-evidence-qualification-check \
 	track-010-candidate-containment-check \
 	track-010-post-dependency-candidate-check \
 	track-016-production-release-readiness-check \
@@ -100,6 +101,10 @@ track-003-synthetic-denominator-candidate-check:
 track-003-synthetic-execution-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track003_synthetic_execution.py \
 		manifests/demonstrators/track-003-rbc-p002-synthetic-execution-closeout-2026-08-29.yml --root .
+
+track-003-aetiologic-evidence-qualification-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track003_aetiologic_evidence_qualification.py \
+		docs/track-003-aetiologic-evidence-qualification-2026-08-30.yml
 
 track-010-candidate-containment-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track010_candidate_containment.py --root .

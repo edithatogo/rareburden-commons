@@ -1,0 +1,267 @@
+schema_version: "1.0.0"
+artifact_id: "RBC-P002-AETIOLOGIC-QUALIFICATION-2026-08-30"
+track: "003-monogenic-diabetes-demonstrator"
+protocol_id: "RBC-P002"
+status: "bounded_primary_source_inventory"
+retrieved_at: "2026-08-30"
+scope: >-
+  Non-systematic qualification tranche of public aggregate primary-study
+  evidence. No article, abstract, table, participant-level datum, or controlled
+  datum is retained; only bibliographic provenance, independently encoded
+  aggregate facts, source-location pointers, rights state, and assessments.
+
+authority_boundaries:
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  parameter_created: false
+  synthesis_executed: false
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  production_release_authority: false
+
+retrieval_method:
+  provider: "Europe PMC REST API"
+  request_template: >-
+    https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:{pmid}%20AND%20SRC:MED&format=json&resultType=core
+  content_policy: "transient inspection only; provider responses and full text are not retained"
+  correction_retraction_check: "Europe PMC core record inspected on retrieval date; no correction or retraction recorded"
+
+sources:
+  - source_record_id: "SRC-SEARCH-2013"
+    citation: "Pihoker et al. J Clin Endocrinol Metab. 2013;98:4055-4062"
+    pmid: "23771925"
+    pmcid: "PMC3790621"
+    doi: "10.1210/jc.2013-1279"
+    publication_date: "2013-06-14"
+    metadata_sha256: "8aefbb36e56131b9861acfacbd473bfd14ecd73a2d9de28067272d9256c829fe"
+    access_class: "free_to_read_author_manuscript"
+    licence: "not_reported_by_europe_pmc"
+    redistribution: "metadata_and_independently_encoded_facts_only"
+    full_source_availability: "free_to_read_but_not_open_licensed"
+    source_location: "PubMed abstract results and Figure 1; manuscript consulted transiently"
+    estimate:
+      numerator: 47
+      numerator_definition: "pathogenic mutation in HNF1A, HNF4A, or GCK among the tested subset"
+      tested_denominator: 586
+      tested_fraction: 0.080
+      compatible_diabetes_fraction_reported: 0.012
+      compatible_diabetes_fraction_qualifier: "minimum prevalence"
+      uncertainty: "not_reported_for_minimum_fraction"
+      transformation: "none"
+    population:
+      geography: "United States, SEARCH multicentre catchment areas"
+      calendar_period: "enrolled 2001-2006"
+      age: "diabetes diagnosed before age 20 years"
+      phenotype: "diabetes; tested subset was autoantibody-negative with fasting C-peptide at least 0.8 ng/mL"
+      ancestry_ethnicity_population: "diverse population reported; no identity inferred and no subgroup estimate used"
+      setting: "population-based registry with invited study visit and biomarker-conditioned testing"
+    assessment:
+      use_decision: "sensitivity_only"
+      construct_validity: "partial gene scope does not represent all monogenic diabetes"
+      selection_bias: "genetic testing was conditioned on biomarkers and specimen/consent availability"
+      ascertainment: "population registry, but only a selected subset underwent sequencing"
+      measurement_error: "pathogenic-variant classification and three-gene coverage may miss cases"
+      missingness: "untested and incompletely GCK-tested participants prevent a direct observed whole-cohort fraction"
+      precision: "minimum fraction has no interval in the retained source location"
+      representativeness: "US multicentre youth catchments; transport outside them is unresolved"
+      diagnostic_validity: "molecular diagnoses restricted to HNF1A, HNF4A, and GCK"
+      conflict_of_interest: "not assessed in this tranche"
+      computational_reproducibility: "reported aggregate only; no participant data or executable derivation retained"
+
+  - source_record_id: "SRC-POLAND-2012"
+    citation: "Fendler et al. Diabetologia. 2012;55:2631-2635"
+    pmid: "22782286"
+    pmcid: "PMC3433657"
+    doi: "10.1007/s00125-012-2621-2"
+    publication_date: "2012-07-11"
+    metadata_sha256: "81724ed5c1de009001a0d24046e803192617ea7172a15af80ef4a2f4dd325875"
+    inspected_xml_sha256: "c1282bf2a567e243b015d82bc4483dc392cacbd60ad13ec5cdbd1a7975c3dc29"
+    access_class: "open_access"
+    licence: "CC-BY-NC"
+    redistribution: "noncommercial_with_attribution; no source bytes retained"
+    full_source_availability: "Europe PMC full text XML"
+    source_location: "Results and Discussion; full text consulted transiently"
+    estimate:
+      numerator: "not_used_as_a_single_count"
+      numerator_definition: "confirmed MODY, neonatal diabetes, Wolfram syndrome, or Alstrom syndrome"
+      compatible_diabetes_denominator: "2,008 to 2,568 children with diabetes, varying by year"
+      compatible_diabetes_fraction_reported: "0.031 to 0.042"
+      population_prevalence_per_100000: "4.2 to 4.6"
+      uncertainty: "not_reported_for_annual_fraction_range"
+      transformation: "none"
+    population:
+      geography: "three Polish regions covering 1,989,988 children (23.7% of Polish children)"
+      calendar_period: "2005-2011"
+      age: "0-18 years"
+      phenotype: "clinically suspected monogenic diabetes within paediatric diabetes"
+      ancestry_ethnicity_population: "not_reported"
+      setting: "nationwide referral campaign; analytic prevalence denominator from three regions"
+    assessment:
+      use_decision: "sensitivity_only"
+      construct_validity: "broad syndromic definition differs from MODY-only studies"
+      selection_bias: "case finding depended on clinical suspicion and an evolving referral campaign"
+      ascertainment: "referrals from 28 clinics; regional denominator does not remove referral under-ascertainment"
+      measurement_error: "testing pathways and case mix changed over calendar time"
+      missingness: "unreferred or unrecognised cases are not observable"
+      precision: "annual range reported without compatible intervals"
+      representativeness: "three regions cover less than one quarter of Polish children"
+      diagnostic_validity: "pathogenic confirmations were molecular; candidate selection was clinical"
+      conflict_of_interest: "not assessed in this tranche"
+      computational_reproducibility: "reported annual aggregates only"
+
+  - source_record_id: "SRC-UK-2016"
+    citation: "Shepherd et al. Diabetes Care. 2016;39:1879-1888"
+    pmid: "27271189"
+    pmcid: "PMC5018394"
+    doi: "10.2337/dc16-0645"
+    publication_date: "2016-06-06"
+    metadata_sha256: "eec0f2c8ca82ba82b9c67c80e87a359cc9583c93f76ceee0e03459f4efbe55f5"
+    access_class: "free_to_read_author_manuscript"
+    licence: "not_reported_by_europe_pmc"
+    redistribution: "metadata_and_independently_encoded_facts_only"
+    full_source_availability: "free_to_read_but_not_open_licensed"
+    source_location: "PubMed results; manuscript consulted transiently"
+    estimate:
+      numerator: 20
+      numerator_definition: "monogenic diabetes identified by biomarker and genetic screening"
+      compatible_diabetes_denominator: 808
+      compatible_diabetes_fraction_reported: 0.025
+      uncertainty: "95% CI 0.016 to 0.039"
+      transformation: "none"
+    population:
+      geography: "United Kingdom, six paediatric diabetes clinics"
+      calendar_period: "not_extracted_in_this_tranche"
+      age: "younger than 20 years"
+      phenotype: "paediatric diabetes"
+      ancestry_ethnicity_population: "not_extracted_in_this_tranche"
+      setting: "six-clinic systematic biomarker and genetic screening"
+    assessment:
+      use_decision: "sensitivity_only"
+      construct_validity: "direct paediatric within-diabetes fraction with study-defined molecular scope"
+      selection_bias: "clinic participation and screening completion may affect inclusion"
+      ascertainment: "systematic within participating clinics, not a national census"
+      measurement_error: "biomarker triage can miss molecular cases outside testing thresholds"
+      missingness: "completion and subgroup missingness require exact full-source verification"
+      precision: "reported binomial interval retained"
+      representativeness: "six UK clinics; transport to other systems is unresolved"
+      diagnostic_validity: "molecular confirmation followed biomarker screening"
+      conflict_of_interest: "not assessed in this tranche"
+      computational_reproducibility: "reported aggregates only"
+
+  - source_record_id: "SRC-PRODIGY-2021"
+    citation: "Todd et al. Diabetes Care. 2021;44:2312-2319"
+    pmid: "34362814"
+    pmcid: "PMC8929184"
+    doi: "10.2337/dc21-0491"
+    publication_date: "2021-08-06"
+    metadata_sha256: "585e93aaaffafc8669e619203bb7c7d9c057d10f0cc25d87d939e49bbe12c7ee"
+    inspected_xml_sha256: "fdd4e356604ac31d52730fc29970c2c741672abbc7b553bfd2de62002ec380c0"
+    access_class: "public_full_text_restricted_reuse"
+    licence: "educational_nonprofit_citation_required_no_alteration"
+    redistribution: "metadata_and_independently_encoded_facts_only"
+    full_source_availability: "Europe PMC full text after embargo"
+    source_location: "Abstract Results, Participants, Table 1, and Conclusions; full text consulted transiently"
+    estimate:
+      numerator: 93
+      numerator_definition: "pathogenic or likely pathogenic variants in six reported MODY genes"
+      compatible_diabetes_denominator: 3333
+      compatible_diabetes_fraction_reported: 0.028
+      uncertainty: "not_reported_for_overall_fraction"
+      transformation: "none"
+    population:
+      geography: "United States, SEARCH, TODAY, and TODAY Genetics cohorts"
+      calendar_period: "component recruitment periods differ; TODAY 2004-2009"
+      age: "clinician-diagnosed type 2 diabetes before age 20 years"
+      phenotype: "presumed youth-onset type 2 diabetes; antibody-positive participants excluded"
+      ancestry_ethnicity_population: >-
+        Source-reported non-Hispanic Black, non-Hispanic White, Hispanic, Asian,
+        and Native American categories; the latter two were sparse, and tribal
+        nations elected not to join the genomics collection. Categories are
+        retained as reported and are not treated as biological strata.
+      setting: "mixed population registry, trial, and ancillary selected cohorts"
+    assessment:
+      use_decision: "sensitivity_only"
+      construct_validity: "MODY within presumed type 2 diabetes, not all paediatric diabetes"
+      selection_bias: "overweight/obesity criteria dominated component cohorts and likely excluded typical MODY presentations"
+      ascertainment: "mixed SEARCH registry and TODAY selected-study recruitment"
+      measurement_error: "exome and strict variant classification may miss noncoding or insufficiently characterised variants"
+      missingness: "BMI absent for one component and some ancestry groups were sparse or absent by governance choice"
+      precision: "overall fraction reported without interval"
+      representativeness: "multiethnic US sample but not population-representative as a combined cohort"
+      diagnostic_validity: "ACMG/AMP pathogenic or likely pathogenic classification"
+      conflict_of_interest: "authors reported no relevant conflicts; one institutional support relationship disclosed"
+      computational_reproducibility: "aggregate and methods public; sequence data and executable derivation not retained"
+
+  - source_record_id: "SRC-FREMANTLE-2017"
+    citation: "Davis et al. Med J Aust. 2017;207:344-347"
+    pmid: "29020906"
+    pmcid: null
+    doi: "10.5694/mja16.01201"
+    publication_date: "2017-10-01"
+    metadata_sha256: "ac6bb916935a239589ce3b8c5771715186e47b0c646711e755ec9f6de044ed04"
+    access_class: "abstract_only_for_this_qualification"
+    licence: "not_reported_by_europe_pmc"
+    redistribution: "metadata_and_independently_encoded_facts_only"
+    full_source_availability: "not_verified_as_open"
+    source_location: "PubMed abstract"
+    estimate:
+      numerator: "not_retained"
+      compatible_diabetes_denominator: 1668
+      compatible_diabetes_fraction_reported: 0.0024
+      uncertainty: "95% CI 0.0008 to 0.0066"
+      transformation: "study estimate; selective risk-prediction and genotyping pathway"
+    population:
+      geography: "urban Fremantle, Western Australia"
+      calendar_period: "recruited 2008-2011"
+      age: "all-age diagnosed diabetes cohort; genetic assessment focused on diagnosis under age 35"
+      phenotype: "diagnosed diabetes"
+      ancestry_ethnicity_population: "European and non-European risk-prediction pathways reported; no subgroup estimate activated"
+      setting: "community cohort with 36% participation"
+    assessment:
+      use_decision: "unsuitable"
+      construct_validity: "all-age diagnosed-diabetes estimate is incompatible with the paediatric primary denominator"
+      selection_bias: "36% cohort participation and selective testing"
+      ascertainment: "risk-prediction followed by genotyping, not universal testing"
+      measurement_error: "pathway differed by reported population group"
+      missingness: "nonparticipants and untested lower-risk participants unresolved"
+      precision: "wide reported interval"
+      representativeness: "single urban Australian setting"
+      diagnostic_validity: "exact variant-classification method requires full-source verification"
+      conflict_of_interest: "not assessed from abstract"
+      computational_reproducibility: "abstract aggregate only"
+
+coverage_assessment:
+  age: "paediatric evidence represented, plus one incompatible all-age comparator"
+  phenotype: "all paediatric diabetes, biomarker-conditioned diabetes, presumed type 2 diabetes, and diagnosed diabetes kept separate"
+  ancestry_ethnicity_population: "reported categories and governance exclusions recorded without inference or pooling"
+  setting: "population registry, clinic screening, referral campaign, selected cohorts, and community cohort kept separate"
+  overlap: >-
+    SRC-SEARCH-2013 participants may overlap with the SEARCH component of
+    SRC-PRODIGY-2021. These estimates must not be pooled or treated as
+    independent without a participant-overlap model.
+  synthesis_disposition: "prohibited_in_this_tranche"
+  direct_parameter_use: "blocked"
+  reason: >-
+    Entity scope, denominator conditioning, ascertainment, calendar period,
+    setting, source rights, and possible cohort overlap are materially
+    heterogeneous. Every candidate remains sensitivity-only or unsuitable.
+
+next_gates:
+  - "source-location verification by a role-separated scientific/methods agent"
+  - "exact overlap and transportability assessment against the RBC-P002 target context"
+  - "pre-specified candidate and uncertainty choice with reproducible transformation"
+  - "repository-owner disposition of the exact candidate"
+  - "issue 261 evidence receipt before any empirical execution"
+
+prohibited_claims:
+  - "systematic_or_complete_search"
+  - "pooled_aetiologic_fraction"
+  - "population_representative_parameter"
+  - "verified_empirical_parameter"
+  - "independent_review"
+  - "empirical_activation"
+  - "controlled_data_activation"
+  - "public_aggregate_execution"
+  - "publication_or_release"
