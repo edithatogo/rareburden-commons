@@ -84,9 +84,11 @@ Recommended next actions, in order:
 
 One discovery lead is
 [Testing for monogenic diabetes is lower than required to reveal its true prevalence in an Australian population](https://doi.org/10.1016/j.deman.2022.100069).
-The publisher search record labels it open access under Creative Commons;
-direct publisher retrieval returned HTTP 403. Exact licence, full-source
-capture, endpoint denominator and disclosure qualification remain unverified.
+Direct publisher retrieval returned HTTP 403 on 30 August 2026 at
+`https://www.sciencedirect.com/science/article/pii/S2666970622000208`.
+This is a bibliographic discovery lead only: no open-access or Creative
+Commons classification is retained. Exact licence, full-source capture,
+endpoint denominator and disclosure qualification remain unverified.
 No result is extracted and no access control was bypassed.
 
 ## Options, trade-offs and stop conditions
