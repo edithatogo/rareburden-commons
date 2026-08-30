@@ -263,4 +263,10 @@ track-003-outcome-service-check:
 
 check: track-003-outcome-service-check
 
+.PHONY: track-003-continuation-check
+track-003-continuation-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track003_continuation.py --root .
+
+check: track-003-continuation-check
+
 release-check: ci build package-check installed-package-check sbom

@@ -1,0 +1,60 @@
+schema_version: "1.0.0"
+status: "synthetic_parameter_design_only"
+track: "003-monogenic-diabetes-demonstrator"
+purpose: "Define named transport/referral sensitivity mechanisms without inventing empirical calibration or running a governed analysis"
+authority_boundaries:
+  empirical_activation: false
+  controlled_data_activation: false
+  parameter_created: false
+  synthesis_executed: false
+  clinical_advice: false
+  independent_review: false
+  community_representation: false
+  production_release_authority: false
+compatibility:
+  existing_schema: "schemas/transportability-assessment.schema.json"
+  existing_synthetic_assessment: "examples/quality/track-003-rbc-p002-synthetic-transportability-assessment.yml"
+  rule: "A design field is not an accepted ledger parameter; instantiate a source/target assessment before empirical use"
+mechanisms:
+  - id: "referral_selection_ratio"
+    domain: "finite positive ratio"
+    meaning: "Probability of selection given aetiology divided by probability of selection without it, within one aligned binary population"
+    calibration: "unavailable"
+    assumption: "Selection alone is insufficient when testing/classification differs; no arbitrary empirical range or automatic correction"
+  - id: "diagnostic_ascertainment"
+    domain: "probability in [0,1]"
+    meaning: "Detection conditional on a true case within a declared testing pathway"
+    calibration: "unavailable"
+    assumption: "Specify specificity and diagnostic misclassification separately; zero detection makes inversion non-estimable"
+  - id: "age_and_calendar_alignment"
+    domain: "explicit source and target age/period strata"
+    meaning: "Eligibility, delayed diagnosis and secular testing differences"
+    calibration: "unavailable"
+    assumption: "No extrapolation across adult/paediatric denominators or calendar windows without evidence"
+  - id: "population_and_model_eligibility"
+    domain: "reported context categories, not biological coefficients"
+    meaning: "Assess historical model-validation exclusions and target population differences"
+    calibration: "unavailable"
+    assumption: "No ethnicity coefficient, imputation of governance nonparticipation or unsupported ranking"
+  - id: "family_and_cohort_dependence"
+    domain: "explicit dependency/overlap specification"
+    meaning: "Shared families, repeated tests and overlapping studies"
+    calibration: "unavailable"
+    assumption: "Do not invent effective sample size or multiply independent likelihoods for dependent records"
+  - id: "setting_and_capture"
+    domain: "source/target clinical and data-capture definitions"
+    meaning: "Referral service, registry, biomarker screen and population envelope differ"
+    calibration: "unavailable"
+    assumption: "No transfer from testing yield to population fraction or service utilization"
+  - id: "penetrance_and_entity_scope"
+    domain: "entity-specific probability and clinical case definition"
+    meaning: "Separate molecular variant detection from disease expression"
+    calibration: "unavailable"
+    assumption: "Allele frequency is not prevalence; broader monogenic scope cannot silently replace MODY-only scope"
+scenario_rules:
+  numeric_empirical_ranges: []
+  synthetic_examples: "Future fixtures must label every assumed value synthetic; no empirical plausibility claim"
+  uncertainty: "Separate sampling, measurement, selection, transport and structural uncertainty; inflation cannot repair invalid estimands"
+  non_estimability: "Missing compatible denominator, positivity, calibration or rights yields unavailable, never zero burden"
+  execution_boundary: "Existing exactly-one synthetic assurance receipt is unchanged; new governed runs require exact candidate disposition"
+  outputs_created: []

@@ -1,0 +1,69 @@
+schema_version: "1.0.0"
+status: "current_known_gaps_recorded_not_exhaustive"
+track: "003-monogenic-diabetes-demonstrator"
+authority_boundaries:
+  empirical_activation: false
+  controlled_data_activation: false
+  parameter_created: false
+  synthesis_executed: false
+  clinical_advice: false
+  independent_review: false
+  community_representation: false
+  production_release_authority: false
+references:
+  - "docs/track-003-aetiologic-evidence-qualification-2026-08-30.yml"
+  - "docs/track-003-outcome-source-qualification-2026-08-30.md"
+  - "docs/track-003-licensed-pathway-evidence-2026-08-30.yml"
+  - "docs/track-003-transport-sensitivity-contract-2026-08-30.yml"
+gaps:
+  - id: "G003-RIGHTS"
+    kind: "intended_use_rights"
+    affected: "Steele and Pang held aggregates; broader fulltext archival"
+    next_action: "Prepare exact fact-only intended-use assessment; use explicitly licensed alternatives where scientifically compatible"
+    closure_evidence: "Exact terms and output-scope disposition, not generic owner authority or article readability"
+  - id: "G003-CONFLICT"
+    kind: "source_conflict"
+    affected: "Pang GDN arithmetic and abstract/Methods lower age boundary"
+    next_action: "Keep disputed values out; seek a documented correction or clarification only if indispensable"
+    closure_evidence: "Attributable source correction; no silent arithmetic repair"
+  - id: "G003-OUTCOME"
+    kind: "endpoint_denominator_and_disclosure"
+    affected: "Complication evidence and service-use measures"
+    next_action: "Verify endpoint-specific eligible/assessed denominator, missingness, family dependence and non-sparse disclosure"
+    closure_evidence: "Located lawful aggregate and exact interpretation; no inferred small complementary cells"
+  - id: "G003-UTILIZATION"
+    kind: "missing_compatible_measure"
+    affected: "Contacts per person-time, length of stay, costs and causal treatment benefit"
+    next_action: "Search compatible monogenic-diabetes sources or label outcome/economic work as unestimated or explicitly synthetic scenarios"
+    closure_evidence: "Compatible source and exposure unit; diagnostic yield does not close this gap"
+  - id: "G003-TRANSPORT"
+    kind: "target_alignment_and_overlap"
+    affected: "All proposed empirical parameters"
+    next_action: "Complete source/target assessment, entity/age/period alignment, overlap model and justified calibration"
+    closure_evidence: "Exact assessment plus source-backed uncertainty; no arbitrary priors labelled empirical"
+  - id: "G003-ACCESS"
+    kind: "source_access"
+    affected: "Australian DOI 10.1016/j.deman.2022.100069 discovery lead"
+    next_action: "Use a lawful primary repository or record unavailable; do not bypass publisher access controls"
+    closure_evidence: "Verified exact source and licence rather than a search classification"
+  - id: "G003-EXECUTION"
+    kind: "exact_candidate_disposition"
+    affected: "New synthetic governed runs and any empirical activation"
+    next_action: "Assemble one consolidated candidate with inputs, uncertainty, code, tests, panel advice and proposed execution scope"
+    closure_evidence: "Exact owner disposition plus reproducible execution receipt; issue 261 remains open for empirical work"
+requests:
+  status: "draft_questions_only_unsent"
+  questions:
+    - "What terms apply to the exact proposed fact-only output, distinct from article or table redistribution?"
+    - "Is there an attributable correction resolving the conflicting source quantities and age boundary?"
+    - "Can a disclosure-safe endpoint or utilization aggregate be supplied with matched exposure and missingness metadata?"
+  prohibited_request_content: "No participant records, identifiers, variant-level tables or small cells requested"
+continuation:
+  routine_confirmation_required: false
+  authorized_work: "Track 003 qualification, synthetic preparation, validators, advisory review, scoped PR/check fixes and already-authorized merges"
+  next_queue:
+    - "Complete exact source/target and synthetic scenario candidate preparation"
+    - "Batch genuine execution/retention decisions in one owner packet"
+    - "After disposition, execute only accepted candidates, reproduce, report limitations and run panel/CI closeout"
+  stop_boundaries: "Unresolved third-party rights or access, changed scientific scope, external contact or required exact-candidate owner disposition"
+  not_claimed: "No unattended background process, recurring automation, external contact, permission or future completion is implied"
