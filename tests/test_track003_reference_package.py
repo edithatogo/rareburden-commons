@@ -190,6 +190,7 @@ def test_mid_calculation_drift_prevents_output(accepted, monkeypatch, change):
     decision_path = root / "decision.json"
     decision_path.write_text(package.canonical(decision))
     monkeypatch.setattr(package, "validate_execution_roots", lambda root: None)
+    monkeypatch.setattr(package, "validate_runtime", lambda root: None)
     monkeypatch.setattr(package, "build_reference_inputs", lambda root: {})
     monkeypatch.setattr(
         package,
@@ -213,3 +214,75 @@ def test_mid_calculation_drift_prevents_output(accepted, monkeypatch, change):
     with pytest.raises(ValueError):
         package.execute(root, decision_path, output)
     assert not output.exists()
+
+
+@pytest.mark.parametrize("version", [(3, 12), (3, 14)])
+def test_runtime_rejects_unbound_interpreter(monkeypatch, version):
+    monkeypatch.setattr(package.sys, "version_info", version)
+    with pytest.raises(ValueError, match=r"Python 3\.13"):
+        package.validate_runtime(ROOT)
+
+
+def test_runtime_rejects_wrong_environment_root(tmp_path, monkeypatch):
+    monkeypatch.setattr(package.sys, "version_info", (3, 13))
+    monkeypatch.setattr(package.sys, "prefix", str(tmp_path / "other"))
+    with pytest.raises(ValueError, match=r"\.venv"):
+        package.validate_runtime(tmp_path)
+
+
+@pytest.mark.parametrize("returncode", [0, 1])
+def test_locked_environment_checked_offline_without_mutation(tmp_path, monkeypatch, returncode):
+    monkeypatch.setattr(package.sys, "version_info", (3, 13))
+    monkeypatch.setattr(package.sys, "prefix", str(tmp_path / ".venv"))
+    calls = []
+
+    def check(command, **kwargs):
+        calls.append((command, kwargs))
+        return SimpleNamespace(returncode=returncode)
+
+    monkeypatch.setattr(package.subprocess, "run", check)
+    if returncode:
+        with pytest.raises(ValueError, match="locked environment"):
+            package.validate_runtime(tmp_path)
+    else:
+        package.validate_runtime(tmp_path)
+    command, kwargs = calls[0]
+    assert {"--check", "--frozen", "--offline", "--extra"} <= set(command)
+    assert kwargs["env"]["UV_PROJECT_ENVIRONMENT"] == str((tmp_path / ".venv").resolve())
+
+
+def test_atomic_fixture_inventory_and_no_overwrite(tmp_path):
+    output = tmp_path / "fixture"
+    files = dict.fromkeys(package.OUTPUTS, "non-analytical fixture")
+    package.publish_outputs(output, files)
+    assert {path.name for path in output.iterdir()} == set(package.OUTPUTS)
+    with pytest.raises(ValueError, match="must not exist"):
+        package.publish_outputs(output, files)
+    assert not (tmp_path / ".fixture.lock").exists()
+
+
+@pytest.mark.parametrize("failure", ["second_write", "flush", "revalidation"])
+def test_atomic_failure_never_exposes_partial_package(tmp_path, monkeypatch, failure):
+    output = tmp_path / "fixture"
+    files = dict.fromkeys(package.OUTPUTS, "non-analytical fixture")
+    original = Path.open
+
+    def opened(path, *args, **kwargs):
+        if failure == "second_write" and path.name == package.OUTPUTS[1]:
+            raise OSError("injected write failure")
+        return original(path, *args, **kwargs)
+
+    def flushed(fd):
+        if failure == "flush":
+            raise OSError("injected flush failure")
+
+    def revalidated():
+        if failure == "revalidation":
+            raise ValueError("injected drift")
+
+    monkeypatch.setattr(Path, "open", opened)
+    monkeypatch.setattr(package.os, "fsync", flushed)
+    with pytest.raises((OSError, ValueError)):
+        package.publish_outputs(output, files, before_publish=revalidated)
+    assert not output.exists()
+    assert list(tmp_path.iterdir()) == []

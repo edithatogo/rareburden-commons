@@ -123,6 +123,8 @@ empirical validation or Track 003 completion.
 
 ### Review fixes
 
+- [x] Address PR #275 hosted runtime and atomic-publication findings. Actual Python 3.13 and locked dependencies are checked before execution/retention; staged outputs are flushed and renamed together. Evidence: `docs/reviews/track-003-reference-package-hosted-fixes-2026-08-30.yml`; 27 focused tests pass. Exact owner decision remains pending.
+
 - [x] Challenge the exact-package implementation across scientific, engineering and simulated-harm lanes; fix execution-root binding, decision-byte/drift verification, strict decision validation and self-contained uncertainty/definition reporting. Evidence: `docs/reviews/track-003-reference-package-panel-2026-08-30.yml`; 18 focused tests pass. No governed reference output has been retained.
 
 - [x] Challenge the twelve-scenario runner; distinguish assumed conditional inputs at empty conditioning sets, add metric metadata and scenario parameter bindings, and test approximate denominator partitions and invalid numerical inputs. Evidence: `docs/reviews/track-003-reference-runner-panel-2026-08-30.yml`; 62 focused tests pass. Full candidate disposition and retained results remain pending.

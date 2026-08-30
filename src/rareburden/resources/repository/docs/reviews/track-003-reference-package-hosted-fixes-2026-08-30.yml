@@ -1,0 +1,50 @@
+schema_version: "1.0.0"
+status: "hosted_review_fix_rebinding"
+panel_assurance: "simulated_role_separated_advisory_panel"
+date_utc: "2026-08-30"
+pull_request: "https://github.com/edithatogo/rareburden-commons/pull/275"
+supersedes_binding_only: "docs/reviews/track-003-reference-package-panel-2026-08-30.yml"
+documents:
+  - path: "scripts/track003_reference_package.py"
+    raw_sha256: "e1e6c0494a1afc92895e15e86783d1c941bd121aa3247c9becf00353af33049b"
+  - path: "tests/test_track003_reference_package.py"
+    raw_sha256: "c8099f83cc97f8ae59e686a2a638fa4951c30865f8a5f34836655150012ac957"
+  - path: "docs/track-003-reference-package-plan-2026-08-30.md"
+    raw_sha256: "740bac14620fcd6b2d2556eeb98f849048b9fd188508cd6b528faf815533b01e"
+  - path: "manifests/demonstrators/track-003-reference-candidate.json"
+    raw_sha256: "b6f50a8b8b10bddceafd16ddaeee17e77fb6eefb8fbfd724cf747378b5a99911"
+resolved_findings:
+  - "P1 discussion_r3888894394: enforce actual Python 3.13 project environment and offline locked-dependency check before calculation and publication"
+  - "P2 discussion_r3888894399: stage and fsync the complete three-file package before one directory rename; reject partial writes and pre-publication drift"
+verification:
+  focused_tests: 27
+  manifest_regeneration: "exact"
+  actual_runtime_validation: "passed without analytical execution"
+  failures_injected: [second_file_write, fsync, final_revalidation]
+  failed_fixture_publication_leaves_visible_output: false
+lanes:
+  - perspective: "engineering_security"
+    agent: "outcome_rights_review"
+    result: "pass"
+    evidence: "Reran 27 tests, manifest regeneration and actual runtime validation"
+  - perspective: "scientific_methods"
+    agent: "outcome_science_review"
+    result: "pass"
+    evidence: "Exact rebinding; numerical and report interpretation scope unchanged"
+  - perspective: "simulated_community_harm"
+    agent: "outcome_harm_review"
+    result: "pass"
+    evidence: "Exact rebinding; interrupted staging is not a completed package"
+recommendation: "Retain fixes and present the updated exact candidate for owner disposition"
+uncertainty:
+  - "Trusted owner-operated filesystem; not malicious-administrator protection"
+  - "Atomic visibility is not a full power-loss durability guarantee"
+  - "Invented and unquantified structural uncertainty and source-specific gaps remain"
+dissent:
+  - "Standing authorization versus post-advice exact owner selection remains unresolved; no decision is fabricated"
+stop_triggers: [candidate_drift, runtime_mismatch, unaccepted_disposition, reproduction_mismatch]
+owner_disposition: "Routine implementation and hosted-review fixes authorized; execution decision pending"
+execution_authorized: false
+independent_review: false
+community_representation: false
+production_release_authority: false

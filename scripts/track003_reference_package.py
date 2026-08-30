@@ -6,8 +6,12 @@ import hashlib
 import inspect
 import io
 import json
+import os
 import re
 import subprocess
+import sys
+import tempfile
+from collections.abc import Callable
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -274,6 +278,7 @@ def execute(root: Path, decision_path: Path, output: Path) -> dict[str, Any]:
     decision_bytes = decision_path.read_bytes()
     decision = json.loads(decision_bytes)
     manifest = validate_disposition(root, decision)
+    validate_runtime(root)
     if output.exists():
         raise ValueError("output directory must not exist; no overwrite or implicit replacement")
     calculation = simulate(
@@ -283,19 +288,90 @@ def execute(root: Path, decision_path: Path, output: Path) -> dict[str, Any]:
         seed=manifest["seed"],
     )
     outputs = render_outputs(calculation)
-    if decision_path.read_bytes() != decision_bytes:
-        raise ValueError("decision bytes changed during calculation")
-    if validate_disposition(root, decision) != manifest:
-        raise ValueError("execution manifest changed during calculation")
-    output.mkdir(parents=False)
-    for name in OUTPUTS:
-        with (output / name).open("x", encoding="utf-8", newline="") as handle:
-            handle.write(outputs[name])
+
+    def revalidate() -> None:
+        if decision_path.read_bytes() != decision_bytes:
+            raise ValueError("decision bytes changed during calculation")
+        if validate_disposition(root, decision) != manifest:
+            raise ValueError("execution manifest changed during calculation")
+        validate_runtime(root)
+
+    publish_outputs(output, outputs, before_publish=revalidate)
     return {
         "output_sha256": {name: digest(text.encode()) for name, text in outputs.items()},
         "decision_sha256": digest(decision_bytes),
         "candidate_commit": decision["candidate"]["commit"],
     }
+
+
+def validate_runtime(root: Path) -> None:
+    """Require Python 3.13 and the actual interpreter's locked project environment."""
+    if sys.version_info[:2] != (3, 13):
+        raise ValueError("bound execution requires Python 3.13")
+    environment = (root / ".venv").resolve()
+    if Path(sys.prefix).resolve() != environment:
+        raise ValueError("bound execution requires the verified checkout's .venv")
+    result = subprocess.run(
+        [
+            "uv",
+            "sync",
+            "--check",
+            "--frozen",
+            "--offline",
+            "--extra",
+            "dev",
+            "--python",
+            sys.executable,
+        ],
+        cwd=root,
+        env={
+            **{key: value for key, value in os.environ.items() if not key.startswith("UV_")},
+            "UV_PROJECT_ENVIRONMENT": str(environment),
+            "VIRTUAL_ENV": str(environment),
+        },
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode:
+        raise ValueError(
+            "locked environment differs; run uv sync --frozen --extra dev --python 3.13"
+        )
+
+
+def publish_outputs(
+    output: Path, outputs: dict[str, str], *, before_publish: Callable[[], None] | None = None
+) -> None:
+    """Flush a complete temporary sibling, then publish with one directory rename.
+
+    The exclusive sibling lock coordinates this command's writers. It is not a
+    defence against a malicious local administrator. Interrupted hidden staging
+    or lock files must be inspected before recovery; they are not a retained package.
+    """
+    if set(outputs) != set(OUTPUTS):
+        raise ValueError("unexpected output inventory")
+    lock = output.parent / f".{output.name}.lock"
+    with lock.open("x"):
+        pass
+    try:
+        if output.exists():
+            raise ValueError("output directory must not exist")
+        with tempfile.TemporaryDirectory(
+            prefix=f".{output.name}.staging-", dir=output.parent
+        ) as raw:
+            staging = Path(raw)
+            for name in OUTPUTS:
+                with (staging / name).open("x", encoding="utf-8", newline="") as handle:
+                    handle.write(outputs[name])
+                    handle.flush()
+                    os.fsync(handle.fileno())
+            if before_publish is not None:
+                before_publish()
+            if output.exists():
+                raise ValueError("output appeared during preparation; refusing replacement")
+            staging.rename(output)
+    finally:
+        lock.unlink()
 
 
 def main() -> None:

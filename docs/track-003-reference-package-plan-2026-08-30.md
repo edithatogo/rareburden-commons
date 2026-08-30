@@ -38,6 +38,14 @@ Git identity are revalidated after calculation and before output creation.
 Decision validation requires the exact track, unique options, a valid selected
 acceptance option and a real UTC timestamp. The two-copy retention limit remains
 an operational rule, not a global execution counter enforced by the command.
+The runtime gate requires the actual Python 3.13 interpreter in this checkout's
+`.venv` and a read-only, offline `uv sync --check --frozen --extra dev` check
+against its locked dependencies before calculation and publication. UV environment
+overrides are removed from that check. All three files are written and fsynced
+in a temporary sibling, then published by a single directory rename after final
+revalidation. A sibling exclusive lock coordinates command writers. An interrupted
+hidden staging directory or lock is not a completed package: inspect and recover
+that exact temporary path before retrying; never treat a partial write as success.
 
 ## Execution and separate reproduction
 
