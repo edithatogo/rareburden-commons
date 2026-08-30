@@ -11,7 +11,7 @@
 
 ## Phase 2 — Evidence ledger
 
-- [~] Extract and assess aetiologic-fraction evidence by age, phenotype, ancestry and setting. `[M-21]`
+- [x] Extract and assess aetiologic-fraction evidence by age, phenotype, ancestry and setting. Evidence: `docs/track-003-aetiologic-evidence-qualification-2026-08-30.yml`, its fail-closed validator and 20 mutation tests, and the exact-candidate advisory review at `docs/reviews/track-003-aetiologic-evidence-agent-panel-2026-08-30.yml`. All candidates remain sensitivity-only or unsuitable; synthesis, parameter creation, empirical execution, independent review, community authority, publication and release remain false. `[M-21]`
 - [ ] Ledger diagnosis delay, treatment change, complications and service-use evidence. `[M-04, M-11]`
 - [ ] Define transportability and referral-bias sensitivity parameters. `[S-07]`
 - [ ] Record unresolved evidence gaps and data-access asks. `[M-26]`
