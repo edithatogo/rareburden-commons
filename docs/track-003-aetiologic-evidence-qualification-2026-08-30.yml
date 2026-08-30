@@ -18,6 +18,8 @@ authority_boundaries:
   synthesis_executed: false
   independent_review: false
   patient_community_approval: false
+  community_representation: false
+  community_endorsement: false
   publication_authority: false
   production_release_authority: false
 
@@ -27,6 +29,13 @@ retrieval_method:
     https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:{pmid}%20AND%20SRC:MED&format=json&resultType=core
   content_policy: "transient inspection only; provider responses and full text are not retained"
   correction_retraction_check: "Europe PMC core record inspected on retrieval date; no correction or retraction recorded"
+  receipt_canonicalization: >-
+    SHA-256 of compact UTF-8 JSON with lexicographically sorted keys and no
+    insignificant whitespace, containing source_record_id, PMID, PMCID, DOI,
+    publication_date, metadata_sha256, inspected_xml_sha256 when present,
+    access_class, licence, redistribution, and the complete estimate mapping.
+    The validator pins and recomputes every digest; this lawful metadata/fact
+    projection is retained here in place of provider response or article bytes.
 
 sources:
   - source_record_id: "SRC-SEARCH-2013"
@@ -36,6 +45,7 @@ sources:
     doi: "10.1210/jc.2013-1279"
     publication_date: "2013-06-14"
     metadata_sha256: "8aefbb36e56131b9861acfacbd473bfd14ecd73a2d9de28067272d9256c829fe"
+    receipt_sha256: "b335ae2e18c0ffc027ed4a0e5c05453bfd265880ae8de8945ae3c3703de9d295"
     access_class: "free_to_read_author_manuscript"
     licence: "not_reported_by_europe_pmc"
     redistribution: "metadata_and_independently_encoded_facts_only"
@@ -43,7 +53,7 @@ sources:
     source_location: "PubMed abstract results and Figure 1; manuscript consulted transiently"
     estimate:
       numerator: 47
-      numerator_definition: "pathogenic mutation in HNF1A, HNF4A, or GCK among the tested subset"
+      numerator_definition: "study-reported pathogenic mutation in HNF1A, HNF4A, or GCK among the tested subset"
       tested_denominator: 586
       tested_fraction: 0.080
       compatible_diabetes_fraction_reported: 0.012
@@ -66,7 +76,7 @@ sources:
       missingness: "untested and incompletely GCK-tested participants prevent a direct observed whole-cohort fraction"
       precision: "minimum fraction has no interval in the retained source location"
       representativeness: "US multicentre youth catchments; transport outside them is unresolved"
-      diagnostic_validity: "molecular diagnoses restricted to HNF1A, HNF4A, and GCK"
+      diagnostic_validity: "study-reported molecular diagnoses restricted to HNF1A, HNF4A, and GCK"
       conflict_of_interest: "not assessed in this tranche"
       computational_reproducibility: "reported aggregate only; no participant data or executable derivation retained"
 
@@ -78,6 +88,7 @@ sources:
     publication_date: "2012-07-11"
     metadata_sha256: "81724ed5c1de009001a0d24046e803192617ea7172a15af80ef4a2f4dd325875"
     inspected_xml_sha256: "c1282bf2a567e243b015d82bc4483dc392cacbd60ad13ec5cdbd1a7975c3dc29"
+    receipt_sha256: "81419c3cb20ecfcd973570c214e081474a91800e7ae4a72b365ddfdaebc05f80"
     access_class: "open_access"
     licence: "CC-BY-NC"
     redistribution: "noncommercial_with_attribution; no source bytes retained"
@@ -85,7 +96,7 @@ sources:
     source_location: "Results and Discussion; full text consulted transiently"
     estimate:
       numerator: "not_used_as_a_single_count"
-      numerator_definition: "confirmed MODY, neonatal diabetes, Wolfram syndrome, or Alstrom syndrome"
+      numerator_definition: "study-reported molecular confirmation of MODY, neonatal diabetes, Wolfram syndrome, or Alstrom syndrome"
       compatible_diabetes_denominator: "2,008 to 2,568 children with diabetes, varying by year"
       compatible_diabetes_fraction_reported: "0.031 to 0.042"
       population_prevalence_per_100000: "4.2 to 4.6"
@@ -118,6 +129,7 @@ sources:
     doi: "10.2337/dc16-0645"
     publication_date: "2016-06-06"
     metadata_sha256: "eec0f2c8ca82ba82b9c67c80e87a359cc9583c93f76ceee0e03459f4efbe55f5"
+    receipt_sha256: "f32b73156b28c4c362a5eb44b93c9ccdcf1e92bafa1b6bb5b48143fcb77fdd01"
     access_class: "free_to_read_author_manuscript"
     licence: "not_reported_by_europe_pmc"
     redistribution: "metadata_and_independently_encoded_facts_only"
@@ -125,7 +137,7 @@ sources:
     source_location: "PubMed results; manuscript consulted transiently"
     estimate:
       numerator: 20
-      numerator_definition: "monogenic diabetes identified by biomarker and genetic screening"
+      numerator_definition: "study-reported monogenic diabetes identified by biomarker and genetic screening"
       compatible_diabetes_denominator: 808
       compatible_diabetes_fraction_reported: 0.025
       uncertainty: "95% CI 0.016 to 0.039"
@@ -158,6 +170,7 @@ sources:
     publication_date: "2021-08-06"
     metadata_sha256: "585e93aaaffafc8669e619203bb7c7d9c057d10f0cc25d87d939e49bbe12c7ee"
     inspected_xml_sha256: "fdd4e356604ac31d52730fc29970c2c741672abbc7b553bfd2de62002ec380c0"
+    receipt_sha256: "8254541b5f3e300f6da6d438aaef907f03e9f1c543bdb5077cece6963d05338c"
     access_class: "public_full_text_restricted_reuse"
     licence: "educational_nonprofit_citation_required_no_alteration"
     redistribution: "metadata_and_independently_encoded_facts_only"
@@ -177,9 +190,13 @@ sources:
       phenotype: "presumed youth-onset type 2 diabetes; antibody-positive participants excluded"
       ancestry_ethnicity_population: >-
         Source-reported non-Hispanic Black, non-Hispanic White, Hispanic, Asian,
-        and Native American categories; the latter two were sparse, and tribal
-        nations elected not to join the genomics collection. Categories are
-        retained as reported and are not treated as biological strata.
+        and Native American categories; Asian and Native American counts were
+        statistically sparse. Separately, the source reports that American
+        Indian tribal nations participating in TODAY elected not to participate
+        in the genomics collection. That governance-required exclusion is not
+        statistical missingness: excluded people or communities must not be
+        inferred, compared, ranked, or treated as missing biological evidence.
+        Categories are retained as reported and are not biological strata.
       setting: "mixed population registry, trial, and ancillary selected cohorts"
     assessment:
       use_decision: "sensitivity_only"
@@ -187,7 +204,10 @@ sources:
       selection_bias: "overweight/obesity criteria dominated component cohorts and likely excluded typical MODY presentations"
       ascertainment: "mixed SEARCH registry and TODAY selected-study recruitment"
       measurement_error: "exome and strict variant classification may miss noncoding or insufficiently characterised variants"
-      missingness: "BMI absent for one component and some ancestry groups were sparse or absent by governance choice"
+      missingness: >-
+        BMI was absent for one component; sparse reported categories are kept
+        distinct from governance-required nonparticipation, which is not imputed
+        or interpreted.
       precision: "overall fraction reported without interval"
       representativeness: "multiethnic US sample but not population-representative as a combined cohort"
       diagnostic_validity: "ACMG/AMP pathogenic or likely pathogenic classification"
@@ -201,6 +221,7 @@ sources:
     doi: "10.5694/mja16.01201"
     publication_date: "2017-10-01"
     metadata_sha256: "ac6bb916935a239589ce3b8c5771715186e47b0c646711e755ec9f6de044ed04"
+    receipt_sha256: "0f49dfd112b848e1daa98ea1ce9c9730f93b4a73d72e82196c70ddd024e22e68"
     access_class: "abstract_only_for_this_qualification"
     licence: "not_reported_by_europe_pmc"
     redistribution: "metadata_and_independently_encoded_facts_only"
@@ -261,6 +282,7 @@ prohibited_claims:
   - "population_representative_parameter"
   - "verified_empirical_parameter"
   - "independent_review"
+  - "community_representation_or_endorsement"
   - "empirical_activation"
   - "controlled_data_activation"
   - "public_aggregate_execution"

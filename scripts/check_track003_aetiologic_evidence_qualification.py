@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import re
 from pathlib import Path
 from typing import Any
@@ -24,6 +26,8 @@ FALSE_AUTHORITIES = {
     "synthesis_executed",
     "independent_review",
     "patient_community_approval",
+    "community_representation",
+    "community_endorsement",
     "publication_authority",
     "production_release_authority",
 }
@@ -46,6 +50,26 @@ EXPECTED_SOURCES = {
     "SRC-PRODIGY-2021": "sensitivity_only",
     "SRC-FREMANTLE-2017": "unsuitable",
 }
+EXPECTED_RECEIPTS = {
+    "SRC-SEARCH-2013": "b335ae2e18c0ffc027ed4a0e5c05453bfd265880ae8de8945ae3c3703de9d295",
+    "SRC-POLAND-2012": "81419c3cb20ecfcd973570c214e081474a91800e7ae4a72b365ddfdaebc05f80",
+    "SRC-UK-2016": "f32b73156b28c4c362a5eb44b93c9ccdcf1e92bafa1b6bb5b48143fcb77fdd01",
+    "SRC-PRODIGY-2021": "8254541b5f3e300f6da6d438aaef907f03e9f1c543bdb5077cece6963d05338c",
+    "SRC-FREMANTLE-2017": "0f49dfd112b848e1daa98ea1ce9c9730f93b4a73d72e82196c70ddd024e22e68",
+}
+RECEIPT_FIELDS = (
+    "source_record_id",
+    "pmid",
+    "pmcid",
+    "doi",
+    "publication_date",
+    "metadata_sha256",
+    "inspected_xml_sha256",
+    "access_class",
+    "licence",
+    "redistribution",
+    "estimate",
+)
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -53,6 +77,14 @@ def _load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise QualificationError("qualification must be a mapping")
     return value
+
+
+def _receipt(source: dict[str, Any]) -> str:
+    projection = {field: source[field] for field in RECEIPT_FIELDS if field in source}
+    payload = json.dumps(
+        projection, sort_keys=True, separators=(",", ":"), ensure_ascii=False
+    ).encode()
+    return hashlib.sha256(payload).hexdigest()
 
 
 def validate(path: Path) -> None:
@@ -83,6 +115,10 @@ def validate(path: Path) -> None:
         observed[str(source_id)] = str(assessment.get("use_decision"))
         if not SHA256.fullmatch(str(source.get("metadata_sha256", ""))):
             raise QualificationError(f"invalid metadata receipt for {source_id}")
+        if source.get("receipt_sha256") != EXPECTED_RECEIPTS.get(str(source_id)) or _receipt(
+            source
+        ) != EXPECTED_RECEIPTS.get(str(source_id)):
+            raise QualificationError(f"source identity, rights, or estimate drift: {source_id}")
         if not {"pmid", "doi", "licence", "redistribution", "source_location"} <= set(source):
             raise QualificationError(f"provenance or rights field missing for {source_id}")
         if not set(assessment) >= QUALITY_DOMAINS:
@@ -114,6 +150,7 @@ def validate(path: Path) -> None:
             "empirical_activation",
             "public_aggregate_execution",
             "publication_or_release",
+            "community_representation_or_endorsement",
         }
         <= claims
     ):
