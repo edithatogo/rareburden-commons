@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0.0",
+  "retrieval_event_id": "track003-hosted-observation-followup-20260831",
+  "observed_at_utc": "2026-08-30T21:46:40Z",
+  "source": "GitHub hosted repository metadata for edithatogo/rareburden-commons",
+  "source_version": "PR and workflow identities and exact head SHAs in each response",
+  "purpose": "Fresh corroboration of hosted observations supporting the unchanged Option A packet; not a fabricated retrospective capture timestamp",
+  "historical_retrieval_limit": "Prior observation times are not asserted by this follow-up; the original approval bytes remain unchanged.",
+  "licence_and_use": {
+    "access": "Authenticated owner-operated GitHub CLI read",
+    "retention": "Selected factual status fields from the owner's repository retained as provenance metadata",
+    "redistribution": "Owner-authorized public-Git workflow; no external scientific dataset, participant data, logs or source-document text included",
+    "licence": "No separate scientific-data licence or third-party permission is inferred from GitHub access",
+    "transformation": "gh --json field selection, JSON parsing and deterministic record ordering; no changes to returned field values"
+  },
+  "records": [
+    {
+      "command": [
+        "gh",
+        "pr",
+        "view",
+        "274",
+        "--json",
+        "number,state,mergedAt,mergeCommit,headRefOid,url"
+      ],
+      "response": {
+        "headRefOid": "f78debccf281463856ece53d8d2c2237724e3bd7",
+        "mergeCommit": {
+          "oid": "f8d43cd4d016d3cebfeba7dfbfee1382310598b2"
+        },
+        "mergedAt": "2026-08-30T08:24:28Z",
+        "number": 274,
+        "state": "MERGED",
+        "url": "https://github.com/edithatogo/rareburden-commons/pull/274"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "pr",
+        "view",
+        "275",
+        "--json",
+        "number,state,mergedAt,mergeCommit,headRefOid,url"
+      ],
+      "response": {
+        "headRefOid": "282012908c86366ae4d0c3c3d8cd2484f584913c",
+        "mergeCommit": {
+          "oid": "36f97490626747b76543f59c44220544978ef874"
+        },
+        "mergedAt": "2026-08-30T09:08:03Z",
+        "number": 275,
+        "state": "MERGED",
+        "url": "https://github.com/edithatogo/rareburden-commons/pull/275"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "33301507309",
+        "--json",
+        "databaseId,headSha,status,conclusion,event,createdAt,updatedAt,url,workflowName"
+      ],
+      "response": {
+        "conclusion": "success",
+        "createdAt": "2026-08-30T08:24:30Z",
+        "databaseId": 33301507309,
+        "event": "push",
+        "headSha": "f8d43cd4d016d3cebfeba7dfbfee1382310598b2",
+        "status": "completed",
+        "updatedAt": "2026-08-30T08:31:35Z",
+        "url": "https://github.com/edithatogo/rareburden-commons/actions/runs/33301507309",
+        "workflowName": "quality frontier"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "33301507311",
+        "--json",
+        "databaseId,headSha,status,conclusion,event,createdAt,updatedAt,url,workflowName"
+      ],
+      "response": {
+        "conclusion": "success",
+        "createdAt": "2026-08-30T08:24:30Z",
+        "databaseId": 33301507311,
+        "event": "push",
+        "headSha": "f8d43cd4d016d3cebfeba7dfbfee1382310598b2",
+        "status": "completed",
+        "updatedAt": "2026-08-30T08:30:18Z",
+        "url": "https://github.com/edithatogo/rareburden-commons/actions/runs/33301507311",
+        "workflowName": "OpenSSF Scorecard"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "33301507312",
+        "--json",
+        "databaseId,headSha,status,conclusion,event,createdAt,updatedAt,url,workflowName"
+      ],
+      "response": {
+        "conclusion": "success",
+        "createdAt": "2026-08-30T08:24:30Z",
+        "databaseId": 33301507312,
+        "event": "push",
+        "headSha": "f8d43cd4d016d3cebfeba7dfbfee1382310598b2",
+        "status": "completed",
+        "updatedAt": "2026-08-30T08:30:27Z",
+        "url": "https://github.com/edithatogo/rareburden-commons/actions/runs/33301507312",
+        "workflowName": "CodeQL"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "33301507314",
+        "--json",
+        "databaseId,headSha,status,conclusion,event,createdAt,updatedAt,url,workflowName"
+      ],
+      "response": {
+        "conclusion": "success",
+        "createdAt": "2026-08-30T08:24:30Z",
+        "databaseId": 33301507314,
+        "event": "push",
+        "headSha": "f8d43cd4d016d3cebfeba7dfbfee1382310598b2",
+        "status": "completed",
+        "updatedAt": "2026-08-30T08:34:59Z",
+        "url": "https://github.com/edithatogo/rareburden-commons/actions/runs/33301507314",
+        "workflowName": "continuous integration"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "33303291202",
+        "--json",
+        "databaseId,headSha,status,conclusion,event,createdAt,updatedAt,url,workflowName"
+      ],
+      "response": {
+        "conclusion": "success",
+        "createdAt": "2026-08-30T09:08:05Z",
+        "databaseId": 33303291202,
+        "event": "push",
+        "headSha": "36f97490626747b76543f59c44220544978ef874",
+        "status": "completed",
+        "updatedAt": "2026-08-30T09:08:22Z",
+        "url": "https://github.com/edithatogo/rareburden-commons/actions/runs/33303291202",
+        "workflowName": "quality frontier"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "33303291204",
+        "--json",
+        "databaseId,headSha,status,conclusion,event,createdAt,updatedAt,url,workflowName"
+      ],
+      "response": {
+        "conclusion": "success",
+        "createdAt": "2026-08-30T09:08:05Z",
+        "databaseId": 33303291204,
+        "event": "push",
+        "headSha": "36f97490626747b76543f59c44220544978ef874",
+        "status": "completed",
+        "updatedAt": "2026-08-30T09:08:36Z",
+        "url": "https://github.com/edithatogo/rareburden-commons/actions/runs/33303291204",
+        "workflowName": "OpenSSF Scorecard"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "33303291215",
+        "--json",
+        "databaseId,headSha,status,conclusion,event,createdAt,updatedAt,url,workflowName"
+      ],
+      "response": {
+        "conclusion": "success",
+        "createdAt": "2026-08-30T09:08:05Z",
+        "databaseId": 33303291215,
+        "event": "push",
+        "headSha": "36f97490626747b76543f59c44220544978ef874",
+        "status": "completed",
+        "updatedAt": "2026-08-30T09:11:14Z",
+        "url": "https://github.com/edithatogo/rareburden-commons/actions/runs/33303291215",
+        "workflowName": "continuous integration"
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "33303291225",
+        "--json",
+        "databaseId,headSha,status,conclusion,event,createdAt,updatedAt,url,workflowName"
+      ],
+      "response": {
+        "conclusion": "success",
+        "createdAt": "2026-08-30T09:08:05Z",
+        "databaseId": 33303291225,
+        "event": "push",
+        "headSha": "36f97490626747b76543f59c44220544978ef874",
+        "status": "completed",
+        "updatedAt": "2026-08-30T09:09:22Z",
+        "url": "https://github.com/edithatogo/rareburden-commons/actions/runs/33303291225",
+        "workflowName": "CodeQL"
+      }
+    }
+  ]
+}

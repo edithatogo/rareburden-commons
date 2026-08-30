@@ -113,6 +113,8 @@ Current acceptance and evidence: [synthetic reference closeout](../../../docs/tr
 
 ### Review fixes
 
+- [x] Fix PR #276 Windows verification and future-development blocking by validating an immutable POSIX-named snapshot of the 74 approved source files, not current source paths. Add safe-member and current-source-independence regression tests, plus a dated hosted-observation provenance capture. Approved candidate/decision/receipt/output bytes remain unchanged.
+
 - [x] Update roadmap snapshot counts for Track 003 completion and explicitly mark a copied test fixture incomplete, preserving released-release rejection without relying on unfinished live project work. Evidence: `tests/test_roadmap.py`.
 
 - [x] Add the non-executing retained-evidence validator and twelve mutation checks; restore declared metric order when rendering sorted JSON summaries. Correct full-checkout result/receipt references in installed documentation without changing approved outputs. Evidence: current closeout and rebound output-panel receipt.

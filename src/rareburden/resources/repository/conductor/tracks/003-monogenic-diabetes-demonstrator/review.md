@@ -153,3 +153,18 @@ uncertainty, uncalibrated structure, same-host owner-operated reproduction,
 unresolved empirical sources and absent actual community/independent authority.
 No production tag, empirical activation, controlled-data execution or clinical
 claim is authorized by this closeout.
+
+PR #276 Windows CI exposed host-specific path separators. Hosted P1 review also
+identified that verifying historical files against current source would block
+future development. The checker now reads a content-pinned, POSIX-named tar
+snapshot of exactly the 74 approved files, exported from the approved Git commit.
+It never imports, executes or extracts archived Python. Tests reject unsafe
+members and verify that current source files are not consulted. Historical
+candidate, decision, receipt and output bytes remain unchanged.
+
+Hosted P2 review requested provenance for the GitHub observations. A fresh dated
+CLI capture records selected PR/workflow status fields, exact heads, retrieval
+event and transformation/retention disposition. This corroborates prior facts
+without inventing their original capture time or changing the approved decision.
+Evidence: `manifests/demonstrators/track-003-hosted-observations-2026-08-31.json`.
+Full validation and hosted rerun remain required before merge.

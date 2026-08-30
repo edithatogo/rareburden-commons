@@ -1,0 +1,31 @@
+schema_version: "1.0.0"
+panel_assurance: simulated_role_separated_advisory_panel
+status: hosted_findings_fixed_pending_ci
+pull_request: https://github.com/edithatogo/rareburden-commons/pull/276
+supersedes_checker_and_closeout_binding_only: docs/reviews/track-003-reference-output-panel-2026-08-31.yml
+bindings:
+  checker_sha256: "9651c66bda6a35c24179ee477444071186b6e6035c8540aed4fe454ad9cace82"
+  tests_sha256: "6eede2b6ebee1beefd25ca6202c9fcdfcc0e22a8a80fa26c8fa8c4489ae0e422"
+  closeout_sha256: "2f95a867441ab4cd365ab1c4a541d9d3d2ae94dfc2930669c0f65b3340d93d48"
+  source_snapshot_sha256: "a129a8c203d80f800420a6dac47a72cd8630df32a2402124b209c75082ad12d9"
+  hosted_capture_sha256: "c163d13e054213a5c93ffcaa7f6623028c79e820d8bc0d02fa37521ed669036d"
+findings_addressed:
+  - "P1 discussion_r3890614244: validate historical source snapshot, not evolving checkout files"
+  - "P2 discussion_r3890614247: fresh dated hosted-metadata provenance with transformation/use disposition"
+  - "Windows job 99325555132: POSIX snapshot member names avoid host-specific manifest separators"
+lanes:
+  - {agent: outcome_rights_review, perspective: engineering_security_rights, result: pass, focused_tests: 17}
+  - {agent: outcome_science_review, perspective: scientific_methods, result: pass}
+  - {agent: outcome_harm_review, perspective: simulated_community_harm, result: pass}
+recommendation: "Retain fixes and rerun full/hosted checks, especially Windows, before merge"
+alternative: "Defer completion if any integrity, acceptance or hosted check fails"
+trade_off: "Preserves exact historical evidence without blocking ordinary source evolution"
+contingencies: [full_validation_passes, hosted_checks_pass, output_and_decision_bytes_unchanged]
+uncertainty: [same_host_reproduction_not_independent, fresh_capture_not_original_retrieval_timestamp]
+dissent: []
+stop_triggers: [snapshot_drift, output_drift, failed_ci, unsupported_claim]
+owner_disposition_reference: docs/decisions/2026-08-31-track-003-reference-execution.json
+new_analytical_execution: false
+independent_review: false
+community_representation: false
+production_release: false

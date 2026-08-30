@@ -18,6 +18,8 @@ statement, external approval or source permission is invented.
 - Candidate tree: `8e70545e1ffa4eb202ad444e3d68d158ce184f82`.
 - Manifest SHA-256: `b6f50a8b8b10bddceafd16ddaeee17e77fb6eefb8fbfd724cf747378b5a99911`.
 - Decision SHA-256: `16ff18f14b6995139a3baca7b3ec90906e3cad128959ce176e7dbc33b0d3a4d2`.
+- Immutable 74-file source snapshot: `manifests/demonstrators/track-003-reference-source-36f9749.tar`, SHA-256 `a129a8c203d80f800420a6dac47a72cd8630df32a2402124b209c75082ad12d9`; exported with `git archive` from the approved commit using exactly the manifest's file inventory.
+- Fresh hosted-observation provenance: `manifests/demonstrators/track-003-hosted-observations-2026-08-31.json`. This records its actual retrieval event, CLI field-selection transformation and factual-metadata retention/use disposition. It corroborates the old observations without inventing their original retrieval timestamp or modifying approval bytes.
 - Execution and reproduction receipts: `manifests/demonstrators/track-003-reference-execution-2026-08-31.json` in the full repository checkout.
 - [Output-panel findings](reviews/track-003-reference-output-panel-2026-08-31.yml).
 - Full-checkout output directory: `results/track-003-reference-2026-08-31/`,
@@ -86,8 +88,12 @@ uv sync --frozen --extra dev --python 3.13
 uv run python -m scripts.check_track003_reference_closeout --root .
 ```
 
-This verifies exact decision, candidate files, retained output hashes, both
-receipts and report/CSV rendering from existing summaries without simulation.
+This verifies the exact decision, archived candidate files, retained output
+hashes, both receipts and CSV/JSON consistency without simulation. Report bytes
+remain pinned to the exact reviewed hash. Historical Python is read only as
+bytes, never imported, executed or extracted. POSIX archive names avoid host
+separator differences. Current source/environment files may evolve normally:
+they are not compared with the historical snapshot by this check.
 It works without Git history or network after dependencies are installed.
 The complete public reproducibility package is the repository checkout/archive,
 not the three output files alone. Inputs, code and `uv.lock` are bound by the

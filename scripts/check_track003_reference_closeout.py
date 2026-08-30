@@ -3,16 +3,22 @@
 from __future__ import annotations
 
 import argparse
+import csv
+import hashlib
+import io
 import json
-from pathlib import Path
+import tarfile
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 import jsonschema
 
-from scripts.track003_reference_package import MANIFEST, candidate_manifest, digest, render_outputs
-from scripts.track003_reference_runner import METRICS
-
 COMMIT = "36f97490626747b76543f59c44220544978ef874"
+MANIFEST = "manifests/demonstrators/track-003-reference-candidate.json"
+SNAPSHOT = "manifests/demonstrators/track-003-reference-source-36f9749.tar"
+SNAPSHOT_SHA = "a129a8c203d80f800420a6dac47a72cd8630df32a2402124b209c75082ad12d9"
+HOSTED = "manifests/demonstrators/track-003-hosted-observations-2026-08-31.json"
+HOSTED_SHA = "c163d13e054213a5c93ffcaa7f6623028c79e820d8bc0d02fa37521ed669036d"
 TREE = "8e70545e1ffa4eb202ad444e3d68d158ce184f82"
 MANIFEST_SHA = "b6f50a8b8b10bddceafd16ddaeee17e77fb6eefb8fbfd724cf747378b5a99911"
 DECISION_SHA = "16ff18f14b6995139a3baca7b3ec90906e3cad128959ce176e7dbc33b0d3a4d2"
@@ -30,6 +36,34 @@ OUTPUT_HASHES = {
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ValueError(message)
+
+
+def digest(content: bytes) -> str:
+    return hashlib.sha256(content).hexdigest()
+
+
+def validate_snapshot(content: bytes, expected: dict[str, str]) -> dict[str, bytes]:
+    """Read immutable POSIX-named source members without extracting or executing them."""
+    require(digest(content) == SNAPSHOT_SHA, "historical source snapshot differs")
+    files = {}
+    with tarfile.open(fileobj=io.BytesIO(content), mode="r:") as archive:
+        for member in archive:
+            path = PurePosixPath(member.name)
+            require(
+                not path.is_absolute() and ".." not in path.parts and "\\" not in member.name,
+                "unsafe historical member path",
+            )
+            if member.isdir():
+                continue
+            require(member.isfile() and member.name in expected, "unexpected historical member")
+            require(member.name not in files, "duplicate historical member")
+            handle = archive.extractfile(member)
+            require(handle is not None, "unreadable historical member")
+            data = handle.read()
+            require(digest(data) == expected[member.name], "historical source file differs")
+            files[member.name] = data
+    require(set(files) == set(expected), "historical source inventory differs")
+    return files
 
 
 def validate_documents(
@@ -97,17 +131,24 @@ def validate_documents(
         calculation["seed"] == 20260830 and calculation["iterations"] == 10000,
         "execution settings differ",
     )
-    # Rendering retained summaries in memory is not another analytical execution.
-    # Canonical JSON sorts keys; restore the bound report metric order explicitly.
-    for scenario in calculation["scenarios"].values():
-        summaries = scenario["summaries"]
-        require(set(summaries) <= set(METRICS), "unknown summary metric")
-        scenario["summaries"] = {name: summaries[name] for name in METRICS if name in summaries}
-    rendered = render_outputs(calculation)
-    require(
-        {name: value.encode() for name, value in rendered.items()} == outputs,
-        "report/table do not match retained results",
-    )
+    # Verify retained values directly, without importing current or historical analysis code.
+    expected_rows = {
+        (name, metric)
+        for name, scenario in calculation["scenarios"].items()
+        for metric in scenario["summaries"]
+    }
+    seen = set()
+    for row in csv.DictReader(io.StringIO(outputs["reference-tables.csv"].decode())):
+        key = row["scenario"], row["metric"]
+        require(key in expected_rows and key not in seen, "CSV metric inventory differs")
+        seen.add(key)
+        scenario = calculation["scenarios"][key[0]]
+        require(float(row["deterministic"]) == scenario["deterministic"][key[1]], "CSV plug-in")
+        for field, value in scenario["summaries"][key[1]].items():
+            require(float(row[field]) == value, "CSV summary differs")
+        for field in ["unit", "conditioning_scope", "evidence_status"]:
+            require(row[field] == scenario["metric_metadata"][key[1]][field], "CSV metadata")
+    require(seen == expected_rows, "CSV metric inventory incomplete")
 
 
 def validate(root: Path) -> None:
@@ -131,13 +172,12 @@ def validate(root: Path) -> None:
     manifest_bytes = read(MANIFEST)
     require(digest(manifest_bytes) == MANIFEST_SHA, "candidate manifest differs")
     manifest = json.loads(manifest_bytes)
-    for relative, expected in manifest["files"].items():
-        require(digest(read(relative)) == expected, f"bound candidate file differs: {relative}")
-    require(candidate_manifest(root) == manifest, "candidate inventory differs")
+    source = validate_snapshot(read(SNAPSHOT), manifest["files"])
+    require(digest(read(HOSTED)) == HOSTED_SHA, "hosted observation capture differs")
     decision_bytes = read(DECISION)
     jsonschema.validate(
         json.loads(decision_bytes),
-        json.loads(read("schemas/agent-owner-decision-packet.schema.json")),
+        json.loads(source["schemas/agent-owner-decision-packet.schema.json"]),
     )
     output_root = root / OUTPUT_DIRECTORY
     require(output_root.is_dir() and not output_root.is_symlink(), "missing output directory")
