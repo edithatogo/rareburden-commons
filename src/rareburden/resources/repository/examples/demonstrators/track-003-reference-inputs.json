@@ -1,0 +1,2792 @@
+{
+  "candidate_version": "RBC-P002-REFERENCE-INPUTS-v1",
+  "status": "inputs_only_execution_not_authorized",
+  "definition": {
+    "version": "RBC-P002-REFERENCE-INPUTS-v1",
+    "geography": "synthetic-rbc-p002",
+    "reference_year": 2025,
+    "age_range": [
+      0,
+      100
+    ],
+    "sex": "all",
+    "diabetes": "Hypothetical membership flag D=1; not a glucose threshold or diagnostic rule.",
+    "carrier": "Hypothetical person-level flag G=1 for synthetic:monogenic-reference; no real variant interpretation.",
+    "expressed_case": "D=1 and aetiologic case flag E=1; carrier route additionally conditions expression on G=1.",
+    "detected": "Expressed case and hypothetical detection flag; model state, not observed diagnosis.",
+    "diagnosis_delay": "Historical interval from first joint synthetic D=1/E=1 state to first synthetic detection among detected cases. Not necessarily within the reference year; not age at onset or time to a genetic test.",
+    "annual_exposure": "Closed cohort: each expressed person contributes one full case-year; no entry, exit, death or competing event during the reference year.",
+    "complication_eligibility": "Every expressed person is assumed free of the hypothetical composite complication at year start and followed for the full year.",
+    "unclassified": "Excluded from classified-case calculations and reported as unavailable aetiology, not zero.",
+    "complication": "At most one hypothetical composite complication per expressed person during one year; not incidence of a named clinical endpoint.",
+    "cost_perspective": "Direct healthcare, one-year horizon, invented 2025 currency; no discounting or broad cost-envelope allocation."
+  },
+  "dependence": "Primary parameter draws independent by assumption; shared-versus-independent two-stratum structural scenarios required.",
+  "required_scenarios": [
+    "primary",
+    "denominator_low",
+    "denominator_high",
+    "ascertainment",
+    "carrier_penetrance",
+    "referral_selection",
+    "age_stratified",
+    "calendar_2030",
+    "model_eligibility",
+    "unclassified",
+    "strata_independent",
+    "strata_shared"
+  ],
+  "claims": {
+    "empirical_activation": false,
+    "controlled_data_activation": false,
+    "clinical_validity": false,
+    "independent_review": false,
+    "community_representation": false,
+    "execution_authorized": false,
+    "publication_authority": false,
+    "production_release_authority": false
+  },
+  "ledger": {
+    "schema_version": "1.0.0",
+    "ledger_id": "track-003-complete-reference-candidate",
+    "title": "Synthetic reference candidate inputs",
+    "created_at": "2026-08-30T00:00:00Z",
+    "parameters": [
+      {
+        "parameter_id": "rbc-p002-reference-diabetes-denominator",
+        "parameter_revision": 1,
+        "label": "Synthetic reference diabetes-denominator",
+        "quantity_type": "case_count",
+        "measure": "Assumed closed cohort meeting the synthetic diabetes definition for the entire year.",
+        "metric": "diabetes-denominator",
+        "unit": "people",
+        "distribution": {
+          "type": "normal",
+          "mean": 100000,
+          "standard_deviation": 2500,
+          "minimum": 0
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Assumed closed cohort meeting the synthetic diabetes definition for the entire year.",
+        "evidence_assessment_ids": [
+          "eqa-39fa08140c54a2dabe64168f"
+        ],
+        "transportability_assessment_ids": [
+          "tra-34937dbab79fd22e4e8945ec"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-aetiologic-fraction",
+        "parameter_revision": 1,
+        "label": "Synthetic reference aetiologic-fraction",
+        "quantity_type": "fraction",
+        "measure": "Assumed expressed monogenic case fraction within the compatible diabetes denominator.",
+        "metric": "aetiologic-fraction",
+        "unit": "proportion",
+        "distribution": {
+          "type": "beta",
+          "alpha": 2,
+          "beta": 98
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Assumed expressed monogenic case fraction within the compatible diabetes denominator.",
+        "evidence_assessment_ids": [
+          "eqa-d7a6ea7a2ae6f1f378cdfa1d"
+        ],
+        "transportability_assessment_ids": [
+          "tra-41ba120c86b798863cf4caed"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-carrier-person-fraction",
+        "parameter_revision": 1,
+        "label": "Synthetic reference carrier-person-fraction",
+        "quantity_type": "fraction",
+        "measure": "Alternative assumed person-carrier fraction within diabetes; never allele frequency.",
+        "metric": "carrier-person-fraction",
+        "unit": "proportion",
+        "distribution": {
+          "type": "beta",
+          "alpha": 4,
+          "beta": 96
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Alternative assumed person-carrier fraction within diabetes; never allele frequency.",
+        "evidence_assessment_ids": [
+          "eqa-77ec7204c9a1d43bdbb61c78"
+        ],
+        "transportability_assessment_ids": [
+          "tra-88beb04ffd6a6e2853d925b0"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-detection",
+        "parameter_revision": 1,
+        "label": "Synthetic reference detection",
+        "quantity_type": "fraction",
+        "measure": "Forward probability of detecting an expressed synthetic case; specificity assumed one.",
+        "metric": "detection",
+        "unit": "proportion",
+        "distribution": {
+          "type": "beta",
+          "alpha": 6,
+          "beta": 4
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Forward probability of detecting an expressed synthetic case; specificity assumed one.",
+        "evidence_assessment_ids": [
+          "eqa-3c394ef6e4b5f0ba8866e5a6"
+        ],
+        "transportability_assessment_ids": [
+          "tra-e232e2c04e76ceea3a16ce3a"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-penetrance",
+        "parameter_revision": 1,
+        "label": "Synthetic reference penetrance",
+        "quantity_type": "fraction",
+        "measure": "Expression conditional on synthetic person-carrier status within diabetes only.",
+        "metric": "penetrance",
+        "unit": "proportion",
+        "distribution": {
+          "type": "beta",
+          "alpha": 5,
+          "beta": 5
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Expression conditional on synthetic person-carrier status within diabetes only.",
+        "evidence_assessment_ids": [
+          "eqa-bf13ea5b026f99adb0234dc9"
+        ],
+        "transportability_assessment_ids": [
+          "tra-bd7ea6794b904b633a49c5f1"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-referral-selection-ratio",
+        "parameter_revision": 1,
+        "label": "Synthetic reference referral-selection-ratio",
+        "quantity_type": "other",
+        "measure": "Assumed selection probability ratio for entity versus non-entity, aligned binary scope.",
+        "metric": "referral-selection-ratio",
+        "unit": "ratio",
+        "distribution": {
+          "type": "fixed",
+          "value": 2
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Assumed selection probability ratio for entity versus non-entity, aligned binary scope.",
+        "evidence_assessment_ids": [
+          "eqa-761c06f988d23273f3cf8a7b"
+        ],
+        "transportability_assessment_ids": [
+          "tra-1a80ee7a5cd651346f860daf"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-young-denominator-share",
+        "parameter_revision": 1,
+        "label": "Synthetic reference young-denominator-share",
+        "quantity_type": "fraction",
+        "measure": "Invented age composition: ages 0-19 versus the disjoint complement ages 20-100.",
+        "metric": "young-denominator-share",
+        "unit": "proportion",
+        "distribution": {
+          "type": "fixed",
+          "value": 0.25
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Invented age composition: ages 0-19 versus the disjoint complement ages 20-100.",
+        "evidence_assessment_ids": [
+          "eqa-4dfb7942270852161a0d4508"
+        ],
+        "transportability_assessment_ids": [
+          "tra-eae25252ffe9ab323fac1c55"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-model-eligible-share",
+        "parameter_revision": 1,
+        "label": "Synthetic reference model-eligible-share",
+        "quantity_type": "fraction",
+        "measure": "Hypothetical model coverage, not an ancestry coefficient or empirical exclusion rate.",
+        "metric": "model-eligible-share",
+        "unit": "proportion",
+        "distribution": {
+          "type": "fixed",
+          "value": 0.5
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Hypothetical model coverage, not an ancestry coefficient or empirical exclusion rate.",
+        "evidence_assessment_ids": [
+          "eqa-0490fdfbc2cf2252ffb2d4ad"
+        ],
+        "transportability_assessment_ids": [
+          "tra-092824c1eeace7c68c2075c6"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-unclassified-share",
+        "parameter_revision": 1,
+        "label": "Synthetic reference unclassified-share",
+        "quantity_type": "fraction",
+        "measure": "Unclassified diabetes denominator share; unknown aetiology is not zero burden.",
+        "metric": "unclassified-share",
+        "unit": "proportion",
+        "distribution": {
+          "type": "fixed",
+          "value": 0.1
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Unclassified diabetes denominator share; unknown aetiology is not zero burden.",
+        "evidence_assessment_ids": [
+          "eqa-6c2c84b223c0b50b5ba3ea09"
+        ],
+        "transportability_assessment_ids": [
+          "tra-a01ebde1baa6730ebdc5e98e"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-diagnosis-delay",
+        "parameter_revision": 1,
+        "label": "Synthetic reference diagnosis-delay",
+        "quantity_type": "other",
+        "measure": "Time from first joint D=1/E=1 state to detection among detected cases; not clinical onset.",
+        "metric": "diagnosis-delay",
+        "unit": "years",
+        "distribution": {
+          "type": "uniform",
+          "lower": 1,
+          "upper": 5
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Time from first joint D=1/E=1 state to detection among detected cases; not clinical onset.",
+        "evidence_assessment_ids": [
+          "eqa-8de78d04e22364c96e52a4c5"
+        ],
+        "transportability_assessment_ids": [
+          "tra-074536e80a97b9d12898c3a5"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-treatment-change",
+        "parameter_revision": 1,
+        "label": "Synthetic reference treatment-change",
+        "quantity_type": "fraction",
+        "measure": "Illustrative treatment change among detected cases, with no efficacy or causal claim.",
+        "metric": "treatment-change",
+        "unit": "proportion",
+        "distribution": {
+          "type": "beta",
+          "alpha": 4,
+          "beta": 6
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Illustrative treatment change among detected cases, with no efficacy or causal claim.",
+        "evidence_assessment_ids": [
+          "eqa-d1b8e6bd144b72f0057f88d2"
+        ],
+        "transportability_assessment_ids": [
+          "tra-19aac24b1794ac15cc171118"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-annual-complication",
+        "parameter_revision": 1,
+        "label": "Synthetic reference annual-complication",
+        "quantity_type": "fraction",
+        "measure": "One-year probability of a defined hypothetical complication in expressed cases.",
+        "metric": "annual-complication",
+        "unit": "proportion",
+        "distribution": {
+          "type": "beta",
+          "alpha": 2,
+          "beta": 98
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "One-year probability of a defined hypothetical complication in expressed cases.",
+        "evidence_assessment_ids": [
+          "eqa-f8972755d3c6d5837b5514d4"
+        ],
+        "transportability_assessment_ids": [
+          "tra-2e2b70d32a1bf6cf00dd32f4"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-annual-person-cost",
+        "parameter_revision": 1,
+        "label": "Synthetic reference annual-person-cost",
+        "quantity_type": "cost",
+        "measure": "Hypothetical direct healthcare cost per expressed case-year in synthetic 2025 prices.",
+        "metric": "annual-person-cost",
+        "unit": "synthetic_currency_units/person_year",
+        "distribution": {
+          "type": "uniform",
+          "lower": 1000,
+          "upper": 3000
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Hypothetical direct healthcare cost per expressed case-year in synthetic 2025 prices.",
+        "evidence_assessment_ids": [
+          "eqa-cafdabd35d56e31ddb518b00"
+        ],
+        "transportability_assessment_ids": [
+          "tra-a45220345bd49ca03d277d21"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-denominator-low-scale",
+        "parameter_revision": 1,
+        "label": "Synthetic reference denominator-low-scale",
+        "quantity_type": "other",
+        "measure": "Alternative smaller compatible diabetes envelope; not a confidence bound.",
+        "metric": "denominator-low-scale",
+        "unit": "ratio",
+        "distribution": {
+          "type": "fixed",
+          "value": 0.8
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Alternative smaller compatible diabetes envelope; not a confidence bound.",
+        "evidence_assessment_ids": [
+          "eqa-a87b5d27544f3ab162f4f6b6"
+        ],
+        "transportability_assessment_ids": [
+          "tra-0dcc4e3a8e078150c4d733f0"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-denominator-high-scale",
+        "parameter_revision": 1,
+        "label": "Synthetic reference denominator-high-scale",
+        "quantity_type": "other",
+        "measure": "Alternative larger compatible diabetes envelope; not a confidence bound.",
+        "metric": "denominator-high-scale",
+        "unit": "ratio",
+        "distribution": {
+          "type": "fixed",
+          "value": 1.2
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Alternative larger compatible diabetes envelope; not a confidence bound.",
+        "evidence_assessment_ids": [
+          "eqa-282bbf1ed2863ba4d9bcd3d0"
+        ],
+        "transportability_assessment_ids": [
+          "tra-caa48b4d71797a7ee965b061"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-young-case-odds-ratio",
+        "parameter_revision": 1,
+        "label": "Synthetic reference young-case-odds-ratio",
+        "quantity_type": "other",
+        "measure": "Invented age-specific odds contrast, not a biological or population estimate.",
+        "metric": "young-case-odds-ratio",
+        "unit": "ratio",
+        "distribution": {
+          "type": "fixed",
+          "value": 0.5
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Invented age-specific odds contrast, not a biological or population estimate.",
+        "evidence_assessment_ids": [
+          "eqa-b6e894ad2879567e3e430cd0"
+        ],
+        "transportability_assessment_ids": [
+          "tra-647d68379268eea967feac4a"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-adult-case-odds-ratio",
+        "parameter_revision": 1,
+        "label": "Synthetic reference adult-case-odds-ratio",
+        "quantity_type": "other",
+        "measure": "Invented complementary adult odds contrast; not an empirical transport factor.",
+        "metric": "adult-case-odds-ratio",
+        "unit": "ratio",
+        "distribution": {
+          "type": "fixed",
+          "value": 1.5
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Invented complementary adult odds contrast; not an empirical transport factor.",
+        "evidence_assessment_ids": [
+          "eqa-2782cd3a5250a26ff19f01ca"
+        ],
+        "transportability_assessment_ids": [
+          "tra-6947a1247de79a909998cdcb"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      },
+      {
+        "parameter_id": "rbc-p002-reference-calendar-case-odds-ratio",
+        "parameter_revision": 1,
+        "label": "Synthetic reference calendar-case-odds-ratio",
+        "quantity_type": "other",
+        "measure": "Hypothetical change for a separately labelled 2030 scenario, not a forecast.",
+        "metric": "calendar-case-odds-ratio",
+        "unit": "ratio",
+        "distribution": {
+          "type": "fixed",
+          "value": 1.25
+        },
+        "evidence_status": "assumed",
+        "uncertainty_status": "not_quantified",
+        "licence_state": "not_applicable",
+        "source_release_ids": [],
+        "transformation_ids": [],
+        "semantic_entity_ids": [
+          "synthetic:diabetes-reference-v1"
+        ],
+        "population": {
+          "population_id": "rbc-p002-primary-diabetes-synthetic",
+          "geography_id": "synthetic-rbc-p002",
+          "sex": "all",
+          "age_min": 0,
+          "age_max": 100
+        },
+        "period": {
+          "start": "2025-01-01",
+          "end": "2025-12-31"
+        },
+        "disease_definition": {
+          "contract_id": "RBC-P002-REFERENCE-INPUTS-v1",
+          "denominator_id": "D-RBC-P002-PRIMARY-DIABETES",
+          "diabetes_case_definition": "synthetic-reference-diabetes-v1",
+          "ascertainment_target": "all-people-meeting-synthetic-primary-diabetes-definition",
+          "definition_status": "synthetic_assurance_only"
+        },
+        "assumption_rationale": "Hypothetical change for a separately labelled 2030 scenario, not a forecast.",
+        "evidence_assessment_ids": [
+          "eqa-a7f448937ec57cf4cacd79f2"
+        ],
+        "transportability_assessment_ids": [
+          "tra-e1c57a94d5ab64d50ce3d31d"
+        ],
+        "limitations": [
+          "Invented for reference analysis; not evidence, a forecast or a clinical input."
+        ]
+      }
+    ],
+    "limitations": [
+      "All parameters are invented assumptions; no literature result is a model input."
+    ]
+  },
+  "evidence_assessments": [
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-diabetes-denominator"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Assumed closed cohort meeting the synthetic diabetes definition for the entire year.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-39fa08140c54a2dabe64168f"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-aetiologic-fraction"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Assumed expressed monogenic case fraction within the compatible diabetes denominator.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-d7a6ea7a2ae6f1f378cdfa1d"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-carrier-person-fraction"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Alternative assumed person-carrier fraction within diabetes; never allele frequency.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-77ec7204c9a1d43bdbb61c78"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-detection"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Forward probability of detecting an expressed synthetic case; specificity assumed one.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-3c394ef6e4b5f0ba8866e5a6"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-penetrance"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Expression conditional on synthetic person-carrier status within diabetes only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-bf13ea5b026f99adb0234dc9"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-referral-selection-ratio"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Assumed selection probability ratio for entity versus non-entity, aligned binary scope.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-761c06f988d23273f3cf8a7b"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-young-denominator-share"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Invented age composition: ages 0-19 versus the disjoint complement ages 20-100.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-4dfb7942270852161a0d4508"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-model-eligible-share"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Hypothetical model coverage, not an ancestry coefficient or empirical exclusion rate.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-0490fdfbc2cf2252ffb2d4ad"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-unclassified-share"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Unclassified diabetes denominator share; unknown aetiology is not zero burden.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-6c2c84b223c0b50b5ba3ea09"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-diagnosis-delay"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Time from first joint D=1/E=1 state to detection among detected cases; not clinical onset.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-8de78d04e22364c96e52a4c5"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-treatment-change"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Illustrative treatment change among detected cases, with no efficacy or causal claim.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-d1b8e6bd144b72f0057f88d2"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-annual-complication"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "One-year probability of a defined hypothetical complication in expressed cases.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-f8972755d3c6d5837b5514d4"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-annual-person-cost"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Hypothetical direct healthcare cost per expressed case-year in synthetic 2025 prices.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-cafdabd35d56e31ddb518b00"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-denominator-low-scale"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Alternative smaller compatible diabetes envelope; not a confidence bound.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-a87b5d27544f3ab162f4f6b6"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-denominator-high-scale"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Alternative larger compatible diabetes envelope; not a confidence bound.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-282bbf1ed2863ba4d9bcd3d0"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-young-case-odds-ratio"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Invented age-specific odds contrast, not a biological or population estimate.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-b6e894ad2879567e3e430cd0"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-adult-case-odds-ratio"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Invented complementary adult odds contrast; not an empirical transport factor.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-2782cd3a5250a26ff19f01ca"
+    },
+    {
+      "schema_version": "1.0.0",
+      "subject": {
+        "subject_type": "parameter",
+        "subject_id": "rbc-p002-reference-calendar-case-odds-ratio"
+      },
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "assessor": {
+        "role": "RareBurden synthetic assurance harness",
+        "identifier": "RBC-P002-REFERENCE-INPUTS-v1",
+        "independence": "producer"
+      },
+      "framework_version": "RareBurden-EQA-1.0.0",
+      "domains": [
+        {
+          "domain": "construct_validity",
+          "judgement": "some_concern",
+          "rationale": "Hypothetical change for a separately labelled 2030 scenario, not a forecast.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "ascertainment",
+          "judgement": "some_concern",
+          "rationale": "Invented inputs have no empirical ascertainment or sampling frame.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        },
+        {
+          "domain": "computational_reproducibility",
+          "judgement": "low_concern",
+          "rationale": "Versioned generation rules and distributions are explicit candidate inputs.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "overall_judgement": {
+        "decision": "sensitivity_only",
+        "rationale": "Appropriate only for synthetic assurance because it is not an epidemiological estimate.",
+        "unresolved_questions": [
+          "Replace with a registered evidence synthesis before empirical use."
+        ]
+      },
+      "limitations": [
+        "Synthetic assumption only; no clinical or empirical validity."
+      ],
+      "assessment_id": "eqa-a7f448937ec57cf4cacd79f2"
+    }
+  ],
+  "transportability_assessments": [
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-diabetes-denominator",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-34937dbab79fd22e4e8945ec"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-aetiologic-fraction",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-41ba120c86b798863cf4caed"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-carrier-person-fraction",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-88beb04ffd6a6e2853d925b0"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-detection",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-e232e2c04e76ceea3a16ce3a"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-penetrance",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-bd7ea6794b904b633a49c5f1"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-referral-selection-ratio",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-1a80ee7a5cd651346f860daf"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-young-denominator-share",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-eae25252ffe9ab323fac1c55"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-model-eligible-share",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-092824c1eeace7c68c2075c6"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-unclassified-share",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-a01ebde1baa6730ebdc5e98e"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-diagnosis-delay",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-074536e80a97b9d12898c3a5"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-treatment-change",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-19aac24b1794ac15cc171118"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-annual-complication",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-2e2b70d32a1bf6cf00dd32f4"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-annual-person-cost",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-a45220345bd49ca03d277d21"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-denominator-low-scale",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-0dcc4e3a8e078150c4d733f0"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-denominator-high-scale",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-caa48b4d71797a7ee965b061"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-young-case-odds-ratio",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-647d68379268eea967feac4a"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-adult-case-odds-ratio",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-6947a1247de79a909998cdcb"
+    },
+    {
+      "schema_version": "1.0.0",
+      "parameter_id": "rbc-p002-reference-calendar-case-odds-ratio",
+      "assessed_at": "2026-08-30T00:00:00Z",
+      "source_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "target_context": {
+        "geography": "synthetic-rbc-p002",
+        "calendar_period": "Synthetic 2025 period",
+        "population": "Synthetic primary diabetes denominator",
+        "case_definition": "RBC-P002 synthetic reference definition v1",
+        "ascertainment": "No empirical ascertainment",
+        "health_system": "Not applicable"
+      },
+      "differences": [
+        {
+          "domain": "other",
+          "materiality": "negligible",
+          "direction": "none",
+          "rationale": "Input and reference contexts are identical fictional definitions only.",
+          "evidence_refs": [
+            "RBC-P002-REFERENCE-INPUTS-v1"
+          ]
+        }
+      ],
+      "method": {
+        "strategy": "direct_transfer",
+        "description": "Use only in declared synthetic scenarios; no empirical transfer or uncertainty inflation is applied.",
+        "assumptions": [
+          "No empirical target-population validity is claimed."
+        ]
+      },
+      "judgement": {
+        "use": "direct",
+        "uncertainty_multiplier": 1,
+        "rationale": "Identical synthetic contexts only; no empirical transportability is established."
+      },
+      "validation_plan": [
+        "Replace with an exact source-specific transportability assessment before empirical use."
+      ],
+      "limitations": [
+        "No empirical source-to-target transportability is asserted."
+      ],
+      "assessment_id": "tra-e1c57a94d5ab64d50ce3d31d"
+    }
+  ]
+}

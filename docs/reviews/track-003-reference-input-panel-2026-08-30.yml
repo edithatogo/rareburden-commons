@@ -1,0 +1,60 @@
+schema_version: "1.0.0"
+panel_assurance: "simulated_role_separated_advisory_panel"
+status: "reference_input_preparation_review"
+date_utc: "2026-08-30"
+base_commit: "50d8cb9466c48fbde017010c7db858bdd3cc61be"
+candidate_binding: "Exact raw file hashes; input preparation only"
+documents:
+  - path: "scripts/track003_reference_inputs.py"
+    raw_sha256: "b475232a864def72dc8ad2e7fd9844d5504c21432ba09f8b57d2db940c0beb45"
+  - path: "tests/test_track003_reference_inputs.py"
+    raw_sha256: "12d2a5d11bb520ee95ec4818b5cde4cbe8b8c4767d91c91a5e2fbd9cee867e17"
+  - path: "examples/demonstrators/track-003-reference-inputs.json"
+    raw_sha256: "75c30d63ff2aae2fe4d2a16493082148f0e4438d99bc867d57f165380a777519"
+  - path: "docs/track-003-full-reference-acceptance-2026-08-30.md"
+    raw_sha256: "aa2b5d6a101dac3280e9240e1aacb5f3feca2d20a8ee84d55f4981c6a3347596"
+  - path: "docs/track-003-additional-source-screen-2026-08-30.md"
+    raw_sha256: "8cc0fd6cdc82e6232a751b75dbe8a8b826d17a183221dcdbe20f7886985f54d4"
+lanes:
+  - perspective: "scientific_methods_and_technical"
+    agent: "outcome_science_review"
+    result: "pass_after_fix"
+    evidence: "Verified hashes and reran 31 tests; both P2 findings resolved"
+  - perspective: "rights_and_security"
+    agent: "outcome_rights_review"
+    result: "pass"
+    evidence: "Invented inputs; no source promotion or new authority; source bytes not re-retrieved"
+  - perspective: "simulated_community_harm"
+    agent: "outcome_harm_review"
+    result: "pass"
+    evidence: "Synthetic exposure and endpoints explicit; no clinical or community claims"
+resolved_findings:
+  - "P2: Define diagnosis-delay start/end and detection eligibility"
+  - "P2: Define full-year exposure, event-free eligibility and competing-event assumptions"
+unresolved_findings: []
+options:
+  - id: "A"
+    recommendation: "retain_inputs_and_implement_full_reference"
+    trade_off: "Completes provenance preparation without claiming execution or empirical validity"
+    contingency: "Bind full runner and output inventory before the execution disposition"
+    rationale: "Original scope explicitly permits synthetic reference and outcome scenarios"
+  - id: "B"
+    recommendation: "defer_input_preparation"
+    trade_off: "Leaves full reference implementation pending without improving source evidence"
+    contingency: "Resume when another compatible input candidate is defined"
+    rationale: "Applicable if this invented reference design is not retained"
+minimum_evidence: "Exact hashes, 31 focused tests, full checks and hosted checks before merge"
+uncertainty: "Invented distributions are not empirical calibration; source bytes not re-retrieved by panel"
+dissent:
+  - "Rights lane considers standing authorization potentially sufficient for a new exact disposition; scientific/harm lanes preserve the separate execution boundary. This preparation does not decide that future gate."
+stop_triggers:
+  - "Changed exposure, delay or eligibility semantics without matching registration and review"
+  - "Empirical relabelling, unqualified source ingestion or detection presented as observed diagnosis"
+  - "Fictional costs presented as actual prices or preparation presented as track completion"
+owner_disposition: "Routine preparation/PR/merge authorized by autonomous-work instruction; no new execution disposition"
+execution_authorized: false
+independent_review: false
+actual_community_participation: false
+community_endorsement: false
+empirical_activation: false
+production_release_authority: false
