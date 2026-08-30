@@ -1,0 +1,52 @@
+schema_version: "1.0.0"
+status: "qualification_only_advisory_review"
+panel_assurance: "simulated_role_separated_advisory_panel"
+date_utc: "2026-08-30"
+candidate:
+  base_commit: "a4fb282bd6619e23ef173d2940fddcc99e6564f0"
+  path: "docs/track-003-outcome-source-qualification-2026-08-30.md"
+  raw_sha256: "0466e588cfa1b454a2e6dac2dd59d0b094ec9bacab7dc20e8b7ab4f9e17534ac"
+  binding: "Exact document bytes on the stated base; not a review of an unrecorded future commit"
+scope: "Original qualification observations and unchanged quantitative holds; no new extracted result, source archive or activation"
+lanes:
+  - role: "scientific_methods"
+    agent: "outcome_science_review"
+    result: "pass"
+    evidence: "Primary source checks of endpoint semantics, GDN arithmetic and age-boundary discrepancy, and final document hash"
+  - role: "rights_data_use"
+    agent: "outcome_rights_review"
+    result: "pass"
+    evidence: "Primary terms observations, distinction between factual extraction and article redistribution, and final document hash"
+  - role: "simulated_community_harm"
+    agent: "outcome_harm_review"
+    result: "pass"
+    evidence: "Framing, population restrictions, prevalence versus incidence, referral versus utilization, and final document hash"
+resolved_findings:
+  - "Replaced an overbroad Scotland reporting statement with unavailable information for referrals to the Scottish laboratory in this study; all lanes rechecked corrected bytes"
+  - "PR 270 review: removed the alternative-source open-access/Creative Commons classification lacking a reproducible metadata receipt; all lanes rechecked the final hash"
+prior_document_sha256: "38857c2e30c4f34b8e108876e1e97dfce5ddfcd6be4240fd1e84cc8931c665a5"
+hosted_review: "https://github.com/edithatogo/rareburden-commons/pull/270#discussion_r3888586889"
+unresolved_findings: []
+recommendation: "retain_holds_and_continue_qualification"
+options:
+  - id: "preserve_holds_and_qualify_alternative"
+    recommended: true
+    trade_off: "Conservative public reuse; compatible evidence may remain unavailable"
+  - id: "prepare_existing_source_intended_use_clarification"
+    recommended: false
+    trade_off: "Source continuity, but exact rights assessment or external clarification remains necessary"
+minimum_evidence_for_promotion: "Intended-use rights disposition, exact source/result identity, matched denominator and unit, non-sparse disclosure and target-context assessment"
+uncertainty: "Neither source has cleared quantitative promotion; general service utilization and source-wide redistribution remain unqualified"
+dissent: "No unresolved dissent on the qualification-only addendum; science identifies potentially usable results conditional on the remaining gates"
+stop_triggers:
+  - "Ambiguous rights or a source access-control challenge"
+  - "Silent numerical correction, inferred denominator or sparse disclosure"
+  - "Causal, clinical, general-utilization or population-wide reinterpretation"
+owner_decision: "Not supplied by this advisory receipt; existing continuation authority is not a new quantitative-source disposition"
+authority:
+  independent_review: false
+  actual_community_participation: false
+  community_endorsement: false
+  source_rights_granted: false
+  empirical_activation: false
+  production_release_authority: false
