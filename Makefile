@@ -256,4 +256,11 @@ check: validate schemas workflows lock requirements runtime-assets-check externa
 
 ci: check coverage critical-coverage reproducibility
 
+.PHONY: track-003-outcome-service-check
+track-003-outcome-service-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track003_outcome_service_ledger.py \
+		docs/track-003-outcome-service-ledger-2026-08-30.yml
+
+check: track-003-outcome-service-check
+
 release-check: ci build package-check installed-package-check sbom
