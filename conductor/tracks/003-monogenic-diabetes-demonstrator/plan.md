@@ -11,7 +11,7 @@
 
 ## Phase 2 — Evidence ledger
 
-- [ ] Extract and assess aetiologic-fraction evidence by age, phenotype, ancestry and setting. `[M-21]`
+- [~] Extract and assess aetiologic-fraction evidence by age, phenotype, ancestry and setting. `[M-21]`
 - [ ] Ledger diagnosis delay, treatment change, complications and service-use evidence. `[M-04, M-11]`
 - [ ] Define transportability and referral-bias sensitivity parameters. `[S-07]`
 - [ ] Record unresolved evidence gaps and data-access asks. `[M-26]`
