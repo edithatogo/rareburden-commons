@@ -1,0 +1,59 @@
+schema_version: "1.0.0"
+panel_assurance: "simulated_role_separated_advisory_panel"
+status: "exact_package_preparation_review"
+date_utc: "2026-08-30"
+base_commit: "f8d43cd4d016d3cebfeba7dfbfee1382310598b2"
+documents:
+  - path: "scripts/track003_reference_package.py"
+    raw_sha256: "927b28b8392d99c875ae1feac5322dcf57bd6ee583e658e93f00a9c199bd4eb8"
+  - path: "tests/test_track003_reference_package.py"
+    raw_sha256: "496663bc2043994ec89b3a385367f5938ba10a1893d090d7f7418434b85be72b"
+  - path: "docs/track-003-reference-package-plan-2026-08-30.md"
+    raw_sha256: "49c1cf4175bf0fecdc7bb38e211b2e58c4ceb17558e4c026a1a2c8a19cbfdd28"
+lanes:
+  - perspective: "scientific_methods"
+    agent: "outcome_science_review"
+    result: "pass_after_fix"
+    evidence: "18 focused tests rerun; fixed-design uncertainty and complete interpretation evidence bound"
+  - perspective: "engineering_security"
+    agent: "outcome_rights_review"
+    result: "pass_after_fix"
+    evidence: "18 focused tests rerun; checkout/decision/drift checks and rejection paths verified"
+  - perspective: "simulated_community_harm"
+    agent: "outcome_harm_review"
+    result: "pass_after_fix"
+    evidence: "Report now contains self-contained population, endpoints, assumptions and evidence paths"
+resolved_findings:
+  - "P1: Imported implementation roots must match the verified checkout"
+  - "P2: Snapshot decision bytes and revalidate candidate immediately before retention"
+  - "P2: Require Track003 identity, unique/referenced options and explicit valid UTC timestamp"
+  - "P2: Emit self-contained definitions and fixed-design uncertainty caveat"
+  - "P2: Bind complete acceptance/evidence-family interpretation documents"
+unresolved_findings: []
+options:
+  - id: "A"
+    recommendation: "retain_preparation_and_present_exact_execution_packet"
+    trade_off: "Enables a precisely bounded execution decision without fabricating that decision"
+    contingency: "Pending or non-accepted disposition blocks retained execution"
+    rationale: "Complete inputs, code, scenario inventory and reporting rules are now bindable"
+  - id: "B"
+    recommendation: "defer_or_revise_package"
+    trade_off: "Leaves the reference demonstrator incomplete"
+    contingency: "Specify changed scope or evidence before creating another exact candidate"
+    rationale: "Applicable if the owner does not accept this synthetic execution scope"
+uncertainty:
+  - "Applicability disposition is not empirical validation; final acceptance remains pending"
+  - "Trusted clean-checkout execution required; not protection against a malicious local administrator"
+  - "Two-copy retention limit is operational, not a global command counter"
+dissent:
+  - "Standing autonomous instructions versus fresh post-advice owner selection remains a governance interpretation question; no selection or decision timestamp is fabricated"
+stop_triggers:
+  - "Candidate, decision, source interpretation or executed-module drift"
+  - "Unaccepted disposition, unqualified empirical input or false external authority claim"
+  - "More retained analytical variants than the explicit execution inventory"
+owner_disposition: "Routine preparation/PR/merge authorized; exact retained-execution decision pending"
+execution_authorized: false
+independent_review: false
+community_representation: false
+empirical_activation: false
+production_release_authority: false

@@ -39,7 +39,7 @@ empirical validation or Track 003 completion.
 
 - [ ] Compare with independent cohort or registry evidence where lawful. `[S-10]`
 - [ ] Complete numerical, scientific and language agent-panel review and owner disposition.
-- [ ] Produce reproducible report, data package and limitations summary.
+- [~] Produce reproducible report, data package and limitations summary. `scripts/track003_reference_package.py` implements report/CSV/JSON rendering and fail-closed execution; `manifests/demonstrators/track-003-reference-candidate.json` binds code, inputs, scenarios, environment and interpretation. Exact disposition, retained output inspection and separate reproduction remain pending.
 - [ ] Record review findings and approve, narrow, revise or stop.
 
 ## Dependency review — 2026-07-27
@@ -122,6 +122,8 @@ empirical validation or Track 003 completion.
 - [x] Qualify a protocol-compatible synthetic denominator before any RBC-P002 run, complete exact scientific, engineering and simulated-harm review, record owner disposition and retain exactly one provenance-bound synthetic assurance output. Evidence: `docs/track-003-rbc-p002-synthetic-denominator-candidate-2026-08-29.yml`, `docs/reviews/track-003-synthetic-denominator-*-2026-08-29.yml`, `docs/decisions/2026-08-29-track-003-synthetic-denominator-disposition.yml` and `manifests/demonstrators/track-003-rbc-p002-synthetic-execution-closeout-2026-08-29.yml`. Empirical, controlled-data, public-aggregate, clinical, independent-review, community, publication and production-release claims remain false.
 
 ### Review fixes
+
+- [x] Challenge the exact-package implementation across scientific, engineering and simulated-harm lanes; fix execution-root binding, decision-byte/drift verification, strict decision validation and self-contained uncertainty/definition reporting. Evidence: `docs/reviews/track-003-reference-package-panel-2026-08-30.yml`; 18 focused tests pass. No governed reference output has been retained.
 
 - [x] Challenge the twelve-scenario runner; distinguish assumed conditional inputs at empty conditioning sets, add metric metadata and scenario parameter bindings, and test approximate denominator partitions and invalid numerical inputs. Evidence: `docs/reviews/track-003-reference-runner-panel-2026-08-30.yml`; 62 focused tests pass. Full candidate disposition and retained results remain pending.
 
