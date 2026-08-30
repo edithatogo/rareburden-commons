@@ -1,0 +1,47 @@
+schema_version: "1.0.0"
+panel_assurance: "simulated_role_separated_advisory_panel"
+status: "bounded_inventory_and_preparation_review"
+date_utc: "2026-08-30"
+base_commit: "f9a7b8921455f96a09d18100cd4b8a754019cdc4"
+candidate_binding: "Exact raw document hashes on the stated base; no future commit or execution is approved"
+documents:
+  - path: "docs/track-003-licensed-pathway-evidence-2026-08-30.yml"
+    raw_sha256: "d381df51b2dd110a23389da354860afd3d9dc58c5e350facf5100c665d8eee89"
+  - path: "docs/track-003-transport-sensitivity-contract-2026-08-30.yml"
+    raw_sha256: "9de71891feb858d34aedd7a289f10f9902e18742ea92b41d4264fc1888aefcf0"
+  - path: "docs/track-003-evidence-gap-register-2026-08-30.yml"
+    raw_sha256: "854c25b16e2e76b58cb6f8384a1240d34a443a16e9eec14810cba41702d06d79"
+lanes:
+  - perspective: "scientific_methods_and_technical"
+    agent: "outcome_science_review"
+    result: "pass"
+    evidence: "Primary-source endpoint verification, all three document hashes, plan, full-document validator and 38 focused tests"
+  - perspective: "rights_and_data_use"
+    agent: "outcome_rights_review"
+    result: "pass"
+    evidence: "Primary publisher CC-BY-4.0 terms; bounded aggregate retention, no article/table/variant/sparse-cell archive"
+  - perspective: "simulated_community_harm"
+    agent: "outcome_harm_review"
+    result: "pass"
+    evidence: "Scope, no utilization/prevalence substitution, uncalibrated mechanism labels, partial plan and explicit continuation boundaries"
+unresolved_findings: []
+options:
+  - id: "A"
+    recommendation: "accept_bounded_inventory_and_preparation"
+    trade_off: "Makes licensed evidence and design progress while retaining unresolved source and execution gates"
+  - id: "B"
+    recommendation: "defer_new_source"
+    trade_off: "Avoids new cohort context but leaves all pathway evidence held without gaining a qualified licensed record"
+minimum_evidence: "Exact licence and extraction identity, disclosure-safe result, scope boundaries, mutation checks and completed hosted checks before merge"
+uncertainty: "No compatible general-utilization measure, complication parameter, calibrated transport range or empirical activation is established"
+dissent: []
+stop_triggers:
+  - "Source/licence/hash drift, sparse-cell reconstruction or new rights ambiguity"
+  - "Testing yield represented as population prevalence, utilization, clinical benefit or a UK replacement"
+  - "Uncalibrated design or repository checks relabelled empirical execution"
+owner_disposition: "No new empirical, source-rights, clinical or release authority supplied by this advisory receipt"
+independent_review: false
+actual_community_participation: false
+community_endorsement: false
+empirical_activation: false
+production_release_authority: false

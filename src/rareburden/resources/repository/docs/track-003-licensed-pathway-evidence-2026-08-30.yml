@@ -1,0 +1,75 @@
+schema_version: "1.0.0"
+status: "bounded_descriptive_inventory"
+track: "003-monogenic-diabetes-demonstrator"
+scope: "One licensed diagnostic-pathway aggregate; not general utilization, a population fraction, or a replacement for the held UK sources"
+authority_boundaries:
+  empirical_activation: false
+  controlled_data_activation: false
+  parameter_created: false
+  synthesis_executed: false
+  clinical_advice: false
+  independent_review: false
+  community_representation: false
+  production_release_authority: false
+source:
+  id: "DE-SOUSA-2024"
+  citation: "De Sousa et al. Acta Diabetologica 61:181-188 (2024)"
+  doi: "10.1007/s00592-023-02193-x"
+  pmcid: "PMC10866744"
+  publication_date: "2023-10-09"
+  issue_year: 2024
+  publisher_url: "https://link.springer.com/article/10.1007/s00592-023-02193-x"
+  retrieved_at_utc: "2026-08-30"
+  exact_version: "Europe PMC fullTextXML response observed on retrieval date"
+  retrieval_url: "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10866744/fullTextXML"
+  response_sha256: "51f8d83c2687f4944bad9565aa454a68ae65f53b56a0a4ca88ee45c5c1c5139a"
+  response_bytes: 82515
+  response_retained: false
+  response_hash_limit: "Transient response-body observation; future provider responses may differ"
+  licence: "CC-BY-4.0"
+  licence_url: "https://creativecommons.org/licenses/by/4.0/"
+  rights_evidence_location: "Article XML permissions/license and publisher Rights and permissions"
+  retention: "Original single aggregate-fact extraction and assessment with attribution; no article prose, tables, supplements, variants or sparse cells retained"
+  transformation: "Original field selection and wording; source counts and rounded percentage unchanged; no new confidence interval"
+  correction_status: "No exhaustive correction/retraction audit; recheck exact version before parameter use"
+record:
+  id: "OS-PATHWAY-002"
+  family: "service_use"
+  subtype: "diagnostic_testing_pathway_result"
+  source_location: "Abstract Results; Methods; Results / Updated genetic test results"
+  estimand: "Final positive genetic result among the analysed tested adult probands, including clinically selected updating/reanalysis"
+  numerator: 11
+  denominator: 40
+  reported_percent: 27.5
+  unit: "proband_people_not_test_events"
+  positive_definition: "Source-assessed likely pathogenic/pathogenic result; no repository variant interpretation"
+  geography: "South Australian Adult Genetics Unit referral cohort"
+  capture_period: "Adults tested during 2017-2021; updated results assessed at audit, not an initial-test-only endpoint"
+  population: "Clinician-suspected monogenic diabetes, including mitochondrial diabetes; not pure MODY or the RBC-P002 primary diabetes denominator"
+  exclusions: "Cascade-testing relatives and research nonparticipation excluded; no exclusion counts or subgroup cells retained"
+  age: "Adult referral cohort; not restricted to the calculator-eligible diagnosis-age subset"
+  sex_gender_and_population_categories: "No subgroup extraction or identity inference; no demographic transport claim"
+  counting: "One final classification per analysed proband; repeated investigations are not additional people or encounters"
+  planned_unplanned_setting: "Specialist diagnostic pathway; planned/unplanned utilization not measured"
+  person_time: "not_reported_not_applicable_to_this_proportion"
+  uncertainty: "No compatible confidence interval reported at this source location; not zero width"
+  use_decision: "descriptive_inventory_only_not_a_model_input"
+quality:
+  construct_validity: "Final diagnostic yield, not utilization intensity or population prevalence"
+  selection_bias: "Clinician suspicion and referral/testing selection"
+  ascertainment: "Heterogeneous laboratory coverage and clinically selected updated investigations"
+  measurement_error: "Source variant classification; no current clinical reclassification"
+  missingness: "Unreferred and untested population not observed; exclusion and follow-up mechanisms unresolved for transport"
+  precision: "Small referral cohort; no compatible reported interval retained"
+  representativeness: "One state-wide adult service cohort, not all South Australian diabetes or the UK"
+  diagnostic_validity: "Source-defined genetic positivity includes broader monogenic entities"
+  conflict_of_interest: "Not fully assessed; unresolved before model selection"
+  computational_reproducibility: "Located aggregate and exact transient source hash; no participant data, primary code or full response retained"
+guards:
+  pooling: "prohibited"
+  cohort_overlap: "Not resolved against other Australian studies; no independence assumption"
+  small_cell_policy: "No initial/final differencing, variant-specific or complementary subgroup reconstruction"
+  interpretation: "No efficacy, access equity, causality, clinical recommendation, utilization or cost inference"
+  historical_holds: "Steele and Pang remain held in the immutable first tranche; this distinct source does not clear them"
+  parameters: []
+  modelled_outputs: []

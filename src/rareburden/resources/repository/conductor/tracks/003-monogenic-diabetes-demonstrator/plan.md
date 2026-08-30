@@ -14,8 +14,13 @@
 - [x] Extract and assess aetiologic-fraction evidence by age, phenotype, ancestry and setting. Evidence: `docs/track-003-aetiologic-evidence-qualification-2026-08-30.yml`, its fail-closed validator and 20 mutation tests, and the exact-candidate advisory review at `docs/reviews/track-003-aetiologic-evidence-agent-panel-2026-08-30.yml`. All candidates remain sensitivity-only or unsuitable; synthesis, parameter creation, empirical execution, independent review, community authority, publication and release remain false. `[M-21]`
 - [~] Ledger diagnosis delay, treatment change, complications and service-use evidence. First partial tranche: `9f67cc8`, `docs/track-003-outcome-service-ledger-2026-08-30.yml` and `docs/reviews/track-003-outcome-service-agent-panel-2026-08-30.yml`. Two descriptive source-located aggregates are retained; complications and service-use candidates remain held, with no activated parameter or empirical execution. `[M-04, M-11]`
   Follow-up: `docs/track-003-outcome-source-qualification-2026-08-30.md` resolves source-location/date and rights-description gaps, flags Pang arithmetic and age-boundary discrepancies, and records the next qualification actions. The exact-document advisory panel receipt is `docs/reviews/track-003-outcome-source-qualification-panel-2026-08-30.yml`. Neither held candidate is promoted; intended-use rights, endpoint/counting-unit verification and exact empirical disposition remain open.
-- [ ] Define transportability and referral-bias sensitivity parameters. `[S-07]`
-- [ ] Record unresolved evidence gaps and data-access asks. `[M-26]`
+  Licensed continuation: `docs/track-003-licensed-pathway-evidence-2026-08-30.yml` adds one adult Australian final diagnostic-yield aggregate under verified CC-BY-4.0, without replacing the held UK sources or claiming general utilization. Complication and empirical activation gaps remain open.
+- [~] Define transportability and referral-bias sensitivity parameters. `docs/track-003-transport-sensitivity-contract-2026-08-30.yml` defines seven uncalibrated mechanisms and synthetic-design boundaries; no empirical ranges or accepted parameters are created. This independent preparation proceeds while source-specific holds remain. `[S-07]`
+- [x] Record currently known unresolved evidence gaps and data-access asks. Evidence: `docs/track-003-evidence-gap-register-2026-08-30.yml`; requests remain unsent and gaps remain open. This records the asks, not their resolution or exhaustive evidence coverage. `[M-26]`
+
+The licensed continuation, transport design and gap register have exact-document
+advisory review in `docs/reviews/track-003-licensed-continuation-panel-2026-08-30.yml`
+and offline integrity/mutation checks in `scripts/check_track003_continuation.py`.
 
 ## Phase 3 — Analysis implementation
 
