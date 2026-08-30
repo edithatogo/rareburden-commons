@@ -26,7 +26,7 @@ and offline integrity/mutation checks in `scripts/check_track003_continuation.py
 
 - [x] Build a non-binding public/synthetic analysis specification and fixture. Evidence: `examples/analyses/monogenic-diabetes-synthetic.yml` and schema-validation test; empirical activation and contract freeze remain blocked. `[M-18, M-19]`
 - [ ] Run primary expected-population and rare-aetiology models. `[S-04, S-05]`
-- [ ] Add structural, denominator, ascertainment and penetrance scenarios. `[M-06]`
+- [~] Add structural, denominator, ascertainment and penetrance scenarios. In-memory arithmetic preparation: `scripts/track003_synthetic_scenarios.py`, `tests/test_track003_synthetic_scenarios.py` and `docs/track-003-synthetic-scenario-assurance-2026-08-30.md`. Synthetic denominator scaling, selection inversion, forward detection partition and conditional carrier penetrance are tested; no new persisted governed execution, empirical calibration or uncertainty interval is supplied. `[M-06]`
 - [ ] Add outcome/economic scenarios only where compatible evidence exists. `[S-06]`
 
 ## Phase 4 — Validation and reporting
@@ -117,6 +117,7 @@ and offline integrity/mutation checks in `scripts/check_track003_continuation.py
 
 ### Review fixes
 
+- [x] Challenge synthetic scenario arithmetic with three advisory lanes; fix huge-integer overflow rejection and add five regression cases. Evidence: `docs/reviews/track-003-synthetic-scenario-panel-2026-08-30.yml`; 73 focused tests pass. This does not complete scenario execution or empirical qualification.
 - [x] Pin the exact upstream commit/tree rather than accepting an arbitrary resolvable pair.
 - [x] Validate every registered estimand, denominator, entity, population-state dimension and derived quantity against its bound contract, with mutation coverage.
 - [x] Add a current bounded framing overlay that preserves false empirical, controlled-data, independent-review and community-authority claims while retaining the historical guard unchanged.

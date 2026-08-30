@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+panel_assurance: "simulated_role_separated_advisory_panel"
+status: "bounded_arithmetic_preparation_review"
+date_utc: "2026-08-30"
+base_commit: "a5be9cdbf1ea460bfdb7451f1206b0539d3a1244"
+candidate_binding: "Exact raw file hashes on the stated base; no future execution is approved"
+documents:
+  - path: "scripts/track003_synthetic_scenarios.py"
+    raw_sha256: "9d28df394baeb0aec77fc2f9962cbc1c965c9aea7cee2f725d3e1a8c4a163f93"
+  - path: "tests/test_track003_synthetic_scenarios.py"
+    raw_sha256: "95ce1356fff5d56a80384c107f14193500287d1cd587ce99906868ef4cdba030"
+  - path: "docs/track-003-synthetic-scenario-assurance-2026-08-30.md"
+    raw_sha256: "123ebee29b51cd391607e1bf40c8444c4e2dd1cf1db36b7b8d2047d4591b3a50"
+lanes:
+  - perspective: "scientific_methods_and_technical"
+    agent: "outcome_science_review"
+    result: "pass_after_fix"
+    evidence: "Selection identity, finite endpoints, conditional penetrance, 73 focused tests rerun"
+  - perspective: "rights_and_security"
+    agent: "outcome_rights_review"
+    result: "pass"
+    evidence: "No file/network access, source ingestion, persistence, CLI or authority changes"
+  - perspective: "simulated_community_harm"
+    agent: "outcome_harm_review"
+    result: "pass"
+    evidence: "Invented inputs, latent-not-observed labels, no uncertainty/clinical claims and partial plan"
+resolved_findings:
+  - "P3: Reject float-unrepresentable integers with field-specific ValueError; five regression cases added"
+unresolved_findings: []
+options:
+  - id: "A"
+    recommendation: "retain_bounded_preparation"
+    trade_off: "Provides arithmetic assurance without source calibration or further governed output"
+    contingency: "Stop before connecting empirical inputs or persistence"
+    rationale: "Tests useful mechanisms without pretending to complete the scientific analysis"
+  - id: "B"
+    recommendation: "defer_preparation"
+    trade_off: "Avoids additional code but leaves these arithmetic and rejection paths untested"
+    contingency: "Resume only after defining another bounded preparation slice"
+    rationale: "Suitable if this assurance-only implementation is not needed"
+minimum_evidence: "Exact hashes, focused and full checks, three advisory lanes and hosted checks before merge"
+uncertainty: "No enforceable provenance on numeric inputs; deterministic values lack empirical calibration and uncertainty"
+dissent: []
+stop_triggers:
+  - "Real-source input, persistence, new public interface or empirical interpretation"
+  - "Unaligned populations, allele-frequency substitution or invented credible intervals"
+  - "Synthetic arithmetic represented as Track 003 completion or additional execution permission"
+owner_disposition: "Routine preparation/PR/merge authorized by autonomous-work instruction; no new exact execution disposition"
+independent_review: false
+actual_community_participation: false
+community_endorsement: false
+empirical_activation: false
+production_release_authority: false
