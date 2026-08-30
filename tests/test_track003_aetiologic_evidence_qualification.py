@@ -96,6 +96,25 @@ def test_full_text_receipt_drift_fails_closed(tmp_path: Path) -> None:
         validate(_mutate(tmp_path, document))
 
 
+@pytest.mark.parametrize(
+    ("section", "field", "value"),
+    [
+        (None, "source_location", "unrelated table"),
+        ("population", "geography", "global representative"),
+        ("assessment", "selection_bias", "none"),
+    ],
+)
+def test_context_or_assessment_drift_fails_closed(
+    tmp_path: Path, section: str | None, field: str, value: str
+) -> None:
+    document = deepcopy(_document())
+    source = document["sources"][0]
+    target = source if section is None else source[section]
+    target[field] = value
+    with pytest.raises(QualificationError):
+        validate(_mutate(tmp_path, document))
+
+
 def test_possible_search_prodigy_overlap_cannot_be_hidden(tmp_path: Path) -> None:
     document = deepcopy(_document())
     document["coverage_assessment"]["overlap"] = "none"

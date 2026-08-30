@@ -31,11 +31,11 @@ retrieval_method:
   correction_retraction_check: "Europe PMC core record inspected on retrieval date; no correction or retraction recorded"
   receipt_canonicalization: >-
     SHA-256 of compact UTF-8 JSON with lexicographically sorted keys and no
-    insignificant whitespace, containing source_record_id, PMID, PMCID, DOI,
-    publication_date, metadata_sha256, inspected_xml_sha256 when present,
-    access_class, licence, redistribution, and the complete estimate mapping.
-    The validator pins and recomputes every digest; this lawful metadata/fact
-    projection is retained here in place of provider response or article bytes.
+    insignificant whitespace, containing the complete source record except its
+    receipt_sha256 field. The validator recomputes and pins every projection
+    receipt and pins the recorded provider-response byte digests; this lawful
+    metadata, context, assessment and fact projection is retained here in place
+    of provider response or article bytes.
 
 sources:
   - source_record_id: "SRC-SEARCH-2013"
@@ -45,7 +45,7 @@ sources:
     doi: "10.1210/jc.2013-1279"
     publication_date: "2013-06-14"
     metadata_sha256: "8aefbb36e56131b9861acfacbd473bfd14ecd73a2d9de28067272d9256c829fe"
-    receipt_sha256: "b335ae2e18c0ffc027ed4a0e5c05453bfd265880ae8de8945ae3c3703de9d295"
+    receipt_sha256: "45a0fbddf60d00af472571cd63b94d4f99a869ab277bea52045516b9e0652a4c"
     access_class: "free_to_read_author_manuscript"
     licence: "not_reported_by_europe_pmc"
     redistribution: "metadata_and_independently_encoded_facts_only"
@@ -88,7 +88,7 @@ sources:
     publication_date: "2012-07-11"
     metadata_sha256: "81724ed5c1de009001a0d24046e803192617ea7172a15af80ef4a2f4dd325875"
     inspected_xml_sha256: "c1282bf2a567e243b015d82bc4483dc392cacbd60ad13ec5cdbd1a7975c3dc29"
-    receipt_sha256: "81419c3cb20ecfcd973570c214e081474a91800e7ae4a72b365ddfdaebc05f80"
+    receipt_sha256: "eba2088c7ba277016d1909cb53c488782545c65e7415d2d90f662893f99fd130"
     access_class: "open_access"
     licence: "CC-BY-NC"
     redistribution: "noncommercial_with_attribution; no source bytes retained"
@@ -118,7 +118,7 @@ sources:
       missingness: "unreferred or unrecognised cases are not observable"
       precision: "annual range reported without compatible intervals"
       representativeness: "three regions cover less than one quarter of Polish children"
-      diagnostic_validity: "pathogenic confirmations were molecular; candidate selection was clinical"
+      diagnostic_validity: "study-reported pathogenic confirmations were molecular; candidate selection was clinical"
       conflict_of_interest: "not assessed in this tranche"
       computational_reproducibility: "reported annual aggregates only"
 
@@ -129,7 +129,7 @@ sources:
     doi: "10.2337/dc16-0645"
     publication_date: "2016-06-06"
     metadata_sha256: "eec0f2c8ca82ba82b9c67c80e87a359cc9583c93f76ceee0e03459f4efbe55f5"
-    receipt_sha256: "f32b73156b28c4c362a5eb44b93c9ccdcf1e92bafa1b6bb5b48143fcb77fdd01"
+    receipt_sha256: "cf5b85f52fddee6e07a1057799c93e2f9faa0cd86a2949eb0281a95dc7d3b2cd"
     access_class: "free_to_read_author_manuscript"
     licence: "not_reported_by_europe_pmc"
     redistribution: "metadata_and_independently_encoded_facts_only"
@@ -158,7 +158,7 @@ sources:
       missingness: "completion and subgroup missingness require exact full-source verification"
       precision: "reported binomial interval retained"
       representativeness: "six UK clinics; transport to other systems is unresolved"
-      diagnostic_validity: "molecular confirmation followed biomarker screening"
+      diagnostic_validity: "study-reported molecular confirmation followed biomarker screening"
       conflict_of_interest: "not assessed in this tranche"
       computational_reproducibility: "reported aggregates only"
 
@@ -170,7 +170,7 @@ sources:
     publication_date: "2021-08-06"
     metadata_sha256: "585e93aaaffafc8669e619203bb7c7d9c057d10f0cc25d87d939e49bbe12c7ee"
     inspected_xml_sha256: "fdd4e356604ac31d52730fc29970c2c741672abbc7b553bfd2de62002ec380c0"
-    receipt_sha256: "8254541b5f3e300f6da6d438aaef907f03e9f1c543bdb5077cece6963d05338c"
+    receipt_sha256: "b6a2557e351106b09d6083f6302f061b4b4a29e9e9ab562abaf49dda9aa40dc4"
     access_class: "public_full_text_restricted_reuse"
     licence: "educational_nonprofit_citation_required_no_alteration"
     redistribution: "metadata_and_independently_encoded_facts_only"
@@ -178,7 +178,7 @@ sources:
     source_location: "Abstract Results, Participants, Table 1, and Conclusions; full text consulted transiently"
     estimate:
       numerator: 93
-      numerator_definition: "pathogenic or likely pathogenic variants in six reported MODY genes"
+      numerator_definition: "study-reported pathogenic or likely pathogenic variants in six reported MODY genes"
       compatible_diabetes_denominator: 3333
       compatible_diabetes_fraction_reported: 0.028
       uncertainty: "not_reported_for_overall_fraction"
@@ -210,7 +210,7 @@ sources:
         or interpreted.
       precision: "overall fraction reported without interval"
       representativeness: "multiethnic US sample but not population-representative as a combined cohort"
-      diagnostic_validity: "ACMG/AMP pathogenic or likely pathogenic classification"
+      diagnostic_validity: "study-reported ACMG/AMP pathogenic or likely pathogenic classification"
       conflict_of_interest: "authors reported no relevant conflicts; one institutional support relationship disclosed"
       computational_reproducibility: "aggregate and methods public; sequence data and executable derivation not retained"
 
@@ -221,7 +221,7 @@ sources:
     doi: "10.5694/mja16.01201"
     publication_date: "2017-10-01"
     metadata_sha256: "ac6bb916935a239589ce3b8c5771715186e47b0c646711e755ec9f6de044ed04"
-    receipt_sha256: "0f49dfd112b848e1daa98ea1ce9c9730f93b4a73d72e82196c70ddd024e22e68"
+    receipt_sha256: "e179dd884404e29915609c10c9659fe5a1dc15862bad2ff618e11d174d47d8c8"
     access_class: "abstract_only_for_this_qualification"
     licence: "not_reported_by_europe_pmc"
     redistribution: "metadata_and_independently_encoded_facts_only"

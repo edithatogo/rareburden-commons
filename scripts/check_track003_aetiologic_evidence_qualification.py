@@ -51,25 +51,12 @@ EXPECTED_SOURCES = {
     "SRC-FREMANTLE-2017": "unsuitable",
 }
 EXPECTED_RECEIPTS = {
-    "SRC-SEARCH-2013": "b335ae2e18c0ffc027ed4a0e5c05453bfd265880ae8de8945ae3c3703de9d295",
-    "SRC-POLAND-2012": "81419c3cb20ecfcd973570c214e081474a91800e7ae4a72b365ddfdaebc05f80",
-    "SRC-UK-2016": "f32b73156b28c4c362a5eb44b93c9ccdcf1e92bafa1b6bb5b48143fcb77fdd01",
-    "SRC-PRODIGY-2021": "8254541b5f3e300f6da6d438aaef907f03e9f1c543bdb5077cece6963d05338c",
-    "SRC-FREMANTLE-2017": "0f49dfd112b848e1daa98ea1ce9c9730f93b4a73d72e82196c70ddd024e22e68",
+    "SRC-SEARCH-2013": "45a0fbddf60d00af472571cd63b94d4f99a869ab277bea52045516b9e0652a4c",
+    "SRC-POLAND-2012": "eba2088c7ba277016d1909cb53c488782545c65e7415d2d90f662893f99fd130",
+    "SRC-UK-2016": "cf5b85f52fddee6e07a1057799c93e2f9faa0cd86a2949eb0281a95dc7d3b2cd",
+    "SRC-PRODIGY-2021": "b6a2557e351106b09d6083f6302f061b4b4a29e9e9ab562abaf49dda9aa40dc4",
+    "SRC-FREMANTLE-2017": "e179dd884404e29915609c10c9659fe5a1dc15862bad2ff618e11d174d47d8c8",
 }
-RECEIPT_FIELDS = (
-    "source_record_id",
-    "pmid",
-    "pmcid",
-    "doi",
-    "publication_date",
-    "metadata_sha256",
-    "inspected_xml_sha256",
-    "access_class",
-    "licence",
-    "redistribution",
-    "estimate",
-)
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -80,7 +67,7 @@ def _load(path: Path) -> dict[str, Any]:
 
 
 def _receipt(source: dict[str, Any]) -> str:
-    projection = {field: source[field] for field in RECEIPT_FIELDS if field in source}
+    projection = {key: value for key, value in source.items() if key != "receipt_sha256"}
     payload = json.dumps(
         projection, sort_keys=True, separators=(",", ":"), ensure_ascii=False
     ).encode()
