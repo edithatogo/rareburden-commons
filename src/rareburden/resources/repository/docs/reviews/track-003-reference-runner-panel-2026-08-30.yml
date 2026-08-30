@@ -1,0 +1,55 @@
+schema_version: "1.0.0"
+panel_assurance: "simulated_role_separated_advisory_panel"
+status: "in_memory_runner_review"
+date_utc: "2026-08-30"
+base_commit: "a3db087ceb3ea967a7e3ddce1a4abf50de808c88"
+documents:
+  - path: "scripts/track003_reference_runner.py"
+    raw_sha256: "14431ac28d3ecff62898573b9b58a480e904de3afdc9cec41a8796a5a40ae762"
+  - path: "tests/test_track003_reference_runner.py"
+    raw_sha256: "04320df9c5070c9cc937ab796d974eeb92254db89872d4277d85b1fc1762c93e"
+  - path: "docs/track-003-reference-runner-contract-2026-08-30.md"
+    raw_sha256: "c49266e42ad3745d9b56bede6e8a3c12d56273c537f889ae9a63670b5f5f5855"
+lanes:
+  - perspective: "scientific_methods"
+    agent: "outcome_science_review"
+    result: "pass_after_fix"
+    evidence: "Verified hashes and reran 62 tests; equations and applicability disposition reviewed"
+  - perspective: "engineering_security"
+    agent: "outcome_rights_review"
+    result: "pass_after_fix"
+    evidence: "Verified hashes and reran 62 tests; bounded inputs and aggregate-only interface reviewed"
+  - perspective: "simulated_community_harm"
+    agent: "outcome_harm_review"
+    result: "pass"
+    evidence: "Verified hashes; metric units, assumed conditioning, unknown scope and claims reviewed"
+resolved_findings:
+  - "P2: Label conditional probabilities/delay as assumptions even when conditioning sets are empty"
+  - "P2: Use approximate floating-point partition assertion and add partition regression"
+  - "Add conditioning/unit metadata, scenario bindings and expanded invalid-input tests"
+unresolved_findings: []
+options:
+  - id: "A"
+    recommendation: "retain_runner_and_prepare_exact_package"
+    trade_off: "Implements all twelve scenarios without claiming retained execution or acceptance"
+    contingency: "Require complete candidate review/disposition before governed retained outputs"
+    rationale: "Original synthetic-reference scope is supported by explicit numerical contracts"
+  - id: "B"
+    recommendation: "defer_runner"
+    trade_off: "Leaves full reference calculations unimplemented"
+    contingency: "Define a replacement compatible design before resumption"
+    rationale: "Appropriate if the hypothetical design is not retained"
+uncertainty:
+  - "Invented distributions and structural assumptions are not empirical calibration"
+  - "Cross-environment reproduction and exact retained-output verification remain pending"
+dissent: []
+stop_triggers:
+  - "Semantic/context drift or empirical reinterpretation"
+  - "Retained governed execution without required exact disposition"
+  - "Removal of assumed labels, unknown contributions or metric conditioning in exports"
+owner_disposition: "Autonomous implementation/PR/merge instruction; no new retained-execution disposition"
+execution_authorized: false
+independent_review: false
+community_representation: false
+empirical_activation: false
+production_release_authority: false

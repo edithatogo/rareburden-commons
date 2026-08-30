@@ -27,7 +27,13 @@ and offline integrity/mutation checks in `scripts/check_track003_continuation.py
 - [x] Build a non-binding public/synthetic analysis specification and fixture. Evidence: `examples/analyses/monogenic-diabetes-synthetic.yml` and schema-validation test; empirical activation and contract freeze remain blocked. `[M-18, M-19]`
 - [~] Run primary expected-population and rare-aetiology models. Full original-scope reference preparation: `docs/track-003-full-reference-acceptance-2026-08-30.md`, the deterministic builder `scripts/track003_reference_inputs.py`, its candidate input bundle and contract tests. Eighteen assumed parameters have linked quality/transport records; full runner, exact disposition, primary/scenario output package and reproduction remain pending. `[S-04, S-05]`
 - [~] Add structural, denominator, ascertainment and penetrance scenarios. In-memory arithmetic preparation: `scripts/track003_synthetic_scenarios.py`, `tests/test_track003_synthetic_scenarios.py` and `docs/track-003-synthetic-scenario-assurance-2026-08-30.md`. Synthetic denominator scaling, selection inversion, forward detection partition and conditional carrier penetrance are tested; no new persisted governed execution, empirical calibration or uncertainty interval is supplied. `[M-06]`
-- [ ] Add outcome/economic scenarios only where compatible evidence exists. `[S-06]`
+- [~] Add outcome/economic scenarios only where compatible evidence exists. `scripts/track003_reference_runner.py` implements explicitly invented compatible full-year complication/cost and detected-case treatment scenarios in memory; governed outputs and report remain pending. `[S-06]`
+
+The twelve-scenario deterministic/seeded implementation is defined in
+`docs/track-003-reference-runner-contract-2026-08-30.md` and tested in
+`tests/test_track003_reference_runner.py`. Every summary includes units and
+conditioning scope. This is implementation evidence, not retained execution,
+empirical validation or Track 003 completion.
 
 ## Phase 4 — Validation and reporting
 
@@ -116,6 +122,8 @@ and offline integrity/mutation checks in `scripts/check_track003_continuation.py
 - [x] Qualify a protocol-compatible synthetic denominator before any RBC-P002 run, complete exact scientific, engineering and simulated-harm review, record owner disposition and retain exactly one provenance-bound synthetic assurance output. Evidence: `docs/track-003-rbc-p002-synthetic-denominator-candidate-2026-08-29.yml`, `docs/reviews/track-003-synthetic-denominator-*-2026-08-29.yml`, `docs/decisions/2026-08-29-track-003-synthetic-denominator-disposition.yml` and `manifests/demonstrators/track-003-rbc-p002-synthetic-execution-closeout-2026-08-29.yml`. Empirical, controlled-data, public-aggregate, clinical, independent-review, community, publication and production-release claims remain false.
 
 ### Review fixes
+
+- [x] Challenge the twelve-scenario runner; distinguish assumed conditional inputs at empty conditioning sets, add metric metadata and scenario parameter bindings, and test approximate denominator partitions and invalid numerical inputs. Evidence: `docs/reviews/track-003-reference-runner-panel-2026-08-30.yml`; 62 focused tests pass. Full candidate disposition and retained results remain pending.
 
 - [x] Audit original reference-analysis acceptance through three advisory lanes and remove the inferred need for a synthetic-first scope reduction. Evidence: `docs/track-003-full-reference-acceptance-2026-08-30.md`. All original deliverables remain required; input preparation is not execution or completion. Additional source qualification is recorded in `docs/track-003-additional-source-screen-2026-08-30.md` without promoting either source to model input.
 - [x] Challenge synthetic scenario arithmetic with three advisory lanes; fix huge-integer overflow rejection and add five regression cases. Evidence: `docs/reviews/track-003-synthetic-scenario-panel-2026-08-30.yml`; 73 focused tests pass. This does not complete scenario execution or empirical qualification.
