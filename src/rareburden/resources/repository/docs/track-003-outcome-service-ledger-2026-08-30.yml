@@ -1,0 +1,163 @@
+schema_version: "1.0.0"
+artifact_id: "RBC-P002-OUTCOME-SERVICE-TRANCHE-2026-08-30"
+track: "003-monogenic-diabetes-demonstrator"
+status: "partial_descriptive_evidence_ledger"
+contract: "docs/track-003-outcome-service-evidence-ledger-contract-v0.1.0.yml"
+scope: >-
+  Non-systematic first tranche. Two descriptive aggregates extracted from one
+  CC-BY primary study; complication and service-use candidates remain held.
+  This is an evidence inventory, not a parameter ledger activation. No article
+  text, tables, participant records, small-cell outputs or controlled data are
+  retained. Bibliographic facts and original assessments are retained with
+  attribution; third-party terms are not replaced by the repository licence.
+retrieval:
+  date_utc: "2026-08-30"
+  metadata_request_template: "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:{pmid}%20AND%20SRC:MED&format=json&resultType=core"
+  provider_byte_hash_method: "SHA-256 of transient HTTP response body bytes; bytes not retained and future responses may differ"
+  integrity_method: "Validator pins SHA-256 of complete parsed document serialized as sorted-key compact UTF-8 JSON, ensure_ascii=False"
+  search_scope: "Targeted primary-study discovery for diagnosis duration, observed treatment change, complications and referral pathways; no systematic-search claim"
+
+authority_boundaries:
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  parameter_created: false
+  synthesis_executed: false
+  causal_analysis: false
+  clinical_advice: false
+  independent_review: false
+  community_representation: false
+  community_endorsement: false
+  publication_authority: false
+  production_release_authority: false
+
+sources:
+  - id: "SHEPHERD-2018"
+    citation: "Shepherd et al. Diabetologia 61:2520-2527 (2018)"
+    pmid: "30229274"
+    doi: "10.1007/s00125-018-4728-6"
+    source_url: "https://doi.org/10.1007/s00125-018-4728-6"
+    fulltext_url: "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6223847/fullTextXML"
+    version: "PMC6223847 XML retrieved 2026-08-30, exact body hash below"
+    publication_date: "2018-09-18"
+    metadata_sha256: "7f2114c2ddf7352edaecd2abce36aac79bf7fc2040e5408a5310ee93b316ac4c"
+    xml_sha256: "a8f79c0c9c09972b7a1ede75ec8165cb3671b8d6c6859e7cb30254741b03ef76"
+    access: "open_access"
+    licence: "CC-BY-4.0"
+    licence_url: "https://creativecommons.org/licenses/by/4.0/"
+    rights_evidence: "Article XML permissions section explicitly specifies CC-BY-4.0"
+    retention: "Original aggregate-fact extraction and assessment only; source text and supplementary participant tables not retained"
+    correction_status: "No correction/retraction link in inspected Europe PMC core response; not an exhaustive correction search"
+    population:
+      entities: "Study-reported genetically confirmed GCK-, HNF1A- or HNF4A-MODY; no present-day variant reclassification"
+      geography: "United Kingdom referrals to Exeter Molecular Genetic Laboratory"
+      period: "Referrals December 2010 to December 2012; subsequent follow-up to 24 months"
+      age: "Diabetes diagnosis under 30 years and age under 50 at genetic testing"
+      inclusion: "Not receiving the study-defined genotype-recommended treatment at genetic diagnosis"
+      analysis_n: 58
+      recruitment: "Contactable consenting eligible referrals; not a population sample"
+      sex_gender: "Women reported; no identity inference or subgroup extraction"
+      ancestry_ethnicity: "Predominantly source-described white participants; sparse identity detail not reproduced, no extrapolation or ranking"
+      family_structure: "Related participants included; observations cannot automatically be assumed independent"
+      missingness: "Not all eligible referrals participated; treatment non-changers were not followed longitudinally"
+    quality:
+      construct_validity: "Study-defined treatment change and diagnosis-duration summary, not treatment benefit or a symptom-based diagnostic odyssey"
+      selection_bias: "Referral, eligibility, consent and treatment criteria condition both results"
+      ascertainment: "Molecular diagnosis at specialist laboratory; subsequent management by local clinicians"
+      measurement_error: "Treatment was self-reported by telephone; adherence was not measured"
+      missingness: "Longitudinal follow-up restricted to changers; cannot infer unchanged outcomes in non-changers"
+      precision: "Duration IQR is dispersion, not a confidence interval; treatment proportion CI not reported"
+      representativeness: "Selected predominantly white UK sample, not a paediatric or global population denominator"
+      diagnostic_validity: "Source-reported genetic diagnoses; contemporary clinical entity/variant validation not undertaken"
+      conflict_of_interest: "Not fully assessed in this tranche; retained as unresolved"
+      computational_reproducibility: "Reported aggregates traceable to Methods and Results; individual records and analysis code not retained"
+
+records:
+  - id: "OS-DELAY-001"
+    source: "SHEPHERD-2018"
+    family: "diagnosis_delay"
+    evidence_status: "source_located_descriptive_candidate"
+    use_decision: "sensitivity_only_pending_verification_and_transport"
+    source_location: "Methods > Individual characteristics, baseline summary for 58 participants"
+    estimand: "Duration of diagnosed diabetes at genetic testing among recruited participants"
+    time_origin: "Diabetes diagnosis, not symptom onset"
+    end_event: "Genetic testing time point; not a separately verified result-disclosure date"
+    summary: {measure: "median", value: 10, unit: "years", sample_n: 58}
+    uncertainty: {type: "IQR", lower: 2, upper: 20, is_confidence_interval: false}
+    censoring_truncation: "Selected already genetically diagnosed sample; excludes people still awaiting genetic diagnosis"
+    transformation: "None; directly reported duration, not subtraction of aggregate ages"
+    limitation: "Proxy for diagnosis-to-genetic-testing duration only, not an activated exact diagnosis-delay parameter"
+
+  - id: "OS-TREATMENT-001"
+    source: "SHEPHERD-2018"
+    family: "treatment_change"
+    evidence_status: "source_located_descriptive_candidate"
+    use_decision: "sensitivity_only_pending_verification_and_transport"
+    source_location: "Results opening paragraph and Methods > Follow-up and treatment"
+    estimand: "Study-reported treatment change following genetic diagnosis among recruited participants"
+    numerator: 44
+    denominator: 58
+    reported_percent: 75.9
+    unit: "percent_of_recruited_people"
+    pre_treatment: "Insulin and/or metformin; genotype-specific eligibility determined by source"
+    post_treatment: "Study-classified genotype-specific change; do not reinterpret as every medication adjustment"
+    change_window: "Post-result monitoring at 3, 6, 12 and 24 months; exact individual change times not extracted"
+    ascertainment: "Self-reported treatment by telephone; local clinicians chose management"
+    adherence: "not_measured"
+    uncertainty: "No compatible proportion confidence interval reported; not set to zero width"
+    transformation: "None; retain source rounded percentage without independent-person CI assumptions"
+    limitation: "No counterfactual, no causal effect, no adherence or benefit inference; no small genotype-specific outcome cells retained"
+
+held_candidates:
+  - id: "STEELE-2014"
+    family: "complications"
+    citation: "Steele et al. JAMA 311:279-286 (2014)"
+    pmid: "24430320"
+    doi: "10.1001/jama.2013.283980"
+    source_url: "https://pubmed.ncbi.nlm.nih.gov/24430320/"
+    version: "Europe PMC core metadata observed 2026-08-30"
+    publication_date: "2014-01; provider encodes 2014-01-01, exact day unresolved"
+    metadata_sha256: "ea3af3535a2fa66e69c5e3b8c94120f6841b9e984f87988f6570bba3fb04da72"
+    access: "public_abstract_metadata"
+    licence: "not_verified_for_fulltext_redistribution"
+    correction_status: "Linked Comment in PMID 24430318 is commentary, not a verified correction; full version audit pending"
+    population: "UK cross-sectional adult GCK cohort and familial/non-GCK comparators, August 2008 to December 2010; age at least 35"
+    evidence_type: "Complication prevalence and severity, not incidence or causal protection"
+    reported_result: null
+    disposition: "hold_full_source_rights_endpoint_denominator_and_disclosure_verification"
+    reason: "Do not copy sparse complication cells, infer endpoint denominators, transport adult GCK outcomes to all monogenic diabetes, or apply aetiologic fractions to complications"
+
+  - id: "PANG-2022"
+    family: "service_use"
+    citation: "Pang et al. Diabetes Care 45:642-649 (2022)"
+    pmid: "35061023"
+    doi: "10.2337/dc21-2056"
+    source_url: "https://pubmed.ncbi.nlm.nih.gov/35061023/"
+    version: "Europe PMC core metadata observed 2026-08-30"
+    publication_date: "2022-03-01 (provider firstPublicationDate)"
+    metadata_sha256: "699655fba44da720063b4707bb56e637164ce886d2a45bb21110d24162ce22be"
+    access: "free_to_read_not_verified_open_licensed"
+    licence: "not_reported_by_europe_pmc"
+    correction_status: "No correction/retraction link in inspected core response; not an exhaustive search"
+    population: "UK genetic-testing referrals 1996-2019; diabetes diagnosed after age one year"
+    evidence_type: "Diagnostic referral pathway, not general service contacts or utilization per person-time"
+    reported_result: null
+    disposition: "hold_exact_referral_unit_denominator_rights_and_capture_verification"
+    reason: "Referral/testing yield is not service need, access equity, treatment benefit or healthcare utilization; no causal attribution to education initiatives"
+
+cross_record_guards:
+  pooling: "prohibited"
+  overlap: "Both extracted records use the same UK cohort; never count them as independent samples. Possible Exeter cohort overlap with earlier aetiologic studies remains unresolved."
+  case_fraction_allocation: "prohibited_for_complications_costs_and_service_use"
+  modelled_results: []
+  parameters: []
+  assumptions: []
+  source_terms: "Free-to-read access is not redistribution permission; no held full-text content retained"
+
+gaps:
+  - "Verify delay time-point semantics and source locations in a second scientific pass before parameter selection"
+  - "Qualify non-sparse complication endpoints and matched denominators from a lawful full source"
+  - "Qualify a service-pathway aggregate with person/event units and capture window; research telephone calls are not healthcare encounters"
+  - "No qualified utilization per person-time, length of stay, treatment-benefit or causal-effect estimate"
+  - "Assess target-population transport, family dependence, source overlap and conflicts of interest before synthesis"
+next_gate: "Exact candidate and owner disposition under issue 261 before any empirical execution; current Track 003 outcome/service task remains in progress"
