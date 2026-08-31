@@ -1,0 +1,79 @@
+schema_version: 1.0.0
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 004-federated-node-runner
+candidate:
+  commit: 3532d3247088ea5cdfa5690657350985461d9693
+  tree: a98f0705bcdf4696b7d4b7a16ea0e4037cce83e3
+  evidence_manifest_sha256: b878a1184131f2d827216cd789b77ba759b662c38c2f90d3cd363b4570e8a964
+panel:
+  perspectives: [engineering_methods, security_data_use, usability_community_harm]
+  non_representation_statement: >-
+    Owner-executed simulated-community challenge; no actual community participation,
+    representation, consultation, endorsement, consent or independent review.
+evidence:
+  references:
+    - docs/track-004-integration-options-2026-09-01.md
+    - manifests/node/track004-integration-options-20260901.json
+    - conductor/tracks/004-federated-node-runner/spec.md
+  observed_facts:
+    - Existing synthetic aggregation, export and durable query-registration primitives are separate.
+    - The reference store does not return a transaction-bound policy snapshot with an operator-pinned expected hash.
+    - The proposal candidate passed full local make check with 1770 tests; no integration was implemented.
+  simulated_assessments:
+    - A makes conservative reservation and failure semantics testable without claiming production trust.
+    - A returned result needs an explicit binding to its committed reservation and reserved policy.
+  cannot_infer:
+    - Owner selection of an option, production contract approval or Track 004 completion.
+    - Custodian authority, actual participation, controlled-data permission or release.
+    - Successful delivery from a reservation receipt, or de-identification from a synthetic label.
+uncertainty:
+  - Identity administration, privileged local actors, database replacement and production recovery remain outside the prototype.
+  - Conservative reservation can consume budget despite no result being delivered.
+dissent: []
+stop_triggers:
+  - Frozen query or policy mismatch, uncertain commit outcome or historical artifact drift.
+  - Weakened controls, automatic refunds/retries, unsupported identity substitution or partial output.
+  - Real-data acceptance, signed-delivery claims or production authority inferred from the prototype.
+options:
+  - id: A
+    title: Implement an additive experimental synthetic integration
+    disposition: narrow
+    trade_offs:
+      - Connects existing primitives but deliberately spends reserved budget even if later work fails.
+      - Produces in-memory results only and cannot certify custody, delivery or differencing protection.
+    contingencies:
+      - Implement only after selection; bind operator policy ID/SHA and analysis/overlap identity separately from the request.
+      - Verify and reserve under one transaction, return the exact immutable policy and commit before aggregation or result.
+      - Bind the result envelope to receipt, policy and execution identities; preserve existing APIs and all six original pending gates.
+      - No refund, automatic retry or replacement store after a committed reservation; stop on uncertain commit.
+    rationale: Test the missing synthetic integration boundary without selecting a production trust root.
+    minimum_evidence:
+      - Transaction-bound policy/hash, immutable-input and result-binding rejection tests.
+      - Replay/concurrency/restart and pre-commit/post-commit failure tests.
+      - Unchanged historical artifacts, aggregate-only suppression and explicit non-production limitations.
+  - id: B
+    title: Prepare a production common-analysis contract candidate
+    disposition: revise
+    trade_offs:
+      - Clarifies production requirements but cannot manufacture missing trust inputs or permissions.
+    contingencies:
+      - Selection permits preparation only; a further exact decision precedes implementation or activation.
+      - Identify actual policy ownership, access, deployment, recovery, export and verification requirements; preserve unknowns.
+    rationale: Expose the factual and architectural prerequisites for a future production route.
+    minimum_evidence:
+      - Traceable candidate contract, failure cases, unresolved-input register and evidence for each trust assumption.
+  - id: C
+    title: Defer integration
+    disposition: defer
+    trade_offs:
+      - Avoids new interface risk but leaves the integration gap open.
+    contingencies:
+      - Preserve existing primitives and receipts; reconsider only with an explicit bounded proposal.
+    rationale: Retain a safe deferral route without waiving current acceptance criteria.
+    minimum_evidence:
+      - Passing existing integrity gates and honest blocked status.
+recommendation:
+  option_id: A
+  rationale: A is a useful bounded prototype with explicit consistency and failure limits, not production activation.
+owner_decision:
+  status: pending

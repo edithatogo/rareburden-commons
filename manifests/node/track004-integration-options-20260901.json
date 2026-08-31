@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "candidate_commit": "3532d3247088ea5cdfa5690657350985461d9693",
+  "candidate_tree": "a98f0705bcdf4696b7d4b7a16ea0e4037cce83e3",
+  "candidate_retention_ref": "refs/tags/evidence/track004-integration-options-2026-09-01",
+  "files": {
+    "docs/track-004-integration-options-2026-09-01.md": "b785ecdc2dc0b09b59f1c7068b860499309e26841a34fa392c941afe286b4cfd"
+  },
+  "proposal_only": true,
+  "option_selected": false,
+  "integration_implemented": false,
+  "production_contract_approved": false,
+  "controlled_data_activation": false,
+  "track_complete": false,
+  "release": false
+}
