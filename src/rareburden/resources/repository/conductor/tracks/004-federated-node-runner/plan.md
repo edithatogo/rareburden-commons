@@ -1,5 +1,12 @@
 # Track 004 plan
 
+## Integration-options preparation — 2026-09-01
+
+- [x] Prepare concrete synthetic integration, production-contract preparation
+  and defer options with failure semantics, acceptance tests and role-separated
+  challenge. Retain an exact-bound pending owner decision packet; no proposed
+  integration is implemented and all six original acceptance gates remain open.
+
 > Repository-owned review uses the advisory agent panel and owner disposition
 > under ADR-0009. Reproduction is owner-operated, not independent. Actual
 > third-party custodian policies, rights and participation remain separate facts.

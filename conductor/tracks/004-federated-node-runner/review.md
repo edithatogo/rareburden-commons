@@ -1,5 +1,22 @@
 # Track 004 dependency review — Federated country-node execution package
 
+## Integration-options preparation — 2026-09-01
+
+`docs/track-004-integration-options-2026-09-01.md` proposes three routes:
+an experimental synthetic durable-policy integration (A), production-contract
+candidate preparation only (B), or deferral (C). A is recommended as a useful
+bounded integration without claiming a production trust boundary. Its explicit
+trade-off includes consumed query budget after a committed reservation even if
+later computation fails. It returns in-memory results only and does not claim
+durable export delivery, authenticated custodians or robust differencing defence
+against operator-controlled identity changes.
+
+This proposal does not select an option, change the original track scope,
+implement the new interface, satisfy the production contract/store tasks or
+authorize node-alpha release. Track 004 remains blocked and all six original
+pending gates remain pending. The exact-bound decision packet retains owner
+selection as pending; original receipts are not transferred to a changed runner.
+
 ## Owner-directed review routing — 2026-08-22
 
 Clinical/scientific, patient/community and data-governance/custodian questions are routed to role-separated advisory agents. Their advice must be presented to the repository owner in an owner decision packet with options, trade-offs, contingencies, uncertainty, dissent and stop triggers. Security/engineering approval is routed to the owner as an owner-operated decision. None of these routes creates independent review, community consent, custodian authority or external scientific approval.
