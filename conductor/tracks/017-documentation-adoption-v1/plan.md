@@ -1,5 +1,18 @@
 # Track 017 plan
 
+## Bounded retained-reference guidance — 2026-08-31
+
+This preparation does not activate Track 017 or consume another Track 003
+analytical run. The original stable-release tasks remain pending.
+
+- [x] Distinguish the public-foundation smoke generator from read-only
+  inspection of the retained Track 003 report, tables and JSON, including
+  full-checkout requirements and synthetic interpretation limits.
+- [x] Verify the documented non-executing route, preserve retained output
+  hashes and add documentation-contract regression tests with advisory review.
+  Evidence: `tests/test_track017_retained_reference_guidance.py`, the updated
+  tutorial/analyst/quickstart guides and the bounded review record.
+
 ## Bounded integrity maintenance — 2026-08-31
 
 - [x] Reconcile registry/setup/index/task-state projections and prospective

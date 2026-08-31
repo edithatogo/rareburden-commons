@@ -1,0 +1,23 @@
+{
+  "scope": "documentation-only retained synthetic evidence inspection",
+  "candidate_commit": "1469a90951f7b920ffa98e09c2f7abe5869868bc",
+  "candidate_tree": "ef85cdbe300247820000f6d8b7cbfd58efa50022",
+  "files_sha256": {
+    "docs/tutorial-reference-workflow.md": "2493f30b5c09e7b35c56fc7ab0be75d7b8c63c0bf8d3c115031bbfc0e9c96129",
+    "docs/guides/analyst.md": "156797e8752e34018ef8134f2604d073d46cb4376e1b6bfb0bd6d412cd2af0ec",
+    "docs/guides/quickstart.md": "6df2bcd8b484514cc4fd33aa181df12095a0f22054079ce9167f2b2976f53dd7",
+    "tests/test_track017_retained_reference_guidance.py": "957145a4bdf807a4bcb7600ca4fa7a41b349c7461d45c680b629d5d06e29ea2a"
+  },
+  "verification": {
+    "command": "uv run --no-sync python -m scripts.check_track003_reference_closeout --root .",
+    "exit_code": 0,
+    "observed_stdout": "Track 003 synthetic package and reproduction evidence passed; no analysis executed",
+    "new_analysis_executed": false,
+    "retained_outputs_unchanged": true,
+    "before_and_after_sha256": {
+      "reference-report.md": "2b1318a462c3ba05e68185e0db03c32320808e10bd82acef824659cc33cabcd2",
+      "reference-results.json": "2045f12db2697d6bba280175470a878a67227a10b34a8542764119c494b9f289",
+      "reference-tables.csv": "315cb384df7be9b2b65387982138f27a6c0a44b4183d12a00407c26cb21dccce"
+    }
+  }
+}

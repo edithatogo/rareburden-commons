@@ -139,3 +139,40 @@ recovery, rollback, correction and withdrawal evidence remains repository
 evidence only. A stable or production decision still requires qualifying
 continuity evidence or a new exact-candidate risk decision, and no stable
 support promise is made here.
+
+## Bounded retained-reference guidance — 2026-08-31
+
+Panel assurance: simulated role-separated advisory panel. The documentation
+author checked consistency; separate engineering and security/novice-user agents
+challenged the route and its claims. All bound candidate
+`1469a90951f7b920ffa98e09c2f7abe5869868bc`, tree
+`ef85cdbe300247820000f6d8b7cbfd58efa50022`, to
+`manifests/release/track017-retained-guidance-inputs-20260831.json` (SHA-256
+`99f3daadcbfb1086a4811b18a076bccd7787a149ebf3222d827faec1e6f6fde5`).
+No blocking finding or dissent remained for this documentation-only slice.
+
+The owner-directed verifier invocation exited zero and all three retained output
+hashes were identical before and after. It used `uv run --no-sync` in the already
+provisioned environment: the same verifier entry point and arguments as the
+guide, not a byte-for-byte test of the guide's outer environment synchronization.
+The five new documentation-contract tests and 42 focused related tests passed.
+No historical analysis was executed, no outputs or receipts were rewritten, and
+the separate public-foundation generator was not used as Track 003 reproduction.
+
+The recommendation is to accept the bounded guidance under the existing
+continuation instruction, or defer it while retaining the older navigation.
+Acceptance improves discoverability without changing scientific scope; deferral
+preserves ambiguity between the two workflows. Minimum evidence is the exact
+reviewed guidance, successful non-executing verification, unchanged historical
+hashes and passing documentation/link checks. Stop on missing full-checkout
+resources, hash mismatch, regeneration instructions or expanded empirical,
+clinical, community or release claims. Human usability, empirical validity and
+stable release readiness remain unestablished.
+
+Owner-executed simulated-community challenge; no actual community participation,
+representation, consultation, endorsement, consent or independent review.
+
+Only two new preparation tasks close: the plan now has 29 completed preparation
+tasks and the original 17 pending tasks. Track 017 remains Planned; no stable
+release, support obligation, owner-risk disposition or original release gate is
+promoted. The evidence-recording commit is later than the reviewed guide candidate.
