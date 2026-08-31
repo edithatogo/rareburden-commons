@@ -2,6 +2,23 @@
 
 ## Bounded threshold integrity review — 2026-08-31
 
+Reviewed candidate: `c3abd9c586f5999c9f9eae88b486545adc8c382f`, tree
+`40e3a24047861c43cde677b0685e35f6396af0a0`. Manifest:
+`manifests/demonstrators/track012-threshold-integrity-20260831.json`, SHA-256
+`844943e594b8b48fca0c67b8b05a5c9c9a261c1f8d29dc86aeed5f019f3e6594`.
+Annotated non-release evidence tag
+`evidence/track012-threshold-integrity-2026-08-31` was pushed and its remote
+peeled commit verified, preserving the candidate across squash and branch cleanup.
+
+Regression evidence: eight failures before the guard, all 17 new cases passing
+after it; 31 focused new/existing cases passed. Root ran
+`PYTEST_ADDOPTS='--timeout=120' uv run --no-sync make check`: 1,749 tests passed
+with all repository gates. The timeout override is local only. Fixture, receipt,
+dependency bindings and all six bound dependency hashes remain unchanged.
+All three advisory agents verified the exact candidate and five manifest hashes
+and recommended bounded acceptance without dissent; security also verified the
+six dependency hashes. Tag publication was subsequently verified by root.
+
 This maintenance tranche enforces the existing integer-at-least-two input
 contract before linked-table processing. It introduces no threshold policy,
 controlled-data pathway, clinical/economic estimand or new retained analysis.
