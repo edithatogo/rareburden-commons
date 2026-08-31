@@ -43,6 +43,18 @@ def validate(root: Path) -> None:
         relative = directory.relative_to(conductor).as_posix()
         if f"](./{relative}/index.md)" not in row[1]:
             raise ValueError(f"{track_id}: registry must link canonical index")
+        expected_title = f"[{metadata['title']}](./{relative}/index.md)"
+        expected_dependencies = {item[:3] for item in metadata["dependencies"]}
+        dependencies = [] if row[6] == "—" else [item.strip() for item in row[6].split(",")]
+        if (
+            row[1] != expected_title
+            or row[3].lower() != metadata["priority"]
+            or row[4] != f"v{metadata['target_release']}"
+            or row[5] != metadata["owner_role"]
+            or len(dependencies) != len(set(dependencies))
+            or set(dependencies) != expected_dependencies
+        ):
+            raise ValueError(f"{track_id}: registry fields differ from metadata")
         index = directory / "index.md"
         if not index.is_file() or not index.read_text(encoding="utf-8").strip():
             raise ValueError(f"{track_id}: missing or empty index")
@@ -91,6 +103,8 @@ def validate(root: Path) -> None:
         ("ready_tracks", "ready"),
         ("blocked_tracks", "blocked"),
         ("planned_tracks", "planned"),
+        ("in_review_tracks", "in_review"),
+        ("proposed_tracks", "proposed"),
     ):
         expected[field] = {i for i, (_, m) in tracks.items() if m["status"] == status}
     for field, values in expected.items():
