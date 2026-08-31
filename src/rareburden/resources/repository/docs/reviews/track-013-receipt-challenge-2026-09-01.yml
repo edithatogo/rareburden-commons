@@ -1,0 +1,71 @@
+schema_version: 1.0.0
+panel_assurance: simulated_role_separated_advisory_panel
+status: advisory_receipt_challenge_passed
+track_id: 013-quality-validation-gap-equity
+criterion_id: 3
+scope: Current criterion-level challenge of the retained Track 003 execution/reproduction receipt, not a new run or output-only review.
+bindings:
+  mapping_path: manifests/quality/track013-reproduction-mapping-20260901.json
+  mapping_sha256: 80e70ae401551114791241b2cd42ac35532cec72a90ed99a03cd6fac7511e405
+  receipt_path: manifests/demonstrators/track-003-reference-execution-2026-08-31.json
+  receipt_sha256: 7be44ac986b5eced46b1b5c3dbd7768457d869472266606ba641c5e8213a3539
+  candidate_commit: 36f97490626747b76543f59c44220544978ef874
+  candidate_tree: 8e70545e1ffa4eb202ad444e3d68d158ce184f82
+  decision_sha256: 16ff18f14b6995139a3baca7b3ec90906e3cad128959ce176e7dbc33b0d3a4d2
+lanes:
+  - agent: node_install_engineering
+    perspective: engineering_methods
+    result: pass
+    findings: []
+    receipt_challenge:
+      - Inspected both successful run records, distinct checkout identities and separate frozen virtual environments against the exact candidate and decision.
+      - Verified all three current output hashes equal both run receipts and the output panel; the non-executing checker passed with simulation forbidden.
+      - The existing two-run record meets criterion 3; another run is neither needed nor authorized by this mapping.
+  - agent: node_policy_security
+    perspective: security_data_use
+    result: pass
+    findings: []
+    receipt_challenge:
+      - Independently hashed the retained receipt and all ten mapping inputs; they match the manifest and unchanged historical bytes.
+      - Verified both exit codes, exact candidate, distinct worktrees/environments and matching outputs; checked current checker/closeout against the superseding binding.
+      - Evidence is same-host owner-operated synthetic reproduction; it supplies no independent, empirical, rights or release authority.
+  - agent: node_operator_docs
+    perspective: usability_community_harm
+    result: pass
+    findings: []
+    receipt_challenge:
+      - Inspected the two-run receipt and existing review chain against criterion 3, and verified the ten bound historical hashes.
+      - Confirmed the mapping closes only reproduction, retains four pending validation tasks and cannot imply real-world benefit or population validity.
+      - The consumed two-copy authorization and same-host limitation remain explicit; no actual participation or independent review is claimed.
+options:
+  - id: A
+    disposition: accept
+    title: Accept the existing receipt for criterion 3 only
+    trade_offs:
+      - Removes a stale reproduction blocker without new execution, but provides only synthetic same-host evidence.
+    contingencies:
+      - Exact receipt, decision, source snapshot and output hashes remain verified and all local/hosted checks pass.
+      - Keep four demonstrator-validation tasks, whole-track completion and release unresolved.
+    rationale: Current agents explicitly challenged the retained execution receipt and its evidence chain, satisfying the criterion's advisory requirement.
+    minimum_evidence: [exact_two_run_receipt, matching_three_file_hashes, current_receipt_specific_agent_challenge]
+  - id: B
+    disposition: defer
+    title: Keep the reproduction task pending if evidence fails
+    trade_offs:
+      - Avoids overstating a receipt that cannot be verified, but delays criterion closure.
+    contingencies:
+      - Record the failure without rewriting history or executing another analysis under consumed authority.
+    rationale: A missing or inconsistent receipt cannot be repaired by an unapproved rerun.
+    minimum_evidence: [specific_missing_or_inconsistent_binding]
+recommendation: A
+uncertainty:
+  - Current agents inspect retained historical receipts; they did not observe or rerun the original executions in this review.
+  - Numerical reproduction does not establish empirical fitness, external validity or cross-platform agreement.
+dissent: []
+stop_triggers: [receipt_or_output_drift, missing_decision_binding, unsupported_claim, failed_validation]
+new_execution: false
+new_owner_decision: false
+independent_review: false
+actual_community_participation: false
+track_complete: false
+release: false

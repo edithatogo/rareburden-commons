@@ -9,8 +9,12 @@ output challenge are retained and linked in
 `docs/track-013-reproduction-reconciliation-2026-09-01.md` and
 `manifests/quality/track013-reproduction-mapping-20260901.json`.
 
-Engineering, security/data-use and usability/harm agents each recommended this
-criterion-level mapping without blocking findings or dissent. The native
+Engineering, security/data-use and usability/harm agents each challenged the
+execution receipt and recommended this criterion-level mapping without blocking
+findings or dissent. Their current receipt-specific findings, exact bindings,
+options, trade-offs and contingencies are retained separately in
+`docs/reviews/track-013-receipt-challenge-2026-09-01.yml`; this advice is not
+inferred from the historical output-only or checker-fix panels. The native
 retained-package verifier checks evidence without re-executing analysis.
 No new authorization is recorded and no historical bytes are regenerated.
 The superseding hosted-fix record supplies the applicable checker/closeout

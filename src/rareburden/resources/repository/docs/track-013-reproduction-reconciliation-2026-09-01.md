@@ -46,6 +46,14 @@ decision, source snapshot or receipt is rewritten by this mapping.
 
 ## Advisory review chain
 
+The current [receipt-specific advisory challenge](reviews/track-013-receipt-challenge-2026-09-01.yml)
+records engineering/methods, security/data-use and usability/harm agents directly
+inspecting the exact execution receipt and its criterion-level applicability.
+It contains each lane's findings and the accept/defer options, trade-offs,
+contingencies and recommendation. This current challenge supplies the
+receipt-review requirement; the historical panels below are supporting evidence,
+not a substitute for receipt-specific advice.
+
 The [original output-panel record](reviews/track-003-reference-output-panel-2026-08-31.yml)
 records three advisory perspectives reviewing the actual outputs:
 

@@ -6,11 +6,37 @@ import hashlib
 import json
 from pathlib import Path
 
+from rareburden.schema import load_mapping
 from scripts import check_track003_reference_closeout as check
 
 ROOT = Path(__file__).resolve().parents[1]
 MAPPING = ROOT / "manifests/quality/track013-reproduction-mapping-20260901.json"
 TRACK = ROOT / "conductor/tracks/013-quality-validation-gap-equity"
+
+
+def test_current_advisory_challenge_binds_the_execution_receipt() -> None:
+    panel = load_mapping(ROOT / "docs/reviews/track-013-receipt-challenge-2026-09-01.yml")
+    bindings = panel["bindings"]
+    assert bindings["mapping_sha256"] == hashlib.sha256(MAPPING.read_bytes()).hexdigest()
+    assert bindings["receipt_path"] == check.RECEIPT
+    assert (
+        bindings["receipt_sha256"]
+        == hashlib.sha256((ROOT / check.RECEIPT).read_bytes()).hexdigest()
+    )
+    assert bindings["candidate_commit"] == check.COMMIT
+    assert bindings["decision_sha256"] == check.DECISION_SHA
+    assert {lane["agent"] for lane in panel["lanes"]} == {
+        "node_install_engineering",
+        "node_policy_security",
+        "node_operator_docs",
+    }
+    assert all(lane["result"] == "pass" and lane["receipt_challenge"] for lane in panel["lanes"])
+    assert [option["id"] for option in panel["options"]] == ["A", "B"]
+    assert panel["recommendation"] == "A"
+    assert panel["new_execution"] is False
+    assert panel["new_owner_decision"] is False
+    assert panel["independent_review"] is False
+    assert panel["track_complete"] is False
 
 
 def test_mapped_historical_package_validates_without_simulation(monkeypatch) -> None:
