@@ -1,0 +1,26 @@
+schema_version: 1.0.0
+applies_to: docs/track-005-method-options-2026-08-31.md
+source:
+  title: Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) statement
+  attribution: Husereau, Drummond, Augustovski and colleagues; The Authors, 2022
+  release: BMC Health Services Research 22, 114 (2022)
+  doi: 10.1186/s12913-021-07460-7
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8793223/
+  licence: CC-BY-4.0
+  licence_url: https://creativecommons.org/licenses/by/4.0/
+retrieval:
+  original_index_check_date: '2026-08-31'
+  licence_recheck_local_date: '2026-09-01'
+  timezone: Australia/Brisbane
+  method: Public web search index for the exact PMCID, including its copyright and licence notice.
+  limitation: Direct PMC opening returned a browser challenge; no full article download or local payload retention.
+transformation:
+  kind: manual_paraphrase
+  description: Selected the perspective and currency/price-date reporting topics and summarized them in original wording; omitted other checklist items.
+  changes_made: true
+  numeric_extraction: false
+retention:
+  scope: Attributed bibliographic facts, licence metadata and the short paraphrase only.
+  source_payload_retained: false
+  scientific_method_adopted: false
+  third_party_material_rights_inferred: false

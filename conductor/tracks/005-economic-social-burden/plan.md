@@ -2,6 +2,10 @@
 
 ## Method-options preparation — 2026-08-31
 
+- [x] Address hosted provenance and candidate-retention findings with an
+  attributed licence/transformation supplement and fresh remote tag readback;
+  preserve the exact proposal bytes and pending owner decision.
+
 - [x] Prepare concrete component-first, bounded synthetic cost-pilot and defer
   options, with implementation limits, acceptance evidence and role-separated
   challenge. Bind the proposal to an exact candidate and retain owner selection

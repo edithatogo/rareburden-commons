@@ -43,3 +43,13 @@ def test_method_options_bind_exact_proposal_without_activation() -> None:
         assert manifest[flag] is False
     for relative, digest in manifest["files"].items():
         assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == digest
+
+
+def test_reporting_context_has_explicit_provenance_without_payload_retention() -> None:
+    provenance = load_mapping(ROOT / "docs/track-005-method-options-provenance-2026-09-01.yml")
+    assert provenance["source"]["licence"] == "CC-BY-4.0"
+    assert provenance["source"]["doi"] == "10.1186/s12913-021-07460-7"
+    assert provenance["transformation"]["kind"] == "manual_paraphrase"
+    assert provenance["transformation"]["changes_made"] is True
+    assert provenance["retention"]["source_payload_retained"] is False
+    assert provenance["retention"]["scientific_method_adopted"] is False

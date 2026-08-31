@@ -13,6 +13,7 @@ panel:
 evidence:
   references:
     - docs/track-005-method-options-2026-08-31.md
+    - docs/track-005-method-options-provenance-2026-09-01.yml
     - manifests/ledger/track005-method-options-20260831.json
     - conductor/tracks/005-economic-social-burden/spec.md
   observed_facts:

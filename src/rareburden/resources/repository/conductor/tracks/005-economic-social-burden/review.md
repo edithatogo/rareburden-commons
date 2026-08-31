@@ -34,6 +34,21 @@ candidate, followed by three focused packet/preparation tests. Local pytest
 used `--timeout=120`; the hosted timeout remains unchanged. Review finalized
 on 2026-09-01; the proposal's 2026-08-31 identity is retained.
 
+### Hosted review corrections — 2026-09-01
+
+The CHEERS reporting-context paraphrase has explicit source/version, attribution,
+CC-BY-4.0 notice, retrieval limitations and manual-paraphrase transformation in
+`docs/track-005-method-options-provenance-2026-09-01.yml`. This supplements the
+unchanged bound proposal; no full article payload or third-party rights are
+inferred. The article's indexed licence notice was rechecked for the exact PMCID.
+
+The declared evidence tag was pushed before PR creation. A separate fresh remote
+clone resolved it to the candidate commit/tree above, matched both manifest file
+hashes and passed `git fsck --full`. The remote annotated tag object is
+`e67c9967bb1ce23486145a8206749fc3751a6cdd`; a review service's truncated snapshot
+does not supply that remote ref. Consumers should fetch
+`refs/tags/evidence/track005-method-options-2026-08-31` explicitly if absent.
+
 ## Bounded integrity review — 2026-08-31
 
 Exact reviewed candidate: `8e1904d7b01638fc54918b68a2f69338c9e9bb36`,
