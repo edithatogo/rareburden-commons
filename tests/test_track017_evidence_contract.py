@@ -9,7 +9,7 @@ TRACK = ROOT / "conductor/tracks/017-documentation-adoption-v1"
 
 def test_track017_plan_retains_append_only_evidence_history() -> None:
     plan = (TRACK / "plan.md").read_text(encoding="utf-8")
-    assert plan.count("- [x]") == 26
+    assert plan.count("- [x]") == 27
     assert plan.count("- [~]") == 0
     assert plan.count("- [ ]") == 17
     for evidence in (
@@ -52,7 +52,7 @@ def test_reconciliation_preserves_planned_status_and_stable_release_boundary() -
         ROOT / "docs/track-017-evidence-contract-reconciliation-2026-08-20.md"
     ).read_text(encoding="utf-8")
     assert metadata["status"] == "planned"
-    assert metadata["updated"] == "2026-08-20"
+    assert metadata["updated"] == "2026-08-31"
     assert "26 completed" in review
     assert "17 pending" in review
     assert "Track 017 remains Planned" in reconciliation

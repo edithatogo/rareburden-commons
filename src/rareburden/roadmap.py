@@ -17,7 +17,7 @@ from .catalog import load_schema, load_yaml
 
 TRACK_ID_RE = re.compile(r"^[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*$")
 SEMVER_RE = re.compile(r"^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$")
-CHECKBOX_RE = re.compile(r"^- \[(?P<state>[ xX])\] ", re.MULTILINE)
+CHECKBOX_RE = re.compile(r"^\s*- \[(?P<state>[ xX~])\] ", re.MULTILINE)
 
 
 class RoadmapValidationError(ValueError):
@@ -84,8 +84,10 @@ def _track_document_errors(track_dir: Path, metadata: dict[str, Any]) -> list[st
         states = [match.group("state").lower() for match in CHECKBOX_RE.finditer(plan)]
         if not states:
             errors.append(f"{track_id}.plan.md: must contain at least one task checkbox")
-        if metadata.get("status") == "complete" and any(state == " " for state in states):
+        if metadata.get("status") == "complete" and any(state != "x" for state in states):
             errors.append(f"{track_id}: complete track has unchecked plan tasks")
+        if metadata.get("status") == "planned" and "~" in states:
+            errors.append(f"{track_id}: planned track has in-progress plan tasks")
 
     if metadata.get("status") == "complete" and not (track_dir / "review.md").is_file():
         errors.append(f"{track_id}: complete track must contain review.md")

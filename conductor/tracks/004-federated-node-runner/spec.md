@@ -25,7 +25,9 @@ Create a portable, inspectable package that allows an approved custodian to run 
 4. Custodian disclosure policy cannot be weakened by an analysis specification.
 5. Synthetic outputs reproduce across supported environments.
 6. Logs contain no participant values, credentials or unsafe small cells.
-7. A second operator can install and run the package from documentation alone.
+7. A separately recorded owner-operated clean-environment run installs and runs
+   the package from documentation alone, with agent-panel challenge and owner
+   disposition under ADR-0009; no second operator or independence is claimed.
 8. A controlled-environment pilot is either completed before v1 or explicitly excluded from the supported v1 claim.
 
 ## Non-goals

@@ -1,5 +1,25 @@
 # Track 017 dependency review — Documentation, adoption and stable v1
 
+## Bounded integrity maintenance — 2026-08-31
+
+Registry, setup state, canonical track indexes and task-state regression checks
+are reconciled in `docs/conductor-integrity-reconciliation-2026-08-31.md`.
+The advisory engineering, governance and simulated-community/usability lanes
+recorded accept recommendations in
+`docs/reviews/conductor-integrity-2026-08-31.yml`, conditional on full validation
+and hosted integration checks. Governance feedback corrected Track 014's stale
+review notice/date; usability feedback clarified the self-assessment label.
+This adds one bounded maintenance task: 27 completed preparation tasks and 17
+pending tasks. Track 017 remains Planned; no stable-release gate is closed.
+Historical dated reviews below are retained unchanged.
+
+Hosted follow-up (PR #277): the checker now compares title, priority, target,
+owner and dependencies as well as status and index. Setup state has explicit
+`in_review_tracks` and `proposed_tracks` inventories, both currently empty.
+Transition regressions prove neither lifecycle state can disappear from the
+projection. Exact follow-up bindings and 35 focused passing tests are recorded
+in `docs/reviews/conductor-integrity-hosted-followup-2026-08-31.yml`.
+
 **Review date:** 2026-08-20
 **Decision:** Bounded repository preparation; stable release not activated
 

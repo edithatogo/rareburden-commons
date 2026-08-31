@@ -275,4 +275,10 @@ track-003-reference-closeout-check:
 
 check: track-003-reference-closeout-check
 
+.PHONY: conductor-integrity-check
+conductor-integrity-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_conductor_integrity.py --root .
+
+check: conductor-integrity-check
+
 release-check: ci build package-check installed-package-check sbom

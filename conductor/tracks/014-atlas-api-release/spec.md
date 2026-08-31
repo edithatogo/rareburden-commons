@@ -25,7 +25,9 @@ Publish reviewed aggregate evidence, estimates and gaps through accessible stati
 4. API and package versions follow compatibility policy.
 5. Static and machine-readable products agree through automated tests.
 6. Accessibility review and documentation tests pass.
-7. Clean-environment build and independent reproduction succeed.
+7. Clean-environment build and a separately recorded owner-operated reproduction
+   succeed, with agent-panel challenge and owner disposition under ADR-0009.
+   Neither report is independent or real-user evidence.
 8. Release contents enforce third-party redistribution conditions.
 
 ## Non-goals

@@ -8,25 +8,25 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 
 | ID | Track | Status | Priority | Target | Owner role | Depends on |
 |---|---|---|---|---|---|---|
-| 001 | Foundation and public-data protocol | Archived | Must | v0.1.0 | Founding team | — |
-| 006 | v1 delivery system and foundation hardening | Complete | Must | v0.2.0 | Product and Engineering Leads | 001 |
-| 002 | Public-source acquisition and provenance adapters | Archived | Must | v0.3.0 | Data Engineering Lead | 001, 006 |
-| 007 | Landscape, adjacency, novelty and partnership map | Archived | Must | v0.3.0 | Programme and Evidence Synthesis Leads | 001, 006 |
-| 018 | Scholarly provenance, protocol transparency and reproducibility | Archived | Must | v0.3.0 | Methods Assurance and Research Software Leads | 001, 006 |
-| 008 | Semantic backbone and burden-purpose hierarchy | Complete (bounded non-clinical core) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 007 |
-| 009 | Evidence and parameter ledger | Complete (bounded synthetic and receipted-public-aggregate scope) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 008 |
-| 010 | Public burden engine and uncertainty framework | Complete (bounded synthetic alpha core) | Must | v0.5.0 | Repository owner (sole accountable human) | 009 |
-| 003 | Monogenic diabetes rare-within-common demonstrator | Complete (synthetic reference; no empirical validation) | Must | v0.5.0 | Repository owner (sole accountable human) | 008, 009, 010 |
-| 004 | Federated country-node execution package | Blocked | Must | v0.6.0 | Repository owner (sole accountable human) | 006, 009, 010 |
-| 011 | Bronchiectasis rare-aetiology demonstrator | Blocked | Must | v0.6.0 | Repository owner (sole accountable human) | 008, 009, 010 |
-| 005 | Patient, family, economic and social burden module | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 009, 010 |
-| 012 | Collective paediatric rare-disease burden demonstrator | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 004, 005, 008, 009, 010 |
-| 013 | Quality, validation, gap mapping and equity assurance | Blocked | Must | v0.8.0 | Repository owner (sole accountable human) | 003, 005, 007, 010, 011, 012 |
-| 014 | Atlas, API and reproducible release engineering | Blocked | Must | v0.8.0 | Repository owner (sole accountable human) | 002, 009, 010, 013 |
-| 015 | Operational governance, partnerships and policy translation | Complete | Must | v0.9.0 | Repository owner (sole accountable human) | 006, 007, 013 |
-| 016 | Security, reliability, performance and operations | Planned | Must | v0.9.0 | Repository owner (sole accountable human) | 004, 014 |
-| 017 | Documentation, adoption, sustainability and stable v1 release | Planned | Must | v1.0.0 | Repository owner (sole accountable human) | 013, 014, 015, 016 |
-| 021 | External governance and partnership activation | Planned | Should | v1.1.0 | Repository owner (sole accountable human) | 015, 017 |
+| 001 | [Foundation and public-data protocol](./archive/001-foundation/index.md) | Archived | Must | v0.1.0 | Founding team | — |
+| 006 | [v1 delivery system and foundation hardening](./archive/006-v1-delivery-system/index.md) | Archived | Must | v0.2.0 | Product and Engineering Leads | 001 |
+| 002 | [Public-source acquisition and provenance adapters](./archive/002-public-source-acquisition/index.md) | Archived | Must | v0.3.0 | Data Engineering Lead | 001, 006 |
+| 007 | [Landscape, adjacency, novelty and partnership map](./archive/007-landscape-novelty/index.md) | Archived | Must | v0.3.0 | Programme and Evidence Synthesis Leads | 001, 006 |
+| 018 | [Scholarly provenance, protocol transparency and reproducibility](./archive/018-scholarly-provenance-reproducibility/index.md) | Archived | Must | v0.3.0 | Methods Assurance and Research Software Leads | 001, 006 |
+| 008 | [Semantic backbone and burden-purpose hierarchy](./tracks/008-semantic-backbone/index.md) | Complete (bounded non-clinical core) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 007 |
+| 009 | [Evidence and parameter ledger](./tracks/009-evidence-parameter-ledger/index.md) | Complete (bounded synthetic and receipted-public-aggregate scope) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 008 |
+| 010 | [Public burden engine and uncertainty framework](./tracks/010-public-burden-engine/index.md) | Complete (bounded synthetic alpha core) | Must | v0.5.0 | Repository owner (sole accountable human) | 009 |
+| 003 | [Monogenic diabetes rare-within-common demonstrator](./tracks/003-monogenic-diabetes-demonstrator/index.md) | Complete (synthetic reference; no empirical validation) | Must | v0.5.0 | Repository owner (sole accountable human) | 008, 009, 010 |
+| 004 | [Federated country-node execution package](./tracks/004-federated-node-runner/index.md) | Blocked | Must | v0.6.0 | Repository owner (sole accountable human) | 006, 009, 010 |
+| 011 | [Bronchiectasis rare-aetiology demonstrator](./tracks/011-bronchiectasis-demonstrator/index.md) | Blocked | Must | v0.6.0 | Repository owner (sole accountable human) | 008, 009, 010 |
+| 005 | [Patient, family, economic and social burden module](./tracks/005-economic-social-burden/index.md) | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 009, 010 |
+| 012 | [Collective paediatric rare-disease burden demonstrator](./tracks/012-paediatric-burden-demonstrator/index.md) | Blocked | Must | v0.7.0 | Repository owner (sole accountable human) | 004, 005, 008, 009, 010 |
+| 013 | [Quality, validation, gap mapping and equity assurance](./tracks/013-quality-validation-gap-equity/index.md) | Blocked | Must | v0.8.0 | Repository owner (sole accountable human) | 003, 005, 007, 010, 011, 012 |
+| 014 | [Atlas, API and reproducible release engineering](./tracks/014-atlas-api-release/index.md) | Blocked | Must | v0.8.0 | Repository owner (sole accountable human) | 002, 009, 010, 013 |
+| 015 | [Operational governance, partnerships and policy translation](./archive/015-governance-partnership-policy/index.md) | Complete | Must | v0.9.0 | Repository owner (sole accountable human) | 006, 007, 013 |
+| 016 | [Security, reliability, performance and operations](./tracks/016-security-reliability-operations/index.md) | Planned | Must | v0.9.0 | Repository owner (sole accountable human) | 004, 014 |
+| 017 | [Documentation, adoption, sustainability and stable v1 release](./tracks/017-documentation-adoption-v1/index.md) | Planned | Must | v1.0.0 | Repository owner (sole accountable human) | 013, 014, 015, 016 |
+| 021 | [External governance and partnership activation](./tracks/021-external-governance-activation/index.md) | Planned | Should | v1.1.0 | Repository owner (sole accountable human) | 015, 017 |
 
 ## Status definitions
 

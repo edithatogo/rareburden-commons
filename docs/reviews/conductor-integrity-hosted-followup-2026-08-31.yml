@@ -1,0 +1,20 @@
+schema_version: "1.0"
+panel_assurance: simulated_advisory_engineering_followup
+base_commit: f58a283f1d21fa4fa863994302dad8b86312db42
+scope: hosted_review_registry_fields_and_all_lifecycle_inventories
+pull_request: https://github.com/edithatogo/rareburden-commons/pull/277
+review_comments:
+  - https://github.com/edithatogo/rareburden-commons/pull/277#discussion_r3891731632
+  - https://github.com/edithatogo/rareburden-commons/pull/277#discussion_r3891731637
+bindings:
+  checker_sha256: bebea80fa1eb0cbf4cbab9e9d98389d254cbd607bda952beb94aabe40ebfd4c2
+  regression_tests_sha256: 5c709056c2edc2d5f5d60cd7019f0df6307e9e293cd86065fabd2b8c13f69d2a
+fixes:
+  - compare_title_priority_target_owner_and_dependencies_as_well_as_status_and_index
+  - require_explicit_in_review_tracks_and_proposed_tracks_setup_inventories
+  - cover_missing_transition_inventory_and_repaired_transition_with_negative_and_positive_tests
+validation:
+  focused_tests_passed: 35
+  full_validation_and_hosted_checks: required_before_merge
+authority_changes: none
+historical_bindings: original_panel_receipt_retained_for_original_commit

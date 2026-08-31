@@ -1,0 +1,46 @@
+schema_version: "1.0"
+panel_assurance: simulated_role_separated_advisory
+base_commit: c453d5d660b7b62a246e5dcb1b7ea5ad21b085e0
+scope: bounded_conductor_integrity_and_existing_review_policy_alignment
+bindings:
+  checker_sha256: 5b3df4af33d60468dc1a15735654aced16f8abc53227447e5033793b1dd6443f
+  track009_checker_sha256: 3868dae9297277e1fb5c24a25759e4f63b15e8d915e7524c8330d15754a26969
+  regression_tests_sha256: 3ffbefa1de57485c5ee4444d94754ddf88940c7de49ce235b87fd34aa13325b4
+  reconciliation_sha256: 88931fd4b0412d5e0105fa2fd22c088e983c39784c62ac2f4f67ff4064a7c64a
+  track014_plan_sha256: cf4fee9ebb07fefdc986507738a6ddb08d6103470331e12a4649e64cec810c99
+  track004_packet_sha256: 12de351991cfc7a9a346e2ef0c3c51f7b65611e0db9016c75ee71749ec908ade
+lanes:
+  engineering:
+    agent: integrity_review
+    recommendation: accept_subject_to_full_validation
+    findings: no_blocking_findings
+    evidence: root_executed_59_focused_tests_passed_python_3_13_13
+  governance:
+    agent: integrity_governance
+    recommendation: accept
+    findings: track014_stale_introduction_and_amendment_date_corrected_and_rechecked
+  simulated_community_usability:
+    agent: integrity_usability
+    recommendation: accept_subject_to_full_validation
+    findings: optional_track004_self_assessment_clarity_fix_applied_and_rechecked
+options:
+  - action: repair
+    recommendation: selected_by_existing_owner_integrity_instruction
+    tradeoff: adds_navigation_and_regression_checks_without_activating_tracks
+  - action: defer
+    tradeoff: preserves_known_status_and_review_instruction_conflicts
+uncertainty:
+  - agent_reviews_are_not_independent_or_real_user_evidence
+  - hosted_checks_and_full_validation_are_separate_integration_requirements
+dissent: none
+stop_triggers:
+  - failed_validation_or_unresolved_hosted_review
+  - unreceipted_pending_gate_promotion
+  - historical_evidence_relabelled_as_independent
+  - inferred_third_party_rights_or_custodian_or_participation_authority
+claims:
+  actual_community_participation: false
+  independent_review: false
+  analytical_execution: false
+  production_activation: false
+  release_authority: false

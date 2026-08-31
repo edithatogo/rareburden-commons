@@ -1,6 +1,10 @@
 # Track 014 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; release, rights, accessibility and independent reproduction gates remain separate.
+> Prospective repository review follows ADR-0009: advisory agent-panel
+> accessibility/usability challenge, separately recorded owner-operated
+> reproduction and owner disposition. Historical receipts keep their original
+> non-independent labels. Release decisions and actual third-party rights or
+> participation remain separate; no new gate is satisfied by this amendment.
 
 ## Phase 1 — Product and information design
 
