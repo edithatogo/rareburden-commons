@@ -1,7 +1,8 @@
 # Track 004 federated-node review packet
 
 **Status:** non-binding preparation; Track 004 remains blocked  
-**Activation rule:** bounded completion of Tracks 009/010 does not authorise a
+**Activation rule:** do not activate a real node or controlled-data pilot.
+Bounded completion of Tracks 009/010 does not authorise a
 real node or controlled-data pilot. Repository review uses advisory agents and
 owner disposition; actual custodian rights, permissions and deployment controls
 remain separately evidence-bound. Controlled-pilot claims are excluded from
@@ -71,6 +72,7 @@ scope change requires a decision and acceptance mapping.
 
 Owner-executed simulated-community challenge; no actual community participation,
 representation, consultation, endorsement, consent or independent review.
+Patient/community needs remain unestablished by this simulated assessment.
 The usability risk is mistaking installation success for safe or authorised use.
 Keep invented fixtures labelled, distinguish suppression from zero, and avoid
 country, patient-benefit or representation claims. Minimum evidence for option 1
