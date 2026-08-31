@@ -1,5 +1,12 @@
 # Track 009 plan
 
+## Bounded storage maintenance — 2026-08-31
+
+- [x] Reject dangling database symlinks and close established connections on
+  initialization failure, with controlled SQLite error reporting and regression
+  tests. Preserve valid storage, schemas, receipt chains and frozen artifacts;
+  this does not extend the completed bounded scope or establish race resistance.
+
 > Repository-owned review uses the subagent panel under ADR-0008; scientific and custodian evidence decisions remain separate.
 
 ## Phase 1 — Information model

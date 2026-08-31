@@ -1,5 +1,26 @@
 # Track 009 dependency review — Evidence and parameter ledger
 
+## Bounded store initialization maintenance — 2026-08-31
+
+This maintenance preserves the completed synthetic and exactly-receipted
+public-aggregate scope. It rejects dangling final-path database symlinks, reports
+SQLite connection/initialization failures through `LedgerStoreError`, and closes
+an established connection before propagating initialization failures. Valid
+storage, schemas, receipt chains, exports and frozen artifacts are unchanged.
+
+The simulated role-separated advisory panel covers engineering, security/data-use
+and usability/harm. Owner-executed simulated-community challenge; no actual
+community participation, representation, consultation, endorsement, consent or
+independent review. The existing owner direction permits bounded repair, not
+new custody or release authority.
+
+Recommendation: deliver the constructor-only repair with failing-then-passing
+regressions and full validation. Alternative: defer broader filesystem hardening
+to a separate scoped review. Remaining risks include parent-directory symlinks,
+check/open races, privileged replacement, access control, backup and signed
+checkpoints. Stop on changed valid receipt hashes, weakened immutable triggers,
+sensitive data or unsupported claims of tamper-proof or custodian-approved storage.
+
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 002 and 008
 
