@@ -9,7 +9,7 @@ TRACK = ROOT / "conductor/tracks/017-documentation-adoption-v1"
 
 def test_track017_plan_retains_append_only_evidence_history() -> None:
     plan = (TRACK / "plan.md").read_text(encoding="utf-8")
-    assert plan.count("- [x]") == 27
+    assert plan.count("- [x]") == 29
     assert plan.count("- [~]") == 0
     assert plan.count("- [ ]") == 17
     for evidence in (
