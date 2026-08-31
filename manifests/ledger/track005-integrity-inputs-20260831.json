@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "bounded synthetic contract integrity only",
+  "candidate_commit": "8e1904d7b01638fc54918b68a2f69338c9e9bb36",
+  "candidate_tree": "3667912a8e65bb6a61535d95f17c95712e9d08cf",
+  "panel_assurance": "simulated role-separated advisory panel",
+  "files": {
+    "src/rareburden/ledger.py": "258b090001c94af919cd3603dd629ee13b93678bc6320e7d23f103652b1db129",
+    "tests/test_ledger_fixed_bounds.py": "8e42c0906a0147c56e1d3d52f5f1cf0eba7303e4cb64098ba004d29b01b2ace2",
+    "tests/test_economic_005_contract_boundaries.py": "7ba2fd70ca3e4d2b7f3fa8b7782a6b1704c6e55cd643f3df87dafd6338c63358",
+    "docs/track-005-economic-review-packet.md": "5083d0a9a911f7c8240f9d662cac07707463b111725a5cd3e54565ee286db915"
+  },
+  "unchanged_frozen_files": {
+    "examples/ledger/economic-social-synthetic.yml": "4d773a9cac101b722d98a5364a279fc5c8c1740b24f8c1c02f7894217b97b29b",
+    "manifests/ledger/track-009-v0.4-economic-social-synthetic.json": "3c4a36431d5f8c992a044e449972907a9b5005f2c733df608556a2ffc8c21da2"
+  },
+  "boundaries": {
+    "new_economic_method": false,
+    "economic_contract_activation": false,
+    "actual_community_participation": false,
+    "independent_review": false,
+    "release": false
+  }
+}

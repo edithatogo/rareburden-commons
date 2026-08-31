@@ -2,6 +2,25 @@
 
 ## Bounded integrity review — 2026-08-31
 
+Exact reviewed candidate: `8e1904d7b01638fc54918b68a2f69338c9e9bb36`,
+tree `3667912a8e65bb6a61535d95f17c95712e9d08cf`.
+Input manifest: `manifests/ledger/track005-integrity-inputs-20260831.json`,
+SHA-256 `d11078abb3445faa8d1dc80688cfad5373b20a43555bcdec0c238e71a733896f`.
+Panel assurance: simulated role-separated advisory panel. Engineering,
+security/data-use and usability/harm agents each verified the candidate and
+all six manifest file hashes and recommended bounded acceptance without dissent.
+The documentation author also supplied the usability challenge; this is not
+independent review. Owner-executed simulated-community challenge; no actual
+community participation, representation, consultation, endorsement, consent or
+independent review.
+
+Root validation: `PYTEST_ADDOPTS='--timeout=120' uv run --no-sync make check`
+passed, including 1,732 tests, frozen-ledger/containment, packaging, benchmark,
+runtime projection and Conductor integrity gates. The timeout override is local
+only; hosted defaults are unchanged. The original fixture and frozen export
+hashes remain identical. The subsequent evidence commit adds this review binding
+and manifest, not a different implementation or scientific artifact.
+
 Tracks 009/010 now have bounded completion evidence; their older blocked status
 below is historical, not the current dependency disposition. Track 005 remains
 **blocked** on its original methods and participation requirements.
