@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "status": "executed_and_separately_reproduced_synthetic_reference",
+  "track_id": "003-monogenic-diabetes-demonstrator",
+  "candidate": {
+    "commit": "36f97490626747b76543f59c44220544978ef874",
+    "tree": "8e70545e1ffa4eb202ad444e3d68d158ce184f82",
+    "evidence_manifest_sha256": "b6f50a8b8b10bddceafd16ddaeee17e77fb6eefb8fbfd724cf747378b5a99911"
+  },
+  "decision": {
+    "path": "docs/decisions/2026-08-31-track-003-reference-execution.json",
+    "sha256": "16ff18f14b6995139a3baca7b3ec90906e3cad128959ce176e7dbc33b0d3a4d2"
+  },
+  "output_directory": "results/track-003-reference-2026-08-31",
+  "observed_completed_at_utc": "2026-08-30T21:03:42Z",
+  "execution_environment": {
+    "python": "3.13.13",
+    "dependency_setup": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--extra",
+      "dev",
+      "--python",
+      "3.13"
+    ],
+    "runtime_check": "Candidate-local .venv, actual Python3.13 and offline frozen dependency check passed before calculation and publication in each execution",
+    "same_host": true,
+    "separate_worktrees": true,
+    "separate_virtual_environments": true,
+    "independent_review": false
+  },
+  "runs": [
+    {
+      "role": "primary",
+      "checkout_id": "rbc-track003-execute.Nx7mEN",
+      "exit_code": 0,
+      "receipt": {
+        "candidate_commit": "36f97490626747b76543f59c44220544978ef874",
+        "decision_sha256": "16ff18f14b6995139a3baca7b3ec90906e3cad128959ce176e7dbc33b0d3a4d2",
+        "output_sha256": {
+          "reference-report.md": "2b1318a462c3ba05e68185e0db03c32320808e10bd82acef824659cc33cabcd2",
+          "reference-results.json": "2045f12db2697d6bba280175470a878a67227a10b34a8542764119c494b9f289",
+          "reference-tables.csv": "315cb384df7be9b2b65387982138f27a6c0a44b4183d12a00407c26cb21dccce"
+        }
+      }
+    },
+    {
+      "role": "separate_reproduction",
+      "checkout_id": "rbc-track003-reproduce.sL2yTn",
+      "exit_code": 0,
+      "receipt": {
+        "candidate_commit": "36f97490626747b76543f59c44220544978ef874",
+        "decision_sha256": "16ff18f14b6995139a3baca7b3ec90906e3cad128959ce176e7dbc33b0d3a4d2",
+        "output_sha256": {
+          "reference-report.md": "2b1318a462c3ba05e68185e0db03c32320808e10bd82acef824659cc33cabcd2",
+          "reference-results.json": "2045f12db2697d6bba280175470a878a67227a10b34a8542764119c494b9f289",
+          "reference-tables.csv": "315cb384df7be9b2b65387982138f27a6c0a44b4183d12a00407c26cb21dccce"
+        }
+      }
+    }
+  ],
+  "comparison": {
+    "exact_inventory": true,
+    "all_three_sha256_equal": true,
+    "retained_analytical_variants": 1,
+    "retained_execution_copies": 2,
+    "extra_executions": 0
+  },
+  "claims": {
+    "synthetic_reference_execution": true,
+    "owner_operated_reproduction": true,
+    "empirical_validity": false,
+    "controlled_data_activation": false,
+    "public_aggregate_execution": false,
+    "clinical_use": false,
+    "independent_review": false,
+    "community_representation": false,
+    "production_release": false
+  },
+  "limitations": [
+    "All numerical inputs are invented; source evidence is descriptive or held and is not executed.",
+    "Two owner-operated executions on one host are not independent validation.",
+    "Historical calculation/manifest status labels are unchanged; this separate receipt establishes execution.",
+    "Public-Git distribution is subject to output review and hosted checks; no production release or empirical activation."
+  ]
+}

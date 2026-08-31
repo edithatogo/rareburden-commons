@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "simulation_status": "simulated_role_separated_advisory_panel",
+  "track_id": "003-monogenic-diabetes-demonstrator",
+  "candidate": {
+    "commit": "36f97490626747b76543f59c44220544978ef874",
+    "tree": "8e70545e1ffa4eb202ad444e3d68d158ce184f82",
+    "evidence_manifest_sha256": "b6f50a8b8b10bddceafd16ddaeee17e77fb6eefb8fbfd724cf747378b5a99911"
+  },
+  "panel": {
+    "perspectives": [
+      "scientific_methods",
+      "engineering_security",
+      "simulated_community_harm"
+    ],
+    "non_representation_statement": "Role-separated advisory agents are not independent people and do not provide actual community participation, endorsement or external approval."
+  },
+  "evidence": {
+    "references": [
+      "manifests/demonstrators/track-003-reference-candidate.json",
+      "docs/reviews/track-003-reference-package-panel-2026-08-30.yml",
+      "docs/reviews/track-003-reference-runner-panel-2026-08-30.yml",
+      "docs/track-003-reference-package-plan-2026-08-30.md",
+      "docs/track-003-reference-runner-contract-2026-08-30.md",
+      "https://github.com/edithatogo/rareburden-commons/pull/274",
+      "https://github.com/edithatogo/rareburden-commons/pull/275",
+      "docs/reviews/track-003-reference-package-hosted-fixes-2026-08-30.yml"
+    ],
+    "observed_facts": [
+      "Full local make check passed all gates and 1595 tests on Python 3.13 after the hosted-review fixes.",
+      "The candidate manifest regenerates exactly and binds 74 files and 12 scenarios.",
+      "No governed reference package has been executed or retained.",
+      "All four post-merge workflows passed on commit 36f97490626747b76543f59c44220544978ef874: continuous integration 33303291215, CodeQL 33303291225, quality frontier 33303291202 and OpenSSF Scorecard 33303291204. Local main is clean and synchronized; the merged implementation worktree and branch are removed, with the unrelated worktree preserved.",
+      "PRs 274 and 275 are merged. PR 275 merged at 2026-08-30T09:08:03Z; its merge tree exactly matches reviewed head 282012908c86366ae4d0c3c3d8cd2484f584913c. All PR checks passed, with the non-applicable bounded mutation job skipped."
+    ],
+    "simulated_assessments": [
+      "All three advisory perspectives recommend bounded execution subject to exact disposition, output inspection and separate reproduction.",
+      "Evidence-family and lawful-comparison applicability are documented noncomparability dispositions, not empirical agreement testing.",
+      "Final acceptance must be checked against every original Track 003 requirement; synthetic preparation alone does not complete the track."
+    ],
+    "cannot_infer": [
+      "Empirical or clinical validity",
+      "Source rights or controlled-data permission",
+      "Independent review or actual community representation",
+      "Production release or external deployment",
+      "Completion before output review and reproduction"
+    ]
+  },
+  "uncertainty": [
+    "All numerical inputs are invented assumptions and structural/fixed assumptions retain unquantified uncertainty.",
+    "Source-specific rights, correction, population transport and service-use evidence gaps remain open.",
+    "Reproducible synthetic output does not validate empirical population estimates."
+  ],
+  "dissent": [
+    "Standing autonomous instructions were considered potentially sufficient by one advisory interpretation; the stricter sequencing rule requires an attributable owner selection after exact-candidate advice. No selection, timestamp or unseen-hash inspection has been fabricated."
+  ],
+  "stop_triggers": [
+    "Candidate commit/tree/manifest or decision-byte drift",
+    "Output inventory or reproduction digest mismatch",
+    "Unsupported observed, clinical, community or empirical claims",
+    "Missing assumptions, units, unknown-state labels or source limitations",
+    "Additional retained analytical variants beyond the specified package and reproduction",
+    "Unresolved blocking output-review finding or unmet original acceptance requirement"
+  ],
+  "options": [
+    {
+      "id": "A",
+      "title": "Execute and retain exact synthetic package",
+      "disposition": "accept",
+      "trade_offs": [
+        "Complete the synthetic reference workflow while preserving all empirical and external-evidence limitations.",
+        "Retain one three-file package and one separate reproduction copy; public Git distribution occurs only after output review and hosted checks."
+      ],
+      "contingencies": [
+        "Run only the exact bound candidate with seed 20260830 and 10000 iterations.",
+        "Verify exact three-file reproduction hashes and complete scientific, engineering and simulated-harm output review.",
+        "Proceed to Track 003 completion only after every original acceptance criterion and the documented noncomparability disposition are explicitly adjudicated; stop on unresolved findings."
+      ],
+      "rationale": "The original Track 003 specification permits a full synthetic reference analysis and labelled outcome/cost scenarios; this exact candidate implements that scope without empirical promotion.",
+      "minimum_evidence": [
+        "Matching commit, tree and manifest SHA-256",
+        "Passing local and hosted checks",
+        "Attributable owner selection of this exact option",
+        "Genuine execution/hash receipts and separate clean reproduction",
+        "Final reviewed outputs and complete acceptance mapping"
+      ]
+    },
+    {
+      "id": "B",
+      "title": "Revise or defer the exact package",
+      "disposition": "defer",
+      "trade_offs": [
+        "No governed package is retained and Track 003 remains incomplete."
+      ],
+      "contingencies": [
+        "Specify the numerical, interpretive or execution-scope concern; prepare and review a revised exact candidate."
+      ],
+      "rationale": "Use this option if the current synthetic design, evidence disposition or retention scope is not acceptable.",
+      "minimum_evidence": [
+        "A stated reason and the required change or missing evidence"
+      ]
+    }
+  ],
+  "recommendation": {
+    "option_id": "A",
+    "rationale": "All three advisory perspectives support the precisely bound synthetic execution, reproduction and reviewed public-retention route while keeping unsupported claims false."
+  },
+  "owner_decision": {
+    "status": "recorded",
+    "selected_option_id": "A",
+    "decided_by": "edithatogo",
+    "decided_at_utc": "2026-08-30T20:54:19Z",
+    "rationale": "Owner explicitly replied 'I approve option A.' after presentation of this exact candidate and Option A scope. Recorded at the stated UTC time (recording time, not an asserted message-send timestamp). Authorizes the three-file synthetic package, one clean reproduction, agent output review, reviewed public-Git retention and completion only if every original acceptance criterion passes; no empirical, clinical, independent-review, community or third-party authority is inferred."
+  }
+}

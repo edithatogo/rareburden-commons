@@ -114,3 +114,57 @@ advisory bindings in
 `docs/reviews/track-003-reference-package-hosted-fixes-2026-08-30.yml`.
 The candidate manifest is superseded by its updated content hash; no previously
 pending disposition becomes accepted because of these fixes.
+
+## Executed reference and final acceptance — 2026-08-31
+
+The owner explicitly approved Option A for commit
+`36f97490626747b76543f59c44220544978ef874`, tree
+`8e70545e1ffa4eb202ad444e3d68d158ce184f82` and manifest
+`b6f50a8b8b10bddceafd16ddaeee17e77fb6eefb8fbfd724cf747378b5a99911`.
+The exact decision is retained at
+`docs/decisions/2026-08-31-track-003-reference-execution.json`.
+
+Two actual executions in separate clean Python 3.13.13 environments reproduced
+the three output hashes exactly. All three output-panel lanes passed without
+blocking findings. Evidence is retained in
+`manifests/demonstrators/track-003-reference-execution-2026-08-31.json` and
+`docs/reviews/track-003-reference-output-panel-2026-08-31.yml`.
+
+The eight original criteria and all evidence-family/comparison dispositions are
+explicitly adjudicated in `docs/track-003-reference-closeout-2026-08-31.md`.
+The lawful comparison is an applicability/noncomparability assessment, never
+empirical agreement testing. Source-specific holds remain genuine external gaps,
+not fabricated evidence. This accepts the original permitted synthetic reference
+scope; it does not remove original deliverables or grant empirical authority.
+
+The retained-evidence validator checks pinned candidate, decision, output and
+receipt identities without another analytical run. Its initial presentation
+comparison exposed JSON-sorted metric order; restoring the bound metric order
+fixed the validator, leaving reviewed outputs unchanged. Twelve focused integrity
+tests pass, including rejection of altered output, decision, run identity,
+reproduction hash and unsupported claims. The unchanged candidate preflight
+passed 1,595 tests. Full closeout validation and hosted checks are merge gates.
+
+Apply the already recorded Option A conditions to this evidence: permit reviewed
+public-Git retention and original-scope completion when the merge gates pass.
+No new owner statement is asserted. Calculation permission flags and historical
+candidate documents remain unchanged. Residual limitations include invented
+uncertainty, uncalibrated structure, same-host owner-operated reproduction,
+unresolved empirical sources and absent actual community/independent authority.
+No production tag, empirical activation, controlled-data execution or clinical
+claim is authorized by this closeout.
+
+PR #276 Windows CI exposed host-specific path separators. Hosted P1 review also
+identified that verifying historical files against current source would block
+future development. The checker now reads a content-pinned, POSIX-named tar
+snapshot of exactly the 74 approved files, exported from the approved Git commit.
+It never imports, executes or extracts archived Python. Tests reject unsafe
+members and verify that current source files are not consulted. Historical
+candidate, decision, receipt and output bytes remain unchanged.
+
+Hosted P2 review requested provenance for the GitHub observations. A fresh dated
+CLI capture records selected PR/workflow status fields, exact heads, retrieval
+event and transformation/retention disposition. This corroborates prior facts
+without inventing their original capture time or changing the approved decision.
+Evidence: `manifests/demonstrators/track-003-hosted-observations-2026-08-31.json`.
+Full validation and hosted rerun remain required before merge.

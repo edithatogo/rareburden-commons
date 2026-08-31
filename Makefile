@@ -269,4 +269,10 @@ track-003-continuation-check:
 
 check: track-003-continuation-check
 
+.PHONY: track-003-reference-closeout-check
+track-003-reference-closeout-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track003_reference_closeout.py --root .
+
+check: track-003-reference-closeout-check
+
 release-check: ci build package-check installed-package-check sbom
