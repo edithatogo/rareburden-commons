@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1.0",
+  "candidate_commit": "1ed8ed425120f31f6d812230e924de6f3ca7b25f",
+  "candidate_tree": "cdf9d0fca1995d82bd649cc51ba06174bd9acb21",
+  "candidate_retention_ref": "refs/tags/evidence/track005-method-options-2026-08-31",
+  "files": {
+    "docs/track-005-method-options-2026-08-31.md": "f2bdc098aeaad2a905d4a23ea9ccfb1b6c8c3fe2d3ef9a759e1dd2a0c4cbe8b4",
+    "examples/ledger/economic-social-synthetic.yml": "4d773a9cac101b722d98a5364a279fc5c8c1740b24f8c1c02f7894217b97b29b"
+  },
+  "proposal_only": true,
+  "option_selected": false,
+  "method_implemented": false,
+  "economic_activation": false,
+  "controlled_data_activation": false,
+  "track_complete": false,
+  "release": false
+}

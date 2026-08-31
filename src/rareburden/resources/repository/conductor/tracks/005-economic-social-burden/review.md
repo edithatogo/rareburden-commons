@@ -1,5 +1,54 @@
 # Track 005 dependency review — Patient, family, economic and social burden module
 
+## Method-options preparation — 2026-08-31
+
+`docs/track-005-method-options-2026-08-31.md` defines three proposed next scopes:
+an additive component-first validation prototype (A), a separately specified
+single-component invented cost pilot (B), or deferral (C). The recommendation is
+A because it exposes quantity/context/missingness requirements without choosing
+valuation or producing an aggregate. The trade-off is a new experimental
+contract surface, not an economic result. Unresolved field definitions remain
+candidate material for challenge, not frozen scientific defaults.
+
+This is preparation under the owner's continuation direction. It does not
+record an option selection, adopt a method, change the frozen ledger, activate
+data or satisfy actual co-design. Track 005 remains blocked and its original
+method/participation tasks remain pending. The exact option packet will retain
+`owner_decision.status: pending`; a later scope-matched decision is required
+before implementing the proposed contract or calculation.
+
+Exact proposal candidate: `1ed8ed425120f31f6d812230e924de6f3ca7b25f`, tree
+`cdf9d0fca1995d82bd649cc51ba06174bd9acb21`, retained at
+`refs/tags/evidence/track005-method-options-2026-08-31`.
+Manifest: `manifests/ledger/track005-method-options-20260831.json`, SHA-256
+`3b72d6ece646ba56e96cc872ab3a43f502f2df679b75935f970e50af8b353127`.
+The machine-readable packet is
+`docs/decisions/2026-08-31-track-005-method-options.yml`.
+
+The engineering/methods, security/data-use and usability/community-harm agents
+each verified this binding and reported no blocking finding or dissent. This
+is simulated role-separated advisory challenge, not independent review or
+actual community participation. All three preserve owner selection as pending.
+Root validation passed the full `make check` (1,761 tests) on the proposal
+candidate, followed by three focused packet/preparation tests. Local pytest
+used `--timeout=120`; the hosted timeout remains unchanged. Review finalized
+on 2026-09-01; the proposal's 2026-08-31 identity is retained.
+
+### Hosted review corrections — 2026-09-01
+
+The CHEERS reporting-context paraphrase has explicit source/version, attribution,
+CC-BY-4.0 notice, retrieval limitations and manual-paraphrase transformation in
+`docs/track-005-method-options-provenance-2026-09-01.yml`. This supplements the
+unchanged bound proposal; no full article payload or third-party rights are
+inferred. The article's indexed licence notice was rechecked for the exact PMCID.
+
+The declared evidence tag was pushed before PR creation. A separate fresh remote
+clone resolved it to the candidate commit/tree above, matched both manifest file
+hashes and passed `git fsck --full`. The remote annotated tag object is
+`e67c9967bb1ce23486145a8206749fc3751a6cdd`; a review service's truncated snapshot
+does not supply that remote ref. Consumers should fetch
+`refs/tags/evidence/track005-method-options-2026-08-31` explicitly if absent.
+
 ## Bounded integrity review — 2026-08-31
 
 Exact reviewed candidate: `8e1904d7b01638fc54918b68a2f69338c9e9bb36`,
