@@ -1,6 +1,8 @@
 # Track 004 plan
 
-> Repository-owned review uses the subagent panel under ADR-0008; custodian, patient/community and independent-operation gates remain separate.
+> Repository-owned review uses the advisory agent panel and owner disposition
+> under ADR-0009. Reproduction is owner-operated, not independent. Actual
+> third-party custodian policies, rights and participation remain separate facts.
 
 ## Phase 1 — Node contracts and threat model
 
@@ -91,7 +93,9 @@
 
 - [x] Write draft operator, data-steward and export-review guidance. Evidence: `docs/federated-node-004-operator-guide.md` and threat model; approval remains open.
 - [x] Complete repeatable two-invocation synthetic-node execution. Evidence: `docs/federated-node-004-independent-synthetic-run.md` and `make node-reproducibility`.
-- [ ] Complete second-operator installation and synthetic-node execution on a supported environment.
+- [ ] Complete a separately recorded owner-operated clean-environment installation
+  and synthetic-node execution from documentation on a supported environment,
+  with agent-panel challenge and owner disposition; do not claim independence.
 - [x] Prepare non-binding controlled-environment pilot protocol and application pack. Evidence: `docs/federated-node-004-pilot-application-draft.md`; approval and activation remain external-gated.
 - [x] Retain the controlled-pilot gate for post-v1 work and define the bounded-scope reconsideration checkpoint. Evidence: `docs/decisions/ADR-0003-retain-controlled-pilot-gate.md` and `docs/decisions/ADR-0005-bound-v1-scope.md`.
 - [x] Remove controlled-pilot claims from stable v1 scope. Evidence: ADR-0005; controlled pilot authorization and execution remain post-v1 gates.

@@ -4,7 +4,7 @@
   "status": "planned",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-21",
+  "updated": "2026-08-31",
   "target_release": "0.9.0",
   "stage": "production_hardening",
   "owner_role": "Repository owner (sole accountable human)",

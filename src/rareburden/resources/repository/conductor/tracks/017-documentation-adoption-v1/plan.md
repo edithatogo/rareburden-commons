@@ -1,5 +1,12 @@
 # Track 017 plan
 
+## Bounded integrity maintenance — 2026-08-31
+
+- [x] Reconcile registry/setup/index/task-state projections and prospective
+  agent-review language under ADR-0009; add offline regression checks and
+  retain historical evidence, dependency and release boundaries. Evidence:
+  `docs/conductor-integrity-reconciliation-2026-08-31.md`.
+
 > Review uses role-separated agent panels and the repository-owner disposition
 > under ADR-0009. No independent or additional-person review is required.
 

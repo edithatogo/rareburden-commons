@@ -5,11 +5,13 @@
 > evidence is allowed and labelled; security/operator review is agent-panel and
 > owner-operated. Recovery procedures do not create a backup owner.
 
-> **Status scope (2026-08-22):** every task below is checked as bounded
-> repository-local preparation only. Track 016 remains **Planned** with
-> hardening not activated: independent security review, backup/restore and
-> rollback evidence, Tracks 004/014 completion and release-authority approval
-> stay open per `review.md`. Checked items are not completion evidence.
+> **Status scope (2026-08-31):** checked tasks record bounded repository-local
+> preparation only. Unstarted qualifying gates remain pending, not in progress.
+> Track 016 remains **Planned** with hardening not activated. Candidate-bound
+> agent-panel security challenge, owner-operated recovery evidence, Tracks
+> 004/014 completion and the owner's release decision remain required.
+> Historical independent-receipt language below is retained as history, not
+> an additional-person requirement; ADR-0009 governs prospective review.
 
 ## Phase 1 — Threat model and support scope
 
@@ -152,7 +154,7 @@
   unassigned-backup contingency. Evidence:
   `docs/decisions/2026-08-03-owner-operated-operations-acceptance.md`; this
   does not close the qualifying operational-owner gate.
-- [~] Complete qualifying independent security/operator challenge before
+- [ ] Complete qualifying agent-panel security/operator challenge and owner disposition before
   activation. Owner-operated exact-candidate exercises pass in
   `docs/track-016-owner-operated-exercise-receipt-2026-08-16.json`, and the
   repository-owner disposition is recorded separately; neither is independent
@@ -225,13 +227,14 @@
   owner-incapacity, credential-compromise and recovery controls that confer no
   repository authority. Evidence:
   `docs/decisions/ADR-0011-single-accountable-human-enforcement.md`.
-- [~] Obtain qualifying independent-operator and independent-security receipts
-  against the same exact candidate.
-- [~] Exercise qualifying production operations after Tracks 004 and 014 are
+- [ ] Obtain qualifying owner-operated reproduction and agent-panel security
+  challenge receipts against the same exact candidate, with owner disposition;
+  no independent review is claimed.
+- [ ] Exercise qualifying production operations after Tracks 004 and 014 are
   complete and record the production-environment receipt.
 - [x] Record the repository owner's exact-candidate disposition, explicitly as
   owner-operated governance. Evidence:
   `docs/decisions/2026-08-21-track-016-owner-exact-candidate-disposition.md`
   binds PR #165's merge commit, tree and evidence hashes for 30 days. It is not
   independent review, production approval or release authority.
-- [~] Obtain separate release authority after all qualifying gates are satisfied.
+- [ ] Record the owner's exact-candidate release decision after all qualifying gates are satisfied.

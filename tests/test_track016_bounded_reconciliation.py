@@ -21,12 +21,12 @@ def _payload() -> dict:
 
 def test_track016_plan_preserves_open_review_and_authority_gates() -> None:
     plan = PLAN.read_text(encoding="utf-8")
-    assert "- [ ]" not in plan
-    assert plan.count("- [~]") == 4
-    assert "Complete qualifying independent security/operator challenge" in plan
-    assert "Obtain qualifying independent-operator and independent-security receipts" in plan
+    assert plan.count("- [ ]") == 4
+    assert "- [~]" not in plan
+    assert "Complete qualifying agent-panel security/operator challenge" in plan
+    assert "Obtain qualifying owner-operated reproduction and agent-panel security" in plan
     assert "Exercise qualifying production operations after Tracks 004 and 014" in plan
-    assert "Obtain separate release authority" in plan
+    assert "Record the owner's exact-candidate release decision" in plan
     assert "Supersede the proposed private backup-owner role" in plan
     assert "owner-operated governance, not release authority" in plan
 

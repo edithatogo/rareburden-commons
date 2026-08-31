@@ -107,7 +107,8 @@ def validate_completion_state(root: Path) -> None:
     registry = (root / REGISTRY).read_text(encoding="utf-8")
     review = (root / REVIEW).read_text(encoding="utf-8")
     expected_registry = (
-        "| 009 | Evidence and parameter ledger | Complete "
+        "| 009 | [Evidence and parameter ledger]"
+        "(./tracks/009-evidence-parameter-ledger/index.md) | Complete "
         "(bounded synthetic and receipted-public-aggregate scope) |"
     )
     if metadata.get("status") != "complete":

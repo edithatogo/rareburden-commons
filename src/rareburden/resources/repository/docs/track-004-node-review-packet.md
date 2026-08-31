@@ -12,11 +12,15 @@ scientific and engineering gates are complete.
 | Common analysis contract | Versioned manifest, ledger/semantic IDs and supported outputs | approve, revise or reject |
 | Custodian disclosure policy | Thresholds, allowlists, differencing/query budgets and export checklist | approve, revise or reject |
 | Data governance and pilot | Lawful basis, retention, withdrawal, access, backup and custodian authority | approve, narrow or stop |
-| Patient/community use and harms | Acceptable-use, equity, interpretation and framing review | approve, revise or dissent |
+| Community-impact self-assessment | Acceptable-use, equity, interpretation and framing challenge | approve, revise or dissent |
 | Security and supply chain | Threat model, redaction, locked wheelhouse, signing/attestation and incident plan | approve or revise |
-| Independent operation | Second operator installation and synthetic receipt on a supported environment | pass, revise or fail |
+| Owner-operated reproduction | Separately recorded clean-environment installation and synthetic receipt, with agent-panel challenge; no independence claim | pass, revise or fail |
 
 ## Repository evidence
+
+Community-impact self-assessment is an owner-executed simulated-community
+challenge; no actual community participation, representation, consultation,
+endorsement, consent or independent review is claimed.
 
 - Strict input/output, execution-manifest and disclosure-policy schemas.
 - Aggregate-only synthetic cohort and offline runner with participant-field,
