@@ -1,5 +1,12 @@
 # Track 009 plan
 
+## Bounded export maintenance — 2026-09-01
+
+- [x] Reject dangling final-path export symlinks consistently with existing-target
+  symlinks, preserving the link and target. Retain ordinary new-file export and
+  regular-file replacement. This repairs destination validation only; it does
+  not extend bounded completion, custody, parent-path or race-resistance claims.
+
 ## Bounded storage maintenance — 2026-08-31
 
 - [x] Reject dangling database symlinks and close established connections on

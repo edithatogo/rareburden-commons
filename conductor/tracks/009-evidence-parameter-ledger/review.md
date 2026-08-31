@@ -1,5 +1,47 @@
 # Track 009 dependency review — Evidence and parameter ledger
 
+## Bounded export destination maintenance — 2026-09-01
+
+The export destination guard now rejects all final-path symlinks, including
+dangling links. Previously a dangling link was replaced by the export itself;
+the missing target was not created. Existing-target links were already rejected.
+This is inconsistent destination validation, not a write-through vulnerability.
+
+Three actual role-separated advisory agents reviewed engineering, security and
+usability/harm boundaries. Engineering observed one failing regression before
+the fix (11 others passed), then all 12 focused tests passed. Security and
+usability/harm reviewed the change and preservation coverage without rerunning
+those tests. No blocking findings or dissent remained. No actual community
+participation, representation, independent review or custodian authority is
+claimed. The existing owner direction authorizes this bounded integrity repair.
+
+Reviewed file SHA-256 bindings:
+
+- `src/rareburden/ledger_store.py`:
+  `bc16aad6494c926104c8d9b617f24762f975d8cd8a30b3836dff330f4312c6f5`
+- `tests/test_ledger_store.py`:
+  `e7f8464d9264605af8eb117c7d372fa92ca1121209daac79b31a65e111c735d7`
+- `docs/evidence-ledger-009-reference.md`:
+  `0d7f3e19869cd2c7b83f1a419784ff0543e6cb4c41b41deb86574fd150a99b0b`
+
+Hosted Windows testing exposed a test-only path-spelling assumption: `readlink`
+returns an extended Windows path. The regression now compares the link's value
+before and after rejection, without normalizing away a change or requiring a
+particular path spelling. All 12 focused tests passed locally after correction;
+the production guard is unchanged. The initial full local gate passed 1,776
+tests; hosted Windows had 1,774 passes and these two assertion failures before
+the correction. Hosted verification of the corrected assertion is separate.
+
+Recommendation: accept the minimal guard repair with preservation regressions;
+deferring it leaves inconsistent link handling. Broader filesystem confinement
+is a separate design, not a condition silently satisfied here. Ordinary new
+exports and intentional regular-file replacement remain supported. Stop if
+valid receipt/export bytes change, a link or target is modified on rejection,
+or tests indicate unsupported platform behavior. Parent-directory symlinks,
+check/replace races and privileged replacement remain limitations. Frozen
+contracts and historical evidence are unchanged; bounded completion scope,
+empirical fitness, activation and release authority are not extended.
+
 ## Bounded store initialization maintenance — 2026-08-31
 
 Reviewed candidate: `7539bc7c4d2400daaee8cad187bd18697f9ce534`, tree
