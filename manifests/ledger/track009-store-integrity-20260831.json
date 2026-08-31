@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "bounded ledger store initialization maintenance only",
+  "candidate_commit": "7539bc7c4d2400daaee8cad187bd18697f9ce534",
+  "candidate_tree": "a41978e2b40a468afbb429c3179866d5e481e21d",
+  "candidate_retention_ref": "refs/tags/evidence/track009-store-integrity-2026-08-31",
+  "panel_assurance": "simulated role-separated advisory panel",
+  "files": {
+    "src/rareburden/ledger_store.py": "2bf55d4c9a14fc02cfee163c33670f7ab95f433560e0d0a20f02bee9022ff9c5",
+    "tests/test_ledger_store_initialization.py": "0963bfe306bf9066a6881d2976b4c559d3444c6b8e28747cf67d5e090105261f"
+  },
+  "unchanged_frozen_manifests": {
+    "manifests/ledger/track-009-v0.4-contract-freeze.json": "0b655589377921e55b88109aa121be6070718d6ebf21bc31602019a25039557a",
+    "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json": "82cc034860818d315a514220276658056f398df809f3884f02c4f91c02b74ec5"
+  },
+  "controlled_data_activation": false,
+  "filesystem_race_resistance": false,
+  "independent_review": false,
+  "actual_community_participation": false,
+  "release": false
+}

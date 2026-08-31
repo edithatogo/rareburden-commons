@@ -2,6 +2,24 @@
 
 ## Bounded store initialization maintenance — 2026-08-31
 
+Reviewed candidate: `7539bc7c4d2400daaee8cad187bd18697f9ce534`, tree
+`a41978e2b40a468afbb429c3179866d5e481e21d`. Manifest:
+`manifests/ledger/track009-store-integrity-20260831.json`, SHA-256
+`f4ce136884bcb11025e19667bb3561e00696200d2b4f2aea8bcdc1322d87ba9d`.
+Annotated non-release tag `evidence/track009-store-integrity-2026-08-31` was
+pushed; a separate remote clone fetched it and resolved the exact commit/tree.
+`git fsck --connectivity-only` passed. Retain this evidence tag during branch
+cleanup; shallow/tag-excluding clones must explicitly fetch it.
+
+Regression evidence: nine failures before the fix, all 12 new cases passing
+afterward; 21 focused new/existing store tests passed. Root ran
+`PYTEST_ADDOPTS='--timeout=120' uv run --no-sync make check`: 1,761 tests and all
+repository gates passed. This timeout override is local only; hosted defaults
+are unchanged. Freeze and candidate manifests retain their original hashes.
+All three agents verified the exact candidate and four manifest hashes and
+recommended bounded acceptance without dissent. Security additionally verified
+all 15 artifact-hash references in the frozen contract/candidate manifests.
+
 This maintenance preserves the completed synthetic and exactly-receipted
 public-aggregate scope. It rejects dangling final-path database symlinks, reports
 SQLite connection/initialization failures through `LedgerStoreError`, and closes
