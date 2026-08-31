@@ -102,13 +102,14 @@ def test_export_rejects_symlinks_without_changing_link_or_target(
         if getattr(error, "winerror", None) == 1314:
             pytest.skip("symlink creation is not permitted on this platform")
         raise
+    original_link = destination.readlink()
     with (
         DurableLedgerStore(tmp_path / "ledger.sqlite3") as store,
         pytest.raises(LedgerStoreError, match="export destination is unsafe"),
     ):
         store.export_jsonl(destination)
     assert destination.is_symlink()
-    assert destination.readlink() == target
+    assert destination.readlink() == original_link
     assert target.exists() is target_exists
     if target_exists:
         assert target.read_bytes() == original
