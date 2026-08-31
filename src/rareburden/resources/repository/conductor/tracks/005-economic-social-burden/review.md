@@ -1,5 +1,32 @@
 # Track 005 dependency review — Patient, family, economic and social burden module
 
+## Bounded integrity review — 2026-08-31
+
+Tracks 009/010 now have bounded completion evidence; their older blocked status
+below is historical, not the current dependency disposition. Track 005 remains
+**blocked** on its original methods and participation requirements.
+
+This tranche corrects the review packet to the actual invented `SYN` fixture,
+tests cost rejection by both count estimands before sampling and explicit context
+failures, and rejects fixed values outside explicitly declared bounds at ledger
+load. Equality, zero, permitted negative values and other distribution semantics
+are preserved. No fixture, schema, valuation, conversion or economic calculation
+is introduced or changed.
+
+The engineering agent observed five failing regression cases before the fix and
+36 passing new/existing ledger tests after it. The security agent's five economic
+boundary tests passed and its separate cross-review found no blocking issue.
+The documentation agent corrected unsupported machine-readable field claims and
+passed the existing preparation contract. These are repository advisory roles,
+not independent review, actual co-design, community endorsement or rights evidence.
+
+Recommendation: deliver this structural safeguard under the existing bounded
+implementation authority. Alternative: defer new economic-method work while
+retaining the current fixture. Valuation, perspectives, overlap/missingness,
+distributional reporting and actual participation remain unresolved; no dissent
+was reported on the bounded repair. Stop if a later change introduces monetary
+defaults, unsupported aggregation, sensitive data or manufactured participation.
+
 ## Owner-directed review routing — 2026-08-22
 
 Clinical/scientific, patient/community and data-governance/custodian questions are routed to role-separated advisory agents. Their advice must be presented to the repository owner in an owner decision packet with options, trade-offs, contingencies, uncertainty, dissent and stop triggers. Security/engineering approval is routed to the owner as an owner-operated decision. None of these routes creates independent review, community consent, custodian authority or external scientific approval.

@@ -1,5 +1,20 @@
 # Track 005 plan
 
+## Bounded contract-integrity tranche — 2026-08-31
+
+This preparation preserves the current invented fixture and introduces no
+economic calculation, valuation rule, typed monetary contract or data activation.
+Tracks 009/010 are complete within their bounded scope; the original economic
+design and actual participation requirements below remain open.
+
+- [x] Correct the review packet's overstatement of machine-readable economic
+  fields while preserving synthetic, unresolved and non-activating boundaries.
+- [x] Test that the actual cost fixture cannot enter the count engine and that
+  explicitly requested incompatible or missing contexts fail closed.
+- [x] Reject fixed values outside their explicitly declared distribution bounds
+  when loading a ledger, preserving equality, zero, negative values and other
+  distribution semantics; retain existing valid frozen ledger artifacts.
+
 > Review routing (owner direction, 2026-08-22): clinical/scientific, patient/community and data-governance/custodian questions are sent to role-separated advisory agents and presented to the repository owner for disposition. Security/engineering approval is an explicit owner-operated decision lane. Agent advice and owner-operated evidence do not create independent, community or custodian approval.
 
 ## Phase 1 — Method and governance
