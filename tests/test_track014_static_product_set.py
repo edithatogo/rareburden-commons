@@ -96,6 +96,45 @@ def test_static_product_set_is_deterministic_and_preserves_exact_identity() -> N
     assert first["status_fingerprint"] == status["status_fingerprint"]
 
 
+def test_prospective_products_route_advisory_review_without_claiming_participation() -> None:
+    package, candidate, status = _surface()
+    product_set = build_static_product_set(
+        package,
+        candidate,
+        status,
+        country_scope_id="XAA",
+        demonstrator_scope_id="synthetic-public-foundation",
+    )
+    assert product_set["synthetic_only"] is True
+    assert product_set["publication_authorized"] is False
+    for product in product_set["products"]:
+        assert (
+            "Advisory accessibility/usability challenge and owner disposition remain pending."
+            in product["limitations"]
+        )
+        assert (
+            "No actual user participation or independent review is claimed."
+            in product["limitations"]
+        )
+        assert (
+            "Independent accessibility and real-user review remain pending."
+            not in product["limitations"]
+        )
+        assert (
+            "Synthetic metadata-only design fixture; no empirical burden estimate is presented."
+            in product["limitations"]
+        )
+        assert product["publication_authorized"] is False
+        assert product["aggregate_only"] is True
+        assert product["estimate_status"] == "not_assessed"
+        assert product["rows"] == package["rows"]
+        assert product["non_colour_status_labels"] == [
+            "Not assessed",
+            "Synthetic only",
+            "Not published",
+        ]
+
+
 @pytest.mark.parametrize(
     ("country_scope_id", "demonstrator_scope_id"),
     [("", "synthetic-public-foundation"), ("XAA", ""), ("AU", "synthetic")],
