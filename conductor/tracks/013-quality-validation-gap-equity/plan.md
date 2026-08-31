@@ -1,5 +1,11 @@
 # Track 013 plan
 
+## Hosted review evidence repair — 2026-09-01
+
+- [x] Retain the current receipt-specific advisory challenge, exact evidence
+  bindings and accept/defer options separately from historical output reviews.
+  Evidence: `docs/reviews/track-013-receipt-challenge-2026-09-01.yml`.
+
 ## Phase 1 — Assurance framework
 
 - [x] Define evidence quality, bias and transportability dimensions. `[M-21, S-07]` Evidence: evidence-assessment, transportability and quality-disposition schemas/validators; summary documented in `docs/quality-validation-013-reference.md`.
@@ -28,9 +34,14 @@
 - [ ] Validate paediatric and economic outputs within their permitted scope.
 - [ ] Decompose uncertainty and identify decision-sensitive parameters.
 
-## Phase 4 — Independent assurance
+## Phase 4 — Owner-operated reproduction and advisory assurance
 
-- [ ] Run a separately executed owner-operated reproduction of at least one analysis; record it as repository evidence, not independent approval. `[S-10]`
+- [x] Run a separately executed owner-operated reproduction of at least one
+  analysis; record it as repository evidence, not independent approval. `[S-10]`
+  Evidence reconciled on 2026-09-01:
+  `docs/track-013-reproduction-reconciliation-2026-09-01.md` maps the existing
+  exact Track 003 synthetic reproduction and advisory output review. No new
+  analysis was performed; same-host reproduction is not empirical validation.
 - [x] Complete simulated community/harm and interpretation advice without
   claiming lived experience or representation.
 - [x] Complete role-separated scientific assurance report and owner disposition.

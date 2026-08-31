@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "013-quality-validation-gap-equity",
+  "criterion_id": 3,
+  "candidate_commit": "36f97490626747b76543f59c44220544978ef874",
+  "candidate_tree": "8e70545e1ffa4eb202ad444e3d68d158ce184f82",
+  "evidence_basis": "Existing separately executed same-host owner-operated synthetic reproduction; no new analysis",
+  "files": {
+    "docs/decisions/2026-08-31-track-003-reference-execution.json": "16ff18f14b6995139a3baca7b3ec90906e3cad128959ce176e7dbc33b0d3a4d2",
+    "manifests/demonstrators/track-003-reference-candidate.json": "b6f50a8b8b10bddceafd16ddaeee17e77fb6eefb8fbfd724cf747378b5a99911",
+    "manifests/demonstrators/track-003-reference-execution-2026-08-31.json": "7be44ac986b5eced46b1b5c3dbd7768457d869472266606ba641c5e8213a3539",
+    "docs/reviews/track-003-reference-output-panel-2026-08-31.yml": "2636bdf92cdb6b76b8c85a67a6a4129b08e550159d0679a862c408c3cdfe4b1a",
+    "docs/reviews/track-003-reference-hosted-fixes-2026-08-31.yml": "b3f2180cba2232ddf38d6a766dbb02099f33c0854091b1a01705a0845c6dcd10",
+    "docs/track-003-reference-closeout-2026-08-31.md": "2f95a867441ab4cd365ab1c4a541d9d3d2ae94dfc2930669c0f65b3340d93d48",
+    "manifests/demonstrators/track-003-reference-source-36f9749.tar": "a129a8c203d80f800420a6dac47a72cd8630df32a2402124b209c75082ad12d9",
+    "results/track-003-reference-2026-08-31/reference-report.md": "2b1318a462c3ba05e68185e0db03c32320808e10bd82acef824659cc33cabcd2",
+    "results/track-003-reference-2026-08-31/reference-results.json": "2045f12db2697d6bba280175470a878a67227a10b34a8542764119c494b9f289",
+    "results/track-003-reference-2026-08-31/reference-tables.csv": "315cb384df7be9b2b65387982138f27a6c0a44b4183d12a00407c26cb21dccce"
+  },
+  "claims": {
+    "criterion_satisfied": true,
+    "new_analysis_executed": false,
+    "new_authorization_recorded": false,
+    "independent_review": false,
+    "empirical_validation": false,
+    "track_complete": false,
+    "release": false
+  }
+}

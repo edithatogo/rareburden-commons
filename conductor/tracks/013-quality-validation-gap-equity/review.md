@@ -1,5 +1,32 @@
 # Track 013 dependency review — Quality, validation, gap mapping and equity assurance
 
+## Existing reproduction evidence reconciliation — 2026-09-01
+
+Current criterion 3 is satisfied by Track 003's exact, separately executed,
+same-host owner-operated synthetic reproduction. The candidate, recorded
+decision, two successful receipts, identical three-file outputs and advisory
+output challenge are retained and linked in
+`docs/track-013-reproduction-reconciliation-2026-09-01.md` and
+`manifests/quality/track013-reproduction-mapping-20260901.json`.
+
+Engineering, security/data-use and usability/harm agents each challenged the
+execution receipt and recommended this criterion-level mapping without blocking
+findings or dissent. Their current receipt-specific findings, exact bindings,
+options, trade-offs and contingencies are retained separately in
+`docs/reviews/track-013-receipt-challenge-2026-09-01.yml`; this advice is not
+inferred from the historical output-only or checker-fix panels. The native
+retained-package verifier checks evidence without re-executing analysis.
+No new authorization is recorded and no historical bytes are regenerated.
+The superseding hosted-fix record supplies the applicable checker/closeout
+bindings; the earlier output-panel findings and output hashes remain relevant.
+
+Only the reproduction task is closed. Four demonstrator-validation tasks remain
+pending and Track 013 remains blocked. This is not independent validation,
+empirical triangulation, source permission, community representation or atlas
+release approval. Earlier dated sections below describe their historical state;
+their statements that no qualifying reproduction exists are superseded only
+for criterion 3 by this reconciliation.
+
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 003, 005, 007, 010, 011 and 012
 
