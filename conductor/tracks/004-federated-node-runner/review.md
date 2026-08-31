@@ -1,5 +1,45 @@
 # Track 004 dependency review — Federated country-node execution package
 
+## Integration-options preparation — 2026-09-01
+
+`docs/track-004-integration-options-2026-09-01.md` proposes three routes:
+an experimental synthetic durable-policy integration (A), production-contract
+candidate preparation only (B), or deferral (C). A is recommended as a useful
+bounded integration without claiming a production trust boundary. Its explicit
+trade-off includes consumed query budget after a committed reservation even if
+later computation fails. It returns in-memory results only and does not claim
+durable export delivery, authenticated custodians or robust differencing defence
+against operator-controlled identity changes.
+
+This proposal does not select an option, change the original track scope,
+implement the new interface, satisfy the production contract/store tasks or
+authorize node-alpha release. Track 004 remains blocked and all six original
+pending gates remain pending. The exact-bound decision packet retains owner
+selection as pending; original receipts are not transferred to a changed runner.
+
+Exact proposal candidate: `3532d3247088ea5cdfa5690657350985461d9693`, tree
+`a98f0705bcdf4696b7d4b7a16ea0e4037cce83e3`. The pending machine-readable packet is
+`docs/decisions/2026-09-01-track-004-integration-options.yml`. Its manifest is
+`manifests/node/track004-integration-options-20260901.json`, SHA-256
+`b878a1184131f2d827216cd789b77ba759b662c38c2f90d3cd363b4570e8a964`.
+
+Engineering/methods, security/data-use and usability/harm advisory challenge
+identified and resolved result-to-reservation binding and installed-document
+source-link issues in the proposal. No substantive findings or dissent remain.
+This is review of a proposed interface, not an implemented runner or independent
+assurance. Root's full local `make check` passed 1,770 tests on the proposal;
+three focused packet tests subsequently passed. The local pytest timeout was
+120 seconds; hosted defaults are unchanged.
+
+The exact candidate is retained remotely at
+`refs/tags/evidence/track004-integration-options-2026-09-01`, annotated tag object
+`49bc63a247716249f624f70112d2ce8849aea672`, pushed before PR creation. A separate
+agent freshly cloned that remote tag into a bare repository, verified its
+commit/tree and the proposal document hash, and passed `git fsck --no-dangling`.
+This evidence-only tag is not a release. Review services with truncated refs may
+need to fetch the named tag explicitly; local snapshot absence does not prove
+remote absence.
+
 ## Owner-directed review routing — 2026-08-22
 
 Clinical/scientific, patient/community and data-governance/custodian questions are routed to role-separated advisory agents. Their advice must be presented to the repository owner in an owner decision packet with options, trade-offs, contingencies, uncertainty, dissent and stop triggers. Security/engineering approval is routed to the owner as an owner-operated decision. None of these routes creates independent review, community consent, custodian authority or external scientific approval.
