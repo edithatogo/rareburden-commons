@@ -253,6 +253,12 @@ def _distribution_errors(parameter_id: str, distribution: dict[str, Any]) -> lis
     maximum = distribution.get("maximum")
     if minimum is not None and maximum is not None and minimum > maximum:
         errors.append(f"{parameter_id}: distribution minimum exceeds maximum")
+    fixed_value = distribution.get("value")
+    if distribution_type == "fixed" and _finite_number(fixed_value):
+        if minimum is not None and _finite_number(minimum) and fixed_value < minimum:
+            errors.append(f"{parameter_id}: fixed value is below declared minimum")
+        if maximum is not None and _finite_number(maximum) and fixed_value > maximum:
+            errors.append(f"{parameter_id}: fixed value is above declared maximum")
     return errors
 
 

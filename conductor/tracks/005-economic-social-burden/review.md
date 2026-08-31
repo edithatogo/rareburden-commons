@@ -1,5 +1,77 @@
 # Track 005 dependency review — Patient, family, economic and social burden module
 
+## Bounded integrity review — 2026-08-31
+
+Exact reviewed candidate: `8e1904d7b01638fc54918b68a2f69338c9e9bb36`,
+tree `3667912a8e65bb6a61535d95f17c95712e9d08cf`.
+Input manifest: `manifests/ledger/track005-integrity-inputs-20260831.json`,
+original panel-reviewed SHA-256
+`d11078abb3445faa8d1dc80688cfad5373b20a43555bcdec0c238e71a733896f`.
+Panel assurance: simulated role-separated advisory panel. Engineering,
+security/data-use and usability/harm agents each verified the candidate and
+all six manifest file hashes and recommended bounded acceptance without dissent.
+The documentation author also supplied the usability challenge; this is not
+independent review. Owner-executed simulated-community challenge; no actual
+community participation, representation, consultation, endorsement, consent or
+independent review.
+
+Root validation: `PYTEST_ADDOPTS='--timeout=120' uv run --no-sync make check`
+passed, including 1,732 tests, frozen-ledger/containment, packaging, benchmark,
+runtime projection and Conductor integrity gates. The timeout override is local
+only; hosted defaults are unchanged. The original fixture and frozen export
+hashes remain identical. The subsequent evidence commit adds this review binding
+and manifest, not a different implementation or scientific artifact.
+
+### Hosted evidence-retention correction
+
+PR #280 review identified that squash history alone would not retain the exact
+reviewed candidate. The repository's linear-history policy is unchanged.
+Annotated non-release tag
+`refs/tags/evidence/track005-contract-integrity-2026-08-31` now retains that commit.
+The manifest adds only this retention reference; its amended SHA-256 is
+`ce94f3ffda53666cfbd357cd93bba8ea5564b0f9e4ee4610c30f6412e0c4050c`.
+Candidate identity, tree and all reviewed/frozen file hashes are unchanged.
+All three advisory agents verified the amended binding and retained their
+bounded pass; security separately confirmed the hosted P2 finding resolved.
+
+The same retention protection was applied to earlier exact candidates:
+
+- `evidence/track004-synthetic-assurance-2026-08-31` retains
+  `9fd347ecbaf821fc0d73fe09c77760bf0484c3d5`.
+- `evidence/track017-retained-guidance-2026-08-31` retains
+  `1469a90951f7b920ffa98e09c2f7abe5869868bc`.
+
+A fresh `git clone --no-checkout` from the public remote, without local object
+sharing, resolved all three tags to their exact candidate commits and trees;
+`git fsck --connectivity-only` passed. Normal clones retain these evidence tags.
+Shallow or tag-excluding clones need the named tags fetched explicitly. They are
+not version tags or releases and must not be removed as merged-branch cleanup.
+
+Tracks 009/010 now have bounded completion evidence; their older blocked status
+below is historical, not the current dependency disposition. Track 005 remains
+**blocked** on its original methods and participation requirements.
+
+This tranche corrects the review packet to the actual invented `SYN` fixture,
+tests cost rejection by both count estimands before sampling and explicit context
+failures, and rejects fixed values outside explicitly declared bounds at ledger
+load. Equality, zero, permitted negative values and other distribution semantics
+are preserved. No fixture, schema, valuation, conversion or economic calculation
+is introduced or changed.
+
+The engineering agent observed five failing regression cases before the fix and
+36 passing new/existing ledger tests after it. The security agent's five economic
+boundary tests passed and its separate cross-review found no blocking issue.
+The documentation agent corrected unsupported machine-readable field claims and
+passed the existing preparation contract. These are repository advisory roles,
+not independent review, actual co-design, community endorsement or rights evidence.
+
+Recommendation: deliver this structural safeguard under the existing bounded
+implementation authority. Alternative: defer new economic-method work while
+retaining the current fixture. Valuation, perspectives, overlap/missingness,
+distributional reporting and actual participation remain unresolved; no dissent
+was reported on the bounded repair. Stop if a later change introduces monetary
+defaults, unsupported aggregation, sensitive data or manufactured participation.
+
 ## Owner-directed review routing — 2026-08-22
 
 Clinical/scientific, patient/community and data-governance/custodian questions are routed to role-separated advisory agents. Their advice must be presented to the repository owner in an owner decision packet with options, trade-offs, contingencies, uncertainty, dissent and stop triggers. Security/engineering approval is routed to the owner as an owner-operated decision. None of these routes creates independent review, community consent, custodian authority or external scientific approval.
