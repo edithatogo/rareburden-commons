@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_path": "manifests/node/track004-offline-install-20260831.json",
+  "receipt_sha256": "174bade39a10013b84ffd806c9052be10966eff40d71898f19e4eff514183ade",
+  "lock_path": "manifests/node/track004-staging-lock-20260831.toml",
+  "lock_sha256": "2a0b76b88a5ee9be65b3618f1f29dec52d2298acbd4302ffaf1ceb532f7c5ef5",
+  "artifacts": [
+    {
+      "filename": "attrs-26.1.0-py3-none-any.whl",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "name": "attrs",
+      "version": "26.1.0",
+      "source_registry": "https://pypi.org/simple",
+      "source_url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "source_basis": "locked_url_and_sha256_not_observed_cache_origin",
+      "staging_event": {
+        "observed_on": "2026-08-31",
+        "cache_use": true,
+        "original_retrieval": "unknown"
+      },
+      "wheel_metadata": {
+        "sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
+        "licence_expression": "MIT",
+        "licence_text": null,
+        "licence_files": [
+          {
+            "path": "attrs-26.1.0.dist-info/licenses/LICENSE",
+            "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+          }
+        ]
+      },
+      "transformation": "none"
+    },
+    {
+      "filename": "defusedxml-0.7.1-py2.py3-none-any.whl",
+      "sha256": "a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61",
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "source_registry": "https://pypi.org/simple",
+      "source_url": "https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl",
+      "source_basis": "locked_url_and_sha256_not_observed_cache_origin",
+      "staging_event": {
+        "observed_on": "2026-08-31",
+        "cache_use": true,
+        "original_retrieval": "unknown"
+      },
+      "wheel_metadata": {
+        "sha256": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+        "licence_expression": null,
+        "licence_text": "PSFL",
+        "licence_files": [
+          {
+            "path": "defusedxml-0.7.1.dist-info/LICENSE",
+            "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8"
+          }
+        ]
+      },
+      "transformation": "none"
+    },
+    {
+      "filename": "jsonschema-4.26.0-py3-none-any.whl",
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "source_registry": "https://pypi.org/simple",
+      "source_url": "https://files.pythonhosted.org/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl",
+      "source_basis": "locked_url_and_sha256_not_observed_cache_origin",
+      "staging_event": {
+        "observed_on": "2026-08-31",
+        "cache_use": true,
+        "original_retrieval": "unknown"
+      },
+      "wheel_metadata": {
+        "sha256": "05b189866ca98a96da3934bf6b83687ced3ff85325273b77e16b705f6d8b26d2",
+        "licence_expression": "MIT",
+        "licence_text": null,
+        "licence_files": [
+          {
+            "path": "jsonschema-4.26.0.dist-info/licenses/COPYING",
+            "sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439"
+          }
+        ]
+      },
+      "transformation": "none"
+    },
+    {
+      "filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "source_registry": "https://pypi.org/simple",
+      "source_url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "source_basis": "locked_url_and_sha256_not_observed_cache_origin",
+      "staging_event": {
+        "observed_on": "2026-08-31",
+        "cache_use": true,
+        "original_retrieval": "unknown"
+      },
+      "wheel_metadata": {
+        "sha256": "35abd41757f32b4ea24756920ded47b70173d77cbc052a5a6d3ab583b2e8d89d",
+        "licence_expression": "MIT",
+        "licence_text": null,
+        "licence_files": [
+          {
+            "path": "jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING",
+            "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c"
+          }
+        ]
+      },
+      "transformation": "none"
+    },
+    {
+      "filename": "pyyaml-6.0.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "2283a07e2c21a2aa78d9c4442724ec1eb15f5e42a723b99cb3d822d48f5f7ad1",
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "source_registry": "https://pypi.org/simple",
+      "source_url": "https://files.pythonhosted.org/packages/b1/16/95309993f1d3748cd644e02e38b75d50cbc0d9561d21f390a76242ce073f/pyyaml-6.0.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "source_basis": "locked_url_and_sha256_not_observed_cache_origin",
+      "staging_event": {
+        "observed_on": "2026-08-31",
+        "cache_use": true,
+        "original_retrieval": "unknown"
+      },
+      "wheel_metadata": {
+        "sha256": "03c3b415ed38d09faedc49360e930769b40c58f68585e6de00e2e4916a858d34",
+        "licence_expression": null,
+        "licence_text": "MIT",
+        "licence_files": [
+          {
+            "path": "pyyaml-6.0.3.dist-info/licenses/LICENSE",
+            "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+          }
+        ]
+      },
+      "transformation": "none"
+    },
+    {
+      "filename": "referencing-0.37.0-py3-none-any.whl",
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "name": "referencing",
+      "version": "0.37.0",
+      "source_registry": "https://pypi.org/simple",
+      "source_url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+      "source_basis": "locked_url_and_sha256_not_observed_cache_origin",
+      "staging_event": {
+        "observed_on": "2026-08-31",
+        "cache_use": true,
+        "original_retrieval": "unknown"
+      },
+      "wheel_metadata": {
+        "sha256": "c93b00e6ab1524fd60848376604c189a114374776475c25a31d57be47b29de6a",
+        "licence_expression": "MIT",
+        "licence_text": null,
+        "licence_files": [
+          {
+            "path": "referencing-0.37.0.dist-info/licenses/COPYING",
+            "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c"
+          }
+        ]
+      },
+      "transformation": "none"
+    },
+    {
+      "filename": "rpds_py-2026.6.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "f4d78253f6996be4901669ad25319f842f740eccf4d58e3c7f3dd39e6dde1d8f",
+      "name": "rpds-py",
+      "version": "2026.6.3",
+      "source_registry": "https://pypi.org/simple",
+      "source_url": "https://files.pythonhosted.org/packages/f3/6b/686d9dc4359a8f163cfbbf89ee0b4e586431de22fe8248edb63a8cf50d49/rpds_py-2026.6.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "source_basis": "locked_url_and_sha256_not_observed_cache_origin",
+      "staging_event": {
+        "observed_on": "2026-08-31",
+        "cache_use": true,
+        "original_retrieval": "unknown"
+      },
+      "wheel_metadata": {
+        "sha256": "f8be7b17da3980b2c48596941411a43c70ac41b1e2d530aa531f2c15eab2eb1c",
+        "licence_expression": "MIT",
+        "licence_text": null,
+        "licence_files": [
+          {
+            "path": "rpds_py-2026.6.3.dist-info/licenses/LICENSE",
+            "sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909"
+          }
+        ]
+      },
+      "transformation": "none"
+    }
+  ]
+}

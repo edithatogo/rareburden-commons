@@ -163,6 +163,7 @@ installation and transport bundle passed. Exact identities, receipts, findings,
 uncertainty and stop triggers are in
 `docs/track-004-synthetic-assurance-2026-08-31.md`.
 
-Only the three new preparation tasks close. Track 004 remains blocked with all
+Only the three initial preparation tasks and the hosted provenance follow-up
+close. Track 004 remains blocked with all
 six original pending plan gates unchanged. This advisory review is not a new
 production-contract, custodian-store, owner-risk or release disposition.
