@@ -1,5 +1,12 @@
 # Track 005 plan
 
+## Method-options preparation — 2026-08-31
+
+- [x] Prepare concrete component-first, bounded synthetic cost-pilot and defer
+  options, with implementation limits, acceptance evidence and role-separated
+  challenge. Bind the proposal to an exact candidate and retain owner selection
+  as pending; proposal delivery does not adopt methods or complete this track.
+
 ## Bounded contract-integrity tranche — 2026-08-31
 
 This preparation preserves the current invented fixture and introduces no

@@ -1,5 +1,22 @@
 # Track 005 dependency review — Patient, family, economic and social burden module
 
+## Method-options preparation — 2026-08-31
+
+`docs/track-005-method-options-2026-08-31.md` defines three proposed next scopes:
+an additive component-first validation prototype (A), a separately specified
+single-component invented cost pilot (B), or deferral (C). The recommendation is
+A because it exposes quantity/context/missingness requirements without choosing
+valuation or producing an aggregate. The trade-off is a new experimental
+contract surface, not an economic result. Unresolved field definitions remain
+candidate material for challenge, not frozen scientific defaults.
+
+This is preparation under the owner's continuation direction. It does not
+record an option selection, adopt a method, change the frozen ledger, activate
+data or satisfy actual co-design. Track 005 remains blocked and its original
+method/participation tasks remain pending. The exact option packet will retain
+`owner_decision.status: pending`; a later scope-matched decision is required
+before implementing the proposed contract or calculation.
+
 ## Bounded integrity review — 2026-08-31
 
 Exact reviewed candidate: `8e1904d7b01638fc54918b68a2f69338c9e9bb36`,
