@@ -64,14 +64,24 @@ class DurableLedgerStore:
 
     def __init__(self, path: Path) -> None:
         self.path = path
-        if path.exists() and (path.is_symlink() or not path.is_file()):
+        if path.is_symlink() or (path.exists() and not path.is_file()):
             raise LedgerStoreError(f"ledger store path is unsafe: {path}")
         path.parent.mkdir(parents=True, exist_ok=True)
-        self._connection = sqlite3.connect(path, isolation_level=None)
-        self._connection.row_factory = sqlite3.Row
-        self._connection.execute("PRAGMA foreign_keys = ON")
-        self._connection.execute("PRAGMA journal_mode = WAL")
-        self._initialise()
+        try:
+            self._connection = sqlite3.connect(path, isolation_level=None)
+        except sqlite3.DatabaseError as exc:
+            raise LedgerStoreError("ledger store connection failed") from exc
+        try:
+            self._connection.row_factory = sqlite3.Row
+            self._connection.execute("PRAGMA foreign_keys = ON")
+            self._connection.execute("PRAGMA journal_mode = WAL")
+            self._initialise()
+        except sqlite3.DatabaseError as exc:
+            self._connection.close()
+            raise LedgerStoreError("ledger store initialization failed") from exc
+        except Exception:
+            self._connection.close()
+            raise
 
     def __enter__(self) -> DurableLedgerStore:
         return self

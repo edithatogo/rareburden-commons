@@ -1,5 +1,44 @@
 # Track 009 dependency review — Evidence and parameter ledger
 
+## Bounded store initialization maintenance — 2026-08-31
+
+Reviewed candidate: `7539bc7c4d2400daaee8cad187bd18697f9ce534`, tree
+`a41978e2b40a468afbb429c3179866d5e481e21d`. Manifest:
+`manifests/ledger/track009-store-integrity-20260831.json`, SHA-256
+`f4ce136884bcb11025e19667bb3561e00696200d2b4f2aea8bcdc1322d87ba9d`.
+Annotated non-release tag `evidence/track009-store-integrity-2026-08-31` was
+pushed; a separate remote clone fetched it and resolved the exact commit/tree.
+`git fsck --connectivity-only` passed. Retain this evidence tag during branch
+cleanup; shallow/tag-excluding clones must explicitly fetch it.
+
+Regression evidence: nine failures before the fix, all 12 new cases passing
+afterward; 21 focused new/existing store tests passed. Root ran
+`PYTEST_ADDOPTS='--timeout=120' uv run --no-sync make check`: 1,761 tests and all
+repository gates passed. This timeout override is local only; hosted defaults
+are unchanged. Freeze and candidate manifests retain their original hashes.
+All three agents verified the exact candidate and four manifest hashes and
+recommended bounded acceptance without dissent. Security additionally verified
+all 15 artifact-hash references in the frozen contract/candidate manifests.
+
+This maintenance preserves the completed synthetic and exactly-receipted
+public-aggregate scope. It rejects dangling final-path database symlinks, reports
+SQLite connection/initialization failures through `LedgerStoreError`, and closes
+an established connection before propagating initialization failures. Valid
+storage, schemas, receipt chains, exports and frozen artifacts are unchanged.
+
+The simulated role-separated advisory panel covers engineering, security/data-use
+and usability/harm. Owner-executed simulated-community challenge; no actual
+community participation, representation, consultation, endorsement, consent or
+independent review. The existing owner direction permits bounded repair, not
+new custody or release authority.
+
+Recommendation: deliver the constructor-only repair with failing-then-passing
+regressions and full validation. Alternative: defer broader filesystem hardening
+to a separate scoped review. Remaining risks include parent-directory symlinks,
+check/open races, privileged replacement, access control, backup and signed
+checkpoints. Stop on changed valid receipt hashes, weakened immutable triggers,
+sensitive data or unsupported claims of tamper-proof or custodian-approved storage.
+
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 002 and 008
 
