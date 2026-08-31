@@ -196,7 +196,5 @@ def test_offline_install_stops_on_failed_subprocess(
 
     monkeypatch.setattr(OFFLINE.subprocess, "run", failed_command)
     with pytest.raises(OFFLINE.OfflineInstallError, match="offline command failed"):
-        OFFLINE.check_offline_install(
-            node_wheel=node, wheelhouse=wheelhouse, python_version="3.13"
-        )
+        OFFLINE.check_offline_install(node_wheel=node, wheelhouse=wheelhouse, python_version="3.13")
     assert len(calls) == failure_step + 1

@@ -15,8 +15,11 @@ The track remains Blocked while those original acceptance gates remain open.
   contamination, malformed results and wheel changes, with regression tests.
 - [x] Reject durable-store policy/receipt tampering and unsafe database paths
   before appending query receipts, with transactional recovery tests.
-- [~] Correct operator instructions and record a separately executed,
+- [x] Correct operator instructions and record a separately executed,
   hash-bound synthetic offline installation rehearsal for the fixed candidate.
+  Evidence: `docs/track-004-synthetic-assurance-2026-08-31.md` and its exact
+  candidate/input-manifest/installation-receipt bindings. All six original
+  acceptance gates remain pending; no production or release scope is promoted.
 
 ## Phase 1 — Node contracts and threat model
 

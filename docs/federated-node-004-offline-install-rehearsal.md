@@ -55,3 +55,7 @@ actual platform/runtime, command, exit status and receipt for that separate run.
 This documentation refresh does not claim a new execution. Dependency approval,
 release attestation, custodian installation and controlled-data authorization
 remain separate evidence-bound decisions.
+
+A later, separately executed fixed-candidate rehearsal is retained in
+[the 2026-08-31 assurance record](track-004-synthetic-assurance-2026-08-31.md).
+It does not alter the historical observations above or close production gates.
