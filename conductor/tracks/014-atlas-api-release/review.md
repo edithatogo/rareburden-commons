@@ -1,5 +1,29 @@
 # Track 014 dependency review — Atlas, API and reproducible release engineering
 
+## Prospective review-routing repair — 2026-09-01
+
+Current generated product limitations and the accessibility checklist now use
+ADR-0009's advisory accessibility/usability challenge and owner disposition,
+both still pending for an exact product candidate. They expressly disclaim
+actual user participation and independent review. This corrects obsolete
+review routing; it is not a rendered-interface assessment, accessibility
+certification, public beta decision or completion of an acceptance gate.
+
+The generator's changed limitation text legitimately changes fingerprints of
+newly generated product models. No retained product, dated accessibility review,
+release/reproduction receipt or historical Track 003 snapshot is regenerated.
+Existing disclosure, missingness, synthetic-scope and publication restrictions
+are unchanged. Dated sections below remain historical observations, not the
+current review-routing policy.
+
+The bounded repair received engineering, security/data-use and usability/harm
+advisory challenge; all three lanes reported no blocking finding or dissent.
+The recommendation is to accept the policy reconciliation;
+the trade-off is a prospective content-fingerprint change, not a new production
+contract. Actual interface usability remains unassessed. Stop on historical
+hash drift, weakened disclosure restrictions, or certification/participation
+claims. Track 014 remains blocked and every pending gate remains pending.
+
 **Review date:** 2026-07-29  
 **Decision:** Planned; implementation entry blocked by upstream release evidence
 

@@ -27,8 +27,9 @@ PLAN = ROOT / "conductor/tracks/014-atlas-api-release/plan.md"
 
 def test_track014_plan_reconciles_bounded_work_without_closing_release_gates() -> None:
     plan = PLAN.read_text(encoding="utf-8")
-    assert plan.count("- [x]") == 30
+    assert plan.count("- [x]") == 31
     assert plan.count("- [ ]") == 6
+    assert "Align newly generated synthetic product limitations" in plan
     receipt = ROOT / "docs/track-014-owner-installed-reproduction-receipt-2026-08-22.json"
     assert receipt.is_file()
     assert '"independent_reproduction": false' in receipt.read_text(encoding="utf-8")

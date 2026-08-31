@@ -1,5 +1,13 @@
 # Track 014 plan
 
+## Prospective review-routing repair — 2026-09-01
+
+- [x] Align newly generated synthetic product limitations and the current
+  accessibility checklist with ADR-0009, with regression tests retaining
+  pending advisory challenge/owner disposition and explicit non-participation.
+  Historical review receipts and retained product artifacts are unchanged;
+  this wording repair does not complete accessibility review or permit release.
+
 > Prospective repository review follows ADR-0009: advisory agent-panel
 > accessibility/usability challenge, separately recorded owner-operated
 > reproduction and owner disposition. Historical receipts keep their original
@@ -67,8 +75,9 @@
   package, surface and lifecycle identities and rejects drift.
 - [x] Add bounded documentation and accessible text alternatives. Evidence:
   `docs/track-014-accessibility-checklist.md`, the static projection's
-  `text_alternative`, and `tests/test_atlas_accessibility.py`. Independent
-  accessibility and patient/community review remain pending.
+  `text_alternative`, and `tests/test_atlas_accessibility.py`. Advisory
+  accessibility/usability challenge and owner disposition remain pending;
+  actual user participation and independent review are not claimed.
 
 ## Phase 4 — Reproducible release
 

@@ -344,7 +344,8 @@ def build_static_product_set(
         "limitations": [
             *static["limitations"],
             "Synthetic metadata-only design fixture; no empirical burden estimate is presented.",
-            "Independent accessibility and real-user review remain pending.",
+            "Advisory accessibility/usability challenge and owner disposition remain pending.",
+            "No actual user participation or independent review is claimed.",
         ],
         "non_colour_status_labels": [
             "Not assessed",
