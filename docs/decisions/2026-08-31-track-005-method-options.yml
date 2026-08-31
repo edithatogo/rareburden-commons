@@ -1,0 +1,81 @@
+schema_version: 1.0.0
+simulation_status: simulated_role_separated_advisory_panel
+track_id: 005-economic-social-burden
+candidate:
+  commit: 1ed8ed425120f31f6d812230e924de6f3ca7b25f
+  tree: cdf9d0fca1995d82bd649cc51ba06174bd9acb21
+  evidence_manifest_sha256: 3b72d6ece646ba56e96cc872ab3a43f502f2df679b75935f970e50af8b353127
+panel:
+  perspectives: [engineering_methods, security_data_use, usability_community_harm]
+  non_representation_statement: >-
+    Owner-executed simulated-community challenge; no actual community participation,
+    representation, consultation, endorsement, consent or independent review.
+evidence:
+  references:
+    - docs/track-005-method-options-2026-08-31.md
+    - manifests/ledger/track005-method-options-20260831.json
+    - conductor/tracks/005-economic-social-burden/spec.md
+  observed_facts:
+    - The retained SYN fixture and frozen export do not define a typed economic method.
+    - The proposal candidate passed the full local make check with 1761 tests.
+    - No economic schema, calculation, source acquisition or retained analysis was added.
+  simulated_assessments:
+    - A provides useful additive validation work with less valuation risk than B.
+    - Structural validity must not confer economic fitness or imply zero burden.
+  cannot_infer:
+    - Owner selection of an option or approval of new methods.
+    - Actual co-design, participation, remuneration or third-party permissions.
+    - Economic activation, Track 005 completion, integration or release authority.
+uncertainty:
+  - Component definitions, stakeholder relevance and valuation remain unresolved.
+  - A new experimental contract incurs maintenance and future compatibility costs.
+dissent: []
+stop_triggers:
+  - Frozen artifact drift, sensitive data or unsupported source rights.
+  - Silent unit/perspective mixing, missingness becoming zero or unsupported totals.
+  - Structural validation misrepresented as economic fitness or actual participation.
+options:
+  - id: A
+    title: Additive component-first synthetic validation prototype
+    disposition: narrow
+    trade_offs:
+      - Makes quantities and gaps inspectable but produces no economic result.
+      - Adds experimental schemas and validators without freezing taxonomy.
+    contingencies:
+      - Only after explicit selection implement schemas, validation interface, invented fixtures and tests.
+      - Keep monetary-shaped records blocked or unassessed; no valuation, totals or engine integration.
+      - Disputed field semantics remain experimental and unassessed, not silently resolved.
+    rationale: Expose assumptions and missingness before introducing economic calculations.
+    minimum_evidence:
+      - Round-trip and incompatible-context/value-status rejection tests.
+      - Unpaid care remains visible when unvalued and partial coverage is not total burden.
+      - Frozen ledger and retained analysis artifacts remain byte-identical.
+  - id: B
+    title: Prepare a fully specified synthetic health-system cost-pilot candidate
+    disposition: revise
+    trade_offs:
+      - Moves toward a tangible single-component calculation but needs more method choices.
+      - A partial invented calculation could obscure household and unpaid-care burdens.
+    contingencies:
+      - Selection authorizes candidate preparation only; further exact disposition precedes implementation or execution.
+      - Specify fictional unit costs, price year, perspective and compatible denominators without reusing the SYN fixture.
+      - Exclude societal totals, conversion series, discounted multi-year estimates and real data.
+    rationale: Make the additional scientific choices inspectable before calculation work begins.
+    minimum_evidence:
+      - Exact proposed formula, invented inputs, exclusions and hand-checkable expected output.
+      - Context rejection cases and uncertainty/scenario assumptions.
+  - id: C
+    title: Defer new economic contracts and calculations
+    disposition: defer
+    trade_offs:
+      - Preserves current evidence and avoids new design risk but delivers no new capability.
+    contingencies:
+      - Revisit only with a scoped proposal and applicable method or participation evidence.
+    rationale: Retain a safe deferral route if unresolved definitions prevent useful bounded work.
+    minimum_evidence:
+      - Existing integrity gates pass and documentation preserves open requirements.
+recommendation:
+  option_id: A
+  rationale: The additive validation prototype is the smallest concrete implementation route without valuation or totals.
+owner_decision:
+  status: pending

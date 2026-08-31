@@ -17,6 +17,23 @@ method/participation tasks remain pending. The exact option packet will retain
 `owner_decision.status: pending`; a later scope-matched decision is required
 before implementing the proposed contract or calculation.
 
+Exact proposal candidate: `1ed8ed425120f31f6d812230e924de6f3ca7b25f`, tree
+`cdf9d0fca1995d82bd649cc51ba06174bd9acb21`, retained at
+`refs/tags/evidence/track005-method-options-2026-08-31`.
+Manifest: `manifests/ledger/track005-method-options-20260831.json`, SHA-256
+`3b72d6ece646ba56e96cc872ab3a43f502f2df679b75935f970e50af8b353127`.
+The machine-readable packet is
+`docs/decisions/2026-08-31-track-005-method-options.yml`.
+
+The engineering/methods, security/data-use and usability/community-harm agents
+each verified this binding and reported no blocking finding or dissent. This
+is simulated role-separated advisory challenge, not independent review or
+actual community participation. All three preserve owner selection as pending.
+Root validation passed the full `make check` (1,761 tests) on the proposal
+candidate, followed by three focused packet/preparation tests. Local pytest
+used `--timeout=120`; the hosted timeout remains unchanged. Review finalized
+on 2026-09-01; the proposal's 2026-08-31 identity is retained.
+
 ## Bounded integrity review — 2026-08-31
 
 Exact reviewed candidate: `8e1904d7b01638fc54918b68a2f69338c9e9bb36`,
