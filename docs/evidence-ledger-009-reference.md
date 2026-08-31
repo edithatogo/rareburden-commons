@@ -17,6 +17,12 @@ The store:
 - exports an ordered canonical JSON Lines history atomically; and
 - fails closed on unsupported schema migrations.
 
+JSONL export rejects a final destination that is a symlink, including a dangling
+symlink, rather than replacing the link. An ordinary existing regular file may
+be replaced atomically; choose a new destination when retaining an earlier
+export. This final-path check does not establish parent-directory symlink
+protection or resistance to filesystem check/replace races.
+
 `ParameterLedger.query` provides bounded evidence-status, unit and source-release
 filters. Returned records and portable documents are detached copies.
 `require_compatible_context` prevents explicitly requested population or period

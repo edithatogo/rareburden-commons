@@ -85,6 +85,52 @@ def test_store_rejects_revision_gaps_duplicates_and_invalid_documents(tmp_path: 
             )
 
 
+@pytest.mark.parametrize("target_exists", [False, True])
+def test_export_rejects_symlinks_without_changing_link_or_target(
+    tmp_path: Path, target_exists: bool
+) -> None:
+    target = tmp_path / "target.jsonl"
+    original = b"existing target must survive\n"
+    if target_exists:
+        target.write_bytes(original)
+    destination = tmp_path / "export.jsonl"
+    try:
+        destination.symlink_to(target)
+    except NotImplementedError:
+        pytest.skip("symlinks are not supported on this platform")
+    except OSError as error:
+        if getattr(error, "winerror", None) == 1314:
+            pytest.skip("symlink creation is not permitted on this platform")
+        raise
+    with (
+        DurableLedgerStore(tmp_path / "ledger.sqlite3") as store,
+        pytest.raises(LedgerStoreError, match="export destination is unsafe"),
+    ):
+        store.export_jsonl(destination)
+    assert destination.is_symlink()
+    assert destination.readlink() == target
+    assert target.exists() is target_exists
+    if target_exists:
+        assert target.read_bytes() == original
+    assert list(tmp_path.glob(".export.jsonl.*.tmp")) == []
+
+
+def test_export_replaces_existing_regular_file(tmp_path: Path) -> None:
+    destination = tmp_path / "export.jsonl"
+    destination.write_bytes(b"obsolete export\n")
+    with DurableLedgerStore(tmp_path / "ledger.sqlite3") as store:
+        store.append(_document(), _schema(), revision=1, recorded_at="2026-07-31T00:00:00Z")
+        digest = store.export_jsonl(destination)
+    data = destination.read_bytes()
+    assert not destination.is_symlink()
+    assert hashlib.sha256(data).hexdigest() == digest
+    records = [json.loads(line) for line in data.splitlines()]
+    assert len(records) == 1
+    assert records[0]["receipt"]["revision"] == 1
+    assert records[0]["document"] == _document()
+    assert list(tmp_path.glob(".export.jsonl.*.tmp")) == []
+
+
 def test_database_triggers_prevent_update_and_delete(tmp_path: Path) -> None:
     database = tmp_path / "ledger.sqlite3"
     with DurableLedgerStore(database) as store:

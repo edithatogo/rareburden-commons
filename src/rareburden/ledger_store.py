@@ -262,7 +262,7 @@ class DurableLedgerStore:
 
     def export_jsonl(self, destination: Path) -> str:
         """Atomically export canonical snapshot envelopes and return SHA-256."""
-        if destination.exists() and (destination.is_symlink() or not destination.is_file()):
+        if destination.is_symlink() or (destination.exists() and not destination.is_file()):
             raise LedgerStoreError(f"export destination is unsafe: {destination}")
         destination.parent.mkdir(parents=True, exist_ok=True)
         lines: list[str] = []
