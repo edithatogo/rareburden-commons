@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import json
 import sqlite3
 from pathlib import Path
 
@@ -194,3 +196,98 @@ def test_store_rejects_precreated_incompatible_schema(tmp_path: Path) -> None:
     connection.close()
     with pytest.raises(NodePolicyStoreError, match="schema is incompatible"):
         DurableNodePolicyStore(database)
+
+
+def test_store_rejects_dangling_symlink_without_creating_target(tmp_path: Path) -> None:
+    target = tmp_path / "absent.sqlite3"
+    link = tmp_path / "link.sqlite3"
+    link.symlink_to(target)
+    with pytest.raises(NodePolicyStoreError, match="unsafe"):
+        DurableNodePolicyStore(link)
+    assert not target.exists()
+
+
+def test_store_rejects_non_database_bytes(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    database.write_bytes(b"synthetic invalid database")
+    with pytest.raises(NodePolicyStoreError, match="malformed or incompatible"):
+        DurableNodePolicyStore(database)
+
+
+def test_store_rejects_spoofed_immutable_trigger(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database):
+        pass
+    with sqlite3.connect(database) as attacker:
+        attacker.execute("DROP TRIGGER query_receipts_no_update")
+        attacker.execute(
+            "CREATE TRIGGER query_receipts_no_update BEFORE UPDATE ON query_receipts "
+            "BEGIN SELECT 'query receipts are immutable'; END"
+        )
+    with pytest.raises(NodePolicyStoreError, match="trigger is incompatible"):
+        DurableNodePolicyStore(database)
+
+
+@pytest.mark.parametrize("tamper", ["json", "policy_hash", "query_hash", "policy_identity"])
+def test_query_append_checks_history_and_rolls_back_on_tampering(
+    tmp_path: Path, tamper: str
+) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(budget=3), recorded_at="2026-08-01T00:00:00Z")
+        store.register_query(
+            _shape(),
+            overlap_group="synthetic-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+        with sqlite3.connect(database) as attacker:
+            attacker.execute("DROP TRIGGER disclosure_policies_no_update")
+            attacker.execute("DROP TRIGGER query_receipts_no_update")
+            if tamper == "json":
+                attacker.execute("UPDATE disclosure_policies SET document_json = '{'")
+            elif tamper == "policy_hash":
+                attacker.execute("UPDATE disclosure_policies SET content_sha256 = ?", ("0" * 64,))
+            elif tamper == "query_hash":
+                attacker.execute("UPDATE query_receipts SET chain_sha256 = ?", ("0" * 64,))
+            else:
+                document = {**_policy(budget=3), "policy_id": "different-policy"}
+                canonical = json.dumps(document, sort_keys=True, separators=(",", ":"))
+                attacker.execute(
+                    "UPDATE disclosure_policies SET document_json = ?, content_sha256 = ?",
+                    (canonical, hashlib.sha256(canonical.encode("ascii")).hexdigest()),
+                )
+        for _ in range(2):
+            with pytest.raises(NodePolicyStoreError, match="integrity"):
+                store.register_query(
+                    _shape("second-analysis"),
+                    overlap_group="synthetic-overlap",
+                    policy_id="synthetic-policy",
+                    recorded_at="2026-08-01T00:02:00Z",
+                )
+        # A fresh writer can acquire the lock: failed appends did not leave an
+        # open transaction or publish an extra receipt.
+        with sqlite3.connect(database, timeout=0) as observer:
+            observer.execute("BEGIN IMMEDIATE")
+            assert observer.execute("SELECT COUNT(*) FROM query_receipts").fetchone() == (1,)
+
+
+@pytest.mark.parametrize("value", [None, 123, [], {}])
+def test_store_rejects_wrong_type_timestamps(tmp_path: Path, value: object) -> None:
+    with DurableNodePolicyStore(tmp_path / "node-policy.sqlite3") as store:
+        with pytest.raises(NodePolicyStoreError, match="ISO-8601"):
+            store.register_policy(_policy(), recorded_at=value)  # type: ignore[arg-type]
+        assert store.verify() == (0, 0)
+
+
+@pytest.mark.parametrize("value", [None, 123, [], {}])
+def test_store_rejects_wrong_type_query_identifiers(tmp_path: Path, value: object) -> None:
+    with DurableNodePolicyStore(tmp_path / "node-policy.sqlite3") as store:
+        with pytest.raises(NodePolicyStoreError, match="bounded non-sensitive"):
+            store.register_query(
+                _shape(),
+                overlap_group=value,  # type: ignore[arg-type]
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:00:00Z",
+            )
+        assert store.verify() == (0, 0)

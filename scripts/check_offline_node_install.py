@@ -13,6 +13,12 @@ from collections.abc import Callable, Sequence
 from pathlib import Path
 from typing import Any
 
+# Frozen output for the existing single-row synthetic installed-node check,
+# recorded in docs/federated-node-004-offline-install-rehearsal.md.
+EXPECTED_OUTPUT_FINGERPRINT = (
+    "sha256:32900dea79c7e5dc1fc60db255ac55106ca17a6b5d831e38c7201a1c08080e64"
+)
+
 
 class OfflineInstallError(RuntimeError):
     """Raised when an offline installation or installed-node check fails."""
@@ -77,6 +83,12 @@ def check_offline_install(
         raise OfflineInstallError("wheelhouse contains no dependency wheels")
     if node in dependencies:
         raise OfflineInstallError("node wheel must not also appear as a dependency wheel")
+    artifacts = [node, *dependencies]
+    if len({path.name for path in artifacts}) != len(artifacts):
+        raise OfflineInstallError("node and dependency wheel filenames must be distinct")
+    artifact_sha256 = {
+        path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in artifacts
+    }
 
     environment = dict(os.environ)
     for variable in (
@@ -85,6 +97,8 @@ def check_offline_install(
         "UV_INDEX",
         "UV_DEFAULT_INDEX",
         "UV_EXTRA_INDEX_URL",
+        "PYTHONPATH",
+        "PYTHONHOME",
     ):
         environment.pop(variable, None)
     environment.update(
@@ -138,21 +152,36 @@ def check_offline_install(
             "print(json.dumps({'output_fingerprint':"
             "r['manifest']['output_fingerprint'],'rows':len(r['rows'])},sort_keys=True))"
         )
-        result = runner([str(python), "-c", check], work, environment)
+        result = runner([str(python), "-I", "-c", check], work, environment)
         try:
             installed_result = json.loads(result.stdout)
         except json.JSONDecodeError as exc:
             raise OfflineInstallError("installed-node check did not return JSON") from exc
-    artifacts = [node, *dependencies]
+        if (
+            not isinstance(installed_result, dict)
+            or set(installed_result) != {"output_fingerprint", "rows"}
+            or type(installed_result["rows"]) is not int
+            or installed_result["rows"] != 1
+            or installed_result["output_fingerprint"] != EXPECTED_OUTPUT_FINGERPRINT
+        ):
+            raise OfflineInstallError("installed-node check returned an invalid result")
+    try:
+        unchanged = all(
+            _safe_wheel(path, label="installed artifact") == path
+            and hashlib.sha256(path.read_bytes()).hexdigest() == artifact_sha256[path.name]
+            for path in artifacts
+        )
+    except OSError as exc:
+        raise OfflineInstallError("wheel artifacts changed during offline installation") from exc
+    if not unchanged:
+        raise OfflineInstallError("wheel artifacts changed during offline installation")
     return {
         "schema_version": "0.1.0",
         "python_version": python_version,
         "network_disabled": True,
         "node_wheel": node.name,
         "dependency_wheel_count": len(dependencies),
-        "artifact_sha256": {
-            path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in artifacts
-        },
+        "artifact_sha256": artifact_sha256,
         "installed_result": installed_result,
     }
 

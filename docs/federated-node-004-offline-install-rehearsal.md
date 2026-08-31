@@ -1,6 +1,6 @@
 # Track 004 candidate offline-install rehearsal
 
-**Run date:** 2026-07-31
+**Run date:** 2026-07-31 (historical rehearsal, not evidence for a later candidate)
 
 **Scope:** local engineering rehearsal on macOS arm64 with Python 3.13
 
@@ -35,7 +35,23 @@ and every embedded wheel passed `scripts/build_node_bundle.py check`.
 This evidence establishes a candidate offline dependency closure only for the
 recorded platform. The wheelhouse and bundle are generated build artefacts and
 are not committed. Python 3.12/3.13/3.14 Linux, Windows/WSL and other supported
-platforms require their own locked wheels and receipts. A second person must
-perform the documented run independently before the second-operator gate can
-close. Dependency approval, signing, custodian installation and controlled-data
-authorization also remain external.
+platforms require their own locked wheels and receipts. The historical
+second-person gate requirement is superseded for prospective repository review
+by ADR-0009; the original rehearsal facts above are unchanged.
+
+## Current reproduction and interpretation
+
+Use the [operator guide](federated-node-004-operator-guide.md) for the current
+sequence. Keep the project wheel outside the dependency-only wheelhouse and
+preinstall Python and `uv` before the measured offline phase. The pip download
+above is network-permitted preparation, not offline-install evidence.
+Network-disabled package commands do not demonstrate OS-level isolation.
+
+The current Track 004 specification requires a separately recorded owner-operated
+clean-environment installation from documentation, advisory agent-panel
+challenge and owner disposition. No second person or independence is claimed
+or required by that repository gate. Retain exact candidate, artifact hashes,
+actual platform/runtime, command, exit status and receipt for that separate run.
+This documentation refresh does not claim a new execution. Dependency approval,
+release attestation, custodian installation and controlled-data authorization
+remain separate evidence-bound decisions.

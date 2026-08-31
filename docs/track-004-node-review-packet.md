@@ -1,9 +1,11 @@
 # Track 004 federated-node review packet
 
 **Status:** non-binding preparation; Track 004 remains blocked  
-**Activation rule:** do not activate a real node or controlled-data pilot until
-Tracks 009/010 and the accountable governance, patient/community, security,
-scientific and engineering gates are complete.
+**Activation rule:** bounded completion of Tracks 009/010 does not authorise a
+real node or controlled-data pilot. Repository review uses advisory agents and
+owner disposition; actual custodian rights, permissions and deployment controls
+remain separately evidence-bound. Controlled-pilot claims are excluded from
+stable v1 under ADR-0005.
 
 ## Decisions required
 
@@ -36,6 +38,47 @@ Retain exact software/tag, wheel hashes, platform/Python, manifest and policy
 fingerprints, command transcript, output hash, failure cases, operator role,
 custodian decision, export review and unresolved findings. Never commit
 participant rows, credentials or controlled source bytes.
+
+For a synthetic-only candidate, distinguish an inapplicable controlled-use
+decision from a passed custodian gate. Bind the panel and owner disposition to
+the exact candidate commit/tree and evidence manifest. Historical installation
+receipts are not transferable to a changed candidate.
+
+## Remaining Track 004 decisions
+
+The owner must dispose of rights/data-use and simulated-harm panel findings,
+separately recorded clean-install evidence, and final methods, privacy, security
+and engineering findings before node-alpha release. Two substantive plan tasks
+remain distinct: approval of the production common-analysis contract and complete
+locked dependency set, and integration with an authoritative custodian-controlled
+durable policy/query store. Synthetic primitives do not satisfy either production
+task. Keeping these tasks blocked differs from formally narrowing the track;
+scope change requires a decision and acceptance mapping.
+
+## Advisory options and community-impact self-assessment
+
+1. **Continue the bounded synthetic rehearsal (recommended).** Repair operator
+   instructions, test rejection paths and record a separate clean installation.
+   This needs no new data rights but does not complete production tasks or
+   authorise node-alpha release.
+2. **Propose a synthetic-only scope amendment.** This could make closure possible
+   without a custodian, but needs explicit owner disposition, revised acceptance
+   mapping and preservation of deferred production work. Missing authority must
+   not be converted into a passed gate.
+3. **Defer production work until a genuine custodian route exists.** This preserves
+   the deployment objective but depends on actual policy ownership, rights,
+   installation conditions and operational evidence.
+
+Owner-executed simulated-community challenge; no actual community participation,
+representation, consultation, endorsement, consent or independent review.
+The usability risk is mistaking installation success for safe or authorised use.
+Keep invented fixtures labelled, distinguish suppression from zero, and avoid
+country, patient-benefit or representation claims. Minimum evidence for option 1
+is the exact candidate, reviewed instructions, clean-run receipt and rejection
+tests. Site-specific needs and threat models remain uncertain; simulation cannot
+establish lived experience or custodian permission. Stop or narrow on sensitive
+data, unclear rights, hash drift, weakened disclosure controls, hidden network
+fallback, or substitution of tests for external authority.
 
 ## Safe continuation
 
