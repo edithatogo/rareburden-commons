@@ -281,4 +281,10 @@ conductor-integrity-check:
 
 check: conductor-integrity-check
 
+.PHONY: node-staging-provenance-check
+node-staging-provenance-check:
+	$(PYTHON) scripts/check_node_staging_provenance.py --root .
+
+check: node-staging-provenance-check
+
 release-check: ci build package-check installed-package-check sbom

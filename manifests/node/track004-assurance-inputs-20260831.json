@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "bounded synthetic engineering assurance; not production activation",
+  "candidate_commit": "9fd347ecbaf821fc0d73fe09c77760bf0484c3d5",
+  "candidate_tree": "c6edd93f21a28fd578e38d94762bf749f5efa7e0",
+  "files_sha256": {
+    "scripts/check_offline_node_install.py": "0ecaa6ec5dc829b59a214675d1a1e9360f0603448aad18c7bcc20ad014406df7",
+    "src/rareburden/node_policy_store.py": "1ef17ce4f3238a3b4d5e351ca1d18db604711f52ba5bb6612f97d6711d850b8b",
+    "tests/test_offline_node_install.py": "be45ba0d1ecddb3bf564fc365a042a8b9d1158980da2fc64e746917b39ad8346",
+    "tests/test_node_policy_store.py": "489e5a1169bb358bb964aa4949d4a174607675fbd7a7ff9f87cf9a155bf21642",
+    "docs/federated-node-004-operator-guide.md": "7901831bc28a7273effe8f08f1a5f05fb3a972a4fc669714948b5dc9618ea2fc",
+    "uv.lock": "2a0b76b88a5ee9be65b3618f1f29dec52d2298acbd4302ffaf1ceb532f7c5ef5",
+    "requirements.txt": "3da01f451ebaa53db586069920183f25568c06ca8cb8213f6cf9eda03ae5bda4"
+  }
+}

@@ -39,6 +39,8 @@ def _sha256(value: str) -> str:
 
 
 def _timestamp(value: str) -> str:
+    if not isinstance(value, str):
+        raise NodePolicyStoreError("recorded_at must be an ISO-8601 timestamp")
     try:
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except ValueError as exc:
@@ -49,7 +51,7 @@ def _timestamp(value: str) -> str:
 
 
 def _identifier(value: str, *, label: str) -> str:
-    if _IDENTIFIER.fullmatch(value) is None:
+    if not isinstance(value, str) or _IDENTIFIER.fullmatch(value) is None:
         raise NodePolicyStoreError(f"{label} must be a bounded non-sensitive identifier")
     return value
 
@@ -96,15 +98,18 @@ class DurableNodePolicyStore:
 
     def __init__(self, path: Path) -> None:
         self.path = path
-        if path.exists() and (path.is_symlink() or not path.is_file()):
+        if path.is_symlink() or (path.exists() and not path.is_file()):
             raise NodePolicyStoreError(f"node policy store path is unsafe: {path}")
         path.parent.mkdir(parents=True, exist_ok=True)
         self._connection = sqlite3.connect(path, isolation_level=None, timeout=30)
         self._connection.row_factory = sqlite3.Row
-        self._connection.execute("PRAGMA foreign_keys = ON")
-        self._connection.execute("PRAGMA journal_mode = WAL")
         try:
+            self._connection.execute("PRAGMA foreign_keys = ON")
+            self._connection.execute("PRAGMA journal_mode = WAL")
             self._initialise()
+        except sqlite3.DatabaseError as exc:
+            self._connection.close()
+            raise NodePolicyStoreError("node policy store is malformed or incompatible") from exc
         except Exception:
             self._connection.close()
             raise
@@ -190,8 +195,16 @@ class DurableNodePolicyStore:
             "SELECT name, sql FROM sqlite_master WHERE type = 'trigger'"
         ).fetchall()
         triggers = {str(row["name"]): str(row["sql"]) for row in trigger_rows}
-        for name, required_sql in expected_triggers.items():
-            if required_sql not in triggers.get(name, ""):
+        for name, message in expected_triggers.items():
+            table, operation = name.rsplit("_no_", 1)
+            expected_sql = (
+                f"CREATE TRIGGER {name} BEFORE {operation} ON {table} "
+                f"BEGIN SELECT RAISE(ABORT, '{message}'); END"
+            )
+            # Matching only the error-message substring permits a no-op trigger
+            # with that text in a comment or SELECT literal to pass validation.
+            observed_sql = triggers.get(name, "")
+            if re.sub(r"\s+", "", observed_sql).upper() != re.sub(r"\s+", "", expected_sql).upper():
                 raise NodePolicyStoreError(f"node policy store trigger is incompatible: {name}")
 
     def register_policy(self, document: Mapping[str, Any], *, recorded_at: str) -> PolicyReceipt:
@@ -227,6 +240,9 @@ class DurableNodePolicyStore:
         identity = _identifier(policy_id, label="policy_id")
         try:
             self._connection.execute("BEGIN IMMEDIATE")
+            # Verify under the same write lock as the append. A caller must not
+            # extend a tampered history merely because it omitted verify().
+            self.verify()
             policy_row = self._connection.execute(
                 "SELECT document_json FROM disclosure_policies WHERE policy_id = ?", (identity,)
             ).fetchone()
@@ -307,6 +323,10 @@ class DurableNodePolicyStore:
                 if canonical != row["document_json"] or _sha256(canonical) != row["content_sha256"]:
                     raise NodePolicyStoreError(f"policy {row['policy_id']} integrity failed")
                 policy = load_disclosure_policy(document)
+                if policy.policy_id != row["policy_id"]:
+                    raise NodePolicyStoreError("stored policy identity integrity failed")
+                _identifier(policy.policy_id, label="policy_id")
+                _timestamp(row["recorded_at"])
                 policy_by_id[policy.policy_id] = policy
             except (json.JSONDecodeError, NodeExportError) as exc:
                 raise NodePolicyStoreError(f"policy {row['policy_id']} integrity failed") from exc
@@ -318,6 +338,9 @@ class DurableNodePolicyStore:
         for row in queries:
             try:
                 entry = self._entry(row)
+                _identifier(entry.analysis_id, label="analysis_id")
+                _identifier(entry.overlap_group, label="overlap_group")
+                _timestamp(row["recorded_at"])
                 stored_policy = policy_by_id.get(entry.policy_id)
                 if stored_policy is None:
                     raise NodePolicyStoreError(

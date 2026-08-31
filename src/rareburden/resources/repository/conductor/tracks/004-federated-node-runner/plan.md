@@ -4,6 +4,29 @@
 > under ADR-0009. Reproduction is owner-operated, not independent. Actual
 > third-party custodian policies, rights and participation remain separate facts.
 
+## Bounded synthetic assurance tranche — 2026-08-31
+
+The owner requested continuation of the low-blocker tranches with parallel
+agents. These tasks strengthen existing synthetic preparation; they do not
+activate Track 004's production contract, custodian store or node-alpha release.
+The track remains Blocked while those original acceptance gates remain open.
+
+- [x] Harden the existing offline installation proof against environment
+  contamination, malformed results and wheel changes, with regression tests.
+- [x] Reject durable-store policy/receipt tampering and unsafe database paths
+  before appending query receipts, with transactional recovery tests.
+- [x] Correct operator instructions and record a separately executed,
+  hash-bound synthetic offline installation rehearsal for the fixed candidate.
+  Evidence: `docs/track-004-synthetic-assurance-2026-08-31.md` and its exact
+  candidate/input-manifest/installation-receipt bindings. All six original
+  acceptance gates remain pending; no production or release scope is promoted.
+- [x] Resolve hosted review's dependency-provenance gap with per-wheel locked
+  source/version/hash and embedded licence observations, explicit cache-history
+  uncertainty, an immutable lock snapshot and offline negative checks. Evidence:
+  `manifests/node/track004-staging-provenance-20260831.json` and
+  `scripts/check_node_staging_provenance.py`; no wheel publication or new rights
+  conclusion is claimed.
+
 ## Phase 1 — Node contracts and threat model
 
 - [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: four `schemas/node-*.schema.json` contracts and schema-valid synthetic fixtures.

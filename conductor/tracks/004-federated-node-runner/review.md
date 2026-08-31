@@ -150,3 +150,20 @@ These are external gates and cannot be closed by local implementation. The
 track must not be activated or represented as a production federated execution
 capability until those receipts are attached and the alpha release gate is
 reviewed.
+
+### Bounded synthetic assurance — 2026-08-31
+
+The historical external/second-operator review language above is superseded for
+prospective repository review by ADR-0009, not rewritten as historical approval.
+Three role-separated advisory agents reviewed candidate
+`9fd347ecbaf821fc0d73fe09c77760bf0484c3d5` and its hash-bound inputs. The installer
+semantic-output finding was corrected before that candidate; no blocking finding
+remained for the synthetic engineering tranche. The separately executed local
+installation and transport bundle passed. Exact identities, receipts, findings,
+uncertainty and stop triggers are in
+`docs/track-004-synthetic-assurance-2026-08-31.md`.
+
+Only the three initial preparation tasks and the hosted provenance follow-up
+close. Track 004 remains blocked with all
+six original pending plan gates unchanged. This advisory review is not a new
+production-contract, custodian-store, owner-risk or release disposition.
