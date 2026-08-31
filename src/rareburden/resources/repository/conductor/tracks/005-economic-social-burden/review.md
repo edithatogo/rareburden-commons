@@ -5,7 +5,8 @@
 Exact reviewed candidate: `8e1904d7b01638fc54918b68a2f69338c9e9bb36`,
 tree `3667912a8e65bb6a61535d95f17c95712e9d08cf`.
 Input manifest: `manifests/ledger/track005-integrity-inputs-20260831.json`,
-SHA-256 `d11078abb3445faa8d1dc80688cfad5373b20a43555bcdec0c238e71a733896f`.
+original panel-reviewed SHA-256
+`d11078abb3445faa8d1dc80688cfad5373b20a43555bcdec0c238e71a733896f`.
 Panel assurance: simulated role-separated advisory panel. Engineering,
 security/data-use and usability/harm agents each verified the candidate and
 all six manifest file hashes and recommended bounded acceptance without dissent.
@@ -20,6 +21,31 @@ runtime projection and Conductor integrity gates. The timeout override is local
 only; hosted defaults are unchanged. The original fixture and frozen export
 hashes remain identical. The subsequent evidence commit adds this review binding
 and manifest, not a different implementation or scientific artifact.
+
+### Hosted evidence-retention correction
+
+PR #280 review identified that squash history alone would not retain the exact
+reviewed candidate. The repository's linear-history policy is unchanged.
+Annotated non-release tag
+`refs/tags/evidence/track005-contract-integrity-2026-08-31` now retains that commit.
+The manifest adds only this retention reference; its amended SHA-256 is
+`ce94f3ffda53666cfbd357cd93bba8ea5564b0f9e4ee4610c30f6412e0c4050c`.
+Candidate identity, tree and all reviewed/frozen file hashes are unchanged.
+All three advisory agents verified the amended binding and retained their
+bounded pass; security separately confirmed the hosted P2 finding resolved.
+
+The same retention protection was applied to earlier exact candidates:
+
+- `evidence/track004-synthetic-assurance-2026-08-31` retains
+  `9fd347ecbaf821fc0d73fe09c77760bf0484c3d5`.
+- `evidence/track017-retained-guidance-2026-08-31` retains
+  `1469a90951f7b920ffa98e09c2f7abe5869868bc`.
+
+A fresh `git clone --no-checkout` from the public remote, without local object
+sharing, resolved all three tags to their exact candidate commits and trees;
+`git fsck --connectivity-only` passed. Normal clones retain these evidence tags.
+Shallow or tag-excluding clones need the named tags fetched explicitly. They are
+not version tags or releases and must not be removed as merged-branch cleanup.
 
 Tracks 009/010 now have bounded completion evidence; their older blocked status
 below is historical, not the current dependency disposition. Track 005 remains

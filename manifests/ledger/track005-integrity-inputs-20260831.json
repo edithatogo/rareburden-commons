@@ -3,6 +3,7 @@
   "scope": "bounded synthetic contract integrity only",
   "candidate_commit": "8e1904d7b01638fc54918b68a2f69338c9e9bb36",
   "candidate_tree": "3667912a8e65bb6a61535d95f17c95712e9d08cf",
+  "candidate_retention_ref": "refs/tags/evidence/track005-contract-integrity-2026-08-31",
   "panel_assurance": "simulated role-separated advisory panel",
   "files": {
     "src/rareburden/ledger.py": "258b090001c94af919cd3603dd629ee13b93678bc6320e7d23f103652b1db129",
