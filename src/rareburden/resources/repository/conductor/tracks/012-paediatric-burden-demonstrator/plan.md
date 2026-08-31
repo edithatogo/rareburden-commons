@@ -1,5 +1,12 @@
 # Track 012 plan
 
+## Bounded threshold integrity — 2026-08-31
+
+- [x] Enforce the existing integer-at-least-two threshold contract before linked
+  table processing; reject booleans, non-integers and non-finite values without
+  coercion. Add regression tests and preserve the retained synthetic receipt.
+  This does not select a new disclosure policy or activate controlled data.
+
 > Repository-owned review uses the subagent panel under ADR-0008; paediatric, privacy, custodian and patient/community authority remain separate.
 
 ## Phase 1 — Protocol and access pathways

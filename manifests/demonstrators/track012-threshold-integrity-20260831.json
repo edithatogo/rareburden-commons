@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "existing synthetic integer threshold contract only",
+  "candidate_commit": "c3abd9c586f5999c9f9eae88b486545adc8c382f",
+  "candidate_tree": "40e3a24047861c43cde677b0685e35f6396af0a0",
+  "candidate_retention_ref": "refs/tags/evidence/track012-threshold-integrity-2026-08-31",
+  "panel_assurance": "simulated role-separated advisory panel",
+  "files": {
+    "src/rareburden/demonstrators.py": "2bf48014c23470286939bd0dc463ed11500022c3793cf96d5c97d6ea68f295e8",
+    "tests/test_track012_threshold_integrity.py": "ec4000bb36c6943f17d0423338db1354ace68c6a758c51af1c7eecb91593d981"
+  },
+  "unchanged_files": {
+    "examples/paediatric/linked-data-synthetic.yml": "121a6ae098987ecfe6be91a0a6f1de830c0954b298befe4a7eea2e1a1bdfa6ad",
+    "docs/track-012-dependency-bindings-2026-08-16.yml": "bc36846c76dca95ac08be45f464381a1a0ec1bbeba0a99cdf8b148496b22f030",
+    "manifests/demonstrators/track-012-bounded-synthetic-receipt-2026-08-16.json": "28419e2bc1c7b3a926c1f14713ce46d31bc1a136b26554745b896d892f62379f"
+  },
+  "controlled_data_activation": false,
+  "new_disclosure_policy": false,
+  "independent_review": false,
+  "actual_community_participation": false,
+  "release": false
+}

@@ -1,5 +1,47 @@
 # Track 012 dependency review — Collective paediatric rare-disease burden demonstrator
 
+## Bounded threshold integrity review — 2026-08-31
+
+Reviewed candidate: `c3abd9c586f5999c9f9eae88b486545adc8c382f`, tree
+`40e3a24047861c43cde677b0685e35f6396af0a0`. Manifest:
+`manifests/demonstrators/track012-threshold-integrity-20260831.json`, SHA-256
+`844943e594b8b48fca0c67b8b05a5c9c9a261c1f8d29dc86aeed5f019f3e6594`.
+Annotated non-release evidence tag
+`evidence/track012-threshold-integrity-2026-08-31` was pushed and its remote
+peeled commit verified, preserving the candidate across squash and branch cleanup.
+
+Regression evidence: eight failures before the guard, all 17 new cases passing
+after it; 31 focused new/existing cases passed. Root ran
+`PYTEST_ADDOPTS='--timeout=120' uv run --no-sync make check`: 1,749 tests passed
+with all repository gates. The timeout override is local only. Fixture, receipt,
+dependency bindings and all six bound dependency hashes remain unchanged.
+All three advisory agents verified the exact candidate and five manifest hashes
+and recommended bounded acceptance without dissent; security also verified the
+six dependency hashes. Tag publication was subsequently verified by root.
+
+This maintenance tranche enforces the existing integer-at-least-two input
+contract before linked-table processing. It introduces no threshold policy,
+controlled-data pathway, clinical/economic estimand or new retained analysis.
+The existing floor is a synthetic reference-program constraint, not evidence
+that two is safe or approved by any custodian.
+
+Current review routing follows ADR-0009 and the simulated role-separated
+advisory panel policy. Engineering, security/data-use and usability/harm
+perspectives challenge the repair. Owner-executed simulated-community challenge;
+no actual community participation, representation, consultation, endorsement,
+consent or independent review.
+
+Recommendation: deliver the bounded type-check repair under the owner's existing
+implementation direction, conditional on rejection tests and unchanged valid
+receipt evidence. The alternative is to defer broader disclosure work until
+actual policy and methods evidence exists. Site-specific inferential risk,
+stakeholder needs and deployment permissions remain unresolved. Stop on changed
+valid output, reduced thresholds, sensitive input or expanded activation claims.
+
+Track 012 remains **blocked** on its original requirements. Older dependency
+statements below are historical: Tracks 008–010 now have bounded completion,
+which does not supply the missing Track 004/005 or paediatric requirements.
+
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 004, 005, 008, 009 and 010
 

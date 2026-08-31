@@ -112,7 +112,11 @@ def reconcile_paediatric_synthetic_linkage(
     """Summarise invented linked tables without emitting row-level identifiers."""
     if fixture.get("status") != "synthetic_only":
         raise DemonstratorError("Track 012 reconciliation permits synthetic_only fixtures only")
-    if isinstance(disclosure_threshold, bool) or disclosure_threshold < 2:
+    if (
+        isinstance(disclosure_threshold, bool)
+        or not isinstance(disclosure_threshold, int)
+        or disclosure_threshold < 2
+    ):
         raise DemonstratorError("disclosure threshold must be an integer of at least two")
     claims = dependency_bindings.get("claims")
     blocked = (
