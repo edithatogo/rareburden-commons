@@ -1,5 +1,30 @@
 # Track 012 dependency review — Collective paediatric rare-disease burden demonstrator
 
+## Bounded threshold integrity review — 2026-08-31
+
+This maintenance tranche enforces the existing integer-at-least-two input
+contract before linked-table processing. It introduces no threshold policy,
+controlled-data pathway, clinical/economic estimand or new retained analysis.
+The existing floor is a synthetic reference-program constraint, not evidence
+that two is safe or approved by any custodian.
+
+Current review routing follows ADR-0009 and the simulated role-separated
+advisory panel policy. Engineering, security/data-use and usability/harm
+perspectives challenge the repair. Owner-executed simulated-community challenge;
+no actual community participation, representation, consultation, endorsement,
+consent or independent review.
+
+Recommendation: deliver the bounded type-check repair under the owner's existing
+implementation direction, conditional on rejection tests and unchanged valid
+receipt evidence. The alternative is to defer broader disclosure work until
+actual policy and methods evidence exists. Site-specific inferential risk,
+stakeholder needs and deployment permissions remain unresolved. Stop on changed
+valid output, reduced thresholds, sensitive input or expanded activation claims.
+
+Track 012 remains **blocked** on its original requirements. Older dependency
+statements below are historical: Tracks 008–010 now have bounded completion,
+which does not supply the missing Track 004/005 or paediatric requirements.
+
 **Review date:** 2026-07-27  
 **Decision:** Blocked pending Tracks 004, 005, 008, 009 and 010
 

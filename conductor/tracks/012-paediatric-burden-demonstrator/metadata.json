@@ -4,7 +4,7 @@
   "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-16",
+  "updated": "2026-08-31",
   "target_release": "0.7.0",
   "stage": "controlled_reference_analysis",
   "owner_role": "Repository owner (sole accountable human)",
