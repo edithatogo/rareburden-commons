@@ -5,7 +5,6 @@ from __future__ import annotations
 import hashlib
 import json
 import math
-from collections.abc import Mapping
 from importlib.resources import files
 from typing import Any
 
@@ -19,7 +18,7 @@ class EconomicComponentError(ValueError):
 _CANONICAL_SCHEMA_SHA256 = "4176797d50c616ffa20fd44756adcf636ae134cfba2a45b41b076b956c1f3f53"
 
 
-def _check_structure(document: Mapping[str, Any]) -> None:
+def _check_structure(document: dict[str, Any]) -> None:
     """Reject cyclic or excessively large input before copying or validation."""
     stack: list[tuple[Any, int, bool]] = [(document, 0, False)]
     active: set[int] = set()
@@ -89,7 +88,7 @@ def _is_finite_real_number(value: object) -> bool:
 
 
 def validate_component_prototype(
-    document: Mapping[str, Any],
+    document: dict[str, Any],
 ) -> dict[str, Any]:
     """Validate and detach synthetic component rows without calculating totals."""
     _check_structure(document)
