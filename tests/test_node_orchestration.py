@@ -193,6 +193,22 @@ def test_string_subclass_cannot_forge_identifier_checks(tmp_path: Path) -> None:
         assert store.verify() == (1, 0)
 
 
+def test_string_subclass_cannot_forge_expected_policy_digest(tmp_path: Path) -> None:
+    class ForgedDigest(str):
+        def __ne__(self, _other: object) -> bool:
+            return False
+
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs["expected_policy_content_sha256"] = ForgedDigest("0" * 64)
+        with pytest.raises(SyntheticOrchestrationError, match="sha256 digest"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}], **kwargs
+            )
+        assert store.verify() == (1, 0)
+
+
 def test_excess_record_fanout_fails_before_freezing_or_reservation(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

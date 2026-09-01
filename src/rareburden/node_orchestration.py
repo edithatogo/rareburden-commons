@@ -204,7 +204,7 @@ def run_reserved_synthetic_analysis(
         expected_policy_id, label="expected_policy_id", minimum_length=3
     )
     if (
-        not isinstance(expected_policy_content_sha256, str)
+        type(expected_policy_content_sha256) is not str
         or _SHA256.fullmatch(expected_policy_content_sha256) is None
     ):
         raise SyntheticOrchestrationError("expected policy content digest must be a sha256 digest")
@@ -426,12 +426,12 @@ def verify_reserved_synthetic_result(
         if (
             type(trusted_receipt_sequence) is not int
             or trusted_receipt_sequence < 1
-            or not isinstance(trusted_receipt_chain_sha256, str)
+            or type(trusted_receipt_chain_sha256) is not str
             or _SHA256.fullmatch(trusted_receipt_chain_sha256) is None
             or (
                 trusted_previous_chain_sha256 is not None
                 and (
-                    not isinstance(trusted_previous_chain_sha256, str)
+                    type(trusted_previous_chain_sha256) is not str
                     or _SHA256.fullmatch(trusted_previous_chain_sha256) is None
                 )
             )
