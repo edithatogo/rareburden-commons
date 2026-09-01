@@ -58,6 +58,12 @@ _SENSITIVE_IDENTIFIER_PATTERNS = (re.compile(r"api[_.:-]*key"),)
 _MAXIMUM_SYNTHETIC_RECORDS = 1_000
 
 
+def _bounded_string(value: object, *, label: str) -> str:
+    if type(value) is not str or len(value) > MAXIMUM_SYNTHETIC_STRING_LENGTH:
+        raise SyntheticOrchestrationError(f"{label} must be a bounded string")
+    return value
+
+
 def _bounded_non_sensitive_identifier(value: object, *, label: str, minimum_length: int = 1) -> str:
     if (
         not isinstance(value, str)
@@ -165,6 +171,9 @@ def run_reserved_synthetic_analysis(
     This interface is an experimental synthetic fixture boundary. A raised error
     after reservation does not refund or retry the committed query.
     """
+    _bounded_string(coordinator_version, label="coordinator_version")
+    _bounded_string(node_version, label="node_version")
+    _bounded_string(recorded_at, label="recorded_at")
     validate_version_compatibility(
         coordinator_version=coordinator_version, node_version=node_version
     )
@@ -386,6 +395,7 @@ def verify_reserved_synthetic_result(
         raise SyntheticOrchestrationError("reserved result binding mismatch")
     _validate_exact_json_tree(trusted_input_rows, label="trusted_input_rows")
     _validate_exact_json_tree(trusted_query_shape, label="trusted_query_shape")
+    _validate_exact_json_tree(trusted_policy_document, label="trusted_policy_document")
     try:
         _bounded_non_sensitive_identifier(
             trusted_analysis_id, label="trusted_analysis_id", minimum_length=3
@@ -411,6 +421,9 @@ def verify_reserved_synthetic_result(
         _bounded_non_sensitive_identifier(
             trusted_execution_id, label="trusted_execution_id", minimum_length=3
         )
+        _bounded_string(trusted_recorded_at, label="trusted_recorded_at")
+        _bounded_string(trusted_coordinator_version, label="trusted_coordinator_version")
+        _bounded_string(trusted_node_version, label="trusted_node_version")
         trusted_policy = load_disclosure_policy(trusted_policy_document)
         _bounded_non_sensitive_identifier(
             trusted_policy.policy_id, label="trusted_policy_id", minimum_length=3

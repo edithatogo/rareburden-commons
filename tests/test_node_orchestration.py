@@ -256,6 +256,28 @@ def test_expanded_diagnosis_label_fails_before_reservation(tmp_path: Path) -> No
 
 
 @pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("coordinator_version", "0." + "1" * 5_000 + ".0"),
+        ("node_version", "0." + "1" * 5_000 + ".0"),
+        ("recorded_at", "2026-09-01T00:00:00." + "1" * 5_000 + "+00:00"),
+    ],
+)
+def test_oversized_reservation_metadata_fails_before_reservation(
+    tmp_path: Path, field: str, value: str
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs[field] = value
+        with pytest.raises(SyntheticOrchestrationError, match="bounded string"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}], **kwargs
+            )
+        assert store.verify() == (1, 0)
+
+
+@pytest.mark.parametrize(
     "analysis_id",
     [
         None,
@@ -586,6 +608,20 @@ def test_verifier_bounds_trusted_inputs_before_freezing(
     )
     with pytest.raises(SyntheticOrchestrationError, match="bounded JSON structure"):
         _verify(result, **{field: value})
+
+
+def test_verifier_bounds_trusted_policy_before_loading(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    result = _valid_result(tmp_path)
+    policy = {**_policy(), "notes": ["x"] * 1_001}
+    monkeypatch.setattr(
+        orchestration,
+        "load_disclosure_policy",
+        lambda *_args, **_kwargs: pytest.fail("unbounded policy must fail before loading"),
+    )
+    with pytest.raises(SyntheticOrchestrationError, match="bounded JSON structure"):
+        _verify(result, policy=policy)
 
 
 def test_verifier_rejects_nested_execution_schema_substitution(tmp_path: Path) -> None:
