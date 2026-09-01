@@ -11,17 +11,18 @@ from rareburden.schema import load_mapping
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_method_options_are_schema_valid_unselected_advice() -> None:
+def test_method_options_record_owner_selection_of_recommended_option() -> None:
     packet = load_mapping(ROOT / "docs/decisions/2026-08-31-track-005-method-options.yml")
     schema = load_mapping(ROOT / "schemas/agent-owner-decision-packet.schema.json")
     Draft202012Validator(schema).validate(packet)
-    assert packet["owner_decision"] == {"status": "pending"}
+    assert packet["owner_decision"]["status"] == "recorded"
+    assert packet["owner_decision"]["selected_option_id"] == "A"
     assert packet["recommendation"]["option_id"] == "A"
     assert [option["id"] for option in packet["options"]] == ["A", "B", "C"]
     assert packet["track_id"] == "005-economic-social-burden"
 
 
-def test_method_options_bind_exact_proposal_without_activation() -> None:
+def test_historical_method_options_manifest_remains_bound_without_activation() -> None:
     packet = load_mapping(ROOT / "docs/decisions/2026-08-31-track-005-method-options.yml")
     path = ROOT / "manifests/ledger/track005-method-options-20260831.json"
     manifest = json.loads(path.read_bytes())

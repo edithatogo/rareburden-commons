@@ -1,0 +1,73 @@
+schema_version: 0.1.0
+prototype_id: invented_component_first_demo
+synthetic: true
+contract_status: experimental_unfrozen
+economic_use_status: blocked
+components:
+  - component_id: invented_service_contacts
+    revision: 1
+    category: {label: Invented service utilisation, definition_reference: local:invented/service_contacts, status: experimental_unassessed}
+    perspective: {label: Invented health-system view, definition_reference: local:invented/health_system_view, status: experimental_unassessed}
+    roles:
+      bearer: {status: unassessed, rationale: A bearer is not inferred from service use.}
+      payer: {status: declared, label: Invented service payer, rationale: A fictional role used only to exercise the contract.}
+      recipient: {status: unassessed, rationale: Receipt and benefit cannot be inferred from service use.}
+      time_provider: {status: not_applicable, rationale: This row records contacts rather than time.}
+      beneficiary: {status: unassessed, rationale: A recipient is not evidence of observed benefit.}
+    population: {id: invented_population, label: Invented demonstration population}
+    geography: {id: invented_geography, label: Invented demonstration geography}
+    observation_period: {start: '2025-01-01', end: '2025-12-31'}
+    quantity: {kind: resource_count, label: Invented service contacts, unit: contacts, denominator_basis: per invented population during the observation period, measurement_status: explicit_value, value: 12, rationale: Fictional nonmonetary quantity for validation only.}
+    evidence_status: assumed
+    assumption_references: [local:invented/assumption/service_contacts]
+    source_references: []
+    missingness: {status: complete, rationale: This invented row carries an explicit quantity value.}
+    coverage: {status: partial, rationale: Other service types are intentionally absent and must not be inferred as zero or total burden.}
+    overlap: {assessment_status: possible_overlap, component_ids: [invented_unpaid_care], rationale: The invented service and care rows may describe time around the same events.}
+    valuation_readiness: {currency_status: not_applicable, price_year_status: not_applicable, valuation_status: not_applicable, rationale: A resource count is retained without monetary valuation.}
+  - component_id: invented_unpaid_care
+    revision: 1
+    category: {label: Invented unpaid care time, definition_reference: local:invented/unpaid_care, status: experimental_unassessed}
+    perspective: {label: Invented household view, definition_reference: local:invented/household_view, status: experimental_unassessed}
+    roles:
+      bearer: {status: declared, label: Invented household, rationale: Bearer is recorded without inferring payment or total burden.}
+      payer: {status: not_applicable, rationale: Unpaid time has no payer in this invented row.}
+      recipient: {status: unassessed, rationale: Intended recipient does not establish observed benefit.}
+      time_provider: {status: declared, label: Invented unpaid carer, rationale: Provider is distinct from payer and recipient.}
+      beneficiary: {status: unassessed, rationale: No observed benefit is inferred from intended receipt.}
+    population: {id: invented_population, label: Invented demonstration population}
+    geography: {id: invented_geography, label: Invented demonstration geography}
+    observation_period: {start: '2025-01-01', end: '2025-12-31'}
+    quantity: {kind: time, label: Invented unpaid care time, unit: hours, denominator_basis: per invented population during the observation period, measurement_status: explicit_value, value: 40, rationale: Fictional time remains present but deliberately unvalued.}
+    evidence_status: assumed
+    assumption_references: [local:invented/assumption/unpaid_care]
+    source_references: []
+    missingness: {status: complete, rationale: This invented row carries an explicit time quantity.}
+    coverage: {status: unassessed, rationale: Completeness of the invented time component is deliberately unassessed.}
+    overlap: {assessment_status: unassessed, component_ids: [], rationale: Absence of identified overlap is not evidence of mutual exclusivity.}
+    valuation_readiness: {currency_status: not_applicable, price_year_status: not_applicable, valuation_status: not_applicable, rationale: "Time is visible but no currency, price year or valuation is selected."}
+  - component_id: invented_participation_gap
+    revision: 1
+    category: {label: Invented participation episodes, definition_reference: local:invented/participation, status: experimental_unassessed}
+    perspective: {label: Invented participant view, definition_reference: local:invented/participant_view, status: experimental_unassessed}
+    roles:
+      bearer: {status: unassessed, rationale: No cost bearer is inferred from a missing participation quantity.}
+      payer: {status: not_applicable, rationale: The uncollected quantity has no payment field.}
+      recipient: {status: unassessed, rationale: No observed beneficiary is inferred from a missing participation quantity.}
+      time_provider: {status: not_applicable, rationale: The uncollected quantity does not identify a time provider.}
+      beneficiary: {status: unassessed, rationale: Missing participation does not establish benefit.}
+    population: {id: invented_population, label: Invented demonstration population}
+    geography: {id: invented_geography, label: Invented demonstration geography}
+    observation_period: {start: '2025-01-01', end: '2025-12-31'}
+    quantity: {kind: participation, label: Invented participation episodes, unit: episodes, denominator_basis: per invented population during the observation period, measurement_status: not_collected, rationale: Missing collection is represented without a zero value.}
+    evidence_status: assumed
+    assumption_references: [local:invented/assumption/participation_gap]
+    source_references: []
+    missingness: {status: not_collected, rationale: No value was collected and none may be imputed by validation.}
+    coverage: {status: unassessed, rationale: Coverage cannot be assessed for an uncollected invented component.}
+    overlap: {assessment_status: unassessed, component_ids: [], rationale: Overlap is unknown because this invented component was not collected.}
+    valuation_readiness: {currency_status: not_applicable, price_year_status: not_applicable, valuation_status: not_applicable, rationale: No monetary meaning is assigned to the missing nonmonetary quantity.}
+limitations:
+  - Invented validation data only; no empirical estimate, total burden or economic fitness.
+  - Categories and perspectives are experimental and do not represent approved taxonomy.
+  - Validation performs no aggregation, valuation, conversion or engine integration.

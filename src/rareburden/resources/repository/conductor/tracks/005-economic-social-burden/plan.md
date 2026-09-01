@@ -1,5 +1,17 @@
 # Track 005 plan
 
+## Selected component-first validation prototype — 2026-09-01
+
+- [x] Record the owner's exact Option A selection and implement the additive,
+  experimental component-first synthetic validation prototype with invented
+  fixtures and regression tests. Preserve missingness, unvalued care, partial
+  coverage, role separation and overlap uncertainty without valuation, totals,
+  taxonomy freeze, engine integration, empirical activation or track completion.
+  Evidence: `docs/decisions/2026-08-31-track-005-method-options.yml`,
+  `schemas/economic-component-prototype.schema.json`,
+  `rareburden.economic_components`, the invented component fixture and focused
+  regression tests. Full local validation passed 1,801 tests.
+
 ## Method-options preparation — 2026-08-31
 
 - [x] Address hosted provenance and candidate-retention findings with an
