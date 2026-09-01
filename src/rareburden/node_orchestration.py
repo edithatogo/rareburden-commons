@@ -212,8 +212,20 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         or not isinstance(rows, list)
         or any(
             not isinstance(row, Mapping)
+            or row.get("count_status") not in {"released", "suppressed"}
             or (row.get("count_status") == "released" and set(row) != allowed_released_fields)
-            or (row.get("count_status") == "suppressed" and set(row) != {"count", "count_status"})
+            or (
+                row.get("count_status") == "released"
+                and (
+                    not isinstance(row.get("count"), int)
+                    or isinstance(row.get("count"), bool)
+                    or row["count"] < 0
+                )
+            )
+            or (
+                row.get("count_status") == "suppressed"
+                and (set(row) != {"count", "count_status"} or row.get("count") is not None)
+            )
             for row in rows
         )
     ):

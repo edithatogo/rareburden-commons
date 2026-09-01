@@ -1,3 +1,5 @@
+import hashlib
+import json
 import sqlite3
 from pathlib import Path
 from typing import Any
@@ -91,6 +93,38 @@ def test_verifier_accepts_dimension_free_suppressed_rows(tmp_path: Path) -> None
         )
         assert result["execution"]["rows"] == [{"count_status": "suppressed", "count": None}]
         verify_reserved_synthetic_result(result)
+
+
+@pytest.mark.parametrize(
+    "row",
+    [
+        {"count_status": "invalid", "participant_id": "secret", "count": 1},
+        {"count_status": "suppressed", "count": 1},
+        {"diagnosis": '["condition-a"]', "count_status": "released", "count": True},
+        {"diagnosis": '["condition-a"]', "count_status": "released", "count": -1},
+    ],
+)
+def test_verifier_rejects_invalid_status_and_count_contracts(
+    tmp_path: Path, row: dict[str, object]
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        result = run_reserved_synthetic_analysis(
+            [{"synthetic": True, "diagnoses": ["condition-a"]}],
+            **_kwargs(store, receipt.content_sha256),
+        )
+        result["execution"]["rows"] = [row]
+        result["execution"]["manifest"]["output_fingerprint"] = (
+            "sha256:"
+            + hashlib.sha256(
+                json.dumps([row], sort_keys=True, separators=(",", ":")).encode()
+            ).hexdigest()
+        )
+        result["binding"]["output_fingerprint"] = result["execution"]["manifest"][
+            "output_fingerprint"
+        ]
+        with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
+            verify_reserved_synthetic_result(result)
 
 
 def test_wrong_expected_policy_digest_fails_without_reservation(tmp_path: Path) -> None:
