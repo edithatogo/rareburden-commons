@@ -16,22 +16,23 @@ class EconomicComponentError(ValueError):
 
 
 _CANONICAL_SCHEMA_SHA256 = "4176797d50c616ffa20fd44756adcf636ae134cfba2a45b41b076b956c1f3f53"
+_MAX_STRUCTURE_NODES = 10_000
+_MAX_STRUCTURE_DEPTH = 20
 
 
 def _check_structure(document: dict[str, Any]) -> None:
     """Reject cyclic or excessively large input before copying or validation."""
-    stack: list[tuple[Any, int, bool]] = [(document, 0, False)]
     active: set[int] = set()
     nodes = 0
-    while stack:
-        value, depth, exiting = stack.pop()
-        if exiting:
-            active.remove(id(value))
-            continue
+
+    def visit(value: Any, depth: int) -> None:
+        nonlocal nodes
         nodes += 1
-        if nodes > 10_000 or depth > 20:
+        if nodes > _MAX_STRUCTURE_NODES or depth > _MAX_STRUCTURE_DEPTH:
             raise EconomicComponentError("component prototype exceeds structure limits")
         if type(value) in {dict, list}:
+            if len(value) > _MAX_STRUCTURE_NODES - nodes:
+                raise EconomicComponentError("component prototype exceeds structure limits")
             identity = id(value)
             if identity in active:
                 raise EconomicComponentError("component prototype exceeds structure limits")
@@ -44,10 +45,15 @@ def _check_structure(document: dict[str, Any]) -> None:
                 children = value.values()
             else:
                 children = value
-            stack.append((value, depth, True))
-            stack.extend((child, depth + 1, False) for child in children)
+            try:
+                for child in children:
+                    visit(child, depth + 1)
+            finally:
+                active.remove(identity)
         elif type(value) not in {str, int, float, bool, type(None)}:
             raise EconomicComponentError("component prototype contains unsupported structure")
+
+    visit(document, 0)
 
 
 def _materialise_tree(value: Any) -> Any:

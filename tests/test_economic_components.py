@@ -242,6 +242,13 @@ def test_deep_unsupported_container_fails_before_materialization() -> None:
     assert "invented leaf" not in str(error.value)
 
 
+def test_single_container_fanout_stops_at_node_limit() -> None:
+    document = _changed()
+    document["unsupported"] = [None] * 10_001
+    with pytest.raises(EconomicComponentError, match="structure limits"):
+        validate_component_prototype(document)
+
+
 def test_non_string_mapping_key_fails_without_echo() -> None:
     class CustomString(str):
         pass
