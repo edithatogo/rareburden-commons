@@ -44,8 +44,14 @@ _SENSITIVE_IDENTIFIER_TERMS = {
 }
 
 
-def _bounded_non_sensitive_identifier(value: object, *, label: str) -> str:
-    if not isinstance(value, str) or _IDENTIFIER.fullmatch(value) is None:
+def _bounded_non_sensitive_identifier(
+    value: object, *, label: str, minimum_length: int = 1
+) -> str:
+    if (
+        not isinstance(value, str)
+        or len(value) < minimum_length
+        or _IDENTIFIER.fullmatch(value) is None
+    ):
         raise SyntheticOrchestrationError(f"{label} must be a bounded non-sensitive identifier")
     terms = set(re.split(r"[_.:-]+", value.lower()))
     if terms & _SENSITIVE_IDENTIFIER_TERMS:
@@ -94,7 +100,7 @@ def run_reserved_synthetic_analysis(
     validate_version_compatibility(
         coordinator_version=coordinator_version, node_version=node_version
     )
-    _bounded_non_sensitive_identifier(execution_id, label="execution_id")
+    _bounded_non_sensitive_identifier(execution_id, label="execution_id", minimum_length=3)
     if (
         not isinstance(expected_policy_content_sha256, str)
         or _SHA256.fullmatch(expected_policy_content_sha256) is None
@@ -276,6 +282,9 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
     )
     if any(left != right for left, right in pairs):
         raise SyntheticOrchestrationError("reserved result binding mismatch")
+    _bounded_non_sensitive_identifier(
+        manifest.get("execution_id"), label="execution_id", minimum_length=3
+    )
     dimensions = reservation.get("dimensions")
     sequence = reservation.get("sequence")
     previous_chain = reservation.get("previous_chain_sha256")
@@ -380,6 +389,13 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
             for row in rows
         )
     ):
+        raise SyntheticOrchestrationError("reserved result query shape mismatch")
+    released_groups = [
+        tuple(row[dimension] for dimension in dimensions)
+        for row in rows
+        if row.get("count_status") == "released"
+    ]
+    if len(released_groups) != len(set(released_groups)):
         raise SyntheticOrchestrationError("reserved result query shape mismatch")
     try:
         verify_output_fingerprint(execution)

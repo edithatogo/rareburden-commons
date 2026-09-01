@@ -99,7 +99,7 @@ def test_verifier_accepts_dimension_free_suppressed_rows(tmp_path: Path) -> None
 
 @pytest.mark.parametrize(
     "execution_id",
-    [None, 3, "", "   ", "x" * 129, "person@example.org", "token-secret"],
+    [None, 3, "", "x", "ab", "   ", "x" * 129, "person@example.org", "token-secret"],
 )
 def test_invalid_execution_identity_fails_before_reservation(
     tmp_path: Path, execution_id: object
@@ -166,6 +166,33 @@ def test_verifier_rejects_below_threshold_release_with_recomputed_fingerprint(
     result["execution"]["manifest"]["output_fingerprint"] = output_fingerprint
     result["binding"]["output_fingerprint"] = output_fingerprint
     with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
+        verify_reserved_synthetic_result(result)
+
+
+def test_verifier_rejects_duplicate_released_groups_with_recomputed_fingerprint(
+    tmp_path: Path,
+) -> None:
+    result = _valid_result(tmp_path)
+    row = {"diagnosis": '["condition-a"]', "count": 1, "count_status": "released"}
+    rows = [row, dict(row)]
+    output_fingerprint = (
+        "sha256:"
+        + hashlib.sha256(
+            json.dumps(rows, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+    )
+    result["execution"]["rows"] = rows
+    result["execution"]["manifest"]["output_fingerprint"] = output_fingerprint
+    result["binding"]["output_fingerprint"] = output_fingerprint
+    with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
+        verify_reserved_synthetic_result(result)
+
+
+def test_verifier_rejects_short_execution_identity(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    result["execution"]["manifest"]["execution_id"] = "x"
+    result["binding"]["execution_id"] = "x"
+    with pytest.raises(SyntheticOrchestrationError, match="bounded non-sensitive identifier"):
         verify_reserved_synthetic_result(result)
 
 
