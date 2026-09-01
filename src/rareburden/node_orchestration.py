@@ -172,10 +172,9 @@ def run_reserved_synthetic_analysis(
         or _SHA256.fullmatch(expected_policy_content_sha256) is None
     ):
         raise SyntheticOrchestrationError("expected policy content digest must be a sha256 digest")
-    try:
-        record_count = len(records)
-    except (TypeError, ValueError, OverflowError) as exc:
-        raise SyntheticOrchestrationError("records must be a bounded sequence") from exc
+    if type(records) is not list:
+        raise SyntheticOrchestrationError("records must be an exact JSON array")
+    record_count = len(records)
     if record_count > _MAXIMUM_SYNTHETIC_RECORDS:
         raise SyntheticOrchestrationError("records exceed the bounded synthetic fanout")
     frozen_query = _frozen_json(query_shape, label="query_shape")

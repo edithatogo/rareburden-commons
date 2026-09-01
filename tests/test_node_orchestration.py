@@ -192,6 +192,28 @@ def test_excess_record_fanout_fails_before_freezing_or_reservation(
         assert store.verify() == (1, 0)
 
 
+def test_record_array_subclass_cannot_bypass_pre_freeze_fanout(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    class LyingRecordArray(list[dict[str, object]]):
+        def __len__(self) -> int:
+            return 1
+
+    records = LyingRecordArray(
+        {"synthetic": True, "diagnoses": [f"condition-{index}"]} for index in range(1_001)
+    )
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        monkeypatch.setattr(
+            orchestration,
+            "_frozen_json",
+            lambda *_args, **_kwargs: pytest.fail("non-exact records must fail before freezing"),
+        )
+        with pytest.raises(SyntheticOrchestrationError, match="exact JSON array"):
+            run_reserved_synthetic_analysis(records, **_kwargs(store, receipt.content_sha256))
+        assert store.verify() == (1, 0)
+
+
 @pytest.mark.parametrize(
     "analysis_id",
     [
