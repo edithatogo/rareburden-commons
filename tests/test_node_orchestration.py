@@ -624,6 +624,28 @@ def test_verifier_bounds_trusted_policy_before_loading(
         _verify(result, policy=policy)
 
 
+@pytest.mark.parametrize(
+    "diagnosis",
+    [
+        "not-a-canonical-diagnosis-group",
+        '["condition-b","condition-a"]',
+        '["condition-a","condition-a"]',
+        '[" condition-a"]',
+    ],
+)
+def test_verifier_rejects_noncanonical_trusted_diagnosis_before_execution(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, diagnosis: str
+) -> None:
+    result = _valid_result(tmp_path)
+    monkeypatch.setattr(
+        orchestration,
+        "run_offline_node",
+        lambda *_args, **_kwargs: pytest.fail("malformed dimensions must fail before execution"),
+    )
+    with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input is malformed"):
+        _verify(result, input_rows=[{"diagnosis": diagnosis, "count": 1}])
+
+
 def test_verifier_rejects_nested_execution_schema_substitution(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     result["execution"]["schema_version"] = "9.9.9"

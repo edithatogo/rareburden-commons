@@ -64,6 +64,26 @@ def _bounded_string(value: object, *, label: str) -> str:
     return value
 
 
+def _validate_trusted_dimension_value(value: object, *, dimension: str) -> None:
+    if type(value) is not str:
+        raise SyntheticOrchestrationError("trusted aggregate input is malformed")
+    if dimension == "diagnosis":
+        try:
+            diagnoses = json.loads(value)
+        except (TypeError, ValueError) as exc:
+            raise SyntheticOrchestrationError("trusted aggregate input is malformed") from exc
+        if (
+            type(diagnoses) is not list
+            or not diagnoses
+            or any(type(item) is not str or not item or item.strip() != item for item in diagnoses)
+            or diagnoses != sorted(set(diagnoses))
+            or json.dumps(diagnoses, ensure_ascii=True, separators=(",", ":")) != value
+        ):
+            raise SyntheticOrchestrationError("trusted aggregate input is malformed")
+    elif not value or value.strip() != value:
+        raise SyntheticOrchestrationError("trusted aggregate input is malformed")
+
+
 def _bounded_non_sensitive_identifier(value: object, *, label: str, minimum_length: int = 1) -> str:
     if (
         not isinstance(value, str)
@@ -551,6 +571,9 @@ def verify_reserved_synthetic_result(
             for row in frozen_input_rows
         ):
             raise SyntheticOrchestrationError("trusted aggregate input is malformed")
+        for row in frozen_input_rows:
+            for dimension in normalised_trusted_dimensions:
+                _validate_trusted_dimension_value(row[dimension], dimension=dimension)
         trusted_groups = [
             tuple(row[dimension] for dimension in normalised_trusted_dimensions)
             for row in frozen_input_rows
