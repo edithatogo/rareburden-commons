@@ -6,7 +6,6 @@ import hashlib
 import json
 import math
 from collections.abc import Mapping
-from copy import deepcopy
 from importlib.resources import files
 from typing import Any
 
@@ -33,25 +32,32 @@ def _check_structure(document: Mapping[str, Any]) -> None:
         nodes += 1
         if nodes > 10_000 or depth > 20:
             raise EconomicComponentError("component prototype exceeds structure limits")
-        if isinstance(value, (Mapping, list, tuple)):
+        if type(value) in {dict, list}:
             identity = id(value)
             if identity in active:
                 raise EconomicComponentError("component prototype exceeds structure limits")
             active.add(identity)
-            children = value.values() if isinstance(value, Mapping) else value
+            if type(value) is dict:
+                if any(type(key) is not str for key in value):
+                    raise EconomicComponentError(
+                        "component prototype contains unsupported structure"
+                    )
+                children = value.values()
+            else:
+                children = value
             stack.append((value, depth, True))
             stack.extend((child, depth + 1, False) for child in children)
+        elif type(value) not in {str, int, float, bool, type(None)}:
+            raise EconomicComponentError("component prototype contains unsupported structure")
 
 
 def _materialise_tree(value: Any) -> Any:
     """Detach every container occurrence without preserving shared aliases."""
-    if isinstance(value, Mapping):
-        return {deepcopy(key): _materialise_tree(item) for key, item in value.items()}
-    if isinstance(value, list):
+    if type(value) is dict:
+        return {key: _materialise_tree(item) for key, item in value.items()}
+    if type(value) is list:
         return [_materialise_tree(item) for item in value]
-    if isinstance(value, tuple):
-        return tuple(_materialise_tree(item) for item in value)
-    return deepcopy(value)
+    return value
 
 
 def _canonical_schema() -> dict[str, Any]:

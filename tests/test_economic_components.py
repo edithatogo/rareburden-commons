@@ -231,6 +231,55 @@ def test_cyclic_and_excessively_deep_inputs_fail_with_safe_error() -> None:
         validate_component_prototype(deep)
 
 
+def test_deep_unsupported_container_fails_before_materialization() -> None:
+    nested: object = "invented leaf"
+    for _ in range(200):
+        nested = frozenset((nested,))
+    document = _changed()
+    document["unsupported"] = nested
+    with pytest.raises(EconomicComponentError, match="unsupported structure") as error:
+        validate_component_prototype(document)
+    assert "invented leaf" not in str(error.value)
+
+
+def test_non_string_mapping_key_fails_without_echo() -> None:
+    class CustomString(str):
+        pass
+
+    for unsupported_key in (("secret", "key"), CustomString("secret-key")):
+        document = _changed()
+        document["components"][0]["category"][unsupported_key] = "invented value"  # type: ignore[index]
+        with pytest.raises(EconomicComponentError, match="unsupported structure") as error:
+            validate_component_prototype(document)
+        assert "secret" not in str(error.value)
+        assert "invented value" not in str(error.value)
+
+
+def test_non_native_containers_and_scalar_subclasses_fail_generically() -> None:
+    class CustomMapping(dict[str, object]):
+        pass
+
+    class CustomList(list[object]):
+        pass
+
+    class CustomInteger(int):
+        pass
+
+    for unsupported in (
+        ("tuple",),
+        b"bytes",
+        {"set"},
+        CustomMapping(value="mapping"),
+        CustomList(["list"]),
+        CustomInteger(7),
+    ):
+        document = _changed()
+        document["unsupported"] = unsupported
+        with pytest.raises(EconomicComponentError, match="unsupported structure") as error:
+            validate_component_prototype(document)
+        assert str(error.value) == "component prototype contains unsupported structure"
+
+
 def test_safe_shared_container_alias_is_not_misclassified_as_a_cycle() -> None:
     document = _changed(1)
     shared_role = document["components"][1]["roles"]["recipient"]  # type: ignore[index]
@@ -278,9 +327,9 @@ def test_arbitrarily_large_integer_is_finite_without_float_conversion() -> None:
 def test_non_json_numeric_objects_fail_without_float_coercion(value: object) -> None:
     document = _changed()
     document["components"][0]["quantity"]["value"] = value  # type: ignore[index]
-    with pytest.raises(EconomicComponentError, match="finite number") as error:
+    with pytest.raises(EconomicComponentError, match="unsupported structure") as error:
         validate_component_prototype(document)
-    assert str(error.value) == "component quantity must be a finite number"
+    assert str(error.value) == "component prototype contains unsupported structure"
 
 
 def test_ordinary_finite_float_remains_supported() -> None:
