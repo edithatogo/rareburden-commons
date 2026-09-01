@@ -1,16 +1,17 @@
 {
   "schema_version": "0.1.0",
   "track_id": "005-economic-social-burden",
-  "candidate_commit": "0c1fb2530913fca40c5b650b06d7be84bace915e",
-  "candidate_tree": "0528bd1c37e27659b8953bc59d2ccea768791779",
+  "candidate_commit": "a0e14be0d0c95b994eb69e1b979fc76aae60a45c",
+  "candidate_tree": "2bcb2b90ab91e5ed57fd478cde619870eb000f6a",
   "selected_proposal_commit": "1ed8ed425120f31f6d812230e924de6f3ca7b25f",
   "selected_option": "A",
   "files": {
     "docs/decisions/2026-08-31-track-005-method-options.yml": "824717c96cad9f05ad89efcbcc56dd35e25fa22c05edbd91e52616975ec65e05",
     "examples/economics/component-first-invented.yml": "aae94a316d4dd005a8d20db43c8e1a7f12e00e197e7c39ba9ce521636c5fece3",
     "schemas/economic-component-prototype.schema.json": "4176797d50c616ffa20fd44756adcf636ae134cfba2a45b41b076b956c1f3f53",
-    "src/rareburden/economic_components.py": "8219316fa8c82b259bb1729c6bc77501326999ac7cc495b08ebe2437e9e19211",
-    "tests/test_economic_components.py": "a0ac035a7c7a6311af8ef140368b6779e895a6d0dd30ace8b5287642e2a86f25"
+    "src/rareburden/resources/repository/schemas/economic-component-prototype.schema.json": "4176797d50c616ffa20fd44756adcf636ae134cfba2a45b41b076b956c1f3f53",
+    "src/rareburden/economic_components.py": "94a40b2fd0622d736b06213376d4d1dff010171967515bf8ad92538bee433c5c",
+    "tests/test_economic_components.py": "9ef036912c7166ef6004499bb63a3902198dce8780a3192061745a55536627aa"
   },
   "experimental": true,
   "synthetic_only": true,
@@ -21,5 +22,12 @@
   "empirical_activation": false,
   "controlled_data_activation": false,
   "track_complete": false,
-  "release": false
+  "release": false,
+  "validation": {
+    "focused_tests_passed": 31,
+    "full_tests_passed": 1807,
+    "repository_integrity_passed": true,
+    "retained_provenance_passed": true,
+    "hosted_checks_passed": false
+  }
 }
