@@ -12,11 +12,13 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKET = ROOT / "docs/decisions/2026-09-01-track-004-integration-options.yml"
 
 
-def test_integration_options_are_schema_valid_pending_advice() -> None:
+def test_integration_options_record_exact_bounded_owner_selection() -> None:
     packet = load_mapping(PACKET)
     schema = load_mapping(ROOT / "schemas/agent-owner-decision-packet.schema.json")
     Draft202012Validator(schema).validate(packet)
-    assert packet["owner_decision"] == {"status": "pending"}
+    assert packet["owner_decision"]["status"] == "recorded"
+    assert packet["owner_decision"]["selected_option_id"] == "A"
+    assert packet["owner_decision"]["decided_by"] == "edithatogo"
     assert packet["recommendation"]["option_id"] == "A"
     assert [option["id"] for option in packet["options"]] == ["A", "B", "C"]
     assert packet["track_id"] == "004-federated-node-runner"
@@ -50,3 +52,7 @@ def test_integration_proposal_preserves_original_pending_gates() -> None:
     track = ROOT / "conductor/tracks/004-federated-node-runner"
     assert (track / "plan.md").read_text().count("- [ ]") == 6
     assert json.loads((track / "metadata.json").read_bytes())["status"] == "blocked"
+    proposal = (ROOT / "docs/track-004-integration-options-2026-09-01.md").read_text()
+    assert "UNSELECTED proposal; owner decision pending" in proposal
+    assert load_mapping(PACKET)["owner_decision"]["selected_option_id"] == "A"
+    assert "Green prototype tests would not close these gates automatically" in proposal

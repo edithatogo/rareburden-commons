@@ -71,10 +71,84 @@ does not authorise a controlled-data connection, production node or export.
    it may fetch dependencies and is not an offline-install substitute.
 7. Run `uv run make node-reproducibility` for two in-memory synthetic executions.
    This checks deterministic output, not packaging or separate installation.
-8. Run an explicitly synthetic cohort through
-   `aggregate_synthetic_records`, register its value-free query shape in a
-   `QueryLedger` snapshot, then pass the resulting aggregate rows to
-   `run_offline_node`.
+8. For the selected experimental integration, use
+   `rareburden.node_orchestration.run_reserved_synthetic_analysis` with an
+   already opened `DurableNodePolicyStore`. This is a Python API, not a
+   production node CLI. Supply `analysis_id`, `overlap_group`,
+   `expected_policy_id` and `expected_policy_content_sha256` as operator-bound
+   arguments; do not place `analysis_id` inside `query_shape` or derive these
+   identities from the records. For example, with explicitly invented records
+   and a policy already registered in the store:
+
+   ```python
+   from rareburden.node_orchestration import (
+       run_reserved_synthetic_analysis,
+       verify_reserved_synthetic_result,
+   )
+   from rareburden.node_analysis import aggregate_synthetic_records
+
+   trusted_query_shape = {"dimensions": ["jurisdiction"], "measure": "count"}
+   trusted_input_rows = aggregate_synthetic_records(
+       invented_records, dimensions=trusted_query_shape["dimensions"]
+   )
+
+   envelope = run_reserved_synthetic_analysis(
+       invented_records,
+       store=store,
+       query_shape=trusted_query_shape,
+       analysis_id="invented-analysis",
+       overlap_group="invented-overlap-group",
+       expected_policy_id="invented-policy",
+       expected_policy_content_sha256=recorded_policy_sha256,
+       recorded_at="2026-09-01T00:00:00Z",
+       execution_id="invented-execution",
+       coordinator_version="0.1.0",
+       node_version="0.1.0",
+   )
+   # Retain these fields at the trusted producer boundary before transporting
+   # the envelope, and supply them to the verifier through a separate channel.
+   retained_receipt = envelope["reservation"].copy()
+   verify_reserved_synthetic_result(
+       envelope,
+       trusted_policy_document=reviewed_policy_document,
+       trusted_input_rows=trusted_input_rows,
+       trusted_query_shape=trusted_query_shape,
+       trusted_analysis_id="invented-analysis",
+       trusted_overlap_group="invented-overlap-group",
+       trusted_receipt_sequence=retained_receipt["sequence"],
+       trusted_receipt_chain_sha256=retained_receipt["chain_sha256"],
+       trusted_previous_chain_sha256=retained_receipt["previous_chain_sha256"],
+       trusted_recorded_at=retained_receipt["recorded_at"],
+       trusted_execution_id="invented-execution",
+       trusted_coordinator_version="0.1.0",
+       trusted_node_version="0.1.0",
+   )
+   ```
+
+   Replace every example value with the exact reviewed synthetic candidate
+   value. Receipt fields copied from the envelope at the verification boundary
+   are not independent and do not satisfy this premise. The function freezes
+   and preflights the query and invented records,
+   then commits the value-free reservation before aggregation. A pre-commit
+   rejection returns no result and commits no reservation. Once committed, the
+   reservation remains consumed if aggregation, export validation, result
+   construction or binding verification fails. There is no automatic retry,
+   refund, budget reset or replacement-store recovery. If commit success is
+   uncertain, stop without analysis and do not retry: inspection and recovery
+   need a separately approved procedure.
+
+   Verification requires independently retained operator inputs; it has no
+   envelope-only or self-consistency mode. Do not derive any `trusted_*` argument
+   from the returned envelope: `trusted_input_rows` are the retained synthetic
+   pre-suppression aggregates, not participant records or returned output rows.
+   “Trusted” is an external provenance premise; this function validates
+   correspondence but cannot establish that provenance. The returned in-memory
+   envelope binds the receipt sequence, query and chain fingerprints, exact
+   policy ID/hash, execution ID and input/output
+   fingerprints. These are consistency metadata, not a signature, execution
+   attestation, delivery receipt or permission to distribute. This reference
+   store is not an authoritative custodian system merely because the bindings
+   verify.
 9. Inspect suppression statuses and confirm no participant fields are present.
 10. Retain the verification receipt, execution manifest and environment identity
     with the review packet.
@@ -93,6 +167,9 @@ does not authorise a controlled-data connection, production node or export.
 | Wheel, bundle or output hash mismatch | Quarantine the candidate, retain the failure and reconcile exact artifacts before rerunning or distributing. |
 | Incompatible version, missing field, identifier or nested participant value | Reject the input. Correct only the invented fixture/contract under review; never strip real identifiers to bypass validation. |
 | Weaker policy, replay, query-budget rejection or missing history | Stop. Do not reset the ledger or lower thresholds to force success. Resolve policy/history under the applicable authority. |
+| Expected policy ID/hash differs from the transaction-bound stored policy | Stop before analysis. Reconcile the operator-approved policy and store; do not substitute a caller-supplied policy or weaken controls. |
+| Commit outcome is uncertain | Stop without analysis or automatic retry. Do not assume the reservation failed or that budget remains. Escalate for a separately approved inspection/recovery procedure. |
+| Aggregation, export validation or result construction fails after commit | Return no partial result. Treat the reservation as consumed; do not refund, retry, reset the budget or replace the store. |
 | Suppressed or absent output | Treat it as unavailable, not zero; do not repeat or combine queries to infer hidden cells. |
 
 Inspect evidence before public retention: no credentials, participant values,
@@ -107,3 +184,10 @@ No operator may connect a node to a custodian, lower disclosure thresholds, or
 publish an output without the applicable governance and export-review approvals.
 The in-memory policy/ledger and SQLite reference store do not themselves establish
 custodian ownership, access control, backup or production authority.
+
+All six original Track 004 gates remain pending and the track remains blocked.
+The selected synthetic prototype does not approve the production common-analysis
+contract, create an authoritative custodian store, activate controlled data or
+authorise node-alpha release. Historical installation or execution receipts do
+not transfer to this changed orchestration candidate; any installation/run claim
+needs a separately executed receipt bound to its exact commit, tree and artifacts.

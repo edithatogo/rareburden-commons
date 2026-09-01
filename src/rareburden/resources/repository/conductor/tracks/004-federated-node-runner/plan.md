@@ -1,5 +1,17 @@
 # Track 004 plan
 
+## Selected bounded synthetic integration prototype — 2026-09-01
+
+- [x] Record the owner's exact selection of Option A against proposal candidate
+  `3532d3247088ea5cdfa5690657350985461d9693`.
+- [x] Implement and exact-bind the additive experimental synthetic-only
+  reservation, aggregation and result-envelope prototype.
+
+All six original pending gates below remain pending and Track 004 remains
+Blocked. This selection does not approve the production common-analysis
+contract, an authoritative custodian store, controlled-data activation, Track
+004 completion or release.
+
 ## Integration-options preparation — 2026-09-01
 
 - [x] Prepare concrete synthetic integration, production-contract preparation

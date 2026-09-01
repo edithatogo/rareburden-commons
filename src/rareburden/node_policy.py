@@ -25,6 +25,50 @@ _POLICY_OPTIONAL = {"notes"}
 _ALLOWED_DIMENSIONS = {"jurisdiction", "group", "diagnosis"}
 _EXPORT_MODES = {"aggregate_only", "metadata_only"}
 _FINGERPRINT = re.compile(r"^sha256:[0-9a-f]{64}$")
+_SUPPORTED_POLICY_SCHEMA_VERSION = "0.1.0"
+_MAXIMUM_POLICY_FANOUT = 1_000
+_MAXIMUM_POLICY_STRING_LENGTH = 4_096
+
+
+def _validate_bounded_policy_json(document: object) -> None:
+    if type(document) is not dict:
+        raise NodeExportError("disclosure policy must be an exact JSON object")
+    nodes = 0
+    active_containers: set[int] = set()
+    stack: list[tuple[object, int, bool]] = [(document, 0, False)]
+    while stack:
+        current, depth, leaving = stack.pop()
+        if leaving:
+            active_containers.remove(id(current))
+            continue
+        nodes += 1
+        if nodes > 10_000 or depth > 32:
+            raise NodeExportError("disclosure policy exceeds bounded JSON structure")
+        if type(current) in {dict, list}:
+            container_id = id(current)
+            if container_id in active_containers:
+                raise NodeExportError("disclosure policy contains a JSON cycle")
+            active_containers.add(container_id)
+            stack.append((current, depth, True))
+        if type(current) is dict:
+            if len(current) > _MAXIMUM_POLICY_FANOUT:
+                raise NodeExportError("disclosure policy exceeds bounded JSON structure")
+            for key, value in current.items():
+                if type(key) is not str:
+                    raise NodeExportError("disclosure policy must use exact JSON types")
+                if len(key) > _MAXIMUM_POLICY_STRING_LENGTH:
+                    raise NodeExportError("disclosure policy exceeds bounded JSON structure")
+                stack.append((value, depth + 1, False))
+        elif type(current) is list:
+            if len(current) > _MAXIMUM_POLICY_FANOUT:
+                raise NodeExportError("disclosure policy exceeds bounded JSON structure")
+            for value in current:
+                stack.append((value, depth + 1, False))
+        elif type(current) is str:
+            if len(current) > _MAXIMUM_POLICY_STRING_LENGTH:
+                raise NodeExportError("disclosure policy exceeds bounded JSON structure")
+        elif current is not None and type(current) not in {bool, int, float}:
+            raise NodeExportError("disclosure policy must use exact JSON types")
 
 
 def _non_empty_string(value: Any, *, label: str) -> str:
@@ -64,8 +108,7 @@ class DisclosurePolicy:
 
 def load_disclosure_policy(document: Mapping[str, Any]) -> DisclosurePolicy:
     """Validate an in-memory policy document and return an immutable value."""
-    if not isinstance(document, Mapping):
-        raise NodeExportError("disclosure policy must be an object")
+    _validate_bounded_policy_json(document)
     keys = set(document)
     missing = _POLICY_REQUIRED - keys
     unknown = keys - _POLICY_REQUIRED - _POLICY_OPTIONAL
@@ -77,6 +120,8 @@ def load_disclosure_policy(document: Mapping[str, Any]) -> DisclosurePolicy:
     schema_version = _non_empty_string(document["schema_version"], label="schema_version")
     if _SEMVER.fullmatch(schema_version) is None:
         raise NodeExportError("schema_version must be a semantic version")
+    if schema_version != _SUPPORTED_POLICY_SCHEMA_VERSION:
+        raise NodeExportError("schema_version is unsupported")
     dimensions = _unique_strings(
         document["allowed_dimension_fields"], label="allowed_dimension_fields"
     )

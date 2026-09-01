@@ -21,10 +21,15 @@ from rareburden.node_policy import (
 )
 
 _IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$")
+_SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 
 class NodePolicyStoreError(ValueError):
     """Raised when durable node-policy state fails validation or integrity checks."""
+
+
+class NodePolicyCommitUncertainError(NodePolicyStoreError):
+    """Raised when a failed COMMIT may already have durably recorded a query."""
 
 
 def _canonical_json(value: object) -> str:
@@ -71,6 +76,16 @@ def _policy_document(policy: DisclosurePolicy) -> dict[str, object]:
     return document
 
 
+def canonical_policy_content_sha256(document: Mapping[str, Any]) -> str:
+    """Return the store canonical digest for one validated policy document."""
+    try:
+        policy = load_disclosure_policy(document)
+    except NodeExportError as exc:
+        raise NodePolicyStoreError(str(exc)) from exc
+    _identifier(policy.policy_id, label="policy_id")
+    return _sha256(_canonical_json(_policy_document(policy)))
+
+
 @dataclass(frozen=True, slots=True)
 class PolicyReceipt:
     policy_id: str
@@ -87,6 +102,16 @@ class QueryReceipt:
     chain_sha256: str
     previous_chain_sha256: str | None
     recorded_at: str
+
+
+@dataclass(frozen=True, slots=True)
+class QueryReservation:
+    """A committed query receipt and the exact policy snapshot used to admit it."""
+
+    receipt: QueryReceipt
+    policy: DisclosurePolicy
+    policy_content_sha256: str
+    registered_query: QueryLedgerEntry
 
 
 class DurableNodePolicyStore:
@@ -122,6 +147,15 @@ class DurableNodePolicyStore:
 
     def close(self) -> None:
         self._connection.close()
+
+    def _commit(self) -> None:
+        self._connection.execute("COMMIT")
+
+    def _begin(self) -> None:
+        self._connection.execute("BEGIN IMMEDIATE")
+
+    def _rollback(self) -> None:
+        self._connection.execute("ROLLBACK")
 
     def _initialise(self) -> None:
         self._connection.executescript(
@@ -216,7 +250,7 @@ class DurableNodePolicyStore:
             raise NodePolicyStoreError(str(exc)) from exc
         _identifier(policy.policy_id, label="policy_id")
         canonical = _canonical_json(_policy_document(policy))
-        digest = _sha256(canonical)
+        digest = canonical_policy_content_sha256(document)
         try:
             self._connection.execute(
                 "INSERT INTO disclosure_policies VALUES (?, ?, ?, ?)",
@@ -235,16 +269,41 @@ class DurableNodePolicyStore:
         recorded_at: str,
     ) -> QueryReceipt:
         """Atomically enforce replay/budget policy and append a value-free receipt."""
+        return self.reserve_query(
+            query_shape,
+            overlap_group=overlap_group,
+            policy_id=policy_id,
+            expected_policy_content_sha256=None,
+            recorded_at=recorded_at,
+        ).receipt
+
+    def reserve_query(
+        self,
+        query_shape: Mapping[str, Any],
+        *,
+        overlap_group: str,
+        policy_id: str,
+        expected_policy_content_sha256: str | None,
+        recorded_at: str,
+    ) -> QueryReservation:
+        """Commit a query and return the exact transaction-bound policy snapshot."""
         timestamp = _timestamp(recorded_at)
         group = _identifier(overlap_group, label="overlap_group")
         identity = _identifier(policy_id, label="policy_id")
+        if expected_policy_content_sha256 is not None and (
+            type(expected_policy_content_sha256) is not str
+            or _SHA256.fullmatch(expected_policy_content_sha256) is None
+        ):
+            raise NodePolicyStoreError("expected policy content digest must be a sha256 digest")
+        commit_attempted = False
         try:
-            self._connection.execute("BEGIN IMMEDIATE")
+            self._begin()
             # Verify under the same write lock as the append. A caller must not
             # extend a tampered history merely because it omitted verify().
             self.verify()
             policy_row = self._connection.execute(
-                "SELECT document_json FROM disclosure_policies WHERE policy_id = ?", (identity,)
+                "SELECT document_json, content_sha256 FROM disclosure_policies WHERE policy_id = ?",
+                (identity,),
             ).fetchone()
             if policy_row is None:
                 raise NodePolicyStoreError("policy_id is not registered")
@@ -252,9 +311,25 @@ class DurableNodePolicyStore:
             if not isinstance(policy_document, dict):
                 raise NodePolicyStoreError("stored policy is malformed")
             policy = load_disclosure_policy(policy_document)
+            policy_digest = str(policy_row["content_sha256"])
+            if (
+                expected_policy_content_sha256 is not None
+                and policy_digest != expected_policy_content_sha256
+            ):
+                raise NodePolicyStoreError("stored policy does not match expected content digest")
             rows = self._connection.execute(
                 "SELECT * FROM query_receipts ORDER BY sequence"
             ).fetchall()
+            allocator_row = self._connection.execute(
+                "SELECT seq FROM sqlite_sequence WHERE name = 'query_receipts'"
+            ).fetchone()
+            try:
+                allocator_sequence = 0 if allocator_row is None else int(allocator_row["seq"])
+            except (TypeError, ValueError, OverflowError) as exc:
+                raise NodePolicyStoreError("query receipt allocator integrity failed") from exc
+            last_sequence = 0 if not rows else int(rows[-1]["sequence"])
+            if allocator_sequence != last_sequence:
+                raise NodePolicyStoreError("query receipt allocator integrity failed")
             ledger = QueryLedger(entries=tuple(self._entry(row) for row in rows))
             next_ledger = ledger.append(query_shape, overlap_group=group, policy=policy)
             entry = next_ledger.entries[-1]
@@ -291,16 +366,27 @@ class DurableNodePolicyStore:
             )
             if cursor.lastrowid is None:
                 raise NodePolicyStoreError("query registration returned no sequence")
-            self._connection.execute("COMMIT")
+            commit_attempted = True
+            self._commit()
         except (sqlite3.DatabaseError, NodeExportError, NodePolicyStoreError) as exc:
-            if self._connection.in_transaction:
-                self._connection.execute("ROLLBACK")
+            transaction_open = self._connection.in_transaction
+            if transaction_open:
+                try:
+                    self._rollback()
+                except sqlite3.DatabaseError as rollback_exc:
+                    raise NodePolicyCommitUncertainError(
+                        "query rollback outcome is uncertain; do not retry"
+                    ) from rollback_exc
             if isinstance(exc, NodePolicyStoreError):
                 raise
             if isinstance(exc, NodeExportError):
                 raise NodePolicyStoreError(str(exc)) from exc
+            if commit_attempted and not transaction_open:
+                raise NodePolicyCommitUncertainError(
+                    "query commit outcome is uncertain; do not retry"
+                ) from exc
             raise NodePolicyStoreError(f"could not register query: {exc}") from exc
-        return QueryReceipt(
+        receipt = QueryReceipt(
             sequence=int(cursor.lastrowid),
             query_fingerprint=entry.query_fingerprint,
             policy_id=entry.policy_id,
@@ -308,6 +394,12 @@ class DurableNodePolicyStore:
             chain_sha256=chain,
             previous_chain_sha256=previous,
             recorded_at=timestamp,
+        )
+        return QueryReservation(
+            receipt=receipt,
+            policy=policy,
+            policy_content_sha256=policy_digest,
+            registered_query=entry,
         )
 
     def verify(self) -> tuple[int, int]:
@@ -401,7 +493,10 @@ class DurableNodePolicyStore:
 
 __all__ = [
     "DurableNodePolicyStore",
+    "NodePolicyCommitUncertainError",
     "NodePolicyStoreError",
     "PolicyReceipt",
     "QueryReceipt",
+    "QueryReservation",
+    "canonical_policy_content_sha256",
 ]

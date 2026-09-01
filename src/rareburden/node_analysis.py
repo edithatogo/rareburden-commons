@@ -13,7 +13,8 @@ class SyntheticAnalysisError(ValueError):
 
 
 _ALLOWED_INPUT_FIELDS = {"synthetic", "diagnoses", "jurisdiction", "group"}
-_ALLOWED_OUTPUT_DIMENSIONS = {"diagnosis", "jurisdiction", "group"}
+ALLOWED_SYNTHETIC_DIMENSIONS = frozenset({"diagnosis", "jurisdiction", "group"})
+MAXIMUM_SYNTHETIC_STRING_LENGTH = 4_096
 _IDENTIFIER_TERMS = {
     "id",
     "identifier",
@@ -46,7 +47,12 @@ def _diagnosis_group(value: object, *, record_index: int) -> str:
         raise SyntheticAnalysisError(f"record {record_index} diagnoses must not be empty")
     # JSON is an unambiguous, canonical label: unlike delimiter joining it cannot
     # merge one diagnosis named ``a+b`` with the pair ``a`` and ``b``.
-    return json.dumps(sorted(diagnoses), ensure_ascii=True, separators=(",", ":"))
+    label = json.dumps(sorted(diagnoses), ensure_ascii=True, separators=(",", ":"))
+    if len(label) > MAXIMUM_SYNTHETIC_STRING_LENGTH:
+        raise SyntheticAnalysisError(
+            f"record {record_index} diagnoses exceed the bounded synthetic label"
+        )
+    return label
 
 
 def aggregate_synthetic_records(
@@ -61,6 +67,27 @@ def aggregate_synthetic_records(
     for :func:`rareburden.node.run_offline_node` without silently double counting
     overlapping diagnoses.
     """
+    validated = validate_synthetic_records(records, dimensions=dimensions)
+    requested_dimensions = tuple(dimensions)
+    counts: Counter[tuple[str, ...]] = Counter()
+    for values in validated:
+        counts[tuple(values[dimension] for dimension in requested_dimensions)] += 1
+
+    return [
+        {
+            **dict(zip(requested_dimensions, key, strict=True)),
+            "count": count,
+        }
+        for key, count in sorted(counts.items())
+    ]
+
+
+def validate_synthetic_records(
+    records: Sequence[Mapping[str, Any]],
+    *,
+    dimensions: Sequence[str] = ("diagnosis",),
+) -> tuple[dict[str, str], ...]:
+    """Validate without aggregating and return detached dimension values."""
     if isinstance(dimensions, (str, bytes)) or not isinstance(dimensions, Sequence):
         raise SyntheticAnalysisError("dimensions must be a non-empty unique sequence")
     requested_dimensions = tuple(dimensions)
@@ -68,13 +95,13 @@ def aggregate_synthetic_records(
         raise SyntheticAnalysisError("dimensions must contain non-empty strings")
     if not requested_dimensions or len(set(requested_dimensions)) != len(requested_dimensions):
         raise SyntheticAnalysisError("dimensions must be a non-empty unique sequence")
-    unknown_dimensions = sorted(set(requested_dimensions) - _ALLOWED_OUTPUT_DIMENSIONS)
+    unknown_dimensions = sorted(set(requested_dimensions) - ALLOWED_SYNTHETIC_DIMENSIONS)
     if unknown_dimensions:
         raise SyntheticAnalysisError(
             f"unknown aggregate dimensions: {', '.join(unknown_dimensions)}"
         )
 
-    counts: Counter[tuple[str, ...]] = Counter()
+    validated: list[dict[str, str]] = []
     for index, record in enumerate(records):
         if not isinstance(record, Mapping):
             raise SyntheticAnalysisError(f"record {index} must be an object")
@@ -104,15 +131,14 @@ def aggregate_synthetic_records(
                     f"record {index} requires a non-empty {dimension} dimension"
                 )
             values[dimension] = value.strip()
-        counts[tuple(values[dimension] for dimension in requested_dimensions)] += 1
-
-    return [
-        {
-            **dict(zip(requested_dimensions, key, strict=True)),
-            "count": count,
-        }
-        for key, count in sorted(counts.items())
-    ]
+        validated.append(values)
+    return tuple(validated)
 
 
-__all__ = ["SyntheticAnalysisError", "aggregate_synthetic_records"]
+__all__ = [
+    "ALLOWED_SYNTHETIC_DIMENSIONS",
+    "MAXIMUM_SYNTHETIC_STRING_LENGTH",
+    "SyntheticAnalysisError",
+    "aggregate_synthetic_records",
+    "validate_synthetic_records",
+]

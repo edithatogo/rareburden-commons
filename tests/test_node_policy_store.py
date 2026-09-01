@@ -7,7 +7,11 @@ from pathlib import Path
 
 import pytest
 
-from rareburden.node_policy_store import DurableNodePolicyStore, NodePolicyStoreError
+from rareburden.node_policy_store import (
+    DurableNodePolicyStore,
+    NodePolicyCommitUncertainError,
+    NodePolicyStoreError,
+)
 
 
 def _policy(*, budget: int = 1) -> dict[str, object]:
@@ -41,6 +45,14 @@ def test_store_persists_policy_and_value_free_query_chain(tmp_path: Path) -> Non
         assert store.verify() == (1, 1)
     with DurableNodePolicyStore(database) as reopened:
         assert reopened.verify() == (1, 1)
+
+
+def test_store_rejects_excessive_policy_fanout_before_registration(tmp_path: Path) -> None:
+    document = {**_policy(), "notes": ["bounded"] * 1_001}
+    with DurableNodePolicyStore(tmp_path / "node-policy.sqlite3") as store:
+        with pytest.raises(NodePolicyStoreError, match="bounded JSON structure"):
+            store.register_policy(document, recorded_at="2026-08-01T00:00:00Z")
+        assert store.verify() == (0, 0)
 
 
 def test_store_rejects_replay_and_budget_across_restarts(tmp_path: Path) -> None:
@@ -272,6 +284,79 @@ def test_query_append_checks_history_and_rolls_back_on_tampering(
             assert observer.execute("SELECT COUNT(*) FROM query_receipts").fetchone() == (1,)
 
 
+def test_query_append_rejects_tampered_allocator_before_consumption(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(budget=3), recorded_at="2026-08-01T00:00:00Z")
+        store.register_query(
+            _shape(),
+            overlap_group="synthetic-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+        with sqlite3.connect(database) as attacker:
+            attacker.execute("UPDATE sqlite_sequence SET seq = 10 WHERE name = 'query_receipts'")
+        with pytest.raises(NodePolicyStoreError, match="allocator integrity"):
+            store.register_query(
+                _shape("second-analysis"),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:02:00Z",
+            )
+        with sqlite3.connect(database) as observer:
+            count = observer.execute("SELECT COUNT(*) FROM query_receipts").fetchone()[0]
+        assert count == 1
+
+
+def test_reservation_rejects_forged_digest_subclass_before_transaction(tmp_path: Path) -> None:
+    class ForgedDigest(str):
+        def __ne__(self, _other: object) -> bool:
+            return False
+
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        with pytest.raises(NodePolicyStoreError, match="sha256 digest"):
+            store.reserve_query(
+                _shape(),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                expected_policy_content_sha256=ForgedDigest("0" * 64),
+                recorded_at="2026-08-01T00:01:00Z",
+            )
+        assert store.verify() == (1, 0)
+
+
+@pytest.mark.parametrize("malformed_sequence", ["invalid", 1e999])
+def test_malformed_allocator_value_rolls_back_write_transaction(
+    tmp_path: Path, malformed_sequence: object
+) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(budget=3), recorded_at="2026-08-01T00:00:00Z")
+        store.register_query(
+            _shape(),
+            overlap_group="synthetic-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+        with sqlite3.connect(database) as attacker:
+            attacker.execute(
+                "UPDATE sqlite_sequence SET seq = ? WHERE name = 'query_receipts'",
+                (malformed_sequence,),
+            )
+        with pytest.raises(NodePolicyStoreError, match="allocator integrity"):
+            store.register_query(
+                _shape("second-analysis"),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:02:00Z",
+            )
+        assert store._connection.in_transaction is False
+        with sqlite3.connect(database, timeout=0) as observer:
+            observer.execute("BEGIN IMMEDIATE")
+
+
 @pytest.mark.parametrize("value", [None, 123, [], {}])
 def test_store_rejects_wrong_type_timestamps(tmp_path: Path, value: object) -> None:
     with DurableNodePolicyStore(tmp_path / "node-policy.sqlite3") as store:
@@ -291,3 +376,50 @@ def test_store_rejects_wrong_type_query_identifiers(tmp_path: Path, value: objec
                 recorded_at="2026-08-01T00:00:00Z",
             )
         assert store.verify() == (0, 0)
+
+
+def test_store_reports_failed_rollback_as_uncertain_without_retry(tmp_path: Path) -> None:
+    class RollbackFailureStore(DurableNodePolicyStore):
+        def _commit(self) -> None:
+            raise sqlite3.OperationalError("injected pre-commit failure")
+
+        def _rollback(self) -> None:
+            raise sqlite3.OperationalError("injected rollback failure")
+
+    database = tmp_path / "node-policy.sqlite3"
+    with RollbackFailureStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        with pytest.raises(
+            NodePolicyCommitUncertainError, match="rollback outcome is uncertain; do not retry"
+        ) as caught:
+            store.register_query(
+                _shape(),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:01:00Z",
+            )
+        assert isinstance(caught.value.__cause__, sqlite3.OperationalError)
+        assert "injected rollback failure" in str(caught.value.__cause__)
+        assert isinstance(caught.value.__cause__.__context__, sqlite3.OperationalError)
+        assert "injected pre-commit failure" in str(caught.value.__cause__.__context__)
+
+    with DurableNodePolicyStore(database) as reopened:
+        assert reopened.verify() == (1, 0)
+
+
+def test_store_ordinary_precommit_failure_still_rolls_back(tmp_path: Path) -> None:
+    class PrecommitFailureStore(DurableNodePolicyStore):
+        def _commit(self) -> None:
+            raise sqlite3.OperationalError("injected pre-commit failure")
+
+    database = tmp_path / "node-policy.sqlite3"
+    with PrecommitFailureStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        with pytest.raises(NodePolicyStoreError, match="could not register query"):
+            store.register_query(
+                _shape(),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:01:00Z",
+            )
+        assert store.verify() == (1, 0)

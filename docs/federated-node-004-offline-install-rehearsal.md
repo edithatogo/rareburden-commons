@@ -59,3 +59,19 @@ remain separate evidence-bound decisions.
 A later, separately executed fixed-candidate rehearsal is retained in
 [the 2026-08-31 assurance record](track-004-synthetic-assurance-2026-08-31.md).
 It does not alter the historical observations above or close production gates.
+
+## Selected orchestration candidate notice — 2026-09-01
+
+The owner selected the bounded experimental synthetic orchestration route. That
+selection and its implementation do not transfer this historical installation
+receipt to the changed candidate. This page records no execution of
+`run_reserved_synthetic_analysis`, no reservation receipt and no result envelope.
+A new installation/run claim requires a separately executed rehearsal bound to
+the exact orchestration commit/tree, project and dependency wheel hashes,
+platform/runtime and retained receipt.
+
+The changed candidate remains synthetic-only. All six original Track 004 gates
+remain pending and the track remains blocked; no production common-analysis
+contract, authoritative custodian store, controlled-data activation, independent
+operation, signed delivery or node-alpha release is inferred from the historical
+or later synthetic rehearsals.
