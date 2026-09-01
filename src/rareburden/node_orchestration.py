@@ -62,8 +62,12 @@ def _bounded_non_sensitive_identifier(value: object, *, label: str, minimum_leng
         or _IDENTIFIER.fullmatch(value) is None
     ):
         raise SyntheticOrchestrationError(f"{label} must be a bounded non-sensitive identifier")
-    terms = set(re.split(r"[_.:-]+", value.lower()))
-    if terms & _SENSITIVE_IDENTIFIER_TERMS:
+    lowered = value.lower()
+    terms = set(re.split(r"[_.:-]+", lowered))
+    concatenated_sensitive_term = any(
+        term in lowered for term in _SENSITIVE_IDENTIFIER_TERMS if len(term) >= 5
+    ) or lowered.startswith("id")
+    if terms & _SENSITIVE_IDENTIFIER_TERMS or concatenated_sensitive_term:
         raise SyntheticOrchestrationError(f"{label} must be a bounded non-sensitive identifier")
     return value
 
