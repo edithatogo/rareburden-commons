@@ -68,6 +68,25 @@ def _verify(
     input_rows: list[dict[str, object]] | None = None,
     **trusted_overrides: object,
 ) -> None:
+    retained_receipt = result.get("reservation")
+    if not isinstance(retained_receipt, dict):
+        retained_receipt = {}
+    retained_sequence = retained_receipt.get("sequence")
+    if type(retained_sequence) is not int:
+        retained_sequence = 1
+    retained_chain = retained_receipt.get("chain_sha256")
+    if not isinstance(retained_chain, str) or len(retained_chain) != 64:
+        retained_chain = "0" * 64
+    retained_previous_chain = retained_receipt.get("previous_chain_sha256")
+    if retained_previous_chain is not None and (
+        not isinstance(retained_previous_chain, str) or len(retained_previous_chain) != 64
+    ):
+        retained_previous_chain = None
+    retained_recorded_at = retained_receipt.get("recorded_at")
+    if not isinstance(retained_recorded_at, str) or not (
+        retained_recorded_at.endswith("+00:00") or retained_recorded_at.endswith("Z")
+    ):
+        retained_recorded_at = "2026-09-01T00:00:00+00:00"
     trusted: dict[str, object] = {
         "trusted_policy_document": _policy() if policy is None else policy,
         "trusted_input_rows": (
@@ -76,6 +95,10 @@ def _verify(
         "trusted_query_shape": {"dimensions": ["diagnosis"], "measure": "count"},
         "trusted_analysis_id": "synthetic-analysis",
         "trusted_overlap_group": "synthetic-overlap",
+        "trusted_receipt_sequence": retained_sequence,
+        "trusted_receipt_chain_sha256": retained_chain,
+        "trusted_previous_chain_sha256": retained_previous_chain,
+        "trusted_recorded_at": retained_recorded_at,
         "trusted_execution_id": "synthetic-execution",
         "trusted_coordinator_version": "0.1.0",
         "trusted_node_version": "0.1.0",
@@ -355,6 +378,44 @@ def test_verifier_rejects_self_consistent_but_untrusted_chain(tmp_path: Path) ->
     result["binding"]["receipt_chain_sha256"] = substituted_chain
     with pytest.raises(SyntheticOrchestrationError, match="query identity mismatch"):
         _verify(result)
+
+
+def test_verifier_rejects_self_consistent_untrusted_receipt_metadata(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    reservation = result["reservation"]
+    trusted_receipt = {
+        "trusted_receipt_sequence": reservation["sequence"],
+        "trusted_receipt_chain_sha256": reservation["chain_sha256"],
+        "trusted_previous_chain_sha256": reservation["previous_chain_sha256"],
+        "trusted_recorded_at": reservation["recorded_at"],
+    }
+    reservation["sequence"] = 2
+    reservation["previous_chain_sha256"] = "0" * 64
+    reservation["recorded_at"] = "2026-09-02T00:00:00+00:00"
+    chain_payload = {
+        field: reservation[field]
+        for field in (
+            "sequence",
+            "query_fingerprint",
+            "overlap_group",
+            "analysis_id",
+            "policy_id",
+            "dimensions",
+            "measure",
+            "previous_chain_sha256",
+            "recorded_at",
+        )
+    }
+    substituted_chain = hashlib.sha256(
+        json.dumps(chain_payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode(
+            "ascii"
+        )
+    ).hexdigest()
+    reservation["chain_sha256"] = substituted_chain
+    result["binding"]["receipt_sequence"] = 2
+    result["binding"]["receipt_chain_sha256"] = substituted_chain
+    with pytest.raises(SyntheticOrchestrationError, match="trusted receipt identity mismatch"):
+        _verify(result, **trusted_receipt)
 
 
 @pytest.mark.parametrize(

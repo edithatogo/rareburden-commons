@@ -105,6 +105,9 @@ does not authorise a controlled-data connection, production node or export.
        coordinator_version="0.1.0",
        node_version="0.1.0",
    )
+   # Retain these fields at the trusted producer boundary before transporting
+   # the envelope, and supply them to the verifier through a separate channel.
+   retained_receipt = envelope["reservation"].copy()
    verify_reserved_synthetic_result(
        envelope,
        trusted_policy_document=reviewed_policy_document,
@@ -112,6 +115,10 @@ does not authorise a controlled-data connection, production node or export.
        trusted_query_shape=trusted_query_shape,
        trusted_analysis_id="invented-analysis",
        trusted_overlap_group="invented-overlap-group",
+       trusted_receipt_sequence=retained_receipt["sequence"],
+       trusted_receipt_chain_sha256=retained_receipt["chain_sha256"],
+       trusted_previous_chain_sha256=retained_receipt["previous_chain_sha256"],
+       trusted_recorded_at=retained_receipt["recorded_at"],
        trusted_execution_id="invented-execution",
        trusted_coordinator_version="0.1.0",
        trusted_node_version="0.1.0",
@@ -119,7 +126,9 @@ does not authorise a controlled-data connection, production node or export.
    ```
 
    Replace every example value with the exact reviewed synthetic candidate
-   value. The function freezes and preflights the query and invented records,
+   value. Receipt fields copied from the envelope at the verification boundary
+   are not independent and do not satisfy this premise. The function freezes
+   and preflights the query and invented records,
    then commits the value-free reservation before aggregation. A pre-commit
    rejection returns no result and commits no reservation. Once committed, the
    reservation remains consumed if aggregation, export validation, result

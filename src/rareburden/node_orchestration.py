@@ -223,6 +223,10 @@ def verify_reserved_synthetic_result(
     trusted_query_shape: Mapping[str, Any],
     trusted_analysis_id: str,
     trusted_overlap_group: str,
+    trusted_receipt_sequence: int,
+    trusted_receipt_chain_sha256: str,
+    trusted_previous_chain_sha256: str | None,
+    trusted_recorded_at: str,
     trusted_execution_id: str,
     trusted_coordinator_version: str,
     trusted_node_version: str,
@@ -345,6 +349,21 @@ def verify_reserved_synthetic_result(
         _bounded_non_sensitive_identifier(
             trusted_overlap_group, label="trusted_overlap_group", minimum_length=1
         )
+        if (
+            type(trusted_receipt_sequence) is not int
+            or trusted_receipt_sequence < 1
+            or not isinstance(trusted_receipt_chain_sha256, str)
+            or _SHA256.fullmatch(trusted_receipt_chain_sha256) is None
+            or (
+                trusted_previous_chain_sha256 is not None
+                and (
+                    not isinstance(trusted_previous_chain_sha256, str)
+                    or _SHA256.fullmatch(trusted_previous_chain_sha256) is None
+                )
+            )
+            or not isinstance(trusted_recorded_at, str)
+        ):
+            raise SyntheticOrchestrationError("trusted receipt identity is malformed")
         _bounded_non_sensitive_identifier(
             trusted_execution_id, label="trusted_execution_id", minimum_length=3
         )
@@ -442,6 +461,13 @@ def verify_reserved_synthetic_result(
         or reservation.get("chain_sha256") != expected_chain
     ):
         raise SyntheticOrchestrationError("reserved result query identity mismatch")
+    if (
+        reservation.get("sequence") != trusted_receipt_sequence
+        or reservation.get("chain_sha256") != trusted_receipt_chain_sha256
+        or reservation.get("previous_chain_sha256") != trusted_previous_chain_sha256
+        or reservation.get("recorded_at") != trusted_recorded_at
+    ):
+        raise SyntheticOrchestrationError("trusted receipt identity mismatch")
     try:
         frozen_input_rows = _frozen_json(trusted_input_rows, label="trusted_input_rows")
         frozen_query = _frozen_json(trusted_query_shape, label="trusted_query_shape")

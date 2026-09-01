@@ -21,7 +21,7 @@ value-free receipt before aggregation, uses the exact returned policy snapshot,
 and returns an in-memory receipt/policy/query/execution-bound envelope. Pre-commit
 failures do not reserve; uncertain commits stop without compute or retry; failures
 after commit consume the reservation. The verifier recomputes both query and
-receipt-chain identities, requires independently retained policy, aggregate,
+receipt-chain identities, requires independently retained receipt, policy, aggregate,
 query, identity and version inputs, and regenerates the complete expected
 execution. This validates correspondence, not provenance, signature or authority.
 
