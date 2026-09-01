@@ -104,6 +104,7 @@ def run_reserved_synthetic_analysis(
     )
     _bounded_non_sensitive_identifier(execution_id, label="execution_id", minimum_length=3)
     _bounded_non_sensitive_identifier(analysis_id, label="analysis_id", minimum_length=3)
+    _bounded_non_sensitive_identifier(overlap_group, label="overlap_group")
     if (
         not isinstance(expected_policy_content_sha256, str)
         or _SHA256.fullmatch(expected_policy_content_sha256) is None
@@ -407,9 +408,18 @@ def verify_reserved_synthetic_result(
             raise SyntheticOrchestrationError("trusted aggregate input is malformed")
         if set(frozen_query) != {"dimensions", "measure"}:
             raise SyntheticOrchestrationError("trusted aggregate input is malformed")
-        if frozen_query["dimensions"] != dimensions or frozen_query["measure"] != reservation.get(
-            "measure"
+        trusted_dimensions = frozen_query["dimensions"]
+        if (
+            not isinstance(trusted_dimensions, list)
+            or not trusted_dimensions
+            or any(not isinstance(value, str) or not value for value in trusted_dimensions)
+            or len(set(trusted_dimensions)) != len(trusted_dimensions)
         ):
+            raise SyntheticOrchestrationError("trusted aggregate input is malformed")
+        normalised_trusted_dimensions = sorted(trusted_dimensions)
+        if normalised_trusted_dimensions != dimensions or frozen_query[
+            "measure"
+        ] != reservation.get("measure"):
             raise SyntheticOrchestrationError("trusted aggregate input or output mismatch")
         expected_execution = run_offline_node(
             frozen_input_rows,
@@ -422,7 +432,7 @@ def verify_reserved_synthetic_result(
             custodian_minimum_cell_count=trusted_policy.minimum_cell_count,
             max_queries_per_group=trusted_policy.max_queries_per_overlap_group,
             custodian_max_queries_per_group=trusted_policy.max_queries_per_overlap_group,
-            allowed_dimension_fields=dimensions,
+            allowed_dimension_fields=normalised_trusted_dimensions,
             custodian_allowed_dimension_fields=trusted_policy.allowed_dimension_fields,
         )
     except (TypeError, ValueError, UnicodeEncodeError, NodeExportError) as exc:

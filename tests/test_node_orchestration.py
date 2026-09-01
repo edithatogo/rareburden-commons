@@ -156,6 +156,43 @@ def test_invalid_analysis_identity_fails_before_reservation(
         assert store.verify() == (1, 0)
 
 
+@pytest.mark.parametrize("overlap_group", ["token-secret", "person@example.org", ""])
+def test_invalid_overlap_group_fails_before_reservation(
+    tmp_path: Path, overlap_group: object
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs["overlap_group"] = overlap_group
+        with pytest.raises(SyntheticOrchestrationError, match="bounded non-sensitive identifier"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}], **kwargs
+            )
+        assert store.verify() == (1, 0)
+
+
+def test_verifier_normalises_trusted_dimension_order(tmp_path: Path) -> None:
+    policy = {**_policy(), "allowed_dimension_fields": ["diagnosis", "jurisdiction"]}
+    records = [{"synthetic": True, "diagnoses": ["condition-a"], "jurisdiction": "invented"}]
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(policy, recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs["query_shape"] = {
+            "dimensions": ["jurisdiction", "diagnosis"],
+            "measure": "count",
+        }
+        result = run_reserved_synthetic_analysis(records, **kwargs)
+    _verify(
+        result,
+        policy=policy,
+        input_rows=[{"diagnosis": '["condition-a"]', "jurisdiction": "invented", "count": 1}],
+        trusted_query_shape={
+            "dimensions": ["jurisdiction", "diagnosis"],
+            "measure": "count",
+        },
+    )
+
+
 @pytest.mark.parametrize(
     ("field", "value"),
     [
@@ -210,6 +247,7 @@ def test_verifier_rejects_self_consistent_but_untrusted_chain(tmp_path: Path) ->
             "trusted_query_shape",
             {"dimensions": ["diagnosis"], "measure": "count", "extra": True},
         ),
+        ("trusted_query_shape", {"dimensions": [], "measure": "count"}),
     ],
 )
 def test_verifier_rejects_malformed_trusted_structures(
