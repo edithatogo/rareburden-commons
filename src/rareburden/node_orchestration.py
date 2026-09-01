@@ -322,7 +322,8 @@ def verify_reserved_synthetic_result(
     except (NodeExportError, NodePolicyStoreError) as exc:
         raise SyntheticOrchestrationError("trusted policy is invalid") from exc
     if (
-        trusted_policy.policy_id != reservation.get("policy_id")
+        trusted_policy.export_mode != "aggregate_only"
+        or trusted_policy.policy_id != reservation.get("policy_id")
         or trusted_policy_digest != reservation.get("policy_content_sha256")
         or type(reservation.get("minimum_cell_count")) is not int
         or trusted_policy.minimum_cell_count != reservation.get("minimum_cell_count")

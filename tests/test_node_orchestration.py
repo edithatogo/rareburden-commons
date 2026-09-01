@@ -17,6 +17,7 @@ from rareburden.node_policy_store import (
     DurableNodePolicyStore,
     NodePolicyCommitUncertainError,
     NodePolicyStoreError,
+    canonical_policy_content_sha256,
 )
 
 
@@ -240,6 +241,16 @@ def test_verifier_rejects_trusted_input_substitution(
 def test_verifier_rejects_untrusted_policy_snapshot(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     policy = {**_policy(), "minimum_cell_count": 2}
+    with pytest.raises(SyntheticOrchestrationError, match="trusted policy binding mismatch"):
+        _verify(result, policy=policy)
+
+
+def test_verifier_rejects_metadata_only_policy_even_with_matching_digest(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    policy = {**_policy(), "export_mode": "metadata_only"}
+    digest = canonical_policy_content_sha256(policy)
+    result["reservation"]["policy_content_sha256"] = digest
+    result["binding"]["policy_content_sha256"] = digest
     with pytest.raises(SyntheticOrchestrationError, match="trusted policy binding mismatch"):
         _verify(result, policy=policy)
 
