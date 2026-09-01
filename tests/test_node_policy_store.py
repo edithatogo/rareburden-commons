@@ -47,6 +47,14 @@ def test_store_persists_policy_and_value_free_query_chain(tmp_path: Path) -> Non
         assert reopened.verify() == (1, 1)
 
 
+def test_store_rejects_excessive_policy_fanout_before_registration(tmp_path: Path) -> None:
+    document = {**_policy(), "notes": ["bounded"] * 1_001}
+    with DurableNodePolicyStore(tmp_path / "node-policy.sqlite3") as store:
+        with pytest.raises(NodePolicyStoreError, match="bounded JSON structure"):
+            store.register_policy(document, recorded_at="2026-08-01T00:00:00Z")
+        assert store.verify() == (0, 0)
+
+
 def test_store_rejects_replay_and_budget_across_restarts(tmp_path: Path) -> None:
     database = tmp_path / "node-policy.sqlite3"
     with DurableNodePolicyStore(database) as store:

@@ -54,6 +54,12 @@ def test_policy_loader_fails_closed_on_invalid_contract(
         load_disclosure_policy(document)
 
 
+def test_policy_loader_rejects_future_schema_version() -> None:
+    document = {**_policy_document(), "schema_version": "9.9.9"}
+    with pytest.raises(NodeExportError, match="unsupported"):
+        load_disclosure_policy(document)
+
+
 def test_policy_loader_rejects_missing_unknown_and_duplicate_fields() -> None:
     missing = _policy_document()
     missing.pop("policy_id")
