@@ -48,7 +48,10 @@ custodian decision, export review and unresolved findings. For the selected
 prototype, also retain the operator-bound analysis ID and overlap group, expected
 policy ID/hash, transaction-bound policy snapshot, reservation sequence/query/
 chain fingerprints, execution/input/output identities and whether any failure
-occurred before or after commit. Never commit participant rows, numeric
+occurred before or after commit. Retain the independently sourced policy
+document, query/identity/version inputs and exact synthetic pre-suppression
+aggregate-input provenance used by verification; “independently supplied” here
+does not constitute independent review. Never commit participant rows, numeric
 aggregates, credentials or controlled source bytes in a query receipt.
 
 For a synthetic-only candidate, distinguish an inapplicable controlled-use

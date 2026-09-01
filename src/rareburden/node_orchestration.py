@@ -13,15 +13,19 @@ from rareburden.node import (
     NodeExportError,
     run_offline_node,
     validate_version_compatibility,
-    verify_output_fingerprint,
 )
 from rareburden.node_analysis import (
     ALLOWED_SYNTHETIC_DIMENSIONS,
     aggregate_synthetic_records,
     validate_synthetic_records,
 )
-from rareburden.node_policy import query_shape_fingerprint
-from rareburden.node_policy_store import DurableNodePolicyStore, QueryReceipt
+from rareburden.node_policy import load_disclosure_policy, query_shape_fingerprint
+from rareburden.node_policy_store import (
+    DurableNodePolicyStore,
+    NodePolicyStoreError,
+    QueryReceipt,
+    canonical_policy_content_sha256,
+)
 
 
 class SyntheticOrchestrationError(ValueError):
@@ -99,6 +103,7 @@ def run_reserved_synthetic_analysis(
         coordinator_version=coordinator_version, node_version=node_version
     )
     _bounded_non_sensitive_identifier(execution_id, label="execution_id", minimum_length=3)
+    _bounded_non_sensitive_identifier(analysis_id, label="analysis_id", minimum_length=3)
     if (
         not isinstance(expected_policy_content_sha256, str)
         or _SHA256.fullmatch(expected_policy_content_sha256) is None
@@ -175,8 +180,23 @@ def run_reserved_synthetic_analysis(
     }
 
 
-def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
-    """Fail closed if a returned result was detached from its reservation."""
+def verify_reserved_synthetic_result(
+    envelope: Mapping[str, Any],
+    *,
+    trusted_policy_document: Mapping[str, Any],
+    trusted_input_rows: Sequence[Mapping[str, Any]],
+    trusted_query_shape: Mapping[str, Any],
+    trusted_analysis_id: str,
+    trusted_overlap_group: str,
+    trusted_execution_id: str,
+    trusted_coordinator_version: str,
+    trusted_node_version: str,
+) -> None:
+    """Verify correspondence to independently retained synthetic references.
+
+    The trusted inputs are an operator provenance premise; this function does
+    not establish their authenticity, store membership or external authority.
+    """
     if (
         set(envelope) != {"schema_version", "scope", "reservation", "execution", "binding"}
         or envelope.get("schema_version") != "0.1.0"
@@ -280,6 +300,30 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
     )
     if any(left != right for left, right in pairs):
         raise SyntheticOrchestrationError("reserved result binding mismatch")
+    try:
+        _bounded_non_sensitive_identifier(
+            trusted_analysis_id, label="trusted_analysis_id", minimum_length=3
+        )
+        _bounded_non_sensitive_identifier(
+            trusted_overlap_group, label="trusted_overlap_group", minimum_length=1
+        )
+        _bounded_non_sensitive_identifier(
+            trusted_execution_id, label="trusted_execution_id", minimum_length=3
+        )
+        trusted_policy = load_disclosure_policy(trusted_policy_document)
+        trusted_policy_digest = canonical_policy_content_sha256(trusted_policy_document)
+    except (NodeExportError, NodePolicyStoreError) as exc:
+        raise SyntheticOrchestrationError("trusted policy is invalid") from exc
+    if (
+        trusted_policy.policy_id != reservation.get("policy_id")
+        or trusted_policy_digest != reservation.get("policy_content_sha256")
+        or type(reservation.get("minimum_cell_count")) is not int
+        or trusted_policy.minimum_cell_count != reservation.get("minimum_cell_count")
+        or trusted_analysis_id != reservation.get("analysis_id")
+        or trusted_overlap_group != reservation.get("overlap_group")
+        or trusted_execution_id != manifest.get("execution_id")
+    ):
+        raise SyntheticOrchestrationError("trusted policy binding mismatch")
     _bounded_non_sensitive_identifier(
         manifest.get("execution_id"), label="execution_id", minimum_length=3
     )
@@ -356,49 +400,37 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         or reservation.get("chain_sha256") != expected_chain
     ):
         raise SyntheticOrchestrationError("reserved result query identity mismatch")
-    rows = execution.get("rows")
-    allowed_released_fields = (
-        {*dimensions, "count", "count_status"} if isinstance(dimensions, list) else set()
-    )
-    if (
-        reservation.get("measure") != "count"
-        or not isinstance(dimensions, list)
-        or not isinstance(rows, list)
-        or any(
-            not isinstance(row, Mapping)
-            or row.get("count_status") not in {"released", "suppressed"}
-            or (row.get("count_status") == "released" and set(row) != allowed_released_fields)
-            or (
-                row.get("count_status") == "released"
-                and (
-                    any(
-                        not isinstance(row.get(dimension), str) or not row[dimension].strip()
-                        for dimension in dimensions
-                    )
-                    or not isinstance(row.get("count"), int)
-                    or isinstance(row.get("count"), bool)
-                    or row["count"] < minimum_cell_count
-                )
-            )
-            or (
-                row.get("count_status") == "suppressed"
-                and (set(row) != {"count", "count_status"} or row.get("count") is not None)
-            )
-            for row in rows
-        )
-    ):
-        raise SyntheticOrchestrationError("reserved result query shape mismatch")
-    released_groups = [
-        tuple(row[dimension] for dimension in dimensions)
-        for row in rows
-        if row.get("count_status") == "released"
-    ]
-    if len(released_groups) != len(set(released_groups)):
-        raise SyntheticOrchestrationError("reserved result query shape mismatch")
     try:
-        verify_output_fingerprint(execution)
+        frozen_input_rows = _frozen_json(trusted_input_rows, label="trusted_input_rows")
+        frozen_query = _frozen_json(trusted_query_shape, label="trusted_query_shape")
+        if not isinstance(frozen_input_rows, list) or not isinstance(frozen_query, dict):
+            raise SyntheticOrchestrationError("trusted aggregate input is malformed")
+        if set(frozen_query) != {"dimensions", "measure"}:
+            raise SyntheticOrchestrationError("trusted aggregate input is malformed")
+        if frozen_query["dimensions"] != dimensions or frozen_query["measure"] != reservation.get(
+            "measure"
+        ):
+            raise SyntheticOrchestrationError("trusted aggregate input or output mismatch")
+        expected_execution = run_offline_node(
+            frozen_input_rows,
+            execution_id=trusted_execution_id,
+            coordinator_version=trusted_coordinator_version,
+            node_version=trusted_node_version,
+            analysis_id=trusted_analysis_id,
+            policy_id=trusted_policy.policy_id,
+            minimum_cell_count=trusted_policy.minimum_cell_count,
+            custodian_minimum_cell_count=trusted_policy.minimum_cell_count,
+            max_queries_per_group=trusted_policy.max_queries_per_overlap_group,
+            custodian_max_queries_per_group=trusted_policy.max_queries_per_overlap_group,
+            allowed_dimension_fields=dimensions,
+            custodian_allowed_dimension_fields=trusted_policy.allowed_dimension_fields,
+        )
     except (TypeError, ValueError, UnicodeEncodeError, NodeExportError) as exc:
-        raise SyntheticOrchestrationError("reserved result output mismatch") from exc
+        raise SyntheticOrchestrationError("trusted aggregate input is malformed") from exc
+    if _frozen_json(execution, label="execution") != _frozen_json(
+        expected_execution, label="expected_execution"
+    ):
+        raise SyntheticOrchestrationError("trusted aggregate input or output mismatch")
 
 
 __all__ = [

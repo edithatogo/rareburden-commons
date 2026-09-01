@@ -75,6 +75,16 @@ def _policy_document(policy: DisclosurePolicy) -> dict[str, object]:
     return document
 
 
+def canonical_policy_content_sha256(document: Mapping[str, Any]) -> str:
+    """Return the store canonical digest for one validated policy document."""
+    try:
+        policy = load_disclosure_policy(document)
+    except NodeExportError as exc:
+        raise NodePolicyStoreError(str(exc)) from exc
+    _identifier(policy.policy_id, label="policy_id")
+    return _sha256(_canonical_json(_policy_document(policy)))
+
+
 @dataclass(frozen=True, slots=True)
 class PolicyReceipt:
     policy_id: str
@@ -239,7 +249,7 @@ class DurableNodePolicyStore:
             raise NodePolicyStoreError(str(exc)) from exc
         _identifier(policy.policy_id, label="policy_id")
         canonical = _canonical_json(_policy_document(policy))
-        digest = _sha256(canonical)
+        digest = canonical_policy_content_sha256(document)
         try:
             self._connection.execute(
                 "INSERT INTO disclosure_policies VALUES (?, ?, ?, ?)",
@@ -472,4 +482,5 @@ __all__ = [
     "PolicyReceipt",
     "QueryReceipt",
     "QueryReservation",
+    "canonical_policy_content_sha256",
 ]

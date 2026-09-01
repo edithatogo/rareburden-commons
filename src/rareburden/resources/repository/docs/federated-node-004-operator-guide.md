@@ -85,11 +85,17 @@ does not authorise a controlled-data connection, production node or export.
        run_reserved_synthetic_analysis,
        verify_reserved_synthetic_result,
    )
+   from rareburden.node_analysis import aggregate_synthetic_records
+
+   trusted_query_shape = {"dimensions": ["jurisdiction"], "measure": "count"}
+   trusted_input_rows = aggregate_synthetic_records(
+       invented_records, dimensions=trusted_query_shape["dimensions"]
+   )
 
    envelope = run_reserved_synthetic_analysis(
        invented_records,
        store=store,
-       query_shape={"dimensions": ["jurisdiction"], "measure": "count"},
+       query_shape=trusted_query_shape,
        analysis_id="invented-analysis",
        overlap_group="invented-overlap-group",
        expected_policy_id="invented-policy",
@@ -99,7 +105,17 @@ does not authorise a controlled-data connection, production node or export.
        coordinator_version="0.1.0",
        node_version="0.1.0",
    )
-   verify_reserved_synthetic_result(envelope)
+   verify_reserved_synthetic_result(
+       envelope,
+       trusted_policy_document=reviewed_policy_document,
+       trusted_input_rows=trusted_input_rows,
+       trusted_query_shape=trusted_query_shape,
+       trusted_analysis_id="invented-analysis",
+       trusted_overlap_group="invented-overlap-group",
+       trusted_execution_id="invented-execution",
+       trusted_coordinator_version="0.1.0",
+       trusted_node_version="0.1.0",
+   )
    ```
 
    Replace every example value with the exact reviewed synthetic candidate
@@ -112,8 +128,14 @@ does not authorise a controlled-data connection, production node or export.
    uncertain, stop without analysis and do not retry: inspection and recovery
    need a separately approved procedure.
 
-   The returned in-memory envelope binds the receipt sequence, query and chain
-   fingerprints, exact policy ID/hash, execution ID and input/output
+   Verification requires independently retained operator inputs; it has no
+   envelope-only or self-consistency mode. Do not derive any `trusted_*` argument
+   from the returned envelope: `trusted_input_rows` are the retained synthetic
+   pre-suppression aggregates, not participant records or returned output rows.
+   “Trusted” is an external provenance premise; this function validates
+   correspondence but cannot establish that provenance. The returned in-memory
+   envelope binds the receipt sequence, query and chain fingerprints, exact
+   policy ID/hash, execution ID and input/output
    fingerprints. These are consistency metadata, not a signature, execution
    attestation, delivery receipt or permission to distribute. This reference
    store is not an authoritative custodian system merely because the bindings

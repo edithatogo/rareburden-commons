@@ -59,6 +59,29 @@ def _valid_result(tmp_path: Path) -> dict[str, Any]:
         )
 
 
+def _verify(
+    result: dict[str, Any],
+    *,
+    policy: dict[str, object] | None = None,
+    input_rows: list[dict[str, object]] | None = None,
+    **trusted_overrides: object,
+) -> None:
+    trusted: dict[str, object] = {
+        "trusted_policy_document": _policy() if policy is None else policy,
+        "trusted_input_rows": (
+            [{"diagnosis": '["condition-a"]', "count": 1}] if input_rows is None else input_rows
+        ),
+        "trusted_query_shape": {"dimensions": ["diagnosis"], "measure": "count"},
+        "trusted_analysis_id": "synthetic-analysis",
+        "trusted_overlap_group": "synthetic-overlap",
+        "trusted_execution_id": "synthetic-execution",
+        "trusted_coordinator_version": "0.1.0",
+        "trusted_node_version": "0.1.0",
+    }
+    trusted.update(trusted_overrides)
+    verify_reserved_synthetic_result(result, **trusted)
+
+
 def test_result_binds_committed_receipt_policy_and_execution(tmp_path: Path) -> None:
     with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
         policy_receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
@@ -80,7 +103,7 @@ def test_result_binds_committed_receipt_policy_and_execution(tmp_path: Path) -> 
             result["binding"]["output_fingerprint"]
             == result["execution"]["manifest"]["output_fingerprint"]
         )
-        verify_reserved_synthetic_result(result)
+        _verify(result, input_rows=[{"diagnosis": '["condition-a"]', "count": 2}])
 
 
 def test_verifier_accepts_dimension_free_suppressed_rows(tmp_path: Path) -> None:
@@ -94,7 +117,7 @@ def test_verifier_accepts_dimension_free_suppressed_rows(tmp_path: Path) -> None
         assert result["execution"]["rows"] == [{"count_status": "suppressed", "count": None}]
         assert result["reservation"]["minimum_cell_count"] == 5
         assert result["binding"]["minimum_cell_count"] == 5
-        verify_reserved_synthetic_result(result)
+        _verify(result, policy=policy)
 
 
 @pytest.mark.parametrize(
@@ -115,11 +138,93 @@ def test_invalid_execution_identity_fails_before_reservation(
         assert store.verify() == (1, 0)
 
 
+@pytest.mark.parametrize(
+    "analysis_id",
+    [None, 3, "", "x", "x" * 129, "person@example.org", "token-secret"],
+)
+def test_invalid_analysis_identity_fails_before_reservation(
+    tmp_path: Path, analysis_id: object
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs["analysis_id"] = analysis_id
+        with pytest.raises(SyntheticOrchestrationError, match="bounded non-sensitive identifier"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}], **kwargs
+            )
+        assert store.verify() == (1, 0)
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("trusted_analysis_id", "different-analysis"),
+        ("trusted_overlap_group", "different-overlap"),
+        ("trusted_execution_id", "different-execution"),
+        ("trusted_coordinator_version", "0.2.0"),
+        ("trusted_node_version", "0.2.0"),
+        (
+            "trusted_query_shape",
+            {"dimensions": ["diagnosis"], "measure": "different"},
+        ),
+        ("trusted_input_rows", [{"diagnosis": '["condition-a"]', "count": 2}]),
+    ],
+)
+def test_verifier_rejects_trusted_input_substitution(
+    tmp_path: Path, field: str, value: object
+) -> None:
+    result = _valid_result(tmp_path)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted"):
+        _verify(result, **{field: value})
+
+
+def test_verifier_rejects_untrusted_policy_snapshot(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    policy = {**_policy(), "minimum_cell_count": 2}
+    with pytest.raises(SyntheticOrchestrationError, match="trusted policy binding mismatch"):
+        _verify(result, policy=policy)
+
+
+def test_verifier_rejects_invalid_trusted_policy(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted policy is invalid"):
+        _verify(result, policy={})
+
+
+def test_verifier_rejects_self_consistent_but_untrusted_chain(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    substituted_chain = "0" * 64
+    result["reservation"]["chain_sha256"] = substituted_chain
+    result["binding"]["receipt_chain_sha256"] = substituted_chain
+    with pytest.raises(SyntheticOrchestrationError, match="query identity mismatch"):
+        _verify(result)
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("trusted_input_rows", {"not": "an-array"}),
+        ("trusted_query_shape", []),
+        (
+            "trusted_query_shape",
+            {"dimensions": ["diagnosis"], "measure": "count", "extra": True},
+        ),
+    ],
+)
+def test_verifier_rejects_malformed_trusted_structures(
+    tmp_path: Path, field: str, value: object
+) -> None:
+    result = _valid_result(tmp_path)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input is malformed"):
+        _verify(result, **{field: value})
+
+
 def test_verifier_rejects_nested_execution_schema_substitution(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     result["execution"]["schema_version"] = "9.9.9"
     with pytest.raises(SyntheticOrchestrationError, match="envelope is malformed"):
-        verify_reserved_synthetic_result(result)
+        _verify(result)
 
 
 @pytest.mark.parametrize("location", ["reservation", "binding"])
@@ -127,7 +232,7 @@ def test_verifier_rejects_minimum_cell_count_substitution(tmp_path: Path, locati
     result = _valid_result(tmp_path)
     result[location]["minimum_cell_count"] = 2
     with pytest.raises(SyntheticOrchestrationError, match="binding mismatch"):
-        verify_reserved_synthetic_result(result)
+        _verify(result)
 
 
 @pytest.mark.parametrize("minimum", [True, 0])
@@ -135,8 +240,8 @@ def test_verifier_rejects_malformed_minimum_cell_count(tmp_path: Path, minimum: 
     result = _valid_result(tmp_path)
     result["reservation"]["minimum_cell_count"] = minimum
     result["binding"]["minimum_cell_count"] = minimum
-    with pytest.raises(SyntheticOrchestrationError, match="query identity is malformed"):
-        verify_reserved_synthetic_result(result)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted policy binding mismatch"):
+        _verify(result)
 
 
 def test_verifier_rejects_below_threshold_release_with_recomputed_fingerprint(
@@ -165,8 +270,8 @@ def test_verifier_rejects_below_threshold_release_with_recomputed_fingerprint(
     result["execution"]["rows"] = rows
     result["execution"]["manifest"]["output_fingerprint"] = output_fingerprint
     result["binding"]["output_fingerprint"] = output_fingerprint
-    with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
-        verify_reserved_synthetic_result(result)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input or output"):
+        _verify(result, policy=policy)
 
 
 def test_verifier_rejects_duplicate_released_groups_with_recomputed_fingerprint(
@@ -184,16 +289,16 @@ def test_verifier_rejects_duplicate_released_groups_with_recomputed_fingerprint(
     result["execution"]["rows"] = rows
     result["execution"]["manifest"]["output_fingerprint"] = output_fingerprint
     result["binding"]["output_fingerprint"] = output_fingerprint
-    with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
-        verify_reserved_synthetic_result(result)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input or output"):
+        _verify(result)
 
 
 def test_verifier_rejects_short_execution_identity(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     result["execution"]["manifest"]["execution_id"] = "x"
     result["binding"]["execution_id"] = "x"
-    with pytest.raises(SyntheticOrchestrationError, match="bounded non-sensitive identifier"):
-        verify_reserved_synthetic_result(result)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted policy binding mismatch"):
+        _verify(result)
 
 
 @pytest.mark.parametrize(
@@ -224,8 +329,8 @@ def test_verifier_rejects_invalid_status_and_count_contracts(
         result["binding"]["output_fingerprint"] = result["execution"]["manifest"][
             "output_fingerprint"
         ]
-        with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
-            verify_reserved_synthetic_result(result)
+        with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input or output"):
+            _verify(result)
 
 
 def test_wrong_expected_policy_digest_fails_without_reservation(tmp_path: Path) -> None:
@@ -369,7 +474,7 @@ def test_result_substitution_is_rejected(tmp_path: Path) -> None:
         )
         result["binding"]["query_fingerprint"] = "sha256:" + "0" * 64
         with pytest.raises(SyntheticOrchestrationError, match="binding mismatch"):
-            verify_reserved_synthetic_result(result)
+            _verify(result)
 
 
 @pytest.mark.parametrize("field", ["execution_id", "input_fingerprint"])
@@ -385,7 +490,7 @@ def test_missing_duplicate_manifest_and_binding_fields_are_rejected(
         del result["binding"][field]
         del result["execution"]["manifest"][field]
         with pytest.raises(SyntheticOrchestrationError, match="envelope is malformed"):
-            verify_reserved_synthetic_result(result)
+            _verify(result)
 
 
 @pytest.mark.parametrize(
@@ -436,7 +541,7 @@ def test_missing_duplicate_manifest_and_binding_fields_are_rejected(
                 "rows",
                 [{"diagnosis": [], "count_status": "released", "count": 1}],
             ),
-            "query shape mismatch",
+            "trusted aggregate input or output",
         ),
     ],
 )
@@ -451,7 +556,7 @@ def test_verifier_rejects_malformed_bound_structures(
         )
         mutation(result)
         with pytest.raises(SyntheticOrchestrationError, match=message):
-            verify_reserved_synthetic_result(result)
+            _verify(result)
 
 
 def test_internally_copied_query_identity_substitution_is_rejected(tmp_path: Path) -> None:
@@ -463,8 +568,8 @@ def test_internally_copied_query_identity_substitution_is_rejected(tmp_path: Pat
         )
         result["reservation"]["analysis_id"] = "substituted-analysis"
         result["execution"]["manifest"]["analysis_id"] = "substituted-analysis"
-        with pytest.raises(SyntheticOrchestrationError, match="query identity mismatch"):
-            verify_reserved_synthetic_result(result)
+        with pytest.raises(SyntheticOrchestrationError, match="trusted policy binding mismatch"):
+            _verify(result)
 
 
 def test_receipt_database_contains_no_raw_labels_or_counts(tmp_path: Path) -> None:
@@ -647,25 +752,25 @@ def test_postcommit_non_mapping_manifest_is_rejected(
 )
 def test_verifier_rejects_malformed_envelope(envelope: dict[str, Any]) -> None:
     with pytest.raises(SyntheticOrchestrationError, match="malformed"):
-        verify_reserved_synthetic_result(envelope)
+        _verify(envelope)
 
 
 def test_verifier_rejects_nonserializable_query_identity(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     result["reservation"]["dimensions"] = {"diagnosis"}
     with pytest.raises(SyntheticOrchestrationError, match="query identity is malformed"):
-        verify_reserved_synthetic_result(result)
+        _verify(result)
 
 
 def test_verifier_rejects_invalid_result_row_shape(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     result["execution"]["rows"] = "not-an-array"
-    with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
-        verify_reserved_synthetic_result(result)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input or output"):
+        _verify(result)
 
 
 def test_verifier_rechecks_output_fingerprint(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     result["execution"]["rows"][0]["count"] = 999
     with pytest.raises(SyntheticOrchestrationError, match="output mismatch"):
-        verify_reserved_synthetic_result(result)
+        _verify(result)
