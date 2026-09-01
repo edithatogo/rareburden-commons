@@ -41,7 +41,13 @@ _SENSITIVE_IDENTIFIER_TERMS = {
     "cookie",
     "credential",
     "email",
+    "id",
+    "identifier",
+    "participant",
+    "patient",
     "password",
+    "person",
+    "record",
     "secret",
     "session",
     "token",
@@ -421,6 +427,12 @@ def verify_reserved_synthetic_result(
             "measure"
         ] != reservation.get("measure"):
             raise SyntheticOrchestrationError("trusted aggregate input or output mismatch")
+        expected_input_fields = {*normalised_trusted_dimensions, "count"}
+        if any(
+            not isinstance(row, dict) or set(row) != expected_input_fields
+            for row in frozen_input_rows
+        ):
+            raise SyntheticOrchestrationError("trusted aggregate input is malformed")
         expected_execution = run_offline_node(
             frozen_input_rows,
             execution_id=trusted_execution_id,

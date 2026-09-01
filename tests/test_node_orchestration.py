@@ -122,7 +122,18 @@ def test_verifier_accepts_dimension_free_suppressed_rows(tmp_path: Path) -> None
 
 @pytest.mark.parametrize(
     "execution_id",
-    [None, 3, "", "x", "ab", "   ", "x" * 129, "person@example.org", "token-secret"],
+    [
+        None,
+        3,
+        "",
+        "x",
+        "ab",
+        "   ",
+        "x" * 129,
+        "person@example.org",
+        "token-secret",
+        "participant-123",
+    ],
 )
 def test_invalid_execution_identity_fails_before_reservation(
     tmp_path: Path, execution_id: object
@@ -140,7 +151,7 @@ def test_invalid_execution_identity_fails_before_reservation(
 
 @pytest.mark.parametrize(
     "analysis_id",
-    [None, 3, "", "x", "x" * 129, "person@example.org", "token-secret"],
+    [None, 3, "", "x", "x" * 129, "person@example.org", "token-secret", "patient-123"],
 )
 def test_invalid_analysis_identity_fails_before_reservation(
     tmp_path: Path, analysis_id: object
@@ -156,7 +167,7 @@ def test_invalid_analysis_identity_fails_before_reservation(
         assert store.verify() == (1, 0)
 
 
-@pytest.mark.parametrize("overlap_group", ["token-secret", "person@example.org", ""])
+@pytest.mark.parametrize("overlap_group", ["token-secret", "person@example.org", "record-123", ""])
 def test_invalid_overlap_group_fails_before_reservation(
     tmp_path: Path, overlap_group: object
 ) -> None:
@@ -191,6 +202,16 @@ def test_verifier_normalises_trusted_dimension_order(tmp_path: Path) -> None:
             "measure": "count",
         },
     )
+    with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input is malformed"):
+        _verify(
+            result,
+            policy=policy,
+            input_rows=[{"diagnosis": '["condition-a"]', "count": 1}],
+            trusted_query_shape={
+                "dimensions": ["jurisdiction", "diagnosis"],
+                "measure": "count",
+            },
+        )
 
 
 @pytest.mark.parametrize(
