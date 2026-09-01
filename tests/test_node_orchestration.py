@@ -401,6 +401,10 @@ def test_missing_duplicate_manifest_and_binding_fields_are_rejected(
             "query identity is malformed",
         ),
         (
+            lambda result: result["reservation"].__setitem__("dimensions", ["participant_id"]),
+            "query identity is malformed",
+        ),
+        (
             lambda result: result["execution"].__setitem__(
                 "rows",
                 [{"diagnosis": [], "count_status": "released", "count": 1}],

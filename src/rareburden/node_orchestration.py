@@ -15,7 +15,11 @@ from rareburden.node import (
     validate_version_compatibility,
     verify_output_fingerprint,
 )
-from rareburden.node_analysis import aggregate_synthetic_records, validate_synthetic_records
+from rareburden.node_analysis import (
+    ALLOWED_SYNTHETIC_DIMENSIONS,
+    aggregate_synthetic_records,
+    validate_synthetic_records,
+)
 from rareburden.node_policy import query_shape_fingerprint
 from rareburden.node_policy_store import DurableNodePolicyStore, QueryReceipt
 
@@ -301,6 +305,7 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         or not dimensions
         or any(not isinstance(value, str) or not value for value in dimensions)
         or dimensions != sorted(set(dimensions))
+        or not set(dimensions).issubset(ALLOWED_SYNTHETIC_DIMENSIONS)
         or reservation.get("measure") != "count"
         or type(minimum_cell_count) is not int
         or minimum_cell_count < 1

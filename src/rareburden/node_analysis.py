@@ -13,7 +13,7 @@ class SyntheticAnalysisError(ValueError):
 
 
 _ALLOWED_INPUT_FIELDS = {"synthetic", "diagnoses", "jurisdiction", "group"}
-_ALLOWED_OUTPUT_DIMENSIONS = {"diagnosis", "jurisdiction", "group"}
+ALLOWED_SYNTHETIC_DIMENSIONS = frozenset({"diagnosis", "jurisdiction", "group"})
 _IDENTIFIER_TERMS = {
     "id",
     "identifier",
@@ -89,7 +89,7 @@ def validate_synthetic_records(
         raise SyntheticAnalysisError("dimensions must contain non-empty strings")
     if not requested_dimensions or len(set(requested_dimensions)) != len(requested_dimensions):
         raise SyntheticAnalysisError("dimensions must be a non-empty unique sequence")
-    unknown_dimensions = sorted(set(requested_dimensions) - _ALLOWED_OUTPUT_DIMENSIONS)
+    unknown_dimensions = sorted(set(requested_dimensions) - ALLOWED_SYNTHETIC_DIMENSIONS)
     if unknown_dimensions:
         raise SyntheticAnalysisError(
             f"unknown aggregate dimensions: {', '.join(unknown_dimensions)}"
@@ -130,6 +130,7 @@ def validate_synthetic_records(
 
 
 __all__ = [
+    "ALLOWED_SYNTHETIC_DIMENSIONS",
     "SyntheticAnalysisError",
     "aggregate_synthetic_records",
     "validate_synthetic_records",
