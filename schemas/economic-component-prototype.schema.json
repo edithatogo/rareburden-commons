@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/economic-component-prototype.schema.json",
+  "title": "Experimental invented economic and social component prototype",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "prototype_id", "synthetic", "contract_status", "economic_use_status", "components", "limitations"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "prototype_id": {"$ref": "#/$defs/identifier"},
+    "synthetic": {"const": true},
+    "contract_status": {"const": "experimental_unfrozen"},
+    "economic_use_status": {"const": "blocked"},
+    "components": {"type": "array", "minItems": 1, "maxItems": 50, "items": {"$ref": "#/$defs/component"}},
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}}
+  },
+  "$defs": {
+    "identifier": {"type": "string", "pattern": "^[a-z][a-z0-9_-]{0,63}$"},
+    "text": {"type": "string", "minLength": 3, "maxLength": 300},
+    "reference": {
+      "type": "string",
+      "maxLength": 112,
+      "pattern": "^local:invented/[a-z0-9][a-z0-9_-]{0,95}(?:/[a-z0-9][a-z0-9_-]{0,95})*$"
+    },
+    "labelledContext": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "label"],
+      "properties": {"id": {"$ref": "#/$defs/identifier"}, "label": {"$ref": "#/$defs/text"}}
+    },
+    "experimentalDefinition": {
+      "type": "object", "additionalProperties": false,
+      "required": ["label", "definition_reference", "status"],
+      "properties": {
+        "label": {"$ref": "#/$defs/text"},
+        "definition_reference": {"$ref": "#/$defs/reference"},
+        "status": {"const": "experimental_unassessed"}
+      }
+    },
+    "role": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "rationale"],
+      "properties": {
+        "status": {"enum": ["declared", "unassessed", "not_applicable"]},
+        "label": {"$ref": "#/$defs/text"},
+        "rationale": {"$ref": "#/$defs/text"}
+      },
+      "allOf": [
+        {"if": {"properties": {"status": {"const": "declared"}}}, "then": {"required": ["label"]}, "else": {"not": {"required": ["label"]}}}
+      ]
+    },
+    "quantity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "label", "unit", "denominator_basis", "measurement_status", "rationale"],
+      "properties": {
+        "kind": {"enum": ["resource_count", "time", "participation", "other_nonmonetary", "monetary_shaped"]},
+        "label": {"$ref": "#/$defs/text"},
+        "unit": {"$ref": "#/$defs/text"},
+        "denominator_basis": {"$ref": "#/$defs/text"},
+        "measurement_status": {"enum": ["explicit_value", "explicit_zero", "missing", "not_collected", "unassessed", "not_applicable"]},
+        "value": {"type": "number"},
+        "rationale": {"$ref": "#/$defs/text"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"measurement_status": {"enum": ["explicit_value", "explicit_zero"]}}},
+          "then": {"required": ["value"]},
+          "else": {"not": {"required": ["value"]}}
+        },
+        {
+          "if": {"properties": {"measurement_status": {"const": "explicit_zero"}}},
+          "then": {"properties": {"value": {"const": 0}}}
+        },
+        {
+          "if": {"properties": {"measurement_status": {"const": "explicit_value"}}},
+          "then": {"properties": {"value": {"not": {"const": 0}}}}
+        }
+      ]
+    },
+    "valuationReadiness": {
+      "type": "object", "additionalProperties": false,
+      "required": ["currency_status", "price_year_status", "valuation_status", "rationale"],
+      "properties": {
+        "currency_status": {"enum": ["unresolved", "not_applicable"]},
+        "price_year_status": {"enum": ["unresolved", "not_applicable"]},
+        "valuation_status": {"enum": ["unresolved", "not_applicable"]},
+        "rationale": {"$ref": "#/$defs/text"}
+      }
+    },
+    "component": {
+      "type": "object", "additionalProperties": false,
+      "required": ["component_id", "revision", "category", "perspective", "roles", "population", "geography", "observation_period", "quantity", "evidence_status", "assumption_references", "source_references", "missingness", "coverage", "overlap", "valuation_readiness"],
+      "properties": {
+        "component_id": {"$ref": "#/$defs/identifier"},
+        "revision": {"type": "integer", "minimum": 1, "maximum": 9999},
+        "category": {"$ref": "#/$defs/experimentalDefinition"},
+        "perspective": {"$ref": "#/$defs/experimentalDefinition"},
+        "roles": {
+          "type": "object", "additionalProperties": false,
+          "required": ["bearer", "payer", "recipient", "time_provider", "beneficiary"],
+          "properties": {
+            "bearer": {"$ref": "#/$defs/role"},
+            "payer": {"$ref": "#/$defs/role"},
+            "recipient": {"$ref": "#/$defs/role"},
+            "time_provider": {"$ref": "#/$defs/role"},
+            "beneficiary": {"$ref": "#/$defs/role"}
+          }
+        },
+        "population": {"$ref": "#/$defs/labelledContext"},
+        "geography": {"$ref": "#/$defs/labelledContext"},
+        "observation_period": {
+          "type": "object", "additionalProperties": false,
+          "required": ["start", "end"],
+          "properties": {"start": {"type": "string", "format": "date"}, "end": {"type": "string", "format": "date"}}
+        },
+        "quantity": {"$ref": "#/$defs/quantity"},
+        "evidence_status": {"const": "assumed"},
+        "assumption_references": {"type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true, "items": {"$ref": "#/$defs/reference"}},
+        "source_references": {"type": "array", "maxItems": 0},
+        "missingness": {
+          "type": "object", "additionalProperties": false,
+          "required": ["status", "rationale"],
+          "properties": {"status": {"enum": ["complete", "missing", "not_collected", "unassessed", "not_applicable"]}, "rationale": {"$ref": "#/$defs/text"}}
+        },
+        "coverage": {
+          "type": "object", "additionalProperties": false,
+          "required": ["status", "rationale"],
+          "properties": {"status": {"enum": ["partial", "complete_for_declared_scope", "unassessed"]}, "rationale": {"$ref": "#/$defs/text"}}
+        },
+        "overlap": {
+          "type": "object", "additionalProperties": false,
+          "required": ["assessment_status", "component_ids", "rationale"],
+          "properties": {
+            "assessment_status": {"enum": ["unassessed", "possible_overlap", "assessed_no_overlap", "not_applicable"]},
+            "component_ids": {"type": "array", "maxItems": 49, "uniqueItems": true, "items": {"$ref": "#/$defs/identifier"}},
+            "rationale": {"$ref": "#/$defs/text"}
+          }
+        },
+        "valuation_readiness": {"$ref": "#/$defs/valuationReadiness"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"quantity": {"properties": {"kind": {"const": "monetary_shaped"}}}}},
+          "then": {
+            "properties": {
+              "valuation_readiness": {
+                "properties": {
+                  "currency_status": {"const": "unresolved"},
+                  "price_year_status": {"const": "unresolved"},
+                  "valuation_status": {"const": "unresolved"}
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "valuation_readiness": {
+                "properties": {
+                  "currency_status": {"const": "not_applicable"},
+                  "price_year_status": {"const": "not_applicable"},
+                  "valuation_status": {"const": "not_applicable"}
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

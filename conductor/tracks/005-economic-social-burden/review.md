@@ -1,5 +1,49 @@
 # Track 005 dependency review — Patient, family, economic and social burden module
 
+## Selected component-first validation prototype — 2026-09-01
+
+The repository owner selected Option A against exact proposal candidate
+`1ed8ed425120f31f6d812230e924de6f3ca7b25f`. The implementation adds a separate
+experimental schema, validation-only Python interface, explicitly invented
+three-component fixture and regression tests. The frozen Track 009 schema,
+economic ledger fixture, exports, manifests and all calculation engines are
+unchanged.
+
+Three actual role-separated agents reviewed engineering, security/data-use and
+usability/community-harm boundaries. Findings on unsafe reference shapes,
+pre-copy resource limits, missingness/coverage separation, component identity
+and overlap-state consistency were corrected. All lanes passed the corrected
+files without dissent. This was an owner-executed simulated-community challenge;
+no actual community participation, representation, consultation, co-design,
+endorsement, consent or independent review is claimed.
+
+The contract preserves explicit zero separately from missing, not-collected,
+unassessed and not-applicable states. Quantity missingness is distinct from
+coverage, so an unpaid-care quantity remains visible while unvalued and its
+coverage can remain unassessed. Bearer, payer, recipient, time provider and
+beneficiary are separate required roles. Possible overlap requires a known
+component reference; unassessed overlap is not evidence of exclusivity. The
+whole document remains synthetic, experimental, unfrozen and blocked from
+economic use. No total, valuation, price/currency conversion or engine API was
+introduced.
+
+Focused validation passed 28 tests. Root's full local `make check` passed 1,801
+tests plus repository integrity and retained-provenance gates; the local test
+timeout was 120 seconds and hosted defaults remain unchanged. Ruff, formatting,
+typing, schema, safety and documentation checks passed.
+
+Residual limitations: structural validation cannot establish taxonomy validity,
+role truth, completeness, economic fitness, actual participation or absence of
+sensitive text in allowed labels/rationales. Inputs must remain explicitly
+invented; this validator is not a PII sanitiser. Asymmetric overlap metadata is
+permitted and must remain unassessed rather than interpreted as scientific proof.
+
+Disposition: accept this bounded experimental implementation while keeping Track
+005 blocked. Stop on real or sensitive input, new source references, silent
+defaults, error echo, aggregation/valuation paths, frozen-artifact drift or any
+claim of total burden, economic fitness, participation, activation, completion
+or release.
+
 ## Method-options preparation — 2026-08-31
 
 `docs/track-005-method-options-2026-08-31.md` defines three proposed next scopes:
