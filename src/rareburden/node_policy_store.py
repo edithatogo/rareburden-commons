@@ -27,6 +27,10 @@ class NodePolicyStoreError(ValueError):
     """Raised when durable node-policy state fails validation or integrity checks."""
 
 
+class NodePolicyCommitUncertainError(NodePolicyStoreError):
+    """Raised when a failed COMMIT may already have durably recorded a query."""
+
+
 def _canonical_json(value: object) -> str:
     try:
         return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
@@ -89,6 +93,16 @@ class QueryReceipt:
     recorded_at: str
 
 
+@dataclass(frozen=True, slots=True)
+class QueryReservation:
+    """A committed query receipt and the exact policy snapshot used to admit it."""
+
+    receipt: QueryReceipt
+    policy: DisclosurePolicy
+    policy_content_sha256: str
+    registered_query: QueryLedgerEntry
+
+
 class DurableNodePolicyStore:
     """SQLite reference store with transactional replay and query-budget enforcement.
 
@@ -122,6 +136,12 @@ class DurableNodePolicyStore:
 
     def close(self) -> None:
         self._connection.close()
+
+    def _commit(self) -> None:
+        self._connection.execute("COMMIT")
+
+    def _begin(self) -> None:
+        self._connection.execute("BEGIN IMMEDIATE")
 
     def _initialise(self) -> None:
         self._connection.executescript(
@@ -235,16 +255,36 @@ class DurableNodePolicyStore:
         recorded_at: str,
     ) -> QueryReceipt:
         """Atomically enforce replay/budget policy and append a value-free receipt."""
+        return self.reserve_query(
+            query_shape,
+            overlap_group=overlap_group,
+            policy_id=policy_id,
+            expected_policy_content_sha256=None,
+            recorded_at=recorded_at,
+        ).receipt
+
+    def reserve_query(
+        self,
+        query_shape: Mapping[str, Any],
+        *,
+        overlap_group: str,
+        policy_id: str,
+        expected_policy_content_sha256: str | None,
+        recorded_at: str,
+    ) -> QueryReservation:
+        """Commit a query and return the exact transaction-bound policy snapshot."""
         timestamp = _timestamp(recorded_at)
         group = _identifier(overlap_group, label="overlap_group")
         identity = _identifier(policy_id, label="policy_id")
+        commit_attempted = False
         try:
-            self._connection.execute("BEGIN IMMEDIATE")
+            self._begin()
             # Verify under the same write lock as the append. A caller must not
             # extend a tampered history merely because it omitted verify().
             self.verify()
             policy_row = self._connection.execute(
-                "SELECT document_json FROM disclosure_policies WHERE policy_id = ?", (identity,)
+                "SELECT document_json, content_sha256 FROM disclosure_policies WHERE policy_id = ?",
+                (identity,),
             ).fetchone()
             if policy_row is None:
                 raise NodePolicyStoreError("policy_id is not registered")
@@ -252,6 +292,12 @@ class DurableNodePolicyStore:
             if not isinstance(policy_document, dict):
                 raise NodePolicyStoreError("stored policy is malformed")
             policy = load_disclosure_policy(policy_document)
+            policy_digest = str(policy_row["content_sha256"])
+            if (
+                expected_policy_content_sha256 is not None
+                and policy_digest != expected_policy_content_sha256
+            ):
+                raise NodePolicyStoreError("stored policy does not match expected content digest")
             rows = self._connection.execute(
                 "SELECT * FROM query_receipts ORDER BY sequence"
             ).fetchall()
@@ -291,16 +337,22 @@ class DurableNodePolicyStore:
             )
             if cursor.lastrowid is None:
                 raise NodePolicyStoreError("query registration returned no sequence")
-            self._connection.execute("COMMIT")
+            commit_attempted = True
+            self._commit()
         except (sqlite3.DatabaseError, NodeExportError, NodePolicyStoreError) as exc:
-            if self._connection.in_transaction:
+            transaction_open = self._connection.in_transaction
+            if transaction_open:
                 self._connection.execute("ROLLBACK")
             if isinstance(exc, NodePolicyStoreError):
                 raise
             if isinstance(exc, NodeExportError):
                 raise NodePolicyStoreError(str(exc)) from exc
+            if commit_attempted and not transaction_open:
+                raise NodePolicyCommitUncertainError(
+                    "query commit outcome is uncertain; do not retry"
+                ) from exc
             raise NodePolicyStoreError(f"could not register query: {exc}") from exc
-        return QueryReceipt(
+        receipt = QueryReceipt(
             sequence=int(cursor.lastrowid),
             query_fingerprint=entry.query_fingerprint,
             policy_id=entry.policy_id,
@@ -308,6 +360,12 @@ class DurableNodePolicyStore:
             chain_sha256=chain,
             previous_chain_sha256=previous,
             recorded_at=timestamp,
+        )
+        return QueryReservation(
+            receipt=receipt,
+            policy=policy,
+            policy_content_sha256=policy_digest,
+            registered_query=entry,
         )
 
     def verify(self) -> tuple[int, int]:
@@ -401,7 +459,9 @@ class DurableNodePolicyStore:
 
 __all__ = [
     "DurableNodePolicyStore",
+    "NodePolicyCommitUncertainError",
     "NodePolicyStoreError",
     "PolicyReceipt",
     "QueryReceipt",
+    "QueryReservation",
 ]

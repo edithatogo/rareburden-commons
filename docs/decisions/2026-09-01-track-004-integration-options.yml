@@ -76,4 +76,12 @@ recommendation:
   option_id: A
   rationale: A is a useful bounded prototype with explicit consistency and failure limits, not production activation.
 owner_decision:
-  status: pending
+  status: recorded
+  selected_option_id: A
+  decided_by: edithatogo
+  decided_at_utc: "2026-09-01T11:09:06Z"
+  rationale: >-
+    The owner selected the recommended additive experimental synthetic integration
+    only. This does not approve a production common-analysis contract or authoritative
+    custodian store, activate controlled data, complete Track 004, authorize release,
+    establish custodian authority or participation, or close any of the six original gates.

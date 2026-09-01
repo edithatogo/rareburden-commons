@@ -1,5 +1,35 @@
 # Track 004 dependency review — Federated country-node execution package
 
+## Owner selection — 2026-09-01
+
+The repository owner selected Option A against proposal candidate
+`3532d3247088ea5cdfa5690657350985461d9693`. The selection is limited to an
+additive experimental synthetic-only integration prototype. At the proposal
+candidate below, selection was still pending; that historical observation and
+its proposal-only manifest remain unchanged.
+
+This selection does not approve a production common-analysis contract or
+authoritative custodian store, activate controlled data, complete Track 004,
+authorize release, establish custodian authority or participation, or close any
+of the six original gates. Track 004 remains Blocked.
+
+## Bounded Option A implementation — 2026-09-01
+
+The additive experimental synthetic-only orchestration now freezes and validates
+invented inputs before making one transaction-bound reservation, commits the
+value-free receipt before aggregation, uses the exact returned policy snapshot,
+and returns an in-memory receipt/policy/query/execution-bound envelope. Pre-commit
+failures do not reserve; uncertain commits stop without compute or retry; failures
+after commit consume the reservation. The verifier recomputes both query and
+receipt-chain identities and the existing output fingerprint.
+
+Role-separated engineering, security and operator-documentation agents challenged
+the implementation. Their findings on operator-bound analysis identity, ambiguous
+COMMIT classification, query-fingerprint recomputation and historical receipt
+wording were resolved with focused adversarial tests. This is repository-owned
+advisory review, not independent, community or custodian review. The implementation
+does not change the six original pending gates or the Blocked track status.
+
 ## Integration-options preparation — 2026-09-01
 
 `docs/track-004-integration-options-2026-09-01.md` proposes three routes:
@@ -14,8 +44,10 @@ against operator-controlled identity changes.
 This proposal does not select an option, change the original track scope,
 implement the new interface, satisfy the production contract/store tasks or
 authorize node-alpha release. Track 004 remains blocked and all six original
-pending gates remain pending. The exact-bound decision packet retains owner
-selection as pending; original receipts are not transferred to a changed runner.
+pending gates remain pending. At the exact proposal candidate, the decision packet
+retained owner selection as pending; the live packet now records Option A without
+changing that historical candidate. Original receipts are not transferred to a
+changed runner.
 
 Exact proposal candidate: `3532d3247088ea5cdfa5690657350985461d9693`, tree
 `a98f0705bcdf4696b7d4b7a16ea0e4037cce83e3`. The pending machine-readable packet is

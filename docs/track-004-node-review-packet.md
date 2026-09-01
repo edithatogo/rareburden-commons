@@ -8,6 +8,13 @@ owner disposition; actual custodian rights, permissions and deployment controls
 remain separately evidence-bound. Controlled-pilot claims are excluded from
 stable v1 under ADR-0005.
 
+The owner selected Option A on 2026-09-01: an additive experimental
+synthetic-only orchestration prototype. Selection authorises only that bounded
+implementation. It does not approve the production common-analysis contract,
+turn the SQLite reference store into an authoritative custodian store, activate
+controlled data, complete Track 004 or authorise release. All six original gates
+remain pending and Track 004 remains blocked.
+
 ## Decisions required
 
 | Decision | Evidence | Accountable disposition |
@@ -37,8 +44,12 @@ endorsement, consent or independent review is claimed.
 
 Retain exact software/tag, wheel hashes, platform/Python, manifest and policy
 fingerprints, command transcript, output hash, failure cases, operator role,
-custodian decision, export review and unresolved findings. Never commit
-participant rows, credentials or controlled source bytes.
+custodian decision, export review and unresolved findings. For the selected
+prototype, also retain the operator-bound analysis ID and overlap group, expected
+policy ID/hash, transaction-bound policy snapshot, reservation sequence/query/
+chain fingerprints, execution/input/output identities and whether any failure
+occurred before or after commit. Never commit participant rows, numeric
+aggregates, credentials or controlled source bytes in a query receipt.
 
 For a synthetic-only candidate, distinguish an inapplicable controlled-use
 decision from a passed custodian gate. Bind the panel and owner disposition to
@@ -55,6 +66,15 @@ locked dependency set, and integration with an authoritative custodian-controlle
 durable policy/query store. Synthetic primitives do not satisfy either production
 task. Keeping these tasks blocked differs from formally narrowing the track;
 scope change requires a decision and acceptance mapping.
+
+The durable fact created by the prototype is the value-free reservation, not
+successful analysis or delivery. A pre-commit rejection produces no reservation
+or result. A post-commit failure consumes the reservation and exposes no partial
+result; there is no automatic retry, refund, budget reset or replacement-store
+recovery. An uncertain commit outcome requires a stop and separately approved
+inspection/recovery procedure. The in-memory result binding is consistency
+metadata, not signing, delivery attestation or custodian authority. Suppressed or
+absent values remain unavailable, not zero.
 
 ## Advisory options and community-impact self-assessment
 
@@ -81,6 +101,12 @@ tests. Site-specific needs and threat models remain uncertain; simulation cannot
 establish lived experience or custodian permission. Stop or narrow on sensitive
 data, unclear rights, hash drift, weakened disclosure controls, hidden network
 fallback, or substitution of tests for external authority.
+
+The selected prototype adds a further usability risk: an operator may lose query
+budget without receiving a result and may be tempted to retry, reset or replace
+the local store. The safe response is to preserve the committed receipt and stop;
+software consistency checks do not authorise recovery or establish that a local
+operator controls the relevant policy identity.
 
 ## Safe continuation
 
