@@ -574,6 +574,12 @@ def verify_reserved_synthetic_result(
         for row in frozen_input_rows:
             for dimension in normalised_trusted_dimensions:
                 _validate_trusted_dimension_value(row[dimension], dimension=dimension)
+        trusted_counts = [row["count"] for row in frozen_input_rows]
+        if (
+            any(type(count) is not int or count < 1 for count in trusted_counts)
+            or sum(trusted_counts) > _MAXIMUM_SYNTHETIC_RECORDS
+        ):
+            raise SyntheticOrchestrationError("trusted aggregate input is malformed")
         trusted_groups = [
             tuple(row[dimension] for dimension in normalised_trusted_dimensions)
             for row in frozen_input_rows

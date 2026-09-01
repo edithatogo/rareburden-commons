@@ -646,6 +646,33 @@ def test_verifier_rejects_noncanonical_trusted_diagnosis_before_execution(
         _verify(result, input_rows=[{"diagnosis": diagnosis, "count": 1}])
 
 
+@pytest.mark.parametrize(
+    "input_rows",
+    [
+        [{"diagnosis": '["condition-a"]', "count": 0}],
+        [{"diagnosis": '["condition-a"]', "count": 1_001}],
+        [
+            {"diagnosis": '["condition-a"]', "count": 600},
+            {"diagnosis": '["condition-b"]', "count": 401},
+        ],
+        [{"diagnosis": '["condition-a"]', "count": True}],
+    ],
+)
+def test_verifier_rejects_impossible_trusted_counts_before_execution(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    input_rows: list[dict[str, object]],
+) -> None:
+    result = _valid_result(tmp_path)
+    monkeypatch.setattr(
+        orchestration,
+        "run_offline_node",
+        lambda *_args, **_kwargs: pytest.fail("impossible counts must fail before execution"),
+    )
+    with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input is malformed"):
+        _verify(result, input_rows=input_rows)
+
+
 def test_verifier_rejects_nested_execution_schema_substitution(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     result["execution"]["schema_version"] = "9.9.9"
