@@ -54,6 +54,7 @@ _SENSITIVE_IDENTIFIER_TERMS = {
     "token",
 }
 _SENSITIVE_IDENTIFIER_PATTERNS = (re.compile(r"api[_.:-]*key"),)
+_MAXIMUM_SYNTHETIC_RECORDS = 1_000
 
 
 def _bounded_non_sensitive_identifier(value: object, *, label: str, minimum_length: int = 1) -> str:
@@ -175,6 +176,8 @@ def run_reserved_synthetic_analysis(
     frozen_records = _frozen_json(records, label="records")
     if not isinstance(frozen_query, dict) or not isinstance(frozen_records, list):
         raise SyntheticOrchestrationError("query_shape and records have invalid JSON structure")
+    if len(frozen_records) > _MAXIMUM_SYNTHETIC_RECORDS:
+        raise SyntheticOrchestrationError("records exceed the bounded synthetic fanout")
     if "analysis_id" in frozen_query:
         raise SyntheticOrchestrationError(
             "analysis identity must be supplied through the operator-bound argument"

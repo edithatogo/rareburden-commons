@@ -176,6 +176,15 @@ def test_invalid_execution_identity_fails_before_reservation(
         assert store.verify() == (1, 0)
 
 
+def test_excess_record_fanout_fails_before_reservation(tmp_path: Path) -> None:
+    records = [{"synthetic": True, "diagnoses": [f"condition-{index}"]} for index in range(1_001)]
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        with pytest.raises(SyntheticOrchestrationError, match="bounded synthetic fanout"):
+            run_reserved_synthetic_analysis(records, **_kwargs(store, receipt.content_sha256))
+        assert store.verify() == (1, 0)
+
+
 @pytest.mark.parametrize(
     "analysis_id",
     [

@@ -314,6 +314,13 @@ class DurableNodePolicyStore:
             rows = self._connection.execute(
                 "SELECT * FROM query_receipts ORDER BY sequence"
             ).fetchall()
+            allocator_row = self._connection.execute(
+                "SELECT seq FROM sqlite_sequence WHERE name = 'query_receipts'"
+            ).fetchone()
+            allocator_sequence = 0 if allocator_row is None else int(allocator_row["seq"])
+            last_sequence = 0 if not rows else int(rows[-1]["sequence"])
+            if allocator_sequence != last_sequence:
+                raise NodePolicyStoreError("query receipt allocator integrity failed")
             ledger = QueryLedger(entries=tuple(self._entry(row) for row in rows))
             next_ledger = ledger.append(query_shape, overlap_group=group, policy=policy)
             entry = next_ledger.entries[-1]

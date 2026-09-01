@@ -276,6 +276,30 @@ def test_query_append_checks_history_and_rolls_back_on_tampering(
             assert observer.execute("SELECT COUNT(*) FROM query_receipts").fetchone() == (1,)
 
 
+def test_query_append_rejects_tampered_allocator_before_consumption(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(budget=3), recorded_at="2026-08-01T00:00:00Z")
+        store.register_query(
+            _shape(),
+            overlap_group="synthetic-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+        with sqlite3.connect(database) as attacker:
+            attacker.execute("UPDATE sqlite_sequence SET seq = 10 WHERE name = 'query_receipts'")
+        with pytest.raises(NodePolicyStoreError, match="allocator integrity"):
+            store.register_query(
+                _shape("second-analysis"),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:02:00Z",
+            )
+        with sqlite3.connect(database) as observer:
+            count = observer.execute("SELECT COUNT(*) FROM query_receipts").fetchone()[0]
+        assert count == 1
+
+
 @pytest.mark.parametrize("value", [None, 123, [], {}])
 def test_store_rejects_wrong_type_timestamps(tmp_path: Path, value: object) -> None:
     with DurableNodePolicyStore(tmp_path / "node-policy.sqlite3") as store:
