@@ -7,7 +7,11 @@ from pathlib import Path
 
 import pytest
 
-from rareburden.node_policy_store import DurableNodePolicyStore, NodePolicyStoreError
+from rareburden.node_policy_store import (
+    DurableNodePolicyStore,
+    NodePolicyCommitUncertainError,
+    NodePolicyStoreError,
+)
 
 
 def _policy(*, budget: int = 1) -> dict[str, object]:
@@ -291,3 +295,50 @@ def test_store_rejects_wrong_type_query_identifiers(tmp_path: Path, value: objec
                 recorded_at="2026-08-01T00:00:00Z",
             )
         assert store.verify() == (0, 0)
+
+
+def test_store_reports_failed_rollback_as_uncertain_without_retry(tmp_path: Path) -> None:
+    class RollbackFailureStore(DurableNodePolicyStore):
+        def _commit(self) -> None:
+            raise sqlite3.OperationalError("injected pre-commit failure")
+
+        def _rollback(self) -> None:
+            raise sqlite3.OperationalError("injected rollback failure")
+
+    database = tmp_path / "node-policy.sqlite3"
+    with RollbackFailureStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        with pytest.raises(
+            NodePolicyCommitUncertainError, match="rollback outcome is uncertain; do not retry"
+        ) as caught:
+            store.register_query(
+                _shape(),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:01:00Z",
+            )
+        assert isinstance(caught.value.__cause__, sqlite3.OperationalError)
+        assert "injected rollback failure" in str(caught.value.__cause__)
+        assert isinstance(caught.value.__cause__.__context__, sqlite3.OperationalError)
+        assert "injected pre-commit failure" in str(caught.value.__cause__.__context__)
+
+    with DurableNodePolicyStore(database) as reopened:
+        assert reopened.verify() == (1, 0)
+
+
+def test_store_ordinary_precommit_failure_still_rolls_back(tmp_path: Path) -> None:
+    class PrecommitFailureStore(DurableNodePolicyStore):
+        def _commit(self) -> None:
+            raise sqlite3.OperationalError("injected pre-commit failure")
+
+    database = tmp_path / "node-policy.sqlite3"
+    with PrecommitFailureStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        with pytest.raises(NodePolicyStoreError, match="could not register query"):
+            store.register_query(
+                _shape(),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:01:00Z",
+            )
+        assert store.verify() == (1, 0)

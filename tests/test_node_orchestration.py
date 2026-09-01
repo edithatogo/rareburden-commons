@@ -92,6 +92,80 @@ def test_verifier_accepts_dimension_free_suppressed_rows(tmp_path: Path) -> None
             **_kwargs(store, policy_receipt.content_sha256),
         )
         assert result["execution"]["rows"] == [{"count_status": "suppressed", "count": None}]
+        assert result["reservation"]["minimum_cell_count"] == 5
+        assert result["binding"]["minimum_cell_count"] == 5
+        verify_reserved_synthetic_result(result)
+
+
+@pytest.mark.parametrize(
+    "execution_id",
+    [None, 3, "", "   ", "x" * 129, "person@example.org", "token-secret"],
+)
+def test_invalid_execution_identity_fails_before_reservation(
+    tmp_path: Path, execution_id: object
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs["execution_id"] = execution_id
+        with pytest.raises(SyntheticOrchestrationError, match="bounded non-sensitive identifier"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}], **kwargs
+            )
+        assert store.verify() == (1, 0)
+
+
+def test_verifier_rejects_nested_execution_schema_substitution(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    result["execution"]["schema_version"] = "9.9.9"
+    with pytest.raises(SyntheticOrchestrationError, match="envelope is malformed"):
+        verify_reserved_synthetic_result(result)
+
+
+@pytest.mark.parametrize("location", ["reservation", "binding"])
+def test_verifier_rejects_minimum_cell_count_substitution(tmp_path: Path, location: str) -> None:
+    result = _valid_result(tmp_path)
+    result[location]["minimum_cell_count"] = 2
+    with pytest.raises(SyntheticOrchestrationError, match="binding mismatch"):
+        verify_reserved_synthetic_result(result)
+
+
+@pytest.mark.parametrize("minimum", [True, 0])
+def test_verifier_rejects_malformed_minimum_cell_count(tmp_path: Path, minimum: object) -> None:
+    result = _valid_result(tmp_path)
+    result["reservation"]["minimum_cell_count"] = minimum
+    result["binding"]["minimum_cell_count"] = minimum
+    with pytest.raises(SyntheticOrchestrationError, match="query identity is malformed"):
+        verify_reserved_synthetic_result(result)
+
+
+def test_verifier_rejects_below_threshold_release_with_recomputed_fingerprint(
+    tmp_path: Path,
+) -> None:
+    policy = {**_policy(), "minimum_cell_count": 5}
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(policy, recorded_at="2026-09-01T00:00:00+00:00")
+        result = run_reserved_synthetic_analysis(
+            [{"synthetic": True, "diagnoses": ["condition-a"]}],
+            **_kwargs(store, receipt.content_sha256),
+        )
+    rows = [
+        {
+            "diagnosis": '["condition-a"]',
+            "count": 1,
+            "count_status": "released",
+        }
+    ]
+    output_fingerprint = (
+        "sha256:"
+        + hashlib.sha256(
+            json.dumps(rows, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+    )
+    result["execution"]["rows"] = rows
+    result["execution"]["manifest"]["output_fingerprint"] = output_fingerprint
+    result["binding"]["output_fingerprint"] = output_fingerprint
+    with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
         verify_reserved_synthetic_result(result)
 
 

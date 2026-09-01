@@ -143,6 +143,9 @@ class DurableNodePolicyStore:
     def _begin(self) -> None:
         self._connection.execute("BEGIN IMMEDIATE")
 
+    def _rollback(self) -> None:
+        self._connection.execute("ROLLBACK")
+
     def _initialise(self) -> None:
         self._connection.executescript(
             """
@@ -342,7 +345,12 @@ class DurableNodePolicyStore:
         except (sqlite3.DatabaseError, NodeExportError, NodePolicyStoreError) as exc:
             transaction_open = self._connection.in_transaction
             if transaction_open:
-                self._connection.execute("ROLLBACK")
+                try:
+                    self._rollback()
+                except sqlite3.DatabaseError as rollback_exc:
+                    raise NodePolicyCommitUncertainError(
+                        "query rollback outcome is uncertain; do not retry"
+                    ) from rollback_exc
             if isinstance(exc, NodePolicyStoreError):
                 raise
             if isinstance(exc, NodeExportError):

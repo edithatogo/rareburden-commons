@@ -27,6 +27,26 @@ class SyntheticOrchestrationError(ValueError):
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _FINGERPRINT = re.compile(r"^sha256:[0-9a-f]{64}$")
 _IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$")
+_SENSITIVE_IDENTIFIER_TERMS = {
+    "authorization",
+    "bearer",
+    "cookie",
+    "credential",
+    "email",
+    "password",
+    "secret",
+    "session",
+    "token",
+}
+
+
+def _bounded_non_sensitive_identifier(value: object, *, label: str) -> str:
+    if not isinstance(value, str) or _IDENTIFIER.fullmatch(value) is None:
+        raise SyntheticOrchestrationError(f"{label} must be a bounded non-sensitive identifier")
+    terms = set(re.split(r"[_.:-]+", value.lower()))
+    if terms & _SENSITIVE_IDENTIFIER_TERMS:
+        raise SyntheticOrchestrationError(f"{label} must be a bounded non-sensitive identifier")
+    return value
 
 
 def _frozen_json(value: object, *, label: str) -> Any:
@@ -70,6 +90,7 @@ def run_reserved_synthetic_analysis(
     validate_version_compatibility(
         coordinator_version=coordinator_version, node_version=node_version
     )
+    _bounded_non_sensitive_identifier(execution_id, label="execution_id")
     if (
         not isinstance(expected_policy_content_sha256, str)
         or _SHA256.fullmatch(expected_policy_content_sha256) is None
@@ -128,6 +149,7 @@ def run_reserved_synthetic_analysis(
             "analysis_id": reservation.registered_query.analysis_id,
             "dimensions": list(reservation.registered_query.dimensions),
             "measure": reservation.registered_query.measure,
+            "minimum_cell_count": reservation.policy.minimum_cell_count,
         },
         "execution": result,
         "binding": {
@@ -140,6 +162,7 @@ def run_reserved_synthetic_analysis(
             "execution_id": manifest["execution_id"],
             "input_fingerprint": manifest["input_fingerprint"],
             "output_fingerprint": manifest["output_fingerprint"],
+            "minimum_cell_count": reservation.policy.minimum_cell_count,
         },
     }
 
@@ -173,6 +196,7 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         "analysis_id",
         "dimensions",
         "measure",
+        "minimum_cell_count",
     }
     required_binding = {
         "receipt_sequence",
@@ -184,11 +208,13 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         "execution_id",
         "input_fingerprint",
         "output_fingerprint",
+        "minimum_cell_count",
     }
     if (
         set(reservation) != required_reservation
         or set(binding) != required_binding
         or set(execution) != {"schema_version", "manifest", "rows"}
+        or execution.get("schema_version") != "0.1.0"
         or any(binding.get(field) is None for field in required_binding)
     ):
         raise SyntheticOrchestrationError("reserved result envelope is malformed")
@@ -240,6 +266,7 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         (binding.get("execution_id"), manifest.get("execution_id")),
         (binding.get("input_fingerprint"), manifest.get("input_fingerprint")),
         (binding.get("output_fingerprint"), manifest.get("output_fingerprint")),
+        (binding.get("minimum_cell_count"), reservation.get("minimum_cell_count")),
         (reservation.get("analysis_id"), manifest.get("analysis_id")),
         (reservation.get("policy_id"), manifest.get("policy_id")),
     )
@@ -249,6 +276,7 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
     sequence = reservation.get("sequence")
     previous_chain = reservation.get("previous_chain_sha256")
     recorded_at = reservation.get("recorded_at")
+    minimum_cell_count = reservation.get("minimum_cell_count")
     if (
         not isinstance(sequence, int)
         or isinstance(sequence, bool)
@@ -274,6 +302,8 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         or any(not isinstance(value, str) or not value for value in dimensions)
         or dimensions != sorted(set(dimensions))
         or reservation.get("measure") != "count"
+        or type(minimum_cell_count) is not int
+        or minimum_cell_count < 1
     ):
         raise SyntheticOrchestrationError("reserved result query identity is malformed")
     try:
@@ -335,7 +365,7 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
                     )
                     or not isinstance(row.get("count"), int)
                     or isinstance(row.get("count"), bool)
-                    or row["count"] < 0
+                    or row["count"] < minimum_cell_count
                 )
             )
             or (
