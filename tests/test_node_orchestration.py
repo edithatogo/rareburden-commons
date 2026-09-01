@@ -72,6 +72,18 @@ def test_result_binds_committed_receipt_policy_and_execution(tmp_path: Path) -> 
         verify_reserved_synthetic_result(result)
 
 
+def test_verifier_accepts_dimension_free_suppressed_rows(tmp_path: Path) -> None:
+    policy = {**_policy(), "minimum_cell_count": 5}
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        policy_receipt = store.register_policy(policy, recorded_at="2026-09-01T00:00:00+00:00")
+        result = run_reserved_synthetic_analysis(
+            [{"synthetic": True, "diagnoses": ["condition-a"]}],
+            **_kwargs(store, policy_receipt.content_sha256),
+        )
+        assert result["execution"]["rows"] == [{"count_status": "suppressed", "count": None}]
+        verify_reserved_synthetic_result(result)
+
+
 def test_wrong_expected_policy_digest_fails_without_reservation(tmp_path: Path) -> None:
     with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
         store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")

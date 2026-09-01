@@ -203,15 +203,17 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
     ):
         raise SyntheticOrchestrationError("reserved result query identity mismatch")
     rows = execution.get("rows")
+    allowed_released_fields = (
+        {*dimensions, "count", "count_status"} if isinstance(dimensions, list) else set()
+    )
     if (
         reservation.get("measure") != "count"
         or not isinstance(dimensions, list)
         or not isinstance(rows, list)
         or any(
             not isinstance(row, Mapping)
-            or not set(dimensions).issubset(row)
-            or "count_status" not in row
-            or not set(row).issubset({*dimensions, "count", "count_status"})
+            or (row.get("count_status") == "released" and set(row) != allowed_released_fields)
+            or (row.get("count_status") == "suppressed" and set(row) != {"count", "count_status"})
             for row in rows
         )
     ):
