@@ -41,10 +41,9 @@ def _validate_bounded_policy_json(document: object) -> None:
         if nodes > 10_000:
             raise NodeExportError("disclosure policy exceeds bounded JSON structure")
         if type(current) is dict:
-            items = list(current.items())
-            if len(items) > _MAXIMUM_POLICY_FANOUT:
+            if len(current) > _MAXIMUM_POLICY_FANOUT:
                 raise NodeExportError("disclosure policy exceeds bounded JSON structure")
-            for key, value in items:
+            for key, value in current.items():
                 if type(key) is not str:
                     raise NodeExportError("disclosure policy must use exact JSON types")
                 if len(key) > _MAXIMUM_POLICY_STRING_LENGTH:

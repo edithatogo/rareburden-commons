@@ -86,7 +86,7 @@ def _validate_trusted_dimension_value(value: object, *, dimension: str) -> None:
 
 def _bounded_non_sensitive_identifier(value: object, *, label: str, minimum_length: int = 1) -> str:
     if (
-        not isinstance(value, str)
+        type(value) is not str
         or len(value) < minimum_length
         or _IDENTIFIER.fullmatch(value) is None
     ):
@@ -133,10 +133,10 @@ def _validate_exact_json_tree(value: object, *, label: str) -> None:
             active_containers.add(container_id)
             stack.append((current, depth, True))
             if current_type is dict:
-                items = list(cast(dict[object, object], current).items())
-                if len(items) > maximum_fanout:
+                mapping = cast(dict[object, object], current)
+                if len(mapping) > maximum_fanout:
                     raise SyntheticOrchestrationError(f"{label} exceeds bounded JSON structure")
-                for key, child in reversed(items):
+                for key, child in reversed(list(mapping.items())):
                     if type(key) is not str:
                         raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
                     if len(key) > MAXIMUM_SYNTHETIC_STRING_LENGTH:
