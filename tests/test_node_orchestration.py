@@ -189,6 +189,9 @@ def test_invalid_execution_identity_fails_before_reservation(
         "patient-123",
         "participant123",
         "api_key:sk123",
+        "api__key:sk123",
+        "api..key:sk123",
+        "api--key:sk123",
     ],
 )
 def test_invalid_analysis_identity_fails_before_reservation(

@@ -53,7 +53,7 @@ _SENSITIVE_IDENTIFIER_TERMS = {
     "session",
     "token",
 }
-_SENSITIVE_IDENTIFIER_PATTERNS = (re.compile(r"api[_.:-]?key"),)
+_SENSITIVE_IDENTIFIER_PATTERNS = (re.compile(r"api[_.:-]*key"),)
 
 
 def _bounded_non_sensitive_identifier(value: object, *, label: str, minimum_length: int = 1) -> str:
