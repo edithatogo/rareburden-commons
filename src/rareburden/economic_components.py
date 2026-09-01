@@ -88,6 +88,8 @@ def validate_component_prototype(
     """Validate and detach synthetic component rows without calculating totals."""
     _check_structure(document)
     candidate = _materialise_tree(document)
+    if not isinstance(candidate, dict):
+        raise EconomicComponentError("component prototype failed schema validation")
     try:
         validate_instance(candidate, _canonical_schema(), label="component prototype")
     except SchemaValidationError:
