@@ -48,6 +48,15 @@ def _kwargs(store: DurableNodePolicyStore, digest: str) -> dict[str, object]:
     }
 
 
+def _valid_result(tmp_path: Path) -> dict[str, Any]:
+    with DurableNodePolicyStore(tmp_path / "verify-policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        return run_reserved_synthetic_analysis(
+            [{"synthetic": True, "diagnoses": ["condition-a"]}],
+            **_kwargs(store, receipt.content_sha256),
+        )
+
+
 def test_result_binds_committed_receipt_policy_and_execution(tmp_path: Path) -> None:
     with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
         policy_receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
@@ -351,3 +360,95 @@ def test_metadata_only_policy_fails_before_reservation(tmp_path: Path) -> None:
                 **_kwargs(store, receipt.content_sha256),
             )
         assert store.verify() == (1, 0)
+
+
+def test_non_json_input_fails_before_reservation(tmp_path: Path) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        with pytest.raises(SyntheticOrchestrationError, match="JSON serializable"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": {"condition-a"}}],
+                **_kwargs(store, receipt.content_sha256),
+            )
+        assert store.verify() == (1, 0)
+
+
+@pytest.mark.parametrize("digest", [None, "not-a-digest"])
+def test_malformed_expected_policy_digest_fails_before_reservation(
+    tmp_path: Path, digest: object
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs["expected_policy_content_sha256"] = digest
+        with pytest.raises(SyntheticOrchestrationError, match="sha256 digest"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}], **kwargs
+            )
+        assert store.verify() == (1, 0)
+
+
+@pytest.mark.parametrize(
+    ("query_shape", "message"),
+    [([], "invalid JSON structure"), ({"dimensions": "diagnosis"}, "dimensions must be an array")],
+)
+def test_malformed_query_structure_fails_before_reservation(
+    tmp_path: Path, query_shape: object, message: str
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs["query_shape"] = query_shape
+        with pytest.raises(SyntheticOrchestrationError, match=message):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}], **kwargs
+            )
+        assert store.verify() == (1, 0)
+
+
+def test_postcommit_non_mapping_manifest_is_rejected(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        monkeypatch.setattr(
+            orchestration,
+            "run_offline_node",
+            lambda *_args, **_kwargs: {"manifest": []},
+        )
+        with pytest.raises(NodeExportError, match="manifest is invalid"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}],
+                **_kwargs(store, receipt.content_sha256),
+            )
+        assert store.verify() == (1, 1)
+
+
+@pytest.mark.parametrize(
+    "envelope",
+    [{}, {"reservation": {}, "binding": {}, "execution": {"manifest": []}}],
+)
+def test_verifier_rejects_malformed_envelope(envelope: dict[str, Any]) -> None:
+    with pytest.raises(SyntheticOrchestrationError, match="malformed"):
+        verify_reserved_synthetic_result(envelope)
+
+
+def test_verifier_rejects_nonserializable_query_identity(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    result["reservation"]["dimensions"] = {"diagnosis"}
+    with pytest.raises(SyntheticOrchestrationError, match="query identity is malformed"):
+        verify_reserved_synthetic_result(result)
+
+
+def test_verifier_rejects_invalid_result_row_shape(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    result["execution"]["rows"] = "not-an-array"
+    with pytest.raises(SyntheticOrchestrationError, match="query shape mismatch"):
+        verify_reserved_synthetic_result(result)
+
+
+def test_verifier_rechecks_output_fingerprint(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    result["execution"]["rows"][0]["count"] = 999
+    with pytest.raises(SyntheticOrchestrationError, match="output mismatch"):
+        verify_reserved_synthetic_result(result)
