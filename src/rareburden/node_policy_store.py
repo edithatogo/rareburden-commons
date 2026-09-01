@@ -325,7 +325,7 @@ class DurableNodePolicyStore:
             ).fetchone()
             try:
                 allocator_sequence = 0 if allocator_row is None else int(allocator_row["seq"])
-            except (TypeError, ValueError) as exc:
+            except (TypeError, ValueError, OverflowError) as exc:
                 raise NodePolicyStoreError("query receipt allocator integrity failed") from exc
             last_sequence = 0 if not rows else int(rows[-1]["sequence"])
             if allocator_sequence != last_sequence:

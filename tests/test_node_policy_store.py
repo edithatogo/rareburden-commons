@@ -327,7 +327,10 @@ def test_reservation_rejects_forged_digest_subclass_before_transaction(tmp_path:
         assert store.verify() == (1, 0)
 
 
-def test_malformed_allocator_value_rolls_back_write_transaction(tmp_path: Path) -> None:
+@pytest.mark.parametrize("malformed_sequence", ["invalid", 1e999])
+def test_malformed_allocator_value_rolls_back_write_transaction(
+    tmp_path: Path, malformed_sequence: object
+) -> None:
     database = tmp_path / "node-policy.sqlite3"
     with DurableNodePolicyStore(database) as store:
         store.register_policy(_policy(budget=3), recorded_at="2026-08-01T00:00:00Z")
@@ -339,7 +342,8 @@ def test_malformed_allocator_value_rolls_back_write_transaction(tmp_path: Path) 
         )
         with sqlite3.connect(database) as attacker:
             attacker.execute(
-                "UPDATE sqlite_sequence SET seq = 'invalid' WHERE name = 'query_receipts'"
+                "UPDATE sqlite_sequence SET seq = ? WHERE name = 'query_receipts'",
+                (malformed_sequence,),
             )
         with pytest.raises(NodePolicyStoreError, match="allocator integrity"):
             store.register_query(
