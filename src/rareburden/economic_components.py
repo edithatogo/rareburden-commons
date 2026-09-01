@@ -48,6 +48,15 @@ def _canonical_schema() -> dict[str, Any]:
     return value
 
 
+def _is_finite_real_number(value: object) -> bool:
+    """Accept native JSON numbers without coercing foreign numeric objects."""
+    if type(value) is int:
+        return True
+    if type(value) is float:
+        return math.isfinite(value)
+    return False
+
+
 def validate_component_prototype(
     document: Mapping[str, Any],
 ) -> dict[str, Any]:
@@ -66,9 +75,7 @@ def validate_component_prototype(
             raise EconomicComponentError("duplicate component identity")
         component_ids.add(component_id)
         value = component["quantity"].get("value")
-        if value is not None and (
-            isinstance(value, bool) or (not isinstance(value, int) and not math.isfinite(value))
-        ):
+        if value is not None and not _is_finite_real_number(value):
             raise EconomicComponentError("component quantity must be a finite number")
         period = component["observation_period"]
         if period["end"] < period["start"]:

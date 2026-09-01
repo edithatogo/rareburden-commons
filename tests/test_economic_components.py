@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 from copy import deepcopy
+from decimal import Decimal
+from fractions import Fraction
 from pathlib import Path
 
 import pytest
@@ -228,6 +230,32 @@ def test_arbitrarily_large_integer_is_finite_without_float_conversion() -> None:
     document["components"][0]["quantity"]["value"] = 10**309  # type: ignore[index]
     result = validate_component_prototype(document)
     assert result["components"][0]["quantity"]["value"] == 10**309
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        Decimal("1.25"),
+        Decimal("1e999999"),
+        Decimal("Infinity"),
+        Decimal("NaN"),
+        Fraction(1, 3),
+        Fraction(10**10_000, 3),
+    ],
+)
+def test_non_json_numeric_objects_fail_without_float_coercion(value: object) -> None:
+    document = _changed()
+    document["components"][0]["quantity"]["value"] = value  # type: ignore[index]
+    with pytest.raises(EconomicComponentError, match="finite number") as error:
+        validate_component_prototype(document)
+    assert str(error.value) == "component quantity must be a finite number"
+
+
+def test_ordinary_finite_float_remains_supported() -> None:
+    document = _changed()
+    document["components"][0]["quantity"]["value"] = 1.25  # type: ignore[index]
+    result = validate_component_prototype(document)
+    assert result["components"][0]["quantity"]["value"] == 1.25
 
 
 def test_unknown_sensitive_shaped_field_is_rejected_without_echo() -> None:
