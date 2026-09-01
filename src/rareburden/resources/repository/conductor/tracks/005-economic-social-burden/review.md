@@ -35,10 +35,11 @@ whole document remains synthetic, experimental, unfrozen and blocked from
 economic use. No total, valuation, price/currency conversion or engine API was
 introduced.
 
-Focused validation passed 28 tests. Root's full local `make check` passed 1,801
-tests plus repository integrity and retained-provenance gates; the local test
-timeout was 120 seconds and hosted defaults remain unchanged. Ruff, formatting,
-typing, schema, safety and documentation checks passed.
+Focused and full local validation passed. Exact current counts are retained in
+the supplemental candidate manifest rather than duplicated here. Repository
+integrity and retained-provenance gates also passed; the local test timeout was
+120 seconds and hosted defaults remain unchanged. Ruff, formatting, typing,
+schema, safety and documentation checks passed.
 
 Residual limitations: structural validation cannot establish taxonomy validity,
 role truth, completeness, economic fitness, actual participation or absence of
