@@ -271,6 +271,84 @@ def test_result_substitution_is_rejected(tmp_path: Path) -> None:
             verify_reserved_synthetic_result(result)
 
 
+@pytest.mark.parametrize("field", ["execution_id", "input_fingerprint"])
+def test_missing_duplicate_manifest_and_binding_fields_are_rejected(
+    tmp_path: Path, field: str
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        result = run_reserved_synthetic_analysis(
+            [{"synthetic": True, "diagnoses": ["condition-a"]}],
+            **_kwargs(store, receipt.content_sha256),
+        )
+        del result["binding"][field]
+        del result["execution"]["manifest"][field]
+        with pytest.raises(SyntheticOrchestrationError, match="envelope is malformed"):
+            verify_reserved_synthetic_result(result)
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        (lambda result: result.__setitem__("reservation", None), "envelope is malformed"),
+        (lambda result: result.__setitem__("scope", "production"), "envelope is malformed"),
+        (
+            lambda result: result["execution"].__setitem__("manifest", None),
+            "manifest is malformed",
+        ),
+        (
+            lambda result: result["binding"].__setitem__("input_fingerprint", "invalid"),
+            "binding is malformed",
+        ),
+        (
+            lambda result: result["execution"]["manifest"].__setitem__("status", "prepared"),
+            "binding is malformed",
+        ),
+        (
+            lambda result: result["execution"]["manifest"].__setitem__("unknown", "field"),
+            "binding is malformed",
+        ),
+        (
+            lambda result: result["reservation"].__setitem__("sequence", True),
+            "query identity is malformed",
+        ),
+        (
+            lambda result: result["reservation"].__setitem__("recorded_at", "2026-09-01T00:00:00"),
+            "query identity is malformed",
+        ),
+        (
+            lambda result: result["reservation"].__setitem__("recorded_at", "invalid"),
+            "query identity is malformed",
+        ),
+        (
+            lambda result: result["reservation"].__setitem__(
+                "dimensions", ["diagnosis", "diagnosis"]
+            ),
+            "query identity is malformed",
+        ),
+        (
+            lambda result: result["execution"].__setitem__(
+                "rows",
+                [{"diagnosis": [], "count_status": "released", "count": 1}],
+            ),
+            "query shape mismatch",
+        ),
+    ],
+)
+def test_verifier_rejects_malformed_bound_structures(
+    tmp_path: Path, mutation: Any, message: str
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        result = run_reserved_synthetic_analysis(
+            [{"synthetic": True, "diagnoses": ["condition-a"]}],
+            **_kwargs(store, receipt.content_sha256),
+        )
+        mutation(result)
+        with pytest.raises(SyntheticOrchestrationError, match=message):
+            verify_reserved_synthetic_result(result)
+
+
 def test_internally_copied_query_identity_substitution_is_rejected(tmp_path: Path) -> None:
     with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
         receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")

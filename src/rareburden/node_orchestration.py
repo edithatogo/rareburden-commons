@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 from collections.abc import Mapping, Sequence
+from datetime import datetime
 from typing import Any
 
 from rareburden.node import (
@@ -24,6 +25,8 @@ class SyntheticOrchestrationError(ValueError):
 
 
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
+_FINGERPRINT = re.compile(r"^sha256:[0-9a-f]{64}$")
+_IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$")
 
 
 def _frozen_json(value: object, *, label: str) -> Any:
@@ -143,6 +146,12 @@ def run_reserved_synthetic_analysis(
 
 def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
     """Fail closed if a returned result was detached from its reservation."""
+    if (
+        set(envelope) != {"schema_version", "scope", "reservation", "execution", "binding"}
+        or envelope.get("schema_version") != "0.1.0"
+        or envelope.get("scope") != "experimental_synthetic_only"
+    ):
+        raise SyntheticOrchestrationError("reserved result envelope is malformed")
     reservation = envelope.get("reservation")
     binding = envelope.get("binding")
     execution = envelope.get("execution")
@@ -152,9 +161,75 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         or not isinstance(execution, Mapping)
     ):
         raise SyntheticOrchestrationError("reserved result envelope is malformed")
+    required_reservation = {
+        "sequence",
+        "query_fingerprint",
+        "overlap_group",
+        "policy_id",
+        "chain_sha256",
+        "previous_chain_sha256",
+        "recorded_at",
+        "policy_content_sha256",
+        "analysis_id",
+        "dimensions",
+        "measure",
+    }
+    required_binding = {
+        "receipt_sequence",
+        "receipt_chain_sha256",
+        "query_fingerprint",
+        "overlap_group",
+        "policy_id",
+        "policy_content_sha256",
+        "execution_id",
+        "input_fingerprint",
+        "output_fingerprint",
+    }
+    if (
+        set(reservation) != required_reservation
+        or set(binding) != required_binding
+        or set(execution) != {"schema_version", "manifest", "rows"}
+        or any(binding.get(field) is None for field in required_binding)
+    ):
+        raise SyntheticOrchestrationError("reserved result envelope is malformed")
     manifest = execution.get("manifest")
     if not isinstance(manifest, Mapping):
         raise SyntheticOrchestrationError("reserved result manifest is malformed")
+    required_manifest_bindings = {
+        "execution_id",
+        "analysis_id",
+        "policy_id",
+        "input_fingerprint",
+        "output_fingerprint",
+    }
+    required_manifest = {
+        "schema_version",
+        "execution_id",
+        "coordinator_version",
+        "node_version",
+        "analysis_id",
+        "policy_id",
+        "status",
+        "input_fingerprint",
+        "output_fingerprint",
+        "limitations",
+    }
+    if (
+        set(manifest) != required_manifest
+        or not required_manifest_bindings.issubset(manifest)
+        or any(manifest.get(field) is None for field in required_manifest_bindings)
+        or manifest.get("schema_version") != "0.1.0"
+        or manifest.get("status") != "completed"
+        or manifest.get("limitations") != ["Synthetic/offline manifest; no participant-level data."]
+        or not all(
+            isinstance(binding.get(field), str)
+            and _FINGERPRINT.fullmatch(binding[field]) is not None
+            for field in ("query_fingerprint", "input_fingerprint", "output_fingerprint")
+        )
+        or not isinstance(binding.get("policy_content_sha256"), str)
+        or _SHA256.fullmatch(binding["policy_content_sha256"]) is None
+    ):
+        raise SyntheticOrchestrationError("reserved result binding is malformed")
     pairs = (
         (binding.get("receipt_sequence"), reservation.get("sequence")),
         (binding.get("receipt_chain_sha256"), reservation.get("chain_sha256")),
@@ -171,32 +246,69 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
     if any(left != right for left, right in pairs):
         raise SyntheticOrchestrationError("reserved result binding mismatch")
     dimensions = reservation.get("dimensions")
-    try:
-        expected_query_fingerprint = query_shape_fingerprint(
-            {
-                "analysis_id": reservation.get("analysis_id"),
-                "dimensions": dimensions,
-                "measure": reservation.get("measure"),
-            }
+    sequence = reservation.get("sequence")
+    previous_chain = reservation.get("previous_chain_sha256")
+    recorded_at = reservation.get("recorded_at")
+    if (
+        not isinstance(sequence, int)
+        or isinstance(sequence, bool)
+        or sequence < 1
+        or not all(
+            isinstance(reservation.get(field), str)
+            and _IDENTIFIER.fullmatch(reservation[field]) is not None
+            for field in ("analysis_id", "policy_id", "overlap_group")
         )
-        chain_payload = {
-            "sequence": reservation.get("sequence"),
-            "query_fingerprint": reservation.get("query_fingerprint"),
-            "overlap_group": reservation.get("overlap_group"),
+        or not isinstance(reservation.get("query_fingerprint"), str)
+        or _FINGERPRINT.fullmatch(reservation["query_fingerprint"]) is None
+        or not isinstance(reservation.get("policy_content_sha256"), str)
+        or _SHA256.fullmatch(reservation["policy_content_sha256"]) is None
+        or not isinstance(reservation.get("chain_sha256"), str)
+        or _SHA256.fullmatch(reservation["chain_sha256"]) is None
+        or (
+            previous_chain is not None
+            and (not isinstance(previous_chain, str) or _SHA256.fullmatch(previous_chain) is None)
+        )
+        or not isinstance(recorded_at, str)
+        or not isinstance(dimensions, list)
+        or not dimensions
+        or any(not isinstance(value, str) or not value for value in dimensions)
+        or dimensions != sorted(set(dimensions))
+        or reservation.get("measure") != "count"
+    ):
+        raise SyntheticOrchestrationError("reserved result query identity is malformed")
+    try:
+        parsed_recorded_at = datetime.fromisoformat(recorded_at.replace("Z", "+00:00"))
+        validate_version_compatibility(
+            coordinator_version=manifest["coordinator_version"],
+            node_version=manifest["node_version"],
+        )
+    except (AttributeError, TypeError, ValueError, NodeExportError) as exc:
+        raise SyntheticOrchestrationError("reserved result query identity is malformed") from exc
+    if parsed_recorded_at.tzinfo is None or parsed_recorded_at.utcoffset() is None:
+        raise SyntheticOrchestrationError("reserved result query identity is malformed")
+    expected_query_fingerprint = query_shape_fingerprint(
+        {
             "analysis_id": reservation.get("analysis_id"),
-            "policy_id": reservation.get("policy_id"),
             "dimensions": dimensions,
             "measure": reservation.get("measure"),
-            "previous_chain_sha256": reservation.get("previous_chain_sha256"),
-            "recorded_at": reservation.get("recorded_at"),
         }
-        expected_chain = hashlib.sha256(
-            json.dumps(
-                chain_payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True
-            ).encode("ascii")
-        ).hexdigest()
-    except (TypeError, ValueError, UnicodeEncodeError, NodeExportError) as exc:
-        raise SyntheticOrchestrationError("reserved result query identity is malformed") from exc
+    )
+    chain_payload = {
+        "sequence": reservation.get("sequence"),
+        "query_fingerprint": reservation.get("query_fingerprint"),
+        "overlap_group": reservation.get("overlap_group"),
+        "analysis_id": reservation.get("analysis_id"),
+        "policy_id": reservation.get("policy_id"),
+        "dimensions": dimensions,
+        "measure": reservation.get("measure"),
+        "previous_chain_sha256": reservation.get("previous_chain_sha256"),
+        "recorded_at": reservation.get("recorded_at"),
+    }
+    expected_chain = hashlib.sha256(
+        json.dumps(chain_payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode(
+            "ascii"
+        )
+    ).hexdigest()
     if (
         reservation.get("query_fingerprint") != expected_query_fingerprint
         or reservation.get("chain_sha256") != expected_chain
@@ -217,7 +329,11 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
             or (
                 row.get("count_status") == "released"
                 and (
-                    not isinstance(row.get("count"), int)
+                    any(
+                        not isinstance(row.get(dimension), str) or not row[dimension].strip()
+                        for dimension in dimensions
+                    )
+                    or not isinstance(row.get("count"), int)
                     or isinstance(row.get("count"), bool)
                     or row["count"] < 0
                 )
@@ -232,7 +348,7 @@ def verify_reserved_synthetic_result(envelope: Mapping[str, Any]) -> None:
         raise SyntheticOrchestrationError("reserved result query shape mismatch")
     try:
         verify_output_fingerprint(execution)
-    except NodeExportError as exc:
+    except (TypeError, ValueError, UnicodeEncodeError, NodeExportError) as exc:
         raise SyntheticOrchestrationError("reserved result output mismatch") from exc
 
 
