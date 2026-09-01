@@ -172,12 +172,16 @@ def run_reserved_synthetic_analysis(
         or _SHA256.fullmatch(expected_policy_content_sha256) is None
     ):
         raise SyntheticOrchestrationError("expected policy content digest must be a sha256 digest")
+    try:
+        record_count = len(records)
+    except (TypeError, ValueError, OverflowError) as exc:
+        raise SyntheticOrchestrationError("records must be a bounded sequence") from exc
+    if record_count > _MAXIMUM_SYNTHETIC_RECORDS:
+        raise SyntheticOrchestrationError("records exceed the bounded synthetic fanout")
     frozen_query = _frozen_json(query_shape, label="query_shape")
     frozen_records = _frozen_json(records, label="records")
     if not isinstance(frozen_query, dict) or not isinstance(frozen_records, list):
         raise SyntheticOrchestrationError("query_shape and records have invalid JSON structure")
-    if len(frozen_records) > _MAXIMUM_SYNTHETIC_RECORDS:
-        raise SyntheticOrchestrationError("records exceed the bounded synthetic fanout")
     if "analysis_id" in frozen_query:
         raise SyntheticOrchestrationError(
             "analysis identity must be supplied through the operator-bound argument"
