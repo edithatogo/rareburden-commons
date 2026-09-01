@@ -17,7 +17,10 @@ that caller-supplied schemas could weaken the contract, the initial node cap was
 below the schema-declared maximum, and very large integers could overflow a
 float conversion. The interface now always loads the packaged canonical schema,
 admits a tested 50-component document within its resource limit, and handles
-integers without float conversion. All lanes passed the corrected
+integers without float conversion. The supplemental receipt also binds the
+packaged schema that the installed validator actually loads, and unavailable or
+malformed packaged schema content fails with a generic non-path error. All lanes
+passed the corrected
 files without dissent. This was an owner-executed simulated-community challenge;
 no actual community participation, representation, consultation, co-design,
 endorsement, consent or independent review is claimed.

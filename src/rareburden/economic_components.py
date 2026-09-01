@@ -36,10 +36,13 @@ def _check_structure(document: Mapping[str, Any]) -> None:
 
 
 def _canonical_schema() -> dict[str, Any]:
-    resource = files("rareburden").joinpath(
-        "resources", "repository", "schemas", "economic-component-prototype.schema.json"
-    )
-    value = json.loads(resource.read_text(encoding="utf-8"))
+    try:
+        resource = files("rareburden").joinpath(
+            "resources", "repository", "schemas", "economic-component-prototype.schema.json"
+        )
+        value = json.loads(resource.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        raise EconomicComponentError("canonical component schema is unavailable") from None
     if not isinstance(value, dict):
         raise EconomicComponentError("canonical component schema is unavailable")
     return value

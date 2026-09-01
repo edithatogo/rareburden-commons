@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
 
+import rareburden.economic_components as economic_components
 from rareburden.economic_components import (
     EconomicComponentError,
     validate_component_prototype,
@@ -40,6 +41,24 @@ def test_validation_always_uses_canonical_schema_and_missing_components_fail_saf
     assert "synthetic" not in str(error.value)
     with pytest.raises(TypeError):
         validate_component_prototype(FIXTURE, {})  # type: ignore[call-arg]
+
+
+def test_unavailable_canonical_schema_fails_without_path_echo(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class UnavailableResource:
+        def joinpath(self, *parts: str) -> UnavailableResource:
+            return self
+
+        def read_text(self, *, encoding: str) -> str:
+            raise OSError("sensitive/package/path")
+
+    monkeypatch.setattr(economic_components, "files", lambda package: UnavailableResource())
+    with pytest.raises(
+        EconomicComponentError, match="canonical component schema is unavailable"
+    ) as error:
+        validate_component_prototype(FIXTURE)
+    assert "sensitive/package/path" not in str(error.value)
 
 
 @pytest.mark.parametrize("status", ["missing", "not_collected", "unassessed"])
