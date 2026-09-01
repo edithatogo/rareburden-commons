@@ -63,6 +63,24 @@ def test_unavailable_canonical_schema_fails_without_path_echo(
     assert "sensitive/package/path" not in str(error.value)
 
 
+def test_readable_replaced_canonical_schema_fails_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class ReplacedResource:
+        def joinpath(self, *parts: str) -> ReplacedResource:
+            return self
+
+        def read_text(self, *, encoding: str) -> str:
+            return "{}"
+
+    monkeypatch.setattr(economic_components, "files", lambda package: ReplacedResource())
+    with pytest.raises(
+        EconomicComponentError, match="canonical component schema is unavailable"
+    ) as error:
+        validate_component_prototype(FIXTURE)
+    assert "{}" not in str(error.value)
+
+
 @pytest.mark.parametrize("status", ["missing", "not_collected", "unassessed"])
 def test_missing_statuses_never_accept_or_create_zero(status: str) -> None:
     document = _changed(2)
@@ -211,6 +229,20 @@ def test_cyclic_and_excessively_deep_inputs_fail_with_safe_error() -> None:
         cursor = child
     with pytest.raises(EconomicComponentError, match="structure limits"):
         validate_component_prototype(deep)
+
+
+def test_safe_shared_container_alias_is_not_misclassified_as_a_cycle() -> None:
+    document = _changed(1)
+    shared_role = document["components"][1]["roles"]["recipient"]  # type: ignore[index]
+    document["components"][1]["roles"]["beneficiary"] = shared_role  # type: ignore[index]
+    result = validate_component_prototype(document)
+    returned_roles = result["components"][1]["roles"]
+    assert returned_roles["recipient"] == shared_role
+    assert returned_roles["beneficiary"] == shared_role
+    assert returned_roles["recipient"] is not returned_roles["beneficiary"]
+    returned_roles["recipient"]["rationale"] = "Changed returned recipient only."
+    assert returned_roles["beneficiary"]["rationale"] != "Changed returned recipient only."
+    assert shared_role["rationale"] != "Changed returned recipient only."
 
 
 def test_declared_maximum_component_count_fits_structure_limit() -> None:

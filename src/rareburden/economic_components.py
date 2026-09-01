@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 from collections.abc import Mapping
@@ -16,23 +17,41 @@ class EconomicComponentError(ValueError):
     """Raised when an experimental component document is structurally invalid."""
 
 
+_CANONICAL_SCHEMA_SHA256 = "4176797d50c616ffa20fd44756adcf636ae134cfba2a45b41b076b956c1f3f53"
+
+
 def _check_structure(document: Mapping[str, Any]) -> None:
     """Reject cyclic or excessively large input before copying or validation."""
-    stack: list[tuple[Any, int]] = [(document, 0)]
-    seen: set[int] = set()
+    stack: list[tuple[Any, int, bool]] = [(document, 0, False)]
+    active: set[int] = set()
     nodes = 0
     while stack:
-        value, depth = stack.pop()
+        value, depth, exiting = stack.pop()
+        if exiting:
+            active.remove(id(value))
+            continue
         nodes += 1
         if nodes > 10_000 or depth > 20:
             raise EconomicComponentError("component prototype exceeds structure limits")
         if isinstance(value, (Mapping, list, tuple)):
             identity = id(value)
-            if identity in seen:
+            if identity in active:
                 raise EconomicComponentError("component prototype exceeds structure limits")
-            seen.add(identity)
+            active.add(identity)
             children = value.values() if isinstance(value, Mapping) else value
-            stack.extend((child, depth + 1) for child in children)
+            stack.append((value, depth, True))
+            stack.extend((child, depth + 1, False) for child in children)
+
+
+def _materialise_tree(value: Any) -> Any:
+    """Detach every container occurrence without preserving shared aliases."""
+    if isinstance(value, Mapping):
+        return {deepcopy(key): _materialise_tree(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_materialise_tree(item) for item in value]
+    if isinstance(value, tuple):
+        return tuple(_materialise_tree(item) for item in value)
+    return deepcopy(value)
 
 
 def _canonical_schema() -> dict[str, Any]:
@@ -40,8 +59,14 @@ def _canonical_schema() -> dict[str, Any]:
         resource = files("rareburden").joinpath(
             "resources", "repository", "schemas", "economic-component-prototype.schema.json"
         )
-        value = json.loads(resource.read_text(encoding="utf-8"))
+        text = resource.read_text(encoding="utf-8")
     except (OSError, UnicodeError, json.JSONDecodeError):
+        raise EconomicComponentError("canonical component schema is unavailable") from None
+    if hashlib.sha256(text.encode("utf-8")).hexdigest() != _CANONICAL_SCHEMA_SHA256:
+        raise EconomicComponentError("canonical component schema is unavailable")
+    try:
+        value = json.loads(text)
+    except json.JSONDecodeError:
         raise EconomicComponentError("canonical component schema is unavailable") from None
     if not isinstance(value, dict):
         raise EconomicComponentError("canonical component schema is unavailable")
@@ -62,7 +87,7 @@ def validate_component_prototype(
 ) -> dict[str, Any]:
     """Validate and detach synthetic component rows without calculating totals."""
     _check_structure(document)
-    candidate = deepcopy(dict(document))
+    candidate = _materialise_tree(document)
     try:
         validate_instance(candidate, _canonical_schema(), label="component prototype")
     except SchemaValidationError:
