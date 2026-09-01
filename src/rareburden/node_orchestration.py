@@ -87,6 +87,7 @@ def _validate_exact_json_tree(value: object, *, label: str) -> None:
     maximum_depth = 32
     maximum_nodes = 10_000
     maximum_fanout = 1_000
+    maximum_string_length = 4_096
     active_containers: set[int] = set()
     stack: list[tuple[object, int, bool]] = [(value, 0, False)]
     nodes = 0
@@ -112,6 +113,8 @@ def _validate_exact_json_tree(value: object, *, label: str) -> None:
                 for key, child in reversed(items):
                     if type(key) is not str:
                         raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
+                    if len(key) > maximum_string_length:
+                        raise SyntheticOrchestrationError(f"{label} exceeds bounded JSON structure")
                     stack.append((child, depth + 1, False))
             else:
                 children = cast(list[object], current)
@@ -120,7 +123,11 @@ def _validate_exact_json_tree(value: object, *, label: str) -> None:
                 for child in reversed(children):
                     stack.append((child, depth + 1, False))
             continue
-        if current is None or current_type in {str, bool, int}:
+        if current_type is str:
+            if len(cast(str, current)) > maximum_string_length:
+                raise SyntheticOrchestrationError(f"{label} exceeds bounded JSON structure")
+            continue
+        if current is None or current_type in {bool, int}:
             continue
         if current_type is float and math.isfinite(cast(float, current)):
             continue
@@ -177,6 +184,8 @@ def run_reserved_synthetic_analysis(
     record_count = len(records)
     if record_count > _MAXIMUM_SYNTHETIC_RECORDS:
         raise SyntheticOrchestrationError("records exceed the bounded synthetic fanout")
+    _validate_exact_json_tree(query_shape, label="query_shape")
+    _validate_exact_json_tree(records, label="records")
     frozen_query = _frozen_json(query_shape, label="query_shape")
     frozen_records = _frozen_json(records, label="records")
     if not isinstance(frozen_query, dict) or not isinstance(frozen_records, list):

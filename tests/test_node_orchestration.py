@@ -215,6 +215,37 @@ def test_record_array_subclass_cannot_bypass_pre_freeze_fanout(
 
 
 @pytest.mark.parametrize(
+    "records",
+    [
+        [{"synthetic": True, "diagnoses": ["condition-a"] * 1_001}],
+        [{"synthetic": True, "diagnoses": ["x" * 4_097]}],
+        [
+            {
+                "synthetic": True,
+                "diagnoses": ["condition-a"],
+                "nested": [[None] * 1_000 for _ in range(10)],
+            }
+        ],
+    ],
+)
+def test_nested_record_bounds_fail_before_freezing_or_reservation(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    records: list[dict[str, object]],
+) -> None:
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        monkeypatch.setattr(
+            orchestration,
+            "_frozen_json",
+            lambda *_args, **_kwargs: pytest.fail("unbounded records must fail before freezing"),
+        )
+        with pytest.raises(SyntheticOrchestrationError, match="bounded JSON structure"):
+            run_reserved_synthetic_analysis(records, **_kwargs(store, receipt.content_sha256))
+        assert store.verify() == (1, 0)
+
+
+@pytest.mark.parametrize(
     "analysis_id",
     [
         None,
@@ -995,7 +1026,7 @@ def test_metadata_only_policy_fails_before_reservation(tmp_path: Path) -> None:
 def test_non_json_input_fails_before_reservation(tmp_path: Path) -> None:
     with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
         receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
-        with pytest.raises(SyntheticOrchestrationError, match="JSON serializable"):
+        with pytest.raises(SyntheticOrchestrationError, match="exact JSON types"):
             run_reserved_synthetic_analysis(
                 [{"synthetic": True, "diagnoses": {"condition-a"}}],
                 **_kwargs(store, receipt.content_sha256),
