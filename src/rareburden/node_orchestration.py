@@ -4,10 +4,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
 from collections.abc import Mapping, Sequence
 from datetime import datetime
-from typing import Any
+from typing import Any, cast
 
 from rareburden.node import (
     NodeExportError,
@@ -72,6 +73,26 @@ def _frozen_json(value: object, *, label: str) -> Any:
         return json.loads(json.dumps(value, sort_keys=True, separators=(",", ":")))
     except (TypeError, ValueError) as exc:
         raise SyntheticOrchestrationError(f"{label} must be JSON serializable") from exc
+
+
+def _validate_exact_json_tree(value: object, *, label: str) -> None:
+    """Reject Python containers and scalars that JSON encoding would coerce."""
+    value_type = type(value)
+    if value_type is dict:
+        for key, child in cast(dict[object, object], value).items():
+            if type(key) is not str:
+                raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
+            _validate_exact_json_tree(child, label=label)
+        return
+    if value_type is list:
+        for child in cast(list[object], value):
+            _validate_exact_json_tree(child, label=label)
+        return
+    if value is None or value_type in {str, bool, int}:
+        return
+    if value_type is float and math.isfinite(cast(float, value)):
+        return
+    raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
 
 
 def _receipt_document(receipt: QueryReceipt) -> dict[str, object]:
@@ -462,12 +483,12 @@ def verify_reserved_synthetic_result(
         )
     except (TypeError, ValueError, UnicodeEncodeError, NodeExportError) as exc:
         raise SyntheticOrchestrationError("trusted aggregate input is malformed") from exc
-    observed_execution = _frozen_json(execution, label="execution")
-    expected_execution_frozen = _frozen_json(expected_execution, label="expected_execution")
-    if json.dumps(
-        observed_execution, sort_keys=True, separators=(",", ":"), ensure_ascii=True
-    ).encode("ascii") != json.dumps(
-        expected_execution_frozen, sort_keys=True, separators=(",", ":"), ensure_ascii=True
+    _validate_exact_json_tree(execution, label="execution")
+    _validate_exact_json_tree(expected_execution, label="expected_execution")
+    if json.dumps(execution, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode(
+        "ascii"
+    ) != json.dumps(
+        expected_execution, sort_keys=True, separators=(",", ":"), ensure_ascii=True
     ).encode("ascii"):
         raise SyntheticOrchestrationError("trusted aggregate input or output mismatch")
 

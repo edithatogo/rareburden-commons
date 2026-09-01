@@ -1,6 +1,7 @@
 import hashlib
 import json
 import sqlite3
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -279,6 +280,34 @@ def test_verifier_uses_type_strict_execution_comparison(tmp_path: Path, count: o
     with pytest.raises(
         SyntheticOrchestrationError, match="trusted aggregate input or output mismatch"
     ):
+        _verify(result)
+
+
+@pytest.mark.parametrize(
+    "mutate",
+    [
+        lambda execution: execution.__setitem__("rows", tuple(execution["rows"])),
+        lambda execution: execution["manifest"].__setitem__(
+            "limitations", tuple(execution["manifest"]["limitations"])
+        ),
+        lambda execution: execution.__setitem__(1, "non-string-key"),
+        lambda execution: execution["manifest"].__setitem__("unknown", b"bytes"),
+        lambda execution: execution["manifest"].__setitem__("unknown", float("nan")),
+        lambda execution: execution["manifest"].__setitem__("unknown", float("inf")),
+        lambda execution: execution.__setitem__(
+            "rows", type("Rows", (list,), {})(execution["rows"])
+        ),
+        lambda execution: execution.__setitem__(
+            "manifest", type("Manifest", (dict,), {})(execution["manifest"])
+        ),
+    ],
+)
+def test_verifier_rejects_non_exact_json_execution_types(
+    tmp_path: Path, mutate: Callable[[dict[object, Any]], None]
+) -> None:
+    result = _valid_result(tmp_path)
+    mutate(result["execution"])
+    with pytest.raises(SyntheticOrchestrationError):
         _verify(result)
 
 
