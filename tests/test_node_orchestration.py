@@ -283,6 +283,14 @@ def test_verifier_uses_type_strict_execution_comparison(tmp_path: Path, count: o
         _verify(result)
 
 
+@pytest.mark.parametrize("sequence", [True, 1.0])
+def test_verifier_uses_type_strict_binding_comparison(tmp_path: Path, sequence: object) -> None:
+    result = _valid_result(tmp_path)
+    result["binding"]["receipt_sequence"] = sequence
+    with pytest.raises(SyntheticOrchestrationError, match="binding is malformed"):
+        _verify(result)
+
+
 @pytest.mark.parametrize(
     "mutate",
     [
@@ -371,12 +379,17 @@ def test_verifier_rejects_minimum_cell_count_substitution(tmp_path: Path, locati
         _verify(result)
 
 
-@pytest.mark.parametrize("minimum", [True, 0])
-def test_verifier_rejects_malformed_minimum_cell_count(tmp_path: Path, minimum: object) -> None:
+@pytest.mark.parametrize(
+    ("minimum", "message"),
+    [(True, "binding is malformed"), (0, "trusted policy binding mismatch")],
+)
+def test_verifier_rejects_malformed_minimum_cell_count(
+    tmp_path: Path, minimum: object, message: str
+) -> None:
     result = _valid_result(tmp_path)
     result["reservation"]["minimum_cell_count"] = minimum
     result["binding"]["minimum_cell_count"] = minimum
-    with pytest.raises(SyntheticOrchestrationError, match="trusted policy binding mismatch"):
+    with pytest.raises(SyntheticOrchestrationError, match=message):
         _verify(result)
 
 
@@ -894,7 +907,7 @@ def test_verifier_rejects_malformed_envelope(envelope: dict[str, Any]) -> None:
 def test_verifier_rejects_nonserializable_query_identity(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     result["reservation"]["dimensions"] = {"diagnosis"}
-    with pytest.raises(SyntheticOrchestrationError, match="query identity is malformed"):
+    with pytest.raises(SyntheticOrchestrationError, match="exact JSON types"):
         _verify(result)
 
 

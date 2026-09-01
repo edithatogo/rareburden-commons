@@ -228,6 +228,7 @@ def verify_reserved_synthetic_result(
     The trusted inputs are an operator provenance premise; this function does
     not establish their authenticity, store membership or external authority.
     """
+    _validate_exact_json_tree(envelope, label="envelope")
     if (
         set(envelope) != {"schema_version", "scope", "reservation", "execution", "binding"}
         or envelope.get("schema_version") != "0.1.0"
@@ -313,6 +314,8 @@ def verify_reserved_synthetic_result(
         )
         or not isinstance(binding.get("policy_content_sha256"), str)
         or _SHA256.fullmatch(binding["policy_content_sha256"]) is None
+        or type(binding.get("receipt_sequence")) is not int
+        or type(binding.get("minimum_cell_count")) is not int
     ):
         raise SyntheticOrchestrationError("reserved result binding is malformed")
     pairs = (
