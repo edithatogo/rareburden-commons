@@ -21,6 +21,7 @@ from rareburden.node_policy import (
 )
 
 _IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$")
+_SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 
 class NodePolicyStoreError(ValueError):
@@ -289,6 +290,11 @@ class DurableNodePolicyStore:
         timestamp = _timestamp(recorded_at)
         group = _identifier(overlap_group, label="overlap_group")
         identity = _identifier(policy_id, label="policy_id")
+        if expected_policy_content_sha256 is not None and (
+            type(expected_policy_content_sha256) is not str
+            or _SHA256.fullmatch(expected_policy_content_sha256) is None
+        ):
+            raise NodePolicyStoreError("expected policy content digest must be a sha256 digest")
         commit_attempted = False
         try:
             self._begin()
@@ -317,7 +323,10 @@ class DurableNodePolicyStore:
             allocator_row = self._connection.execute(
                 "SELECT seq FROM sqlite_sequence WHERE name = 'query_receipts'"
             ).fetchone()
-            allocator_sequence = 0 if allocator_row is None else int(allocator_row["seq"])
+            try:
+                allocator_sequence = 0 if allocator_row is None else int(allocator_row["seq"])
+            except (TypeError, ValueError) as exc:
+                raise NodePolicyStoreError("query receipt allocator integrity failed") from exc
             last_sequence = 0 if not rows else int(rows[-1]["sequence"])
             if allocator_sequence != last_sequence:
                 raise NodePolicyStoreError("query receipt allocator integrity failed")

@@ -308,6 +308,51 @@ def test_query_append_rejects_tampered_allocator_before_consumption(tmp_path: Pa
         assert count == 1
 
 
+def test_reservation_rejects_forged_digest_subclass_before_transaction(tmp_path: Path) -> None:
+    class ForgedDigest(str):
+        def __ne__(self, _other: object) -> bool:
+            return False
+
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(), recorded_at="2026-08-01T00:00:00Z")
+        with pytest.raises(NodePolicyStoreError, match="sha256 digest"):
+            store.reserve_query(
+                _shape(),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                expected_policy_content_sha256=ForgedDigest("0" * 64),
+                recorded_at="2026-08-01T00:01:00Z",
+            )
+        assert store.verify() == (1, 0)
+
+
+def test_malformed_allocator_value_rolls_back_write_transaction(tmp_path: Path) -> None:
+    database = tmp_path / "node-policy.sqlite3"
+    with DurableNodePolicyStore(database) as store:
+        store.register_policy(_policy(budget=3), recorded_at="2026-08-01T00:00:00Z")
+        store.register_query(
+            _shape(),
+            overlap_group="synthetic-overlap",
+            policy_id="synthetic-policy",
+            recorded_at="2026-08-01T00:01:00Z",
+        )
+        with sqlite3.connect(database) as attacker:
+            attacker.execute(
+                "UPDATE sqlite_sequence SET seq = 'invalid' WHERE name = 'query_receipts'"
+            )
+        with pytest.raises(NodePolicyStoreError, match="allocator integrity"):
+            store.register_query(
+                _shape("second-analysis"),
+                overlap_group="synthetic-overlap",
+                policy_id="synthetic-policy",
+                recorded_at="2026-08-01T00:02:00Z",
+            )
+        assert store._connection.in_transaction is False
+        with sqlite3.connect(database, timeout=0) as observer:
+            observer.execute("BEGIN IMMEDIATE")
+
+
 @pytest.mark.parametrize("value", [None, 123, [], {}])
 def test_store_rejects_wrong_type_timestamps(tmp_path: Path, value: object) -> None:
     with DurableNodePolicyStore(tmp_path / "node-policy.sqlite3") as store:
