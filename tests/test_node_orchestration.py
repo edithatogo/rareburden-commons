@@ -159,6 +159,7 @@ def test_verifier_accepts_dimension_free_suppressed_rows(tmp_path: Path) -> None
         "token-secret",
         "participant-123",
         "token123",
+        "api-key-sk123",
     ],
 )
 def test_invalid_execution_identity_fails_before_reservation(
@@ -187,6 +188,7 @@ def test_invalid_execution_identity_fails_before_reservation(
         "token-secret",
         "patient-123",
         "participant123",
+        "api_key:sk123",
     ],
 )
 def test_invalid_analysis_identity_fails_before_reservation(
@@ -204,7 +206,8 @@ def test_invalid_analysis_identity_fails_before_reservation(
 
 
 @pytest.mark.parametrize(
-    "overlap_group", ["token-secret", "person@example.org", "record-123", "recordABC", ""]
+    "overlap_group",
+    ["token-secret", "person@example.org", "record-123", "recordABC", "apikey123", ""],
 )
 def test_invalid_overlap_group_fails_before_reservation(
     tmp_path: Path, overlap_group: object

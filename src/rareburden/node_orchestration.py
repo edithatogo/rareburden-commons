@@ -53,6 +53,7 @@ _SENSITIVE_IDENTIFIER_TERMS = {
     "session",
     "token",
 }
+_SENSITIVE_IDENTIFIER_PATTERNS = (re.compile(r"api[_.:-]?key"),)
 
 
 def _bounded_non_sensitive_identifier(value: object, *, label: str, minimum_length: int = 1) -> str:
@@ -67,7 +68,8 @@ def _bounded_non_sensitive_identifier(value: object, *, label: str, minimum_leng
     concatenated_sensitive_term = any(
         term in lowered for term in _SENSITIVE_IDENTIFIER_TERMS if len(term) >= 5
     ) or lowered.startswith("id")
-    if terms & _SENSITIVE_IDENTIFIER_TERMS or concatenated_sensitive_term:
+    credential_pattern = any(pattern.search(lowered) for pattern in _SENSITIVE_IDENTIFIER_PATTERNS)
+    if terms & _SENSITIVE_IDENTIFIER_TERMS or concatenated_sensitive_term or credential_pattern:
         raise SyntheticOrchestrationError(f"{label} must be a bounded non-sensitive identifier")
     return value
 
