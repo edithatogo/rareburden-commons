@@ -12,7 +12,12 @@ unchanged.
 Three actual role-separated agents reviewed engineering, security/data-use and
 usability/community-harm boundaries. Findings on unsafe reference shapes,
 pre-copy resource limits, missingness/coverage separation, component identity
-and overlap-state consistency were corrected. All lanes passed the corrected
+and overlap-state consistency were corrected. Hosted review additionally found
+that caller-supplied schemas could weaken the contract, the initial node cap was
+below the schema-declared maximum, and very large integers could overflow a
+float conversion. The interface now always loads the packaged canonical schema,
+admits a tested 50-component document within its resource limit, and handles
+integers without float conversion. All lanes passed the corrected
 files without dissent. This was an owner-executed simulated-community challenge;
 no actual community participation, representation, consultation, co-design,
 endorsement, consent or independent review is claimed.

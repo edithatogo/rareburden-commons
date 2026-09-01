@@ -27,11 +27,19 @@ def _changed(component_index: int = 0) -> dict[str, object]:
 
 def test_schema_and_invented_fixture_validate_and_round_trip_detached() -> None:
     Draft202012Validator.check_schema(SCHEMA)
-    result = validate_component_prototype(FIXTURE, SCHEMA)
+    result = validate_component_prototype(FIXTURE)
     assert result == FIXTURE
     assert result is not FIXTURE
     result["limitations"].append("Caller mutation")  # type: ignore[union-attr]
     assert "Caller mutation" not in FIXTURE["limitations"]
+
+
+def test_validation_always_uses_canonical_schema_and_missing_components_fail_safely() -> None:
+    with pytest.raises(EconomicComponentError, match="failed schema validation") as error:
+        validate_component_prototype({"synthetic": True})
+    assert "synthetic" not in str(error.value)
+    with pytest.raises(TypeError):
+        validate_component_prototype(FIXTURE, {})  # type: ignore[call-arg]
 
 
 @pytest.mark.parametrize("status", ["missing", "not_collected", "unassessed"])
@@ -40,12 +48,10 @@ def test_missing_statuses_never_accept_or_create_zero(status: str) -> None:
     quantity = document["components"][2]["quantity"]  # type: ignore[index]
     quantity["measurement_status"] = status
     document["components"][2]["missingness"]["status"] = status  # type: ignore[index]
-    assert (
-        "value" not in validate_component_prototype(document, SCHEMA)["components"][2]["quantity"]
-    )
+    assert "value" not in validate_component_prototype(document)["components"][2]["quantity"]
     quantity["value"] = 0
     with pytest.raises(EconomicComponentError, match="failed schema validation"):
-        validate_component_prototype(document, SCHEMA)
+        validate_component_prototype(document)
 
 
 def test_explicit_zero_is_distinct_from_present_nonzero() -> None:
@@ -53,11 +59,11 @@ def test_explicit_zero_is_distinct_from_present_nonzero() -> None:
     quantity = document["components"][0]["quantity"]  # type: ignore[index]
     quantity["measurement_status"] = "explicit_zero"
     quantity["value"] = 0
-    result = validate_component_prototype(document, SCHEMA)
+    result = validate_component_prototype(document)
     assert result["components"][0]["quantity"]["value"] == 0
     quantity["measurement_status"] = "explicit_value"
     with pytest.raises(EconomicComponentError, match="failed schema validation"):
-        validate_component_prototype(document, SCHEMA)
+        validate_component_prototype(document)
 
 
 @pytest.mark.parametrize(
@@ -72,11 +78,11 @@ def test_quantity_rejects_boolean_or_nonfinite_values(value: object, message: st
     document = _changed()
     document["components"][0]["quantity"]["value"] = value  # type: ignore[index]
     with pytest.raises(EconomicComponentError, match=message):
-        validate_component_prototype(document, SCHEMA)
+        validate_component_prototype(document)
 
 
 def test_unpaid_care_remains_present_unvalued_and_economically_blocked() -> None:
-    result = validate_component_prototype(FIXTURE, SCHEMA)
+    result = validate_component_prototype(FIXTURE)
     care = result["components"][1]
     assert care["quantity"]["measurement_status"] == "explicit_value"
     assert care["quantity"]["value"] == 40
@@ -85,7 +91,7 @@ def test_unpaid_care_remains_present_unvalued_and_economically_blocked() -> None
 
 
 def test_roles_and_partial_coverage_remain_independent() -> None:
-    result = validate_component_prototype(FIXTURE, SCHEMA)
+    result = validate_component_prototype(FIXTURE)
     care = result["components"][1]
     assert care["roles"]["bearer"]["label"] == "Invented household"
     assert care["roles"]["payer"]["status"] == "not_applicable"
@@ -111,7 +117,7 @@ def test_references_reject_urls_paths_and_queries(reference: str) -> None:
     document = _changed()
     document["components"][0]["assumption_references"] = [reference]  # type: ignore[index]
     with pytest.raises(EconomicComponentError, match="failed schema validation") as error:
-        validate_component_prototype(document, SCHEMA)
+        validate_component_prototype(document)
     assert reference not in str(error.value)
 
 
@@ -123,39 +129,39 @@ def test_overlap_must_reference_other_known_components() -> None:
         document = _changed()
         document["components"][0]["overlap"]["component_ids"] = [reference]  # type: ignore[index]
         with pytest.raises(EconomicComponentError, match=message):
-            validate_component_prototype(document, SCHEMA)
+            validate_component_prototype(document)
 
 
 def test_duplicate_identity_and_reversed_period_fail() -> None:
     duplicate = _changed()
     duplicate["components"].append(deepcopy(duplicate["components"][0]))  # type: ignore[union-attr,index]
     with pytest.raises(EconomicComponentError, match="duplicate component identity"):
-        validate_component_prototype(duplicate, SCHEMA)
+        validate_component_prototype(duplicate)
     reversed_period = _changed()
     reversed_period["components"][0]["observation_period"] = {  # type: ignore[index]
         "start": "2025-12-31",
         "end": "2025-01-01",
     }
     with pytest.raises(EconomicComponentError, match="period is reversed"):
-        validate_component_prototype(reversed_period, SCHEMA)
+        validate_component_prototype(reversed_period)
 
 
 def test_mismatched_missingness_and_ambiguous_component_revision_fail() -> None:
     mismatch = _changed(2)
     mismatch["components"][2]["missingness"]["status"] = "complete"  # type: ignore[index]
     with pytest.raises(EconomicComponentError, match="missingness status"):
-        validate_component_prototype(mismatch, SCHEMA)
+        validate_component_prototype(mismatch)
     duplicate = _changed()
     second = deepcopy(duplicate["components"][0])  # type: ignore[index]
     second["revision"] = 2
     duplicate["components"].append(second)  # type: ignore[union-attr]
     with pytest.raises(EconomicComponentError, match="duplicate component identity"):
-        validate_component_prototype(duplicate, SCHEMA)
+        validate_component_prototype(duplicate)
 
     value_mismatch = _changed()
     value_mismatch["components"][0]["missingness"]["status"] = "not_collected"  # type: ignore[index]
     with pytest.raises(EconomicComponentError, match="missingness status"):
-        validate_component_prototype(value_mismatch, SCHEMA)
+        validate_component_prototype(value_mismatch)
 
 
 def test_overlap_status_and_references_are_consistent() -> None:
@@ -164,18 +170,18 @@ def test_overlap_status_and_references_are_consistent() -> None:
         "invented_service_contacts"
     ]
     with pytest.raises(EconomicComponentError, match="status cannot list"):
-        validate_component_prototype(unassessed, SCHEMA)
+        validate_component_prototype(unassessed)
     possible = _changed()
     possible["components"][0]["overlap"]["component_ids"] = []  # type: ignore[index]
     with pytest.raises(EconomicComponentError, match="requires a component"):
-        validate_component_prototype(possible, SCHEMA)
+        validate_component_prototype(possible)
 
 
 def test_cyclic_and_excessively_deep_inputs_fail_with_safe_error() -> None:
     cyclic: dict[str, object] = {}
     cyclic["nested"] = cyclic
     with pytest.raises(EconomicComponentError, match="structure limits"):
-        validate_component_prototype(cyclic, SCHEMA)
+        validate_component_prototype(cyclic)
     deep: dict[str, object] = {}
     cursor = deep
     for _ in range(22):
@@ -183,7 +189,26 @@ def test_cyclic_and_excessively_deep_inputs_fail_with_safe_error() -> None:
         cursor["nested"] = child
         cursor = child
     with pytest.raises(EconomicComponentError, match="structure limits"):
-        validate_component_prototype(deep, SCHEMA)
+        validate_component_prototype(deep)
+
+
+def test_declared_maximum_component_count_fits_structure_limit() -> None:
+    document = _changed()
+    template = deepcopy(document["components"][1])  # type: ignore[index]
+    components = []
+    for index in range(50):
+        component = deepcopy(template)
+        component["component_id"] = f"invented_component_{index:02d}"
+        components.append(component)
+    document["components"] = components
+    assert len(validate_component_prototype(document)["components"]) == 50
+
+
+def test_arbitrarily_large_integer_is_finite_without_float_conversion() -> None:
+    document = _changed()
+    document["components"][0]["quantity"]["value"] = 10**309  # type: ignore[index]
+    result = validate_component_prototype(document)
+    assert result["components"][0]["quantity"]["value"] == 10**309
 
 
 def test_unknown_sensitive_shaped_field_is_rejected_without_echo() -> None:
@@ -191,7 +216,7 @@ def test_unknown_sensitive_shaped_field_is_rejected_without_echo() -> None:
     secret = "credential-material-must-not-appear"
     document["components"][0]["Credential"] = secret  # type: ignore[index]
     with pytest.raises(EconomicComponentError, match="failed schema validation") as error:
-        validate_component_prototype(document, SCHEMA)
+        validate_component_prototype(document)
     assert secret not in str(error.value)
 
 
@@ -205,18 +230,18 @@ def test_monetary_shaped_record_remains_unresolved_and_blocked() -> None:
         "valuation_status": "unresolved",
         "rationale": "Monetary-shaped structure remains unusable for economic analysis.",
     }
-    result = validate_component_prototype(document, SCHEMA)
+    result = validate_component_prototype(document)
     assert result["economic_use_status"] == "blocked"
     component["valuation_readiness"]["currency_status"] = "not_applicable"
     with pytest.raises(EconomicComponentError, match="failed schema validation"):
-        validate_component_prototype(document, SCHEMA)
+        validate_component_prototype(document)
 
 
 def test_totals_and_unknown_fields_are_not_contract_surface() -> None:
     document = _changed()
     document["totals"] = []
     with pytest.raises(EconomicComponentError, match="failed schema validation"):
-        validate_component_prototype(document, SCHEMA)
+        validate_component_prototype(document)
 
 
 def test_frozen_ledger_inputs_and_manifests_remain_unchanged() -> None:

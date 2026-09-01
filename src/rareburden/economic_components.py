@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import json
 import math
 from collections.abc import Mapping
 from copy import deepcopy
+from importlib.resources import files
 from typing import Any
 
 from rareburden.schema import SchemaValidationError, validate_instance
@@ -22,7 +24,7 @@ def _check_structure(document: Mapping[str, Any]) -> None:
     while stack:
         value, depth = stack.pop()
         nodes += 1
-        if nodes > 2_000 or depth > 20:
+        if nodes > 10_000 or depth > 20:
             raise EconomicComponentError("component prototype exceeds structure limits")
         if isinstance(value, (Mapping, list, tuple)):
             identity = id(value)
@@ -33,14 +35,24 @@ def _check_structure(document: Mapping[str, Any]) -> None:
             stack.extend((child, depth + 1) for child in children)
 
 
+def _canonical_schema() -> dict[str, Any]:
+    resource = files("rareburden").joinpath(
+        "resources", "repository", "schemas", "economic-component-prototype.schema.json"
+    )
+    value = json.loads(resource.read_text(encoding="utf-8"))
+    if not isinstance(value, dict):
+        raise EconomicComponentError("canonical component schema is unavailable")
+    return value
+
+
 def validate_component_prototype(
-    document: Mapping[str, Any], schema: Mapping[str, Any]
+    document: Mapping[str, Any],
 ) -> dict[str, Any]:
     """Validate and detach synthetic component rows without calculating totals."""
     _check_structure(document)
     candidate = deepcopy(dict(document))
     try:
-        validate_instance(candidate, deepcopy(dict(schema)), label="component prototype")
+        validate_instance(candidate, _canonical_schema(), label="component prototype")
     except SchemaValidationError:
         raise EconomicComponentError("component prototype failed schema validation") from None
 
@@ -51,7 +63,9 @@ def validate_component_prototype(
             raise EconomicComponentError("duplicate component identity")
         component_ids.add(component_id)
         value = component["quantity"].get("value")
-        if value is not None and (isinstance(value, bool) or not math.isfinite(value)):
+        if value is not None and (
+            isinstance(value, bool) or (not isinstance(value, int) and not math.isfinite(value))
+        ):
             raise EconomicComponentError("component quantity must be a finite number")
         period = component["observation_period"]
         if period["end"] < period["start"]:
