@@ -81,22 +81,47 @@ def _frozen_json(value: object, *, label: str) -> Any:
 
 def _validate_exact_json_tree(value: object, *, label: str) -> None:
     """Reject Python containers and scalars that JSON encoding would coerce."""
-    value_type = type(value)
-    if value_type is dict:
-        for key, child in cast(dict[object, object], value).items():
-            if type(key) is not str:
-                raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
-            _validate_exact_json_tree(child, label=label)
-        return
-    if value_type is list:
-        for child in cast(list[object], value):
-            _validate_exact_json_tree(child, label=label)
-        return
-    if value is None or value_type in {str, bool, int}:
-        return
-    if value_type is float and math.isfinite(cast(float, value)):
-        return
-    raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
+    maximum_depth = 32
+    maximum_nodes = 10_000
+    maximum_fanout = 1_000
+    active_containers: set[int] = set()
+    stack: list[tuple[object, int, bool]] = [(value, 0, False)]
+    nodes = 0
+    while stack:
+        current, depth, leaving = stack.pop()
+        current_type = type(current)
+        if leaving:
+            active_containers.remove(id(current))
+            continue
+        nodes += 1
+        if nodes > maximum_nodes or depth > maximum_depth:
+            raise SyntheticOrchestrationError(f"{label} exceeds bounded JSON structure")
+        if current_type in {dict, list}:
+            container_id = id(current)
+            if container_id in active_containers:
+                raise SyntheticOrchestrationError(f"{label} contains a JSON cycle")
+            active_containers.add(container_id)
+            stack.append((current, depth, True))
+            if current_type is dict:
+                items = list(cast(dict[object, object], current).items())
+                if len(items) > maximum_fanout:
+                    raise SyntheticOrchestrationError(f"{label} exceeds bounded JSON structure")
+                for key, child in reversed(items):
+                    if type(key) is not str:
+                        raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
+                    stack.append((child, depth + 1, False))
+            else:
+                children = cast(list[object], current)
+                if len(children) > maximum_fanout:
+                    raise SyntheticOrchestrationError(f"{label} exceeds bounded JSON structure")
+                for child in reversed(children):
+                    stack.append((child, depth + 1, False))
+            continue
+        if current is None or current_type in {str, bool, int}:
+            continue
+        if current_type is float and math.isfinite(cast(float, current)):
+            continue
+        raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
 
 
 def _receipt_document(receipt: QueryReceipt) -> dict[str, object]:

@@ -355,6 +355,47 @@ def test_verifier_rejects_non_exact_json_execution_types(
         _verify(result)
 
 
+def test_exact_json_validator_rejects_cycles_depth_and_fanout() -> None:
+    cyclic_list: list[object] = []
+    cyclic_list.append(cyclic_list)
+    cyclic_dict: dict[str, object] = {}
+    cyclic_dict["self"] = cyclic_dict
+    deep: object = None
+    for _ in range(34):
+        deep = [deep]
+    for value, message in (
+        (cyclic_list, "cycle"),
+        (cyclic_dict, "cycle"),
+        (deep, "bounded JSON structure"),
+        ([None] * 1_001, "bounded JSON structure"),
+    ):
+        with pytest.raises(SyntheticOrchestrationError, match=message):
+            orchestration._validate_exact_json_tree(value, label="test")
+
+
+def test_exact_json_validator_accepts_bounded_shared_subtree() -> None:
+    shared = [1, "value", None]
+    orchestration._validate_exact_json_tree({"left": shared, "right": shared}, label="test")
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("trusted_receipt_sequence", True),
+        ("trusted_receipt_sequence", 0),
+        ("trusted_receipt_chain_sha256", "invalid"),
+        ("trusted_previous_chain_sha256", "invalid"),
+        ("trusted_recorded_at", None),
+    ],
+)
+def test_verifier_rejects_malformed_trusted_receipt_identity(
+    tmp_path: Path, field: str, value: object
+) -> None:
+    result = _valid_result(tmp_path)
+    with pytest.raises(SyntheticOrchestrationError, match="trusted receipt identity is malformed"):
+        _verify(result, **{field: value})
+
+
 def test_verifier_rejects_metadata_only_policy_even_with_matching_digest(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     policy = {**_policy(), "export_mode": "metadata_only"}
