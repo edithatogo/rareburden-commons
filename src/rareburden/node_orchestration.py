@@ -462,9 +462,13 @@ def verify_reserved_synthetic_result(
         )
     except (TypeError, ValueError, UnicodeEncodeError, NodeExportError) as exc:
         raise SyntheticOrchestrationError("trusted aggregate input is malformed") from exc
-    if _frozen_json(execution, label="execution") != _frozen_json(
-        expected_execution, label="expected_execution"
-    ):
+    observed_execution = _frozen_json(execution, label="execution")
+    expected_execution_frozen = _frozen_json(expected_execution, label="expected_execution")
+    if json.dumps(
+        observed_execution, sort_keys=True, separators=(",", ":"), ensure_ascii=True
+    ).encode("ascii") != json.dumps(
+        expected_execution_frozen, sort_keys=True, separators=(",", ":"), ensure_ascii=True
+    ).encode("ascii"):
         raise SyntheticOrchestrationError("trusted aggregate input or output mismatch")
 
 

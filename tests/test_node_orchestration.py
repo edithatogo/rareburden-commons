@@ -272,6 +272,16 @@ def test_verifier_rejects_duplicate_trusted_aggregate_groups(tmp_path: Path) -> 
         _verify(result, input_rows=[row, dict(row)])
 
 
+@pytest.mark.parametrize("count", [True, 1.0])
+def test_verifier_uses_type_strict_execution_comparison(tmp_path: Path, count: object) -> None:
+    result = _valid_result(tmp_path)
+    result["execution"]["rows"][0]["count"] = count
+    with pytest.raises(
+        SyntheticOrchestrationError, match="trusted aggregate input or output mismatch"
+    ):
+        _verify(result)
+
+
 def test_verifier_rejects_metadata_only_policy_even_with_matching_digest(tmp_path: Path) -> None:
     result = _valid_result(tmp_path)
     policy = {**_policy(), "export_mode": "metadata_only"}
