@@ -183,6 +183,19 @@ def test_invalid_overlap_group_fails_before_reservation(
         assert store.verify() == (1, 0)
 
 
+def test_sensitive_policy_identity_fails_before_reservation(tmp_path: Path) -> None:
+    policy = {**_policy(), "policy_id": "participant-123"}
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(policy, recorded_at="2026-09-01T00:00:00+00:00")
+        kwargs = _kwargs(store, receipt.content_sha256)
+        kwargs["expected_policy_id"] = "participant-123"
+        with pytest.raises(SyntheticOrchestrationError, match="bounded non-sensitive identifier"):
+            run_reserved_synthetic_analysis(
+                [{"synthetic": True, "diagnoses": ["condition-a"]}], **kwargs
+            )
+        assert store.verify() == (1, 0)
+
+
 def test_verifier_normalises_trusted_dimension_order(tmp_path: Path) -> None:
     policy = {**_policy(), "allowed_dimension_fields": ["diagnosis", "jurisdiction"]}
     records = [{"synthetic": True, "diagnoses": ["condition-a"], "jurisdiction": "invented"}]
@@ -243,6 +256,20 @@ def test_verifier_rejects_untrusted_policy_snapshot(tmp_path: Path) -> None:
     policy = {**_policy(), "minimum_cell_count": 2}
     with pytest.raises(SyntheticOrchestrationError, match="trusted policy binding mismatch"):
         _verify(result, policy=policy)
+
+
+def test_verifier_rejects_sensitive_trusted_policy_identity(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    policy = {**_policy(), "policy_id": "token-secret"}
+    with pytest.raises(SyntheticOrchestrationError, match="bounded non-sensitive identifier"):
+        _verify(result, policy=policy)
+
+
+def test_verifier_rejects_duplicate_trusted_aggregate_groups(tmp_path: Path) -> None:
+    result = _valid_result(tmp_path)
+    row = {"diagnosis": '["condition-a"]', "count": 1}
+    with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input is malformed"):
+        _verify(result, input_rows=[row, dict(row)])
 
 
 def test_verifier_rejects_metadata_only_policy_even_with_matching_digest(tmp_path: Path) -> None:

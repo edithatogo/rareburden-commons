@@ -111,6 +111,9 @@ def run_reserved_synthetic_analysis(
     _bounded_non_sensitive_identifier(execution_id, label="execution_id", minimum_length=3)
     _bounded_non_sensitive_identifier(analysis_id, label="analysis_id", minimum_length=3)
     _bounded_non_sensitive_identifier(overlap_group, label="overlap_group")
+    _bounded_non_sensitive_identifier(
+        expected_policy_id, label="expected_policy_id", minimum_length=3
+    )
     if (
         not isinstance(expected_policy_content_sha256, str)
         or _SHA256.fullmatch(expected_policy_content_sha256) is None
@@ -318,6 +321,9 @@ def verify_reserved_synthetic_result(
             trusted_execution_id, label="trusted_execution_id", minimum_length=3
         )
         trusted_policy = load_disclosure_policy(trusted_policy_document)
+        _bounded_non_sensitive_identifier(
+            trusted_policy.policy_id, label="trusted_policy_id", minimum_length=3
+        )
         trusted_policy_digest = canonical_policy_content_sha256(trusted_policy_document)
     except (NodeExportError, NodePolicyStoreError) as exc:
         raise SyntheticOrchestrationError("trusted policy is invalid") from exc
@@ -433,6 +439,12 @@ def verify_reserved_synthetic_result(
             not isinstance(row, dict) or set(row) != expected_input_fields
             for row in frozen_input_rows
         ):
+            raise SyntheticOrchestrationError("trusted aggregate input is malformed")
+        trusted_groups = [
+            tuple(row[dimension] for dimension in normalised_trusted_dimensions)
+            for row in frozen_input_rows
+        ]
+        if len(trusted_groups) != len(set(trusted_groups)):
             raise SyntheticOrchestrationError("trusted aggregate input is malformed")
         expected_execution = run_offline_node(
             frozen_input_rows,
