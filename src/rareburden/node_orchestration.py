@@ -17,6 +17,7 @@ from rareburden.node import (
 )
 from rareburden.node_analysis import (
     ALLOWED_SYNTHETIC_DIMENSIONS,
+    MAXIMUM_SYNTHETIC_STRING_LENGTH,
     aggregate_synthetic_records,
     validate_synthetic_records,
 )
@@ -87,7 +88,6 @@ def _validate_exact_json_tree(value: object, *, label: str) -> None:
     maximum_depth = 32
     maximum_nodes = 10_000
     maximum_fanout = 1_000
-    maximum_string_length = 4_096
     active_containers: set[int] = set()
     stack: list[tuple[object, int, bool]] = [(value, 0, False)]
     nodes = 0
@@ -113,7 +113,7 @@ def _validate_exact_json_tree(value: object, *, label: str) -> None:
                 for key, child in reversed(items):
                     if type(key) is not str:
                         raise SyntheticOrchestrationError(f"{label} must use exact JSON types")
-                    if len(key) > maximum_string_length:
+                    if len(key) > MAXIMUM_SYNTHETIC_STRING_LENGTH:
                         raise SyntheticOrchestrationError(f"{label} exceeds bounded JSON structure")
                     stack.append((child, depth + 1, False))
             else:
@@ -124,7 +124,7 @@ def _validate_exact_json_tree(value: object, *, label: str) -> None:
                     stack.append((child, depth + 1, False))
             continue
         if current_type is str:
-            if len(cast(str, current)) > maximum_string_length:
+            if len(cast(str, current)) > MAXIMUM_SYNTHETIC_STRING_LENGTH:
                 raise SyntheticOrchestrationError(f"{label} exceeds bounded JSON structure")
             continue
         if current is None or current_type in {bool, int}:
@@ -384,6 +384,8 @@ def verify_reserved_synthetic_result(
     )
     if any(left != right for left, right in pairs):
         raise SyntheticOrchestrationError("reserved result binding mismatch")
+    _validate_exact_json_tree(trusted_input_rows, label="trusted_input_rows")
+    _validate_exact_json_tree(trusted_query_shape, label="trusted_query_shape")
     try:
         _bounded_non_sensitive_identifier(
             trusted_analysis_id, label="trusted_analysis_id", minimum_length=3

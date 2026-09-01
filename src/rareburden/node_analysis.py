@@ -14,6 +14,7 @@ class SyntheticAnalysisError(ValueError):
 
 _ALLOWED_INPUT_FIELDS = {"synthetic", "diagnoses", "jurisdiction", "group"}
 ALLOWED_SYNTHETIC_DIMENSIONS = frozenset({"diagnosis", "jurisdiction", "group"})
+MAXIMUM_SYNTHETIC_STRING_LENGTH = 4_096
 _IDENTIFIER_TERMS = {
     "id",
     "identifier",
@@ -46,7 +47,12 @@ def _diagnosis_group(value: object, *, record_index: int) -> str:
         raise SyntheticAnalysisError(f"record {record_index} diagnoses must not be empty")
     # JSON is an unambiguous, canonical label: unlike delimiter joining it cannot
     # merge one diagnosis named ``a+b`` with the pair ``a`` and ``b``.
-    return json.dumps(sorted(diagnoses), ensure_ascii=True, separators=(",", ":"))
+    label = json.dumps(sorted(diagnoses), ensure_ascii=True, separators=(",", ":"))
+    if len(label) > MAXIMUM_SYNTHETIC_STRING_LENGTH:
+        raise SyntheticAnalysisError(
+            f"record {record_index} diagnoses exceed the bounded synthetic label"
+        )
+    return label
 
 
 def aggregate_synthetic_records(
@@ -131,6 +137,7 @@ def validate_synthetic_records(
 
 __all__ = [
     "ALLOWED_SYNTHETIC_DIMENSIONS",
+    "MAXIMUM_SYNTHETIC_STRING_LENGTH",
     "SyntheticAnalysisError",
     "aggregate_synthetic_records",
     "validate_synthetic_records",

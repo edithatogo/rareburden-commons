@@ -9,6 +9,7 @@ import pytest
 
 import rareburden.node_orchestration as orchestration
 from rareburden.node import NodeExportError
+from rareburden.node_analysis import SyntheticAnalysisError
 from rareburden.node_orchestration import (
     SyntheticOrchestrationError,
     run_reserved_synthetic_analysis,
@@ -241,6 +242,15 @@ def test_nested_record_bounds_fail_before_freezing_or_reservation(
             lambda *_args, **_kwargs: pytest.fail("unbounded records must fail before freezing"),
         )
         with pytest.raises(SyntheticOrchestrationError, match="bounded JSON structure"):
+            run_reserved_synthetic_analysis(records, **_kwargs(store, receipt.content_sha256))
+        assert store.verify() == (1, 0)
+
+
+def test_expanded_diagnosis_label_fails_before_reservation(tmp_path: Path) -> None:
+    records = [{"synthetic": True, "diagnoses": ["a" * 3_000, "b" * 3_000]}]
+    with DurableNodePolicyStore(tmp_path / "policy.sqlite") as store:
+        receipt = store.register_policy(_policy(), recorded_at="2026-09-01T00:00:00+00:00")
+        with pytest.raises(SyntheticAnalysisError, match="bounded synthetic label"):
             run_reserved_synthetic_analysis(records, **_kwargs(store, receipt.content_sha256))
         assert store.verify() == (1, 0)
 
@@ -551,6 +561,30 @@ def test_verifier_rejects_malformed_trusted_structures(
 ) -> None:
     result = _valid_result(tmp_path)
     with pytest.raises(SyntheticOrchestrationError, match="trusted aggregate input is malformed"):
+        _verify(result, **{field: value})
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("trusted_input_rows", [{"diagnosis": ["x"] * 1_001, "count": 1}]),
+        ("trusted_input_rows", [{"diagnosis": "x" * 4_097, "count": 1}]),
+        ("trusted_query_shape", {"dimensions": ["x"] * 1_001, "measure": "count"}),
+    ],
+)
+def test_verifier_bounds_trusted_inputs_before_freezing(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+    value: object,
+) -> None:
+    result = _valid_result(tmp_path)
+    monkeypatch.setattr(
+        orchestration,
+        "_frozen_json",
+        lambda *_args, **_kwargs: pytest.fail("unbounded trusted input must fail before freezing"),
+    )
+    with pytest.raises(SyntheticOrchestrationError, match="bounded JSON structure"):
         _verify(result, **{field: value})
 
 
