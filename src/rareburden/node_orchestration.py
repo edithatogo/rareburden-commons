@@ -584,7 +584,12 @@ def verify_reserved_synthetic_result(
             tuple(row[dimension] for dimension in normalised_trusted_dimensions)
             for row in frozen_input_rows
         ]
-        if len(trusted_groups) != len(set(trusted_groups)):
+        producer_order_groups = [
+            tuple(row[dimension] for dimension in trusted_dimensions) for row in frozen_input_rows
+        ]
+        if len(trusted_groups) != len(set(trusted_groups)) or producer_order_groups != sorted(
+            producer_order_groups
+        ):
             raise SyntheticOrchestrationError("trusted aggregate input is malformed")
         expected_execution = run_offline_node(
             frozen_input_rows,

@@ -60,6 +60,14 @@ def test_policy_loader_rejects_future_schema_version() -> None:
         load_disclosure_policy(document)
 
 
+def test_policy_loader_rejects_cycles_before_expanding_children() -> None:
+    notes: list[object] = ["bounded"] * 999
+    notes.append(notes)
+    document = {**_policy_document(), "notes": notes}
+    with pytest.raises(NodeExportError, match="cycle"):
+        load_disclosure_policy(document)
+
+
 def test_policy_loader_rejects_missing_unknown_and_duplicate_fields() -> None:
     missing = _policy_document()
     missing.pop("policy_id")

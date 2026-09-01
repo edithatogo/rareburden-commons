@@ -34,12 +34,22 @@ def _validate_bounded_policy_json(document: object) -> None:
     if type(document) is not dict:
         raise NodeExportError("disclosure policy must be an exact JSON object")
     nodes = 0
-    stack: list[object] = [document]
+    active_containers: set[int] = set()
+    stack: list[tuple[object, int, bool]] = [(document, 0, False)]
     while stack:
-        current = stack.pop()
+        current, depth, leaving = stack.pop()
+        if leaving:
+            active_containers.remove(id(current))
+            continue
         nodes += 1
-        if nodes > 10_000:
+        if nodes > 10_000 or depth > 32:
             raise NodeExportError("disclosure policy exceeds bounded JSON structure")
+        if type(current) in {dict, list}:
+            container_id = id(current)
+            if container_id in active_containers:
+                raise NodeExportError("disclosure policy contains a JSON cycle")
+            active_containers.add(container_id)
+            stack.append((current, depth, True))
         if type(current) is dict:
             if len(current) > _MAXIMUM_POLICY_FANOUT:
                 raise NodeExportError("disclosure policy exceeds bounded JSON structure")
@@ -48,11 +58,12 @@ def _validate_bounded_policy_json(document: object) -> None:
                     raise NodeExportError("disclosure policy must use exact JSON types")
                 if len(key) > _MAXIMUM_POLICY_STRING_LENGTH:
                     raise NodeExportError("disclosure policy exceeds bounded JSON structure")
-                stack.append(value)
+                stack.append((value, depth + 1, False))
         elif type(current) is list:
             if len(current) > _MAXIMUM_POLICY_FANOUT:
                 raise NodeExportError("disclosure policy exceeds bounded JSON structure")
-            stack.extend(current)
+            for value in current:
+                stack.append((value, depth + 1, False))
         elif type(current) is str:
             if len(current) > _MAXIMUM_POLICY_STRING_LENGTH:
                 raise NodeExportError("disclosure policy exceeds bounded JSON structure")
