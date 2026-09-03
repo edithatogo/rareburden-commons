@@ -17,6 +17,14 @@ rules:
   - raw_files_do_not_activate_estimands_or establish_clinical_validity
   - publisher_licence_and_third_party_rights_facts_cannot_be_overridden_by_owner_or_agents
 decisions:
+  - source_id: aihw-bronchiectasis
+    dataset_type: public_aggregate_health_report
+    licence: artifact_specific_reuse_terms_unverified
+    exact_release: "AIHW bronchiectasis report accessed 2026-09-04"
+    private_archive: metadata_reference_only
+    public_raw: prohibited_pending_exact_artifact_terms
+    github: citation_metadata_and_source_assessment_only
+    conditions: [exact_artifact, attribution, reuse_terms, no_small_cells, no_activation]
   - source_id: orphadata-science
     dataset_type: public_rare_disease_ontology_and_epidemiology
     licence: CC_BY_4_0
