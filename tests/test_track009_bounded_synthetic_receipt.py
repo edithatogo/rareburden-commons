@@ -54,7 +54,7 @@ def _case_root(tmp_path: Path, receipt: dict) -> Path:
     return tmp_path
 
 
-def test_bounded_receipt_passes_and_keeps_global_track_blocked() -> None:
+def test_bounded_receipt_passes_and_keeps_global_track_bounded() -> None:
     validate(ROOT)
     receipt = _receipt()
     assert receipt["status"] == "bounded_synthetic_nonclinical_candidate_complete"
