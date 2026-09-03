@@ -4,7 +4,11 @@ from pathlib import Path
 
 import pytest
 
-from rareburden.demonstrators import DemonstratorError, reconcile_paediatric_synthetic_linkage
+from rareburden.demonstrators import (
+    DemonstratorError,
+    estimate_paediatric_synthetic_estimands,
+    reconcile_paediatric_synthetic_linkage,
+)
 from rareburden.schema import load_mapping
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -121,3 +125,20 @@ def test_threshold_releases_only_qualifying_synthetic_group_and_observed_death()
         {"jurisdiction": "synthetic-au", "count": 2, "suppressed": False}
     ]
     assert result["mortality"] == {"known_deaths": 1, "unknown_death_status": 1}
+
+
+def test_synthetic_estimands_use_explicit_denominators_and_no_imputation() -> None:
+    result = estimate_paediatric_synthetic_estimands(
+        FIXTURE, BINDINGS, disclosure_threshold=2, created_at="2026-08-16T00:00:00Z"
+    )
+    estimands = result["estimands"]
+    assert estimands["utilisation_admissions_per_person"] == {
+        "value": 1.5,
+        "numerator": 3,
+        "denominator": 2,
+        "denominator_definition": "deduplicated synthetic people",
+    }
+    assert estimands["known_death_proportion"]["value"] == 0
+    assert estimands["mean_cost_among_observed_people"]["value"] == 500
+    assert result["missingness"]["imputation_performed"] is False
+    assert result["activation_state"] == "synthetic_only"

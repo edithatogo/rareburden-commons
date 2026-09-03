@@ -301,6 +301,74 @@ def reconcile_paediatric_synthetic_linkage(
     return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
 
 
+def estimate_paediatric_synthetic_estimands(
+    fixture: Mapping[str, Any],
+    dependency_bindings: Mapping[str, Any],
+    *,
+    disclosure_threshold: int,
+    created_at: str,
+) -> dict[str, Any]:
+    """Calculate explicitly denominated utilisation, mortality and cost metrics.
+
+    All values are synthetic assurance outputs.  Costs are averaged only over
+    people with an observed synthetic cost row; missing costs and unknown death
+    status are never silently imputed.
+    """
+    receipt = reconcile_paediatric_synthetic_linkage(
+        fixture,
+        dependency_bindings,
+        disclosure_threshold=disclosure_threshold,
+        created_at=created_at,
+    )
+    people = int(receipt["population"]["deduplicated_people"])
+    admissions = int(receipt["utilisation"]["admissions"])
+    known_deaths = int(receipt["mortality"]["known_deaths"])
+    observed_cost_people = int(receipt["cost"]["observed_people"])
+    total_cost = float(receipt["cost"]["total"])
+    if people <= 0:
+        raise DemonstratorError("synthetic estimands require at least one person")
+    core = {
+        "analysis_id": "rbc-p004-bounded-synthetic-estimands",
+        "created_at": created_at,
+        "base_receipt_id": receipt["receipt_id"],
+        "estimands": {
+            "utilisation_admissions_per_person": {
+                "value": admissions / people,
+                "numerator": admissions,
+                "denominator": people,
+                "denominator_definition": "deduplicated synthetic people",
+            },
+            "known_death_proportion": {
+                "value": known_deaths / people,
+                "numerator": known_deaths,
+                "denominator": people,
+                "denominator_definition": (
+                    "deduplicated synthetic people; unknown status retained separately"
+                ),
+            },
+            "mean_cost_among_observed_people": {
+                "value": total_cost / observed_cost_people if observed_cost_people else None,
+                "numerator": total_cost,
+                "denominator": observed_cost_people,
+                "denominator_definition": "synthetic people with an observed cost row",
+                "currency": "SYN",
+            },
+        },
+        "missingness": receipt["uncertainty"],
+        "activation_state": "synthetic_only",
+        "controlled_data_activation": False,
+        "clinical_interpretation": False,
+        "policy_interpretation": False,
+        "contract_frozen": False,
+        "limitations": [
+            "All values are invented synthetic assurance outputs.",
+            "Unknown death status and missing costs are not imputed.",
+            "No clinical, policy, economic or population inference is permitted.",
+        ],
+    }
+    return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
+
+
 def _unique_rows(value: Any, label: str, identifier: str) -> dict[str, Mapping[str, Any]]:
     if not isinstance(value, list):
         raise DemonstratorError(f"{label} table must be a list")
@@ -328,4 +396,9 @@ def _rows_with_known_people(
     return rows
 
 
-__all__.extend(["reconcile_paediatric_synthetic_linkage"])
+__all__.extend(
+    [
+        "estimate_paediatric_synthetic_estimands",
+        "reconcile_paediatric_synthetic_linkage",
+    ]
+)
