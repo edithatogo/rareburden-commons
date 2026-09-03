@@ -27,7 +27,10 @@ sources:
     official_url: https://sciences.orphadata.com/epidemiology/
     licence_basis: CC BY 4.0
     disposition: private_staging_not_in_git
-    retrieval_status: evidence_confirmed_file_capture_pending
+    retrieval_status: retrieved_and_published_to_huggingface
+    sha256: 6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0
+    public_dataset_url: https://huggingface.co/datasets/edithatogo/rareburden-open-sources
+    public_commit: b7e76a4cfa11ff7c63757f80550e17c47ff5a5b3
     intended_use: rare-disease epidemiology context and uncertainty bounds
     next_gate: capture the exact release artifact and retain its attribution notice
   - source_id: aihw-bronchiectasis
