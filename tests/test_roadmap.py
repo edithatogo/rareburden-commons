@@ -142,7 +142,10 @@ def test_released_release_requires_complete_tracks(tmp_path: Path) -> None:
 def test_release_status_regression_is_rejected(tmp_path: Path) -> None:
     roadmap_data = yaml.safe_load(ROADMAP.read_text(encoding="utf-8"))
     roadmap_data["releases"][3]["status"] = "planned"
-    roadmap = tmp_path / "roadmap.yml"
+    roadmap_data["releases"][4]["status"] = "current"
+    shutil.copytree(ROOT / "conductor", tmp_path / "conductor")
+    shutil.copytree(ROOT / "docs", tmp_path / "docs")
+    roadmap = tmp_path / "conductor" / "roadmap.yml"
     roadmap.write_text(yaml.safe_dump(roadmap_data, sort_keys=False), encoding="utf-8")
 
     with pytest.raises(RoadmapValidationError, match="Release statuses must progress"):
