@@ -1,0 +1,10 @@
+schema_version: "1.0.0"
+decision_id: owner-redistribution-disposition-2026-09-03
+status: recorded
+decided_by: edithatogo
+decided_at: "2026-09-03T00:00:00Z"
+scope: repository_owned_and_owner_controlled_artifacts
+disposition: owner_asserted_redistribution_rights
+conditions: [preserve_attribution_and_licence_notices, retain_exact_file_and_provenance_receipts, exclude_controlled_or_personal_data]
+revocation: owner_may_revoke_or_narrow_this_disposition
+limitations: [does_not_create_custodian_authorization, does_not_create_community_authority_or_consent, does_not_establish_empirical_validity, does_not_authorize_doi_publication_or_stable_release]

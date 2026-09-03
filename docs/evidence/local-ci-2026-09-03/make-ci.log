@@ -1,0 +1,76 @@
+Thu Sep  3 10:10:49 UTC 2026
+uv 0.11.8 (0e961dd9a 2026-04-27 aarch64-apple-darwin)
+Python 3.13.13
+PYTHONPATH=src:. python -m rareburden validate-programme
+Programme validation passed
+PYTHONPATH=src:. python scripts/check_schemas.py
+Schemas passed: 59 schema(s).
+PYTHONPATH=src:. python scripts/check_github_workflows.py
+GitHub workflow policy passed for 24 workflow(s).
+PYTHONPATH=src:. python scripts/check_lockfile.py uv.lock --pyproject pyproject.toml
+Lockfile passed: 88 packages, 804 pinned distributions.
+PYTHONPATH=src:. python scripts/check_requirements_exports.py --root .
+Requirements exports passed: 8 production, 87 development packages.
+PYTHONPATH=src:. python scripts/check_runtime_assets.py --root .
+Runtime assets passed: 658 canonical file(s).
+PYTHONPATH=src:. python scripts/check_external_receipt.py \
+		docs/external-gate-receipt-template.yml
+Receipt shape passed; gate registration remains a separate action.
+PYTHONPATH=src:. python scripts/check_qualifying_receipts_register.py \
+		docs/qualifying-receipts-register.yml
+Qualifying receipts register passed; pending gates remain pending.
+PYTHONPATH=src:. python scripts/check_downstream_preparation.py \
+		docs/downstream-bounded-preparation-plan-2026-08-03.yml --root .
+Downstream preparation contract passed; empirical and release gates remain blocked.
+PYTHONPATH=src:. python scripts/check_single_owner_agent_governance.py \
+		docs/single-owner-agent-governance.yml --root .
+Single-owner agent governance passed; simulated panels advise and the owner decides.
+PYTHONPATH=src:. python scripts/check_track_008_freeze_readiness.py \
+		docs/track-008-freeze-readiness-2026-08-21.yml --root .
+Track 008 bounded completion passed; source rights, clinical validity, actual-community authority and production release remain separate gates.
+PYTHONPATH=src:. python scripts/check_track_008_split_candidate.py \
+		docs/track-008a-008b-scope-candidate-2026-08-21.yml --root .
+Track 008 split candidate passed; superseded scope remains bounded and Track 009 empirical and release activation remain blocked.
+PYTHONPATH=src:. python scripts/check_track_008_successor_implementation_candidate.py \
+		docs/candidates/track-008-successors/implementation-candidate.yml --root .
+Track 008 successor implementation candidate passed; no live state changed.
+PYTHONPATH=src:. python scripts/check_track_009_freeze_readiness.py \
+		docs/track-009-freeze-readiness-2026-08-21.yml --root .
+Track 009 readiness passed; historical preparation remains bounded and empirical, controlled-data, independent-review, publication and release gates remain false.
+PYTHONPATH=src:. python scripts/gen_track009_contract_freeze.py --check
+Track 009 contract freeze manifest passed: manifests/ledger/track-009-v0.4-contract-freeze.json
+PYTHONPATH=src:. python scripts/check_track009_bounded_completion.py \
+		--root . --require-complete
+Track 009 bounded completion authorization passed; empirical, controlled-data, independent-review, publication and release claims remain false.
+PYTHONPATH=src:. python scripts/check_track009_source_profile_role.py \
+		examples/ledger/source-profile-role-structural-synthetic.yml \
+		--schema schemas/source-profile-role-structural-assessment.schema.json --root .
+Track 009 synthetic source-to-profile-role matrix passed; empirical fitness, review, freeze and Track 010 eligibility remain blocked.
+PYTHONPATH=src:. python scripts/check_track_010_alpha_freeze_readiness.py \
+		docs/track-010-alpha-freeze-readiness-2026-08-21.yml --root .
+Track 010 bounded alpha readiness passed; agent-panel review and the owner freeze are bound while independent review and activation remain false.
+PYTHONPATH=src:. python scripts/check_track003_bounded_registration.py \
+		docs/track-003-rbc-p002-bounded-registration-2026-08-29.yml --root .
+Track 003 bounded registration passed; empirical and authority claims remain false.
+PYTHONPATH=src:. python scripts/check_track003_synthetic_denominator_candidate.py \
+		docs/track-003-rbc-p002-synthetic-denominator-candidate-2026-08-29.yml --root .
+Track 003 synthetic denominator candidate passed; execution remains disabled.
+PYTHONPATH=src:. python scripts/check_track003_synthetic_execution.py \
+		manifests/demonstrators/track-003-rbc-p002-synthetic-execution-closeout-2026-08-29.yml --root .
+Track 003 synthetic execution passed; empirical and authority gates remain false.
+PYTHONPATH=src:. python scripts/check_track003_aetiologic_evidence_qualification.py \
+		docs/track-003-aetiologic-evidence-qualification-2026-08-30.yml
+Track 003 aetiologic evidence qualification: OK
+PYTHONPATH=src:. python scripts/check_track010_candidate_containment.py --root .
+Track 010 exact candidate regenerates byte-for-byte and remains disposable, synthetic-only, pre-alpha and unfrozen.
+PYTHONPATH=src:. python scripts/check_track010_post_dependency_candidate.py --root .
+Track 010 corrected candidate regenerates byte-for-byte and remains bounded, not activated, pre-alpha and unfrozen.
+PYTHONPATH=src:. python scripts/check_track_016_production_release_readiness.py \
+		docs/track-016-production-release-readiness-2026-08-21.yml --root .
+Track 016 preparation passed; handoff, production, independent review and release remain gated.
+python scripts/build_distributions.py --root . --output dist --source-date-epoch 1760000000
+Traceback (most recent call last):
+  File "/Volumes/PortableSSD/GitHub/rareburden-commons-single-owner-governance/scripts/build_distributions.py", line 21, in <module>
+    import setuptools.build_meta as backend
+ModuleNotFoundError: No module named 'setuptools'
+make: *** [build] Error 1

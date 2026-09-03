@@ -25,7 +25,7 @@ methods, patient/community and engineering review.
 
 Keep Track 011 **blocked**. Do not activate bronchiectasis analysis or freeze multi-aetiology contracts until the prerequisite tracks are complete.
 
-### External reviewer packet
+### Agent-panel decision packet
 
 - **Respiratory clinical:** approve denominator, aetiology categories, overlap and diagnostic-capacity framing.
 - **Methods:** inspect referral/transportability, unclassified causes, uncertainty and independent comparison.
