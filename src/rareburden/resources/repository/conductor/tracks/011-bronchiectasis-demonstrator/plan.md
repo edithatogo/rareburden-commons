@@ -19,8 +19,13 @@
 ## Phase 3 — Analysis
 
 - [x] Build public/synthetic fixtures and analysis specification. Evidence: `examples/analyses/bronchiectasis-synthetic.yml` and `docs/bronchiectasis-011-reference.md`; empirical activation remains blocked.
-- [ ] Run primary and alternative hierarchy models.
-- [ ] Propagate overlap, unclassified-cause and transport uncertainty. `[M-06]`
+- [x] Run primary and alternative hierarchy models. Evidence:
+  `rareburden.demonstrators.run_bronchiectasis_synthetic_scenarios` and
+  `tests/test_track011_bounded_reconciliation.py`; outputs remain synthetic-only.
+- [x] Propagate overlap, unclassified-cause and transport uncertainty. `[M-06]`
+  Evidence: bounded scenario reference range and fail-closed bounds in
+  `tests/test_track011_bounded_reconciliation.py`; no empirical transportability
+  claim is made.
 - [ ] Produce country/setting examples without unsupported extrapolation.
 
 ## Phase 4 — Validation and release

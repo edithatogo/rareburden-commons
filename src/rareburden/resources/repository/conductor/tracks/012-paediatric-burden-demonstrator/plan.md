@@ -20,7 +20,10 @@
 
 - [x] Create synthetic person, diagnosis, admission, death and cost tables. `[C-03]` Evidence: `examples/paediatric/linked-data-synthetic.yml`.
 - [x] Define person-level deduplication and multimorbidity rules. `[M-05]` Evidence: fixture rules and `docs/paediatric-012-reference.md`; implementation against controlled data remains gated.
-- [ ] Implement utilisation, mortality and cost estimands.
+- [x] Implement utilisation, mortality and cost estimands. Evidence:
+  `rareburden.demonstrators.estimate_paediatric_synthetic_estimands` and
+  `tests/test_track012_bounded_reconciliation.py`; outputs are synthetic-only,
+  explicitly denominated and non-imputed.
 - [x] Add small-cell disclosure case and export rule. Evidence: synthetic fixture disclosure rule; custodian threshold and inferential controls remain external-gated.
 
 ## Phase 3 — Federated package

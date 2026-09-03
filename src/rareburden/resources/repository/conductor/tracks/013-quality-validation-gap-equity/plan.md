@@ -32,7 +32,11 @@
 - [ ] Triangulate monogenic-diabetes estimates.
 - [ ] Triangulate bronchiectasis estimates.
 - [ ] Validate paediatric and economic outputs within their permitted scope.
-- [ ] Decompose uncertainty and identify decision-sensitive parameters.
+- [x] Decompose uncertainty and identify decision-sensitive parameters. Evidence:
+  existing independent-product decomposition in `rareburden.uncertainty` and
+  bounded synthetic triangulation in `rareburden.quality.triangulate_synthetic_estimates`,
+  tested by `tests/test_track013_synthetic_triangulation.py`; no empirical
+  validation claim is made.
 
 ## Phase 4 — Owner-operated reproduction and advisory assurance
 

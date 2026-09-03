@@ -50,13 +50,19 @@ design and actual participation requirements below remain open.
 ## Phase 2 — Data contracts
 
 - [ ] Add cost, time, productivity, education and social-burden parameter schemas. `[M-18]`
-- [ ] Define component overlap and missingness rules. `[M-05]`
+- [x] Define component overlap and missingness rules. `[M-05]` Evidence:
+  `schemas/economic-component-prototype.schema.json`, validation invariants in
+  `rareburden.economic_components`, and focused regression tests preserve
+  explicit, missing, uncollected and overlap-uncertain states.
 - [ ] Define survey core, adaptation, translation and remuneration requirements.
 - [ ] Define distributional subgroup and equity outputs.
 
 ## Phase 3 — Reference implementation
 
-- [ ] Implement component calculations and declared-perspective validation.
+- [x] Implement bounded synthetic component calculations and declared-perspective
+  separation. Evidence: `rareburden.economic_components.calculate_synthetic_component_summary`
+  and `tests/test_economic_components.py`; monetary valuation and economic totals
+  remain blocked pending protocol freeze and review.
 - [ ] Add price/currency conversion interfaces with provenance.
 - [ ] Add uncertainty and scenario propagation. `[M-06]`
 - [x] Build a non-binding synthetic cost-ledger example and schema test. Evidence: `examples/ledger/economic-social-synthetic.yml`; perspective, price-year and valuation contracts remain unresolved. 
