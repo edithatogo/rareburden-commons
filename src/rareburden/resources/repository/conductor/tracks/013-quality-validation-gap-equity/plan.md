@@ -32,10 +32,7 @@
 - [ ] Triangulate monogenic-diabetes estimates.
 - [ ] Triangulate bronchiectasis estimates.
 - [ ] Validate paediatric and economic outputs within their permitted scope.
-- [x] Decompose uncertainty and identify decision-sensitive parameters. Evidence:
-  `rareburden.quality.assess_synthetic_sensitivity` produces a bounded
-  one-at-a-time synthetic sensitivity receipt with explicit parameter deltas;
-  it is not an empirical uncertainty interval or policy analysis.
+- [ ] Decompose uncertainty and identify decision-sensitive parameters.
 
 ## Phase 4 — Owner-operated reproduction and advisory assurance
 

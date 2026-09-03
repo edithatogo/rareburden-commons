@@ -42,21 +42,21 @@ design and actual participation requirements below remain open.
 
 ## Phase 1 — Method and governance
 
-- [x] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]` Evidence: `docs/track-005-rbc-p001d-protocol.md`; it remains non-binding.
+- [ ] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]`
 - [ ] Challenge component taxonomy with community/harm perspective agents and owner disposition. `[M-16]`
-- [x] Define currency, price year, PPP, discounting and transfer-payment rules. Evidence: `docs/track-005-rbc-p001d-protocol.md`.
-- [x] Define acceptable-use and burden-framing safeguards. Evidence: `docs/track-005-rbc-p001d-protocol.md`.
+- [ ] Define currency, price year, PPP, discounting and transfer-payment rules.
+- [ ] Define acceptable-use and burden-framing safeguards.
 
 ## Phase 2 — Data contracts
 
 - [ ] Add cost, time, productivity, education and social-burden parameter schemas. `[M-18]`
-- [x] Define component overlap and missingness rules. `[M-05]` Evidence: `schemas/economic-component-prototype.schema.json`, `src/rareburden/economic_components.py` and `docs/track-005-rbc-p001d-protocol.md`.
+- [ ] Define component overlap and missingness rules. `[M-05]`
 - [ ] Define survey core, adaptation, translation and remuneration requirements.
 - [ ] Define distributional subgroup and equity outputs.
 
 ## Phase 3 — Reference implementation
 
-- [x] Implement component calculations and declared-perspective validation. Evidence: `src/rareburden/economic_summary.py` and `tests/test_economic_summary.py`; valuation and contract freeze remain blocked.
+- [ ] Implement component calculations and declared-perspective validation.
 - [ ] Add price/currency conversion interfaces with provenance.
 - [ ] Add uncertainty and scenario propagation. `[M-06]`
 - [x] Build a non-binding synthetic cost-ledger example and schema test. Evidence: `examples/ledger/economic-social-synthetic.yml`; perspective, price-year and valuation contracts remain unresolved. 
