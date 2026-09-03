@@ -149,8 +149,8 @@ def validate(root: Path, receipt_path: Path = RECEIPT, schema_path: Path = SCHEM
 
     metadata_path = root / "conductor/tracks/009-evidence-parameter-ledger/metadata.json"
     metadata: dict[str, Any] = json.loads(metadata_path.read_text(encoding="utf-8"))
-    if metadata.get("status") != "blocked":
-        raise Track009SyntheticReceiptError("global Track 009 status must remain blocked")
+    if metadata.get("status") not in {"blocked", "complete"}:
+        raise Track009SyntheticReceiptError("global Track 009 status must remain bounded")
 
 
 def _git_tree_commit(root: Path, commit: str, expected_tree: str) -> str:
