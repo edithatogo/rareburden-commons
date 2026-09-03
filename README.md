@@ -88,6 +88,10 @@ rules are defined in
 
 ## Release sequence
 
+The latest publicly listed GitHub release is `v0.3.0-rc.2` (prerelease). Later
+roadmap milestones, including v0.5.0, describe repository development targets
+and must not be read as published or stable releases.
+
 | Release | Outcome |
 |---|---|
 | v0.1.0 | Founding strategy, architecture, protocol and source catalogue |

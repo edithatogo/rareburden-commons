@@ -46,7 +46,7 @@ releases:
     reproducibility evidence.
 - version: 0.4.0
   name: Semantic evidence core
-  status: released
+  status: current
   objective: Create the versioned disease hierarchy, mapping layer and evidence/parameter ledger.
   tracks:
   - 008-semantic-backbone
@@ -57,7 +57,7 @@ releases:
   - Schema migrations and version diffs are tested.
 - version: 0.5.0
   name: Public burden engine alpha
-  status: current
+  status: planned
   objective: Implement reproducible burden calculations and validate them through the monogenic-diabetes demonstrator.
   tracks:
   - 010-public-burden-engine
