@@ -1,6 +1,50 @@
 schema_version: 0.1.0
-last_updated: '2026-08-21'
+last_updated: '2026-09-04'
 sources:
+- source_id: aihw-bronchiectasis
+  name: 'Australian Institute of Health and Welfare: Chronic respiratory conditions — Bronchiectasis'
+  custodian: Australian Institute of Health and Welfare
+  domains:
+  - epidemiology
+  - registry
+  - mortality
+  - health_burden
+  access_class: public_web_registration
+  data_level: aggregate
+  geographic_scope: Australia, with selected First Nations breakdowns
+  primary_uses:
+  - empirical context for bronchiectasis hospitalisation and mortality
+  - denominator and coverage-gap assessment
+  - non-binding sensitivity and triangulation planning
+  access_url: https://www.aihw.gov.au/reports/chronic-respiratory-conditions/bronchiectasis
+  access_route: Read the official report and retain only lawful aggregate observations with page, table or figure locators.
+  licence: Verify page-specific copyright, reuse and attribution terms before copying or redistributing observations.
+  redistribution: conditional
+  registration_required: false
+  version_strategy: Pin report title, publication/update date, retrieval timestamp and exact table or figure locator; hash any downloaded public file.
+  limitations:
+  - This is Australian aggregate context, not a global denominator or aetiologic fraction.
+  - Reported hospitalisation and death measures use different definitions and must not be combined without an explicit estimand.
+  - First Nations results require careful governance and interpretation; no person-level data are available here.
+  official_reference: https://www.aihw.gov.au/reports/chronic-respiratory-conditions/bronchiectasis
+  status: candidate
+  last_verified: '2026-09-04'
+  verification:
+    metadata_review:
+      status: preliminary
+      verified_at: '2026-09-04'
+      evidence: Official AIHW report page observed; exact observation extraction, terms and release disposition remain open.
+    acquisition_test:
+      status: blocked
+      verified_at: '2026-09-04'
+      evidence: Aggregate report observations can be located, but no source bytes were retained by this change.
+    terms_review:
+      status: blocked
+      verified_at: '2026-09-04'
+      evidence: Page-specific reuse and redistribution terms require confirmation before retention or publication.
+  geographic_levels:
+  - national
+  maximum_geographic_resolution: national
 - source_id: orphadata-science
   name: Orphadata Science
   custodian: Orphanet / INSERM US14
