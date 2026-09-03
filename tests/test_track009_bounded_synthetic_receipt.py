@@ -45,6 +45,8 @@ def _case_root(tmp_path: Path, receipt: dict) -> Path:
         Path("examples/demonstrators/003-ledger-profile.yml"),
         Path("examples/demonstrators/011-ledger-profile.yml"),
         Path("examples/demonstrators/012-ledger-profile.yml"),
+        Path("uv.lock"),
+        Path("conductor/tracks/009-evidence-parameter-ledger/metadata.json"),
     ):
         target = tmp_path / relative
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -131,3 +133,20 @@ def test_receipt_rejects_ledger_regeneration_drift(tmp_path: Path) -> None:
     ledger_path.write_text(ledger_path.read_text(encoding="utf-8") + "\n", encoding="utf-8")
     with pytest.raises(Track009SyntheticReceiptError):
         validate(root)
+
+
+def test_receipt_rejects_cross_bound_candidate_artifact(tmp_path: Path) -> None:
+    receipt = _receipt()
+    root = _case_root(tmp_path, receipt)
+    receipt["candidate"]["schema"] = receipt["candidate"]["manifest"]
+    receipt["candidate"]["schema_sha256"] = receipt["candidate"]["manifest_sha256"]
+    (root / RECEIPT).write_text(yaml.safe_dump(receipt, sort_keys=False), encoding="utf-8")
+    with pytest.raises(Track009SyntheticReceiptError, match="candidate artifact binding drift"):
+        validate(root)
+
+
+def test_receipt_rejects_deferred_completed_disposition(tmp_path: Path) -> None:
+    receipt = _receipt()
+    receipt["owner_disposition"]["decision"] = "defer_bounded_subcompletion"
+    with pytest.raises(Track009SyntheticReceiptError, match="accepted bounded subcompletion"):
+        validate(_case_root(tmp_path, receipt))

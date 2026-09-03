@@ -31,6 +31,8 @@ candidate:
   schema_sha256: "f58ffd67c9b55d9cffecbc4c050e957e3092ca1bb2c383a54f0a9310d0ad4821"
   profile_role_matrix: "examples/ledger/source-profile-role-structural-synthetic.yml"
   profile_role_matrix_sha256: "6b4098089f7b6f0935d934b0900a455a19d4cfa85d45f598cb9fd6b30e7c7ef0"
+  lockfile: "uv.lock"
+  lockfile_sha256: "2a0b76b88a5ee9be65b3618f1f29dec52d2298acbd4302ffaf1ceb532f7c5ef5"
 review_packet:
   path: "docs/decisions/2026-08-22-track-009-bounded-synthetic-technical-review.yml"
   sha256: "aff4a8ceff651a0c0066f61d58990fad982059e4452a411dbdbca8a7b218c93b"

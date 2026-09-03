@@ -131,12 +131,23 @@ def validate(root: Path, receipt_path: Path = RECEIPT, schema_path: Path = SCHEM
         ("migration_receipt", "migration_sha256"),
         ("schema", "schema_sha256"),
         ("profile_role_matrix", "profile_role_matrix_sha256"),
+        ("lockfile", "lockfile_sha256"),
     ):
         path = _resolve(root, candidate[path_field])
         if _sha256(path) != candidate[hash_field]:
             raise Track009SyntheticReceiptError(f"candidate hash drift: {candidate[path_field]}")
 
     manifest = json.loads(_resolve(root, candidate["manifest"]).read_text(encoding="utf-8"))
+    if (
+        manifest.get("source_commit") != candidate["commit"]
+        or manifest.get("source_tree") != candidate["tree"]
+    ):
+        raise Track009SyntheticReceiptError("candidate manifest source binding drift")
+    if (
+        manifest.get("schema", {}).get("path") != candidate["schema"]
+        or manifest.get("migration_receipt", {}).get("path") != candidate["migration_receipt"]
+    ):
+        raise Track009SyntheticReceiptError("candidate artifact binding drift")
     if (
         manifest.get("candidate_status") != "prepared_synthetic_only_not_frozen"
         or manifest.get("track") != "009-evidence-parameter-ledger"
@@ -158,6 +169,13 @@ def validate(root: Path, receipt_path: Path = RECEIPT, schema_path: Path = SCHEM
     metadata: dict[str, Any] = json.loads(metadata_path.read_text(encoding="utf-8"))
     if metadata.get("status") not in {"blocked", "complete"}:
         raise Track009SyntheticReceiptError("global Track 009 status must remain bounded")
+    if (
+        receipt["status"] == "bounded_synthetic_nonclinical_candidate_complete"
+        and receipt["owner_disposition"]["decision"] != "accept_bounded_subcompletion"
+    ):
+        raise Track009SyntheticReceiptError(
+            "completed receipt requires accepted bounded subcompletion"
+        )
 
 
 def main() -> int:

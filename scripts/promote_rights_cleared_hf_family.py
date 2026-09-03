@@ -13,6 +13,13 @@ from pathlib import Path
 from typing import Any
 
 REQUIRED_CONDITIONS = {"preserve_exact_bytes", "record_source_revision", "record_sha256"}
+REQUIRED_EVIDENCE = {
+    "exact_file_rights_manifest",
+    "immutable_terms_evidence",
+    "owner_disposition",
+    "destination_allowlist",
+    "atomic_destination_receipt",
+}
 
 
 def load_family(path: Path, family_id: str) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -41,15 +48,21 @@ def sha256_file(path: Path) -> str:
 
 
 def promote(manifest: Path, family_id: str, *, max_bytes: int) -> dict[str, Any]:
-    payload = json.loads(manifest.read_text(encoding="utf-8"))
+    payload, family = load_family(manifest, family_id)
     if payload.get("promotion_enabled") is not True:
         raise RuntimeError(
             "raw promotion is quarantined; require an exact-file rights manifest, "
             "owner disposition and atomic destination receipt"
         )
+    evidence = payload.get("promotion_evidence")
+    if not isinstance(evidence, dict) or any(
+        evidence.get(key) is not True for key in REQUIRED_EVIDENCE
+    ):
+        raise RuntimeError(
+            "promotion evidence contract is incomplete; remote promotion remains quarantined"
+        )
     from huggingface_hub import HfApi, hf_hub_download  # type: ignore[import-not-found]
 
-    payload, family = load_family(manifest, family_id)
     if max_bytes < family["expected_bytes"] or max_bytes > 2_000_000_000:
         raise ValueError("family exceeds bounded byte policy")
     token = os.environ.get("HF_TOKEN")
