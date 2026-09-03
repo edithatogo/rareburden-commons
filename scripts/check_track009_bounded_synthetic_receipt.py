@@ -159,6 +159,7 @@ def validate(root: Path, receipt_path: Path = RECEIPT, schema_path: Path = SCHEM
     if metadata.get("status") not in {"blocked", "complete"}:
         raise Track009SyntheticReceiptError("global Track 009 status must remain bounded")
 
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("receipt", type=Path, nargs="?", default=RECEIPT)
