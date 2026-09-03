@@ -1,0 +1,78 @@
+schema_version: 1
+assessment_date: '2026-09-04'
+purpose: >-
+  Evidence receipt for candidate raw/bronze inputs. This manifest contains no
+  source payloads. Raw bytes, when lawful and needed, remain in private
+  governed staging and are promoted only through reproducible transformations.
+medallion_policy:
+  raw_bronze: private_governed_staging_outside_public_git
+  silver: repository_transforms_and_quality_checked_derivatives
+  gold: documented_aggregate_outputs_with_rights_and_use_review
+  public_git_payload_rule: metadata_and_lawfully_redistributable_aggregates_only
+sources:
+  - source_id: mondo-rare
+    release: v2026-09-01
+    official_url: https://mondo.monarchinitiative.org/pages/download/
+    artifact_url: https://github.com/monarch-initiative/mondo/releases/download/v2026-09-01/mondo-rare.owl
+    licence_basis: CC BY 4.0
+    disposition: private_staging_not_in_git
+    retrieval_status: retrieved
+    sha256: 2bb9940cb7b22f4feeffe0e1a9fe7a3c7fd49f1eff8948f599dac9d8188dc434
+    intended_use: rare-disease terminology and crosswalk support
+    next_gate: confirm attribution and any third-party terms before redistribution
+  - source_id: orphadata-epidemiology
+    release: July 2026
+    official_url: https://sciences.orphadata.com/epidemiology/
+    licence_basis: CC BY 4.0
+    disposition: private_staging_not_in_git
+    retrieval_status: evidence_confirmed_file_capture_pending
+    intended_use: rare-disease epidemiology context and uncertainty bounds
+    next_gate: capture the exact release artifact and retain its attribution notice
+  - source_id: aihw-bronchiectasis
+    release: current official web report
+    official_url: https://www.aihw.gov.au/reports/chronic-respiratory-conditions/bronchiectasis
+    licence_basis: artifact-specific reuse terms not yet confirmed
+    disposition: public_web_reference_only
+    retrieval_status: evidence_confirmed
+    intended_use: Australian aggregate hospitalisation, emergency and mortality context
+    next_gate: confirm reuse terms for any downloaded tables or derived publication
+  - source_id: who-global-health-estimates
+    release: 2000-2021 latest release identified
+    official_url: https://www.who.int/data/global-health-estimates/
+    licence_basis: asset-specific terms required
+    disposition: public_web_reference_only
+    retrieval_status: evidence_confirmed
+    intended_use: global comparative context and sensitivity analysis
+    next_gate: identify exact downloadable asset and confirm redistribution terms
+  - source_id: un-world-population-prospects
+    release: 2024, 28th edition
+    official_url: https://population.un.org/wpp/
+    licence_basis: exact download and attribution terms required
+    disposition: public_web_reference_only
+    retrieval_status: evidence_confirmed
+    intended_use: denominator and population-standardisation context
+    next_gate: record exact CSV/Excel/API artifact and its permitted use
+  - source_id: who-mortality-database
+    release: current database release identified 2026-02-23
+    official_url: https://www.who.int/data/data-collection-tools/who-mortality-database
+    licence_basis: country and database-specific terms required
+    disposition: public_web_reference_only
+    retrieval_status: evidence_confirmed
+    intended_use: mortality triangulation where legally and methodologically suitable
+    next_gate: confirm country-level redistribution and permitted derived outputs
+  - source_id: world-bank-data-catalogue
+    release: current catalogue metadata
+    official_url: https://data.worldbank.org/summary-terms-of-use
+    licence_basis: generally CC BY 4.0, subject to dataset metadata and third-party restrictions
+    disposition: public_web_reference_only
+    retrieval_status: evidence_confirmed
+    intended_use: socioeconomic covariates and burden context
+    next_gate: assess each selected dataset before acquisition
+  - source_id: restricted-identifiers-and-controlled-cohorts
+    release: not applicable
+    official_url: null
+    licence_basis: restricted or controlled access
+    disposition: do_not_acquire_or_publish
+    retrieval_status: blocked_by_rights_or_access
+    intended_use: none in public repository
+    next_gate: accountable custodian approval and compliant access pathway
