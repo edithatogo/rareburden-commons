@@ -72,6 +72,50 @@ def triangulate_synthetic_estimates(
     return {"receipt_id": content_id("tri", core), **core}
 
 
+def assess_synthetic_sensitivity(
+    baseline: Mapping[str, Any], scenarios: Sequence[Mapping[str, Any]]
+) -> dict[str, Any]:
+    """Report bounded one-at-a-time synthetic sensitivity without inference.
+
+    Each scenario supplies a non-negative estimate and a changed parameter.
+    The receipt exposes absolute and relative deltas and labels decision
+    sensitivity as an assurance diagnostic, never as an empirical result.
+    """
+    baseline_value = _finite_nonnegative_number(baseline.get("estimate"), "baseline estimate")
+    if not baseline.get("source_id"):
+        raise QualityAssessmentError("baseline source_id is required")
+    rows: list[dict[str, Any]] = []
+    denominator = max(abs(baseline_value), 1e-300)
+    for scenario in scenarios:
+        parameter = scenario.get("parameter")
+        if not isinstance(parameter, str) or not parameter.strip():
+            raise QualityAssessmentError("scenario parameter is required")
+        value = _finite_nonnegative_number(scenario.get("estimate"), "scenario estimate")
+        rows.append(
+            {
+                "scenario_id": str(scenario.get("scenario_id", parameter)),
+                "parameter": parameter,
+                "estimate": value,
+                "absolute_change": abs(value - baseline_value),
+                "relative_change": abs(value - baseline_value) / denominator,
+            }
+        )
+    core = {
+        "schema_version": "1.0.0",
+        "method": "synthetic-one-at-a-time-sensitivity",
+        "intended_use": "synthetic_assurance",
+        "baseline": {"source_id": str(baseline["source_id"]), "estimate": baseline_value},
+        "scenarios": rows,
+        "interpretation": "parameter sensitivity is a debugging signal, not empirical evidence",
+        "limitations": [
+            "All inputs are synthetic or reference fixtures.",
+            "Scenarios are not calibrated uncertainty intervals or policy analysis.",
+            "Decision sensitivity does not establish transportability or validity.",
+        ],
+    }
+    return {"receipt_id": content_id("sens", core), **core}
+
+
 def _finite_nonnegative_number(value: Any, label: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise QualityAssessmentError(f"{label} must be numeric")

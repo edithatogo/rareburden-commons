@@ -1,6 +1,10 @@
 import pytest
 
-from rareburden.quality import QualityAssessmentError, triangulate_synthetic_estimates
+from rareburden.quality import (
+    QualityAssessmentError,
+    assess_synthetic_sensitivity,
+    triangulate_synthetic_estimates,
+)
 
 
 def test_synthetic_triangulation_is_deterministic_and_non_empirical() -> None:
@@ -25,4 +29,21 @@ def test_synthetic_triangulation_bounds_fail_closed(tolerance: object) -> None:
             {"source_id": "primary", "estimate": 1},
             [],
             tolerance=tolerance,  # type: ignore[arg-type]
+        )
+
+
+def test_synthetic_sensitivity_reports_parameter_changes_without_empirical_claims() -> None:
+    result = assess_synthetic_sensitivity(
+        {"source_id": "primary-synthetic", "estimate": 100},
+        [{"scenario_id": "higher-missingness", "parameter": "missingness", "estimate": 120}],
+    )
+    assert result["intended_use"] == "synthetic_assurance"
+    assert result["scenarios"][0]["relative_change"] == 0.2
+    assert "not empirical evidence" in result["interpretation"]
+
+
+def test_synthetic_sensitivity_requires_named_parameters() -> None:
+    with pytest.raises(QualityAssessmentError, match="parameter"):
+        assess_synthetic_sensitivity(
+            {"source_id": "primary", "estimate": 1}, [{"estimate": 2}]
         )
