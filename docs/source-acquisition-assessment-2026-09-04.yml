@@ -16,8 +16,10 @@ sources:
     artifact_url: https://github.com/monarch-initiative/mondo/releases/download/v2026-09-01/mondo-rare.owl
     licence_basis: CC BY 4.0
     disposition: private_staging_not_in_git
-    retrieval_status: retrieved
+    retrieval_status: retrieved_and_published_to_huggingface
     sha256: 2bb9940cb7b22f4feeffe0e1a9fe7a3c7fd49f1eff8948f599dac9d8188dc434
+    public_dataset_url: https://huggingface.co/datasets/edithatogo/rareburden-open-sources
+    public_commit: e2facf6da1c94f4f9a5f8619df0e161b7cae07d7
     intended_use: rare-disease terminology and crosswalk support
     next_gate: confirm attribution and any third-party terms before redistribution
   - source_id: orphadata-epidemiology
