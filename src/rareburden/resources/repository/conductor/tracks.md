@@ -2,7 +2,10 @@
 
 **Stable target:** v1.0.0  
 **Normative machine-readable plan:** [`roadmap.yml`](roadmap.yml)  
-**Current release:** v0.5.0 — Public burden engine alpha
+**Latest public release:** v0.3.0-rc.2 (prerelease; observed on GitHub 2026-09-03)
+
+Roadmap development has advanced beyond the latest public release. v0.5.0 is
+planned/repository-ready work, not a published or stable release.
 
 Track identifiers 003–005 retain the subjects proposed in v0.1. Execution order is governed by dependencies and target releases, not numeric order.
 

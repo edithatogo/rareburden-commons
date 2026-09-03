@@ -25,7 +25,7 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.release_count == 11
     assert summary.track_count == 19
     assert summary.v1_critical_track_count == 18
-    assert summary.current_release == "0.5.0"
+    assert summary.current_release == "0.4.0"
     assert summary.track_status_counts["complete"] == 5
     assert summary.track_status_counts["archived"] == 5
 

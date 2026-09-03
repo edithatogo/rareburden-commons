@@ -5,7 +5,7 @@
   "initialized_on": "2026-07-18",
   "updated_on": "2026-08-31",
   "stable_target": "1.0.0",
-  "current_release": "0.5.0",
+  "current_release": "0.3.0-rc.2",
   "completed_tracks": [
     "001-foundation",
     "002-public-source-acquisition",
