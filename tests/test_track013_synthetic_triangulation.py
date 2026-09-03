@@ -44,6 +44,4 @@ def test_synthetic_sensitivity_reports_parameter_changes_without_empirical_claim
 
 def test_synthetic_sensitivity_requires_named_parameters() -> None:
     with pytest.raises(QualityAssessmentError, match="parameter"):
-        assess_synthetic_sensitivity(
-            {"source_id": "primary", "estimate": 1}, [{"estimate": 2}]
-        )
+        assess_synthetic_sensitivity({"source_id": "primary", "estimate": 1}, [{"estimate": 2}])
