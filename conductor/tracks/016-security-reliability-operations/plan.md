@@ -15,7 +15,7 @@
 
 ## Phase 1 — Threat model and support scope
 
-- [x] Threat-model repository, acquisition, build, node, API and release boundaries. Evidence: `docs/security-operations-016-reference.md`; role-separated agent-panel challenge and owner disposition remain open.
+- [x] Threat-model repository, acquisition, build, node, API and release boundaries. Evidence: `docs/security-operations-016-reference.md`; independent review remains open.
 - [x] Declare supported runtimes and environments. Evidence:
   `docs/supported-environments.md` distinguishes continuously tested Linux
   Python 3.12–3.14 from Python 3.13 cross-platform candidate evidence and

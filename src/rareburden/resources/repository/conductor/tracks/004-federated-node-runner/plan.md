@@ -49,7 +49,7 @@ The track remains Blocked while those original acceptance gates remain open.
 ## Phase 1 — Node contracts and threat model
 
 - [x] Define input, output, execution-manifest and disclosure-policy schemas. `[M-14, M-18]` Evidence: four `schemas/node-*.schema.json` contracts and schema-valid synthetic fixtures.
-- [x] Define trust zones, adversaries, permitted exports and local override rules. `[M-12, M-15]` Evidence: `docs/federated-node-004-threat-model.md`; agent-panel challenge and owner disposition remain open; custodian authority remains separate.
+- [x] Define trust zones, adversaries, permitted exports and local override rules. `[M-12, M-15]` Evidence: `docs/federated-node-004-threat-model.md`; controlled governance approval remains open.
 - [x] Define coordinator/node version negotiation and compatibility policy. Evidence: major-version helper and threat-model boundary; release compatibility policy remains review-gated.
 - [x] Define coordinator/node major-version compatibility and execution-manifest creation. Evidence: `rareburden.node` helpers and tests; full negotiation policy remains review-gated.
 - [ ] Obtain rights/data-use and community/harm agent-panel review and owner disposition; any future controlled-data pilot additionally obeys its actual custodian policy.
@@ -145,7 +145,7 @@ The track remains Blocked while those original acceptance gates remain open.
 ## Phase 5 — Review
 
 - [ ] Conduct methods, privacy, security and engineering agent-panel review and owner disposition.
-- [x] Record residual risks and required local controls. Evidence: `docs/federated-node-004-threat-model.md`; agent-panel challenge and owner disposition remain open.
+- [x] Record residual risks and required local controls. Evidence: `docs/federated-node-004-threat-model.md`; external review remains open.
 - [ ] Release the node alpha only after all blocking findings close.
 
 ## Review fixes — 2026-07-31
