@@ -90,6 +90,77 @@ def reconcile_bronchiectasis_synthetic_profile(
     return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
 
 
+def run_bronchiectasis_synthetic_scenarios(
+    profile: Mapping[str, Any],
+    hierarchy: DiseaseHierarchy,
+    dependency_bindings: Mapping[str, Any],
+    scenarios: list[Mapping[str, Any]],
+    *,
+    created_at: str,
+) -> dict[str, Any]:
+    """Run bounded alternative hierarchy scenarios over the synthetic receipt.
+
+    This deliberately exposes structural uncertainty instead of choosing a
+    cause for multi-aetiology or unclassified observations.  ``transport`` is
+    a declared synthetic multiplier, not an epidemiological transportability
+    claim.  The output is never suitable for clinical interpretation or
+    empirical activation.
+    """
+    base = reconcile_bronchiectasis_synthetic_profile(
+        profile, hierarchy, dependency_bindings, created_at=created_at
+    )
+    if not isinstance(scenarios, list) or not scenarios:
+        raise DemonstratorError("at least one synthetic scenario is required")
+    rows: list[dict[str, Any]] = []
+    for scenario in scenarios:
+        if not isinstance(scenario, Mapping) or not scenario.get("scenario_id"):
+            raise DemonstratorError("each scenario requires a scenario_id")
+        multi_fraction = _bounded_fraction(
+            scenario.get("multi_aetiology_fraction", 0), "multi_aetiology_fraction"
+        )
+        unknown_fraction = _bounded_fraction(
+            scenario.get("unknown_fraction", 0), "unknown_fraction"
+        )
+        transport = _finite_positive(
+            scenario.get("transport_multiplier", 1), "transport_multiplier"
+        )
+        exclusive = float(base["exclusive_composition"]["value"])
+        multi = float(base["multi_aetiology_count"])
+        unknown = float(base["unknown_count"] + base["unaccounted_count"])
+        attributable = (exclusive + multi * multi_fraction + unknown * unknown_fraction) * transport
+        rows.append(
+            {
+                "scenario_id": str(scenario["scenario_id"]),
+                "hierarchy_mode": str(scenario.get("hierarchy_mode", "primary")),
+                "multi_aetiology_fraction": multi_fraction,
+                "unknown_fraction": unknown_fraction,
+                "transport_multiplier": transport,
+                "estimated_attributable_cases": attributable,
+                "limitations": [
+                    "Synthetic scenario output; not an empirical estimate.",
+                    "Allocation fractions are structural assumptions, not observed aetiology.",
+                    "Transport multiplier is not validated for any country, cohort or setting.",
+                ],
+            }
+        )
+    values = [row["estimated_attributable_cases"] for row in rows]
+    core = {
+        "analysis_id": "rbc-p003-bounded-synthetic-scenarios",
+        "created_at": created_at,
+        "base_receipt_id": base["receipt_id"],
+        "hierarchy_id": base["hierarchy_id"],
+        "hierarchy_version": base["hierarchy_version"],
+        "scenario_count": len(rows),
+        "scenarios": rows,
+        "reference_range": {"minimum": min(values), "maximum": max(values)},
+        "activation_state": "synthetic_only",
+        "empirical_activation": False,
+        "clinical_interpretation": False,
+        "contract_frozen": False,
+    }
+    return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
+
+
 def _finite_nonnegative(value: Any, label: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise DemonstratorError(f"{label} must be numeric")
@@ -99,7 +170,25 @@ def _finite_nonnegative(value: Any, label: str) -> float:
     return numeric
 
 
-__all__ = ["DemonstratorError", "reconcile_bronchiectasis_synthetic_profile"]
+def _bounded_fraction(value: Any, label: str) -> float:
+    numeric = _finite_nonnegative(value, label)
+    if numeric > 1:
+        raise DemonstratorError(f"{label} must be between zero and one")
+    return numeric
+
+
+def _finite_positive(value: Any, label: str) -> float:
+    numeric = _finite_nonnegative(value, label)
+    if numeric <= 0:
+        raise DemonstratorError(f"{label} must be greater than zero")
+    return numeric
+
+
+__all__ = [
+    "DemonstratorError",
+    "reconcile_bronchiectasis_synthetic_profile",
+    "run_bronchiectasis_synthetic_scenarios",
+]
 
 
 def reconcile_paediatric_synthetic_linkage(
