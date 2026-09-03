@@ -1,5 +1,13 @@
 schema_version: 1
 assessment_date: '2026-09-04'
+accountable_user_redistribution_authorization:
+  granted_by: edithatogo
+  recorded_date: '2026-09-04'
+  scope: WHO, UN WPP, AIHW, WHO Mortality, and World Bank candidate sources
+  limitation: >-
+    This records project authorization to pursue redistribution; it does not
+    override source-owner terms, third-party rights, confidentiality, or
+    artifact-specific restrictions.
 purpose: >-
   Evidence receipt for candidate raw/bronze inputs. This manifest contains no
   source payloads. Raw bytes, when lawful and needed, remain in private
@@ -37,6 +45,7 @@ sources:
     release: current official web report
     official_url: https://www.aihw.gov.au/reports/chronic-respiratory-conditions/bronchiectasis
     licence_basis: artifact-specific reuse terms not yet confirmed
+    project_redistribution_authorization: recorded
     disposition: public_web_reference_only
     retrieval_status: evidence_confirmed
     intended_use: Australian aggregate hospitalisation, emergency and mortality context
@@ -45,6 +54,7 @@ sources:
     release: 2000-2021 latest release identified
     official_url: https://www.who.int/data/global-health-estimates/
     licence_basis: asset-specific terms required
+    project_redistribution_authorization: recorded
     disposition: public_web_reference_only
     retrieval_status: evidence_confirmed
     intended_use: global comparative context and sensitivity analysis
@@ -53,6 +63,7 @@ sources:
     release: 2024, 28th edition
     official_url: https://population.un.org/wpp/
     licence_basis: exact download and attribution terms required
+    project_redistribution_authorization: recorded
     disposition: public_web_reference_only
     retrieval_status: evidence_confirmed
     intended_use: denominator and population-standardisation context
@@ -60,7 +71,8 @@ sources:
   - source_id: who-mortality-database
     release: current database release identified 2026-02-23
     official_url: https://www.who.int/data/data-collection-tools/who-mortality-database
-    licence_basis: country and database-specific terms required
+    licence_basis: country and database-specific terms required; official page states no commercial-use permission is implied
+    project_redistribution_authorization: recorded
     disposition: public_web_reference_only
     retrieval_status: evidence_confirmed
     intended_use: mortality triangulation where legally and methodologically suitable
@@ -69,6 +81,7 @@ sources:
     release: current catalogue metadata
     official_url: https://data.worldbank.org/summary-terms-of-use
     licence_basis: generally CC BY 4.0, subject to dataset metadata and third-party restrictions
+    project_redistribution_authorization: recorded
     disposition: public_web_reference_only
     retrieval_status: evidence_confirmed
     intended_use: socioeconomic covariates and burden context
