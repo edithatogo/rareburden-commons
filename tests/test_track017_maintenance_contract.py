@@ -2,9 +2,11 @@ from pathlib import Path
 
 
 def test_retained_reference_maintenance_contract_preserves_boundaries() -> None:
-    text = Path(
-        "docs/track-017-retained-reference-maintenance-2026-09-04.md"
-    ).read_text(encoding="utf-8").lower()
+    text = (
+        Path("docs/track-017-retained-reference-maintenance-2026-09-04.md")
+        .read_text(encoding="utf-8")
+        .lower()
+    )
     for phrase in (
         "source of truth",
         "immutable reference",
