@@ -5,7 +5,14 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
+
+# Keep the documented direct-checkout invocation working without requiring an
+# editable install of the package.
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(ROOT / "src"))
 
 from rareburden.roadmap import CHECKBOX_RE
 
