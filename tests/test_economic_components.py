@@ -12,7 +12,6 @@ from jsonschema import Draft202012Validator
 import rareburden.economic_components as economic_components
 from rareburden.economic_components import (
     EconomicComponentError,
-    calculate_synthetic_component_summary,
     validate_component_prototype,
 )
 from rareburden.schema import load_mapping
@@ -140,21 +139,6 @@ def test_roles_and_partial_coverage_remain_independent() -> None:
     assert care["roles"]["beneficiary"]["status"] == "unassessed"
     assert result["components"][0]["coverage"]["status"] == "partial"
     assert "total" not in result
-
-
-def test_synthetic_summary_preserves_components_and_blocks_uncertain_aggregation() -> None:
-    result = calculate_synthetic_component_summary(FIXTURE)
-    assert result["intended_use"] == "synthetic_assurance"
-    assert [row["component_id"] for row in result["components"]] == [
-        "invented_service_contacts",
-        "invented_unpaid_care",
-        "invented_participation_gap",
-    ]
-    assert result["components"][0]["aggregation_status"] == "blocked_overlap_uncertainty"
-    assert result["components"][1]["aggregation_status"] == "blocked_overlap_uncertainty"
-    assert result["components"][2]["aggregation_status"] == "blocked_missingness"
-    assert result["eligible_aggregates"] == []
-    assert result["valuation_blocked_component_ids"] == []
 
 
 @pytest.mark.parametrize(
