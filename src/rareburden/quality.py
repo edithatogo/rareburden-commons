@@ -18,6 +18,69 @@ class QualityAssessmentError(ValueError):
     """Raised when a quality or transportability record is internally incoherent."""
 
 
+def triangulate_synthetic_estimates(
+    primary: Mapping[str, Any],
+    comparators: Sequence[Mapping[str, Any]],
+    *,
+    tolerance: float,
+) -> dict[str, Any]:
+    """Compare invented estimates without treating agreement as validation.
+
+    ``primary`` and each comparator require an ``estimate`` and ``source_id``.
+    The result reports relative differences and labels all comparisons as
+    synthetic assurance; it cannot establish empirical calibration or external
+    validity.
+    """
+    if isinstance(tolerance, bool) or not isinstance(tolerance, (int, float)):
+        raise QualityAssessmentError("tolerance must be numeric")
+    tolerance_value = float(tolerance)
+    if tolerance_value < 0 or tolerance_value >= 1:
+        raise QualityAssessmentError("tolerance must be between zero and one")
+    rows: list[dict[str, Any]] = []
+    primary_value = _finite_nonnegative_number(primary.get("estimate"), "primary estimate")
+    if not primary.get("source_id"):
+        raise QualityAssessmentError("primary source_id is required")
+    for comparator in comparators:
+        if not comparator.get("source_id"):
+            raise QualityAssessmentError("comparator source_id is required")
+        value = _finite_nonnegative_number(comparator.get("estimate"), "comparator estimate")
+        denominator = max(abs(primary_value), 1e-300)
+        relative_difference = abs(value - primary_value) / denominator
+        rows.append(
+            {
+                "source_id": str(comparator["source_id"]),
+                "estimate": value,
+                "absolute_difference": abs(value - primary_value),
+                "relative_difference": relative_difference,
+                "within_declared_tolerance": relative_difference <= tolerance_value,
+            }
+        )
+    core = {
+        "schema_version": "1.0.0",
+        "method": "synthetic-estimate-triangulation",
+        "intended_use": "synthetic_assurance",
+        "primary": {"source_id": str(primary["source_id"]), "estimate": primary_value},
+        "tolerance": tolerance_value,
+        "comparisons": rows,
+        "interpretation": "agreement is a debugging signal, not empirical validation",
+        "limitations": [
+            "All inputs are synthetic or reference fixtures.",
+            "Comparators are not independent human or external validation.",
+            "Tolerance is a declared assurance threshold, not a scientific acceptance limit.",
+        ],
+    }
+    return {"receipt_id": content_id("tri", core), **core}
+
+
+def _finite_nonnegative_number(value: Any, label: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise QualityAssessmentError(f"{label} must be numeric")
+    numeric = float(value)
+    if numeric < 0 or numeric != numeric or numeric in {float("inf"), float("-inf")}:
+        raise QualityAssessmentError(f"{label} must be finite and non-negative")
+    return numeric
+
+
 _RELEASE_MATURITY: dict[str, dict[str, tuple[str, ...]]] = {
     "synthetic_assurance": {
         "allowed_claims": ("demonstrates executable synthetic assurance only",),
@@ -379,6 +442,7 @@ __all__ = [
     "build_quality_disposition",
     "build_transportability_assessment",
     "release_eligibility",
+    "triangulate_synthetic_estimates",
     "validate_evidence_assessment",
     "validate_quality_disposition",
     "validate_transportability_assessment",
