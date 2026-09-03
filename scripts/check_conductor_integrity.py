@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
-from rareburden.roadmap import CHECKBOX_RE
+from rareburden.roadmap import CHECKBOX_RE  # noqa: E402 - direct checkout bootstrap
 
 
 def validate(root: Path) -> None:
