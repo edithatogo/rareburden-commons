@@ -6,6 +6,7 @@ import math
 from collections.abc import Mapping
 from typing import Any
 
+from rareburden.node import NodeExportError, run_offline_node, verify_output_fingerprint
 from rareburden.provenance import content_id
 from rareburden.semantics import DiseaseHierarchy, SemanticValidationError
 
@@ -86,6 +87,66 @@ def reconcile_bronchiectasis_synthetic_profile(
         "clinical_interpretation": False,
         "contract_frozen": False,
         "limitations": list(profile.get("limitations", [])),
+    }
+    return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
+
+
+def run_paediatric_synthetic_end_to_end(
+    fixture: Mapping[str, Any],
+    dependency_bindings: Mapping[str, Any],
+    *,
+    disclosure_threshold: int,
+    created_at: str,
+    execution_id: str = "paediatric-synthetic-exec",
+    coordinator_version: str = "0.1.0",
+    node_version: str = "0.1.1",
+) -> dict[str, Any]:
+    """Bind Track 012 estimands to the Track 004 offline node contract."""
+    estimands = estimate_paediatric_synthetic_estimands(
+        fixture,
+        dependency_bindings,
+        disclosure_threshold=disclosure_threshold,
+        created_at=created_at,
+    )
+    tables = fixture.get("tables")
+    people = tables.get("person") if isinstance(tables, Mapping) else None
+    if not isinstance(people, list):
+        raise DemonstratorError("synthetic people are required for node integration")
+    counts: dict[str, int] = {}
+    for row in people:
+        if not isinstance(row, Mapping) or not row.get("jurisdiction"):
+            raise DemonstratorError("synthetic people require a jurisdiction")
+        group = str(row["jurisdiction"])
+        counts[group] = counts.get(group, 0) + 1
+    try:
+        node_result = run_offline_node(
+            [{"group": group, "count": count} for group, count in sorted(counts.items())],
+            execution_id=execution_id,
+            coordinator_version=coordinator_version,
+            node_version=node_version,
+            analysis_id="rbc-p004-bounded-synthetic-linkage",
+            policy_id="synthetic-aggregate-policy",
+            minimum_cell_count=disclosure_threshold,
+            allowed_dimension_fields=("group",),
+        )
+        verify_output_fingerprint(node_result)
+    except NodeExportError as exc:
+        raise DemonstratorError("Track 004 synthetic node execution failed closed") from exc
+    core = {
+        "analysis_id": "rbc-p004-track004-synthetic-end-to-end",
+        "created_at": created_at,
+        "estimands_receipt_id": estimands["receipt_id"],
+        "node_manifest": node_result["manifest"],
+        "node_rows": node_result["rows"],
+        "synthetic_assurance": True,
+        "activation_state": "synthetic_only",
+        "controlled_data_activation": False,
+        "empirical_interpretation": False,
+        "production_delivery": False,
+        "limitations": [
+            "Track 004 execution is offline and aggregate-only over invented rows.",
+            "The node manifest does not establish custodian authority or empirical validity.",
+        ],
     }
     return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
 
@@ -400,5 +461,6 @@ __all__.extend(
     [
         "estimate_paediatric_synthetic_estimands",
         "reconcile_paediatric_synthetic_linkage",
+        "run_paediatric_synthetic_end_to_end",
     ]
 )

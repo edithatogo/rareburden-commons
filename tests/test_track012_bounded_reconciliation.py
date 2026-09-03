@@ -8,6 +8,7 @@ from rareburden.demonstrators import (
     DemonstratorError,
     estimate_paediatric_synthetic_estimands,
     reconcile_paediatric_synthetic_linkage,
+    run_paediatric_synthetic_end_to_end,
 )
 from rareburden.schema import load_mapping
 
@@ -142,3 +143,23 @@ def test_synthetic_estimands_use_explicit_denominators_and_no_imputation() -> No
     assert estimands["mean_cost_among_observed_people"]["value"] == 500
     assert result["missingness"]["imputation_performed"] is False
     assert result["activation_state"] == "synthetic_only"
+
+
+def test_synthetic_end_to_end_binds_estimands_to_track004_offline_node() -> None:
+    result = run_paediatric_synthetic_end_to_end(
+        FIXTURE, BINDINGS, disclosure_threshold=5, created_at="2026-09-04T00:00:00Z"
+    )
+    assert result["synthetic_assurance"] is True
+    assert result["activation_state"] == "synthetic_only"
+    assert result["node_manifest"]["status"] == "completed"
+    assert result["node_rows"] == [
+        {"count": None, "count_status": "suppressed"},
+        {"count": None, "count_status": "suppressed"},
+    ]
+
+
+def test_synthetic_end_to_end_rejects_weaker_node_threshold() -> None:
+    with pytest.raises(DemonstratorError, match="at least two"):
+        run_paediatric_synthetic_end_to_end(
+            FIXTURE, BINDINGS, disclosure_threshold=1, created_at="2026-09-04T00:00:00Z"
+        )
