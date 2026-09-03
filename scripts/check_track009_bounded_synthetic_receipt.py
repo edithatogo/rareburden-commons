@@ -79,6 +79,13 @@ def _git_tree(root: Path, commit: str) -> str:
         raise Track009SyntheticReceiptError("candidate commit cannot be resolved") from exc
 
 
+def _git_tree_commit(root: Path, commit: str, expected_tree: str) -> str:
+    tree = _git_tree(root, commit)
+    if tree != expected_tree:
+        raise Track009SyntheticReceiptError("candidate commit/tree binding drift")
+    return commit
+
+
 def validate(root: Path, receipt_path: Path = RECEIPT, schema_path: Path = SCHEMA) -> None:
     receipt = validate_document_files(root / receipt_path, root / schema_path)
     candidate = receipt["candidate"]
@@ -151,14 +158,6 @@ def validate(root: Path, receipt_path: Path = RECEIPT, schema_path: Path = SCHEM
     metadata: dict[str, Any] = json.loads(metadata_path.read_text(encoding="utf-8"))
     if metadata.get("status") not in {"blocked", "complete"}:
         raise Track009SyntheticReceiptError("global Track 009 status must remain bounded")
-
-
-def _git_tree_commit(root: Path, commit: str, expected_tree: str) -> str:
-    tree = _git_tree(root, commit)
-    if tree != expected_tree:
-        raise Track009SyntheticReceiptError("candidate commit/tree binding drift")
-    return commit
-
 
 def main() -> int:
     parser = argparse.ArgumentParser()
