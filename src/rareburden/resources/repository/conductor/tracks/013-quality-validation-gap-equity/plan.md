@@ -40,10 +40,22 @@ demonstrator validation and uncertainty decomposition.
 
 ## Phase 3 — Demonstrator validation
 
-- [ ] Triangulate monogenic-diabetes estimates.
-- [ ] Triangulate bronchiectasis estimates.
-- [ ] Validate paediatric and economic outputs within their permitted scope.
-- [ ] Decompose uncertainty and identify decision-sensitive parameters.
+- [x] Triangulate monogenic-diabetes estimates. Evidence:
+  `rareburden.demonstrator_validation.execute_monogenic_diabetes_triangulation`,
+  `results/track-013-reference-2026-09-06/` and
+  `tests/test_demonstrator_validation.py`.
+- [x] Triangulate bronchiectasis estimates. Evidence:
+  `rareburden.demonstrator_validation.execute_bronchiectasis_triangulation`,
+  `results/track-013-reference-2026-09-06/` and
+  `tests/test_demonstrator_validation.py`.
+- [x] Validate paediatric and economic outputs within their permitted scope. Evidence:
+  `rareburden.demonstrator_validation.validate_paediatric_and_economic_scope`,
+  `results/track-013-reference-2026-09-06/` and
+  `tests/test_demonstrator_validation.py`.
+- [x] Decompose uncertainty and identify decision-sensitive parameters. Evidence:
+  `rareburden.demonstrator_validation.decompose_uncertainty_and_sensitivity`,
+  `results/track-013-reference-2026-09-06/` and
+  `tests/test_demonstrator_validation.py`.
 
 ## Phase 4 — Owner-operated reproduction and advisory assurance
 

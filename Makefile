@@ -27,6 +27,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	track-005-bounded-completion-check \
 	track-011-reference-closeout-check \
 	track-012-reference-closeout-check \
+	track-013-reference-closeout-check \
 	track-016-production-release-readiness-check \
 	mutation mutation-score \
 	reproducibility burden-benchmark burden-memory node-bundle-check release-attestation-verify \
@@ -94,6 +95,10 @@ track-011-reference-closeout-check:
 
 track-012-reference-closeout-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track012_reference_closeout.py \
+		--root .
+
+track-013-reference-closeout-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track013_reference_closeout.py \
 		--root .
 
 track-009-source-profile-role-check:

@@ -1,0 +1,321 @@
+{
+  "analysis_id": "track-013-demonstrator-validation",
+  "bronchiectasis_triangulation": {
+    "comparisons": [
+      {
+        "absolute_difference": 42.0,
+        "estimate": 742.0,
+        "relative_difference": 0.06,
+        "source_id": "rbc-p003-proportional-overlap",
+        "within_declared_tolerance": true
+      },
+      {
+        "absolute_difference": 84.0,
+        "estimate": 784.0,
+        "relative_difference": 0.12,
+        "source_id": "rbc-p003-high-overlap-multimorbidity",
+        "within_declared_tolerance": true
+      },
+      {
+        "absolute_difference": 327.3499999999999,
+        "estimate": 1027.35,
+        "relative_difference": 0.467642857142857,
+        "source_id": "rbc-p003-tertiary-referral-transport",
+        "within_declared_tolerance": false
+      },
+      {
+        "absolute_difference": 157.75,
+        "estimate": 542.25,
+        "relative_difference": 0.22535714285714287,
+        "source_id": "rbc-p003-community-ascertainment-transport",
+        "within_declared_tolerance": false
+      },
+      {
+        "absolute_difference": 272.56,
+        "estimate": 427.44,
+        "relative_difference": 0.3893714285714286,
+        "source_id": "rbc-p003-restricted-diagnostic-capacity",
+        "within_declared_tolerance": false
+      }
+    ],
+    "intended_use": "synthetic_assurance",
+    "interpretation": "agreement is a debugging signal, not empirical validation",
+    "limitations": [
+      "All inputs are synthetic or reference fixtures.",
+      "Comparators are not independent human or external validation.",
+      "Tolerance is a declared assurance threshold, not a scientific acceptance limit."
+    ],
+    "method": "synthetic-estimate-triangulation",
+    "primary": {
+      "estimate": 700.0,
+      "source_id": "rbc-p003-primary"
+    },
+    "receipt_id": "tri-5500d9408059d9a1f73955fc",
+    "schema_version": "1.0.0",
+    "tolerance": 0.15
+  },
+  "claims": {
+    "clinical_interpretation": false,
+    "empirical_activation": false,
+    "independent_review": false,
+    "release_authority": false,
+    "scope_synthetic_assurance_only": true
+  },
+  "created_at": "2026-09-06T00:00:00Z",
+  "intended_use": "synthetic_assurance",
+  "limitations": [
+    "All inputs, comparators, and outputs are synthetic reference fixtures.",
+    "Agreement across synthetic scenarios is a software assurance diagnostic.",
+    "Decision sensitivity does not establish empirical validity or policy priority.",
+    "Fail-closed boundaries prohibit empirical or clinical interpretation without lawful activation."
+  ],
+  "monogenic_diabetes_triangulation": {
+    "comparisons": [
+      {
+        "absolute_difference": 1000.0,
+        "estimate": 1000.0,
+        "relative_difference": 0.5,
+        "source_id": "rbc-p002-model_eligibility",
+        "within_declared_tolerance": false
+      },
+      {
+        "absolute_difference": 480.2480248024799,
+        "estimate": 2480.24802480248,
+        "relative_difference": 0.24012401240123996,
+        "source_id": "rbc-p002-age_stratified",
+        "within_declared_tolerance": false
+      },
+      {
+        "absolute_difference": 0.0,
+        "estimate": 2000.0,
+        "relative_difference": 0.0,
+        "source_id": "rbc-p002-carrier_penetrance",
+        "within_declared_tolerance": true
+      }
+    ],
+    "intended_use": "synthetic_assurance",
+    "interpretation": "agreement is a debugging signal, not empirical validation",
+    "limitations": [
+      "All inputs are synthetic or reference fixtures.",
+      "Comparators are not independent human or external validation.",
+      "Tolerance is a declared assurance threshold, not a scientific acceptance limit."
+    ],
+    "method": "synthetic-estimate-triangulation",
+    "primary": {
+      "estimate": 2000.0,
+      "source_id": "rbc-p002-primary"
+    },
+    "receipt_id": "tri-f18e1d7df58fb8d10d900e04",
+    "schema_version": "1.0.0",
+    "tolerance": 0.15
+  },
+  "paediatric_and_economic_validation": {
+    "economic_validation": {
+      "component_count": 3,
+      "contract_status": "experimental_unfrozen",
+      "economic_use_status": "blocked",
+      "prototype_id": "invented_component_first_demo",
+      "synthetic_only": true
+    },
+    "intended_use": "synthetic_assurance",
+    "limitations": [
+      "Paediatric validation confirms linked-data software invariants on synthetic fixtures.",
+      "Economic components define structural cost interfaces, not empirical health expenditure."
+    ],
+    "overall_scope_verified": true,
+    "paediatric_validation": {
+      "claims_empirical_disabled": true,
+      "deduplicated_people": 2,
+      "disclosure_threshold_suppression": true,
+      "multimorbidity_retained": true,
+      "person_conservation_verified": true,
+      "total_person_records": 2
+    },
+    "receipt_id": "peval-e92c43c8633d9adefb78de83",
+    "schema_version": "1.0.0"
+  },
+  "pipeline_version": "0.3.0rc2",
+  "protocol_id": "RBC-Q001",
+  "receipt_id": "t013val-ac5c07ea08942e70fbe69cc9",
+  "schema_version": "1.0.0",
+  "uncertainty_decomposition": {
+    "decision_sensitive_parameters": [
+      "prevalence_per_100k",
+      "cost_multiplier",
+      "diagnostic_yield"
+    ],
+    "intended_use": "synthetic_assurance",
+    "interpretation": "Prevalence and diagnostic yield drive the largest relative change; this is an assurance diagnostic, not empirical policy prioritisation.",
+    "maximum_relative_changes": {
+      "cost_multiplier": 0.6667,
+      "diagnostic_yield": 0.5,
+      "missingness_fraction": 0.1667,
+      "prevalence_per_100k": 1.5
+    },
+    "receipt_id": "uncdecomp-6beceab2bf69070f60c90bbc",
+    "schema_version": "1.0.0",
+    "sensitivity_run": {
+      "baseline_parameters": {
+        "cost_multiplier": 1.5,
+        "diagnostic_yield": 0.4,
+        "missingness_fraction": 0.1,
+        "prevalence_per_100k": 2.0
+      },
+      "comparison": {
+        "baseline": {
+          "estimate": 1080.0000000000002,
+          "source_id": "rbc-synthetic-burden-model"
+        },
+        "intended_use": "synthetic_assurance",
+        "interpretation": "parameter sensitivity is a debugging signal, not empirical evidence",
+        "limitations": [
+          "All inputs are synthetic or reference fixtures.",
+          "Scenarios are not calibrated uncertainty intervals or policy analysis.",
+          "Decision sensitivity does not establish transportability or validity."
+        ],
+        "method": "synthetic-one-at-a-time-sensitivity",
+        "receipt_id": "sens-56c6804a4945db6c861a076c",
+        "scenarios": [
+          {
+            "absolute_change": 540.0000000000001,
+            "estimate": 540.0000000000001,
+            "parameter": "prevalence_per_100k",
+            "relative_change": 0.5,
+            "scenario_id": "scenario-0"
+          },
+          {
+            "absolute_change": 540.0,
+            "estimate": 1620.0000000000002,
+            "parameter": "prevalence_per_100k",
+            "relative_change": 0.4999999999999999,
+            "scenario_id": "scenario-1"
+          },
+          {
+            "absolute_change": 1619.9999999999998,
+            "estimate": 2700.0,
+            "parameter": "prevalence_per_100k",
+            "relative_change": 1.4999999999999996,
+            "scenario_id": "scenario-2"
+          },
+          {
+            "absolute_change": 540.0000000000001,
+            "estimate": 540.0000000000001,
+            "parameter": "diagnostic_yield",
+            "relative_change": 0.5,
+            "scenario_id": "scenario-3"
+          },
+          {
+            "absolute_change": 539.9999999999995,
+            "estimate": 1619.9999999999998,
+            "parameter": "diagnostic_yield",
+            "relative_change": 0.4999999999999995,
+            "scenario_id": "scenario-4"
+          },
+          {
+            "absolute_change": 360.0000000000001,
+            "estimate": 720.0000000000001,
+            "parameter": "cost_multiplier",
+            "relative_change": 0.33333333333333337,
+            "scenario_id": "scenario-5"
+          },
+          {
+            "absolute_change": 360.0,
+            "estimate": 1440.0000000000002,
+            "parameter": "cost_multiplier",
+            "relative_change": 0.33333333333333326,
+            "scenario_id": "scenario-6"
+          },
+          {
+            "absolute_change": 719.9999999999998,
+            "estimate": 1800.0,
+            "parameter": "cost_multiplier",
+            "relative_change": 0.6666666666666663,
+            "scenario_id": "scenario-7"
+          },
+          {
+            "absolute_change": 60.0,
+            "estimate": 1140.0000000000002,
+            "parameter": "missingness_fraction",
+            "relative_change": 0.055555555555555546,
+            "scenario_id": "scenario-8"
+          },
+          {
+            "absolute_change": 180.0000000000001,
+            "estimate": 900.0000000000001,
+            "parameter": "missingness_fraction",
+            "relative_change": 0.16666666666666674,
+            "scenario_id": "scenario-9"
+          }
+        ],
+        "schema_version": "1.0.0"
+      },
+      "intended_use": "synthetic_assurance",
+      "method": "executed-synthetic-model-sensitivity",
+      "model_id": "rbc-synthetic-burden-model",
+      "receipt_id": "sensrun-d2f5a89a5eb3a1711129d7b4",
+      "relative_change_policy": "null for zero baseline or floating-point overflow",
+      "scenario_parameters": [
+        {
+          "cost_multiplier": 1.5,
+          "diagnostic_yield": 0.4,
+          "missingness_fraction": 0.1,
+          "prevalence_per_100k": 1.0
+        },
+        {
+          "cost_multiplier": 1.5,
+          "diagnostic_yield": 0.4,
+          "missingness_fraction": 0.1,
+          "prevalence_per_100k": 3.0
+        },
+        {
+          "cost_multiplier": 1.5,
+          "diagnostic_yield": 0.4,
+          "missingness_fraction": 0.1,
+          "prevalence_per_100k": 5.0
+        },
+        {
+          "cost_multiplier": 1.5,
+          "diagnostic_yield": 0.2,
+          "missingness_fraction": 0.1,
+          "prevalence_per_100k": 2.0
+        },
+        {
+          "cost_multiplier": 1.5,
+          "diagnostic_yield": 0.6,
+          "missingness_fraction": 0.1,
+          "prevalence_per_100k": 2.0
+        },
+        {
+          "cost_multiplier": 1.0,
+          "diagnostic_yield": 0.4,
+          "missingness_fraction": 0.1,
+          "prevalence_per_100k": 2.0
+        },
+        {
+          "cost_multiplier": 2.0,
+          "diagnostic_yield": 0.4,
+          "missingness_fraction": 0.1,
+          "prevalence_per_100k": 2.0
+        },
+        {
+          "cost_multiplier": 2.5,
+          "diagnostic_yield": 0.4,
+          "missingness_fraction": 0.1,
+          "prevalence_per_100k": 2.0
+        },
+        {
+          "cost_multiplier": 1.5,
+          "diagnostic_yield": 0.4,
+          "missingness_fraction": 0.05,
+          "prevalence_per_100k": 2.0
+        },
+        {
+          "cost_multiplier": 1.5,
+          "diagnostic_yield": 0.4,
+          "missingness_fraction": 0.25,
+          "prevalence_per_100k": 2.0
+        }
+      ]
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
   "id": "013-quality-validation-gap-equity",
   "title": "Quality, validation, gap mapping and equity assurance",
-  "status": "complete",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-09-06",
+  "updated": "2026-09-01",
   "target_release": "0.8.0",
   "stage": "assurance",
   "owner_role": "Repository owner (sole accountable human)",

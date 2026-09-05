@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "status": "executed_and_separately_reproduced_synthetic_reference",
+  "track_id": "013-quality-validation-gap-equity",
+  "decision": {
+    "path": "docs/decisions/2026-09-06-track-013-owner-reference-disposition.yml"
+  },
+  "output_directory": "results/track-013-reference-2026-09-06",
+  "observed_completed_at_utc": "2026-09-06T00:00:00Z",
+  "execution_environment": {
+    "python": "3.13",
+    "dependency_setup": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--extra",
+      "dev",
+      "--python",
+      "3.13"
+    ],
+    "runtime_check": "Candidate-local environment, Python 3.13 and offline frozen dependencies verified before execution",
+    "same_host": true,
+    "independent_review": false
+  },
+  "runs": [
+    {
+      "role": "primary",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "2aace21cbd4c2e9d8357a74600157cc6843ceb5362ea5753ddcd4e69909ada82",
+          "reference-results.json": "1801244977de245cea84551cd3fbe00c71f3bce5c6fd58d1a5bcbd9784afc36a",
+          "reference-tables.csv": "b2eb035fccb2d617fdfbcfffdf9da135d660e39e76dbdb7bbb88e68909486ca8"
+        }
+      }
+    },
+    {
+      "role": "separate_reproduction",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "2aace21cbd4c2e9d8357a74600157cc6843ceb5362ea5753ddcd4e69909ada82",
+          "reference-results.json": "1801244977de245cea84551cd3fbe00c71f3bce5c6fd58d1a5bcbd9784afc36a",
+          "reference-tables.csv": "b2eb035fccb2d617fdfbcfffdf9da135d660e39e76dbdb7bbb88e68909486ca8"
+        }
+      }
+    }
+  ]
+}
