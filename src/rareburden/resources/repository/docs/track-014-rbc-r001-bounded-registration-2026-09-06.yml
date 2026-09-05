@@ -1,0 +1,44 @@
+schema_version: "1.0.0"
+track: "014-atlas-api-release"
+protocol_id: "RBC-R001"
+protocol_version: "0.2.0-bounded"
+status: "internally_registered_bounded_synthetic_interface"
+registered_on: "2026-09-06"
+registered_by: "edithatogo"
+scope: >-
+  Synthetic atlas release candidate packaging, static projection, read-only API shape,
+  and accessibility consistency verification under Track 014 (RBC-R001). Demonstrator outputs
+  and reviewed artifacts from Tracks 008 through 013 are projected into immutable static
+  products and aggregate data packages. No hosted network API, public website, or unreviewed
+  source activation is permitted.
+bindings:
+  track013_results:
+    path: "results/track-013-reference-2026-09-06/reference-results.json"
+    sha256: "1801244977de245cea84551cd3fbe00c71f3bce5c6fd58d1a5bcbd9784afc36a"
+  data_sources_catalog:
+    path: "catalog/data_sources.yml"
+    sha256: "db83cf0472e38c92a94a9ea5505e60d9f4859a16ceb26a5c10a4db296996ca6c"
+  gap_map_needs:
+    path: "examples/config/gap-map-needs.yml"
+    sha256: "c5aeae27632617f650b8686e0fc2ae9fceb28a9b6c43e7428e21ec8fbca1933c"
+registered_projections:
+  - projection_type: "static_product_set"
+    scope: "country XAA and synthetic demonstrator"
+    product_count: 3
+    accessibility_contract: "repository_accessibility_contract_valid"
+  - projection_type: "aggregate_gap_package"
+    policy: "preserve_missing_not_zero"
+    aggregate_only: true
+  - projection_type: "read_only_api_shape"
+    policy: "read_only_shape_no_network_service"
+claims:
+  synthetic_projection_executable: true
+  real_source_activation: false
+  accessibility_approved: false
+  independent_reproduction: false
+  release_authority_approval: false
+  public_release: false
+  stable_release: false
+next_gate: >-
+  Complete role-separated advisory panel evaluation and owner disposition under ADR-0009
+  for bounded synthetic atlas reference release candidate closeout.

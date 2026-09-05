@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+track_id: "014-atlas-api-release"
+decision_type: "bounded_atlas_reference_disposition"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+decided_on: "2026-09-06"
+governance_framework: "ADR-0009 role-separated advisory panel with sole accountable human disposition"
+selected_option: "A"
+authorization:
+  track_complete: true
+  scope: "bounded demonstrator atlas packaging and read-only API contracts; no public service release"
+  status_label: "Complete (bounded synthetic release candidate; unpublished)"
+  closeout_document: "docs/track-014-reference-closeout-2026-09-06.md"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_synthetic_assurance_only: true
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  release_authority: false
+panel_review_packet:
+  path: "docs/reviews/track-014-reference-output-panel-2026-09-06.yml"
+  result: "pass_all_lanes"
+rationale: >-
+  Track 014 has successfully delivered the demonstrator atlas release candidate packaging engine,
+  static product projection across Country XAA and demonstrator scenarios, read-only API shapes,
+  aggregate gap package generation under missing-not-zero semantics, and repository accessibility
+  contract validation. The simulated advisory panel unanimously passed all four lanes. Under ADR-0009,
+  the repository owner selects Option A to close Track 014 as Complete (bounded synthetic release candidate;
+  unpublished), unblocking the downstream Security, Reliability and Operations track (Track 016).

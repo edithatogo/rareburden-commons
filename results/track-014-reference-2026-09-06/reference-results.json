@@ -1,0 +1,42 @@
+{
+  "api_row_count": 6,
+  "claims": {
+    "accessibility_approved": false,
+    "independent_reproduction": false,
+    "public_release": false,
+    "real_source_activation": false,
+    "release_authority_approval": false,
+    "stable_release": false,
+    "synthetic_projection_executable": true
+  },
+  "consistency_validation": {
+    "human_conformance_assessed": false,
+    "missingness_policy": "preserve_missing_not_zero",
+    "package_fingerprint": "atlas-0abbf61383107298ba0aaf39",
+    "product_count": 3,
+    "real_user_testing_observed": false,
+    "status": "repository_accessibility_contract_valid"
+  },
+  "created_at": "2026-09-06T00:00:00Z",
+  "gap_map_summary": {
+    "missingness_policy": "preserve_missing_not_zero",
+    "total_domains": 6
+  },
+  "intended_use": "synthetic_assurance",
+  "limitations": [
+    "All atlas projections are synthetic reference artefacts for software assurance.",
+    "Static and API projections use user-assigned country codes (XAA-XZZ) only.",
+    "No hosted network API or public website is activated by this release candidate.",
+    "Release claims enforce fail-closed boundaries under ADR-0005 and ADR-0009."
+  ],
+  "package_fingerprint": "atlas-0abbf61383107298ba0aaf39",
+  "pipeline_version": "0.3.0rc2",
+  "product_count": 3,
+  "product_set_fingerprint": "atlas-product-set-d147e671e1829cc8f7db3a9d",
+  "protocol_id": "RBC-R001",
+  "receipt_id": "t014atlas-234403c87b5f40b05be4ef6a",
+  "release_id": "track-014-reference-v0.8-beta",
+  "release_surface_fingerprint": "atlas-release-f6478ac8e590ced54b8afd2f",
+  "schema_version": "1.0.0",
+  "status_fingerprint": "atlas-status-5dd6adf18f89a108ea6cf831"
+}

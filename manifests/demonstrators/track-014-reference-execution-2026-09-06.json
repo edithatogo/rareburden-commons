@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "status": "executed_and_separately_reproduced_synthetic_reference",
+  "track_id": "014-atlas-api-release",
+  "decision": {
+    "path": "docs/decisions/2026-09-06-track-014-owner-reference-disposition.yml"
+  },
+  "output_directory": "results/track-014-reference-2026-09-06",
+  "observed_completed_at_utc": "2026-09-06T00:00:00Z",
+  "execution_environment": {
+    "python": "3.13",
+    "dependency_setup": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--extra",
+      "dev",
+      "--python",
+      "3.13"
+    ],
+    "runtime_check": "Candidate-local environment, Python 3.13 and offline frozen dependencies verified before execution",
+    "same_host": true,
+    "independent_review": false
+  },
+  "runs": [
+    {
+      "role": "primary",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "d378fada43f9cfb289ead9e3490f849d47009814f520b73b9b03366ad553a197",
+          "reference-results.json": "756e98484ad8bc81b4346df7987dc878931d9755335e39857fa802adeaaccf31",
+          "reference-tables.csv": "495703787a4f22811325defabbadb5fe58d9ce675baba8f135df57eef54e3e3c"
+        }
+      }
+    },
+    {
+      "role": "separate_reproduction",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "d378fada43f9cfb289ead9e3490f849d47009814f520b73b9b03366ad553a197",
+          "reference-results.json": "756e98484ad8bc81b4346df7987dc878931d9755335e39857fa802adeaaccf31",
+          "reference-tables.csv": "495703787a4f22811325defabbadb5fe58d9ce675baba8f135df57eef54e3e3c"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+schema_version: "1.0.0"
+track_id: "014-atlas-api-release"
+panel_assurance: simulated_role_separated_advisory_panel
+status: actual_output_review_passed
+closeout_review:
+  result: pass_all_lanes
+  document: docs/track-014-reference-closeout-2026-09-06.md
+  recommendation: >-
+    Apply recorded Option A after full local checks; accept bounded demonstrator
+    atlas release candidate, static product projection, read-only API shape,
+    and accessibility contract verification.
+  continuity_note: >-
+    This is repository-owned advisory review under ADR-0009. Reproduction is owner-operated,
+    not independent. Empirical calibration, patient/community endorsement, and public release
+    authority remain separate.
+output_sha256:
+  reference-report.md: "d378fada43f9cfb289ead9e3490f849d47009814f520b73b9b03366ad553a197"
+  reference-results.json: "756e98484ad8bc81b4346df7987dc878931d9755335e39857fa802adeaaccf31"
+  reference-tables.csv: "495703787a4f22811325defabbadb5fe58d9ce675baba8f135df57eef54e3e3c"
+lanes:
+  - perspective: release_and_packaging_assurance
+    agent: packaging_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Synthetic atlas release candidate packages static products, read-only API shape, and aggregate gap packages deterministically."
+      - "Static projections adhere strictly to read-only semantics; no network service or dynamic API is executed."
+      - "Artifact bindings from upstream demonstrators (Tracks 003, 005, 011, 012, 013) are accurately reflected."
+  - perspective: accessibility_and_contrast_assurance
+    agent: accessibility_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Static contrast ratios and keyboard-navigation structural contracts meet design specifications."
+      - "Preserves missing-not-zero policy across aggregate gap packages without distorting nullness."
+      - "Software assurance validates accessibility contracts without claiming external WCAG certification."
+  - perspective: engineering_and_reproducibility
+    agent: engineering_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Release candidate builder runs deterministically and produces exact content-addressed receipt."
+      - "Results package contains exactly three regular files with byte-identical reproducibility."
+      - "All schema checks, fail-closed suppression, and version contracts are strictly enforced."
+  - perspective: simulated_community_and_equity
+    agent: community_harm_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Atlas reporting makes data boundaries, uncertainties, and synthetic conditioning prominent."
+      - "Data gaps and missingness remain un-imputed to prevent false precision for underserved groups."
+      - "No representative claims are made without lawful community leadership."
+options:
+  - id: A
+    disposition: accept
+    rationale: "Retain exact reviewed synthetic outputs and close Track 014 with bounded release candidate status."
+    trade_offs: ["Provides reproducible atlas packaging and read-only API contract assurance without live public release."]
+    contingencies: ["All local checks must pass and owner disposition recorded."]
+  - id: B
+    disposition: defer
+    rationale: "Defer completion until live network deployment and external accessibility certification."
+    trade_offs: ["Blocks downstream operations and operational reliability track (Track 016) indefinitely."]

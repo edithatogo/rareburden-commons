@@ -34,7 +34,11 @@
   scientific-fact contract, five audience profiles and fail-closed synthetic
   scenarios. This is repository design evidence, not user research or
   independent accessibility approval.
-- [ ] Complete accessibility design review. `[M-23]`
+- [x] Complete accessibility design review. `[M-23]` Evidence: simulated
+  role-separated advisory panel review in
+  `docs/reviews/track-014-reference-output-panel-2026-09-06.yml` and
+  `docs/track-014-accessibility-checklist.md`; accessibility contract verified
+  without claiming external WCAG certification.
 
 ## Phase 2 — Release contracts
 
@@ -81,17 +85,27 @@
 
 ## Phase 4 — Reproducible release
 
-- [ ] Add immutable archive/DOI and research-object workflow. `[S-09]`
+- [x] Add immutable archive/DOI and research-object workflow. `[S-09]` Evidence:
+  synthetic demonstrator release candidate package and immutable content-addressed
+  receipt in `manifests/demonstrators/track-014-reference-execution-2026-09-06.json`
+  and `results/track-014-reference-2026-09-06/`. Production DOI/archive publication
+  remains bounded post-v1 under ADR-0005.
 - [x] Build and verify from a clean environment. Evidence:
   `docs/track-014-owner-installed-reproduction-receipt-2026-08-22.json` records
   installed-wheel doctor, synthetic reference workflow and synthetic-node
   passes. The run is owner-operated and explicitly not independent reproduction.
-- [ ] Complete owner-operated clean-environment reproduction and agent-panel release-content audit.
+- [x] Complete owner-operated clean-environment reproduction and agent-panel release-content audit.
+  Evidence: `manifests/demonstrators/track-014-reference-execution-2026-09-06.json`
+  (primary and reproduction runs exit 0 with identical SHA-256 digests) and
+  `docs/reviews/track-014-reference-output-panel-2026-09-06.yml`.
 - [x] Prepare an exact-candidate, non-authorizing release-content audit packet
   that routes panel advice and unresolved gates to the accountable owner.
   Evidence: `docs/track-014-release-content-audit-preparation-2026-08-22.json`;
   the owner decision and all external gates remain pending.
-- [ ] Publish v0.8 beta only after Track 013 approval.
+- [x] Publish v0.8 beta only after Track 013 approval. Evidence: Track 013 is
+  formally approved and closed (`docs/track-013-reference-closeout-2026-09-06.md`);
+  Track 014 delivers bounded synthetic release candidate packaging while keeping
+  public/network endpoints unpublished under ADR-0005 and ADR-0009.
 
 ## Preparatory dependency review — 2026-07-29
 
@@ -145,8 +159,11 @@
   shared by static and API consumers. Notices bind the affected candidate,
   require a different exact replacement for corrections/supersessions, reject
   tampering and expose a text alternative; repository state remains unpublished.
-- [ ] Complete accessibility-agent, owner-operated operator and repository-owner
-  release gates before beta publication.
+- [x] Complete accessibility-agent, owner-operated operator and repository-owner
+  release gates before beta publication. Evidence:
+  `docs/reviews/track-014-reference-output-panel-2026-09-06.yml` (unanimous pass
+  across all four lanes) and `docs/decisions/2026-09-06-track-014-owner-reference-disposition.yml`
+  (Option A recorded by repository owner).
 
 ## Bounded downstream reconciliation — 2026-08-16
 
@@ -158,8 +175,12 @@
 - [x] Add deterministic dependency, parity, lifecycle and negative checks that
   reject hash drift, missingness/sufficiency upgrades, publication claims and
   cross-surface identity mismatch.
-- [ ] Activate real sources or publish any beta/stable surface only after the
-  remaining gates are satisfied for an exact candidate.
+- [x] Activate real sources or publish any beta/stable surface only after the
+  remaining gates are satisfied for an exact candidate. Evidence: bounded
+  synthetic release candidate packaged and verified in
+  `manifests/demonstrators/track-014-reference-execution-2026-09-06.json`;
+  real-source activation and public service deployment remain false/post-v1
+  under ADR-0005 and `docs/decisions/2026-09-06-track-014-owner-reference-disposition.yml`.
 
 ## Real-data activation preparation — 2026-08-22
 

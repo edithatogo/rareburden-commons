@@ -1,0 +1,6 @@
+component,identifier,metric,value,state
+surface,package,fingerprint,atlas-0abbf61383107298ba0aaf39,bound
+surface,release_candidate,fingerprint,atlas-release-f6478ac8e590ced54b8afd2f,prepared
+surface,status,fingerprint,atlas-status-5dd6adf18f89a108ea6cf831,active
+surface,product_set,fingerprint,atlas-product-set-d147e671e1829cc8f7db3a9d,verified
+consistency,accessibility_contract,product_count,3,consistent
