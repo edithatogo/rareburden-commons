@@ -1,0 +1,37 @@
+schema_version: "1.0.0"
+decision_id: "source-rights-quarantine-2026-08-22"
+status: "owner_operated_bounded_disposition"
+decided_by: "edithatogo"
+decided_at_utc: "2026-08-22T00:00:00Z"
+simulation_status: "simulated_role_separated_advisory_panel"
+scope: "new_raw_source_promotion_and_private_huggingface_retention_routes"
+decision: "quarantine_new_raw_promotion"
+recommendation_basis:
+  - "Rights panel recommends retaining the public/private split and auditing private objects at exact file level."
+  - "Engineering panel found the current uploader is not fail-closed for per-file rights, terms, owner disposition, atomic publication or destination receipt binding."
+  - "Methods panel found that rights status does not establish empirical estimand fitness or clinical validity."
+controls:
+  new_raw_promotion: false
+  private_repository_visibility_flip: false
+  deletion_or_quota_cleanup: false
+  empirical_activation: false
+  source_rights_authorization: false
+  independent_review: false
+  community_participation: false
+required_future_evidence:
+  - "Exact file-level path, release, size and SHA-256 manifest."
+  - "Immutable terms, attribution, notice and third-party-rights evidence hashes."
+  - "Fixed source and destination repository allowlists."
+  - "Hash-bound owner disposition and atomic pre-publication manifest commit."
+  - "Destination commit capture, anonymous verification and rollback/takedown route."
+  - "Separate retention, transformation, redistribution and analytical-use dispositions."
+source_boundaries:
+  - "HPO exact ontology-core allowlist does not extend to the HPO family, annotations, mappings, translations or merged imports."
+  - "WHO, ICD, UMLS, SNOMED, OMIM, MedDRA, PanelApp and controlled-environment sources remain blocked for raw promotion."
+  - "22/22 refers only to declared catalogue/matrix identifier parity, not global source completeness."
+next_safe_work:
+  - "Produce an object-level private-retention audit classified affirmative_private_cloud_basis, local_only, metadata_only, prohibited or unknown."
+  - "Harden and mutation-test the uploader before any new raw bytes are promoted."
+limitations:
+  - "This is repository-owner disposition, not licensor, custodian, legal, independent or community approval."
+  - "Historical receipts and archive observations are preserved and are not rewritten into current permission."
