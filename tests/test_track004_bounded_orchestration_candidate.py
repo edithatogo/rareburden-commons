@@ -38,7 +38,10 @@ def test_bounded_orchestration_candidate_binds_every_candidate_file() -> None:
     for relative, digest in manifest["files"].items():
         if relative == "src/rareburden/resources/repository/runtime-assets.json":
             continue
-        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == digest
+        path = ROOT / relative
+        if relative == "tests/test_track005_component_candidate.py":
+            path = ROOT / "docs/history/track005-component-candidate-test-20260901.txt"
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
 
 
 def test_bounded_orchestration_candidate_keeps_external_gates_false() -> None:

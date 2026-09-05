@@ -1,5 +1,16 @@
 # Track 013 plan
 
+## Current synthetic sensitivity implementation — 2026-09-05
+
+- [x] Execute baseline and one-parameter-at-a-time model scenarios with
+  `rareburden.quality.run_synthetic_model_sensitivity`; retain parameters and
+  calculated estimates in the receipt. Relative changes are null for a zero
+  baseline or floating-point overflow. Regression evidence:
+  `tests/test_track013_synthetic_triangulation.py`.
+
+This implements synthetic diagnostics. Phase 3 retains the broader tasks for
+demonstrator validation and uncertainty decomposition.
+
 ## Hosted review evidence repair — 2026-09-01
 
 - [x] Retain the current receipt-specific advisory challenge, exact evidence

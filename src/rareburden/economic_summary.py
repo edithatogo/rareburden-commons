@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import math
 from typing import Any
 
@@ -19,7 +20,7 @@ def calculate_synthetic_component_summary(document: dict[str, Any]) -> dict[str,
     """
     candidate = validate_component_prototype(document)
     rows: list[dict[str, Any]] = []
-    groups: dict[tuple[str, str, str], list[float]] = {}
+    groups: dict[str, list[float]] = {}
     blocked: list[str] = []
     for component in candidate["components"]:
         quantity = component["quantity"]
@@ -37,11 +38,16 @@ def calculate_synthetic_component_summary(document: dict[str, Any]) -> dict[str,
         if quantity["kind"] == "monetary_shaped":
             blocked.append(component_id)
         elif status in {"explicit_value", "explicit_zero"}:
-            key = (
-                component["perspective"]["label"],
-                quantity["unit"],
-                quantity["denominator_basis"],
-            )
+            context = {
+                "perspective": component["perspective"],
+                "population": component["population"],
+                "geography": component["geography"],
+                "observation_period": component["observation_period"],
+                "kind": quantity["kind"],
+                "unit": quantity["unit"],
+                "denominator_basis": quantity["denominator_basis"],
+            }
+            key = json.dumps(context, sort_keys=True, separators=(",", ":"))
             if component["overlap"]["assessment_status"] == "assessed_no_overlap":
                 groups.setdefault(key, []).append(float(quantity["value"]))
                 row["aggregation_status"] = "eligible"
@@ -52,9 +58,7 @@ def calculate_synthetic_component_summary(document: dict[str, Any]) -> dict[str,
         rows.append(row)
     aggregates = [
         {
-            "perspective": key[0],
-            "unit": key[1],
-            "denominator_basis": key[2],
+            **json.loads(key),
             "value": math.fsum(values),
             "component_count": len(values),
         }

@@ -78,14 +78,19 @@ sources:
     intended_use: mortality triangulation where legally and methodologically suitable
     next_gate: confirm country-level redistribution and permitted derived outputs
   - source_id: world-bank-data-catalogue
-    release: current catalogue metadata
+    release: WDI SP.POP.TOTL API snapshot, updated 2026-07-13, retrieved 2026-09-05
     official_url: https://data.worldbank.org/summary-terms-of-use
     licence_basis: generally CC BY 4.0, subject to dataset metadata and third-party restrictions
     project_redistribution_authorization: recorded
-    disposition: public_web_reference_only
-    retrieval_status: evidence_confirmed
+    disposition: public_huggingface_raw_snapshot
+    retrieval_status: published_and_public_readback_sha256_verified
+    public_commit: 2ba3efd488674cff5ee0adcd23e1aea373baee4c
+    public_dataset_url: https://huggingface.co/datasets/edithatogo/rareburden-open-sources
+    artifact_path: data/world-bank/2026-09-05/world-bank-population.json
+    sha256: 5e545a02dccc88d8ce35e10bdf64f7f7f485615794568dd7f0d1011a4f5b9448
+    records: 17490
     intended_use: socioeconomic covariates and burden context
-    next_gate: assess each selected dataset before acquisition
+    next_gate: other World Bank indicators remain unacquired
   - source_id: restricted-identifiers-and-controlled-cohorts
     release: not applicable
     official_url: null
