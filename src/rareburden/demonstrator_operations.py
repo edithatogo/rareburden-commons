@@ -47,16 +47,19 @@ def execute_operations_reference_analysis(root: Path) -> dict[str, Any]:
             "system.benchmark.elapsed_seconds",
             0.23,
             labels={"workload": "synthetic-burden"},
+            recorded_at="2026-09-05T15:27:44.096913Z",
         ),
         build_metric(
             "system.memory.peak_bytes",
             9607604,
             labels={"profile": "tracemalloc"},
+            recorded_at="2026-09-05T15:27:44.097420Z",
         ),
         build_metric(
             "system.package.wheel_bytes",
             2131005,
             labels={"artifact": "wheel"},
+            recorded_at="2026-09-05T15:27:44.097427Z",
         ),
     ]
 
@@ -122,7 +125,11 @@ def generate_operations_reference_package(root: Path, output_dir: Path) -> dict[
     ]
 
     csv_buffer = io.StringIO()
-    writer = csv.DictWriter(csv_buffer, fieldnames=["metric_key", "budget", "observed", "status"])
+    writer = csv.DictWriter(
+        csv_buffer,
+        fieldnames=["metric_key", "budget", "observed", "status"],
+        lineterminator="\n",
+    )
     writer.writeheader()
     for row in rows:
         writer.writerow(row)
