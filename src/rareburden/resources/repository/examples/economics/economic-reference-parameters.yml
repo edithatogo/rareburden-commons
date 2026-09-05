@@ -1,0 +1,52 @@
+schema_version: "1.0.0"
+parameter_id: "synthetic_specialist_consults"
+category: "direct_medical"
+perspective: "health_system"
+roles:
+  payer:
+    status: "declared"
+    entity_label: "Statutory Health Insurance / Public System"
+  bearer:
+    status: "declared"
+    entity_label: "Specialist Ambulatory Clinics"
+  recipient:
+    status: "declared"
+    entity_label: "Clinical Workforce"
+  time_provider:
+    status: "not_applicable"
+    entity_label: "N/A"
+  beneficiary:
+    status: "declared"
+    entity_label: "Rare Disease Patient Cohort"
+population:
+  id: "rare_disease_synthetic_cohort"
+  label: "Rare disease synthetic reference population"
+geography:
+  id: "aus"
+  label: "Australia"
+observation_period:
+  start: "2024-01-01"
+  end: "2024-12-31"
+quantity:
+  kind: "resource_count"
+  unit: "consultations"
+  denominator_basis: "person_year"
+  measurement_status: "explicit_value"
+  value: 4.0
+valuation:
+  status: "valued"
+  is_transfer: false
+  currency: "AUD"
+  price_year: 2024
+  unit_value: 280.0
+  total_monetary_value: 1120.0
+  rate_source: "Medicare Benefits Schedule synthetic benchmark 2024"
+  discount_rate: 0.0
+  discount_convention: "undiscounted"
+overlap:
+  assessment_status: "assessed_no_overlap"
+  overlapping_parameter_ids: []
+  rationale: "Discrete ambulatory specialist appointments separate from inpatient admissions."
+missingness:
+  status: "complete"
+  rationale: "Complete synthetic reference scenario parameter."

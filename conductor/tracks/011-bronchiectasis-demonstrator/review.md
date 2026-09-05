@@ -62,3 +62,18 @@ visibility and panel preparation are covered by the checked-in fixtures,
 receipt and tests listed in the plan. Empirical aetiologic fractions, clinical
 interpretation, transportability claims, independent comparison and activation
 remain gated pending evidence and accountable review.
+
+### Bounded reference demonstrator closeout — 2026-09-05
+
+The simulated role-separated advisory panel (respiratory clinical, scientific methods,
+engineering/security/rights, and simulated community harm) evaluated the executed
+reference demonstrator results package (`results/track-011-reference-2026-09-05/`),
+reproducibility receipts, evidence qualification, and outcome ledger.
+All four lanes passed with zero blocking findings (`docs/reviews/track-011-reference-output-panel-2026-09-05.yml`).
+
+Under ADR-0009, the repository owner recorded the Option A disposition
+(`docs/decisions/2026-09-05-track-011-owner-reference-disposition.yml`) authorizing
+track completion. Track 011 is now **Complete (synthetic reference; no empirical validation)**.
+Independent cohort comparison is formally adjudicated through documented non-comparability
+with tertiary referral series. Empirical activation, clinical interpretation, and release
+authority remain strictly false.

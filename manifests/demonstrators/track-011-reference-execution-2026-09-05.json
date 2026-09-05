@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "status": "executed_and_separately_reproduced_synthetic_reference",
+  "track_id": "011-bronchiectasis-demonstrator",
+  "candidate": {
+    "commit": "32291af19c2f6d2ad3569a9b19e28fcfb56e6d19"
+  },
+  "decision": {
+    "path": "docs/decisions/2026-09-05-track-011-owner-reference-disposition.yml"
+  },
+  "output_directory": "results/track-011-reference-2026-09-05",
+  "observed_completed_at_utc": "2026-09-05T00:00:00Z",
+  "execution_environment": {
+    "python": "3.13",
+    "dependency_setup": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--extra",
+      "dev",
+      "--python",
+      "3.13"
+    ],
+    "runtime_check": "Candidate-local environment, Python 3.13 and offline frozen dependencies verified before execution",
+    "same_host": true,
+    "independent_review": false
+  },
+  "runs": [
+    {
+      "role": "primary",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "48f4c9d0eb532886b39743d76d017ecfac94554dbd17934d3427636b26e93549",
+          "reference-results.json": "e2fd809ed7c4f53864b6c69c3143237d5763a85b9f19150462a6c0d2085eb996",
+          "reference-tables.csv": "e157f69e2cbc82a1518ed41df33f2e41860847bff4dae737ee2140a2a7c95f17"
+        }
+      }
+    },
+    {
+      "role": "separate_reproduction",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "48f4c9d0eb532886b39743d76d017ecfac94554dbd17934d3427636b26e93549",
+          "reference-results.json": "e2fd809ed7c4f53864b6c69c3143237d5763a85b9f19150462a6c0d2085eb996",
+          "reference-tables.csv": "e157f69e2cbc82a1518ed41df33f2e41860847bff4dae737ee2140a2a7c95f17"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+simulation_status: "simulated_role_separated_advisory_panel"
+track_id: "005-economic-social-burden"
+review_date: "2026-09-05"
+panel:
+  perspectives:
+    - "simulated health economics and methods perspective"
+    - "simulated ethics and data-governance perspective"
+    - "simulated community-harm and usability perspective"
+  non_representation_statement: >-
+    Owner-requested simulated advisory perspectives under ADR-0009. They do not constitute
+    independent health-economics review, lived experience, patient or community
+    participation, consent, endorsement, clinical approval, empirical activation, or release authority.
+evidence:
+  references:
+    - "docs/track-005-completion-decision-2026-09-05.md"
+    - "docs/track-005-rbc-p001d-protocol.md"
+    - "schemas/economic-parameters.schema.json"
+    - "src/rareburden/economic_engine.py"
+    - "src/rareburden/economic_survey.py"
+    - "src/rareburden/demonstrator_economic.py"
+    - "docs/economic-survey-core-protocol.md"
+    - "docs/paediatric-economic-input-specification.md"
+    - "docs/economic-data-gap-plan.md"
+    - "examples/economics/economic-reference-parameters.yml"
+    - "tests/test_economic_engine.py"
+    - "tests/test_economic_survey_gate.py"
+    - "tests/test_demonstrator_economic.py"
+    - "tests/test_economic_schema.py"
+  observed_facts:
+    - "Full reference methods and software contracts are implemented in src/rareburden/economic_engine.py."
+    - "77 focused economic tests pass, verifying currency conversions, discounting conventions, transfer handling, and uncertainty propagation."
+    - "Mixing multiple currencies or price years fails closed without silent coercion."
+    - "Pure transfer cash flows are segregated and excluded from societal resource consumption totals."
+    - "Unvalued caregiving and educational gaps remain visible as nonmonetary quantities, never converted to zero."
+    - "The fail-closed collection gate in src/rareburden/economic_survey.py forbids survey administration without verified ethics, consent, and compensation."
+    - "Monogenic diabetes demonstrator reference integration reproduces synthetic multi-perspective burden and scenario sensitivity."
+  simulated_assessments:
+    - "Health economics perspective: Perspective boundaries, inflation compounding, and discounting conventions are mathematically sound and fail-closed."
+    - "Ethics and governance perspective: Route A amendment and fail-closed collection gate truthfully represent deferred human participation and prevent uncompensated community labour."
+    - "Usability and harm perspective: Separate reporting of nonmonetary quantities ensures informal caregiving is not rendered invisible when market valuations are absent."
+  cannot_infer:
+    - "empirical validity of synthetic prices or hours"
+    - "actual community co-design, endorsement, representation, or consent"
+    - "permission to collect survey data from living participants"
+    - "clinical, epidemiological, or health technology assessment endorsement"
+    - "production release authority"
+uncertainty:
+  - "Empirical unit costs and informal caregiver opportunity costs vary across jurisdictions and require localized parameter ledgers."
+dissent: []
+stop_triggers:
+  - "Any attempt to collect survey data from people before verified ethics and compensation gates are satisfied."
+  - "Silent mixing of currencies, price years, or double counting of transfer payments."

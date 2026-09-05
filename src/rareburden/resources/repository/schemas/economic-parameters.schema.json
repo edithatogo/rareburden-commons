@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden.org/schemas/economic-parameters.schema.json",
+  "title": "Typed Economic and Social Burden Parameter Contract",
+  "description": "Validated schema for rare disease economic parameters, perspective declarations, and valuation rules.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "parameter_id",
+    "category",
+    "perspective",
+    "roles",
+    "population",
+    "geography",
+    "observation_period",
+    "quantity",
+    "valuation",
+    "overlap",
+    "missingness"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "parameter_id": {"$ref": "#/$defs/identifier"},
+    "category": {
+      "enum": [
+        "direct_medical",
+        "direct_non_medical",
+        "formal_social_care",
+        "caregiver_time",
+        "productivity_loss",
+        "education_impact",
+        "social_participation"
+      ]
+    },
+    "perspective": {
+      "enum": ["health_system", "household", "societal"]
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["payer", "bearer", "recipient", "time_provider", "beneficiary"],
+      "properties": {
+        "payer": {"$ref": "#/$defs/roleDeclaration"},
+        "bearer": {"$ref": "#/$defs/roleDeclaration"},
+        "recipient": {"$ref": "#/$defs/roleDeclaration"},
+        "time_provider": {"$ref": "#/$defs/roleDeclaration"},
+        "beneficiary": {"$ref": "#/$defs/roleDeclaration"}
+      }
+    },
+    "population": {"$ref": "#/$defs/labelledContext"},
+    "geography": {"$ref": "#/$defs/labelledContext"},
+    "observation_period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end"],
+      "properties": {
+        "start": {"type": "string", "format": "date"},
+        "end": {"type": "string", "format": "date"}
+      }
+    },
+    "quantity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "unit", "denominator_basis", "measurement_status"],
+      "properties": {
+        "kind": {
+          "enum": ["resource_count", "time_hours", "participation_days", "monetary_expenditure", "other_nonmonetary"]
+        },
+        "unit": {"type": "string", "minLength": 1, "maxLength": 100},
+        "denominator_basis": {"type": "string", "minLength": 1, "maxLength": 100},
+        "measurement_status": {
+          "enum": ["explicit_value", "explicit_zero", "missing", "not_collected", "unassessed", "not_applicable"]
+        },
+        "value": {"type": "number"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"measurement_status": {"enum": ["explicit_value", "explicit_zero"]}}},
+          "then": {"required": ["value"]},
+          "else": {"not": {"required": ["value"]}}
+        }
+      ]
+    },
+    "valuation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "is_transfer"],
+      "properties": {
+        "status": {"enum": ["valued", "unvalued", "not_applicable"]},
+        "is_transfer": {"type": "boolean"},
+        "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+        "price_year": {"type": "integer", "minimum": 1990, "maximum": 2050},
+        "unit_value": {"type": "number", "minimum": 0},
+        "total_monetary_value": {"type": "number"},
+        "rate_source": {"type": "string", "minLength": 3, "maxLength": 255},
+        "discount_rate": {"type": "number", "minimum": 0, "maximum": 0.3},
+        "discount_convention": {
+          "enum": ["end_of_period", "beginning_of_period", "continuous", "undiscounted"]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "valued"}}},
+          "then": {
+            "required": ["currency", "price_year", "rate_source", "total_monetary_value"]
+          }
+        }
+      ]
+    },
+    "overlap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment_status", "overlapping_parameter_ids", "rationale"],
+      "properties": {
+        "assessment_status": {
+          "enum": ["assessed_no_overlap", "possible_overlap", "unassessed", "not_applicable"]
+        },
+        "overlapping_parameter_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/identifier"}
+        },
+        "rationale": {"type": "string", "minLength": 3, "maxLength": 500}
+      }
+    },
+    "missingness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "rationale"],
+      "properties": {
+        "status": {
+          "enum": ["complete", "missing", "not_collected", "unassessed", "not_applicable"]
+        },
+        "rationale": {"type": "string", "minLength": 3, "maxLength": 500}
+      }
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+    },
+    "labelledContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "maxLength": 64},
+        "label": {"type": "string", "minLength": 1, "maxLength": 200}
+      }
+    },
+    "roleDeclaration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "entity_label"],
+      "properties": {
+        "status": {"enum": ["declared", "unassessed", "not_applicable"]},
+        "entity_label": {"type": "string", "minLength": 1, "maxLength": 200}
+      }
+    }
+  }
+}

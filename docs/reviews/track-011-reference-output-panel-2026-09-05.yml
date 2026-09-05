@@ -1,0 +1,65 @@
+schema_version: "1.0.0"
+track_id: "011-bronchiectasis-demonstrator"
+panel_assurance: simulated_role_separated_advisory_panel
+status: actual_output_review_passed
+closeout_review:
+  result: pass_all_lanes
+  document: docs/track-011-reference-closeout-2026-09-05.md
+  engineering_focused_tests_passed: 5
+  recommendation: >-
+    Apply recorded Option A after full local and hosted checks; accept bounded synthetic
+    demonstrator outputs, conservation verification, and non-comparability assessment.
+  continuity_note: >-
+    This is repository-owned advisory review under ADR-0009. Reproduction is owner-operated,
+    not independent. Actual clinical, patient/community, and custodian authority remain separate.
+candidate_commit: "32291af19c2f6d2ad3569a9b19e28fcfb56e6d19"
+output_sha256:
+  reference-report.md: "48f4c9d0eb532886b39743d76d017ecfac94554dbd17934d3427636b26e93549"
+  reference-results.json: "e2fd809ed7c4f53864b6c69c3143237d5763a85b9f19150462a6c0d2085eb996"
+  reference-tables.csv: "e157f69e2cbc82a1518ed41df33f2e41860847bff4dae737ee2140a2a7c95f17"
+lanes:
+  - perspective: respiratory_clinical
+    agent: clinical_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Rare-aetiology categories (CF, PCD, immunodeficiency, ABPA, CTD) aligned with ERS/BTS guidelines."
+      - "Conservation of mutually exclusive subgroups verified (exclusive sum = 700 of 1000)."
+      - "Multi-aetiology overlap (80 cases) preserved in dedicated non-summable structural bucket."
+      - "Substantial idiopathic fraction (150 cases) and unaccounted remainder (70 cases) explicitly retained."
+      - "Diagnostic delay and service-use scenarios accurately labelled as hypothetical models."
+  - perspective: scientific_methods
+    agent: methods_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Six discrete scenarios evaluate structural sensitivity across overlap and transport dimensions."
+      - "Attributable cases reference range (420.0 to 985.5) reflects structural uncertainty."
+      - "Independent cohort comparison task appropriately satisfied by formal non-comparability assessment."
+      - "No illicit extrapolation from tertiary referral cohorts to general community populations."
+  - perspective: engineering_security_rights
+    agent: engineering_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Results package contains exactly three regular files with matching SHA-256 digests."
+      - "Two separate deterministic runs produced byte-identical results and content IDs."
+      - "Fail-closed gates reject activation claims, missing context, and overallocated compositions."
+  - perspective: simulated_community_harm
+    agent: community_harm_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Report and CSV explicitly communicate synthetic status, conditioning, and uncertainty."
+      - "Non-stigmatizing respiratory language used throughout."
+      - "Diagnostic odyssey and delays acknowledged without claiming clinical representation or patient consent."
+options:
+  - id: A
+    disposition: accept
+    rationale: "Retain exact reviewed synthetic outputs and close Track 011 with bounded synthetic status."
+    trade_offs: ["Provides reproducible reference demonstrator without empirical or external-validity claims."]
+    contingencies: ["All local checks must pass and owner disposition recorded."]
+  - id: B
+    disposition: defer
+    rationale: "Defer completion until real registry data is licensed and funded."
+    trade_offs: ["Blocks downstream tracks 012 and 013 indefinitely."]

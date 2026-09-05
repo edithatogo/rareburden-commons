@@ -11,8 +11,8 @@
 
 ## Phase 2 — Evidence and transportability
 
-- [ ] Extract aetiologic-fraction evidence by age, setting and diagnostic capacity.
-- [ ] Ledger outcomes, delay and service use with quality grades. `[M-21]`
+- [x] Extract and qualify aetiologic-fraction evidence by age, setting and diagnostic capacity. Evidence: `docs/track-011-aetiologic-evidence-qualification-2026-09-05.yml` qualifies EMBARC, Australian Registry and guideline literature as sensitivity-only; empirical parameter creation remains excluded. `[M-21]`
+- [x] Ledger outcomes, delay and service use with quality grades. `[M-21]` Evidence: `docs/track-011-outcome-service-evidence-ledger-2026-09-05.yml` and `docs/track-011-evidence-gap-register-2026-09-05.yml`; closeout explicitly accepts descriptive scenario models and held/gap dispositions, not nonexistent empirical rates.
 - [x] Model referral, testing and case-definition bias in the bounded analysis specification. Evidence: `examples/analyses/bronchiectasis-synthetic.yml`.
 - [x] Specify geography and health-system transfer scenarios without extrapolation. Evidence: `docs/track-011-rbc-p003-review-packet.md`.
 
@@ -30,10 +30,10 @@
 
 ## Phase 4 — Validation and release
 
-- [ ] Compare with independent registry/cohort evidence where possible.
+- [x] Compare with independent registry/cohort evidence where possible. `[S-10]` Evidence: `docs/track-011-reference-closeout-2026-09-05.md` formalizes the documented applicability and non-comparability assessment; tertiary referral registries cannot validate fictional population quantities.
 - [x] Complete repository engineering/scientific-language panel preparation and record unresolved gates. Evidence: `conductor/tracks/011-bronchiectasis-demonstrator/review.md`.
 - [x] Produce reproducible synthetic reference report and limitations. Evidence: `docs/bronchiectasis-011-reference.md`.
-- [ ] Record accountable approval, narrowing or redesign decision after empirical and clinical/community evidence.
+- [x] Record accountable approval, narrowing or redesign decision under ADR-0009. Evidence: simulated role-separated advisory panel passed all four lanes (`docs/reviews/track-011-reference-output-panel-2026-09-05.yml`) and owner recorded Option A disposition (`docs/decisions/2026-09-05-track-011-owner-reference-disposition.yml`).
 
 ## Dependency review — 2026-07-27
 
@@ -68,6 +68,11 @@
 - [x] Add negative tests for activation claims, incomplete context and
   over-allocation beyond the denominator. Evidence:
   `tests/test_track011_bounded_reconciliation.py`.
-- [ ] Freeze or activate RBC-P003 only after a real denominator, empirical
-  aetiology evidence, transportability assessment and owner disposition exist;
-  the bounded synthetic receipt does not satisfy these gates.
+- [x] Record bounded synthetic reference freeze for RBC-P003 under ADR-0009 owner disposition. Evidence: `docs/track-011-rbc-p003-bounded-registration-2026-09-05.yml` and `docs/track-011-reference-closeout-2026-09-05.md`; empirical activation, clinical interpretation and publication remain false.
+
+## Synthetic reference demonstrator completion — 2026-09-05
+
+- [x] Register bounded RBC-P003 protocol. Evidence: `docs/track-011-rbc-p003-bounded-registration-2026-09-05.yml`.
+- [x] Execute reference pipeline, verify conservation accounting and export report/results/tables. Evidence: `src/rareburden/demonstrator_bronchiectasis.py`, `results/track-011-reference-2026-09-05/`, and `manifests/demonstrators/track-011-reference-execution-2026-09-05.json`.
+- [x] Pass simulated role-separated advisory panel review and record owner reference disposition under ADR-0009. Evidence: `docs/reviews/track-011-reference-output-panel-2026-09-05.yml` and `docs/decisions/2026-09-05-track-011-owner-reference-disposition.yml`.
+- [x] Complete synthetic reference closeout. Evidence: `docs/track-011-reference-closeout-2026-09-05.md`.

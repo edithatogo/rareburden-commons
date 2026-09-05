@@ -1,0 +1,22 @@
+{
+  "id": "005-economic-social-burden",
+  "title": "Patient, family, economic and social burden module",
+  "status": "blocked",
+  "priority": "must",
+  "created": "2026-07-19",
+  "updated": "2026-09-01",
+  "target_release": "0.7.0",
+  "stage": "economic_social_methods",
+  "owner_role": "Repository owner (sole accountable human)",
+  "dependencies": [
+    "009-evidence-parameter-ledger",
+    "010-public-burden-engine"
+  ],
+  "review_gates": [
+    "scientific",
+    "patient_community",
+    "data_governance",
+    "engineering"
+  ],
+  "v1_critical": true
+}

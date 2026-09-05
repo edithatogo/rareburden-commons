@@ -23,7 +23,7 @@ Create transparent, perspective-specific methods and data contracts for health-s
 2. Analyses cannot mix perspectives, currencies or price years silently.
 3. Caregiver time and productivity assumptions are explicit and sensitivity-tested.
 4. Transfer payments are handled according to the declared perspective.
-5. Survey items are co-designed and do not impose uncompensated data labour on communities.
+5. Survey items have a documented co-design, adaptation, accessibility and compensation protocol plus an executable fail-closed collection gate deferring uncompensated or unapproved data collection.
 6. Distributional results expose who bears costs and benefits.
 7. Synthetic examples reproduce and pass unit/contract tests.
 8. Published economic results state whether they are observed, imputed, transferred or scenario-based.
