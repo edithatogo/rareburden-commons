@@ -1,0 +1,52 @@
+schema_version: "1.0.0"
+track: "012-paediatric-burden-demonstrator"
+protocol_id: "RBC-P004"
+protocol_version: "0.2.0-bounded"
+status: "internally_registered_bounded_synthetic_interface"
+registered_on: "2026-09-06"
+registered_by: "edithatogo"
+scope: >-
+  Synthetic protocol and interface assurance only for collective paediatric rare-disease
+  burden demonstrator. Bounded linked-data model over synthetic person, diagnosis, admission,
+  death and cost tables with deduplication and multimorbidity rules. No empirical parameter
+  is activated or clinical inference claimed by this registration.
+bindings:
+  synthetic_linked_fixture:
+    path: "examples/paediatric/linked-data-synthetic.yml"
+    sha256: "121a6ae098987ecfe6be91a0a6f1de830c0954b298befe4a7eea2e1a1bdfa6ad"
+  dependency_bindings:
+    path: "docs/track-012-dependency-bindings-2026-08-16.yml"
+    sha256: "bc36846c76dca95ac08be45f464381a1a0ec1bbeba0a99cdf8b148496b22f030"
+  synthetic_receipt:
+    path: "manifests/demonstrators/track-012-bounded-synthetic-receipt-2026-08-16.json"
+    sha256: "28419e2bc1c7b3a926c1f14713ce46d31bc1a136b26554745b896d892f62379f"
+registered_estimands:
+  primary:
+    estimand_id: "E-RBC-P004-DEDUPLICATED-PERSON-BURDEN"
+    unit: "deduplicated_people"
+    description: "Person-level collective rare disease burden without double-counting"
+  utilisation:
+    estimand_id: "E-RBC-P004-ADMISSION-UTILISATION-RATE"
+    unit: "admissions_per_person"
+    description: "Hospital admission rate per deduplicated person"
+  mortality:
+    estimand_id: "E-RBC-P004-KNOWN-DEATH-PROPORTION"
+    unit: "proportion_observed_deaths"
+    description: "Observed known deaths proportion among linked population"
+  costs:
+    estimand_id: "E-RBC-P004-MEAN-ANNUAL-COST-PER-PERSON"
+    unit: "currency_units_per_observed_person"
+    description: "Mean health-system cost per observed person across admissions"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_reference_demonstrator_only: true
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  release_authority: false
+next_gate: >-
+  Complete role-separated advisory panel evaluation and owner disposition under ADR-0009
+  for bounded synthetic reference demonstrator closeout.

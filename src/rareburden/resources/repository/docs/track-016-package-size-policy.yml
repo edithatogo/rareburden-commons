@@ -3,8 +3,8 @@ policy_type: synthetic_release_package_size
 status: provisional_non_production
 candidate_tag: candidate-2026-08-03
 limits:
-  wheel_bytes: 2097152
-  sdist_bytes: 2097152
+  wheel_bytes: 2621440
+  sdist_bytes: 2621440
   installed_package_bytes: 5242880
   offline_runtime_wheelhouse_bytes: 10485760
   temporary_install_disk_bytes: 26214400

@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+artifact_id: "RBC-P004-OUTCOME-SERVICE-LEDGER-2026-09-06"
+track: "012-paediatric-burden-demonstrator"
+protocol_id: "RBC-P004"
+status: "bounded_outcome_and_service_ledger"
+created_on: "2026-09-06"
+authority_boundaries:
+  empirical_activation: false
+  causal_treatment_attribution: false
+  production_cost_claim: false
+  clinical_recommendation: false
+ledger_dimensions:
+  - dimension_id: "DIM-PAED-INPATIENT-ADMISSION"
+    label: "Paediatric inpatient hospital admissions (general ward and PICU/NICU)"
+    unit: "admissions_per_person_year"
+    service_categories:
+      - "Acute exacerbations and emergency admissions"
+      - "Planned diagnostic admissions and surgery"
+      - "Intensive care unit (PICU) bed days"
+    demonstrator_disposition: "synthetic_linked_estimand"
+    rationale: >-
+      Inpatient admissions represent the principal direct cost driver in paediatric rare diseases.
+      Modelled on deduplicated person-level synthetic linkage without double-counting.
+
+  - dimension_id: "DIM-PAED-MULTIMORBIDITY"
+    label: "Multimorbidity attribution across distinct rare disease ICD-10 codes"
+    unit: "distinct_diagnoses_per_person"
+    demonstrator_disposition: "synthetic_deduplication_rule"
+    rationale: >-
+      Enforces that children with multiple rare disease diagnoses are counted once in collective
+      burden totals while recording co-occurring condition complexity.
+
+  - dimension_id: "DIM-PAED-OUTPATIENT-SERVICE"
+    label: "Specialist multidisciplinary outpatient clinic attendances"
+    unit: "consultations_per_person_year"
+    service_categories:
+      - "Clinical genetics consultations"
+      - "Paediatric subspecialist clinics (neurology, metabolic, respiratory, cardiology)"
+      - "Allied health and developmental therapies"
+    demonstrator_disposition: "scenario_quantity_only"
+    rationale: >-
+      Outpatient care captures the substantial chronic coordination burden incurred by families.
+
+  - dimension_id: "DIM-PAED-ECONOMIC-COST"
+    label: "Health-system direct cost per paediatric patient"
+    unit: "currency_units_per_person_year"
+    demonstrator_disposition: "perspective_valuation_linkage"
+    rationale: >-
+      Linked to Track 005 economic valuation engine (health system perspective) using non-imputed
+      synthetic cost observations.
+summary:
+  ledgered_dimensions_count: 4
+  empirical_activation_state: "inactive"
+  structural_scenario_readiness: "complete"

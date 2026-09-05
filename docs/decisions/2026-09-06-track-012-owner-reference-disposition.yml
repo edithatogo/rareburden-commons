@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+track_id: "012-paediatric-burden-demonstrator"
+decision_type: "bounded_demonstrator_reference_disposition"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+decided_on: "2026-09-06"
+governance_framework: "ADR-0009 role-separated advisory panel with sole accountable human disposition"
+selected_option: "A"
+authorization:
+  track_complete: true
+  scope: "bounded synthetic reference demonstrator; no empirical validation"
+  status_label: "Complete (synthetic reference; no empirical validation)"
+  closeout_document: "docs/track-012-reference-closeout-2026-09-06.md"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_reference_demonstrator_only: true
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  release_authority: false
+panel_review_packet:
+  path: "docs/reviews/track-012-reference-output-panel-2026-09-06.yml"
+  result: "pass_all_lanes"
+rationale: >-
+  Track 012 has successfully delivered the complete reference demonstrator software engine,
+  deterministic scenario evaluation, person-level deduplication, multimorbidity accounting,
+  Track 004 offline node integration, outcome/service ledgering, gap register, and reproducible
+  results package. The simulated advisory panel unanimously passed all four lanes. Under ADR-0009,
+  the repository owner selects Option A to close Track 012 as Complete (synthetic reference;
+  no empirical validation), satisfying the prerequisite for downstream quality validation (Track 013).

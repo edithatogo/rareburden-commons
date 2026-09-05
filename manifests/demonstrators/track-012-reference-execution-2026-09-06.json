@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "status": "executed_and_separately_reproduced_synthetic_reference",
+  "track_id": "012-paediatric-burden-demonstrator",
+  "decision": {
+    "path": "docs/decisions/2026-09-06-track-012-owner-reference-disposition.yml"
+  },
+  "output_directory": "results/track-012-reference-2026-09-06",
+  "observed_completed_at_utc": "2026-09-06T00:00:00Z",
+  "execution_environment": {
+    "python": "3.13",
+    "dependency_setup": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--extra",
+      "dev",
+      "--python",
+      "3.13"
+    ],
+    "runtime_check": "Candidate-local environment, Python 3.13 and offline frozen dependencies verified before execution",
+    "same_host": true,
+    "independent_review": false
+  },
+  "runs": [
+    {
+      "role": "primary",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "99a007f4896503cbd9846407fb3bf798854249840cab305a93e55d32dcb38328",
+          "reference-results.json": "08ebfaeb63bb30da5f246d2ea2ffb38739308915a007e621275c51ddc7a3194d",
+          "reference-tables.csv": "809e4a8cc0160f71f2321ac644a4879bb9c39f2f3d65e4051804de11fe58051e"
+        }
+      }
+    },
+    {
+      "role": "separate_reproduction",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "99a007f4896503cbd9846407fb3bf798854249840cab305a93e55d32dcb38328",
+          "reference-results.json": "08ebfaeb63bb30da5f246d2ea2ffb38739308915a007e621275c51ddc7a3194d",
+          "reference-tables.csv": "809e4a8cc0160f71f2321ac644a4879bb9c39f2f3d65e4051804de11fe58051e"
+        }
+      }
+    }
+  ]
+}

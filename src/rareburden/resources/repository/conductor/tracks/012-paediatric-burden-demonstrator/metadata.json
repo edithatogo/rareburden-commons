@@ -1,10 +1,10 @@
 {
   "id": "012-paediatric-burden-demonstrator",
   "title": "Collective paediatric rare-disease burden demonstrator",
-  "status": "blocked",
+  "status": "complete",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-31",
+  "updated": "2026-09-06",
   "target_release": "0.7.0",
   "stage": "controlled_reference_analysis",
   "owner_role": "Repository owner (sole accountable human)",

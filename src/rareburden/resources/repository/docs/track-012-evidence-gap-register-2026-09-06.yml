@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+status: "current_known_gaps_recorded_not_exhaustive"
+track: "012-paediatric-burden-demonstrator"
+protocol_id: "RBC-P004"
+authority_boundaries:
+  empirical_activation: false
+  controlled_data_activation: false
+  parameter_created: false
+  synthesis_executed: false
+  clinical_advice: false
+  independent_review: false
+  community_representation: false
+  production_release_authority: false
+references:
+  - "docs/track-012-rbc-p004-bounded-registration-2026-09-06.yml"
+  - "docs/track-012-outcome-service-evidence-ledger-2026-09-06.yml"
+  - "docs/paediatric-economic-input-specification.md"
+gaps:
+  - id: "G012-CODING-GRANULARITY"
+    kind: "administrative_coding_limitation"
+    affected: "ICD-10-AM / ICD-10-CA coding captures broad groupings rather than specific ultra-rare genetic variants"
+    next_action: "Incorporate semantic hierarchy maps and ORPHA code extensions in future node runners"
+    closure_evidence: "ICD-11 rare disease extension codes or ORPHA-coded hospital discharge datasets"
+
+  - id: "G012-MULTIMORBIDITY-DOUBLE-COUNTING"
+    kind: "person_level_deduplication_risk"
+    affected: "Collective rare disease burden totals inflated if diagnosis rows are summed naively"
+    next_action: "Apply deterministic person-level deduplication rule before collective aggregation"
+    closure_evidence: "Cross-hospital linked unique patient identifiers (e.g. state linkage keys)"
+
+  - id: "G012-OUTPATIENT-DATA-ABSENCE"
+    kind: "unlinked_ambulatory_care"
+    affected: "Direct medical cost completeness (majority of paediatric care is ambulatory)"
+    next_action: "Model outpatient and pharmacy multipliers as bounded scenario sensitivity"
+    closure_evidence: "Comprehensive outpatient clinic and community prescription linkage (e.g. PBS/MBS/Medicare)"
+
+  - id: "G012-INDIGENOUS-GOVERNANCE"
+    kind: "equity_and_data_sovereignty"
+    affected: "First Nations paediatric representation and data ownership"
+    next_action: "Enforce CARE principles and fail-closed suppression on regional/jurisdictional breakdowns"
+    closure_evidence: "Formal Indigenous Data Sovereignty agreements and community-led governance protocols"
+requests:
+  status: "draft_questions_only_unsent"
+  questions:
+    - "What is the true population prevalence of diagnosed paediatric rare diseases across Australia and New Zealand administrative cohorts?"
+    - "What is the mean annual hospital cost per child with a rare disease relative to paediatric reference controls?"
+    - "What proportion of paediatric rare disease hospitalisations involve intensive care (PICU) admissions?"
+  prohibited_request_content: "No participant records, identifiers, variant-level tables or small cells requested"
