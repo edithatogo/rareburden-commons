@@ -91,10 +91,16 @@ sources:
     official_url: https://www.who.int/data/data-collection-tools/who-mortality-database
     licence_basis: country and database-specific terms required; official page states no commercial-use permission is implied
     project_redistribution_authorization: recorded
-    disposition: public_web_reference_only
-    retrieval_status: evidence_confirmed
+    disposition: public_huggingface_raw_snapshot
+    retrieval_status: published_and_public_readback_sha256_verified
+    public_commit: ec51c04d3af04fc0cdb0b15b3fafa7948b2ab048
+    public_dataset_url: https://huggingface.co/datasets/edithatogo/rareburden-open-sources
+    artifact_directory: data/who-mortality/2026-09-05
+    artifact_count: 15
+    provenance_manifest: docs/who-mortality-source-manifest-2026-09-05.json
+    verification: all 15 ZIP hashes and both manifest and attribution README matched public commit readback
     intended_use: mortality triangulation where legally and methodologically suitable
-    next_gate: confirm country-level redistribution and permitted derived outputs
+    next_gate: methodological and permitted-use assessment for derived outputs; preserve WHO and contributing-country terms
   - source_id: world-bank-data-catalogue
     release: WDI SP.POP.TOTL API snapshot, updated 2026-07-13, retrieved 2026-09-05
     official_url: https://data.worldbank.org/summary-terms-of-use
