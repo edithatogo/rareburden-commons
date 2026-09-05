@@ -13,6 +13,7 @@ from rareburden.atlas import (
     build_gap_api_response,
     build_gap_package,
     build_static_product_set,
+    validate_accessibility_consistency,
 )
 from rareburden.gapmap import build_domain_gap_map
 from rareburden.schema import load_mapping, validate_instance
@@ -94,6 +95,39 @@ def test_static_product_set_is_deterministic_and_preserves_exact_identity() -> N
     assert first["package_fingerprint"] == package["package_fingerprint"]
     assert first["release_surface_fingerprint"] == candidate["release_surface_fingerprint"]
     assert first["status_fingerprint"] == status["status_fingerprint"]
+
+
+def test_accessibility_consistency_validator_binds_all_three_projections() -> None:
+    package, candidate, status = _surface()
+    product_set = build_static_product_set(
+        package,
+        candidate,
+        status,
+        country_scope_id="XAA",
+        demonstrator_scope_id="synthetic-public-foundation",
+    )
+    result = validate_accessibility_consistency(
+        package, build_gap_api_response(package), product_set
+    )
+    assert result["status"] == "repository_accessibility_contract_valid"
+    assert result["product_count"] == 3
+    assert result["human_conformance_assessed"] is False
+    assert result["real_user_testing_observed"] is False
+
+
+def test_accessibility_consistency_rejects_projection_drift() -> None:
+    package, candidate, status = _surface()
+    product_set = build_static_product_set(
+        package,
+        candidate,
+        status,
+        country_scope_id="XAA",
+        demonstrator_scope_id="synthetic-public-foundation",
+    )
+    drifted = copy.deepcopy(build_gap_api_response(package))
+    drifted["rows"] = []
+    with pytest.raises(AtlasPackageError, match="API rows differ"):
+        validate_accessibility_consistency(package, drifted, product_set)
 
 
 def test_prospective_products_route_advisory_review_without_claiming_participation() -> None:

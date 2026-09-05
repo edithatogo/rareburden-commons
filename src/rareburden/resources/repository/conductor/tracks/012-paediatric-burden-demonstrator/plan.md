@@ -20,19 +20,28 @@
 
 - [x] Create synthetic person, diagnosis, admission, death and cost tables. `[C-03]` Evidence: `examples/paediatric/linked-data-synthetic.yml`.
 - [x] Define person-level deduplication and multimorbidity rules. `[M-05]` Evidence: fixture rules and `docs/paediatric-012-reference.md`; implementation against controlled data remains gated.
-- [ ] Implement utilisation, mortality and cost estimands.
+- [x] Implement utilisation, mortality and cost estimands. Evidence:
+  `rareburden.demonstrators.estimate_paediatric_synthetic_estimands` and
+  `tests/test_track012_bounded_reconciliation.py`; outputs are synthetic-only,
+  explicitly denominated and non-imputed.
 - [x] Add small-cell disclosure case and export rule. Evidence: synthetic fixture disclosure rule; custodian threshold and inferential controls remain external-gated.
 
 ## Phase 3 — Federated package
 
-- [ ] Integrate the Track 004 node runner.
+- [x] Integrate the Track 004 node runner. Evidence:
+  `rareburden.demonstrators.run_paediatric_synthetic_end_to_end` binds the
+  synthetic Track 012 estimands to the offline Track 004 runner; controlled
+  activation and production delivery remain false.
 - [ ] Add local code-list mapping and data-quality diagnostics.
 - [ ] Define approved aggregate export tables and suppression.
 - [ ] Write custodian application and operator materials.
 
 ## Phase 4 — Validation and portability
 
-- [ ] Complete synthetic end-to-end execution.
+- [x] Complete synthetic end-to-end execution. Evidence:
+  `tests/test_track012_bounded_reconciliation.py` verifies the completed
+  manifest, suppression and fail-closed threshold handling; this is synthetic
+  assurance only and not empirical or custodian evidence.
 - [ ] Seek approved local pilot or publish a pilot-ready protocol only.
 - [ ] Specify replication in a differently governed country/node.
 - [ ] Complete scientific, economic, privacy and community/harm agent-panel review and owner disposition.

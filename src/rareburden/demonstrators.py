@@ -6,6 +6,7 @@ import math
 from collections.abc import Mapping
 from typing import Any
 
+from rareburden.node import NodeExportError, run_offline_node, verify_output_fingerprint
 from rareburden.provenance import content_id
 from rareburden.semantics import DiseaseHierarchy, SemanticValidationError
 
@@ -90,6 +91,137 @@ def reconcile_bronchiectasis_synthetic_profile(
     return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
 
 
+def run_paediatric_synthetic_end_to_end(
+    fixture: Mapping[str, Any],
+    dependency_bindings: Mapping[str, Any],
+    *,
+    disclosure_threshold: int,
+    created_at: str,
+    execution_id: str = "paediatric-synthetic-exec",
+    coordinator_version: str = "0.1.0",
+    node_version: str = "0.1.1",
+) -> dict[str, Any]:
+    """Bind Track 012 estimands to the Track 004 offline node contract."""
+    estimands = estimate_paediatric_synthetic_estimands(
+        fixture,
+        dependency_bindings,
+        disclosure_threshold=disclosure_threshold,
+        created_at=created_at,
+    )
+    tables = fixture.get("tables")
+    people = tables.get("person") if isinstance(tables, Mapping) else None
+    if not isinstance(people, list):
+        raise DemonstratorError("synthetic people are required for node integration")
+    counts: dict[str, int] = {}
+    for row in people:
+        if not isinstance(row, Mapping) or not row.get("jurisdiction"):
+            raise DemonstratorError("synthetic people require a jurisdiction")
+        group = str(row["jurisdiction"])
+        counts[group] = counts.get(group, 0) + 1
+    try:
+        node_result = run_offline_node(
+            [{"group": group, "count": count} for group, count in sorted(counts.items())],
+            execution_id=execution_id,
+            coordinator_version=coordinator_version,
+            node_version=node_version,
+            analysis_id="rbc-p004-bounded-synthetic-linkage",
+            policy_id="synthetic-aggregate-policy",
+            minimum_cell_count=disclosure_threshold,
+            allowed_dimension_fields=("group",),
+        )
+        verify_output_fingerprint(node_result)
+    except NodeExportError as exc:
+        raise DemonstratorError("Track 004 synthetic node execution failed closed") from exc
+    core = {
+        "analysis_id": "rbc-p004-track004-synthetic-end-to-end",
+        "created_at": created_at,
+        "estimands_receipt_id": estimands["receipt_id"],
+        "node_manifest": node_result["manifest"],
+        "node_rows": node_result["rows"],
+        "synthetic_assurance": True,
+        "activation_state": "synthetic_only",
+        "controlled_data_activation": False,
+        "empirical_interpretation": False,
+        "production_delivery": False,
+        "limitations": [
+            "Track 004 execution is offline and aggregate-only over invented rows.",
+            "The node manifest does not establish custodian authority or empirical validity.",
+        ],
+    }
+    return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
+
+
+def run_bronchiectasis_synthetic_scenarios(
+    profile: Mapping[str, Any],
+    hierarchy: DiseaseHierarchy,
+    dependency_bindings: Mapping[str, Any],
+    scenarios: list[Mapping[str, Any]],
+    *,
+    created_at: str,
+) -> dict[str, Any]:
+    """Run bounded alternative hierarchy scenarios over the synthetic receipt.
+
+    This deliberately exposes structural uncertainty instead of choosing a
+    cause for multi-aetiology or unclassified observations.  ``transport`` is
+    a declared synthetic multiplier, not an epidemiological transportability
+    claim.  The output is never suitable for clinical interpretation or
+    empirical activation.
+    """
+    base = reconcile_bronchiectasis_synthetic_profile(
+        profile, hierarchy, dependency_bindings, created_at=created_at
+    )
+    if not isinstance(scenarios, list) or not scenarios:
+        raise DemonstratorError("at least one synthetic scenario is required")
+    rows: list[dict[str, Any]] = []
+    for scenario in scenarios:
+        if not isinstance(scenario, Mapping) or not scenario.get("scenario_id"):
+            raise DemonstratorError("each scenario requires a scenario_id")
+        multi_fraction = _bounded_fraction(
+            scenario.get("multi_aetiology_fraction", 0), "multi_aetiology_fraction"
+        )
+        unknown_fraction = _bounded_fraction(
+            scenario.get("unknown_fraction", 0), "unknown_fraction"
+        )
+        transport = _finite_positive(
+            scenario.get("transport_multiplier", 1), "transport_multiplier"
+        )
+        exclusive = float(base["exclusive_composition"]["value"])
+        multi = float(base["multi_aetiology_count"])
+        unknown = float(base["unknown_count"] + base["unaccounted_count"])
+        attributable = (exclusive + multi * multi_fraction + unknown * unknown_fraction) * transport
+        rows.append(
+            {
+                "scenario_id": str(scenario["scenario_id"]),
+                "hierarchy_mode": str(scenario.get("hierarchy_mode", "primary")),
+                "multi_aetiology_fraction": multi_fraction,
+                "unknown_fraction": unknown_fraction,
+                "transport_multiplier": transport,
+                "estimated_attributable_cases": attributable,
+                "limitations": [
+                    "Synthetic scenario output; not an empirical estimate.",
+                    "Allocation fractions are structural assumptions, not observed aetiology.",
+                    "Transport multiplier is not validated for any country, cohort or setting.",
+                ],
+            }
+        )
+    values = [row["estimated_attributable_cases"] for row in rows]
+    core = {
+        "analysis_id": "rbc-p003-bounded-synthetic-scenarios",
+        "created_at": created_at,
+        "base_receipt_id": base["receipt_id"],
+        "hierarchy_id": base["hierarchy_id"],
+        "hierarchy_version": base["hierarchy_version"],
+        "scenario_count": len(rows),
+        "scenarios": rows,
+        "reference_range": {"minimum": min(values), "maximum": max(values)},
+        "activation_state": "synthetic_only",
+        "empirical_activation": False,
+        "clinical_interpretation": False,
+        "contract_frozen": False,
+    }
+    return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
+
+
 def _finite_nonnegative(value: Any, label: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise DemonstratorError(f"{label} must be numeric")
@@ -99,7 +231,25 @@ def _finite_nonnegative(value: Any, label: str) -> float:
     return numeric
 
 
-__all__ = ["DemonstratorError", "reconcile_bronchiectasis_synthetic_profile"]
+def _bounded_fraction(value: Any, label: str) -> float:
+    numeric = _finite_nonnegative(value, label)
+    if numeric > 1:
+        raise DemonstratorError(f"{label} must be between zero and one")
+    return numeric
+
+
+def _finite_positive(value: Any, label: str) -> float:
+    numeric = _finite_nonnegative(value, label)
+    if numeric <= 0:
+        raise DemonstratorError(f"{label} must be greater than zero")
+    return numeric
+
+
+__all__ = [
+    "DemonstratorError",
+    "reconcile_bronchiectasis_synthetic_profile",
+    "run_bronchiectasis_synthetic_scenarios",
+]
 
 
 def reconcile_paediatric_synthetic_linkage(
@@ -212,6 +362,74 @@ def reconcile_paediatric_synthetic_linkage(
     return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
 
 
+def estimate_paediatric_synthetic_estimands(
+    fixture: Mapping[str, Any],
+    dependency_bindings: Mapping[str, Any],
+    *,
+    disclosure_threshold: int,
+    created_at: str,
+) -> dict[str, Any]:
+    """Calculate explicitly denominated utilisation, mortality and cost metrics.
+
+    All values are synthetic assurance outputs.  Costs are averaged only over
+    people with an observed synthetic cost row; missing costs and unknown death
+    status are never silently imputed.
+    """
+    receipt = reconcile_paediatric_synthetic_linkage(
+        fixture,
+        dependency_bindings,
+        disclosure_threshold=disclosure_threshold,
+        created_at=created_at,
+    )
+    people = int(receipt["population"]["deduplicated_people"])
+    admissions = int(receipt["utilisation"]["admissions"])
+    known_deaths = int(receipt["mortality"]["known_deaths"])
+    observed_cost_people = int(receipt["cost"]["observed_people"])
+    total_cost = float(receipt["cost"]["total"])
+    if people <= 0:
+        raise DemonstratorError("synthetic estimands require at least one person")
+    core = {
+        "analysis_id": "rbc-p004-bounded-synthetic-estimands",
+        "created_at": created_at,
+        "base_receipt_id": receipt["receipt_id"],
+        "estimands": {
+            "utilisation_admissions_per_person": {
+                "value": admissions / people,
+                "numerator": admissions,
+                "denominator": people,
+                "denominator_definition": "deduplicated synthetic people",
+            },
+            "known_death_proportion": {
+                "value": known_deaths / people,
+                "numerator": known_deaths,
+                "denominator": people,
+                "denominator_definition": (
+                    "deduplicated synthetic people; unknown status retained separately"
+                ),
+            },
+            "mean_cost_among_observed_people": {
+                "value": total_cost / observed_cost_people if observed_cost_people else None,
+                "numerator": total_cost,
+                "denominator": observed_cost_people,
+                "denominator_definition": "synthetic people with an observed cost row",
+                "currency": "SYN",
+            },
+        },
+        "missingness": receipt["uncertainty"],
+        "activation_state": "synthetic_only",
+        "controlled_data_activation": False,
+        "clinical_interpretation": False,
+        "policy_interpretation": False,
+        "contract_frozen": False,
+        "limitations": [
+            "All values are invented synthetic assurance outputs.",
+            "Unknown death status and missing costs are not imputed.",
+            "No clinical, policy, economic or population inference is permitted.",
+        ],
+    }
+    return {"schema_version": "0.1.0", "receipt_id": content_id("demo", core), **core}
+
+
 def _unique_rows(value: Any, label: str, identifier: str) -> dict[str, Mapping[str, Any]]:
     if not isinstance(value, list):
         raise DemonstratorError(f"{label} table must be a list")
@@ -239,4 +457,10 @@ def _rows_with_known_people(
     return rows
 
 
-__all__.extend(["reconcile_paediatric_synthetic_linkage"])
+__all__.extend(
+    [
+        "estimate_paediatric_synthetic_estimands",
+        "reconcile_paediatric_synthetic_linkage",
+        "run_paediatric_synthetic_end_to_end",
+    ]
+)

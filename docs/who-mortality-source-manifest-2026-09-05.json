@@ -1,0 +1,142 @@
+{
+  "retrieved_at": "2026-09-05T06:47:05.673331+00:00",
+  "source": "WHO Mortality Database raw downloads",
+  "artifacts": [
+    {
+      "file": "mort_documentation71f9e29d-7e3f-41e6-aafc-c4c1775c7aa3.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/mort_documentation71f9e29d-7e3f-41e6-aafc-c4c1775c7aa3.zip?sfvrsn=40cce9be_42",
+      "bytes": 856659,
+      "sha256": "c4a1db856a08621fd4cc6a8ee986707fa37181b0730d16da13964f41d80368e2",
+      "members": [
+        "WHO_Mortality_Database_Documentation.pdf"
+      ]
+    },
+    {
+      "file": "mort_availability.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/mort_availability.zip?sfvrsn=23261e11_33",
+      "bytes": 223741,
+      "sha256": "78e5004f1f4b393d96a7d661d3b6859d431e02f498c6cad21d92216df97a4205",
+      "members": [
+        "list_ctry_years_feb2026.xls"
+      ]
+    },
+    {
+      "file": "mort_country_codes.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/mort_country_codes.zip?sfvrsn=800faac2_5&ua=1",
+      "bytes": 2153,
+      "sha256": "8c410820356fc572845b5281b36f638e044a565f808c4e72efc8fb69b07df6b2",
+      "members": [
+        "country_codes"
+      ]
+    },
+    {
+      "file": "mort_notes.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/mort_notes.zip?sfvrsn=2020c859_19&ua=1",
+      "bytes": 762,
+      "sha256": "b9f9fdad0e70d3b12d775411248a56abafec999c77a0b782c57022dcad806e84",
+      "members": [
+        "notes"
+      ]
+    },
+    {
+      "file": "mort_pop.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/mort_pop.zip?sfvrsn=937039fc_26&ua=1",
+      "bytes": 672770,
+      "sha256": "948a71a91c0d877e9b762982f21a12519d54b12cbcb46f6a18eae7f51868952d",
+      "members": [
+        "pop"
+      ]
+    },
+    {
+      "file": "morticd07.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd07.zip?sfvrsn=c1ebfbb2_3&ua=1",
+      "bytes": 4885853,
+      "sha256": "22b463f703974c247c37a33133713348800a4cc68163eb37ff7ac139406237b5",
+      "members": [
+        "MortIcd7"
+      ]
+    },
+    {
+      "file": "morticd08.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd08.zip?sfvrsn=6e1eba55_7&ua=1",
+      "bytes": 5447912,
+      "sha256": "93662076d32b3ca378d3f9bd7170ca5c2ec81dc43958c6500ec928fe72886e6d",
+      "members": [
+        "Morticd8"
+      ]
+    },
+    {
+      "file": "morticd09.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd09.zip?sfvrsn=cfa97ceb_3&ua=1",
+      "bytes": 13511573,
+      "sha256": "71c96f66c67f0ae8fb0da942e9ba1a0b050b6d60450c58997c49fe6ba16f9b6f",
+      "members": [
+        "Morticd9"
+      ]
+    },
+    {
+      "file": "morticd10_part1.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd10_part1.zip?sfvrsn=e2a4f93a_19&ua=1",
+      "bytes": 11295304,
+      "sha256": "593f4ff0c53ece2ed3008c651322b02101bc810704cd994d3da93b44f59a607b",
+      "members": [
+        "Morticd10_part1"
+      ]
+    },
+    {
+      "file": "morticd10_part2.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd10_part2.zip?sfvrsn=6e55000b_6&ua=1",
+      "bytes": 10645249,
+      "sha256": "89e84551bbe71c5a5c4d688b4cb5208e515de24ea4d188dad3543fb3e5f4c00e",
+      "members": [
+        "Morticd10_part2"
+      ]
+    },
+    {
+      "file": "morticd10_part3.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd10_part3.zip?sfvrsn=9f1111a2_14&ua=1",
+      "bytes": 11595974,
+      "sha256": "af2eb7589b4819265a59f727aad975a2b82ba5c9a208eaa74b59b2c42bb0d248",
+      "members": [
+        "Morticd10_part3"
+      ]
+    },
+    {
+      "file": "morticd10_part4.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd10_part4.zip?sfvrsn=259c5c23_30&ua=1",
+      "bytes": 8956670,
+      "sha256": "2de453eb53c4c78276cb7a4f52b7165d056fdd7bb1cee4388c08b84dabffb04d",
+      "members": [
+        "Morticd10_part4"
+      ]
+    },
+    {
+      "file": "morticd10_part5.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd10_part5.zip?sfvrsn=ad970d0b_34&ua=1",
+      "bytes": 8947466,
+      "sha256": "6baa52d694e95b1bc5c97c2905ea29e3502e43cc7e6bee8610e4c10862ac0d6f",
+      "members": [
+        "Morticd10_part5"
+      ]
+    },
+    {
+      "file": "morticd10_part6.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd10_part6.zip?sfvrsn=ec801a61_4",
+      "bytes": 6825637,
+      "sha256": "cfbb3374a460c71dfb943bef8556396335f5449eccf655adbb4575c5ee6b7197",
+      "members": [
+        "Morticd10_part6"
+      ]
+    },
+    {
+      "file": "morticd10_add.zip",
+      "source_url": "https://cdn.who.int/media/docs/default-source/world-health-data-platform/mortality-raw-data/morticd10_add.zip?sfvrsn=47111c9f_4",
+      "bytes": 1908788,
+      "sha256": "88c494db690c741aaecd417bdc8c68d110329700d832291c65f57427fc609c0f",
+      "members": [
+        "Germany.xlsx",
+        "Norway.xlsx"
+      ]
+    }
+  ]
+}

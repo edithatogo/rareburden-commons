@@ -260,6 +260,50 @@ def build_gap_api_response(
     }
 
 
+def validate_accessibility_consistency(
+    package: Mapping[str, Any],
+    api_response: Mapping[str, Any],
+    static_product_set: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Validate repository-owned accessibility and disclosure invariants.
+
+    This checks the machine-readable design contract across projections. It
+    does not assert keyboard, assistive-technology, or real-user conformance.
+    """
+    if package.get("missingness_policy") != "preserve_missing_not_zero":
+        raise AtlasPackageError("accessibility check requires explicit missingness policy")
+    if package.get("aggregate_only") is not True or api_response.get("read_only") is not True:
+        raise AtlasPackageError("accessibility check requires aggregate-only read-only outputs")
+    if api_response.get("rows") != package.get("rows"):
+        raise AtlasPackageError("API rows differ from package rows")
+    if api_response.get("package_fingerprint") != package.get("package_fingerprint"):
+        raise AtlasPackageError("API package fingerprint differs")
+    if static_product_set.get("package_fingerprint") != package.get("package_fingerprint"):
+        raise AtlasPackageError("static product package fingerprint differs")
+    products = static_product_set.get("products")
+    if not isinstance(products, list) or len(products) != 3:
+        raise AtlasPackageError("accessibility check requires three static products")
+    for product in products:
+        required = ("heading", "text_alternative", "limitations", "non_colour_status_labels")
+        if any(not product.get(field) for field in required):
+            raise AtlasPackageError("every static product requires accessible text and labels")
+        if (
+            product.get("aggregate_only") is not True
+            or product.get("publication_authorized") is not False
+        ):
+            raise AtlasPackageError("static products must remain aggregate-only and unpublished")
+        if product.get("rows") != package.get("rows"):
+            raise AtlasPackageError("static product rows differ from package rows")
+    return {
+        "status": "repository_accessibility_contract_valid",
+        "product_count": len(products),
+        "package_fingerprint": package["package_fingerprint"],
+        "missingness_policy": package["missingness_policy"],
+        "human_conformance_assessed": False,
+        "real_user_testing_observed": False,
+    }
+
+
 def build_static_gap_projection(
     package: Mapping[str, Any],
     candidate: Mapping[str, Any],
@@ -441,4 +485,5 @@ __all__ = [
     "build_gap_package",
     "build_static_gap_projection",
     "build_static_product_set",
+    "validate_accessibility_consistency",
 ]

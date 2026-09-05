@@ -7,7 +7,8 @@ reviewers can disagree with individual decisions without reverse-engineering a s
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
+import math
+from collections.abc import Callable, Mapping, Sequence
 from typing import Any
 
 from rareburden.provenance import content_id
@@ -16,6 +17,175 @@ from rareburden.schema import SchemaValidationError, validate_instance
 
 class QualityAssessmentError(ValueError):
     """Raised when a quality or transportability record is internally incoherent."""
+
+
+def triangulate_synthetic_estimates(
+    primary: Mapping[str, Any],
+    comparators: Sequence[Mapping[str, Any]],
+    *,
+    tolerance: float,
+) -> dict[str, Any]:
+    """Compare invented estimates without treating agreement as validation.
+
+    ``primary`` and each comparator require an ``estimate`` and ``source_id``.
+    The result reports relative differences and labels all comparisons as
+    synthetic assurance; it cannot establish empirical calibration or external
+    validity.
+    """
+    if isinstance(tolerance, bool) or not isinstance(tolerance, (int, float)):
+        raise QualityAssessmentError("tolerance must be numeric")
+    tolerance_value = float(tolerance)
+    if not math.isfinite(tolerance_value) or tolerance_value < 0 or tolerance_value >= 1:
+        raise QualityAssessmentError("tolerance must be between zero and one")
+    rows: list[dict[str, Any]] = []
+    primary_value = _finite_nonnegative_number(primary.get("estimate"), "primary estimate")
+    if not primary.get("source_id"):
+        raise QualityAssessmentError("primary source_id is required")
+    for comparator in comparators:
+        if not comparator.get("source_id"):
+            raise QualityAssessmentError("comparator source_id is required")
+        value = _finite_nonnegative_number(comparator.get("estimate"), "comparator estimate")
+        relative_difference = _relative_change(primary_value, value)
+        rows.append(
+            {
+                "source_id": str(comparator["source_id"]),
+                "estimate": value,
+                "absolute_difference": abs(value - primary_value),
+                "relative_difference": relative_difference,
+                "within_declared_tolerance": (
+                    relative_difference <= tolerance_value
+                    if relative_difference is not None
+                    else None
+                ),
+            }
+        )
+    core = {
+        "schema_version": "1.0.0",
+        "method": "synthetic-estimate-triangulation",
+        "intended_use": "synthetic_assurance",
+        "primary": {"source_id": str(primary["source_id"]), "estimate": primary_value},
+        "tolerance": tolerance_value,
+        "comparisons": rows,
+        "interpretation": "agreement is a debugging signal, not empirical validation",
+        "limitations": [
+            "All inputs are synthetic or reference fixtures.",
+            "Comparators are not independent human or external validation.",
+            "Tolerance is a declared assurance threshold, not a scientific acceptance limit.",
+        ],
+    }
+    return {"receipt_id": content_id("tri", core), **core}
+
+
+def assess_synthetic_sensitivity(
+    baseline: Mapping[str, Any], scenarios: Sequence[Mapping[str, Any]]
+) -> dict[str, Any]:
+    """Report bounded one-at-a-time synthetic sensitivity without inference.
+
+    Each scenario supplies a non-negative estimate and a changed parameter.
+    The receipt exposes absolute and relative deltas and labels decision
+    sensitivity as an assurance diagnostic, never as an empirical result.
+    """
+    baseline_value = _finite_nonnegative_number(baseline.get("estimate"), "baseline estimate")
+    if not baseline.get("source_id"):
+        raise QualityAssessmentError("baseline source_id is required")
+    rows: list[dict[str, Any]] = []
+    for scenario in scenarios:
+        parameter = scenario.get("parameter")
+        if not isinstance(parameter, str) or not parameter.strip():
+            raise QualityAssessmentError("scenario parameter is required")
+        value = _finite_nonnegative_number(scenario.get("estimate"), "scenario estimate")
+        rows.append(
+            {
+                "scenario_id": str(scenario.get("scenario_id", parameter)),
+                "parameter": parameter,
+                "estimate": value,
+                "absolute_change": abs(value - baseline_value),
+                "relative_change": _relative_change(baseline_value, value),
+            }
+        )
+    core = {
+        "schema_version": "1.0.0",
+        "method": "synthetic-one-at-a-time-sensitivity",
+        "intended_use": "synthetic_assurance",
+        "baseline": {"source_id": str(baseline["source_id"]), "estimate": baseline_value},
+        "scenarios": rows,
+        "interpretation": "parameter sensitivity is a debugging signal, not empirical evidence",
+        "limitations": [
+            "All inputs are synthetic or reference fixtures.",
+            "Scenarios are not calibrated uncertainty intervals or policy analysis.",
+            "Decision sensitivity does not establish transportability or validity.",
+        ],
+    }
+    return {"receipt_id": content_id("sens", core), **core}
+
+
+def _relative_change(baseline: float, value: float) -> float | None:
+    """Return null when a relative change is undefined or unrepresentable."""
+    if baseline == 0:
+        return None
+    result = abs(value - baseline) / baseline
+    return result if math.isfinite(result) else None
+
+
+def run_synthetic_model_sensitivity(
+    model: Callable[[Mapping[str, float]], float],
+    parameters: Mapping[str, float],
+    variations: Mapping[str, Sequence[float]],
+    *,
+    model_id: str,
+) -> dict[str, Any]:
+    """Execute a declared synthetic model at baseline and one parameter at a time.
+
+    The callable receives a fresh parameter dictionary for every execution.
+    Variations are absolute replacement values. Inputs, model identity and
+    outputs are retained in the receipt for reproducible scenario inspection.
+    """
+    if not isinstance(model_id, str) or not model_id.strip():
+        raise QualityAssessmentError("model_id is required")
+    if not parameters or not variations or set(variations) - set(parameters):
+        raise QualityAssessmentError("variations require known baseline parameters")
+    baseline = {
+        key: _finite_nonnegative_number(value, "parameter") for key, value in parameters.items()
+    }
+    runs: list[tuple[str, dict[str, float]]] = []
+    for parameter, values in variations.items():
+        if not values:
+            raise QualityAssessmentError("each parameter requires variation values")
+        for value in values:
+            changed = dict(baseline)
+            changed[parameter] = _finite_nonnegative_number(value, "variation")
+            runs.append((parameter, changed))
+    baseline_output = _finite_nonnegative_number(model(dict(baseline)), "model output")
+    scenarios = [
+        {
+            "scenario_id": f"scenario-{index}",
+            "parameter": parameter,
+            "estimate": _finite_nonnegative_number(model(dict(values)), "model output"),
+        }
+        for index, (parameter, values) in enumerate(runs)
+    ]
+    comparison = assess_synthetic_sensitivity(
+        {"source_id": model_id, "estimate": baseline_output}, scenarios
+    )
+    core = {
+        "method": "executed-synthetic-model-sensitivity",
+        "intended_use": "synthetic_assurance",
+        "model_id": model_id,
+        "baseline_parameters": baseline,
+        "scenario_parameters": [values for _, values in runs],
+        "comparison": comparison,
+        "relative_change_policy": "null for zero baseline or floating-point overflow",
+    }
+    return {"receipt_id": content_id("sensrun", core), **core}
+
+
+def _finite_nonnegative_number(value: Any, label: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise QualityAssessmentError(f"{label} must be numeric")
+    numeric = float(value)
+    if numeric < 0 or numeric != numeric or numeric in {float("inf"), float("-inf")}:
+        raise QualityAssessmentError(f"{label} must be finite and non-negative")
+    return numeric
 
 
 _RELEASE_MATURITY: dict[str, dict[str, tuple[str, ...]]] = {
@@ -379,6 +549,7 @@ __all__ = [
     "build_quality_disposition",
     "build_transportability_assessment",
     "release_eligibility",
+    "triangulate_synthetic_estimates",
     "validate_evidence_assessment",
     "validate_quality_disposition",
     "validate_transportability_assessment",

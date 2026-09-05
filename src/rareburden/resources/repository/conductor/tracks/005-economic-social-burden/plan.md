@@ -1,5 +1,22 @@
 # Track 005 plan
 
+## Current implementation — 2026-09-05
+
+The original candidate plan is retained byte-for-byte in
+`docs/history/track005-plan-20260901.md` and verified against its original
+manifest. The live plan records subsequent work independently.
+
+- [x] Add the non-binding RBC-P001D protocol in
+  `docs/track-005-rbc-p001d-protocol.md`, including perspectives, valuation
+  prerequisites, overlap and missingness rules.
+- [x] Implement synthetic nonmonetary component summaries in
+  `rareburden.economic_summary`. Aggregates require matching population,
+  geography, observation period, perspective definition, quantity kind, unit
+  and denominator. Evidence: `tests/test_economic_summary.py`.
+
+The original phases below describe the wider economic-methods contract;
+bounded summaries do not complete valuation, survey or empirical integration.
+
 ## Selected component-first validation prototype — 2026-09-01
 
 - [x] Record the owner's exact Option A selection and implement the additive,
