@@ -1,6 +1,46 @@
 # Track 002 internal review — Public-source acquisition
 
-**Review date:** 2026-07-27  
+## Archive evidence audit — 2026-09-06
+
+The archival basis is the bounded completion decision dated 2026-08-21 in
+`docs/decisions/2026-08-21-track-002-bounded-completion.yml`, recorded by commit
+`0f2eaa9`, followed by archival commit `3264afe`. This supports completion of
+the acquisition/provenance substrate and explicitly dispositioned source roles.
+It does not establish comprehensive source acquisition or publication.
+
+The dated sections below preserve successive decisions, failed attempts and
+later remediation. Statements such as “private-only”, “unauthorized”, “pending”
+and “all candidates remain inactive” describe their dated candidate or decision;
+they are not a current inventory of hosted objects or a blanket override of
+later source-specific authorizations. The 2026-08-29 MONDO addendum records
+separately authorized work after archival. Remote state was not re-observed in
+this audit.
+
+Acceptance criterion 1 includes installation without network access. The cited
+clean-clone, installed-wheel and source-archive checks establish those workflows,
+but do not by themselves establish installation on a fresh disconnected machine
+with no dependency cache. Offline test execution requires provisioned dependencies;
+the README development setup can require network access. Full satisfaction of
+that original installation clause remains unverified without a matching offline
+dependency bundle and a recorded disconnected installation exercise. This audit
+does not retroactively claim that evidence or amend the original criterion.
+
+The conditional activation checkbox in the plan records disposition of promoted
+roles under the bounded decision. It must not be read as blanket activation of
+every supported source. WHO analytical activation and excluded roles remain
+outside that completion decision.
+
+The inspected acquisition and normalisation implementations include manifest
+lineage and schema/invariant validation; focused acquisition, security, adapter,
+normalisation, candidate-verifier and completion-decision tests are the current
+regression checks. These checks do not reverify historical publisher terms,
+distributed package bytes, remote uploads or hosted CI results.
+
+Audit disposition: retain the bounded archive with the original offline-install
+acceptance evidence gap explicitly disclosed. No comprehensive implementation,
+source coverage or current remote-state conclusion follows from archival alone.
+
+**Review date:** 2026-07-27
 **Decision:** Internal implementation passes for autonomous handoff; production/live-source approval remains open
 
 ## Five-release public MONDO tranche addendum — 2026-08-29
