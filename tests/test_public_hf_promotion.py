@@ -11,8 +11,10 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests/huggingface/public-promotion-2026-08-21.json"
 
 
-def test_all_public_promotion_families_are_bounded_and_rights_cleared() -> None:
+def test_promotion_manifest_is_bounded_and_quarantined() -> None:
     payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    assert payload["status"] == "bounded_exact_file_candidate_no_promotion"
+    assert payload["promotion_enabled"] is False
     assert payload["claims"] == {
         "all_private_content_redistributable": False,
         "licensed_terminology_public": False,
@@ -21,6 +23,13 @@ def test_all_public_promotion_families_are_bounded_and_rights_cleared() -> None:
     for item in payload["families"]:
         _, family = load_family(MANIFEST, item["id"])
         assert family == item
+
+
+def test_raw_promotion_is_quarantined() -> None:
+    from scripts.promote_rights_cleared_hf_family import promote
+
+    with pytest.raises(RuntimeError, match="quarantined"):
+        promote(MANIFEST, "disease-ontology", max_bytes=2_000_000_000)
 
 
 def test_unknown_family_fails_closed() -> None:

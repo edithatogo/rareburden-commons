@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rareburden-commons.org/schemas/track-009-bounded-synthetic-technical-receipt.schema.json",
+  "title": "Track 009 bounded synthetic technical receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "track", "status", "scope", "candidate", "review_packet", "claims", "global_blockers", "owner_disposition", "invalidation"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "track": {"const": "009-evidence-parameter-ledger"},
+    "status": {"const": "bounded_synthetic_nonclinical_candidate_complete"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "target_estimand_state", "source_state", "alternative_scope", "supported_effects", "prohibited_effects"],
+      "properties": {
+        "mode": {"const": "synthetic_internal_preparation"},
+        "target_estimand_state": {"const": "undefined_nonbinding_profile_role"},
+        "source_state": {"const": "repository_owned_synthetic_only"},
+        "alternative_scope": {"const": "current_bound_profile_inventory_only_not_empirical_alternatives"},
+        "supported_effects": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}, "uniqueItems": true},
+        "prohibited_effects": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}, "uniqueItems": true}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository_commit", "repository_tree", "commit", "tree", "manifest", "manifest_sha256", "migration_receipt", "migration_sha256", "schema", "schema_sha256", "profile_role_matrix", "profile_role_matrix_sha256", "lockfile", "lockfile_sha256"],
+      "properties": {
+        "repository_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "repository_tree": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "tree": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "manifest": {"type": "string", "minLength": 1},
+        "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "migration_receipt": {"type": "string", "minLength": 1},
+        "migration_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "schema": {"type": "string", "minLength": 1},
+        "schema_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "profile_role_matrix": {"type": "string", "minLength": 1},
+        "profile_role_matrix_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        ,"lockfile": {"type": "string", "minLength": 1}, "lockfile_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "review_packet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "candidate_commit", "candidate_tree"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "candidate_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "candidate_tree": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+      }
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["empirical_estimand_fitness", "alternative_selection", "calibrated_uncertainty", "transportability_validation", "rights_authorized", "contract_frozen", "track_complete", "track_010_alpha_eligible", "track_003_eligible", "independent_review", "community_authority"],
+      "properties": {
+        "empirical_estimand_fitness": {"const": false},
+        "alternative_selection": {"const": false},
+        "calibrated_uncertainty": {"const": false},
+        "transportability_validation": {"const": false},
+        "rights_authorized": {"const": false},
+        "contract_frozen": {"const": false},
+        "track_complete": {"const": false},
+        "track_010_alpha_eligible": {"const": false},
+        "track_003_eligible": {"const": false},
+        "independent_review": {"const": false},
+        "community_authority": {"const": false}
+      }
+    },
+    "global_blockers": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status", "scope"],
+        "properties": {
+          "id": {"enum": ["EPI-MED-01", "EPI-MED-02", "GOV-MED-01"]},
+          "status": {"const": "pending_globally"},
+          "scope": {"const": "outside_synthetic_candidate"}
+        }
+      }
+    },
+    "owner_disposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "decided_by", "governance_status", "decision", "rationale"],
+      "properties": {
+        "status": {"const": "recorded"},
+        "decided_by": {"const": "edithatogo"},
+        "governance_status": {"const": "owner_operated_not_independent_review"},
+        "decision": {"enum": ["accept_bounded_subcompletion", "narrow_bounded_subcompletion", "defer_bounded_subcompletion"]},
+        "rationale": {"type": "string", "minLength": 20}
+      }
+    },
+    "invalidation": {"type": "string", "minLength": 20}
+  }
+}
