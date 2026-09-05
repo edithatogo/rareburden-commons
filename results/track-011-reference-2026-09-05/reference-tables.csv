@@ -1,0 +1,7 @@
+scenario_id,label,multi_aetiology_fraction,unknown_fraction,transport_multiplier,estimated_attributable_cases,proportion_of_denominator,annual_expected_exacerbations,targeted_treatment_eligible_cases,description
+baseline-primary-exclusive,Baseline primary exclusive classification,0.0,0.0,1.0,700.0,0.7,560.0,560.0,Strict mutually exclusive classification without multi-aetiology attribution.
+proportional-overlap,Proportional multi-aetiology overlap,0.25,0.1,1.0,742.0,0.742,667.8,608.44,Proportional attribution: 25% of multi-aetiology and 10% of unclassified cases contain primary aetiology.
+high-overlap-multimorbidity,High overlap and complex multimorbidity,0.5,0.2,1.0,784.0,0.784,940.8,666.4,High-overlap sensitivity: half of multi-aetiology and 20% of unknown cases involve primary cause.
+tertiary-referral-transport,Tertiary referral centre transport scenario,0.35,0.15,1.35,1027.35,1.0274,1541.03,924.62,Tertiary referral setting: referral enrichment multiplier (1.35x) reflecting tertiary clinic selection.
+community-ascertainment-transport,Unselected community cohort transport scenario,0.15,0.05,0.75,542.25,0.5423,325.35,379.57,Community setting: lower specialized ascertainment multiplier (0.75x) in primary care cohorts.
+restricted-diagnostic-capacity,Restricted diagnostic capacity scenario,0.1,0.02,0.6,427.44,0.4274,299.21,277.84,"Restricted capacity: limited access to sweat chloride, ciliary biopsy or gene panels (0.60x)."

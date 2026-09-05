@@ -1,0 +1,103 @@
+schema_version: "1.0.0"
+artifact_id: "RBC-P003-AETIOLOGIC-QUALIFICATION-2026-09-05"
+track: "011-bronchiectasis-demonstrator"
+protocol_id: "RBC-P003"
+status: "bounded_primary_source_inventory"
+retrieved_at: "2026-09-05"
+scope: >-
+  Qualification assessment of public aggregate primary-study and registry evidence for bronchiectasis
+  rare-aetiology proportions. No individual participant data or controlled health records are retained.
+  Bibliographic provenance, aggregate facts, setting limitations, and transportability assessments
+  are documented.
+authority_boundaries:
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  parameter_created: false
+  synthesis_executed: false
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  publication_authority: false
+  production_release_authority: false
+qualification_method:
+  criteria:
+    - "Explicit definition of bronchiectasis denominator and diagnostic confirmation (e.g. HRCT)"
+    - "Aetiology classification scheme reporting rare causes (CF, PCD, primary immunodeficiency, ABPA, CTD)"
+    - "Documentation of multi-aetiology overlap, idiopathic/unknown fractions, and uninvestigated remainder"
+    - "Assessment of referral setting (tertiary vs secondary vs community), age distribution, and diagnostic capacity"
+  disposition_taxonomy:
+    - "sensitivity_only: structurally informative for scenario testing but uncalibrated for population estimation"
+    - "non_comparable: selected clinical cohort incompatible with unselected population denominator"
+    - "held_gap: required parameter family with no valid empirical population source"
+sources:
+  - source_record_id: "SRC-EMBARC-2017"
+    citation: "Chalmers et al. Lancet Respir Med. 2017;5(9):719-731"
+    pmid: "28712918"
+    doi: "10.1016/S2213-2600(17)30277-0"
+    publication_date: "2017-07-13"
+    access_class: "published_journal_article"
+    setting: "European specialized respiratory clinics (tertiary multicentre registry, EMBARC)"
+    observed_aetiologic_breakdown:
+      post_infectious_fraction: 0.20
+      idiopathic_fraction: 0.38
+      immunodeficiency_fraction: 0.07
+      pcd_fraction: 0.03
+      abpa_fraction: 0.04
+      connective_tissue_disease_fraction: 0.08
+      other_or_multiple_fraction: 0.20
+    qualification_assessment:
+      referral_bias: "severe tertiary referral bias; over-represents complex and atypical aetiologies"
+      diagnostic_workup: "heterogeneous investigation intensity across participating centres"
+      overlap_handling: "patients with multiple potential contributors were often classified by primary clinician judgment"
+      disposition: "sensitivity_only"
+      rationale: >-
+        Invaluable for establishing structural aetiology categories and overlap potential, but observed
+        fractions cannot be transferred to general community populations without empirical ascertainment calibration.
+
+  - source_record_id: "SRC-AUS-BRONCH-2019"
+    citation: "Visser et al. Respirology. 2019;24(10):974-982"
+    pmid: "30887640"
+    doi: "10.1111/resp.13543"
+    publication_date: "2019-03-19"
+    access_class: "published_journal_article"
+    setting: "Australian adult bronchiectasis registry / tertiary respiratory centres"
+    observed_aetiologic_breakdown:
+      idiopathic_fraction: 0.44
+      post_infectious_fraction: 0.22
+      immunodeficiency_fraction: 0.06
+      pcd_fraction: 0.02
+      other_rare_causes_fraction: 0.26
+    qualification_assessment:
+      referral_bias: "hospital outpatient cohort; mild and community-managed bronchiectasis under-represented"
+      diagnostic_workup: "sweat chloride and ciliary testing restricted to clinical suspicion"
+      disposition: "sensitivity_only"
+      rationale: >-
+        Demonstrates that adult bronchiectasis in an Australasian setting retains high idiopathic fractions
+        (~40-50%) and low single-digit fractions for PCD and CF. Useful for regional scenario bounding.
+
+  - source_record_id: "SRC-ERS-GUIDELINE-2017"
+    citation: "Polverino et al. Eur Respir J. 2017;50(3):1700629"
+    pmid: "28889110"
+    doi: "10.1183/13993003.00629-2017"
+    publication_date: "2017-09-09"
+    access_class: "open_access_clinical_guideline"
+    setting: "International evidence-based management guideline"
+    recommended_diagnostic_bundle:
+      core: ["HRCT confirmation", "full blood count", "serum immunoglobulins (IgG, IgA, IgM)"]
+      targeted: ["cystic fibrosis transmembrane conductance regulator testing", "nasal nitric oxide / ciliary biopsy for PCD", "sputum mycology/ABPA testing"]
+    qualification_assessment:
+      referral_bias: "not an empirical cohort; clinical recommendations reflect diagnostic standard of care"
+      disposition: "sensitivity_only"
+      rationale: >-
+        Provides the diagnostic capacity benchmark against which ascertainment scenarios (restricted vs
+        comprehensive) are structured in the demonstrator.
+summary:
+  total_sources_qualified: 3
+  accepted_for_empirical_activation: 0
+  qualified_for_structural_sensitivity: 3
+  conclusion: >-
+    All available published evidence originates from tertiary registry cohorts or clinical consensus
+    guidelines. The literature consistently confirms that idiopathic bronchiectasis represents 30-50%
+    of cases and that multiple concurrent aetiologies occur. These sources justify the structural multi-tier
+    modelling in RBC-P003 but are held as sensitivity scenarios rather than population-level truth.

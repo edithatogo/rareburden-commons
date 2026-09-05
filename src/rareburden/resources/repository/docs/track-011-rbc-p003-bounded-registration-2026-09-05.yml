@@ -1,0 +1,87 @@
+schema_version: "1.0.0"
+track: "011-bronchiectasis-demonstrator"
+protocol_id: "RBC-P003"
+protocol_version: "0.2.0-bounded"
+status: "internally_registered_bounded_synthetic_interface"
+registered_on: "2026-09-05"
+registered_by: "edithatogo"
+scope: >-
+  Synthetic protocol and interface assurance only for bronchiectasis rare-within-common
+  demonstrator. Exactly-receipted public aggregates and literature sources are qualified
+  for structural sensitivity, but no empirical parameter is activated or clinical inference
+  claimed by this registration.
+upstream_candidate:
+  commit: "32291af19c2f6d2ad3569a9b19e28fcfb56e6d19"
+  tree: "d7f1d46b8563a6289b4fce23ec7ee6d30b910408"
+bindings:
+  semantic_scope:
+    path: "examples/semantics/bronchiectasis-synthetic.yml"
+    sha256: "497d3e19aef1f03b0a4a0b356b3129f813ec6a9a4d63490666965caf1882d144"
+  ledger_profile:
+    path: "examples/demonstrators/011-ledger-profile.yml"
+    sha256: "979e27c0827299a4e908ea0e8082a937a0910f545199611b816ea2d572dbf77c"
+  profile:
+    path: "examples/demonstrators/011-bounded-synthetic-profile.yml"
+    sha256: "7be8645e851915998dc164a66a7b78994767f4a56a5dc468ae3901b0f0a4cfca"
+  dependency_bindings:
+    path: "docs/track-011-dependency-bindings-2026-08-16.yml"
+    sha256: "9c35471d441113bba30a210334812df934f82df97ad0fbe22262d634ea5b42b9"
+registered_estimands:
+  primary:
+    estimand_id: "E-RBC-P003-AETIOLOGIC-COMPOSITION"
+    denominator_id: "D-RBC-P003-BRONCHIECTASIS-POPULATION"
+    unit: "cases_and_proportions"
+  derived:
+    estimand_id: "E-RBC-P003-ATTRIBUTABLE-CASES"
+    denominator_id: "D-RBC-P003-BRONCHIECTASIS-POPULATION"
+    unit: "people"
+    interpretation: "modelled_expected_population_not_observed_case_count"
+  structural_quantities:
+    multi_aetiology_count: "separate_non_summable_structural_bucket"
+    unknown_count: "idiopathic_or_unclassified_bucket"
+    unaccounted_count: "conservation_remainder"
+  sensitivities:
+    - "E-RBC-P003-HIGH-OVERLAP-SCENARIO"
+    - "E-RBC-P003-TERTIARY-REFERRAL-TRANSPORT"
+    - "E-RBC-P003-RESTRICTED-DIAGNOSTIC-CAPACITY"
+  deferred:
+    - "E-RBC-P003-POPULATION-PREVALENCE"
+    - "E-RBC-P003-EMPIRICAL-MORTALITY-ATTRIBUTION"
+synthetic_entity_scope:
+  hierarchy_id: "bronchiectasis-synthetic"
+  hierarchy_version: "0.1.0"
+  included_entity_ids:
+    - "bronchiectasis-envelope"
+    - "primary-bronchiectasis"
+    - "secondary-bronchiectasis"
+    - "other-bronchiectasis"
+  clinical_scope: "not_registered_synthetic_grouping_only"
+population_states:
+  contract: "RBC-P003-POPULATION-STATES-v0.1.0"
+  required_dimensions:
+    - "bronchiectasis_envelope_eligibility"
+    - "mutually_exclusive_aetiology"
+    - "multi_aetiology_overlap"
+    - "unclassified_or_unknown"
+    - "referral_and_diagnostic_capacity_selection"
+  required_quantities:
+    - "Q-RBC-P003-CONFIRMED-EXCLUSIVE-CASES"
+    - "Q-RBC-P003-MULTI-AETIOLOGY-OVERLAP-CASES"
+    - "Q-RBC-P003-UNKNOWN-IDIOPATHIC-CASES"
+    - "Q-RBC-P003-UNACCOUNTED-CASES"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  public_aggregate_execution: false
+  clinical_entity_freeze: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_reference_demonstrator_only: true
+  independent_review: false
+  patient_community_approval: false
+  community_representation: false
+  publication_authority: false
+  production_release_authority: false
+next_gate: >-
+  Complete role-separated advisory panel evaluation and owner disposition under ADR-0009
+  for bounded synthetic reference demonstrator closeout.

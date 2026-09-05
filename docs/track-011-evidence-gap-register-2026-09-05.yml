@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+status: "current_known_gaps_recorded_not_exhaustive"
+track: "011-bronchiectasis-demonstrator"
+protocol_id: "RBC-P003"
+authority_boundaries:
+  empirical_activation: false
+  controlled_data_activation: false
+  parameter_created: false
+  synthesis_executed: false
+  clinical_advice: false
+  independent_review: false
+  community_representation: false
+  production_release_authority: false
+references:
+  - "docs/track-011-aetiologic-evidence-qualification-2026-09-05.yml"
+  - "docs/track-011-outcome-service-evidence-ledger-2026-09-05.yml"
+  - "docs/track-011-rbc-p003-bounded-registration-2026-09-05.yml"
+gaps:
+  - id: "G011-REFERRAL-BIAS"
+    kind: "tertiary_selection_bias"
+    affected: "All published aetiologic fractions from registry cohorts"
+    next_action: "Model referral ascertainment scenarios with varying transport multipliers"
+    closure_evidence: "Population-based screening cohort or multi-stage calibrated survey"
+
+  - id: "G011-DIAGNOSTIC-CAPACITY"
+    kind: "unequal_investigation_intensity"
+    affected: "Recognition of PCD, atypical CF, and selective antibody deficiencies"
+    next_action: "Evaluate restricted vs comprehensive diagnostic capacity scenarios"
+    closure_evidence: "Standardized regional access to nasal nitric oxide, ciliary biopsy and targeted gene panels"
+
+  - id: "G011-IDIOPATHIC-FRACTION"
+    kind: "unexplained_residual_burden"
+    affected: "Conservation remainder and diagnostic resolution"
+    next_action: "Preserve unknown/idiopathic cases as an explicit non-allocated bucket"
+    closure_evidence: "Longitudinal deep-phenotyping studies with genomic re-analysis"
+
+  - id: "G011-LINKED-DATA"
+    kind: "fragmented_health_records"
+    affected: "Outcomes, healthcare utilization, and true community prevalence"
+    next_action: "Interface with Track 004 federated execution and Track 012 linked-data architecture"
+    closure_evidence: "Cross-jurisdictional approved linked data receipts under custodian governance"
+
+  - id: "G011-PAEDIATRIC-TRANSITION"
+    kind: "life_course_data_continuity"
+    affected: "Post-infectious vs congenital/genetic trajectory"
+    next_action: "Stratify paediatric linked-data demonstrators in Track 012"
+    closure_evidence: "Continuous prospective childhood-to-adulthood cohort registry"
+requests:
+  status: "draft_questions_only_unsent"
+  questions:
+    - "What is the validated population prevalence of non-CF bronchiectasis in unselected community cohorts?"
+    - "What fraction of currently labelled idiopathic bronchiectasis resolves to a rare genetic diagnosis under comprehensive exome sequencing?"
+    - "Can linked administrative data provide unselected emergency and inpatient admission rates for adults with bronchiectasis?"
+  prohibited_request_content: "No participant records, identifiers, variant-level tables or small cells requested"

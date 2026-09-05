@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_id": "demo11-a03a789122c0e02b70861ec7",
+  "demonstrator_id": "011-bronchiectasis-demonstrator",
+  "protocol_id": "RBC-P003",
+  "pipeline_version": "1.0.0-reference",
+  "created_at": "2026-09-05T00:00:00Z",
+  "base_receipt": {
+    "schema_version": "0.1.0",
+    "receipt_id": "demo-ffc0b9a6a4e14006173f9456",
+    "analysis_id": "rbc-p003-bounded-synthetic-composition",
+    "created_at": "2026-09-05T00:00:00Z",
+    "context": {
+      "geography": "synthetic-jurisdiction",
+      "period": "synthetic-period-01",
+      "age_band": "synthetic-all-ages",
+      "setting": "synthetic-community-and-referral-mixture",
+      "case_definition": "synthetic-bronchiectasis-envelope-v0.1.0"
+    },
+    "denominator": 1000.0,
+    "hierarchy_id": "bronchiectasis-synthetic",
+    "hierarchy_version": "0.1.0",
+    "hierarchy_fingerprint": "hier-1721485fe119f579f1178e6d",
+    "exclusive_composition": {
+      "schema_version": "0.1.0",
+      "result_id": "sem-be1f27223dbc7b75c0bf8d96",
+      "hierarchy_id": "bronchiectasis-synthetic",
+      "hierarchy_version": "0.1.0",
+      "hierarchy_fingerprint": "hier-1721485fe119f579f1178e6d",
+      "aggregation_id": "bronchiectasis-composition",
+      "parent_entity_id": "bronchiectasis-envelope",
+      "strategy": "mutually_exclusive_sum",
+      "coverage": "complete",
+      "unit": "people",
+      "value": 700.0,
+      "inputs": [
+        {
+          "entity_id": "primary-bronchiectasis",
+          "value": 120.0
+        },
+        {
+          "entity_id": "secondary-bronchiectasis",
+          "value": 310.0
+        },
+        {
+          "entity_id": "other-bronchiectasis",
+          "value": 270.0
+        }
+      ],
+      "missing_member_entity_ids": [],
+      "limitations": [
+        "This result is valid only for the population, period, ascertainment and unit shared by all member inputs."
+      ]
+    },
+    "multi_aetiology_count": 80.0,
+    "unknown_count": 150.0,
+    "unaccounted_count": 70.0,
+    "dependency_bindings": [
+      {
+        "track_id": "008",
+        "artifact": "examples/semantics/bronchiectasis-synthetic.yml",
+        "sha256": "497d3e19aef1f03b0a4a0b356b3129f813ec6a9a4d63490666965caf1882d144",
+        "scope": "synthetic semantic hierarchy only"
+      },
+      {
+        "track_id": "009",
+        "artifact": "manifests/ledger/track-009-source-release-bindings-2026-08-16.json",
+        "sha256": "c6ab77c5477a97016df5db28a8db17b20449a812de29ebe24802682037d129f3",
+        "scope": "synthetic ledger source-link assurance only"
+      },
+      {
+        "track_id": "010",
+        "artifact": "manifests/burden/track-010-bounded-synthetic-receipt-2026-08-16.json",
+        "sha256": "81826bff754050e4dec8a21a6c9a11a11bdb9126493bb4d96c36dc1c8e9af5bc",
+        "scope": "bounded synthetic burden-engine reconciliation only"
+      }
+    ],
+    "activation_state": "synthetic_only",
+    "empirical_activation": false,
+    "clinical_interpretation": false,
+    "contract_frozen": false,
+    "limitations": [
+      "All values and labels are synthetic assurance inputs, not bronchiectasis evidence.",
+      "The multi-aetiology bucket is structural and is not attributed to any individual cause.",
+      "No age, geography, setting, diagnostic-capacity or clinical inference is permitted."
+    ]
+  },
+  "scenarios_evaluated_count": 6,
+  "scenarios": [
+    {
+      "scenario_id": "baseline-primary-exclusive",
+      "label": "Baseline primary exclusive classification",
+      "description": "Strict mutually exclusive classification without multi-aetiology attribution.",
+      "multi_aetiology_fraction": 0.0,
+      "unknown_fraction": 0.0,
+      "transport_multiplier": 1.0,
+      "estimated_attributable_cases": 700.0,
+      "proportion_of_denominator": 0.7,
+      "annual_expected_exacerbations": 560.0,
+      "targeted_treatment_eligible_cases": 560.0
+    },
+    {
+      "scenario_id": "proportional-overlap",
+      "label": "Proportional multi-aetiology overlap",
+      "description": "Proportional attribution: 25% of multi-aetiology and 10% of unclassified cases contain primary aetiology.",
+      "multi_aetiology_fraction": 0.25,
+      "unknown_fraction": 0.1,
+      "transport_multiplier": 1.0,
+      "estimated_attributable_cases": 742.0,
+      "proportion_of_denominator": 0.742,
+      "annual_expected_exacerbations": 667.8,
+      "targeted_treatment_eligible_cases": 608.44
+    },
+    {
+      "scenario_id": "high-overlap-multimorbidity",
+      "label": "High overlap and complex multimorbidity",
+      "description": "High-overlap sensitivity: half of multi-aetiology and 20% of unknown cases involve primary cause.",
+      "multi_aetiology_fraction": 0.5,
+      "unknown_fraction": 0.2,
+      "transport_multiplier": 1.0,
+      "estimated_attributable_cases": 784.0,
+      "proportion_of_denominator": 0.784,
+      "annual_expected_exacerbations": 940.8,
+      "targeted_treatment_eligible_cases": 666.4
+    },
+    {
+      "scenario_id": "tertiary-referral-transport",
+      "label": "Tertiary referral centre transport scenario",
+      "description": "Tertiary referral setting: referral enrichment multiplier (1.35x) reflecting tertiary clinic selection.",
+      "multi_aetiology_fraction": 0.35,
+      "unknown_fraction": 0.15,
+      "transport_multiplier": 1.35,
+      "estimated_attributable_cases": 1027.35,
+      "proportion_of_denominator": 1.0274,
+      "annual_expected_exacerbations": 1541.03,
+      "targeted_treatment_eligible_cases": 924.62
+    },
+    {
+      "scenario_id": "community-ascertainment-transport",
+      "label": "Unselected community cohort transport scenario",
+      "description": "Community setting: lower specialized ascertainment multiplier (0.75x) in primary care cohorts.",
+      "multi_aetiology_fraction": 0.15,
+      "unknown_fraction": 0.05,
+      "transport_multiplier": 0.75,
+      "estimated_attributable_cases": 542.25,
+      "proportion_of_denominator": 0.5423,
+      "annual_expected_exacerbations": 325.35,
+      "targeted_treatment_eligible_cases": 379.57
+    },
+    {
+      "scenario_id": "restricted-diagnostic-capacity",
+      "label": "Restricted diagnostic capacity scenario",
+      "description": "Restricted capacity: limited access to sweat chloride, ciliary biopsy or gene panels (0.60x).",
+      "multi_aetiology_fraction": 0.1,
+      "unknown_fraction": 0.02,
+      "transport_multiplier": 0.6,
+      "estimated_attributable_cases": 427.44,
+      "proportion_of_denominator": 0.4274,
+      "annual_expected_exacerbations": 299.21,
+      "targeted_treatment_eligible_cases": 277.84
+    }
+  ],
+  "reference_range": {
+    "minimum_cases": 427.44,
+    "maximum_cases": 1027.35,
+    "minimum_proportion": 0.4274,
+    "maximum_proportion": 1.0273
+  },
+  "conservation_summary": {
+    "denominator": 1000.0,
+    "exclusive_sum": 700.0,
+    "multi_aetiology_cases": 80.0,
+    "unknown_cases": 150.0,
+    "unaccounted_cases": 70.0,
+    "conservation_verified": true
+  },
+  "limitations": [
+    "All inputs and outputs are synthetic reference artefacts for software assurance.",
+    "Scenario allocations are structural model assumptions, not empirical medical evidence.",
+    "Transport multipliers model hypothetical transfer and are not calibrated to any clinical jurisdiction.",
+    "No clinical diagnosis, patient prognosis, or therapeutic recommendation is made."
+  ],
+  "claims": {
+    "empirical_activation": false,
+    "clinical_interpretation": false,
+    "contract_frozen": true,
+    "scope_reference_demonstrator_only": true
+  }
+}

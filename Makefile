@@ -81,6 +81,14 @@ track-009-bounded-completion-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track009_bounded_completion.py \
 		--root . --require-complete
 
+track-005-bounded-completion-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track005_bounded_completion.py \
+		--root . --require-complete
+
+track-011-reference-closeout-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track011_reference_closeout.py \
+		--root .
+
 track-009-source-profile-role-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track009_source_profile_role.py \
 		examples/ledger/source-profile-role-structural-synthetic.yml \

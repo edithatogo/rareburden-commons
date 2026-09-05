@@ -1,0 +1,59 @@
+schema_version: "1.0.0"
+artifact_id: "RBC-P003-OUTCOME-SERVICE-LEDGER-2026-09-05"
+track: "011-bronchiectasis-demonstrator"
+protocol_id: "RBC-P003"
+status: "bounded_outcome_and_service_ledger"
+created_on: "2026-09-05"
+authority_boundaries:
+  empirical_activation: false
+  causal_treatment_attribution: false
+  production_cost_claim: false
+  clinical_recommendation: false
+ledger_dimensions:
+  - dimension_id: "DIM-DIAGNOSTIC-DELAY"
+    label: "Diagnostic delay from symptom onset to HRCT confirmation"
+    unit: "years"
+    literature_benchmark:
+      median_years: 7.5
+      range_years: "2.0 - 15.0"
+      primary_sources: ["King et al. Respir Med. 2006", "Chalmers et al. Lancet Respir Med. 2017"]
+    demonstrator_disposition: "hypothetical_scenario_only"
+    rationale: >-
+      Diagnostic delay is highly heterogeneous and retrospectively recalled in registry cohorts.
+      Held as a scenario sensitivity parameter, not an individual patient prognosis.
+
+  - dimension_id: "DIM-MAINTENANCE-TREATMENT"
+    label: "Targeted maintenance treatment initiation following rare-aetiology identification"
+    interventions:
+      - "Replacement immunoglobulin for primary immunodeficiency"
+      - "Targeted CFTR modulators or specialized mucolytics for CF"
+      - "Specialized physiotherapy and hypertonic saline for PCD"
+      - "Long-term low-dose macrolide therapy (azithromycin)"
+    demonstrator_disposition: "scenario_eligibility_only"
+    rationale: >-
+      Identification of underlying rare aetiology triggers specific disease-modifying therapies
+      distinct from generic bronchiectasis airway clearance. Labelled non-causal scenario model.
+
+  - dimension_id: "DIM-EXACERBATION-HOSPITALIZATION"
+    label: "Annual acute pulmonary exacerbation requiring inpatient hospital admission"
+    unit: "admissions_per_person_year"
+    literature_benchmark:
+      mean_rate: 0.8
+      severe_subgroup_rate: 2.2
+    demonstrator_disposition: "structural_cost_and_bed_day_scenario"
+    rationale: >-
+      Severe exacerbations drive the bulk of healthcare utilization in bronchiectasis.
+      Modelled as scenario rate multipliers rather than empirical claims.
+
+  - dimension_id: "DIM-AMBULATORY-SERVICE-USE"
+    label: "Specialist respiratory outpatient clinics and pulmonary rehabilitation visits"
+    unit: "visits_per_person_year"
+    literature_benchmark:
+      mean_visits: 3.5
+    demonstrator_disposition: "scenario_quantity_only"
+    rationale: >-
+      Captures chronic outpatient maintenance intensity across diagnostic categories.
+summary:
+  ledgered_dimensions_count: 4
+  empirical_activation_state: "inactive"
+  structural_scenario_readiness: "complete"
