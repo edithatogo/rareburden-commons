@@ -1,0 +1,34 @@
+schema_version: "1.0.0"
+track_id: "013-quality-validation-gap-equity"
+decision_type: "bounded_validation_reference_disposition"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+decided_on: "2026-09-06"
+governance_framework: "ADR-0009 role-separated advisory panel with sole accountable human disposition"
+selected_option: "A"
+authorization:
+  track_complete: true
+  scope: "bounded demonstrator validation and uncertainty assurance; no empirical validation"
+  status_label: "Complete (bounded synthetic validation; no empirical claims)"
+  closeout_document: "docs/track-013-reference-closeout-2026-09-06.md"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_synthetic_assurance_only: true
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  release_authority: false
+panel_review_packet:
+  path: "docs/reviews/track-013-reference-output-panel-2026-09-06.yml"
+  result: "pass_all_lanes"
+rationale: >-
+  Track 013 has successfully delivered the complete demonstrator validation suite,
+  cross-scenario triangulation for Monogenic Diabetes (Track 003) and Bronchiectasis (Track 011),
+  scope validation for Paediatric linked data (Track 012) and Economic components (Track 005),
+  uncertainty decomposition, and decision-sensitive parameter identification. The simulated
+  advisory panel unanimously passed all four lanes. Under ADR-0009, the repository owner selects
+  Option A to close Track 013 as Complete (bounded synthetic validation; no empirical claims),
+  unblocking the downstream Atlas and API release track (Track 014).

@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+track: "013-quality-validation-gap-equity"
+protocol_id: "RBC-Q001"
+protocol_version: "0.2.0-bounded"
+status: "internally_registered_bounded_synthetic_interface"
+registered_on: "2026-09-06"
+registered_by: "edithatogo"
+scope: >-
+  Synthetic demonstrator validation, triangulation and uncertainty decomposition
+  assurance under Track 013 (RBC-Q001). Demonstrator outputs from Track 003, 011,
+  012 and economic components from Track 005 are triangulated and checked for contract
+  adherence, person conservation, and parameter sensitivity. No empirical claims, clinical
+  interpretation, or external validity are asserted.
+bindings:
+  track003_results:
+    path: "results/track-003-reference-2026-08-31/reference-results.json"
+    sha256: "2045f12db2697d6bba280175470a878a67227a10b34a8542764119c494b9f289"
+  track011_results:
+    path: "results/track-011-reference-2026-09-05/reference-results.json"
+    sha256: "e2fd809ed7c4f53864b6c69c3143237d5763a85b9f19150462a6c0d2085eb996"
+  track012_results:
+    path: "results/track-012-reference-2026-09-06/reference-results.json"
+    sha256: "08ebfaeb63bb30da5f246d2ea2ffb38739308915a007e621275c51ddc7a3194d"
+  economic_components:
+    path: "examples/economics/component-first-invented.yml"
+    sha256: "aae94a316d4dd005a8d20db43c8e1a7f12e00e197e7c39ba9ce521636c5fece3"
+registered_validation_domains:
+  - domain: "monogenic_diabetes_triangulation"
+    tolerance: 0.15
+    intended_use: "synthetic_assurance"
+  - domain: "bronchiectasis_triangulation"
+    tolerance: 0.15
+    intended_use: "synthetic_assurance"
+  - domain: "paediatric_scope_validation"
+    invariants: ["person_conservation", "small_cell_suppression", "multimorbidity_retention"]
+  - domain: "economic_scope_validation"
+    invariants: ["structural_components", "synthetic_only", "no_empirical_claims"]
+  - domain: "uncertainty_decomposition"
+    method: "one_at_a_time_sensitivity"
+    diagnostic: "decision_sensitive_parameter_identification"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_synthetic_assurance_only: true
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  release_authority: false
+next_gate: >-
+  Complete role-separated advisory panel evaluation and owner disposition under ADR-0009
+  for bounded synthetic reference validation closeout.

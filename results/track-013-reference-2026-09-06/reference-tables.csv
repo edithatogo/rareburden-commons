@@ -1,0 +1,13 @@
+domain,item,metric,value,status
+triangulation,monogenic_diabetes,rbc-p002-model_eligibility,1000.0,exceeds_tolerance
+triangulation,monogenic_diabetes,rbc-p002-age_stratified,2480.24802480248,exceeds_tolerance
+triangulation,monogenic_diabetes,rbc-p002-carrier_penetrance,2000.0,within_tolerance
+triangulation,bronchiectasis,rbc-p003-proportional-overlap,742.0,within_tolerance
+triangulation,bronchiectasis,rbc-p003-high-overlap-multimorbidity,784.0,within_tolerance
+triangulation,bronchiectasis,rbc-p003-tertiary-referral-transport,1027.35,exceeds_tolerance
+triangulation,bronchiectasis,rbc-p003-community-ascertainment-transport,542.25,exceeds_tolerance
+triangulation,bronchiectasis,rbc-p003-restricted-diagnostic-capacity,427.44,exceeds_tolerance
+uncertainty,prevalence_per_100k,max_relative_change,1.5,sensitive
+uncertainty,cost_multiplier,max_relative_change,0.6667,sensitive
+uncertainty,diagnostic_yield,max_relative_change,0.5,sensitive
+uncertainty,missingness_fraction,max_relative_change,0.1667,robust

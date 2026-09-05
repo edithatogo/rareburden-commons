@@ -1,0 +1,62 @@
+schema_version: "1.0.0"
+track_id: "013-quality-validation-gap-equity"
+panel_assurance: simulated_role_separated_advisory_panel
+status: actual_output_review_passed
+closeout_review:
+  result: pass_all_lanes
+  document: docs/track-013-reference-closeout-2026-09-06.md
+  recommendation: >-
+    Apply recorded Option A after full local checks; accept bounded demonstrator
+    validation outputs, monogenic-diabetes triangulation, bronchiectasis triangulation,
+    paediatric and economic scope validation, and uncertainty decomposition.
+  continuity_note: >-
+    This is repository-owned advisory review under ADR-0009. Reproduction is owner-operated,
+    not independent. Empirical calibration, patient/community endorsement, and release
+    authority remain separate.
+output_sha256:
+  reference-report.md: "2aace21cbd4c2e9d8357a74600157cc6843ceb5362ea5753ddcd4e69909ada82"
+  reference-results.json: "1801244977de245cea84551cd3fbe00c71f3bce5c6fd58d1a5bcbd9784afc36a"
+  reference-tables.csv: "b2eb035fccb2d617fdfbcfffdf9da135d660e39e76dbdb7bbb88e68909486ca8"
+lanes:
+  - perspective: methods_and_validation_assurance
+    agent: methods_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Triangulation engine compares synthetic demonstrator estimates across declared numerical tolerances."
+      - "Agreement is strictly reported as a software assurance diagnostic, avoiding empirical validation claims."
+      - "Demonstrators from Tracks 003, 011, 012, and 005 are all accounted for in the validation matrix."
+  - perspective: uncertainty_and_sensitivity_assurance
+    agent: uncertainty_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "One-at-a-time sensitivity correctly isolates decision-sensitive parameters (prevalence, yield, cost multiplier)."
+      - "Relative changes cleanly handle boundary cases and avoid floating-point distortion."
+      - "Interpretation explicitly marks sensitivity analysis as non-empirical."
+  - perspective: engineering_and_reproducibility
+    agent: engineering_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Validation pipeline runs deterministically and produces exact content-addressed receipt."
+      - "Results package contains exactly three regular files with byte-identical reproducibility."
+      - "All fail-closed schema checks and suppression bounds are enforced."
+  - perspective: simulated_community_and_equity
+    agent: community_harm_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Reports explicitly communicate missingness, uncertainty, and synthetic conditioning."
+      - "Underserved populations and data gaps remain visible rather than hidden by imputation."
+      - "No representative claims are made without lawful community leadership."
+options:
+  - id: A
+    disposition: accept
+    rationale: "Retain exact reviewed synthetic outputs and close Track 013 with bounded validation status."
+    trade_offs: ["Provides reproducible quality and uncertainty assurance without empirical data access."]
+    contingencies: ["All local checks must pass and owner disposition recorded."]
+  - id: B
+    disposition: defer
+    rationale: "Defer completion until real external empirical registries are accessed for triangulation."
+    trade_offs: ["Blocks downstream atlas integration (Track 014) and operations (Track 016) indefinitely."]

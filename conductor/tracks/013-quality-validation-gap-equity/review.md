@@ -1,5 +1,18 @@
 # Track 013 dependency review — Quality, validation, gap mapping and equity assurance
 
+## Reference demonstrator validation closeout — 2026-09-06
+
+Track 013 has delivered all Phase 3 demonstrator validation and uncertainty
+decomposition deliverables:
+- Cross-scenario triangulation of Monogenic Diabetes (Track 003) and Bronchiectasis (Track 011)
+- Scope validation of Paediatric linked-data conservation (Track 012) and Economic component contracts (Track 005)
+- Parameter uncertainty decomposition identifying decision-sensitive parameters (prevalence, yield, cost multiplier)
+- Reference outputs package in `results/track-013-reference-2026-09-06/` and execution manifest `manifests/demonstrators/track-013-reference-execution-2026-09-06.json`
+- Simulated advisory panel review (`docs/reviews/track-013-reference-output-panel-2026-09-06.yml`) passing all 4 lanes
+- Repository owner reference disposition (`docs/decisions/2026-09-06-track-013-owner-reference-disposition.yml`) selecting Option A
+
+Status: Complete (bounded synthetic validation; no empirical claims).
+
 ## Existing reproduction evidence reconciliation — 2026-09-01
 
 Current criterion 3 is satisfied by Track 003's exact, separately executed,
