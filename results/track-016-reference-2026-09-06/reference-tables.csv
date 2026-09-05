@@ -1,0 +1,6 @@
+metric_key,budget,observed,status
+package_size_bytes,2621440,2131005,pass
+install_disk_bytes,52428800,16777216,pass
+peak_rss_bytes,67108864,9607604,pass
+cpu_seconds,15.0,0.23,pass
+workload_seconds,15.0,0.23,pass
