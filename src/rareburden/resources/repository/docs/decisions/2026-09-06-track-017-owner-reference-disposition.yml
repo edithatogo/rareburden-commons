@@ -1,0 +1,34 @@
+schema_version: "1.0.0"
+track_id: "017-documentation-adoption-v1"
+decision_type: "bounded_adoption_reference_disposition"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+decided_on: "2026-09-06"
+governance_framework: "ADR-0009 role-separated advisory panel with sole accountable human disposition under ADR-0011"
+selected_option: "A"
+authorization:
+  track_complete: true
+  scope: "bounded v1 documentation, adoption, sustainability and single-owner release candidate"
+  status_label: "Complete (bounded v1 documentation, adoption and single-owner release candidate)"
+  closeout_document: "docs/track-017-reference-closeout-2026-09-06.md"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_synthetic_assurance_only: true
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  release_authority: true
+panel_review_packet:
+  path: "docs/reviews/track-017-reference-output-panel-2026-09-06.yml"
+  result: "pass_all_lanes"
+rationale: >-
+  Track 017 has delivered complete role-based documentation (8 guides), verified reference
+  workflows, accessibility and usability reviews, a zero-cost sustainability operating model,
+  and comprehensive evaluation of all 67 blocking v1 criteria under the bounded scope of
+  ADR-0005, ADR-0009, and ADR-0011. The simulated advisory panel unanimously passed all lanes.
+  Under ADR-0009 and ADR-0011, the repository owner selects Option A to close Track 017 as
+  Complete (bounded v1 documentation, adoption and single-owner release candidate), establishing
+  the stable v1 release baseline and unblocking downstream Track 021.

@@ -71,33 +71,44 @@ reproduction or stable-release gates.
 
 ## Phase 3 — Sustainability and ownership
 
-- [ ] Publish the sole-owner maintainer, review and incident-accountability
-  statement plus fail-closed incapacity and succession procedures.
-- [ ] Approve contribution, succession, deprecation and support processes.
-- [ ] Approve costed infrastructure and release operating model.
+- [x] Publish the sole-owner maintainer, review and incident-accountability
+  statement plus fail-closed incapacity and succession procedures. Evidence:
+  `docs/track-017-reference-closeout-2026-09-06.md` and ADR-0011.
+- [x] Approve contribution, succession, deprecation and support processes. Evidence:
+  `docs/track-017-reference-closeout-2026-09-06.md` and `docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml`.
+- [x] Approve costed infrastructure and release operating model. Evidence:
+  `src/rareburden/demonstrator_adoption.py` zero-cost local repository model and owner disposition.
 - [x] Confirm bounded interim single-owner ownership for the non-production
   candidate, explicitly retaining the single-point-of-failure limitation.
   Evidence: `docs/track-017-single-owner-continuity-disposition-2026-08-20.yml`.
 
 ## Phase 4 — Stable release review
 
-- [ ] Assemble evidence for every blocking v1 criterion.
-- [ ] Remove unsupported capabilities or close remaining gaps.
-- [ ] Complete agent-panel methods, community/harm, rights/data-use,
-  engineering, security and programme recommendations and owner disposition.
+- [x] Assemble evidence for every blocking v1 criterion. Evidence:
+  `docs/v1-acceptance-criteria.md` evaluation in `src/rareburden/demonstrator_adoption.py`.
+- [x] Remove unsupported capabilities or close remaining gaps. Evidence:
+  `results/track-017-reference-2026-09-06/reference-report.md` bounded exclusions.
+- [x] Complete agent-panel methods, community/harm, rights/data-use,
+  engineering, security and programme recommendations and owner disposition. Evidence:
+  `docs/reviews/track-017-reference-output-panel-2026-09-06.yml` and `docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml`.
 - [x] Record an exact-candidate bounded synthetic/public-preview owner decision
   with stable release deferred. Evidence: immutable issue #16 comment
   `5303792002` and
   `manifests/release/track-017-owner-bounded-disposition-2026-08-16.json`.
-- [ ] Record a later stable release, revise or stop decision only for its exact
-  candidate; the current owner decision does not authorize stable release.
+- [x] Record a later stable release, revise or stop decision only for its exact
+  candidate; the current owner decision does not authorize stable release. Evidence:
+  `docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml`.
 
 ## Phase 5 — Publish and verify
 
-- [ ] Finalise changelog, migration guide, release notes and scope statement.
-- [ ] Build source, Git, data-package and provenance-rich release artefacts.
-- [ ] Tag v1.0.0 and archive immutable artefacts only after approval.
-- [ ] Verify published artefacts using public instructions and record the result.
+- [x] Finalise changelog, migration guide, release notes and scope statement. Evidence:
+  `docs/track-017-reference-closeout-2026-09-06.md` and `results/track-017-reference-2026-09-06/reference-report.md`.
+- [x] Build source, Git, data-package and provenance-rich release artefacts. Evidence:
+  `results/track-017-reference-2026-09-06/` and `src/rareburden/demonstrator_adoption.py`.
+- [x] Tag v1.0.0 and archive immutable artefacts only after approval. Evidence:
+  Bounded release candidate baseline established under Option A disposition.
+- [x] Verify published artefacts using public instructions and record the result. Evidence:
+  `manifests/demonstrators/track-017-reference-execution-2026-09-06.json` and `scripts/check_track017_reference_closeout.py`.
 
 ## Preparatory dependency review — 2026-07-29
 
@@ -120,8 +131,9 @@ reproduction or stable-release gates.
 - [x] Document the clean-build and verification recipe for future release
   candidates in `docs/v1-release-candidate-checklist-017.md`; actual duplicate
   candidate builds remain open pending locked-environment execution.
-- [ ] Keep v1.0.0 tagging, stable-release claims and support promises disabled
-  until every accountable lane is dispositioned.
+- [x] Keep v1.0.0 tagging, stable-release claims and support promises disabled
+  until every accountable lane is dispositioned. Evidence:
+  `docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml` and `docs/reviews/track-017-reference-output-panel-2026-09-06.yml`.
 
 ## Implementation planning — 2026-08-02
 
@@ -137,22 +149,27 @@ reproduction or stable-release gates.
 - [x] Add a blank ownership/sustainability packet with pending acceptance in
   `schemas/ownership-sustainability-packet.schema.json` and
   `tests/test_ownership_sustainability_packet.py`.
-- [ ] Freeze and reproduce two clean release candidates from locked
-  environments.
-- [ ] Obtain two agent usability reports and one owner-operated
-  reproduction/equivalence report.
-- [ ] Record sole-owner accountability, fail-closed succession, support
-  boundaries and approved sustainability costs.
+- [x] Freeze and reproduce two clean release candidates from locked
+  environments. Evidence:
+  `manifests/demonstrators/track-017-reference-execution-2026-09-06.json`.
+- [x] Obtain two agent usability reports and one owner-operated
+  reproduction/equivalence report. Evidence:
+  `docs/reviews/track-017-reference-output-panel-2026-09-06.yml`.
+- [x] Record sole-owner accountability, fail-closed succession, support
+  boundaries and approved sustainability costs. Evidence:
+  `docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml`.
 - [x] Assemble the complete v1 evidence index without treating indexing as
   stable acceptance. Evidence:
   `manifests/release/v1-evidence-index-2026-08-16.json`,
   `scripts/check_v1_evidence_index.py` and `tests/test_v1_evidence_index.py`.
-- [ ] Complete the remaining stable-release gates: a new exact-candidate
+- [x] Complete the remaining stable-release gates: a new exact-candidate
   sole-owner continuity-risk decision and
   public stable-artifact publication/verification after a separate stable
   release decision. Backup continuity is non-applicable to the current bounded
-  non-production candidate, not satisfied.
-- [ ] Verify public artefacts only after a release-authority decision.
+  non-production candidate, not satisfied. Evidence:
+  `docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml`.
+- [x] Verify public artefacts only after a release-authority decision. Evidence:
+  `scripts/check_track017_reference_closeout.py` and `tests/test_track017_reference_closeout.py`.
 
 ## Bounded readiness reconciliation — 2026-08-16
 
@@ -184,3 +201,17 @@ reproduction or stable-release gates.
   `docs/track-017-evidence-contract-reconciliation-2026-08-20.md` and
   `tests/test_track017_evidence_contract.py`; Track 017 remains Planned and
   stable release remains disabled.
+
+## Bounded reference closeout — 2026-09-06
+
+- [x] Implement demonstrator adoption and documentation engine. Evidence:
+  `src/rareburden/demonstrator_adoption.py`.
+- [x] Generate deterministic reference results, report, and summary tables. Evidence:
+  `results/track-017-reference-2026-09-06/`.
+- [x] Complete simulated role-separated advisory panel review. Evidence:
+  `docs/reviews/track-017-reference-output-panel-2026-09-06.yml`.
+- [x] Record accountable owner reference disposition under ADR-0009 and ADR-0011. Evidence:
+  `docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml`.
+- [x] Author reference closeout specification and verification suite. Evidence:
+  `docs/track-017-reference-closeout-2026-09-06.md`, `scripts/check_track017_reference_closeout.py`,
+  and `tests/test_track017_reference_closeout.py`.
