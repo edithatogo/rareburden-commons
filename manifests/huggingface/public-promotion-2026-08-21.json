@@ -1,6 +1,8 @@
 {
   "schema_version": "1.0",
-  "status": "exact_rights_cleared_private_to_public_promotion",
+  "status": "bounded_exact_file_candidate_no_promotion",
+  "promotion_enabled": false,
+  "quarantine_reason": "Exact per-file rights manifest, immutable terms evidence, owner disposition and atomic destination receipt are not yet enforced by the uploader.",
   "source_repository": "edithatogo/hpo-licensed-ontology-archive",
   "source_revision": "a6c270fc57a5fea6e21b7d8822935e135736c140",
   "destination_repository": "edithatogo/rareburden-commons-open-source-snapshots",
