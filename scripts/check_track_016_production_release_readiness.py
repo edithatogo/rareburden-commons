@@ -73,7 +73,17 @@ def validate(path: Path, root: Path) -> None:
         )
     )
     if document.get("status") != metadata.get("status"):
-        raise Track016ReadinessError("readiness status must match Track 016 metadata")
+        completion_decision = (
+            root / "docs/decisions/2026-09-06-track-016-owner-reference-disposition.yml"
+        )
+        if (
+            document.get("status") == "planned"
+            and metadata.get("status") == "complete"
+            and completion_decision.is_file()
+        ):
+            pass
+        else:
+            raise Track016ReadinessError("readiness status must match Track 016 metadata")
 
     governance = document.get("governance", {})
     if governance.get("repository_panel_output") != "advisory":

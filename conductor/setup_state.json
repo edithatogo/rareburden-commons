@@ -21,7 +21,8 @@
     "011-bronchiectasis-demonstrator",
     "012-paediatric-burden-demonstrator",
     "013-quality-validation-gap-equity",
-    "014-atlas-api-release"
+    "014-atlas-api-release",
+    "016-security-reliability-operations"
   ],
   "active_tracks": [],
   "in_review_tracks": [],
@@ -39,7 +40,6 @@
     "004-federated-node-runner"
   ],
   "planned_tracks": [
-    "016-security-reliability-operations",
     "017-documentation-adoption-v1",
     "021-external-governance-activation"
   ]

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "status": "executed_and_separately_reproduced_synthetic_reference",
+  "track_id": "016-security-reliability-operations",
+  "decision": {
+    "path": "docs/decisions/2026-09-06-track-016-owner-reference-disposition.yml"
+  },
+  "output_directory": "results/track-016-reference-2026-09-06",
+  "observed_completed_at_utc": "2026-09-06T00:00:00Z",
+  "execution_environment": {
+    "python": "3.13",
+    "dependency_setup": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--extra",
+      "dev",
+      "--python",
+      "3.13"
+    ],
+    "runtime_check": "Candidate-local environment, Python 3.13 and offline frozen dependencies verified before execution",
+    "same_host": true,
+    "independent_review": false
+  },
+  "runs": [
+    {
+      "role": "primary",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "2d39356191e6b32e46568990958c1cfe43cf878a963e158e759e4da6022a5b6d",
+          "reference-results.json": "2326a4cd4eabff6debfc9355057c319c184ea563990cd0250cf0a1aa1df9b167",
+          "reference-tables.csv": "4fd006ae7bd8d34a4174661e3d3fa18a03cbc5ca7a30f786e0119c3f221c4c8a"
+        }
+      }
+    },
+    {
+      "role": "separate_reproduction",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "2d39356191e6b32e46568990958c1cfe43cf878a963e158e759e4da6022a5b6d",
+          "reference-results.json": "2326a4cd4eabff6debfc9355057c319c184ea563990cd0250cf0a1aa1df9b167",
+          "reference-tables.csv": "4fd006ae7bd8d34a4174661e3d3fa18a03cbc5ca7a30f786e0119c3f221c4c8a"
+        }
+      }
+    }
+  ]
+}

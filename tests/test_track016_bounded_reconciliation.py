@@ -12,7 +12,11 @@ from scripts.check_track016_bounded_operations import (
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests/operations/track-016-bounded-operations-2026-08-16.json"
-PLAN = ROOT / "conductor/tracks/016-security-reliability-operations/plan.md"
+PLAN = (
+    ROOT / "docs/history/track016-plan-20260905.md"
+    if (ROOT / "docs/history/track016-plan-20260905.md").is_file()
+    else (ROOT / "conductor/tracks/016-security-reliability-operations/plan.md")
+)
 
 
 def _payload() -> dict:

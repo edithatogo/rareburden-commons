@@ -27,7 +27,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 013 | [Quality, validation, gap mapping and equity assurance](./tracks/013-quality-validation-gap-equity/index.md) | Complete (bounded synthetic validation; no empirical claims) | Must | v0.8.0 | Repository owner (sole accountable human) | 003, 005, 007, 010, 011, 012 |
 | 014 | [Atlas, API and reproducible release engineering](./tracks/014-atlas-api-release/index.md) | Complete (bounded synthetic release candidate; unpublished) | Must | v0.8.0 | Repository owner (sole accountable human) | 002, 009, 010, 013 |
 | 015 | [Operational governance, partnerships and policy translation](./archive/015-governance-partnership-policy/index.md) | Complete | Must | v0.9.0 | Repository owner (sole accountable human) | 006, 007, 013 |
-| 016 | [Security, reliability, performance and operations](./tracks/016-security-reliability-operations/index.md) | Planned | Must | v0.9.0 | Repository owner (sole accountable human) | 004, 014 |
+| 016 | [Security, reliability, performance and operations](./tracks/016-security-reliability-operations/index.md) | Complete (bounded operations hardening; no cloud hosting) | Must | v0.9.0 | Repository owner (sole accountable human) | 004, 014 |
 | 017 | [Documentation, adoption, sustainability and stable v1 release](./tracks/017-documentation-adoption-v1/index.md) | Planned | Must | v1.0.0 | Repository owner (sole accountable human) | 013, 014, 015, 016 |
 | 021 | [External governance and partnership activation](./tracks/021-external-governance-activation/index.md) | Planned | Should | v1.1.0 | Repository owner (sole accountable human) | 015, 017 |
 

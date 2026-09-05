@@ -1,0 +1,77 @@
+{
+  "budget": {
+    "budget_type": "synthetic_operations",
+    "cpu_seconds": 15.0,
+    "install_disk_bytes": 52428800,
+    "package_size_bytes": 2621440,
+    "peak_rss_bytes": 67108864,
+    "schema_version": "0.1.0",
+    "workload_seconds": 15.0
+  },
+  "exercise_receipt": {
+    "commit": "abcf10813d9ad1dd88d8fac402622f65077558d4",
+    "exercise_id": "exercise-synthetic-recovery-2026-09-06",
+    "failure_cases": [
+      "secret_exposure_tabletop",
+      "hash_mismatch_tabletop",
+      "dependency_drift_tabletop"
+    ],
+    "input_hashes": [
+      "800cf0c6aaa7622f76c7ec180426685973f7fcd0be923086ba76cadcc5a4690c",
+      "92071e67f8c59a4f6e8f774ae14bba1562ea87dcdff44ee9cd04de8788d16d20"
+    ],
+    "outcome": "pass",
+    "output_hashes": [
+      "ccc08ef01f5eb0fc973fac3541a0a5f4976f4944"
+    ],
+    "production_authorized": false,
+    "receipt_type": "synthetic_operations_exercise",
+    "release_id": "track-016-reference-v0.9.0-rc",
+    "schema_version": "0.1.0"
+  },
+  "governance": {
+    "accountable_human": "edithatogo",
+    "frameworks": [
+      "ADR-0005",
+      "ADR-0009",
+      "ADR-0011"
+    ],
+    "independent_review": false,
+    "live_service_authorized": false,
+    "production_authorized": false
+  },
+  "measurement": {
+    "cpu_seconds": 0.23,
+    "install_disk_bytes": 16777216,
+    "package_size_bytes": 2131005,
+    "peak_rss_bytes": 9607604,
+    "workload_seconds": 0.23
+  },
+  "metrics": [
+    {
+      "labels": {
+        "workload": "synthetic-burden"
+      },
+      "metric": "system.benchmark.elapsed_seconds",
+      "recorded_at_utc": "2026-09-05T15:27:44.096913Z",
+      "value": 0.23
+    },
+    {
+      "labels": {
+        "profile": "tracemalloc"
+      },
+      "metric": "system.memory.peak_bytes",
+      "recorded_at_utc": "2026-09-05T15:27:44.097420Z",
+      "value": 9607604
+    },
+    {
+      "labels": {
+        "artifact": "wheel"
+      },
+      "metric": "system.package.wheel_bytes",
+      "recorded_at_utc": "2026-09-05T15:27:44.097427Z",
+      "value": 2131005
+    }
+  ],
+  "status": "bounded_operations_verified"
+}
