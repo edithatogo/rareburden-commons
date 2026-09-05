@@ -1,0 +1,6 @@
+scenario_id,label,disclosure_threshold,cost_multiplier,deduplicated_people,people_with_diagnosis,people_with_multiple_diagnoses,utilisation_rate,mean_annual_cost,jurisdiction_suppressed,description
+baseline-primary-linkage,Baseline primary linked-data deduplication,2,1.0,2,2,1,1.5,500.0,True,Baseline deduplicated person-level linked analysis with disclosure threshold 2.
+strict-disclosure-suppression,Strict cell-suppression threshold,5,1.0,2,2,1,1.5,500.0,True,Custodian threshold 5 enforcing fail-closed suppression of jurisdiction aggregates.
+health-system-economic-valuation,Health system cost valuation linkage,2,1.5,2,2,1,1.5,750.0,True,Links paediatric admissions with Track 005 health-system unit cost perspective.
+multimorbidity-complexity-stratification,Multimorbidity complexity stratification,2,1.0,2,2,1,1.5,500.0,True,Compares children with co-occurring rare diagnoses against single-diagnosis cases.
+australasian-transferability-node,Australasian cross-jurisdiction transferability,2,1.0,2,2,1,1.5,500.0,True,Exercises Track 004 offline node runner across synthetic Australasian jurisdictions.

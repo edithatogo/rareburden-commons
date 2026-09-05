@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_id": "demo12-28e2a5bcf24ead3966a75783",
+  "analysis_id": "rbc-p004-paediatric-reference-demonstrator",
+  "protocol_id": "RBC-P004",
+  "created_at": "2026-09-06T00:00:00Z",
+  "intended_use": "synthetic_reference_software_assurance_only",
+  "baseline_estimands": {
+    "utilisation_admissions_per_person": {
+      "value": 1.5,
+      "numerator": 3,
+      "denominator": 2,
+      "denominator_definition": "deduplicated synthetic people"
+    },
+    "known_death_proportion": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 2,
+      "denominator_definition": "deduplicated synthetic people; unknown status retained separately"
+    },
+    "mean_cost_among_observed_people": {
+      "value": 500.0,
+      "numerator": 500.0,
+      "denominator": 1,
+      "denominator_definition": "synthetic people with an observed cost row",
+      "currency": "SYN"
+    }
+  },
+  "node_integration": {
+    "execution_id": "rbc-p004-track004-synthetic-end-to-end",
+    "manifest_status": "completed",
+    "synthetic_assurance": true,
+    "suppressed_cells": 2
+  },
+  "scenarios": [
+    {
+      "scenario_id": "baseline-primary-linkage",
+      "label": "Baseline primary linked-data deduplication",
+      "disclosure_threshold": 2,
+      "cost_multiplier": 1.0,
+      "deduplicated_people": 2,
+      "people_with_diagnosis": 2,
+      "people_with_multiple_diagnoses": 1,
+      "utilisation_rate": 1.5,
+      "mean_annual_cost": 500.0,
+      "jurisdiction_suppressed": true,
+      "description": "Baseline deduplicated person-level linked analysis with disclosure threshold 2."
+    },
+    {
+      "scenario_id": "strict-disclosure-suppression",
+      "label": "Strict cell-suppression threshold",
+      "disclosure_threshold": 5,
+      "cost_multiplier": 1.0,
+      "deduplicated_people": 2,
+      "people_with_diagnosis": 2,
+      "people_with_multiple_diagnoses": 1,
+      "utilisation_rate": 1.5,
+      "mean_annual_cost": 500.0,
+      "jurisdiction_suppressed": true,
+      "description": "Custodian threshold 5 enforcing fail-closed suppression of jurisdiction aggregates."
+    },
+    {
+      "scenario_id": "health-system-economic-valuation",
+      "label": "Health system cost valuation linkage",
+      "disclosure_threshold": 2,
+      "cost_multiplier": 1.5,
+      "deduplicated_people": 2,
+      "people_with_diagnosis": 2,
+      "people_with_multiple_diagnoses": 1,
+      "utilisation_rate": 1.5,
+      "mean_annual_cost": 750.0,
+      "jurisdiction_suppressed": true,
+      "description": "Links paediatric admissions with Track 005 health-system unit cost perspective."
+    },
+    {
+      "scenario_id": "multimorbidity-complexity-stratification",
+      "label": "Multimorbidity complexity stratification",
+      "disclosure_threshold": 2,
+      "cost_multiplier": 1.0,
+      "deduplicated_people": 2,
+      "people_with_diagnosis": 2,
+      "people_with_multiple_diagnoses": 1,
+      "utilisation_rate": 1.5,
+      "mean_annual_cost": 500.0,
+      "jurisdiction_suppressed": true,
+      "description": "Compares children with co-occurring rare diagnoses against single-diagnosis cases."
+    },
+    {
+      "scenario_id": "australasian-transferability-node",
+      "label": "Australasian cross-jurisdiction transferability",
+      "disclosure_threshold": 2,
+      "cost_multiplier": 1.0,
+      "deduplicated_people": 2,
+      "people_with_diagnosis": 2,
+      "people_with_multiple_diagnoses": 1,
+      "utilisation_rate": 1.5,
+      "mean_annual_cost": 500.0,
+      "jurisdiction_suppressed": true,
+      "description": "Exercises Track 004 offline node runner across synthetic Australasian jurisdictions."
+    }
+  ],
+  "conservation_summary": {
+    "total_person_records": 2,
+    "deduplicated_people": 2,
+    "total_diagnosis_rows": 3,
+    "total_admission_records": 3,
+    "total_death_records": 1,
+    "total_cost_records": 1,
+    "conservation_verified": true
+  },
+  "limitations": [
+    "All inputs, links, and outputs are synthetic reference artefacts for software assurance.",
+    "Estimands model administrative linked data and are not calibrated to clinical care.",
+    "Small-cell suppression enforces fail-closed export boundaries.",
+    "No empirical clinical, patient, or population conclusions are made."
+  ],
+  "claims": {
+    "empirical_activation": false,
+    "clinical_interpretation": false,
+    "contract_frozen": true,
+    "scope_reference_demonstrator_only": true
+  }
+}

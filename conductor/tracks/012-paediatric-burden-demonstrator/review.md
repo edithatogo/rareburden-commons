@@ -1,5 +1,17 @@
 # Track 012 dependency review — Collective paediatric rare-disease burden demonstrator
 
+## Owner reference disposition — 2026-09-06
+
+Under ADR-0005 and ADR-0009, the repository owner (`edithatogo`) recorded the reference
+closeout disposition for Track 012 (`docs/decisions/2026-09-06-track-012-owner-reference-disposition.yml`).
+Track 012 is marked as **Complete (synthetic reference; no empirical validation)**.
+The simulated role-separated advisory panel reviewed the demonstrator outputs across paediatric clinical,
+health economics, engineering/security, and simulated community/equity lanes
+(`docs/reviews/track-012-reference-output-panel-2026-09-06.yml`), confirming that person-level deduplication,
+multimorbidity handling, and Track 004 offline node integration execute deterministically.
+Controlled administrative data access, live hospital linkage, and clinical interpretation remain
+deferred to post-v1 under ADR-0005.
+
 ## Bounded threshold integrity review — 2026-08-31
 
 Reviewed candidate: `c3abd9c586f5999c9f9eae88b486545adc8c382f`, tree

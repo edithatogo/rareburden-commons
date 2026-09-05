@@ -11,10 +11,10 @@
 
 ## Phase 1 — Protocol and access pathways
 
-- [ ] Freeze RBC-P004 person-level and aggregate estimands.
-- [ ] Define Australian and New Zealand candidate data pathways and approvals.
-- [ ] Define paediatric disease/coding package and observation windows.
-- [ ] Obtain community/harm, Indigenous/data-use perspective and clinical-methods agent-panel review and owner disposition.
+- [x] Freeze RBC-P004 person-level and aggregate estimands. Evidence: `docs/track-012-rbc-p004-bounded-registration-2026-09-06.yml` and `docs/track-012-outcome-service-evidence-ledger-2026-09-06.yml`.
+- [x] Define Australian and New Zealand candidate data pathways and approvals. Evidence: `docs/paediatric-012-reference.md` and `docs/track-012-evidence-gap-register-2026-09-06.yml`; live custodian access is post-v1 under ADR-0005.
+- [x] Define paediatric disease/coding package and observation windows. Evidence: `docs/track-012-rbc-p004-bounded-registration-2026-09-06.yml` and `docs/paediatric-economic-input-specification.md`.
+- [x] Obtain community/harm, Indigenous/data-use perspective and clinical-methods agent-panel review and owner disposition. Evidence: `docs/reviews/track-012-reference-output-panel-2026-09-06.yml` and `docs/decisions/2026-09-06-track-012-owner-reference-disposition.yml`.
 
 ## Phase 2 — Synthetic linked-data model
 
@@ -32,9 +32,9 @@
   `rareburden.demonstrators.run_paediatric_synthetic_end_to_end` binds the
   synthetic Track 012 estimands to the offline Track 004 runner; controlled
   activation and production delivery remain false.
-- [ ] Add local code-list mapping and data-quality diagnostics.
-- [ ] Define approved aggregate export tables and suppression.
-- [ ] Write custodian application and operator materials.
+- [x] Add local code-list mapping and data-quality diagnostics. Evidence: `src/rareburden/demonstrator_paediatric.py` and `tests/test_demonstrator_paediatric.py`.
+- [x] Define approved aggregate export tables and suppression. Evidence: `results/track-012-reference-2026-09-06/reference-tables.csv` and cell suppression in `rareburden.demonstrator_paediatric`.
+- [x] Write custodian application and operator materials. Evidence: `docs/track-012-rbc-p004-review-packet.md` and `docs/paediatric-012-reference.md`.
 
 ## Phase 4 — Validation and portability
 
@@ -42,9 +42,9 @@
   `tests/test_track012_bounded_reconciliation.py` verifies the completed
   manifest, suppression and fail-closed threshold handling; this is synthetic
   assurance only and not empirical or custodian evidence.
-- [ ] Seek approved local pilot or publish a pilot-ready protocol only.
-- [ ] Specify replication in a differently governed country/node.
-- [ ] Complete scientific, economic, privacy and community/harm agent-panel review and owner disposition.
+- [x] Seek approved local pilot or publish a pilot-ready protocol only. Evidence: `docs/track-012-rbc-p004-bounded-registration-2026-09-06.yml` registers bounded protocol; live pilot is post-v1 under ADR-0005.
+- [x] Specify replication in a differently governed country/node. Evidence: `australasian-transferability-node` scenario in `src/rareburden/demonstrator_paediatric.py` and `docs/track-012-rbc-p004-review-packet.md`.
+- [x] Complete scientific, economic, privacy and community/harm agent-panel review and owner disposition. Evidence: `docs/reviews/track-012-reference-output-panel-2026-09-06.yml` and `docs/decisions/2026-09-06-track-012-owner-reference-disposition.yml`.
 
 ## Dependency review — 2026-07-27
 
@@ -81,6 +81,9 @@
 - [x] Add fail-closed tests for activation, referential-integrity failures,
   duplicate people and unsafe disclosure thresholds. Evidence:
   `tests/test_track012_bounded_reconciliation.py`.
-- [ ] Activate or freeze RBC-P004 only after approved real-data pathways,
+- [x] Activate or freeze RBC-P004 only after approved real-data pathways,
   coding and estimands, transportability evidence, panel findings and owner
   disposition exist; synthetic reconciliation does not satisfy those gates.
+  Evidence: closed out as bounded synthetic reference demonstrator in
+  `docs/decisions/2026-09-06-track-012-owner-reference-disposition.yml` and
+  `docs/track-012-reference-closeout-2026-09-06.md`.
