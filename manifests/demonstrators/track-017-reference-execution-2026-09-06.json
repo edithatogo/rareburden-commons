@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "status": "executed_and_separately_reproduced_synthetic_reference",
+  "track_id": "017-documentation-adoption-v1",
+  "decision": {
+    "path": "docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml"
+  },
+  "output_directory": "results/track-017-reference-2026-09-06",
+  "observed_completed_at_utc": "2026-09-06T00:00:00Z",
+  "execution_environment": {
+    "python": "3.13",
+    "dependency_setup": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--extra",
+      "dev",
+      "--python",
+      "3.13"
+    ],
+    "runtime_check": "Candidate-local environment, Python 3.13 and offline frozen dependencies verified before execution",
+    "same_host": true,
+    "independent_review": false
+  },
+  "runs": [
+    {
+      "role": "primary",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "779bff3fe5350b05ba5e81e5801726d9486e3342f91618e9a4796f06ce98e14a",
+          "reference-results.json": "6683f4727b4c8fdaa72f8e448ed0f43d3ec2cd34423020965895495f44376b1d",
+          "reference-tables.csv": "1f5ad9e58d9a33efd295839bf7fb206f1332a1cd6e8366f95d82b7bf9c04fd9e"
+        }
+      }
+    },
+    {
+      "role": "separate_reproduction",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "779bff3fe5350b05ba5e81e5801726d9486e3342f91618e9a4796f06ce98e14a",
+          "reference-results.json": "6683f4727b4c8fdaa72f8e448ed0f43d3ec2cd34423020965895495f44376b1d",
+          "reference-tables.csv": "1f5ad9e58d9a33efd295839bf7fb206f1332a1cd6e8366f95d82b7bf9c04fd9e"
+        }
+      }
+    }
+  ]
+}
