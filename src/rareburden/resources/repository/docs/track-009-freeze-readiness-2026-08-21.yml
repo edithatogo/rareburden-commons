@@ -111,4 +111,4 @@ governance:
   automated_validation_effect: "readiness_and_assignment_only_not_approval_review_or_freeze"
 next_action:
   repository_owned: "preserve and deterministically regenerate the exact synthetic candidate and upstream drift checks"
-  external_or_accountable: "complete Track 008, resolve assigned findings and record the required review and freeze decisions"
+  external_or_accountable: "resolve EPI-MED-01, EPI-MED-02 and GOV-MED-01, then record the required review and freeze decisions"

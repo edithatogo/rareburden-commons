@@ -52,3 +52,13 @@ not freeze the RBC-P003 denominator or aetiology scope, activate empirical
 parameters, support clinical interpretation, demonstrate transportability, or
 complete the remaining methods and community/harm panel challenges and owner
 disposition. Track 011 therefore remains **blocked**.
+
+### Repository tranche closeout — 2026-09-03
+
+The prerequisite tracks are complete, and the bounded Track 011 tranche is
+reproducible: denominator context, ontology, overlap and missing categories,
+synthetic referral/setting scenarios, hierarchy reconciliation, uncertainty
+visibility and panel preparation are covered by the checked-in fixtures,
+receipt and tests listed in the plan. Empirical aetiologic fractions, clinical
+interpretation, transportability claims, independent comparison and activation
+remain gated pending evidence and accountable review.
