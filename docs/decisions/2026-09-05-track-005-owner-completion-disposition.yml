@@ -1,0 +1,37 @@
+schema_version: "1.0.0"
+decision_type: "bounded_track_completion_authorization"
+track_id: "005-economic-social-burden"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+decision_date: "2026-09-05"
+owner_decision:
+  selected_route: "A"
+  governance_status: "owner_operated_not_independent_review"
+  disposition: "complete_for_bounded_scope"
+  rationale: >-
+    Authorizes completion of Track 005 for the bounded reference methods, typed contracts,
+    perspective valuation engine, uncertainty propagation, and demonstrator integration scope.
+    Actual participant survey co-design and data collection are deferred under an executable
+    fail-closed collection gate until funded and resourced.
+authorization:
+  track_complete: true
+  scope: "bounded reference methods and software contracts only"
+claims:
+  contract_frozen: true
+  scope_reference_methods_and_software_only: true
+  empirical_parameter_activation: false
+  controlled_data_activation: false
+  human_survey_collection_active: false
+  independent_review: false
+  publication_authority: false
+  release_authority: false
+panel_advice_reference: "docs/track-005-agent-panel-review-2026-09-05.yml"
+completion_scope:
+  permitted_effects:
+    - "Use typed economic schemas and valuation engine for synthetic modeling and demonstrator analyses."
+    - "Report separate health-system, household, and societal perspective burden."
+    - "Run scenario sensitivity and Monte Carlo uncertainty analyses."
+  prohibited_effects:
+    - "No administration of surveys or recruitment of living participants."
+    - "No claim of actual community consent, lived-experience participation, or institutional endorsement."
+    - "No empirical health technology assessment or clinical decision making."

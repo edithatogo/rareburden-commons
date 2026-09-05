@@ -26,7 +26,7 @@ def test_seed_roadmap_is_valid() -> None:
     assert summary.track_count == 19
     assert summary.v1_critical_track_count == 18
     assert summary.current_release == "0.4.0"
-    assert summary.track_status_counts["complete"] == 5
+    assert summary.track_status_counts["complete"] == 6
     assert summary.track_status_counts["archived"] == 5
 
 
@@ -114,7 +114,7 @@ def test_archived_track_may_target_current_release(tmp_path: Path) -> None:
 def test_complete_track_may_be_preserved_in_archive_before_planned_release() -> None:
     summary = validate_roadmap_files(ROADMAP, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
 
-    assert summary.track_status_counts["complete"] == 5
+    assert summary.track_status_counts["complete"] == 6
     assert (ROOT / "conductor/archive/015-governance-partnership-policy/spec.md").is_file()
 
 

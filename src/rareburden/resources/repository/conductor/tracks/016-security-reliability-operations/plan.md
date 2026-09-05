@@ -238,3 +238,16 @@
   binds PR #165's merge commit, tree and evidence hashes for 30 days. It is not
   independent review, production approval or release authority.
 - [ ] Record the owner's exact-candidate release decision after all qualifying gates are satisfied.
+
+## Bounded implementation position — 2026-09-05
+
+- [x] Record the agent's bounded implementation position for the remaining
+  unchecked plan tasks. Evidence:
+  `docs/track-016-implementation-decision-2026-09-05.md`. The decision
+  reaffirms that bounded repository-owned preparation is machine-checked and
+  the three remaining unchecked items are owner/independent/production
+  gates that an autonomous agent cannot legitimately close: qualifying
+  independent operator/security review, qualifying production operations
+  after Tracks 004 and 014, and the owner's exact-candidate release
+  decision. Track 016 stays **Planned**; status, register and roadmap
+  entries are unchanged.

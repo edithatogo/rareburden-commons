@@ -3,7 +3,7 @@
   "method": "Conductor context-driven delivery",
   "status": "configured",
   "initialized_on": "2026-07-18",
-  "updated_on": "2026-08-31",
+  "updated_on": "2026-09-05",
   "stable_target": "1.0.0",
   "current_release": "0.3.0-rc.2",
   "completed_tracks": [
@@ -16,7 +16,8 @@
     "018-scholarly-provenance-reproducibility",
     "009-evidence-parameter-ledger",
     "010-public-burden-engine",
-    "003-monogenic-diabetes-demonstrator"
+    "003-monogenic-diabetes-demonstrator",
+    "005-economic-social-burden"
   ],
   "active_tracks": [],
   "in_review_tracks": [],
@@ -32,7 +33,6 @@
   ],
   "blocked_tracks": [
     "004-federated-node-runner",
-    "005-economic-social-burden",
     "011-bronchiectasis-demonstrator",
     "012-paediatric-burden-demonstrator",
     "013-quality-validation-gap-equity",

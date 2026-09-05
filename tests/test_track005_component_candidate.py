@@ -40,11 +40,15 @@ def test_component_candidate_binds_every_changed_candidate_file() -> None:
         # validation rather than by this older candidate receipt.
         if relative == "src/rareburden/resources/repository/runtime-assets.json":
             continue
-        # Preserve the candidate's exact plan in a portable snapshot while
-        # allowing the live plan and its installed projection to evolve.
+        # Preserve the candidate's exact plan, metadata and review in portable
+        # snapshots while allowing live artifacts and installed projections to evolve.
         path = ROOT / relative
         if relative.endswith("conductor/tracks/005-economic-social-burden/plan.md"):
             path = ROOT / "docs/history/track005-plan-20260901.md"
+        elif relative.endswith("conductor/tracks/005-economic-social-burden/metadata.json"):
+            path = ROOT / "docs/history/track005-metadata-20260901.json"
+        elif relative.endswith("conductor/tracks/005-economic-social-burden/review.md"):
+            path = ROOT / "docs/history/track005-review-20260901.md"
         assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
     assert (ROOT / "schemas/economic-component-prototype.schema.json").read_bytes() == (
         ROOT

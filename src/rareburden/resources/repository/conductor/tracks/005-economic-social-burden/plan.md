@@ -59,31 +59,31 @@ design and actual participation requirements below remain open.
 
 ## Phase 1 — Method and governance
 
-- [ ] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]`
-- [ ] Challenge component taxonomy with community/harm perspective agents and owner disposition. `[M-16]`
-- [ ] Define currency, price year, PPP, discounting and transfer-payment rules.
-- [ ] Define acceptable-use and burden-framing safeguards.
+- [x] Draft RBC-P001D and define health-system, household and societal perspectives. `[S-06]` Evidence: `docs/track-005-rbc-p001d-protocol.md`.
+- [x] Challenge component taxonomy with community/harm perspective agents and owner disposition. `[M-16]` Evidence: `docs/track-005-agent-panel-review-2026-09-05.yml` and `docs/decisions/2026-09-05-track-005-owner-completion-disposition.yml`.
+- [x] Define currency, price year, PPP, discounting and transfer-payment rules. Evidence: `docs/track-005-rbc-p001d-protocol.md` and `src/rareburden/economic_engine.py`.
+- [x] Define acceptable-use and burden-framing safeguards. Evidence: `docs/track-005-rbc-p001d-protocol.md` and `src/rareburden/economic_survey.py`.
 
 ## Phase 2 — Data contracts
 
-- [ ] Add cost, time, productivity, education and social-burden parameter schemas. `[M-18]`
-- [ ] Define component overlap and missingness rules. `[M-05]`
-- [ ] Define survey core, adaptation, translation and remuneration requirements.
-- [ ] Define distributional subgroup and equity outputs.
+- [x] Add cost, time, productivity, education and social-burden parameter schemas. `[M-18]` Evidence: `schemas/economic-parameters.schema.json` and `examples/economics/economic-reference-parameters.yml`.
+- [x] Define component overlap and missingness rules. `[M-05]` Evidence: `src/rareburden/economic_engine.py` and `tests/test_economic_engine.py`.
+- [x] Define survey core, adaptation, translation and remuneration requirements. Evidence: `docs/economic-survey-core-protocol.md` and `src/rareburden/economic_survey.py`.
+- [x] Define distributional subgroup and equity outputs. Evidence: `generate_distributional_equity_report` in `src/rareburden/economic_engine.py` and `tests/test_economic_engine.py`.
 
 ## Phase 3 — Reference implementation
 
-- [ ] Implement component calculations and declared-perspective validation.
-- [ ] Add price/currency conversion interfaces with provenance.
-- [ ] Add uncertainty and scenario propagation. `[M-06]`
+- [x] Implement component calculations and declared-perspective validation. Evidence: `calculate_perspective_burden` in `src/rareburden/economic_engine.py` and `tests/test_economic_engine.py`.
+- [x] Add price/currency conversion interfaces with provenance. Evidence: `adjust_price_year` and `convert_currency` in `src/rareburden/economic_engine.py`.
+- [x] Add uncertainty and scenario propagation. `[M-06]` Evidence: `propagate_economic_uncertainty` and `evaluate_economic_scenarios` in `src/rareburden/economic_engine.py`.
 - [x] Build a non-binding synthetic cost-ledger example and schema test. Evidence: `examples/ledger/economic-social-synthetic.yml`; perspective, price-year and valuation contracts remain unresolved. 
 
 ## Phase 4 — Demonstrator integration
 
-- [ ] Integrate appropriate components into monogenic-diabetes analysis.
-- [ ] Specify linked administrative-cost inputs for paediatric analysis.
-- [ ] Produce patient/family data-gap and new-collection plan. `[M-26]`
-- [ ] Complete health-economics, ethics and community/harm agent-panel review and owner disposition.
+- [x] Integrate appropriate components into monogenic-diabetes analysis. Evidence: `src/rareburden/demonstrator_economic.py` and `tests/test_demonstrator_economic.py`.
+- [x] Specify linked administrative-cost inputs for paediatric analysis. Evidence: `docs/paediatric-economic-input-specification.md`.
+- [x] Produce patient/family data-gap and new-collection plan. `[M-26]` Evidence: `docs/economic-data-gap-plan.md`.
+- [x] Complete health-economics, ethics and community/harm agent-panel review and owner disposition. Evidence: `docs/track-005-agent-panel-review-2026-09-05.yml` and `docs/decisions/2026-09-05-track-005-owner-completion-disposition.yml`.
 
 ## Dependency review — 2026-07-27
 
