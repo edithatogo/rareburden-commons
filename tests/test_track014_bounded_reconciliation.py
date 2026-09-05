@@ -22,7 +22,11 @@ from scripts.check_track014_release_surface import (
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests/atlas/track-014-bounded-release-surface-2026-08-16.json"
-PLAN = ROOT / "conductor/tracks/014-atlas-api-release/plan.md"
+PLAN = (
+    ROOT / "docs/history/track014-plan-20260816.md"
+    if (ROOT / "docs/history/track014-plan-20260816.md").is_file()
+    else (ROOT / "conductor/tracks/014-atlas-api-release/plan.md")
+)
 
 
 def test_track014_plan_reconciles_bounded_work_without_closing_release_gates() -> None:
