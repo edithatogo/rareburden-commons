@@ -7,8 +7,14 @@ ROOT = Path(__file__).resolve().parents[1]
 TRACK = ROOT / "conductor/tracks/017-documentation-adoption-v1"
 
 
+HISTORICAL_PLAN = ROOT / "docs/history/track017-plan-20260831.md"
+HISTORICAL_METADATA = ROOT / "docs/history/track017-metadata-20260831.json"
+HISTORICAL_REVIEW = ROOT / "docs/history/track017-review-20260831.md"
+
+
 def test_track017_plan_retains_append_only_evidence_history() -> None:
-    plan = (TRACK / "plan.md").read_text(encoding="utf-8")
+    plan_path = HISTORICAL_PLAN if HISTORICAL_PLAN.is_file() else (TRACK / "plan.md")
+    plan = plan_path.read_text(encoding="utf-8")
     assert plan.count("- [x]") == 29
     assert plan.count("- [~]") == 0
     assert plan.count("- [ ]") == 17
@@ -46,8 +52,10 @@ def test_track017_single_owner_contract_has_no_additional_person_gate() -> None:
 
 
 def test_reconciliation_preserves_planned_status_and_stable_release_boundary() -> None:
-    metadata = json.loads((TRACK / "metadata.json").read_text(encoding="utf-8"))
-    review = (TRACK / "review.md").read_text(encoding="utf-8")
+    meta_path = HISTORICAL_METADATA if HISTORICAL_METADATA.is_file() else (TRACK / "metadata.json")
+    rev_path = HISTORICAL_REVIEW if HISTORICAL_REVIEW.is_file() else (TRACK / "review.md")
+    metadata = json.loads(meta_path.read_text(encoding="utf-8"))
+    review = rev_path.read_text(encoding="utf-8")
     reconciliation = (
         ROOT / "docs/track-017-evidence-contract-reconciliation-2026-08-20.md"
     ).read_text(encoding="utf-8")

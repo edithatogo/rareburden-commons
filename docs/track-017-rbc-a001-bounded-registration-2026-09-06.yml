@@ -1,0 +1,51 @@
+schema_version: "1.0.0"
+track: "017-documentation-adoption-v1"
+protocol_id: "RBC-A001"
+protocol_version: "0.2.0-bounded"
+status: "internally_registered_bounded_adoption_and_release"
+registered_on: "2026-09-06"
+registered_by: "edithatogo"
+scope: >-
+  Bounded documentation verification, role-based guide inspection, tutorial
+  and reference workflow checks, accessibility and usability review, sustainability
+  and single-owner operational governance validation, and bounded v1 release closeout
+  under Track 017 (RBC-A001). All blocking criteria are evaluated under ADR-0005,
+  ADR-0009, and ADR-0011. No live clinical authority, continuous cloud service, or
+  independent external approval is claimed.
+bindings:
+  track016_results:
+    path: "results/track-016-reference-2026-09-06/reference-results.json"
+    sha256: "2326a4cd4eabff6debfc9355057c319c184ea563990cd0250cf0a1aa1df9b167"
+  v1_acceptance_criteria:
+    path: "docs/v1-acceptance-criteria.md"
+    sha256: "f485eaf6483e3106fbf6c9b822c71994a2a16ba66d9f67697b10acd24e9fde0a"
+  guides_readme:
+    path: "docs/guides/README.md"
+    sha256: "d2e042831269579c767cd8769cd92359478107be8963a47336700b4bf630b74c"
+registered_verifications:
+  - verification_type: "role_based_guides_completeness"
+    total_guides: 8
+    status: "verified"
+  - verification_type: "reference_tutorial_validation"
+    tutorial_path: "docs/tutorial-reference-workflow.md"
+    status: "verified"
+  - verification_type: "v1_criteria_bounded_evaluation"
+    total_criteria: 67
+    categories: 10
+    status: "verified"
+  - verification_type: "single_owner_sustainability_model"
+    operating_model: "zero_cost_local_static_repository"
+    status: "verified"
+claims:
+  documentation_and_guides_complete: true
+  reference_tutorial_executable: true
+  v1_criteria_bounded_satisfied: true
+  production_authorized: false
+  live_service_authorized: false
+  independent_review: false
+  external_authority_approval: false
+  public_release: false
+  stable_release: false
+next_gate: >-
+  Complete role-separated advisory panel evaluation and owner disposition under ADR-0009
+  and ADR-0011 for bounded documentation, adoption, sustainability, and release closeout.

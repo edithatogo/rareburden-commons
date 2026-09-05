@@ -1,0 +1,89 @@
+{
+  "governance": {
+    "accountable_human": "edithatogo",
+    "frameworks": [
+      "ADR-0005",
+      "ADR-0009",
+      "ADR-0011"
+    ],
+    "live_service_authorized": false,
+    "operating_model": "single_developer_advisory_agent_panel",
+    "production_authorized": false,
+    "prohibited_claims": [
+      "independent_review",
+      "human_review",
+      "patient_or_community_consent",
+      "custodian_or_licensor_approval",
+      "external_or_institutional_approval",
+      "unbounded_production_activation"
+    ],
+    "stable_release_disposition": "release_with_bounded_exclusions"
+  },
+  "guides": {
+    "docs/guides/analyst.md": {
+      "lines": 51,
+      "size_bytes": 2296,
+      "status": "verified"
+    },
+    "docs/guides/data-steward.md": {
+      "lines": 12,
+      "size_bytes": 654,
+      "status": "verified"
+    },
+    "docs/guides/developer.md": {
+      "lines": 14,
+      "size_bytes": 646,
+      "status": "verified"
+    },
+    "docs/guides/methods.md": {
+      "lines": 12,
+      "size_bytes": 610,
+      "status": "verified"
+    },
+    "docs/guides/node-operator.md": {
+      "lines": 16,
+      "size_bytes": 840,
+      "status": "verified"
+    },
+    "docs/guides/patient-community.md": {
+      "lines": 21,
+      "size_bytes": 964,
+      "status": "verified"
+    },
+    "docs/guides/quickstart.md": {
+      "lines": 37,
+      "size_bytes": 1741,
+      "status": "verified"
+    },
+    "docs/guides/release-maintainer.md": {
+      "lines": 12,
+      "size_bytes": 648,
+      "status": "verified"
+    }
+  },
+  "status": "bounded_adoption_and_release_candidate_verified",
+  "sustainability": {
+    "annual_cloud_hosting_cost_usd": 0.0,
+    "institutional_host_requirement": "fail_closed_static_archive",
+    "operating_model": "zero_cost_local_static_repository",
+    "sole_accountable_human": "edithatogo",
+    "status": "approved_bounded_operating_model",
+    "succession_pathway": "fail_closed_freezing_without_invented_backup_owner"
+  },
+  "tutorial": {
+    "path": "docs/tutorial-reference-workflow.md",
+    "size_bytes": 3798,
+    "status": "verified"
+  },
+  "v1_criteria_summary": {
+    "blocking_criteria_addressed": 67,
+    "categories_evaluated": 10,
+    "total_criteria": 67,
+    "unsupported_capabilities_excluded": [
+      "live_hospital_electronic_health_record_linkage",
+      "continuous_production_cloud_service",
+      "independent_clinical_practice_authority",
+      "unqualified_global_epidemiology_claims"
+    ]
+  }
+}
