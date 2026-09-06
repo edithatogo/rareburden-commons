@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "status": "executed_and_separately_reproduced_synthetic_reference",
+  "track_id": "021-external-governance-activation",
+  "decision": {
+    "path": "docs/decisions/2026-09-06-track-021-owner-reference-disposition.yml"
+  },
+  "output_directory": "results/track-021-reference-2026-09-06",
+  "observed_completed_at_utc": "2026-09-06T00:00:00Z",
+  "execution_environment": {
+    "python": "3.13",
+    "dependency_setup": [
+      "uv",
+      "sync",
+      "--frozen",
+      "--extra",
+      "dev",
+      "--python",
+      "3.13"
+    ],
+    "runtime_check": "Candidate-local environment, Python 3.13 and offline frozen dependencies verified before execution",
+    "same_host": true,
+    "independent_review": false
+  },
+  "runs": [
+    {
+      "role": "primary",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "e6cd9874d560c54ece62f92d6ead4ab491a970025ecd6d6dab24389bc00fa1cb",
+          "reference-results.json": "055c0d42805a8e2182c5970e22cfffc03a8b8a11b7fcca70e0739c6cc8e7ddce",
+          "reference-tables.csv": "f7014001c0152458f33dfe9fc5024aa43973477857fe88ed2af8dd0e20664826"
+        }
+      }
+    },
+    {
+      "role": "separate_reproduction",
+      "exit_code": 0,
+      "receipt": {
+        "output_sha256": {
+          "reference-report.md": "e6cd9874d560c54ece62f92d6ead4ab491a970025ecd6d6dab24389bc00fa1cb",
+          "reference-results.json": "055c0d42805a8e2182c5970e22cfffc03a8b8a11b7fcca70e0739c6cc8e7ddce",
+          "reference-tables.csv": "f7014001c0152458f33dfe9fc5024aa43973477857fe88ed2af8dd0e20664826"
+        }
+      }
+    }
+  ]
+}

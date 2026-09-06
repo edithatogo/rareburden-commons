@@ -1,0 +1,44 @@
+schema_version: "1.0.0"
+track: "021-external-governance-activation"
+protocol_id: "RBC-G001"
+protocol_version: "0.2.0-bounded"
+status: "internally_registered_bounded_governance_framework"
+registered_on: "2026-09-06"
+registered_by: "edithatogo"
+scope: >-
+  Bounded external governance activation framework under Track 021 (RBC-G001).
+  Evaluates standing external activation conditions from Track 015, defines receipt
+  schemas for external authority, partnership confirmation, and representation, and
+  enforces fail-closed properties under ADR-0005, ADR-0009, and ADR-0011. No unverified
+  external partnership, clinical authority, or hospital data linkage is claimed.
+bindings:
+  track017_results:
+    path: "results/track-017-reference-2026-09-06/reference-results.json"
+    sha256: "6683f4727b4c8fdaa72f8e448ed0f43d3ec2cd34423020965895495f44376b1d"
+  track015_register:
+    path: "docs/track-015-external-activation-register-2026-08-21.yml"
+    sha256: "2156ca0207f8df07208c3061ecfa08bc79426c76dda7c4892fa69fd3fac7f2b9"
+  track015_closeout_decision:
+    path: "docs/decisions/2026-08-21-track-015-bounded-closeout.yml"
+    sha256: "c6ff8a15d90e2b725e9a71bc0f844bcb6893f186369eced505d9a65573b32114"
+registered_verifications:
+  - verification_type: "standing_register_evaluation"
+    total_conditions: 5
+    status: "verified"
+  - verification_type: "node_accreditation_gate"
+    accredited_nodes: 0
+    status: "verified_fail_closed"
+  - verification_type: "relationship_counterparty_evidence"
+    confirmed_relationships: 0
+    status: "verified_fail_closed"
+claims:
+  governance_framework_executable: true
+  standing_conditions_evaluated: true
+  external_partnership_confirmed: false
+  external_authority_active: false
+  production_authorized: false
+  live_service_authorized: false
+  independent_review: false
+next_gate: >-
+  Complete role-separated advisory panel evaluation and owner disposition under ADR-0009
+  and ADR-0011 for bounded external governance activation closeout.

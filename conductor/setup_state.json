@@ -23,7 +23,8 @@
     "013-quality-validation-gap-equity",
     "014-atlas-api-release",
     "016-security-reliability-operations",
-    "017-documentation-adoption-v1"
+    "017-documentation-adoption-v1",
+    "021-external-governance-activation"
   ],
   "active_tracks": [],
   "in_review_tracks": [],
@@ -41,7 +42,5 @@
   "blocked_tracks": [
     "004-federated-node-runner"
   ],
-  "planned_tracks": [
-    "021-external-governance-activation"
-  ]
+  "planned_tracks": []
 }

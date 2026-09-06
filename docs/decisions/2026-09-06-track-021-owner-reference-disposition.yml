@@ -1,0 +1,36 @@
+schema_version: "1.0.0"
+track_id: "021-external-governance-activation"
+decision_type: "bounded_governance_activation_reference_disposition"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+decided_on: "2026-09-06"
+governance_framework: "ADR-0009 role-separated advisory panel with sole accountable human disposition under ADR-0011"
+selected_option: "A"
+authorization:
+  track_complete: true
+  scope: "bounded external governance activation framework"
+  status_label: "Complete (bounded external governance activation framework)"
+  closeout_document: "docs/track-021-reference-closeout-2026-09-06.md"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_synthetic_assurance_only: true
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  release_authority: true
+  external_partnerships_confirmed: false
+  external_authority_active: false
+panel_review_packet:
+  path: "docs/reviews/track-021-reference-output-panel-2026-09-06.yml"
+  result: "pass_all_lanes"
+rationale: >-
+  Track 021 has delivered the bounded external governance activation framework (RBC-G001),
+  evaluating all 5 standing register conditions from Track 015, formalizing receipt schemas
+  for authority, representation, and bilateral relationships, and enforcing fail-closed
+  gates for node accreditation and partner claims. The simulated advisory panel unanimously
+  passed all lanes. Under ADR-0009 and ADR-0011, the repository owner selects Option A to close
+  Track 021 as Complete (bounded external governance activation framework), preserving strict
+  governance boundaries without unverified external claims.

@@ -1,0 +1,69 @@
+{
+  "accreditation_summary": {
+    "accredited_external_nodes": 0,
+    "active_controlled_environments": 0,
+    "unsupported_external_claims_rejected": [
+      "unaccredited_hospital_network_partnership",
+      "unconfirmed_government_endorsement",
+      "unsubstantiated_global_epidemiology_claims",
+      "unauthorized_controlled_data_transfer"
+    ]
+  },
+  "activation_conditions": [
+    {
+      "category": "community_authority",
+      "condition_id": "unrelated_community_or_indigenous_authority",
+      "evaluation": "fail_closed_unactivated",
+      "evidence_required": "attributable scope-specific authority and withdrawal terms",
+      "status": "pass_fail_closed"
+    },
+    {
+      "category": "federated_nodes",
+      "condition_id": "country_node_or_controlled_data",
+      "evaluation": "fail_closed_unactivated",
+      "evidence_required": "custodian-defined access, disclosure, retention and correction terms",
+      "status": "pass_fail_closed"
+    },
+    {
+      "category": "rights_licensing",
+      "condition_id": "publisher_licensor_or_third_party_rights",
+      "evaluation": "verified_bounded",
+      "evidence_required": "exact publisher or licensor terms covering the proposed use",
+      "status": "pass_bounded"
+    },
+    {
+      "category": "external_relations",
+      "condition_id": "partnership_endorsement_or_hosting",
+      "evaluation": "fail_closed_unactivated",
+      "evidence_required": "attributable written counterparty evidence defining scope and expiry",
+      "status": "pass_fail_closed"
+    },
+    {
+      "category": "release_authority",
+      "condition_id": "public_production_or_stable_release",
+      "evaluation": "verified_bounded",
+      "evidence_required": "exact-candidate owner disposition after applicable rights/safety checks",
+      "status": "pass_bounded"
+    }
+  ],
+  "governance": {
+    "accountable_human": "edithatogo",
+    "external_authority_active": false,
+    "external_partnership_confirmed": false,
+    "frameworks": [
+      "ADR-0005",
+      "ADR-0009",
+      "ADR-0011"
+    ],
+    "production_authorized": false,
+    "prohibited_inferences": [
+      "archived_track_015_authorizes_external_relationships",
+      "agent_advice_creates_community_or_custodian_authority",
+      "public_availability_creates_redistribution_permission",
+      "proposed_relationship_is_partnership_or_endorsement",
+      "bounded_repository_governance_authorizes_production_hosting"
+    ],
+    "standing_register": "track-015-external-activation-conditions-2026-08-21"
+  },
+  "status": "bounded_external_governance_framework_verified"
+}
