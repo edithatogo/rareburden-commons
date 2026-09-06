@@ -76,6 +76,12 @@ def convert_currency(
     if not rate_provenance or not rate_provenance.strip():
         raise EconomicEngineError("rate provenance must be explicitly declared")
 
+    if factor_type == "identity_same_currency" and (
+        from_currency != to_currency or conversion_factor != 1.0
+    ):
+        raise EconomicEngineError("identity conversion requires matching currencies and factor 1")
+    if from_currency == to_currency and conversion_factor != 1.0:
+        raise EconomicEngineError("same-currency conversion must not silently discard the factor")
     if from_currency == to_currency:
         converted_amount = amount
         factor = 1.0
@@ -101,6 +107,8 @@ def discount_monetary_value(
     convention: str = "end_of_period",
 ) -> dict[str, Any]:
     """Discount future monetary flows with explicit discount rate and timing convention."""
+    if convention not in {"undiscounted", "end_of_period", "beginning_of_period", "continuous"}:
+        raise EconomicEngineError(f"unknown discounting convention: {convention}")
     if discount_rate < 0 or discount_rate > 0.3:
         raise EconomicEngineError("discount rate must be between 0.0 and 0.3 (0% to 30%)")
     if periods < 0:

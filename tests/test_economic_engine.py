@@ -67,6 +67,23 @@ def test_convert_currency_rejects_invalid_factors() -> None:
         )
 
 
+@pytest.mark.parametrize(
+    "source,target,factor,kind",
+    [
+        ("AUD", "AUD", 2.0, "market_exchange_rate"),
+        ("USD", "AUD", 1.0, "identity_same_currency"),
+    ],
+)
+def test_currency_contract_rejects_inconsistent_identity(source, target, factor, kind):
+    with pytest.raises(EconomicEngineError):
+        convert_currency(100, source, target, factor, factor_type=kind, rate_provenance="test")
+
+
+def test_zero_discount_does_not_bypass_convention_validation():
+    with pytest.raises(EconomicEngineError):
+        discount_monetary_value(100, 0, 0, convention="invalid")
+
+
 def test_discount_monetary_value_supports_multiple_conventions() -> None:
     end = discount_monetary_value(1000.0, 0.05, 2, convention="end_of_period")
     assert end["present_value"] == pytest.approx(907.03, rel=1e-3)

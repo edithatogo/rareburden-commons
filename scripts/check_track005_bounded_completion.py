@@ -16,9 +16,9 @@ DECISION = Path("docs/decisions/2026-09-05-track-005-owner-completion-dispositio
 PANEL = Path("docs/track-005-agent-panel-review-2026-09-05.yml")
 PROTOCOL = Path("docs/track-005-rbc-p001d-protocol.md")
 COMPLETION_DECISION = Path("docs/track-005-completion-decision-2026-09-05.md")
-PLAN = Path("conductor/tracks/005-economic-social-burden/plan.md")
-METADATA = Path("conductor/tracks/005-economic-social-burden/metadata.json")
-REVIEW = Path("conductor/tracks/005-economic-social-burden/review.md")
+PLAN = Path("conductor/archive/005-economic-social-burden/plan.md")
+METADATA = Path("conductor/archive/005-economic-social-burden/metadata.json")
+REVIEW = Path("conductor/archive/005-economic-social-burden/review.md")
 REGISTRY = Path("conductor/tracks.md")
 SETUP_STATE = Path("conductor/setup_state.json")
 SCHEMA = Path("schemas/economic-parameters.schema.json")
@@ -112,7 +112,7 @@ def validate_completion_state(root: Path) -> None:
     review = (root / REVIEW).read_text(encoding="utf-8")
     expected_registry = (
         "| 005 | [Patient, family, economic and social burden module]"
-        "(./tracks/005-economic-social-burden/index.md) | Complete "
+        "(./archive/005-economic-social-burden/index.md) | Complete "
         "(bounded reference methods and software contracts) |"
     )
     if metadata.get("status") != "complete":
