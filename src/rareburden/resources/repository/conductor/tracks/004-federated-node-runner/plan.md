@@ -2,6 +2,11 @@
 
 ## Additive real-public-data tranche — 2026-09-06
 
+Implementation candidate: `97380ef`. Exact-bound
+[owner decision packet](../../../docs/decisions/2026-09-06-track004-public-candidate.json)
+is pending. No real-data acceptance, statistical publication or archive approval
+is inferred from the historical synthetic closeout.
+
 - [x] Add the experimental adult NHANES survey method, exact-byte DEMO join,
   immutable interpretation metadata and invented ratio/variance/domain tests.
   Evidence: [survey method](../../../docs/track-004-public-survey-method.md).
