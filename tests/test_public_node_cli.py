@@ -1,6 +1,7 @@
 """Installed runner command tests using invented inputs only."""
 
 import hashlib
+import os
 import sys
 from types import SimpleNamespace
 
@@ -11,12 +12,17 @@ from rareburden.node import NodeExportError
 from rareburden.public_delivery import stage_results
 from rareburden.public_node import prepare_public_records
 
+posix_delivery = pytest.mark.skipif(
+    os.name != "posix", reason="CLI delivery integration requires POSIX directory fsync"
+)
+
 
 def test_huge_numeric_code_fails_without_overflow():
     with pytest.raises(NodeExportError, match="finite numeric"):
         prepare_public_records([{"SEQN": 1, "DIQ010": 10**500}], dataset="nhanes")
 
 
+@posix_delivery
 def test_recovery_does_not_load_data(tmp_path, monkeypatch, capsys):
     stage_results(tmp_path, {"example": {"count": 10}})
     monkeypatch.setattr(sys, "argv", ["runner", "--output", str(tmp_path), "--recover"])
@@ -51,6 +57,7 @@ def test_source_hash_rejected_before_output(tmp_path, monkeypatch):
 
 
 @pytest.mark.parametrize("survey", [False, True])
+@posix_delivery
 def test_verified_bytes_used_for_descriptive_run(tmp_path, monkeypatch, survey):
     bodies = {"uci": b"uci", "nhanes": b"nhanes"}
     sources = {}

@@ -76,7 +76,9 @@ with DurableNodePolicyStore(out / 'policy.sqlite3') as store:
         'schema_version':'0.1.0', 'policy_id':'survey-reference-local',
         'minimum_cell_count':5, 'max_queries_per_overlap_group':1,
         'allowed_dimension_fields':['group'], 'participant_fields':['person_id'],
-        'export_mode':'aggregate_only'}, recorded_at='2026-09-06T00:00:00Z')
+        'export_mode':'aggregate_only',
+        'allowed_measures':['survey_weighted_ratio_with_taylor_se']},
+        recorded_at='2026-09-06T00:00:00Z')
     result = run_public_survey(frames['DEMO_L'].to_dict('records'),
         frames['DIQ_L'].to_dict('records'), demo_sha256=pins['DEMO_L'],
         diq_sha256=pins['DIQ_L'], store=store, policy_id=receipt.policy_id,

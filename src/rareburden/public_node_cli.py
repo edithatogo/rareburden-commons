@@ -9,6 +9,7 @@ import io
 from datetime import UTC, datetime
 from pathlib import Path
 
+from rareburden.node_policy import SURVEY_MEASURE
 from rareburden.node_policy_store import DurableNodePolicyStore
 from rareburden.public_delivery import create_run_directory, recover_results, stage_results
 from rareburden.public_node import run_public_counts
@@ -70,6 +71,7 @@ def main() -> None:
                 "allowed_dimension_fields": ["group"],
                 "participant_fields": ["person_id"],
                 "export_mode": "aggregate_only",
+                "allowed_measures": ["count", SURVEY_MEASURE] if args.survey else ["count"],
             },
             recorded_at=timestamp,
         )

@@ -60,37 +60,6 @@ def test_policy_loader_rejects_future_schema_version() -> None:
         load_disclosure_policy(document)
 
 
-@pytest.mark.parametrize("measures", [[], ["mean"], ["count", "count"], "count"])
-def test_policy_rejects_invalid_measure_permission(measures):
-    with pytest.raises(NodeExportError):
-        load_disclosure_policy({**_policy_document(), "allowed_measures": measures})
-
-
-def test_survey_measure_requires_explicit_permission_and_ungrouped_shape():
-    from rareburden.node_policy import SURVEY_MEASURE
-
-    query = {"analysis_id": "adult-survey", "dimensions": [], "measure": SURVEY_MEASURE}
-    policy = load_disclosure_policy(_policy_document())
-    with pytest.raises(NodeExportError, match="authorize"):
-        QueryLedger().append(query, overlap_group="adult", policy=policy)
-    survey_policy = load_disclosure_policy(
-        {**_policy_document(), "allowed_measures": [SURVEY_MEASURE]}
-    )
-    ledger = QueryLedger().append(query, overlap_group="adult", policy=survey_policy)
-    assert ledger.entries[0].measure == SURVEY_MEASURE
-    assert ledger.entries[0].dimensions == ()
-    with pytest.raises(NodeExportError, match="no grouping"):
-        QueryLedger().append(
-            {**query, "dimensions": ["group"]}, overlap_group="adult", policy=survey_policy
-        )
-    with pytest.raises(NodeExportError, match="authorize"):
-        QueryLedger().append(
-            {**query, "measure": "count", "dimensions": ["group"]},
-            overlap_group="adult",
-            policy=survey_policy,
-        )
-
-
 def test_policy_loader_rejects_cycles_before_expanding_children() -> None:
     notes: list[object] = ["bounded"] * 999
     notes.append(notes)

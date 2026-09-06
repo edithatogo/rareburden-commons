@@ -8,6 +8,7 @@ import math
 import pytest
 
 from rareburden.node import NodeExportError
+from rareburden.node_policy import SURVEY_MEASURE
 from rareburden.node_policy_store import DurableNodePolicyStore, NodePolicyStoreError
 from rareburden.public_survey import run_public_survey
 
@@ -40,6 +41,7 @@ def runtime(tmp_path):
                 "allowed_dimension_fields": ["group"],
                 "participant_fields": ["person_id"],
                 "export_mode": "aggregate_only",
+                "allowed_measures": [SURVEY_MEASURE],
             },
             recorded_at="2026-09-06T00:00:00Z",
         )
@@ -62,6 +64,8 @@ def test_hand_calculated_ratio_and_variance(runtime):
     assert result["reliability_assessment"] == "not_completed"
     assert result["status"] == "eligible_for_local_export"
     assert result["population_release_approved"] is False
+    assert result["query_measure"] == SURVEY_MEASURE
+    assert result["query_dimensions"] == []
     assert result["denominator_codes"] == [1, 2, 3]
     assert result["borderline_handling"] == "noncase"
     assert result["software_agreement"] == "unverified"
@@ -84,6 +88,41 @@ def test_hand_calculated_ratio_and_variance(runtime):
     )
     with pytest.raises((NodeExportError, NodePolicyStoreError)):
         run_public_survey(*inputs(), **runtime)
+
+
+def test_count_only_policy_cannot_authorize_survey(runtime):
+    receipt = runtime["store"].register_policy(
+        {
+            "schema_version": "0.1.0",
+            "policy_id": "count-only",
+            "minimum_cell_count": 5,
+            "max_queries_per_overlap_group": 1,
+            "allowed_dimension_fields": ["group"],
+            "participant_fields": ["person_id"],
+            "export_mode": "aggregate_only",
+        },
+        recorded_at=runtime["recorded_at"],
+    )
+    runtime.update(policy_id=receipt.policy_id, policy_sha256=receipt.content_sha256)
+    with pytest.raises(NodePolicyStoreError, match="authorize this aggregate measure"):
+        run_public_survey(*inputs(), **runtime)
+    assert runtime["store"].verify() == (2, 0)
+
+
+@pytest.mark.parametrize("empty", [False, True])
+def test_empty_or_zero_weight_design_fails_before_reservation(runtime, empty):
+    demo, diq = ([], []) if empty else inputs()
+    for row in demo:
+        row["WTINT2YR"] = 0
+    with pytest.raises(NodeExportError, match="empty or incomplete"):
+        run_public_survey(demo, diq, **runtime)
+    assert runtime["store"].verify() == (1, 0)
+
+
+def test_survey_receipt_survives_store_restart(runtime, tmp_path):
+    run_public_survey(*inputs(), **runtime)
+    with DurableNodePolicyStore(tmp_path / "survey.sqlite3") as reopened:
+        assert reopened.verify() == (1, 1)
 
 
 def test_domain_retains_psu_with_only_infants(runtime):

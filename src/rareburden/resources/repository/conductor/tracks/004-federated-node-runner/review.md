@@ -1,5 +1,14 @@
 # Track 004 Review — Federated country-node execution package
 
+## PR 317 repair review — 2026-09-06
+
+See [CI/review triage](../../../docs/reviews/track-004-public-ci-review.md) for
+the actual survey-measure authorization fix, POSIX test-scope correction and
+evidence-based assessment of automated comments. The owner authorised repairs
+and merge only after Actions pass. Historical approval and source manifests are
+retained, not rebound to changed bytes. Dependency refresh evidence is separate
+from the earlier installation receipts and does not release statistical results.
+
 ## Additive real-public-data candidate review — 2026-09-06
 
 Subsequent owner disposition: `edithatogo` explicitly approved Option A for

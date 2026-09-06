@@ -1,5 +1,21 @@
 # Track 004 plan
 
+## PR 317 CI and review repairs — 2026-09-06
+
+- [x] Upgrade the pinned PyArrow wheel to 23.0.1 and refresh the network-denied
+  installed proof; verify scientific result projections remain identical.
+  Evidence: [dependency repair](../../../docs/track-004-public-node-ci-repair.md).
+
+- [x] Correct the survey receipt to reserve an explicitly permitted ungrouped
+  ratio-with-Taylor-SE measure; retain default count-only policy behavior and
+  historical canonical snapshots. Add rejection and restart regressions.
+- [x] Restrict actual POSIX delivery integration tests to supported POSIX hosts;
+  retain platform-independent checks on Windows without weakening runtime fsync.
+
+Evidence and limits: [hosted review triage](../../../docs/reviews/track-004-public-ci-review.md).
+The owner approved the dependency repair, refreshed proof and merge after Actions
+pass. This is not a new statistical-publication or production-release approval.
+
 ## Additive real-public-data tranche — 2026-09-06
 
 Implementation candidate: `97380ef`. Exact-bound

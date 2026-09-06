@@ -11,6 +11,7 @@ from collections.abc import Iterable, Mapping
 from typing import Any
 
 from rareburden.node import NodeExportError
+from rareburden.node_policy import SURVEY_MEASURE
 from rareburden.node_policy_store import DurableNodePolicyStore
 
 
@@ -148,16 +149,14 @@ def run_public_survey(
     records = _prepare(demo_rows, diq_rows)
     identity = "public-nhanes-adult-questionnaire-ratio-v1"
     reservation = store.reserve_query(
-        {"analysis_id": identity, "dimensions": ["group"], "measure": "count"},
+        {"analysis_id": identity, "dimensions": [], "measure": SURVEY_MEASURE},
         overlap_group=identity,
         policy_id=policy_id,
         expected_policy_content_sha256=policy_sha256,
         recorded_at=recorded_at,
     )
-    if reservation.policy.export_mode != "aggregate_only" or "group" not in (
-        reservation.policy.allowed_dimension_fields
-    ):
-        raise NodeExportError("survey requires aggregate-only group policy")
+    if reservation.policy.export_mode != "aggregate_only":
+        raise NodeExportError("survey requires aggregate-only policy")
     cases = sum(domain and case for _, _, _, domain, case in records)
     noncases = sum(domain and not case for _, _, _, domain, case in records)
     released = min(cases, noncases) >= reservation.policy.minimum_cell_count
@@ -169,6 +168,8 @@ def run_public_survey(
         "estimand": "adult_20plus_valid_response_diagnosed_diabetes_ratio",
         "weight": "WTINT2YR",
         "variance_method": "taylor_stratified_psu_domain_with_replacement",
+        "query_measure": SURVEY_MEASURE,
+        "query_dimensions": [],
         "status": "eligible_for_local_export" if released else "suppressed",
         "case_definition": "DIQ010_1",
         "denominator_codes": [1, 2, 3],
