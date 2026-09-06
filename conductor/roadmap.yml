@@ -71,6 +71,7 @@ releases:
   status: planned
   objective: Prove portable local execution and a second multi-aetiology rare-within-common analysis.
   tracks:
+  - 004-federated-node-runner
   - 011-bronchiectasis-demonstrator
   exit_gates:
   - Synthetic node execution and disclosure tests pass.
