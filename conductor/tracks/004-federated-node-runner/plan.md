@@ -135,7 +135,7 @@ The track remains Blocked while those original acceptance gates remain open.
 
 - [x] Write draft operator, data-steward and export-review guidance. Evidence: `docs/federated-node-004-operator-guide.md` and threat model; approval remains open.
 - [x] Complete repeatable two-invocation synthetic-node execution. Evidence: `docs/federated-node-004-independent-synthetic-run.md` and `make node-reproducibility`.
-- [ ] Complete a separately recorded owner-operated clean-environment installation
+- [x] Complete a separately recorded owner-operated clean-environment installation
   and synthetic-node execution from documentation on a supported environment,
   with agent-panel challenge and owner disposition; do not claim independence.
 - [x] Prepare non-binding controlled-environment pilot protocol and application pack. Evidence: `docs/federated-node-004-pilot-application-draft.md`; approval and activation remain external-gated.
