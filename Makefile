@@ -190,6 +190,9 @@ validate-landscape:
 test:
 	PYTHONPATH=src:. $(PYTHON) -m pytest
 
+test-fast:
+	PYTHONPATH=src:. $(PYTHON) -m pytest -m 'not slow'
+
 coverage:
 	PYTHONPATH=src:. $(PYTHON) -m pytest --cov=rareburden --cov-branch \
 		--cov-report=term-missing --cov-report=json:coverage.json \
