@@ -1,5 +1,52 @@
 # Track 004 plan
 
+## PR 317 CI and review repairs — 2026-09-06
+
+- [x] Upgrade the pinned PyArrow wheel to 23.0.1 and refresh the network-denied
+  installed proof; verify scientific result projections remain identical.
+  Evidence: [dependency repair](../../../docs/track-004-public-node-ci-repair.md).
+
+- [x] Correct the survey receipt to reserve an explicitly permitted ungrouped
+  ratio-with-Taylor-SE measure; retain default count-only policy behavior and
+  historical canonical snapshots. Add rejection and restart regressions.
+- [x] Restrict actual POSIX delivery integration tests to supported POSIX hosts;
+  retain platform-independent checks on Windows without weakening runtime fsync.
+
+Evidence and limits: [hosted review triage](../../../docs/reviews/track-004-public-ci-review.md).
+The owner approved the dependency repair, refreshed proof and merge after Actions
+pass. This is not a new statistical-publication or production-release approval.
+
+## Additive real-public-data tranche — 2026-09-06
+
+Implementation candidate: `97380ef`. Exact-bound
+[owner decision packet](../../../docs/decisions/2026-09-06-track004-public-candidate.json)
+records the owner's explicit Option A approval received on 2026-09-06.
+The experimental real-public-data implementation is accepted. Statistical
+publication, package release, production deployment and archival are not
+authorised by this decision. The historical synthetic closeout is unchanged.
+
+- [x] Record sole-owner Option A acceptance against the exact candidate commit,
+  tree and evidence-manifest digest; retain all stated publication boundaries.
+
+- [x] Add the experimental adult NHANES survey method, exact-byte DEMO join,
+  immutable interpretation metadata and invented ratio/variance/domain tests.
+  Evidence: [survey method](../../../docs/track-004-public-survey-method.md).
+- [x] Implement installed-module execution and durable no-overwrite local result
+  delivery/recovery; apply the advisory parent-directory fsync fix and test it.
+  Evidence: [follow-up](../../../docs/track-004-public-node-followup.md).
+- [x] Lock all real-data application dependencies and verify fresh, cache-free,
+  network-denied installed execution and recovery on macOS arm64/Python 3.13.
+  Evidence: [installed proof](../../../docs/track-004-public-node-installation.md).
+- [x] Crosscheck the fixed real survey ratio and Taylor SE using R survey and
+  a separate XPT decoder; retain algorithmic-only evidence and full validation.
+  Evidence: [reference check](../../../docs/track-004-public-survey-reference.md).
+
+- [x] Implement UCI encounter and NHANES unweighted-response adapters, a separate
+  fixed-query policy-bound runner, rejection tests and two local real-data runs.
+  Evidence: [public-counts tranche](../../../docs/track-004-public-counts-2026-09-06.md).
+  This completes the descriptive tranche only; remaining real-data acceptance
+  work is listed there and is not covered by the historical synthetic closeout.
+
 ## Bounded synthetic reference closeout — 2026-09-06
 
 - [x] Implement deterministic demonstrator federated node engine under Protocol RBC-F001. Evidence: `src/rareburden/demonstrator_federated_node.py` and `docs/track-004-rbc-f001-bounded-registration-2026-09-06.yml`.

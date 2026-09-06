@@ -1,5 +1,40 @@
 # Track 004 Review — Federated country-node execution package
 
+## PR 317 repair review — 2026-09-06
+
+See [CI/review triage](../../../docs/reviews/track-004-public-ci-review.md) for
+the actual survey-measure authorization fix, POSIX test-scope correction and
+evidence-based assessment of automated comments. The owner authorised repairs
+and merge only after Actions pass. Historical approval and source manifests are
+retained, not rebound to changed bytes. Dependency refresh evidence is separate
+from the earlier installation receipts and does not release statistical results.
+
+## Additive real-public-data candidate review — 2026-09-06
+
+Subsequent owner disposition: `edithatogo` explicitly approved Option A for
+candidate `97380ef` on 2026-09-06. The
+[exact-bound decision](../../../docs/decisions/2026-09-06-track004-public-candidate.json)
+accepts the experimental real-public-data toolkit only. Statistical publication
+still requires reliability and joint-disclosure assessment; package release and
+production/custodian deployment are not authorised. The candidate manifest and
+its pre-decision evidence remain immutable historical snapshots. References to
+pending acceptance in those snapshots and the review below describe their
+pre-approval state, superseded only by this bounded disposition.
+
+The new [real-data follow-up](../../../docs/track-004-public-node-followup.md)
+is separate from the synthetic disposition below. Simulated engineering/security
+advice identified a missing parent-directory fsync, now fixed with a regression
+test. Simulated rights/data-use and community-impact advice identified missing
+output interpretation limits and ambiguous release-status wording; fixed metadata
+now carries response coding, proxy, pregnancy, nonresponse and standardization
+limits, with `eligible_for_local_export` distinct from public approval.
+
+No actual community participation, consent, representation, independent human
+review or external custodian acceptance occurred. Exact-candidate owner
+disposition and any real-data statistical release remain separate pending gates.
+The historical Complete decision below applies only to its bounded synthetic
+scope; it is not approval of the new real-data method.
+
 **Review Date:** 2026-09-06  
 **Decision:** Complete (bounded synthetic federated node package; no live custodian linkage)  
 **Governance Framework:** ADR-0005 (v1 scope boundary), ADR-0009 (role-separated advisory panel with sole accountable human disposition), ADR-0011 (single human accountability)

@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "simulation_status": "simulated_role_separated_advisory_panel",
+  "track_id": "004-federated-node-runner",
+  "candidate": {
+    "commit": "97380efed2f3256f0adaa6d83c690a9cee63a507",
+    "tree": "a6b1d525636418ba26b780642e4637303c1706d2",
+    "evidence_manifest_sha256": "41af28902a29d52c862529a8c2603eb957257b49fd34c2f46c23ef72b61a0729"
+  },
+  "panel": {
+    "perspectives": [
+      "engineering_security",
+      "methods_software_agreement",
+      "rights_data_use",
+      "community_impact_self_assessment"
+    ],
+    "non_representation_statement": "Owner-executed simulated-community challenge; no actual community participation, representation, consultation, endorsement, consent or independent review."
+  },
+  "evidence": {
+    "references": [
+      "manifests/node/track004-public-candidate-20260906.json",
+      "docs/track-004-public-node-followup.md",
+      "docs/track-004-public-node-installation.md",
+      "docs/track-004-public-survey-reference.md",
+      "conductor/tracks/004-federated-node-runner/review.md"
+    ],
+    "observed_facts": [
+      "Full make check passed 2198 tests; 72 focused public-node tests passed.",
+      "Final network-denied fresh installed-wheel proof passed without cached application dependencies.",
+      "Fixed real NHANES ratio and Taylor standard error agreed with R survey using independently decoded XPT inputs.",
+      "Engineering parent-directory fsync finding and interpretation metadata findings were fixed."
+    ],
+    "simulated_assessments": [
+      "Engineering/security re-review found no outstanding blocking finding within the trusted local POSIX filesystem scope.",
+      "Rights/data-use and community-impact follow-up found prior local-candidate blockers addressed; final evidence appends were checked by the integrating agent.",
+      "Statistical software agreement is bounded algorithmic evidence, not clinical validity."
+    ],
+    "cannot_infer": [
+      "Actual community participation or consent",
+      "Third-party custodian authority or deployment",
+      "Clinical or monogenic-diabetes validity",
+      "Completed NCHS reliability assessment or joint statistical-output release approval",
+      "Hosted CI, merge or tagged release"
+    ]
+  },
+  "uncertainty": [
+    "Python/OS prerequisites remain required; this is same-host macOS arm64 CPython3.13 evidence, not bare-machine or cross-platform qualification.",
+    "Result hashes are not signatures and do not defend against privileged replacement.",
+    "Self-report, proxy-response, nonresponse and diagnostic-access bias remain; no age standardization."
+  ],
+  "dissent": [
+    "Public substantive population-estimate release is not recommended until reliability and joint disclosure disposition are complete."
+  ],
+  "stop_triggers": [
+    "Input hashes or source terms differ.",
+    "Required tests, receipt integrity or algorithmic agreement fail.",
+    "Scope expands to controlled data, clinical inference or actual community/custodian claims."
+  ],
+  "options": [
+    {
+      "id": "A",
+      "title": "Accept experimental real-public-data toolkit",
+      "disposition": "narrow",
+      "trade_offs": [
+        "Closes bounded real-data implementation acceptance without claiming production or substantive population release."
+      ],
+      "contingencies": [
+        "Keep real statistical findings local pending reliability and joint disclosure assessment; any package release remains separately exact-bound."
+      ],
+      "rationale": "The real-data runner, offline installation, recovery and fixed-estimator algorithmic agreement are evidenced; unsupported claims remain excluded.",
+      "minimum_evidence": [
+        "This exact commit/tree and evidence manifest, passing validations and final installed-wheel receipt."
+      ]
+    },
+    {
+      "id": "B",
+      "title": "Defer candidate acceptance",
+      "disposition": "defer",
+      "trade_offs": [
+        "Retains all work and evidence but leaves real-data acceptance unresolved."
+      ],
+      "contingencies": [
+        "Reopen on requested method, platform or scope changes with renewed evidence."
+      ],
+      "rationale": "Appropriate if the bounded experimental scope does not meet the owner's intended release objective.",
+      "minimum_evidence": [
+        "Retain the current candidate and its evidence without representing it as accepted."
+      ]
+    }
+  ],
+  "recommendation": {
+    "option_id": "A",
+    "rationale": "Accept demonstrated repository-owned real-data capabilities now while retaining explicit statistical-publication and deployment boundaries."
+  },
+  "owner_decision": {
+    "status": "recorded",
+    "selected_option_id": "A",
+    "decided_by": "edithatogo",
+    "decided_at_utc": "2026-09-06T03:01:55Z",
+    "rationale": "The owner explicitly replied 'I approve option A.' to the exact-candidate question for 97380ef. This records acceptance of the experimental real-public-data toolkit under Option A's stated limits, not statistical publication, package release, production deployment or clinical validity. The UTC time records receipt of the approval; candidate and evidence bindings remain unchanged."
+  }
+}

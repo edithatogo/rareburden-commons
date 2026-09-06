@@ -39,7 +39,14 @@ def test_bounded_orchestration_candidate_binds_every_candidate_file() -> None:
         if relative == "src/rareburden/resources/repository/runtime-assets.json":
             continue
         path = ROOT / relative
-        if relative == "tests/test_track005_component_candidate.py":
+        historical_sources = {
+            "src/rareburden/node_policy.py": "track004-node-policy-20260901.txt",
+            "src/rareburden/node_policy_store.py": "track004-node-policy-store-20260901.txt",
+            "tests/test_node_policy.py": "track004-node-policy-test-20260901.txt",
+        }
+        if relative in historical_sources:
+            path = ROOT / "docs/history" / historical_sources[relative]
+        elif relative == "tests/test_track005_component_candidate.py":
             path = ROOT / "docs/history/track005-component-candidate-test-20260901.txt"
         elif relative == "tests/test_track004_integration_options.py":
             path = ROOT / "docs/history/track004-integration-options-test-20260901.txt"

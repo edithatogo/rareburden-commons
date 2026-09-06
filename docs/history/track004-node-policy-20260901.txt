@@ -21,8 +21,7 @@ _POLICY_REQUIRED = {
     "participant_fields",
     "export_mode",
 }
-_POLICY_OPTIONAL = {"notes", "allowed_measures"}
-SURVEY_MEASURE = "survey_weighted_ratio_with_taylor_se"
+_POLICY_OPTIONAL = {"notes"}
 _ALLOWED_DIMENSIONS = {"jurisdiction", "group", "diagnosis"}
 _EXPORT_MODES = {"aggregate_only", "metadata_only"}
 _FINGERPRINT = re.compile(r"^sha256:[0-9a-f]{64}$")
@@ -105,7 +104,6 @@ class DisclosurePolicy:
     participant_fields: tuple[str, ...]
     export_mode: str
     notes: tuple[str, ...] = ()
-    allowed_measures: tuple[str, ...] = ("count",)
 
 
 def load_disclosure_policy(document: Mapping[str, Any]) -> DisclosurePolicy:
@@ -132,11 +130,6 @@ def load_disclosure_policy(document: Mapping[str, Any]) -> DisclosurePolicy:
     export_mode = _non_empty_string(document["export_mode"], label="export_mode")
     if export_mode not in _EXPORT_MODES:
         raise NodeExportError("export_mode is unsupported")
-    measures = _unique_strings(
-        document.get("allowed_measures", ["count"]), label="allowed_measures"
-    )
-    if not set(measures).issubset({"count", SURVEY_MEASURE}):
-        raise NodeExportError("allowed_measures contains an unsupported measure")
     notes_value = document.get("notes", ())
     if isinstance(notes_value, (str, bytes)) or not isinstance(notes_value, Sequence):
         raise NodeExportError("notes must be an array")
@@ -165,7 +158,6 @@ def load_disclosure_policy(document: Mapping[str, Any]) -> DisclosurePolicy:
         participant_fields=participant_fields,
         export_mode=export_mode,
         notes=notes,
-        allowed_measures=tuple(sorted(measures)),
     )
 
 
@@ -237,8 +229,6 @@ def run_policy_bound_synthetic_node(
     an independently controlled store before this pattern can be used as an
     authoritative operational boundary.
     """
-    if query_shape.get("measure") != "count":
-        raise NodeExportError("synthetic runner supports only count")
     next_ledger = ledger.append(query_shape, overlap_group=overlap_group, policy=policy)
     registered = next_ledger.entries[-1]
     expected_fields = {*registered.dimensions, "count"}
@@ -272,18 +262,12 @@ def _validate_query_shape(
     if set(query_shape) != {"analysis_id", "dimensions", "measure"}:
         raise NodeExportError("query shape must contain only analysis_id, dimensions and measure")
     analysis_id = _non_empty_string(query_shape["analysis_id"], label="analysis_id")
-    measure = _non_empty_string(query_shape["measure"], label="measure")
-    if measure not in {"count", SURVEY_MEASURE} or measure not in policy.allowed_measures:
-        raise NodeExportError("policy does not authorize this aggregate measure")
-    dimensions: tuple[str, ...]
-    if measure == SURVEY_MEASURE:
-        if type(query_shape["dimensions"]) not in (list, tuple) or query_shape["dimensions"]:
-            raise NodeExportError("survey ratio with SE requires no grouping dimensions")
-        dimensions = ()
-    else:
-        dimensions = _unique_strings(query_shape["dimensions"], label="dimensions")
+    dimensions = _unique_strings(query_shape["dimensions"], label="dimensions")
     if not set(dimensions).issubset(policy.allowed_dimension_fields):
         raise NodeExportError("query shape expands custodian-approved dimensions")
+    measure = _non_empty_string(query_shape["measure"], label="measure")
+    if measure != "count":
+        raise NodeExportError("only the aggregate count measure is supported")
     if policy.export_mode != "aggregate_only":
         raise NodeExportError("policy does not authorize aggregate query execution")
     return {

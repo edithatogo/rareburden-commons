@@ -73,9 +73,6 @@ def _policy_document(policy: DisclosurePolicy) -> dict[str, object]:
     }
     if policy.notes:
         document["notes"] = list(policy.notes)
-    # Preserve canonical bytes/hashes of existing count-only policy snapshots.
-    if policy.allowed_measures != ("count",):
-        document["allowed_measures"] = list(policy.allowed_measures)
     return document
 
 
