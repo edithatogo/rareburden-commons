@@ -22,7 +22,7 @@
       "docs/track-004-public-node-followup.md",
       "docs/track-004-public-node-installation.md",
       "docs/track-004-public-survey-reference.md",
-      "conductor/archive/004-federated-node-runner/review.md"
+      "conductor/tracks/004-federated-node-runner/review.md"
     ],
     "observed_facts": [
       "Full make check passed 2198 tests; 72 focused public-node tests passed.",
