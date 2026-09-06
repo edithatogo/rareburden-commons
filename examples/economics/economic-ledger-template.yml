@@ -1,0 +1,66 @@
+# Localized economic parameter ledger template (data-gap plan Phase 3 scaffold).
+#
+# Documentation-only scaffold for the deferred Track 005 / Phase 3 normalization
+# work. It contains NO empirical data: the quantity is not_collected, the
+# valuation is unvalued, and every context field is unassessed. Copy this file
+# to a new, separately named candidate fixture only when real, sourced
+# observations and an owner disposition exist; do not fill values in place.
+# Silent defaults, silent currency or price-year choices and
+# missingness-to-zero conversions are prohibited.
+#
+# Binding rules for new candidate fixtures: docs/track-005-method-options-2026-08-31.md
+# Tests that keep this template data-free: tests/test_economic_schema.py
+#
+# Note: the frozen Track 009 contract (schema_version 1.0.0, additionalProperties
+# false) has no dedicated quality/transportability flag fields. Evidence status is
+# carried by measurement_status, valuation.rate_source, missingness and overlap
+# fields only. Richer quality and transportability flags require a new schema
+# contract revision with owner disposition and are deliberately absent here.
+schema_version: "1.0.0"
+parameter_id: "template_localized_caregiver_time"
+category: "caregiver_time"
+perspective: "household"
+roles:
+  payer:
+    status: "unassessed"
+    entity_label: "TBD - payer for valued caregiver time in the target jurisdiction"
+  bearer:
+    status: "unassessed"
+    entity_label: "TBD - person providing informal care"
+  recipient:
+    status: "unassessed"
+    entity_label: "TBD - care recipient"
+  time_provider:
+    status: "unassessed"
+    entity_label: "TBD - informal caregiver providing the time"
+  beneficiary:
+    status: "unassessed"
+    entity_label: "TBD - observed beneficiary, never inferred from other roles"
+population:
+  id: "template_population"
+  label: "TBD - target jurisdiction population definition"
+geography:
+  id: "template_geography"
+  label: "TBD - jurisdiction and sub-region for the localized ledger"
+observation_period:
+  start: "1970-01-01"  # PLACEHOLDER date (schema requires ISO dates); replace with the real observed window
+  end: "1970-01-01"  # PLACEHOLDER date; replace with the real observed window
+quantity:
+  kind: "time_hours"
+  unit: "hours"
+  denominator_basis: "person_week"
+  measurement_status: "not_collected"
+  # No "value" key: a value may appear only with measurement_status
+  # "explicit_value" or "explicit_zero", from a sourced observation.
+valuation:
+  status: "unvalued"
+  is_transfer: false
+  # For a valued parameter the schema additionally requires currency,
+  # price_year, rate_source and total_monetary_value. Choose none silently.
+overlap:
+  assessment_status: "unassessed"
+  overlapping_parameter_ids: []
+  rationale: "Template scaffold: overlap with sibling categories is unassessed until real entries exist."
+missingness:
+  status: "not_collected"
+  rationale: "Template scaffold: no observation exists; replace with the real collection status and rationale."
