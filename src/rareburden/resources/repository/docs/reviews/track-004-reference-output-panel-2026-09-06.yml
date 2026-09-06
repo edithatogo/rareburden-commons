@@ -1,0 +1,62 @@
+schema_version: "1.0.0"
+track_id: "004-federated-node-runner"
+panel_assurance: simulated_role_separated_advisory_panel
+status: actual_output_review_passed
+closeout_review:
+  result: pass_all_lanes
+  document: docs/track-004-reference-closeout-2026-09-06.md
+  recommendation: >-
+    Apply recorded Option A after full local checks; accept bounded synthetic federated node
+    package, statistical disclosure control suppression, append-only policy store mechanics,
+    offline clean-environment installation rehearsal, and bounded closeout without live custodian claims.
+  continuity_note: >-
+    This is repository-owned advisory review under ADR-0009 and ADR-0011. Reproduction
+    is owner-operated, not independent. Live hospital network linkages, authoritative
+    custodian databases, and controlled data pilots remain bounded post-v1 under ADR-0005.
+output_sha256:
+  reference-report.md: "9a395bbbfcfb00fe9bd18eb52b0d326ec2159c5a99b55e83ce2633c689550b95"
+  reference-results.json: "c2335fa66467b64268de38453f01e098cce046cb3cb0025d0b5741c26c798ee4"
+  reference-tables.csv: "bcfd8d26ab4abb925bbac6f4c39733075874979a891a9bd98bbc4e50f83b6b00"
+lanes:
+  - perspective: methods_and_statistical_disclosure_assurance
+    agent: methods_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Minimum cell suppression (k >= 5) enforced with small cells strictly hidden."
+      - "Deterministic aggregate cohort calculations verified against synthetic fixtures."
+      - "Participant-level identifiers and unapproved grouping dimensions rejected."
+  - perspective: privacy_and_data_governance_assurance
+    agent: data_governance_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Simulated community harm and synthetic data use constraints strictly upheld."
+      - "Overlapping-query budget limits prevent reconstruction attacks."
+      - "Clear negative assertions preserved against live clinical or hospital data claims."
+  - perspective: security_and_provenance_assurance
+    agent: security_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Transactional append-only SQLite store with tamper-check triggers and query hash chains."
+      - "Cryptographic release signing/attestation profile documented with Sigstore keyless OIDC."
+      - "Locked wheel staging provenance verified across macOS, Linux, and Windows platforms."
+  - perspective: engineering_and_offline_operations_assurance
+    agent: engineering_advisory_review
+    result: pass
+    findings: []
+    observations:
+      - "Separately executed clean-environment offline installation rehearsal verified in doc receipt."
+      - "Clean environment builds and reproductions demonstrate byte-identical outputs across runs."
+      - "Zero network access or runtime persistence required for offline node execution."
+options:
+  - id: A
+    disposition: accept
+    rationale: "Retain exact reviewed synthetic outputs and close Track 004 with bounded synthetic federated node status."
+    trade_offs: ["Provides reproducible federated node package without asserting live hospital deployment authority."]
+    contingencies: ["All local checks must pass and owner disposition recorded."]
+  - id: B
+    disposition: defer
+    rationale: "Defer completion until multi-jurisdiction hospital federation agreements exist."
+    trade_offs: ["Blocks v1 software delivery indefinitely contrary to ADR-0005 bounded scope."]

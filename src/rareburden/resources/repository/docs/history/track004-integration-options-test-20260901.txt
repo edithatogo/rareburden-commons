@@ -48,16 +48,10 @@ def test_integration_options_bind_unchanged_proposal_without_activation() -> Non
         assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == digest
 
 
-HISTORICAL_PLAN = ROOT / "docs/history/track004-plan-20260901.md"
-HISTORICAL_METADATA = ROOT / "docs/history/track004-metadata-20260901.json"
-
-
 def test_integration_proposal_preserves_original_pending_gates() -> None:
     track = ROOT / "conductor/tracks/004-federated-node-runner"
-    plan_path = HISTORICAL_PLAN if HISTORICAL_PLAN.is_file() else (track / "plan.md")
-    meta_path = HISTORICAL_METADATA if HISTORICAL_METADATA.is_file() else (track / "metadata.json")
-    assert plan_path.read_text().count("- [ ]") == 6
-    assert json.loads(meta_path.read_bytes())["status"] == "blocked"
+    assert (track / "plan.md").read_text().count("- [ ]") == 6
+    assert json.loads((track / "metadata.json").read_bytes())["status"] == "blocked"
     proposal = (ROOT / "docs/track-004-integration-options-2026-09-01.md").read_text()
     assert "UNSELECTED proposal; owner decision pending" in proposal
     assert load_mapping(PACKET)["owner_decision"]["selected_option_id"] == "A"

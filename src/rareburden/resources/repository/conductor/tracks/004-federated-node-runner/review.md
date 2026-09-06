@@ -1,6 +1,43 @@
-# Track 004 dependency review — Federated country-node execution package
+# Track 004 Review — Federated country-node execution package
 
-## Owner selection — 2026-09-01
+**Review Date:** 2026-09-06  
+**Decision:** Complete (bounded synthetic federated node package; no live custodian linkage)  
+**Governance Framework:** ADR-0005 (v1 scope boundary), ADR-0009 (role-separated advisory panel with sole accountable human disposition), ADR-0011 (single human accountability)
+
+---
+
+## 1. Summary of Completed Deliverables
+
+1. **Demonstrator Federated Node Engine & Protocol RBC-F001:**
+   Implemented in `src/rareburden/demonstrator_federated_node.py` and registered in `docs/track-004-rbc-f001-bounded-registration-2026-09-06.yml`. Formalizes deterministic offline synthetic-node execution, transactional SQLite durable policy/query receipts, and schema-valid aggregate result envelopes.
+2. **Deterministic Reference Execution & Separate Reproduction:**
+   Executed and verified in `manifests/demonstrators/track-004-reference-execution-2026-09-06.json` and `results/track-004-reference-2026-09-06/` with exact byte-identical SHA-256 digests across primary and reproduction runs:
+   - `reference-report.md`: `9a395bbbfcfb00fe9bd18eb52b0d326ec2159c5a99b55e83ce2633c689550b95`
+   - `reference-results.json`: `c2335fa66467b64268de38453f01e098cce046cb3cb0025d0b5741c26c798ee4`
+   - `reference-tables.csv`: `bcfd8d26ab4abb925bbac6f4c39733075874979a891a9bd98bbc4e50f83b6b00`
+3. **Simulated Advisory Panel Review:**
+   Recorded in `docs/reviews/track-004-reference-output-panel-2026-09-06.yml` with unanimous `pass` across all four lanes:
+   - `methods_and_contracts_assurance` (methods_advisory_review)
+   - `privacy_and_disclosure_assurance` (privacy_advisory_review)
+   - `security_and_provenance_assurance` (security_advisory_review)
+   - `systems_engineering_and_fail_closed_assurance` (engineering_advisory_review)
+4. **Accountable Owner Disposition:**
+   Recorded in `docs/decisions/2026-09-06-track-004-owner-reference-disposition.yml` selecting Option A to close Track 004 as Complete (bounded synthetic federated node package; no live custodian linkage).
+5. **Closeout Documentation & Automated Verification:**
+   Documented in `docs/track-004-reference-closeout-2026-09-06.md` and enforced via `scripts/check_track004_reference_closeout.py` and `tests/test_track004_reference_closeout.py`.
+
+---
+
+## 2. Preserved Boundaries & Continuous Guarantees
+
+- **Sole Human Accountability:** `edithatogo` is the sole accountable human under ADR-0011. Incapacity or succession fails closed.
+- **Role-Separated Advisory Review:** Agent panels provide structured advisory challenge only under ADR-0009; no independent external authority or clinical sign-off is claimed.
+- **Zero Controlled EHR Linkage:** Live hospital EHR linkage, custodian database deployment, and cross-border production data remain post-v1 under ADR-0005.
+- **Fail-Closed Verification:** Replay, schema violations, identifier presence, and budget races fail closed deterministically.
+
+---
+
+## Historical dependency review — 2026-09-01
 
 The repository owner selected Option A against proposal candidate
 `3532d3247088ea5cdfa5690657350985461d9693`. The selection is limited to an

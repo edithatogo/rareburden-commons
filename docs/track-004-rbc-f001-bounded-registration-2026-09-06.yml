@@ -1,0 +1,41 @@
+schema_version: "1.0.0"
+track: "004-federated-node-runner"
+protocol_id: "RBC-F001"
+protocol_version: "0.2.0-bounded"
+status: "internally_registered_bounded_federated_node_package"
+registered_on: "2026-09-06"
+registered_by: "edithatogo"
+scope: >-
+  Bounded federated country-node execution demonstrator and packaging under Track 004
+  (RBC-F001). Demonstrates offline synthetic cohort execution, statistical disclosure
+  control suppression, append-only durable policy/query store mechanics with tamper detection,
+  and locked-wheel offline installation rehearsals under ADR-0005, ADR-0009, and ADR-0011.
+  Controlled-data pilots and live hospital linkages remain bounded post-v1.
+bindings:
+  owner_rehearsal:
+    path: "docs/track-004-owner-operated-rehearsal-2026-09-05.json"
+    sha256: "cf5cb3a5d8f6153a5c2d385150a005ee530070bc0e998a442e6191c9be83be2c"
+  threat_model:
+    path: "docs/federated-node-004-threat-model.md"
+  operator_guide:
+    path: "docs/federated-node-004-operator-guide.md"
+registered_verifications:
+  - verification_type: "offline_synthetic_node_execution"
+    status: "verified"
+  - verification_type: "statistical_disclosure_control_suppression"
+    status: "verified"
+  - verification_type: "append_only_policy_store_tamper_detection"
+    status: "verified"
+  - verification_type: "offline_installation_rehearsal"
+    status: "verified"
+claims:
+  federated_node_package_executable: true
+  offline_execution_verified: true
+  statistical_disclosure_control_enforced: true
+  controlled_data_activation: false
+  live_custodian_linkage: false
+  hospital_production_authorized: false
+  independent_review: false
+next_gate: >-
+  Complete role-separated advisory panel evaluation and owner disposition under ADR-0009
+  and ADR-0011 for bounded federated node closeout.

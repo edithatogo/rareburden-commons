@@ -24,6 +24,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	track-003-aetiologic-evidence-qualification-check \
 	track-010-candidate-containment-check \
 	track-010-post-dependency-candidate-check \
+	track-004-owner-rehearsal-check \
 	track-005-bounded-completion-check \
 	track-011-reference-closeout-check \
 	track-012-reference-closeout-check \
@@ -32,6 +33,7 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	track-016-reference-closeout-check \
 	track-017-reference-closeout-check \
 	track-021-reference-closeout-check \
+	track-004-reference-closeout-check \
 	track-016-production-release-readiness-check \
 	mutation mutation-score \
 	reproducibility burden-benchmark burden-memory node-bundle-check release-attestation-verify \
@@ -93,6 +95,10 @@ track-005-bounded-completion-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track005_bounded_completion.py \
 		--root . --require-complete
 
+track-004-owner-rehearsal-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track004_owner_rehearsal.py \
+		--root .
+
 track-011-reference-closeout-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track011_reference_closeout.py \
 		--root .
@@ -119,6 +125,10 @@ track-017-reference-closeout-check:
 
 track-021-reference-closeout-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track021_reference_closeout.py \
+		--root .
+
+track-004-reference-closeout-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track004_reference_closeout.py \
 		--root .
 
 track-009-source-profile-role-check:
@@ -291,7 +301,7 @@ sbom:
 	$(PYTHON) scripts/build_sbom.py --lock uv.lock --output rareburden.cdx.json \
 		--name rareburden --version $(VERSION)
 
-check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check single-owner-agent-governance-check track-008-freeze-readiness-check track-008-split-candidate-check track-008-successor-implementation-candidate-check track-009-freeze-readiness-check track-009-contract-freeze-check track-009-bounded-completion-check track-009-source-profile-role-check track-010-alpha-freeze-readiness-check track-003-bounded-registration-check track-003-synthetic-denominator-candidate-check track-003-synthetic-execution-check track-003-aetiologic-evidence-qualification-check track-010-candidate-containment-check track-010-post-dependency-candidate-check track-005-bounded-completion-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark burden-memory \
+check: validate schemas workflows lock requirements runtime-assets-check external-receipt-check qualifying-receipts-check downstream-preparation-check single-owner-agent-governance-check track-008-freeze-readiness-check track-008-split-candidate-check track-008-successor-implementation-candidate-check track-009-freeze-readiness-check track-009-contract-freeze-check track-009-bounded-completion-check track-009-source-profile-role-check track-010-alpha-freeze-readiness-check track-003-bounded-registration-check track-003-synthetic-denominator-candidate-check track-003-synthetic-execution-check track-003-aetiologic-evidence-qualification-check track-010-candidate-containment-check track-010-post-dependency-candidate-check track-004-owner-rehearsal-check track-005-bounded-completion-check track-016-production-release-readiness-check package-size-check release-identity node-reproducibility burden-benchmark burden-memory \
 	lint format-check typecheck links safety compile test
 
 ci: check coverage critical-coverage reproducibility
