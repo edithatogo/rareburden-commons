@@ -1,5 +1,21 @@
 # Track 004 Review — Federated country-node execution package
 
+## Additive real-public-data candidate review — 2026-09-06
+
+The new [real-data follow-up](../../../docs/track-004-public-node-followup.md)
+is separate from the synthetic disposition below. Simulated engineering/security
+advice identified a missing parent-directory fsync, now fixed with a regression
+test. Simulated rights/data-use and community-impact advice identified missing
+output interpretation limits and ambiguous release-status wording; fixed metadata
+now carries response coding, proxy, pregnancy, nonresponse and standardization
+limits, with `eligible_for_local_export` distinct from public approval.
+
+No actual community participation, consent, representation, independent human
+review or external custodian acceptance occurred. Exact-candidate owner
+disposition and any real-data statistical release remain separate pending gates.
+The historical Complete decision below applies only to its bounded synthetic
+scope; it is not approval of the new real-data method.
+
 **Review Date:** 2026-09-06  
 **Decision:** Complete (bounded synthetic federated node package; no live custodian linkage)  
 **Governance Framework:** ADR-0005 (v1 scope boundary), ADR-0009 (role-separated advisory panel with sole accountable human disposition), ADR-0011 (single human accountability)

@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Exact real-public-data experimental candidate evidence; no release approval",
+  "files": [
+    {
+      "path": "src/rareburden/public_node.py",
+      "sha256": "592acdf2e4ae110d968daee9f2693e2177a527ce701fa5bf74383318dc5ba3d2"
+    },
+    {
+      "path": "src/rareburden/public_survey.py",
+      "sha256": "9171df12381cffde21bb9baf8c4572cfc47b037e06237b74f95845554871683a"
+    },
+    {
+      "path": "src/rareburden/public_delivery.py",
+      "sha256": "72d87c1f88a8518f6393107acdcfdd4c61cbcaca3ead8637e8599d35aa7af605"
+    },
+    {
+      "path": "src/rareburden/public_node_cli.py",
+      "sha256": "77b33d09a6063ce33d8da2b939777737f7293d4499e7b7fd126e7c5de6ecd9e6"
+    },
+    {
+      "path": "scripts/run_public_node_counts.py",
+      "sha256": "c4bf3bfa6340ec97ebd3bac5a56ce36f21ac6fb4a2ac23f372600eecbcdf8242"
+    },
+    {
+      "path": "scripts/verify_public_node_install.py",
+      "sha256": "1e4c574445f51d1b640bce5167fef53fa33662ece2ce8ef11764041312c6ef71"
+    },
+    {
+      "path": "scripts/check_public_survey_reference.R",
+      "sha256": "3d278d7f449e9014479e3acb9afb0f186fa30510e38ff1c738557d1c0f97182c"
+    },
+    {
+      "path": "requirements/public-node-macos-arm64-py313.txt",
+      "sha256": "d533fd8a4c08f972152bcbfd051713bf38fc570f9a4cbc84a8433431e310c22f"
+    },
+    {
+      "path": "tests/test_public_node.py",
+      "sha256": "f55ec2ee8f4f09c1b072846a06b29abb7ecaebf034129e5d9ca527b0f15a375b"
+    },
+    {
+      "path": "tests/test_public_survey.py",
+      "sha256": "a69d17e474927de333cca76854c0f66c884093b37decfdbc84554bcd70f391f2"
+    },
+    {
+      "path": "tests/test_public_delivery.py",
+      "sha256": "d2e19e335ebd32a9af6e7b1888e8369fc9ecb120945d8752dd52c1d719cb31a8"
+    },
+    {
+      "path": "tests/test_public_node_cli.py",
+      "sha256": "8616c03caeb83714a7b9950bdb368055727942d745428e23666243e366ed08b7"
+    },
+    {
+      "path": "tests/test_public_node_install.py",
+      "sha256": "c2625051fcaf784a5100f5ae53012bfd275eed09c6f400ab904f143005970f04"
+    },
+    {
+      "path": "docs/track-004-public-node-followup.md",
+      "sha256": "12c24255b82dc5179e5addd080e02922abda0c2c60d6b0502dc23b1d1fbc5e0d"
+    },
+    {
+      "path": "docs/track-004-public-node-installation.md",
+      "sha256": "2fbdf871798ad0c3f64833551453c5b75ff1de89d31ae2d7de14142a9a2fed5e"
+    },
+    {
+      "path": "docs/track-004-public-survey-method.md",
+      "sha256": "e2a1a2e5336c5f9b9bc5def633d3523e8ef03dd31378cb785553bf9403585152"
+    },
+    {
+      "path": "docs/track-004-public-survey-reference.md",
+      "sha256": "ad7504c4ec0fbe1aa2da6ba7eed19e32a59db70896659cb1863d1842f91a03f6"
+    }
+  ],
+  "external_evidence": [
+    {
+      "path": "/Volumes/PortableSSD/rbd-public-data/public-node-install-20260906/final-proof/receipt.json",
+      "sha256": "247d1710e54da9586c65533924144011d5088c32c0662aa493467d9e0e49c72e"
+    },
+    {
+      "path": "/Volumes/PortableSSD/rbd-public-data/node-survey-rehearsal-20260906-b/results.json",
+      "sha256": "2d1fb9fe32177a689793641adecb9cc38d90bd8e642a22d4430bee087898ac21"
+    }
+  ],
+  "owner_acceptance": "pending",
+  "statistical_publication": "not_authorized",
+  "custodian_deployment": false,
+  "clinical_validation": false
+}

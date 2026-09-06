@@ -33,7 +33,13 @@ LABELS = {
 def _number(value: Any) -> str:
     if value is None or (type(value) is float and math.isnan(value)):
         return "missing"
-    if type(value) not in (int, float) or not math.isfinite(value):
+    if type(value) not in (int, float):
+        raise NodeExportError("NHANES code must be finite numeric or missing")
+    try:
+        finite = math.isfinite(value)
+    except OverflowError:
+        finite = False
+    if not finite:
         raise NodeExportError("NHANES code must be finite numeric or missing")
     if int(value) != value:
         raise NodeExportError("NHANES code must be an integer")
@@ -127,6 +133,14 @@ def run_public_counts(
         "population_estimate": False,
         "clinical_validation": False,
         "custodian_deployment": False,
+        "interpretation": (
+            "Selected 1999-2008 inpatient encounters with recorded diabetes, not people, "
+            "current hospital performance, causal effects or population risk; repeated "
+            "encounters give frequent users more representation. No patient blame is inferred."
+            if dataset == "uci"
+            else "August 2021-August 2023 questionnaire responses, including proxies where "
+            "applicable; unweighted sample description, not clinical or monogenic diagnosis."
+        ),
         "source_sha256": source_sha256,
         "policy_sha256": reservation.policy_content_sha256,
         "query_sha256": reservation.receipt.query_fingerprint,

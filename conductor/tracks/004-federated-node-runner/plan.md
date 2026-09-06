@@ -2,6 +2,19 @@
 
 ## Additive real-public-data tranche — 2026-09-06
 
+- [x] Add the experimental adult NHANES survey method, exact-byte DEMO join,
+  immutable interpretation metadata and invented ratio/variance/domain tests.
+  Evidence: [survey method](../../../docs/track-004-public-survey-method.md).
+- [x] Implement installed-module execution and durable no-overwrite local result
+  delivery/recovery; apply the advisory parent-directory fsync fix and test it.
+  Evidence: [follow-up](../../../docs/track-004-public-node-followup.md).
+- [x] Lock all real-data application dependencies and verify fresh, cache-free,
+  network-denied installed execution and recovery on macOS arm64/Python 3.13.
+  Evidence: [installed proof](../../../docs/track-004-public-node-installation.md).
+- [x] Crosscheck the fixed real survey ratio and Taylor SE using R survey and
+  a separate XPT decoder; retain algorithmic-only evidence and full validation.
+  Evidence: [reference check](../../../docs/track-004-public-survey-reference.md).
+
 - [x] Implement UCI encounter and NHANES unweighted-response adapters, a separate
   fixed-query policy-bound runner, rejection tests and two local real-data runs.
   Evidence: [public-counts tranche](../../../docs/track-004-public-counts-2026-09-06.md).
