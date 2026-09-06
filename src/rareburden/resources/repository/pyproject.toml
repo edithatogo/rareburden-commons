@@ -56,6 +56,9 @@ rareburden = ["py.typed", "resources/repository/**/*"]
 pythonpath = ["src", "."]
 testpaths = ["tests"]
 addopts = "-q --strict-config --strict-markers --timeout=30"
+markers = [
+  "slow: opt-in tests excluded from the local fast-feedback profile",
+]
 
 [tool.coverage.run]
 branch = true
