@@ -71,9 +71,7 @@ def validate_rehearsal(root: Path) -> None:
     )
     for field in expected_claims_false:
         if claims.get(field) is not False:
-            raise RehearsalValidationError(
-                f"owner rehearsal must not claim {field}"
-            )
+            raise RehearsalValidationError(f"owner rehearsal must not claim {field}")
 
     plan_text = (root / PLAN).read_text(encoding="utf-8")
     if "[x] Complete a separately recorded owner-operated clean-environment" not in plan_text:

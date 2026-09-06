@@ -36,9 +36,7 @@ def test_owner_rehearsal_rejects_independent_operation_claim(tmp_path: Path) -> 
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     receipt["claims"]["independent_operation"] = True
     receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
-    with pytest.raises(
-        RehearsalValidationError, match="must not claim independent_operation"
-    ):
+    with pytest.raises(RehearsalValidationError, match="must not claim independent_operation"):
         validate_rehearsal(tmp_path)
 
 
@@ -48,9 +46,7 @@ def test_owner_rehearsal_rejects_custodian_approval_claim(tmp_path: Path) -> Non
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     receipt["claims"]["custodian_approval"] = True
     receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
-    with pytest.raises(
-        RehearsalValidationError, match="must not claim custodian_approval"
-    ):
+    with pytest.raises(RehearsalValidationError, match="must not claim custodian_approval"):
         validate_rehearsal(tmp_path)
 
 
@@ -60,9 +56,7 @@ def test_owner_rehearsal_rejects_production_signing_claim(tmp_path: Path) -> Non
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     receipt["claims"]["production_signing"] = True
     receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
-    with pytest.raises(
-        RehearsalValidationError, match="must not claim production_signing"
-    ):
+    with pytest.raises(RehearsalValidationError, match="must not claim production_signing"):
         validate_rehearsal(tmp_path)
 
 
@@ -72,9 +66,7 @@ def test_owner_rehearsal_rejects_release_authorization_claim(tmp_path: Path) -> 
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     receipt["claims"]["release_authorization"] = True
     receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
-    with pytest.raises(
-        RehearsalValidationError, match="must not claim release_authorization"
-    ):
+    with pytest.raises(RehearsalValidationError, match="must not claim release_authorization"):
         validate_rehearsal(tmp_path)
 
 
@@ -104,7 +96,5 @@ def test_owner_rehearsal_rejects_commit_short(tmp_path: Path) -> None:
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     receipt["candidate"]["commit"] = "abc123"
     receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
-    with pytest.raises(
-        RehearsalValidationError, match="candidate commit binding drift"
-    ):
+    with pytest.raises(RehearsalValidationError, match="candidate commit binding drift"):
         validate_rehearsal(tmp_path)

@@ -1,0 +1,36 @@
+schema_version: "1.0.0"
+track_id: "004-federated-node-runner"
+decision_type: "bounded_federated_node_reference_disposition"
+decided_by: "edithatogo"
+accountable_role: "repository owner and sole accountable human"
+decided_on: "2026-09-06"
+governance_framework: "ADR-0009 role-separated advisory panel with sole accountable human disposition under ADR-0011"
+selected_option: "A"
+authorization:
+  track_complete: true
+  scope: "bounded synthetic federated node package"
+  status_label: "Complete (bounded synthetic federated node package; no live custodian linkage)"
+  closeout_document: "docs/track-004-reference-closeout-2026-09-06.md"
+claims:
+  empirical_activation: false
+  controlled_data_activation: false
+  clinical_interpretation: false
+  contract_frozen: true
+  scope_synthetic_assurance_only: true
+  independent_review: false
+  patient_community_approval: false
+  publication_authority: false
+  release_authority: true
+  live_custodian_linkage: false
+  hospital_production_authorized: false
+panel_review_packet:
+  path: "docs/reviews/track-004-reference-output-panel-2026-09-06.yml"
+  result: "pass_all_lanes"
+rationale: >-
+  Track 004 has delivered the bounded federated country-node package (Protocol RBC-F001),
+  validating offline synthetic cohort execution, statistical disclosure control suppression,
+  append-only policy store mechanics with tamper detection, and locked-wheel clean-environment
+  installation rehearsals. The simulated advisory panel unanimously passed all lanes. Under ADR-0009
+  and ADR-0011, the repository owner selects Option A to close Track 004 as Complete (bounded
+  synthetic federated node package; no live custodian linkage), preserving strict governance
+  boundaries without unverified claims of live hospital or custodian database deployment.

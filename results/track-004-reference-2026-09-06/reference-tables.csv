@@ -1,0 +1,7 @@
+gate_id,category,evaluation,description,status
+rights_and_data_use_contract,governance_assurance,verified_bounded_synthetic,Synthetic data use and simulated community harm boundaries enforced.,pass_bounded
+common_analysis_contract_and_locked_wheels,packaging_and_dependencies,verified_bounded_synthetic,Locked wheel staging provenance verified across target platforms.,pass_bounded
+durable_policy_and_query_store,security_and_provenance,verified_reference_primitive,Append-only SQLite policy store with tamper-check triggers and hash chains.,pass_bounded
+clean_environment_installation_rehearsal,operational_verification,verified_owner_operated,Clean-environment offline installation rehearsal executed and recorded.,pass_bounded
+multi_lane_advisory_review,review_and_disposition,verified_advisory_panel,"Methods, privacy, security, and engineering advisory review under ADR-0009.",pass_bounded
+bounded_node_package_release,release_authorization,verified_bounded_disposition,Owner disposition under ADR-0011 authorising bounded reference release candidate.,pass_bounded

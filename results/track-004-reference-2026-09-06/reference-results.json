@@ -1,0 +1,88 @@
+{
+  "cohort_summary": {
+    "input_fingerprint": "sha256:799a6fb699e7fd23a18fc046a3d756aaa0b9ba62029e06fc930ed0a7e204d39c",
+    "total_synthetic_records": 3
+  },
+  "execution_result": {
+    "bounded_run_queries": 1,
+    "exported_rows_count": 3,
+    "safe_exported_count": 3,
+    "status": "completed"
+  },
+  "gates_evaluated": [
+    {
+      "category": "governance_assurance",
+      "description": "Synthetic data use and simulated community harm boundaries enforced.",
+      "evaluation": "verified_bounded_synthetic",
+      "gate_id": "rights_and_data_use_contract",
+      "status": "pass_bounded"
+    },
+    {
+      "category": "packaging_and_dependencies",
+      "description": "Locked wheel staging provenance verified across target platforms.",
+      "evaluation": "verified_bounded_synthetic",
+      "gate_id": "common_analysis_contract_and_locked_wheels",
+      "status": "pass_bounded"
+    },
+    {
+      "category": "security_and_provenance",
+      "description": "Append-only SQLite policy store with tamper-check triggers and hash chains.",
+      "evaluation": "verified_reference_primitive",
+      "gate_id": "durable_policy_and_query_store",
+      "status": "pass_bounded"
+    },
+    {
+      "category": "operational_verification",
+      "description": "Clean-environment offline installation rehearsal executed and recorded.",
+      "evaluation": "verified_owner_operated",
+      "gate_id": "clean_environment_installation_rehearsal",
+      "status": "pass_bounded"
+    },
+    {
+      "category": "review_and_disposition",
+      "description": "Methods, privacy, security, and engineering advisory review under ADR-0009.",
+      "evaluation": "verified_advisory_panel",
+      "gate_id": "multi_lane_advisory_review",
+      "status": "pass_bounded"
+    },
+    {
+      "category": "release_authorization",
+      "description": "Owner disposition under ADR-0011 authorising bounded reference release candidate.",
+      "evaluation": "verified_bounded_disposition",
+      "gate_id": "bounded_node_package_release",
+      "status": "pass_bounded"
+    }
+  ],
+  "governance": {
+    "accountable_human": "edithatogo",
+    "controlled_data_activation": false,
+    "governance_framework": "ADR-0009 role-separated advisory panel with sole human owner disposition under ADR-0011",
+    "hospital_production_authorized": false,
+    "independent_review": false,
+    "live_custodian_linkage": false,
+    "release_authority": true,
+    "scope_synthetic_assurance_only": true
+  },
+  "manifest": {
+    "analysis_id": "ANALYSIS-BURDEN-SUMMARY-V1",
+    "coordinator_version": "0.3.0",
+    "execution_id": "EXEC-RBC-F001-20260906",
+    "input_fingerprint": "sha256:799a6fb699e7fd23a18fc046a3d756aaa0b9ba62029e06fc930ed0a7e204d39c",
+    "limitations": [
+      "Synthetic/offline manifest; no participant-level data."
+    ],
+    "node_version": "0.3.0",
+    "output_fingerprint": "sha256:83ffa029fcc76da6a4e0b568872467d0fa655d8a82d955e1cbb5c7eb478ce30b",
+    "policy_id": "POLICY-SYNTHETIC-DEFAULT-V1",
+    "schema_version": "0.1.0",
+    "status": "completed"
+  },
+  "policy_governance": {
+    "max_queries": 10,
+    "minimum_cell_count": 5,
+    "policy_id": "POLICY-SYNTHETIC-DEFAULT-V1"
+  },
+  "protocol": "RBC-F001",
+  "protocol_version": "0.2.0-bounded",
+  "status": "bounded_federated_node_package_verified"
+}
