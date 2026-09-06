@@ -10,5 +10,5 @@
 ## 2. New collection plan
 
 1. **Phase 1: Multi-centre registry linkage (administrative):** Focus on linking disease-specific clinical registry cohorts with national health insurance and hospital statistics.
-2. **Phase 2: Targeted survey modules (patient/family):** Administer RBC-P001D survey core through accredited patient advocacy organisations once ethics approvals and participant compensation funding are in place.
+2. **Phase 2: Targeted survey modules (patient/family):** Administer RBC-P001D survey core through accredited patient advocacy organisations once ethics approvals and participant compensation funding are in place. The required co-design, accessibility and compensation protocol is documented in [track-005-codesign-protocol-2026-09-06.md](track-005-codesign-protocol-2026-09-06.md); it remains a plan and does not authorize collection.
 3. **Phase 3: Economic parameter ledger integration:** Normalise observed costs and hours into versioned parameter fixtures under Track 009 schema contracts with explicit quality and transportability flags.
