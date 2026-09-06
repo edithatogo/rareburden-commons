@@ -7,3 +7,4 @@ recorded in metadata; task and historical evidence remain in the plan and review
 - [Plan](plan.md)
 - [Metadata](metadata.json)
 - [Review](review.md)
+- [Current implementation and archive audit](audit-2026-09-06.md)
