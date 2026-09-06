@@ -1,5 +1,13 @@
 # Track 004 plan
 
+## Additive real-public-data tranche — 2026-09-06
+
+- [x] Implement UCI encounter and NHANES unweighted-response adapters, a separate
+  fixed-query policy-bound runner, rejection tests and two local real-data runs.
+  Evidence: [public-counts tranche](../../../docs/track-004-public-counts-2026-09-06.md).
+  This completes the descriptive tranche only; remaining real-data acceptance
+  work is listed there and is not covered by the historical synthetic closeout.
+
 ## Bounded synthetic reference closeout — 2026-09-06
 
 - [x] Implement deterministic demonstrator federated node engine under Protocol RBC-F001. Evidence: `src/rareburden/demonstrator_federated_node.py` and `docs/track-004-rbc-f001-bounded-registration-2026-09-06.yml`.
