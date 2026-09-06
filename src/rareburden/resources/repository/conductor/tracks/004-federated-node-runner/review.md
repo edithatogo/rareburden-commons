@@ -2,6 +2,16 @@
 
 ## Additive real-public-data candidate review — 2026-09-06
 
+Subsequent owner disposition: `edithatogo` explicitly approved Option A for
+candidate `97380ef` on 2026-09-06. The
+[exact-bound decision](../../../docs/decisions/2026-09-06-track004-public-candidate.json)
+accepts the experimental real-public-data toolkit only. Statistical publication
+still requires reliability and joint-disclosure assessment; package release and
+production/custodian deployment are not authorised. The candidate manifest and
+its pre-decision evidence remain immutable historical snapshots. References to
+pending acceptance in those snapshots and the review below describe their
+pre-approval state, superseded only by this bounded disposition.
+
 The new [real-data follow-up](../../../docs/track-004-public-node-followup.md)
 is separate from the synthetic disposition below. Simulated engineering/security
 advice identified a missing parent-directory fsync, now fixed with a regression

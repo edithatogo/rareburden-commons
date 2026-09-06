@@ -93,6 +93,10 @@
     "rationale": "Accept demonstrated repository-owned real-data capabilities now while retaining explicit statistical-publication and deployment boundaries."
   },
   "owner_decision": {
-    "status": "pending"
+    "status": "recorded",
+    "selected_option_id": "A",
+    "decided_by": "edithatogo",
+    "decided_at_utc": "2026-09-06T03:01:55Z",
+    "rationale": "The owner explicitly replied 'I approve option A.' to the exact-candidate question for 97380ef. This records acceptance of the experimental real-public-data toolkit under Option A's stated limits, not statistical publication, package release, production deployment or clinical validity. The UTC time records receipt of the approval; candidate and evidence bindings remain unchanged."
   }
 }

@@ -4,8 +4,13 @@
 
 Implementation candidate: `97380ef`. Exact-bound
 [owner decision packet](../../../docs/decisions/2026-09-06-track004-public-candidate.json)
-is pending. No real-data acceptance, statistical publication or archive approval
-is inferred from the historical synthetic closeout.
+records the owner's explicit Option A approval received on 2026-09-06.
+The experimental real-public-data implementation is accepted. Statistical
+publication, package release, production deployment and archival are not
+authorised by this decision. The historical synthetic closeout is unchanged.
+
+- [x] Record sole-owner Option A acceptance against the exact candidate commit,
+  tree and evidence-manifest digest; retain all stated publication boundaries.
 
 - [x] Add the experimental adult NHANES survey method, exact-byte DEMO join,
   immutable interpretation metadata and invented ratio/variance/domain tests.
