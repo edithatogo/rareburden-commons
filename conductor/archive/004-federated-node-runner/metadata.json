@@ -1,11 +1,11 @@
 {
   "id": "004-federated-node-runner",
   "title": "Federated country-node execution package",
-  "status": "complete",
+  "status": "archived",
   "priority": "must",
   "created": "2026-07-19",
   "updated": "2026-09-06",
-  "target_release": "0.6.0",
+  "target_release": "1.2.0",
   "stage": "federated_execution",
   "owner_role": "Repository owner (sole accountable human)",
   "dependencies": [
