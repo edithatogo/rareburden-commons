@@ -1,5 +1,15 @@
 # Track 002 plan
 
+## Archive review corrections — 2026-09-06
+
+- [x] Clarify dated source decisions, conditional activation and the outstanding
+  evidence for the original disconnected-installation criterion. Evidence:
+  [archive evidence audit](review.md#archive-evidence-audit--2026-09-06).
+
+Historical completed workflow tasks below do not establish installation with
+neither network access nor pre-provisioned dependencies. That acceptance evidence
+gap remains disclosed in the review; original task history is preserved.
+
 ## Owner-approved minimal public-release preparation — 2026-08-20
 
 - [x] Bind the owner-approved release allowlist to the exact July 2026
