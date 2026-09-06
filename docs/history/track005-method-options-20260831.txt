@@ -4,7 +4,7 @@ Status: non-binding engineering proposal; owner selection is pending. This
 document defines possible future tranches, not an implemented economic contract,
 approved method, empirical activation, collection permission or release.
 
-The [Track 005 specification](../conductor/archive/005-economic-social-burden/spec.md)
+The [Track 005 specification](../conductor/tracks/005-economic-social-burden/spec.md)
 and [review packet](track-005-economic-review-packet.md) retain the full economic,
 scientific and participation requirements. Selecting a preparation route must not
 silently remove those requirements or mark Track 005 complete.

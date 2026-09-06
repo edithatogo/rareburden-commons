@@ -1,5 +1,15 @@
 # Track 005 plan
 
+## Review fixes — 2026-09-06
+
+- [x] Reject malformed survey declarations, remove the unsupported authorization
+  result and cryptographic claims, and add regression tests.
+- [x] Reject contradictory currency identity and invalid zero-rate discount
+  conventions with regression coverage.
+- [x] Archive the completed bounded reference track, update lifecycle/navigation
+  validation, and preserve the original method-options candidate bytes.
+  Evidence: [current audit](review.md#current-audit-and-remediation--2026-09-06).
+
 ## Current implementation — 2026-09-05
 
 The original candidate plan is retained byte-for-byte in

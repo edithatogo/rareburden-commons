@@ -52,8 +52,8 @@ To prevent double counting across fragmented datasets:
 
 Per owner completion Route A:
 - A standardized patient/family survey core is specified for future collection.
-- Any attempt to administer the survey, recruit human participants, or ingest unapproved survey records is blocked by an executable fail-closed collection gate (`check_collection_gate`).
-- The collection gate requires cryptographic verification of:
+- The prerequisite validator (`check_collection_gate`) always returns collection authorization as false; no survey administration, recruitment or ingestion service is implemented.
+- The validator checks declarations, without cryptographic authentication, for:
   1. institutional human research ethics committee (HREC/IRB) approval identifier;
   2. participant information, informed consent, and withdrawal protocol;
   3. participant remuneration schedule ensuring no uncompensated community labour;

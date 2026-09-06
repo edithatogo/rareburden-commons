@@ -22,7 +22,11 @@ Actual survey administration is deferred under Route A. When funded and resource
 
 ## 4. Executable fail-closed collection gate
 
-The codebase provides `rareburden.economic_survey.check_collection_gate`, which fails closed unless cryptographically bound approvals exist for:
+`rareburden.economic_survey.check_collection_gate` validates caller-declared
+prerequisites. It does not cryptographically authenticate approvals and always
+returns `collection_authorized: false`. No survey collector is implemented;
+actual collection remains deferred under Route A. Its checked fields cover:
+
 1. Institutional HREC / IRB approval identifier.
 2. Participant consent and withdrawal protocol.
 3. Verified remuneration schedule.

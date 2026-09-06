@@ -1,5 +1,39 @@
 # Track 005 dependency review — Patient, family, economic and social burden module
 
+## Current audit and remediation — 2026-09-06
+
+The September 5 Route A decision supports bounded reference software completion
+with actual collection deferred. Earlier blocked and preparation entries below
+are historical. Archival retains complete status and this bounded scope.
+
+The audit found an unsupported cryptographic-approval claim in both survey
+protocols. The implementation checked only declarations and returned
+`authorized`; truthy strings, NaN remuneration and whitespace agreement IDs
+could pass. The validator now requires literal affirmative booleans, positive
+finite remuneration, an explicit currency and a nonblank agreement ID. Its
+result is `prerequisites_declared`, with `collection_authorized: false` and
+`approval_authenticity_verified: false`. No collector or authentication service
+is implemented. Callers relying on the previous status must update; no caller
+may interpret declaration validation as permission to collect.
+
+Currency conversion silently discarded non-unit same-currency factors and
+allowed an identity label for different currencies. Both contradictions now
+raise domain errors. Unknown discount conventions are rejected even at zero
+rate or zero periods. Regression cases cover these failures and malformed survey
+declarations. The current four-module economic check passes 36 tests after
+these additions; the historical 77-test statement below is not a current
+reproduced count for those four named modules.
+
+The completed track was still in the active directory. Archive navigation,
+completion validation and runtime projections now follow its preserved archive.
+Original method-options bytes remain in a hash-verified history snapshot so
+navigation repair does not rewrite the historical candidate evidence.
+
+Actual co-design, recruitment, approval authentication and empirical economic
+validation remain outside the accepted reference scope. The corrected software
+never authorizes collection. This review establishes no institutional approval,
+source-rights grant, production or release authority.
+
 ## Selected component-first validation prototype — 2026-09-01
 
 The repository owner selected Option A against exact proposal candidate
@@ -236,4 +270,3 @@ recommended acceptance of the bounded software contract without dissent.
 Track 005 is **Complete** for its bounded reference methods and software contract scope.
 Survey administration, living participant recruitment, uncompensated community labour,
 and empirical health-technology claims remain strictly deferred and prohibited.
-

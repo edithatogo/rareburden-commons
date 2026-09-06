@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from typing import Any
 
 
@@ -10,7 +11,7 @@ class EconomicSurveyGateError(PermissionError):
 
 
 def check_collection_gate(authorization_packet: dict[str, Any] | None) -> dict[str, Any]:
-    """Fail-closed gate ensuring survey items cannot be collected without verified governance.
+    """Validate declared prerequisites; this does not authenticate approvals or allow collection.
 
     Requires:
     1. Institutional human research ethics committee (HREC / IRB) approval reference.
@@ -34,7 +35,11 @@ def check_collection_gate(authorization_packet: dict[str, Any] | None) -> dict[s
         )
 
     consent = authorization_packet.get("informed_consent_protocol")
-    if not consent or not isinstance(consent, dict) or not consent.get("withdrawal_supported"):
+    if (
+        not consent
+        or not isinstance(consent, dict)
+        or consent.get("withdrawal_supported") is not True
+    ):
         raise EconomicSurveyGateError(
             "Fail-closed collection gate: "
             "informed consent protocol with withdrawal support is required."
@@ -44,18 +49,38 @@ def check_collection_gate(authorization_packet: dict[str, Any] | None) -> dict[s
     if (
         not remuneration
         or not isinstance(remuneration, dict)
-        or not remuneration.get("compensated")
-        or remuneration.get("rate_per_hour", 0.0) <= 0.0
+        or remuneration.get("compensated") is not True
     ):
         raise EconomicSurveyGateError(
             "Fail-closed collection gate: uncompensated community labour is strictly prohibited."
+        )
+
+    rate = remuneration.get("rate_per_hour")
+    currency = remuneration.get("currency")
+    try:
+        valid_rate = type(rate) in (int, float) and math.isfinite(rate) and rate > 0
+    except OverflowError:
+        valid_rate = False
+    if not valid_rate:
+        raise EconomicSurveyGateError(
+            "Fail-closed collection gate: rate must be positive and finite."
+        )
+    if (
+        not isinstance(currency, str)
+        or len(currency) != 3
+        or not currency.isascii()
+        or not currency.isalpha()
+        or not currency.isupper()
+    ):
+        raise EconomicSurveyGateError(
+            "Fail-closed collection gate: explicit currency code required."
         )
 
     accessibility = authorization_packet.get("accessibility_and_adaptation_plan")
     if (
         not accessibility
         or not isinstance(accessibility, dict)
-        or not accessibility.get("approved")
+        or accessibility.get("approved") is not True
     ):
         raise EconomicSurveyGateError(
             "Fail-closed collection gate: "
@@ -63,16 +88,23 @@ def check_collection_gate(authorization_packet: dict[str, Any] | None) -> dict[s
         )
 
     custodian = authorization_packet.get("custodian_authorization")
-    if not custodian or not isinstance(custodian, dict) or not custodian.get("agreement_id"):
+    if (
+        not custodian
+        or not isinstance(custodian, dict)
+        or not isinstance(custodian.get("agreement_id"), str)
+        or not custodian["agreement_id"].strip()
+    ):
         raise EconomicSurveyGateError(
             "Fail-closed collection gate: verified data custodian authorization required."
         )
 
     return {
-        "gate_status": "authorized",
+        "gate_status": "prerequisites_declared",
+        "collection_authorized": False,
+        "approval_authenticity_verified": False,
         "hrec_id": hrec.strip(),
         "remuneration_rate": remuneration.get("rate_per_hour"),
-        "currency": remuneration.get("currency", "AUD"),
+        "currency": currency,
         "custodian_agreement_id": custodian.get("agreement_id"),
     }
 

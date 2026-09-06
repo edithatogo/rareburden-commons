@@ -49,6 +49,8 @@ def test_component_candidate_binds_every_changed_candidate_file() -> None:
             path = ROOT / "docs/history/track005-metadata-20260901.json"
         elif relative.endswith("conductor/tracks/005-economic-social-burden/review.md"):
             path = ROOT / "docs/history/track005-review-20260901.md"
+        elif relative == "tests/test_track005_method_options.py":
+            path = ROOT / "docs/history/track005-method-options-test-20260901.txt"
         assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
     assert (ROOT / "schemas/economic-component-prototype.schema.json").read_bytes() == (
         ROOT

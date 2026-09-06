@@ -22,7 +22,9 @@ def test_collection_gate_passes_when_fully_authorized() -> None:
         "custodian_authorization": {"agreement_id": "CUSTODIAN-AGR-2026-08"},
     }
     result = check_collection_gate(valid_packet)
-    assert result["gate_status"] == "authorized"
+    assert result["gate_status"] == "prerequisites_declared"
+    assert result["collection_authorized"] is False
+    assert result["approval_authenticity_verified"] is False
     assert result["hrec_id"] == "HREC-2026-ETH-9941"
     assert result["remuneration_rate"] == 75.0
 
@@ -77,3 +79,40 @@ def test_survey_core_specifications_contains_standard_domains() -> None:
         "employment_and_productivity",
         "education_impact",
     }
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("withdrawal", "false"),
+        ("compensated", "false"),
+        ("approved", "false"),
+        ("rate", float("nan")),
+        ("rate", float("inf")),
+        ("rate", True),
+        ("rate", "75"),
+        ("rate", 10**1000),
+        ("currency", None),
+        ("agreement", " "),
+    ],
+)
+def test_collection_declarations_reject_malformed_values(field, value):
+    packet = {
+        "hrec_irb_approval_id": "HREC-reference",
+        "informed_consent_protocol": {"withdrawal_supported": True},
+        "participant_remuneration": {"compensated": True, "rate_per_hour": 75, "currency": "AUD"},
+        "accessibility_and_adaptation_plan": {"approved": True},
+        "custodian_authorization": {"agreement_id": "reference-only"},
+    }
+    location = {
+        "withdrawal": ("informed_consent_protocol", "withdrawal_supported"),
+        "compensated": ("participant_remuneration", "compensated"),
+        "rate": ("participant_remuneration", "rate_per_hour"),
+        "currency": ("participant_remuneration", "currency"),
+        "approved": ("accessibility_and_adaptation_plan", "approved"),
+        "agreement": ("custodian_authorization", "agreement_id"),
+    }
+    group, key = location[field]
+    packet[group][key] = value
+    with pytest.raises(EconomicSurveyGateError):
+        check_collection_gate(packet)
