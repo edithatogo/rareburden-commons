@@ -59,7 +59,7 @@ This directory is the persistent source of truth for the project's context-drive
 
 ## Completed work
 
-- [Track 003 — Synthetic monogenic-diabetes reference](tracks/003-monogenic-diabetes-demonstrator/spec.md) and [execution/reproduction acceptance](../docs/track-003-reference-closeout-2026-08-31.md); empirical validity and production release are not established.
+- [Track 003 — Synthetic monogenic-diabetes reference](archive/003-monogenic-diabetes-demonstrator/spec.md) and [execution/reproduction acceptance](../docs/track-003-reference-closeout-2026-08-31.md); empirical validity and production release are not established.
 
 - [Track 009 — Bounded evidence and parameter ledger](tracks/009-evidence-parameter-ledger/spec.md) and [review](tracks/009-evidence-parameter-ledger/review.md)
 - [Track 002 — Public-source acquisition](archive/002-public-source-acquisition/spec.md) and [review](archive/002-public-source-acquisition/review.md)

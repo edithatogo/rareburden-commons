@@ -1,5 +1,12 @@
 # Track 003 plan
 
+## Archive review corrections — 2026-09-06
+
+- [x] Verify retained synthetic evidence and historical hosted completion,
+  distinguish historical pending states from current acceptance, and archive
+  the completed track with navigation and validation updates. Evidence:
+  [current archive audit](review.md#current-archive-audit--2026-09-06).
+
 > Repository-owned review uses the subagent panel under ADR-0009; external clinical and patient/community authority remains a separate gate.
 
 Current acceptance and evidence: [synthetic reference closeout](../../../docs/track-003-reference-closeout-2026-08-31.md). The dated preparation sections below preserve historical status; the current four phases are adjudicated by the exact Option A execution, reproduction and output review. Hosted checks remain a merge gate.

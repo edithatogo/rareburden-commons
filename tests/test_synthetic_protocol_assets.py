@@ -22,7 +22,10 @@ ROOT = Path(__file__).resolve().parents[1]
     ),
 )
 def test_protocol_drafts_are_explicitly_non_binding(track: str) -> None:
-    specification = (ROOT / "conductor" / "tracks" / track / "spec.md").read_text()
+    path = ROOT / "conductor" / "tracks" / track / "spec.md"
+    if not path.exists():
+        path = ROOT / "conductor" / "archive" / track / "spec.md"
+    specification = path.read_text()
     assert "Non-binding protocol draft" in specification
     assert "does not activate" in specification
 
