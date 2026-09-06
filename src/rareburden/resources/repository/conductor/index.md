@@ -68,7 +68,6 @@ This directory is the persistent source of truth for the project's context-drive
 - [Track 018 — Scholarly provenance and reproducibility](archive/018-scholarly-provenance-reproducibility/spec.md) and [review](archive/018-scholarly-provenance-reproducibility/review.md)
 - [Track 007 — Bounded landscape and adjacency](archive/007-landscape-novelty/spec.md) and [review](archive/007-landscape-novelty/review.md)
 - [Track 015 — Bounded operational governance and policy translation](archive/015-governance-partnership-policy/spec.md) and [review](archive/015-governance-partnership-policy/review.md)
-- [Track 004 — Federated country-node execution package](archive/004-federated-node-runner/index.md) and [review](archive/004-federated-node-runner/review.md); bounded implementation archived with live custodian, reliability/disclosure and release gates retained.
 
 ## Lifecycle
 

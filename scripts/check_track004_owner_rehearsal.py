@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 RECEIPT = Path("docs/track-004-owner-operated-rehearsal-2026-09-05.json")
-PLAN = Path("conductor/archive/004-federated-node-runner/plan.md")
+PLAN = Path("conductor/tracks/004-federated-node-runner/plan.md")
 
 
 class RehearsalValidationError(ValueError):

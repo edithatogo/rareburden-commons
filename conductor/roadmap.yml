@@ -130,12 +130,3 @@ releases:
   exit_gates:
   - Every activated authority or relationship has an attributable scope-matched receipt.
   - Country-node and global claims remain disabled unless their representation conditions pass.
-- version: 1.2.0
-  name: Federated methods alpha (bounded track disposition)
-  status: cancelled
-  objective: Retain Track 004's bounded implementation history while deferring live custodian integration and release.
-  tracks:
-  - 004-federated-node-runner
-  exit_gates:
-  - No production custodian linkage or statistical publication is implied.
-  - A future reactivation requires a new exact-bound scope and external gate evidence.

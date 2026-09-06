@@ -18,9 +18,9 @@ REGISTRATION = Path("docs/track-004-rbc-f001-bounded-registration-2026-09-06.yml
 CLOSEOUT = Path("docs/track-004-reference-closeout-2026-09-06.md")
 MANIFEST = Path("manifests/demonstrators/track-004-reference-execution-2026-09-06.json")
 ENGINE = Path("src/rareburden/demonstrator_federated_node.py")
-PLAN = Path("conductor/archive/004-federated-node-runner/plan.md")
-METADATA = Path("conductor/archive/004-federated-node-runner/metadata.json")
-REVIEW = Path("conductor/archive/004-federated-node-runner/review.md")
+PLAN = Path("conductor/tracks/004-federated-node-runner/plan.md")
+METADATA = Path("conductor/tracks/004-federated-node-runner/metadata.json")
+REVIEW = Path("conductor/tracks/004-federated-node-runner/review.md")
 REGISTRY = Path("conductor/tracks.md")
 OUTPUT_DIR = Path("results/track-004-reference-2026-09-06")
 
@@ -126,16 +126,16 @@ def validate_plan_and_registry(root: Path) -> None:
         raise Track004CloseoutError("Track 004 plan contains unchecked tasks")
 
     metadata = json.loads((root / METADATA).read_text(encoding="utf-8"))
-    if metadata.get("status") not in {"complete", "archived"}:
-        raise Track004CloseoutError("Track 004 metadata status is not complete or archived")
+    if metadata.get("status") != "complete":
+        raise Track004CloseoutError("Track 004 metadata status is not complete")
 
     registry_text = (root / REGISTRY).read_text(encoding="utf-8")
     row_match = re.search(r"^\|\s*004\s*\|([^|]+)\|([^|]+)\|", registry_text, re.MULTILINE)
     if not row_match:
         raise Track004CloseoutError("Track 004 row missing from registry")
     status_cell = row_match.group(2).strip()
-    if not status_cell.startswith(("Complete", "Archived")):
-        raise Track004CloseoutError(f"Track 004 registry status {status_cell} must be Complete or Archived")
+    if not status_cell.startswith("Complete"):
+        raise Track004CloseoutError(f"Track 004 registry status {status_cell} must be Complete")
 
 
 def main() -> None:
