@@ -105,6 +105,8 @@ def _sha256(path: Path) -> str:
 
 def _metadata(root: Path, track: str) -> dict[str, Any]:
     path = root / "conductor" / "tracks" / track / "metadata.json"
+    if not path.exists():
+        path = root / "conductor" / "archive" / track / "metadata.json"
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:

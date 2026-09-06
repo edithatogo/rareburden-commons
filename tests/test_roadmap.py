@@ -122,7 +122,7 @@ def test_released_release_requires_complete_tracks(tmp_path: Path) -> None:
     # Make the incomplete fixture explicit instead of relying on live project progress.
     shutil.copytree(ROOT / "conductor", tmp_path / "conductor")
     tracks = tmp_path / "conductor" / "tracks"
-    metadata_path = tracks / "003-monogenic-diabetes-demonstrator" / "metadata.json"
+    metadata_path = tmp_path / "conductor/archive/003-monogenic-diabetes-demonstrator/metadata.json"
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     metadata["status"] = "blocked"
     metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")

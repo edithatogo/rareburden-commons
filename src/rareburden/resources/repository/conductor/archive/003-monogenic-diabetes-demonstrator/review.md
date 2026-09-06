@@ -1,5 +1,31 @@
 # Track 003 dependency review — Monogenic diabetes rare-within-common demonstrator
 
+## Current archive audit — 2026-09-06
+
+Disposition: completed synthetic reference, archived after evidence audit.
+The retained-package validator passed against the approved source snapshot,
+decision, output hashes and both execution receipts without re-executing analysis.
+The eight-criterion acceptance mapping is in
+`docs/track-003-reference-closeout-2026-08-31.md`. Independent-cohort work is
+an applicability/noncomparability assessment; empirical agreement remains
+unestablished. Economic outputs use fictional scenario inputs. Reproduction was
+owner-operated on the same host, with actual community participation absent.
+
+GitHub PR #276 was re-observed through `gh pr view 276` on 2026-09-06: merged
+2026-08-31T01:43:47Z as `c453d5d660b7b62a246e5dcb1b7ea5ad21b085e0`.
+Its returned Actions checks passed, including Python 3.12–3.14, portability,
+coverage/distribution, dependency review, CodeQL, secret scan and workflow lint;
+the conditional burden mutation job was skipped. This closes the historical
+merge-pending wording below for that PR only.
+
+The audit found the completed track still in the active directory. Moving it to
+the archive and updating navigation corrects that lifecycle omission. Metadata
+retains `complete`, following the repository's completed-in-archive convention;
+the folder records archival without changing accepted scientific scope.
+Older blocked/preparation sections below are chronological evidence, superseded
+by the executed-reference acceptance section. No empirical validation, clinical
+approval, source clearance or production release is inferred from this audit.
+
 ## Owner-directed review routing — 2026-08-22
 
 Clinical/scientific, patient/community and data-governance/custodian questions are routed to role-separated advisory agents. Their advice must be presented to the repository owner in an owner decision packet with options, trade-offs, contingencies, uncertainty, dissent and stop triggers. Security/engineering approval is routed to the owner as an owner-operated decision. None of these routes creates independent review, community consent, custodian authority or external scientific approval.

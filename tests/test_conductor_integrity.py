@@ -16,6 +16,15 @@ TRACK = "003-monogenic-diabetes-demonstrator"
 @pytest.fixture
 def repository(tmp_path: Path) -> Path:
     shutil.copytree(ROOT / "conductor", tmp_path / "conductor")
+    # Exercise active lifecycle transitions independently of the live archive.
+    conductor = tmp_path / "conductor"
+    shutil.move(conductor / "archive" / TRACK, conductor / "tracks" / TRACK)
+    registry = conductor / "tracks.md"
+    registry.write_text(registry.read_text().replace(f"archive/{TRACK}", f"tracks/{TRACK}"))
+    setup = conductor / "setup_state.json"
+    state = json.loads(setup.read_text())
+    state["archived_tracks"].remove(TRACK)
+    setup.write_text(json.dumps(state))
     return tmp_path
 
 
