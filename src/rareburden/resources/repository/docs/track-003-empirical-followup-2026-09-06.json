@@ -1,0 +1,53 @@
+{
+  "status": "source_screen_only",
+  "retrieved_on": "2026-09-06",
+  "retrieval_method": "PubMed primary publication abstracts viewed through web tool",
+  "source_bytes_retained": false,
+  "rights": "ADA copyright notices observed; no full-text redistribution licence established. Independently encoded published aggregate facts only; no article, table, supplement or participant records copied.",
+  "empirical_agreement_validated": false,
+  "clinically_validated_parameters": false,
+  "actual_community_participation": false,
+  "independent_reproduction": false,
+  "model_inputs_changed": false,
+  "pooling_permitted": false,
+  "studies": [
+    {
+      "id": "SRC-UK-2016",
+      "relationship": "Rechecked existing sensitivity-only evidence, not a new cohort acquisition",
+      "citation": "Shepherd et al., Diabetes Care 39:1879-1888 (2016)",
+      "doi": "10.2337/dc16-0645",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27271189/",
+      "source_location": "Abstract methods and results",
+      "population": "Patients younger than 20 with diabetes attending six clinics in South West England and Tayside; 79.5% of eligible population participated",
+      "calendar_period": "not verified in this abstract screen",
+      "endpoint": "Study-defined monogenic diabetes after biomarker triage and testing for 29 causes",
+      "numerator": 20,
+      "denominator": 808,
+      "reported_percent": 2.5,
+      "reported_95ci_percent": [1.6, 3.9],
+      "transformation": "100 * numerator / denominator, rounded to one decimal; no new interval estimation",
+      "disposition": "descriptive_reference_only",
+      "limitations": "Selected clinic participants; triage-dependent ascertainment; age, molecular scope and calendar compatibility unresolved for a new target"
+    },
+    {
+      "id": "SRC-UK-2017-UNITED",
+      "relationship": "Additional young-onset comparator candidate",
+      "citation": "Shields et al., Diabetes Care 40:1017-1025 (2017)",
+      "doi": "10.2337/dc17-0224",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28701371/",
+      "source_location": "Abstract methods and results",
+      "population": "Diabetes diagnosed at age 30 or younger, current age below 50, two UK regions with high existing detection",
+      "calendar_period": "not verified in this abstract screen",
+      "endpoint": "Study-defined monogenic diabetes, existing cases plus newly detected cases following biomarker triage and testing for 35 subtypes",
+      "numerator": 51,
+      "denominator": 1407,
+      "reported_percent": 3.6,
+      "reported_95ci_percent": [2.7, 4.7],
+      "transformation": "100 * numerator / denominator, rounded to one decimal; no new interval estimation",
+      "disposition": "descriptive_reference_only",
+      "limitations": "Not all-age or general-population prevalence; high prior ascertainment; study-defined denominator includes cystic-fibrosis-related diabetes"
+    }
+  ],
+  "overlap_assessment": "Potential shared recruitment geography and research programme; participant independence not established. Do not pool or split these reports into training and validation sets.",
+  "comparison_disposition": "Neither study directly validates fictional D/E/G populations, outcome rates or currency. Arithmetic agreement with published rounding is extraction QA, not empirical model validation."
+}

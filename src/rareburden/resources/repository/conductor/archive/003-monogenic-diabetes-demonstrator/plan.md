@@ -1,5 +1,12 @@
 # Track 003 plan
 
+## Residual evidence follow-up — 2026-09-06
+
+- [x] Recheck published aggregate comparator facts and prepare empirical,
+  clinical-feedback, compensated-participation and separate-host work orders.
+  Evidence: [follow-up packet](../../../docs/track-003-empirical-followup-2026-09-06.md).
+  This closes preparation only; none of the four external evidence gaps is closed.
+
 ## Archive review corrections — 2026-09-06
 
 - [x] Verify retained synthetic evidence and historical hosted completion,
