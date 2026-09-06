@@ -33,3 +33,14 @@
 - [x] Run all checks and inspect repository for sensitive files.
 - [x] Update track status and document next tracks.
 - [x] Create a portable Git bundle and source archive.
+
+Historical packaging assertion: original artefact hashes and inspection receipts
+are not linked here; see the evidence correction in [review.md](review.md).
+The checkbox preserves the historical record and is not current verification of
+the distributed bundle or archive.
+
+## Review corrections — 2026-09-06
+
+- [x] Correct review sequencing, distinguish M-26 deferral from implementation,
+  and qualify historical packaging and safety assertions. Evidence:
+  [review.md](review.md#evidence-correction--2026-09-06).
