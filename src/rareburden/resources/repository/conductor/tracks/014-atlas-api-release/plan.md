@@ -14,6 +14,14 @@
 > non-independent labels. Release decisions and actual third-party rights or
 > participation remain separate; no new gate is satisfied by this amendment.
 
+## Real-data presentation binding — 2026-09-08
+
+- [x] Bind approved public-data candidates to the atlas evidence-presentation
+  contract, including provenance, missingness, uncertainty, rights state and
+  release safeguards. Evidence:
+  `docs/track-014-real-data-presentation-binding-2026-09-08.yml`.
+  Hosted atlas/API publication and empirical completeness claims remain disabled.
+
 ## Phase 1 — Product and information design
 
 - [x] Define bounded user journeys for patient, policy, research, custodian and

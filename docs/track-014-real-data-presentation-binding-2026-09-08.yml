@@ -1,0 +1,23 @@
+schema_version: "1.0"
+packet_id: "track-014-real-data-presentation-binding-2026-09-08"
+status: "candidate_non_activating"
+purpose: "Bind approved public-data candidates to the atlas evidence-presentation contract without publishing a hosted atlas or asserting empirical completeness."
+owner_approval:
+  decision: "approved_real_data_extension"
+  evidence: "docs/decisions/2026-09-08-owner-approval-real-data-extensions.yml"
+candidate_sources:
+  - id: "aihw-bronchiectasis"
+    role: "Australian observed aggregate service-use and mortality facts"
+    source_packet: "docs/track-011-aihw-aggregate-observations-2026-09-08.yml"
+  - id: "un-wpp-2024"
+    role: "denominator candidate"
+    source_packet: "docs/track-011-unwpp-denominator-binding-2026-09-08.yml"
+  - id: "who-mortality-database"
+    role: "cross-country cause-of-death comparison candidate"
+    url: "https://www.who.int/data/data-collection-tools/who-mortality-database"
+presentation_rules:
+  required_fields: ["publisher", "source_version", "geography", "period", "measure_definition", "unit", "evidence_status", "uncertainty", "limitations", "rights_state"]
+  missing_value_rendering: "text_and_null_machine_value"
+  prohibited: ["numeric zero for unavailable data", "silent denominator substitution", "empirical completeness claim", "hosted publication before release authorization", "uncleared raw redistribution"]
+  current_surface: "metadata_and_candidate_packets_only"
+next_gate: "Bind exact reviewed artifacts and release receipts before constructing a public atlas surface or API response."
