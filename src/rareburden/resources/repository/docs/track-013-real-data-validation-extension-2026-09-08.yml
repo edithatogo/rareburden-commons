@@ -1,0 +1,26 @@
+schema_version: "1.0"
+packet_id: "track-013-real-data-validation-extension-2026-09-08"
+status: "candidate_non_activating"
+purpose: "Extend the validation gap map with source-bound public aggregate candidates while preserving missingness, uncertainty and rights boundaries."
+owner_approval:
+  decision: "approved_real_data_extension"
+  evidence: "docs/decisions/2026-09-08-owner-approval-real-data-extensions.yml"
+sources:
+  - id: "un-wpp-2024"
+    role: "population denominators and age/sex stratification"
+    url: "https://www.un.org/development/desa/pd/content/population-trends-0"
+    rights: "conditional_pending_exact_artifact_terms"
+  - id: "who-mortality-database"
+    role: "aggregate cause-of-death comparison"
+    url: "https://www.who.int/data/data-collection-tools/who-mortality-database"
+    rights: "conditional_pending_exact_artifact_terms"
+  - id: "world-bank-population-indicators"
+    role: "denominator cross-check only"
+    url: "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    rights: "conditional_pending_exact_artifact_terms"
+validation_contract:
+  required_before_empirical_claim: ["exact artifact/table", "hash", "retrieval receipt", "terms snapshot", "matched geography/period/age/sex", "uncertainty", "scientific review"]
+  preserve: ["missingness", "suppression", "source definitions", "uncertainty", "coverage limitations"]
+  prohibited: ["silent denominator substitution", "treat metadata as observations", "infer prevalence from mortality", "claim representativeness from public availability", "publish uncleared raw bytes"]
+  current_execution: "synthetic and metadata-only"
+next_gate: "Complete source-specific qualification and exact receipt binding before empirical triangulation or public derived-data release."
