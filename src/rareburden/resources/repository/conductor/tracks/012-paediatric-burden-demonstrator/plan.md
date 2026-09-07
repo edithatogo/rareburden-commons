@@ -9,6 +9,15 @@
   establish a paediatric cohort, linkage, cost estimate, clinical validity or
   controlled-data approval; empirical and live-pilot gates remain pending.
 
+## Public-source qualification packet — 2026-09-08
+
+- [x] Bind the approved real-data extension to explicit UN WPP denominator and
+  Orphadata epidemiology candidate roles, receipts, rights and paediatric
+  qualification requirements. Evidence:
+  `docs/track-012-public-source-qualification-2026-09-08.yml`.
+  This packet does not assert a paediatric cohort or activate an empirical
+  parameter.
+
 ## Bounded threshold integrity — 2026-08-31
 
 - [x] Enforce the existing integer-at-least-two threshold contract before linked

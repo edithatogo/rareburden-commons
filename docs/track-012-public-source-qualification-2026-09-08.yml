@@ -1,0 +1,27 @@
+schema_version: "1.0"
+packet_id: "track-012-public-source-qualification-2026-09-08"
+status: "candidate_non_activating"
+purpose: "Bind public aggregate candidates for paediatric denominator and rare-disease epidemiology screening without claiming a paediatric cohort or empirical parameter."
+owner_approval:
+  decision: "approved_real_data_extension"
+  evidence: "docs/decisions/2026-09-08-owner-approval-real-data-extensions.yml"
+candidates:
+  - source_id: "un-wpp-2024"
+    role: "calendar-year population denominator by geography, age and sex"
+    publisher: "United Nations Department of Economic and Social Affairs, Population Division"
+    url: "https://www.un.org/development/desa/pd/content/population-trends-0"
+    revision: "2024"
+    retrieval_receipt: "docs/track-011-unwpp-denominator-binding-2026-09-08.yml"
+    rights: "conditional_pending_exact_artifact_terms"
+  - source_id: "orphadata-epidemiology"
+    role: "disease-specific prevalence/incidence candidate metadata"
+    publisher: "Orphadata"
+    url: "https://www.orphadata.com/epidemiology/"
+    retrieval_receipt: "docs/track-002-live-reachability-probe-2026-08-03.md"
+    rights: "conditional_pending_exact_artifact_terms"
+    required_qualification: ["disease identity", "study population", "age range", "period", "ascertainment", "unit", "comparability"]
+qualification_contract:
+  required_before_activation: ["exact artifact or table identity", "retrieval timestamp", "file or table hash", "terms snapshot", "case definition", "age-band compatibility", "uncertainty", "scientific review"]
+  prohibited: ["infer paediatric cohort from aggregate metadata", "treat missing series as zero", "mix denominator revisions", "redistribute conditional raw bytes", "activate controlled-data estimands"]
+  allowed_now: "screen and record candidates; run only existing synthetic reference workflow"
+next_gate: "Bind an exact cleared extract and complete paediatric scientific, privacy and community/harm qualification before empirical execution."
