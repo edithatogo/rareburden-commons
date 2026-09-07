@@ -11,6 +11,14 @@
 This implements synthetic diagnostics. Phase 3 retains the broader tasks for
 demonstrator validation and uncertainty decomposition.
 
+## Real-data validation extension — 2026-09-08
+
+- [x] Bind approved public aggregate candidates for denominators, mortality and
+  cross-checks to an explicit validation contract, preserving missingness,
+  uncertainty, rights and non-activation boundaries. Evidence:
+  `docs/track-013-real-data-validation-extension-2026-09-08.yml`.
+  Empirical triangulation remains gated on exact source receipts and review.
+
 ## Hosted review evidence repair — 2026-09-01
 
 - [x] Retain the current receipt-specific advisory challenge, exact evidence
