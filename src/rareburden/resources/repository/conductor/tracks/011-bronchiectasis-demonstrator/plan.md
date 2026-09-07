@@ -86,3 +86,11 @@
   This records source candidates only; exact estimand qualification, rights,
   reproducible extraction, scientific review and empirical activation remain
   pending.
+
+## Public aggregate observation packet — 2026-09-08
+
+- [x] Record exact AIHW aggregate observations for Australian bronchiectasis
+  hospitalisations, emergency presentations and mortality as a non-activating
+  source packet. Evidence: `docs/track-011-aihw-aggregate-observations-2026-09-08.yml`.
+  Rights, compatible denominator, estimand qualification, extraction receipt,
+  scientific review and empirical activation remain pending.
