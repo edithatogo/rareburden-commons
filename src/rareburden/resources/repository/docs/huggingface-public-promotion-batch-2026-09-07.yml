@@ -1,0 +1,41 @@
+schema_version: "1.0"
+batch_id: "public-dataset-screened-batch-2026-09-07"
+status: "reconciled_pending_source_artifact_receipts"
+destination:
+  dataset: "edithatogo/rareburden-commons-open-source-snapshots"
+  visibility: "public"
+  observed_revision: "3ce98671ebbdc75ed4e84b6e3c5b3003ab337558"
+  observed_at_utc: "2026-09-07T13:06:33Z"
+  viewer_note: "Hub file repository; Dataset Viewer parquet endpoints are not applicable to the current snapshot layout."
+approval:
+  owner: "Repository owner (sole accountable human)"
+  mode: "standing_policy_batch"
+  policy: "docs/huggingface-public-dataset-policy.yml"
+  escalation_only: "ambiguous rights, sensitive content, or material intended-use change"
+items:
+  - source_id: "orphadata-science"
+    disposition: "public_candidate_existing_snapshot"
+    allowed_payload: "versioned files or derived aggregates after exact release terms and checksum are recorded"
+    current_evidence: "Existing public snapshot contains orphadata paths; this receipt does not re-assert every file's licence."
+  - source_id: "mondo-disease-ontology"
+    disposition: "public_candidate"
+    allowed_payload: "versioned release files after exact release terms and checksum are recorded"
+  - source_id: "un-world-population-prospects"
+    disposition: "metadata_hash_only_pending_artifact_terms"
+    allowed_payload: "metadata, extraction specification and hashes only"
+  - source_id: "aihw-bronchiectasis"
+    disposition: "metadata_hash_only_pending_artifact_terms"
+    allowed_payload: "metadata, table locators and hashes only"
+  - source_id: "who-mortality-database"
+    disposition: "metadata_hash_only_pending_artifact_terms"
+    allowed_payload: "metadata and hashes only"
+  - source_id: "world-bank-population"
+    disposition: "metadata_hash_only_pending_artifact_terms"
+    allowed_payload: "metadata, query and hashes only"
+claims:
+  raw_artifacts_uploaded_by_this_record: false
+  empirical_parameters_activated: false
+  controlled_data_published: false
+  participant_level_data_published: false
+  production_release_authorized: false
+next_action: "Acquire exact source artifacts or public aggregate tables, record rights and hashes, then promote one cleared batch under the standing policy."
