@@ -1,0 +1,41 @@
+schema_version: "1.0"
+policy_id: "public-dataset-promotion-v1"
+status: "active"
+owner_role: "Repository owner (sole accountable human)"
+approval_model:
+  default: "standing owner approval for routine publication that satisfies this policy"
+  escalation_only:
+    - "ambiguous or source-specific redistribution terms"
+    - "controlled, participant-level, small-cell or potentially identifying content"
+    - "a material change to intended use, sensitivity, or release claims"
+  no_repeated_prompt_for: "each file or routine source already covered by an explicit cleared disposition"
+destinations:
+  - "https://huggingface.co/datasets/edithatogo/rareburden-commons-open-source-snapshots"
+publication_rules:
+  raw_bytes:
+    allowed_when: "exact artifact has explicit redistribution permission for this destination and intended use"
+    required_receipts: [publisher, release, retrieval_timestamp, licence, sha256, transformation_status]
+  metadata_hashes:
+    allowed_when: "raw redistribution is conditional, unknown, restricted or otherwise uncleared"
+  derived_aggregates:
+    allowed_when: "derivation is reproducible, non-identifying, suppression-safe and source terms permit publication"
+  prohibited: [participant_level, row_level_controlled, small_cell, confidential, credentials, unverified_personal_data]
+source_defaults:
+  orphadata-science: "candidate_raw_or_derived_after_release_terms_receipt"
+  mondo-disease-ontology: "candidate_raw_or_derived_after_release_terms_receipt"
+  un-world-population-prospects: "metadata_and_hashes_until_artifact_terms_receipt"
+  aihw-bronchiectasis: "metadata_and_hashes_until_artifact_terms_receipt"
+  who-mortality-database: "metadata_and_hashes_until_artifact_terms_receipt"
+  world-bank-population: "metadata_and_hashes_until_artifact_terms_receipt"
+workflow:
+  - "validate source-specific disposition"
+  - "stage only allowed bytes or metadata"
+  - "generate manifest and sha256 hashes"
+  - "run disclosure, licence and schema checks"
+  - "publish in one batched promotion"
+  - "verify Hugging Face revision and Dataset Viewer availability"
+  - "record immutable promotion receipt"
+non_claims:
+  - "public visibility does not establish redistribution permission"
+  - "publication does not activate empirical parameters or clinical validity"
+  - "publication does not establish endorsement, partnership or production readiness"
