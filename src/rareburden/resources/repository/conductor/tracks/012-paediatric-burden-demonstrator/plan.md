@@ -1,5 +1,14 @@
 # Track 012 plan
 
+## Public aggregate supplement screen — 2026-09-07
+
+- [x] Register UN World Population Prospects 2024, WHO Mortality, Orphadata
+  and AIHW contextual aggregates as candidate public supplements for paediatric
+  denominators, mortality and rare-disease prevalence screening. Evidence:
+  `docs/public-dataset-supplement-screen-2026-09-07.md`. These sources do not
+  establish a paediatric cohort, linkage, cost estimate, clinical validity or
+  controlled-data approval; empirical and live-pilot gates remain pending.
+
 ## Bounded threshold integrity — 2026-08-31
 
 - [x] Enforce the existing integer-at-least-two threshold contract before linked

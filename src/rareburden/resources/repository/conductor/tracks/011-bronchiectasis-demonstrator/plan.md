@@ -76,3 +76,13 @@
 - [x] Execute reference pipeline, verify conservation accounting and export report/results/tables. Evidence: `src/rareburden/demonstrator_bronchiectasis.py`, `results/track-011-reference-2026-09-05/`, and `manifests/demonstrators/track-011-reference-execution-2026-09-05.json`.
 - [x] Pass simulated role-separated advisory panel review and record owner reference disposition under ADR-0009. Evidence: `docs/reviews/track-011-reference-output-panel-2026-09-05.yml` and `docs/decisions/2026-09-05-track-011-owner-reference-disposition.yml`.
 - [x] Complete synthetic reference closeout. Evidence: `docs/track-011-reference-closeout-2026-09-05.md`.
+
+## Public aggregate supplement screen — 2026-09-07
+
+- [x] Register AIHW bronchiectasis aggregates and UN World Population
+  Prospects 2024 as the recommended real-data candidate path, with WHO
+  Mortality, Orphadata, AIHW contextual series and World Bank denominators as
+  supplementary candidates. Evidence: `docs/public-dataset-supplement-screen-2026-09-07.md`.
+  This records source candidates only; exact estimand qualification, rights,
+  reproducible extraction, scientific review and empirical activation remain
+  pending.
