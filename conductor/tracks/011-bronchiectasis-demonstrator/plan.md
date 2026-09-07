@@ -94,3 +94,10 @@
   source packet. Evidence: `docs/track-011-aihw-aggregate-observations-2026-09-08.yml`.
   Rights, compatible denominator, estimand qualification, extraction receipt,
   scientific review and empirical activation remain pending.
+
+## Denominator binding specification — 2026-09-08
+
+- [x] Define the UN WPP 2024 denominator contract, candidate periods, required
+  receipts and fail-closed rights boundary for future AIHW rate comparison.
+  Evidence: `docs/track-011-unwpp-denominator-binding-2026-09-08.yml`.
+  No denominator value or empirical parameter is activated by this specification.

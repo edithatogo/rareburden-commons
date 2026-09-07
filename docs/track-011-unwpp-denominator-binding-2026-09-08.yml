@@ -1,0 +1,33 @@
+schema_version: "1.0"
+packet_id: "track-011-unwpp-denominator-binding-2026-09-08"
+status: "candidate_binding_non_activating"
+purpose: "Define the exact denominator contract for a future Australian bronchiectasis rate comparison without treating a reachable workbook as cleared or activated data."
+source:
+  source_id: "un-wpp-2024"
+  publisher: "United Nations Department of Economic and Social Affairs, Population Division"
+  title: "World Population Prospects 2024"
+  url: "https://www.un.org/development/desa/pd/content/population-trends-0"
+  revision: "2024"
+  retrieval_observation:
+    receipt: "docs/track-002-live-reachability-probe-2026-08-03.md"
+    sha256: "98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d"
+    content_type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  rights: "conditional_pending_exact_artifact_terms"
+contract:
+  geography: "Australia"
+  required_dimensions: ["calendar_year", "sex", "age_band", "population"]
+  candidate_periods: ["2023", "2024", "2025"]
+  compatible_observations:
+    - "AIHW hospitalisations 2023-24: denominator period must be explicitly aligned before rate comparison"
+    - "AIHW emergency presentations 2024-25: denominator period must be explicitly aligned before rate comparison"
+    - "AIHW mortality 2023: denominator year 2023 only"
+  allowed_use: "Observed-rate denominator comparison after exact extract, period alignment and review"
+  prohibited_use: ["prevalence inference", "incidence inference", "age-standardisation without source inputs", "silent period interpolation", "raw redistribution before rights clearance"]
+extraction:
+  required_receipts: ["exact_download_url", "retrieved_at_utc", "file_sha256", "sheet_or_query", "row_and_column_selection", "terms_snapshot"]
+  transformations: ["none until exact artifact is bound", "if selected, document period alignment and unit conversion in code"]
+quality_and_limits:
+  - "The recorded hash proves only a prior reachability observation; it is not a retained artifact or licence grant."
+  - "No denominator value is asserted by this packet and no empirical parameter is activated."
+  - "Different AIHW reporting periods and definitions must not be collapsed into one rate."
+next_gate: "Obtain and retain an exact WPP extract receipt and terms snapshot, then complete scientific qualification before execution or redistribution."
