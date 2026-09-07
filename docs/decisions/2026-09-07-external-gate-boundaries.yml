@@ -1,0 +1,49 @@
+decision_id: "2026-09-07-external-gate-boundaries"
+title: "External gate boundaries and bounded release preparation"
+date: "2026-09-07"
+status: "accepted"
+decision_owner: "Repository owner (sole accountable human)"
+scope:
+  empirical_activation: "narrow public-aggregate estimands only"
+  controlled_data: "deferred until named custodian evidence exists"
+  release: "prepare bounded non-empirical candidate; do not publish or claim production readiness"
+decisions:
+  - id: "D-261"
+    issue: 261
+    choice: "Use only public aggregate sources for the first empirical candidate."
+    rationale: "This is the most auditable and publishable path while preserving the fail-closed boundary."
+    required_evidence:
+      - "exact estimand, population, geography, period, measure and unit"
+      - "stable source release, retrieval receipt, licence and file hash"
+      - "transformation and parameter lineage"
+      - "bias, representativeness, transportability, overlap and uncertainty assessment"
+      - "independent scientific/statistical review"
+      - "reproducible execution receipt bound to the candidate hash"
+    contingency: "If a source cannot support the estimand or lacks stable rights evidence, narrow the estimand or leave activation false."
+  - id: "D-259"
+    issue: 259
+    choice: "Do not activate controlled data without a named custodian and written access terms."
+    rationale: "Repository-owner approval cannot create access, disclosure authority or an approved processing environment."
+    required_evidence:
+      - "named custodian and written permission"
+      - "data-use terms and approved environment"
+      - "named operator and privacy/disclosure review"
+      - "hash-bound execution receipt"
+      - "confirmation that restricted data remains outside public Git and public dataset publication"
+    contingency: "Keep the controlled-data path implemented but inactive if custodian evidence is unavailable."
+  - id: "D-260"
+    issue: 260
+    choice: "Prepare a bounded non-empirical release candidate without publishing it as production-ready."
+    rationale: "This preserves reproducibility progress without implying empirical validity or satisfying external release authority."
+    required_evidence:
+      - "exact candidate commit, tree and hash"
+      - "two clean-build receipts"
+      - "SBOM and provenance"
+      - "independent operations/security review"
+      - "rollback and support plan"
+      - "final owner authorization bound to the exact candidate"
+    contingency: "If the candidate changes or review finds a high-severity issue, repeat the evidence and authorization cycle."
+non_claims:
+  - "No empirical parameter is activated by this decision."
+  - "No controlled data is accessed, exported or published by this decision."
+  - "No public release, production readiness or external endorsement is claimed."
