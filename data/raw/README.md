@@ -15,3 +15,9 @@ the exact artifact and intended use.
 
 See `docs/source-acquisition-assessment-2026-09-04.yml` for the current
 source-by-source evidence and disposition.
+
+Routine public promotion is governed by
+`docs/huggingface-public-dataset-policy.yml`. Sources with an explicit cleared
+redistribution disposition may be promoted in a single batched Hugging Face
+publication; conditional or unresolved sources remain represented by metadata,
+hashes and receipts until their exact artifact terms are verified.
