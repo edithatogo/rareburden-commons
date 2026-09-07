@@ -1,0 +1,21 @@
+schema_version: "1.0"
+packet_id: "track-021-public-data-governance-binding-2026-09-08"
+status: "bounded_non_activating"
+purpose: "Bind public aggregate extensions to Track 021 governance claims without treating owner approval as third-party, custodian or community authority evidence."
+owner_approval:
+  decision: "approved_real_data_extension"
+  evidence: "docs/decisions/2026-09-08-owner-approval-real-data-extensions.yml"
+governance_rules:
+  owner_approval_allows: ["repository-owned implementation", "source screening", "lawful aggregate analysis preparation", "metadata/hash/receipt publication where permitted"]
+  owner_approval_does_not_establish: ["counterparty relationship", "custodian permission", "community representation", "independent review", "clinical validity", "source licence beyond stated terms"]
+  relationship_status: "unconfirmed_until_bilateral_receipt"
+  node_accreditation: "none_without_written_counterparty_receipt"
+  public_claims: "limited to exact source-supported aggregate facts and explicitly bounded metadata"
+  raw_promotion: "only with source-specific explicit redistribution permission"
+required_receipts:
+  - "exact source/artifact identity and hash"
+  - "source-specific rights or terms snapshot"
+  - "bilateral counterparty receipt for any claimed relationship"
+  - "custodian disposition for controlled data"
+  - "community/Indigenous authority receipt where the claim requires it"
+next_gate: "Add attributable external receipts before confirming relationships, accrediting nodes or expanding geographic/community claims."

@@ -1,5 +1,13 @@
 # Track 021 plan
 
+## Public-data governance binding — 2026-09-08
+
+- [x] Bind the approved public aggregate extension to explicit Track 021
+  governance limits, distinguishing owner authorization from counterparty,
+  custodian, community, clinical and independent evidence. Evidence:
+  `docs/track-021-public-data-governance-binding-2026-09-08.yml`.
+  Relationships, node accreditation and expanded claims remain externally gated.
+
 ## Phase 0 — Exact-candidate activation
 
 - [x] Identify the exact candidate and applicable standing-register conditions. Evidence: `docs/track-021-rbc-g001-bounded-registration-2026-09-06.yml` binding Track 015 standing activation conditions and Track 017 completed release results.
