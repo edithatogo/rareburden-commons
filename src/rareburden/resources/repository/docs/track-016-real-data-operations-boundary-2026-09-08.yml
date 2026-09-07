@@ -1,0 +1,15 @@
+schema_version: "1.0"
+packet_id: "track-016-real-data-operations-boundary-2026-09-08"
+status: "repository_policy_non_activating"
+purpose: "Define operational handling for approved public aggregate extensions without admitting uncleared payloads or controlled data into runtime, packages or public services."
+owner_approval:
+  decision: "approved_real_data_extension"
+  evidence: "docs/decisions/2026-09-08-owner-approval-real-data-extensions.yml"
+controls:
+  accepted_inputs: ["source URL/version", "exact hash", "retrieval receipt", "terms snapshot", "aggregate observations with definitions"]
+  rejected_inputs: ["participant-level data", "controlled payloads", "credentials", "uncleared raw bytes", "unverified personal data"]
+  required_runtime_labels: ["observed", "transformed", "modelled", "assumed", "rights_state", "missingness"]
+  public_promotion: "only exact artifacts with explicit redistribution permission; otherwise metadata/hash/receipt only"
+  empirical_activation: "false until source qualification, review and exact-candidate gates pass"
+failure_mode: "fail_closed_with_reason_and_receipt_reference"
+next_gate: "Apply these controls to an exact candidate during qualifying production operations; no production or release claim is made here."

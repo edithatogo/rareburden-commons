@@ -251,6 +251,14 @@
 
 ## Bounded implementation position — 2026-09-05
 
+## Real-data operations boundary — 2026-09-08
+
+- [x] Define the runtime and promotion boundary for approved public aggregate
+  extensions, including rejected input classes, required provenance labels and
+  fail-closed behaviour. Evidence:
+  `docs/track-016-real-data-operations-boundary-2026-09-08.yml`.
+  This does not authorize production operation or release.
+
 - [x] Record the agent's bounded implementation position for the remaining
   unchecked plan tasks. Evidence:
   `docs/track-016-implementation-decision-2026-09-05.md`. The decision
