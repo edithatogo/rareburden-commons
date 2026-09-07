@@ -204,6 +204,14 @@ reproduction or stable-release gates.
 
 ## Bounded reference closeout — 2026-09-06
 
+## Real-data adoption guidance — 2026-09-08
+
+- [x] Document adopter-facing distinctions and controls for approved public
+  aggregate extensions, including provenance, missingness, rights and Hugging
+  Face promotion boundaries. Evidence:
+  `docs/track-017-real-data-adoption-guidance-2026-09-08.yml`.
+  Stable-v1, hosted-service and release claims remain disabled.
+
 - [x] Implement demonstrator adoption and documentation engine. Evidence:
   `src/rareburden/demonstrator_adoption.py`.
 - [x] Generate deterministic reference results, report, and summary tables. Evidence:
