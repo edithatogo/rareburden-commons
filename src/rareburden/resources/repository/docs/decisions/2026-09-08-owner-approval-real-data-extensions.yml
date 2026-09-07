@@ -1,0 +1,39 @@
+decision_id: "2026-09-08-owner-approval-real-data-extensions"
+title: "Standing owner approval for defined real-data extensions"
+date: "2026-09-08"
+status: "accepted"
+decision_owner: "Repository owner (sole accountable human)"
+approval:
+  statement: >-
+    The repository owner approves the defined real-data extensions for Tracks
+    011 and 012, including lawful public aggregate acquisition, provenance and
+    hash recording, bounded analysis, validation, and public Hugging Face
+    promotion where the exact artifact is cleared for redistribution.
+  applies_to:
+    - "Track 011 AIHW bronchiectasis aggregate pathway"
+    - "Track 011 UN WPP denominator pathway"
+    - "Track 012 UN WPP age/sex denominator pathway"
+    - "Track 012 qualified aggregate mortality and Orphadata candidates"
+  approval_mode: "standing approval for routine work within the defined scope"
+  escalation_only:
+    - "ambiguous or unresolved redistribution terms"
+    - "controlled, participant-level, small-cell or potentially identifying data"
+    - "material change to estimand, intended use, sensitivity, or release claim"
+controls_that_remain_mandatory:
+  - "exact estimand, population, geography, period, measure and unit"
+  - "publisher, release/version, retrieval timestamp, licence and SHA-256"
+  - "case-definition, extraction query and transformation lineage"
+  - "bias, representativeness, transportability and uncertainty assessment"
+  - "suppression and disclosure review for aggregate outputs"
+  - "reproducible execution receipt"
+  - "independent or advisory review claims remain accurately labelled"
+  - "controlled-data activation remains disabled without custodian evidence"
+  - "production release remains disabled without the release gate"
+publication:
+  destination: "edithatogo/rareburden-commons-open-source-snapshots"
+  policy: "docs/huggingface-public-dataset-policy.yml"
+  rule: "Publish only exact artifacts with explicit redistribution permission; otherwise publish metadata, hashes and receipts only."
+non_claims:
+  - "This approval does not create third-party licence rights."
+  - "This approval does not create custodian access or independent review."
+  - "This approval does not activate empirical parameters before the controls pass."
