@@ -1,0 +1,16 @@
+schema_version: "1.0"
+packet_id: "track-017-real-data-adoption-guidance-2026-09-08"
+status: "bounded_non_release_guidance"
+purpose: "Document how adopters should distinguish approved public aggregate extensions from synthetic, metadata-only and externally gated capabilities."
+owner_approval:
+  decision: "approved_real_data_extension"
+  evidence: "docs/decisions/2026-09-08-owner-approval-real-data-extensions.yml"
+adopter_requirements:
+  - "Identify source, release, geography, period, unit and exact receipt."
+  - "Display observed, transformed, modelled and assumed values separately."
+  - "Preserve missingness and limitations; do not interpret absence as zero."
+  - "Confirm source-specific redistribution terms before copying payload bytes."
+  - "Keep controlled-data, clinical-validation, community-authority and release claims disabled unless separately evidenced."
+public_huggingface_rule: "Promote only exact artifacts with explicit redistribution permission; otherwise publish metadata, hashes and receipts only."
+current_adoption_scope: "repository-owned documentation and synthetic reference workflows; no stable-v1 or hosted-service claim"
+next_gate: "Apply this guidance to an exact release candidate after all qualifying evidence and release-authority gates pass."
