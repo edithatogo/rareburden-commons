@@ -111,6 +111,26 @@ def test_archived_track_may_target_current_release(tmp_path: Path) -> None:
     validate_with(tracks)
 
 
+def test_roadmap_accepts_archive_when_active_track_directory_is_absent(tmp_path: Path) -> None:
+    shutil.copytree(ROOT / "conductor", tmp_path / "conductor")
+    shutil.copytree(ROOT / "schemas", tmp_path / "schemas")
+    shutil.copytree(ROOT / "docs", tmp_path / "docs")
+    document = tmp_path / "docs" / "roadmap-v1.md"
+    document.write_text(
+        document.read_text(encoding="utf-8").replace("../conductor/tracks/", "../conductor/archive/"),
+        encoding="utf-8",
+    )
+    for track in (tmp_path / "conductor" / "tracks").iterdir():
+        shutil.move(str(track), tmp_path / "conductor" / "archive" / track.name)
+    shutil.rmtree(tmp_path / "conductor" / "tracks")
+    validate_roadmap_files(
+        tmp_path / "conductor" / "roadmap.yml",
+        tmp_path / "schemas" / "roadmap.schema.json",
+        tmp_path / "conductor" / "tracks",
+        tmp_path / "schemas" / "track-metadata.schema.json",
+    )
+
+
 def test_complete_track_may_be_preserved_in_archive_before_planned_release() -> None:
     summary = validate_roadmap_files(ROADMAP, ROADMAP_SCHEMA, TRACKS, TRACK_SCHEMA)
 
