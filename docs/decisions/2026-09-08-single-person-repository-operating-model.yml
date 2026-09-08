@@ -7,17 +7,17 @@ accountable_human:
   roles: ["owner", "maintainer", "developer", "operator", "security decision-maker", "release decision-maker"]
   approval_model: "one accountable human"
 repository_owned_decisions:
-  owner_may_approve: ["code and documentation changes", "repository-owned policies", "synthetic exercises", "metadata and source screening", "lawful aggregate-analysis preparation", "routine cleared public promotion"]
-  agents: "advisory only; they challenge and recommend but do not approve, hold authority or create external evidence"
+  owner_may_approve: ["code and documentation changes", "repository-owned policies", "synthetic exercises", "metadata and source screening", "lawful aggregate-analysis preparation", "routine cleared public promotion", "limits and conditions for repository use of third-party material"]
+  agents: "structured advisory panel; they may validate, review, challenge and recommend within the repository contract, but do not become human, legal, clinical, institutional, community or custodian authorities"
   second_human_approval: false
   codeowners_or_peer_approval: false
 non_self_attestable_constraints:
-  - "third-party licence or redistribution permission"
+  - "third-party licence or redistribution permission; owner may set stricter repository limits but cannot grant a publisher's rights"
   - "data-custodian permission and approved-environment execution"
   - "patient, community or Indigenous representation, consent or endorsement"
   - "bilateral counterparty relationship or partnership"
-  - "independent validation, reproduction or review"
-  - "external clinical or institutional authority"
-release_rule: "Owner approval may authorize a repository release only after repository checks and applicable external facts are evidenced; it cannot replace those facts."
+  - "independent human or external validation, reproduction or review; agent-panel review is permitted but must be labelled advisory and agent-derived"
+  - "external clinical or institutional authority; agent clinical-methods challenge is permitted but is not institutional authority"
+release_rule: "Owner approval may authorize a repository release after repository checks, agent-panel advice and applicable source facts are recorded; stricter owner limits may be imposed, but owner or agent advice cannot replace publisher, custodian, community, clinical or institutional facts."
 succession_rule: "No backup owner or co-maintainer is invented; continuity fails closed if the sole owner is unavailable."
 supersedes: ["ambiguous multi-person approval wording in repository-owned guidance"]
