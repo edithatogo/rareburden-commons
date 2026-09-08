@@ -18,9 +18,9 @@ REGISTRATION = Path("docs/track-021-rbc-g001-bounded-registration-2026-09-06.yml
 CLOSEOUT = Path("docs/track-021-reference-closeout-2026-09-06.md")
 MANIFEST = Path("manifests/demonstrators/track-021-reference-execution-2026-09-06.json")
 ENGINE = Path("src/rareburden/demonstrator_governance.py")
-PLAN = Path("conductor/tracks/021-external-governance-activation/plan.md")
-METADATA = Path("conductor/tracks/021-external-governance-activation/metadata.json")
-REVIEW = Path("conductor/tracks/021-external-governance-activation/review.md")
+PLAN = Path("conductor/archive/021-external-governance-activation/plan.md")
+METADATA = Path("conductor/archive/021-external-governance-activation/metadata.json")
+REVIEW = Path("conductor/archive/021-external-governance-activation/review.md")
 REGISTRY = Path("conductor/tracks.md")
 OUTPUT_DIR = Path("results/track-021-reference-2026-09-06")
 
