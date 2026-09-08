@@ -1,0 +1,22 @@
+schema_version: "1.0"
+decision_id: "agent-panel-scope-and-owner-limits-2026-09-08"
+status: "accepted"
+options_considered:
+  - option: "A"
+    label: "Agent panels advisory only"
+    trade_off: "Safest attribution, but does not allow the repository to call structured agent checks validation or review."
+  - option: "B"
+    label: "Agent panels perform repository-scoped validation and review"
+    trade_off: "Enables useful methods, security, clinical-methods and institutional-readiness challenges while requiring precise agent-derived labels and preserving external gates."
+  - option: "C"
+    label: "Agent panels stand in for external authorities"
+    trade_off: "Simplest workflow, but creates false claims about human independence, legal rights, clinical authority, institutions and communities."
+recommendation: "B"
+rationale: "The repository is single-person and the owner approves repository decisions. Structured agent panels can test and challenge repository artefacts, but their outputs must not be represented as human, legal, clinical, institutional, community or custodian authority."
+owner_decision:
+  identity: "edithatogo"
+  approved: true
+  effective_scope: "repository-owned implementation, validation, review, policy limits and release decisions"
+  required_labels: ["agent-derived", "repository-scoped", "advisory", "owner-dispositioned"]
+  prohibited_claims: ["independent human review", "publisher licence grant", "custodian permission", "community consent or representation", "institutional authority", "clinical accreditation", "bilateral partnership"]
+  external_facts_remain_required: true

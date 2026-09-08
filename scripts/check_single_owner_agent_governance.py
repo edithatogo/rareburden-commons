@@ -36,7 +36,7 @@ REQUIRED_EXTERNAL = {
     "indigenous_authority_or_consent",
     "partnership_or_endorsement",
     "institutional_or_external_approval",
-    "independent_review_evidence",
+    "independent_human_or_external_review_evidence",
 }
 OWNER_ROLE = "Repository owner (sole accountable human)"
 OWNER_ROLES = {
@@ -153,7 +153,12 @@ def validate(path: Path, root: Path) -> None:
     if boundary.get("unresolved_fact_action") != "narrow_defer_or_stop":
         raise GovernanceError("unresolved external facts must fail closed")
     claims = c.get("claims_boundary", {})
-    if not claims or any(value is not False for value in claims.values()):
+    allowed_claims = {
+        "agent_panel_validation_is_repository_scoped_advice": True,
+    }
+    if not claims or any(
+        value is not allowed_claims.get(key, False) for key, value in claims.items()
+    ):
         raise GovernanceError("simulation and metadata non-inference claims must remain false")
     decision = c.get("decision_rule", {})
     if not all(
