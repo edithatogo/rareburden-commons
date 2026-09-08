@@ -1,0 +1,23 @@
+schema_version: "1.0"
+decision_id: "single-person-repository-operating-model-2026-09-08"
+status: "accepted"
+scope: "repository governance, review routing, maintenance, operations and release accountability"
+accountable_human:
+  identity: "edithatogo"
+  roles: ["owner", "maintainer", "developer", "operator", "security decision-maker", "release decision-maker"]
+  approval_model: "one accountable human"
+repository_owned_decisions:
+  owner_may_approve: ["code and documentation changes", "repository-owned policies", "synthetic exercises", "metadata and source screening", "lawful aggregate-analysis preparation", "routine cleared public promotion"]
+  agents: "advisory only; they challenge and recommend but do not approve, hold authority or create external evidence"
+  second_human_approval: false
+  codeowners_or_peer_approval: false
+non_self_attestable_constraints:
+  - "third-party licence or redistribution permission"
+  - "data-custodian permission and approved-environment execution"
+  - "patient, community or Indigenous representation, consent or endorsement"
+  - "bilateral counterparty relationship or partnership"
+  - "independent validation, reproduction or review"
+  - "external clinical or institutional authority"
+release_rule: "Owner approval may authorize a repository release only after repository checks and applicable external facts are evidenced; it cannot replace those facts."
+succession_rule: "No backup owner or co-maintainer is invented; continuity fails closed if the sole owner is unavailable."
+supersedes: ["ambiguous multi-person approval wording in repository-owned guidance"]

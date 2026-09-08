@@ -85,6 +85,13 @@ Review uses [ADR-0009](../docs/decisions/ADR-0009-agent-panel-owner-governance.m
 and the [agent review-panel policy](../docs/subagent-review-panel-policy.md).
 Panels advise; the repository owner decides.
 
+The canonical current ownership decision is recorded in
+`docs/decisions/2026-09-08-single-person-repository-operating-model.yml`:
+`edithatogo` is the sole accountable human and no second-human or CODEOWNERS
+approval is required for repository-owned changes. This does not convert
+custodian, licensor, community, counterparty, clinical or independent evidence
+into owner self-attestation.
+
 For prospective material decisions from 2026-08-21, use the simulated-panel
 contract in `docs/single-owner-agent-governance.yml` and the exact-candidate
 schema in `schemas/agent-owner-decision-packet.schema.json`. Historical role
