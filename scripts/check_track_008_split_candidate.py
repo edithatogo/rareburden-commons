@@ -18,9 +18,9 @@ class Track008SplitError(ValueError):
 
 
 BASELINE_FILES = {
-    "track_008_spec_sha256": "conductor/tracks/008-semantic-backbone/spec.md",
-    "track_008_plan_sha256": "conductor/tracks/008-semantic-backbone/plan.md",
-    "track_008_metadata_sha256": "conductor/tracks/008-semantic-backbone/metadata.json",
+    "track_008_spec_sha256": "conductor/archive/008-semantic-backbone/spec.md",
+    "track_008_plan_sha256": "conductor/archive/008-semantic-backbone/plan.md",
+    "track_008_metadata_sha256": "conductor/archive/008-semantic-backbone/metadata.json",
     "track_008_readiness_sha256": "docs/track-008-freeze-readiness-2026-08-21.yml",
     "track_008_final_disposition_sha256": (
         "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"

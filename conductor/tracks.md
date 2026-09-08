@@ -16,7 +16,7 @@ Track identifiers 003–005 retain the subjects proposed in v0.1. Execution orde
 | 002 | [Public-source acquisition and provenance adapters](./archive/002-public-source-acquisition/index.md) | Archived | Must | v0.3.0 | Data Engineering Lead | 001, 006 |
 | 007 | [Landscape, adjacency, novelty and partnership map](./archive/007-landscape-novelty/index.md) | Archived | Must | v0.3.0 | Programme and Evidence Synthesis Leads | 001, 006 |
 | 018 | [Scholarly provenance, protocol transparency and reproducibility](./archive/018-scholarly-provenance-reproducibility/index.md) | Archived | Must | v0.3.0 | Methods Assurance and Research Software Leads | 001, 006 |
-| 008 | [Semantic backbone and burden-purpose hierarchy](./tracks/008-semantic-backbone/index.md) | Complete (bounded non-clinical core) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 007 |
+| 008 | [Semantic backbone and burden-purpose hierarchy](./archive/008-semantic-backbone/index.md) | Complete (bounded non-clinical core) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 007 |
 | 009 | [Evidence and parameter ledger](./tracks/009-evidence-parameter-ledger/index.md) | Complete (bounded synthetic and receipted-public-aggregate scope) | Must | v0.4.0 | Repository owner (sole accountable human) | 002, 008 |
 | 010 | [Public burden engine and uncertainty framework](./tracks/010-public-burden-engine/index.md) | Complete (bounded synthetic alpha core) | Must | v0.5.0 | Repository owner (sole accountable human) | 009 |
 | 003 | [Monogenic diabetes rare-within-common demonstrator](./archive/003-monogenic-diabetes-demonstrator/index.md) | Complete (synthetic reference; no empirical validation) | Must | v0.5.0 | Repository owner (sole accountable human) | 008, 009, 010 |
