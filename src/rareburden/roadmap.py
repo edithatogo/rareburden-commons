@@ -135,13 +135,10 @@ def _load_tracks(
     errors: list[str] = []
     tracks: dict[str, dict[str, Any]] = {}
 
-    if not tracks_root.is_dir():
-        return tracks, [f"Track directory not found: {tracks_root}"]
-
-    roots = [tracks_root]
     archive_root = tracks_root.parent / "archive"
-    if archive_root.is_dir():
-        roots.append(archive_root)
+    roots = [root for root in (tracks_root, archive_root) if root.is_dir()]
+    if not roots:
+        return tracks, [f"Track directory not found: {tracks_root}"]
     track_dirs = sorted(
         path
         for root in roots
