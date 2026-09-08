@@ -104,29 +104,29 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 ### Data and semantics
 
 - **[002-public-source-acquisition — Public-source acquisition and provenance adapters](../conductor/archive/002-public-source-acquisition/spec.md)** — establishes lawful, versioned and reproducible inputs.
-- **[008-semantic-backbone — Semantic backbone and burden-purpose hierarchy](../conductor/tracks/008-semantic-backbone/spec.md)** — defines disease identity, mappings, aggregation and overlap rules.
-- **[009-evidence-parameter-ledger — Evidence and parameter ledger](../conductor/tracks/009-evidence-parameter-ledger/spec.md)** — represents evidence, assumptions, quality, transportability and lineage.
+- **[008-semantic-backbone — Semantic backbone and burden-purpose hierarchy](../conductor/archive/008-semantic-backbone/spec.md)** — defines disease identity, mappings, aggregation and overlap rules.
+- **[009-evidence-parameter-ledger — Evidence and parameter ledger](../conductor/archive/009-evidence-parameter-ledger/spec.md)** — represents evidence, assumptions, quality, transportability and lineage.
 
 ### Methods and demonstrators
 
-- **[010-public-burden-engine — Public burden engine and uncertainty framework](../conductor/tracks/010-public-burden-engine/spec.md)** — implements core estimands, uncertainty and sensitivity methods.
+- **[010-public-burden-engine — Public burden engine and uncertainty framework](../conductor/archive/010-public-burden-engine/spec.md)** — implements core estimands, uncertainty and sensitivity methods.
 - **[003-monogenic-diabetes-demonstrator — Monogenic diabetes rare-within-common demonstrator](../conductor/archive/003-monogenic-diabetes-demonstrator/spec.md)** — first rare-within-common proof.
-- **[011-bronchiectasis-demonstrator — Bronchiectasis rare-aetiology demonstrator](../conductor/tracks/011-bronchiectasis-demonstrator/spec.md)** — multi-aetiology and overlap stress test.
+- **[011-bronchiectasis-demonstrator — Bronchiectasis rare-aetiology demonstrator](../conductor/archive/011-bronchiectasis-demonstrator/spec.md)** — multi-aetiology and overlap stress test.
 - **[005-economic-social-burden — Patient, family, economic and social burden module](../conductor/archive/005-economic-social-burden/spec.md)** — health-system, household and societal consequences.
-- **[012-paediatric-burden-demonstrator — Collective paediatric rare-disease burden demonstrator](../conductor/tracks/012-paediatric-burden-demonstrator/spec.md)** — linked administrative-data and country-portability test.
+- **[012-paediatric-burden-demonstrator — Collective paediatric rare-disease burden demonstrator](../conductor/archive/012-paediatric-burden-demonstrator/spec.md)** — linked administrative-data and country-portability test.
 
 ### Federated platform, trust and products
 
-- **[004-federated-node-runner — Federated country-node execution package](../conductor/tracks/004-federated-node-runner/spec.md)** — bounded portable local execution and approved aggregate outputs; live custodian linkage and statistical release remain separately gated.
-- **[013-quality-validation-gap-equity — Quality, validation, gap mapping and equity assurance](../conductor/tracks/013-quality-validation-gap-equity/spec.md)** — exposes what can and cannot be estimated and constrains representation claims.
-- **[014-atlas-api-release — Atlas, API and reproducible release engineering](../conductor/tracks/014-atlas-api-release/spec.md)** — accessible, machine-readable and decision-relevant releases.
+- **[004-federated-node-runner — Federated country-node execution package](../conductor/archive/004-federated-node-runner/spec.md)** — bounded portable local execution and approved aggregate outputs; live custodian linkage and statistical release remain separately gated.
+- **[013-quality-validation-gap-equity — Quality, validation, gap mapping and equity assurance](../conductor/archive/013-quality-validation-gap-equity/spec.md)** — exposes what can and cannot be estimated and constrains representation claims.
+- **[014-atlas-api-release — Atlas, API and reproducible release engineering](../conductor/archive/014-atlas-api-release/spec.md)** — accessible, machine-readable and decision-relevant releases.
 - **[015-governance-partnership-policy — Operational governance, partnerships and policy translation](../conductor/archive/015-governance-partnership-policy/spec.md)** — archives bounded single-owner repository governance and fail-closed policy translation without activating external authority, partnerships or release rights.
-- **[016-security-reliability-operations — Security, reliability, performance and operations](../conductor/tracks/016-security-reliability-operations/spec.md)** — supply chain, incident, recovery, performance, support and release evidence.
-- **[017-documentation-adoption-v1 — Documentation, adoption, sustainability and stable v1 release](../conductor/tracks/017-documentation-adoption-v1/spec.md)** — independent usability, reproduction, support, succession and launch decision.
+- **[016-security-reliability-operations — Security, reliability, performance and operations](../conductor/archive/016-security-reliability-operations/spec.md)** — supply chain, incident, recovery, performance, support and release evidence.
+- **[017-documentation-adoption-v1 — Documentation, adoption, sustainability and stable v1 release](../conductor/archive/017-documentation-adoption-v1/spec.md)** — independent usability, reproduction, support, succession and launch decision.
 
 ### Deferred post-v1 activation
 
-- **[021-external-governance-activation — External governance and partnership activation](../conductor/tracks/021-external-governance-activation/spec.md)** — preserves constituted governance, third-party authority, country-node, partnership and global-representation gates outside the bounded single-owner v1 scope.
+- **[021-external-governance-activation — External governance and partnership activation](../conductor/archive/021-external-governance-activation/spec.md)** — preserves constituted governance, third-party authority, country-node, partnership and global-representation gates outside the bounded single-owner v1 scope.
 
 ## 7. Critical path
 

@@ -55,13 +55,13 @@ This directory is the persistent source of truth for the project's context-drive
 
 ## Planned future work
 
-- [Track 021 — External governance and partnership activation](tracks/021-external-governance-activation/index.md)
+- [Track 021 — External governance and partnership activation](archive/021-external-governance-activation/index.md)
 
 ## Completed work
 
 - [Track 003 — Synthetic monogenic-diabetes reference](archive/003-monogenic-diabetes-demonstrator/spec.md) and [execution/reproduction acceptance](../docs/track-003-reference-closeout-2026-08-31.md); empirical validity and production release are not established.
 
-- [Track 009 — Bounded evidence and parameter ledger](tracks/009-evidence-parameter-ledger/spec.md) and [review](tracks/009-evidence-parameter-ledger/review.md)
+- [Track 009 — Bounded evidence and parameter ledger](archive/009-evidence-parameter-ledger/spec.md) and [review](archive/009-evidence-parameter-ledger/review.md)
 - [Track 002 — Public-source acquisition](archive/002-public-source-acquisition/spec.md) and [review](archive/002-public-source-acquisition/review.md)
 - [Track 001 — Foundation](archive/001-foundation/spec.md) and [review](archive/001-foundation/review.md)
 - [Track 006 — v1 delivery system](archive/006-v1-delivery-system/spec.md) and [review](archive/006-v1-delivery-system/review.md)
