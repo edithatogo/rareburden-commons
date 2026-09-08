@@ -117,7 +117,9 @@ def test_roadmap_accepts_archive_when_active_track_directory_is_absent(tmp_path:
     shutil.copytree(ROOT / "docs", tmp_path / "docs")
     document = tmp_path / "docs" / "roadmap-v1.md"
     document.write_text(
-        document.read_text(encoding="utf-8").replace("../conductor/tracks/", "../conductor/archive/"),
+        document.read_text(encoding="utf-8").replace(
+            "../conductor/tracks/", "../conductor/archive/"
+        ),
         encoding="utf-8",
     )
     for track in (tmp_path / "conductor" / "tracks").iterdir():
