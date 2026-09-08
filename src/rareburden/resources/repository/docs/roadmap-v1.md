@@ -126,7 +126,7 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 
 ### Deferred post-v1 activation
 
-- **[021-external-governance-activation — External governance and partnership activation](../conductor/tracks/021-external-governance-activation/spec.md)** — preserves constituted governance, third-party authority, country-node, partnership and global-representation gates outside the bounded single-owner v1 scope.
+- **[021-external-governance-activation — External governance and partnership activation](../conductor/archive/021-external-governance-activation/spec.md)** — preserves constituted governance, third-party authority, country-node, partnership and global-representation gates outside the bounded single-owner v1 scope.
 
 ## 7. Critical path
 
