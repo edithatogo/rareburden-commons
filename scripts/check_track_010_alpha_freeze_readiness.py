@@ -133,7 +133,9 @@ def _git_tree(root: Path, commit: str) -> str:
 
 
 def _status(root: Path, track: str) -> str:
-    path = root / "conductor" / "tracks" / track / "metadata.json"
+    active_path = root / "conductor" / "tracks" / track / "metadata.json"
+    archive_path = root / "conductor" / "archive" / track / "metadata.json"
+    path = active_path if active_path.is_file() else archive_path
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
