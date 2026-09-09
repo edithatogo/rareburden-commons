@@ -15,7 +15,7 @@ evidence:
   references:
     - docs/track-008a-008b-scope-candidate-2026-08-21.yml
     - docs/track-008a-008b-dependency-analysis-2026-08-21.md
-    - conductor/tracks/008-semantic-backbone/spec.md
+    - conductor/archive/008-semantic-backbone/spec.md
     - docs/track-008-freeze-readiness-2026-08-21.yml
   observed_facts:
     - Historical Track 008 and Track 009 remain blocked; no successor is registered or active.
