@@ -9,7 +9,7 @@ panel_status: "simulated_role_separated_advisory_only"
 binding:
   repository_commit: "676fce94327dfeecb8664629b9a068f3a84e3a81"
   assessed_artifacts:
-    - "conductor/archive/009-evidence-parameter-ledger/spec.md"
+    - "conductor/tracks/009-evidence-parameter-ledger/spec.md"
     - "examples/ledger/public-foundation-synthetic.yml"
     - "examples/ledger/economic-social-synthetic.yml"
     - "manifests/ledger/track-009-v0.4-candidate-2026-08-21.json"

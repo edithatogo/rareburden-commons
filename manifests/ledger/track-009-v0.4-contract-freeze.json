@@ -39,7 +39,7 @@
   "advisory_basis": [
     {
       "path": "docs/decisions/2026-08-22-track-009-panel-packet-epi-med-01.yml",
-      "sha256": "fa1a0c2c2de452d024241d959570aeaff84dc0163df663bd82b217de7094f6f7"
+      "sha256": "797d061874dd435d64ef210cb389435ef63789ccb7a781e2f278c397d6154bc7"
     },
     {
       "path": "docs/decisions/2026-08-22-track-009-panel-packet-rights-01.yml",
