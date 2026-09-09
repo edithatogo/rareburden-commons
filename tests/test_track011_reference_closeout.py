@@ -40,7 +40,7 @@ def test_track011_authorization_fails_closed_on_claim_drift(tmp_path: Path) -> N
 
 def test_track011_plan_requires_all_tasks_checked(tmp_path: Path) -> None:
     shutil.copytree(ROOT / "conductor", tmp_path / "conductor")
-    plan_path = tmp_path / "conductor/tracks/011-bronchiectasis-demonstrator/plan.md"
+    plan_path = tmp_path / "conductor/archive/011-bronchiectasis-demonstrator/plan.md"
     content = plan_path.read_text(encoding="utf-8")
     uncheck = content.replace("- [x]", "- [ ]", 1)
     plan_path.write_text(uncheck, encoding="utf-8")
