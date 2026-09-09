@@ -22,7 +22,7 @@ BASELINE_FILES = {
     "conductor_tracks_sha256": "conductor/tracks.md",
     "conductor_roadmap_sha256": "conductor/roadmap.yml",
     "track_008_metadata_sha256": "conductor/archive/008-semantic-backbone/metadata.json",
-    "track_009_metadata_sha256": "conductor/tracks/009-evidence-parameter-ledger/metadata.json",
+    "track_009_metadata_sha256": "conductor/archive/009-evidence-parameter-ledger/metadata.json",
 }
 EXPECTED_MODES = {
     "synthetic_internal_preparation",

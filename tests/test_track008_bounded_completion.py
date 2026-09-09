@@ -31,7 +31,7 @@ def test_bounded_completion_is_explicit_and_fail_closed() -> None:
 
 def test_track009_completion_requires_a_separate_bounded_authorization() -> None:
     metadata = json.loads(
-        (ROOT / "conductor/tracks/009-evidence-parameter-ledger/metadata.json").read_text(
+        (ROOT / "conductor/archive/009-evidence-parameter-ledger/metadata.json").read_text(
             encoding="utf-8"
         )
     )

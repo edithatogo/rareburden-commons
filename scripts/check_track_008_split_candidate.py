@@ -25,7 +25,7 @@ BASELINE_FILES = {
     "track_008_final_disposition_sha256": (
         "docs/decisions/2026-08-21-track-008-v0.4-final-disposition.yml"
     ),
-    "track_009_metadata_sha256": "conductor/tracks/009-evidence-parameter-ledger/metadata.json",
+    "track_009_metadata_sha256": "conductor/archive/009-evidence-parameter-ledger/metadata.json",
     "track_009_readiness_sha256": "docs/track-009-freeze-readiness-2026-08-21.yml",
 }
 REQUIRED_TRANSFER_IDS = {

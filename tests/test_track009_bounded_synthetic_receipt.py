@@ -46,7 +46,7 @@ def _case_root(tmp_path: Path, receipt: dict) -> Path:
         Path("examples/demonstrators/011-ledger-profile.yml"),
         Path("examples/demonstrators/012-ledger-profile.yml"),
         Path("uv.lock"),
-        Path("conductor/tracks/009-evidence-parameter-ledger/metadata.json"),
+        Path("conductor/archive/009-evidence-parameter-ledger/metadata.json"),
     ):
         target = tmp_path / relative
         target.parent.mkdir(parents=True, exist_ok=True)

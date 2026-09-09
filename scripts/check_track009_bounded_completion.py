@@ -15,9 +15,9 @@ import yaml
 DECISION = Path("docs/decisions/2026-08-26-track-009-bounded-completion-authorization.yml")
 FREEZE_MANIFEST = Path("manifests/ledger/track-009-v0.4-contract-freeze.json")
 FREEZE_DISPOSITION = Path("docs/decisions/2026-08-22-track-009-owner-v04-freeze-disposition.yml")
-PLAN = Path("conductor/tracks/009-evidence-parameter-ledger/plan.md")
-METADATA = Path("conductor/tracks/009-evidence-parameter-ledger/metadata.json")
-REVIEW = Path("conductor/tracks/009-evidence-parameter-ledger/review.md")
+PLAN = Path("conductor/archive/009-evidence-parameter-ledger/plan.md")
+METADATA = Path("conductor/archive/009-evidence-parameter-ledger/metadata.json")
+REVIEW = Path("conductor/archive/009-evidence-parameter-ledger/review.md")
 REGISTRY = Path("conductor/tracks.md")
 SETUP_STATE = Path("conductor/setup_state.json")
 BASELINE_COMMIT = "2ac13c0f93c95b4e1133a13790e2359d272f01da"
@@ -108,7 +108,7 @@ def validate_completion_state(root: Path) -> None:
     review = (root / REVIEW).read_text(encoding="utf-8")
     expected_registry = (
         "| 009 | [Evidence and parameter ledger]"
-        "(./tracks/009-evidence-parameter-ledger/index.md) | Complete "
+        "(./archive/009-evidence-parameter-ledger/index.md) | Complete "
         "(bounded synthetic and receipted-public-aggregate scope) |"
     )
     if metadata.get("status") != "complete":
