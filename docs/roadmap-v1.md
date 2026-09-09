@@ -109,7 +109,7 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 
 ### Methods and demonstrators
 
-- **[010-public-burden-engine — Public burden engine and uncertainty framework](../conductor/tracks/010-public-burden-engine/spec.md)** — implements core estimands, uncertainty and sensitivity methods.
+- **[010-public-burden-engine — Public burden engine and uncertainty framework](../conductor/archive/010-public-burden-engine/spec.md)** — implements core estimands, uncertainty and sensitivity methods.
 - **[003-monogenic-diabetes-demonstrator — Monogenic diabetes rare-within-common demonstrator](../conductor/archive/003-monogenic-diabetes-demonstrator/spec.md)** — first rare-within-common proof.
 - **[011-bronchiectasis-demonstrator — Bronchiectasis rare-aetiology demonstrator](../conductor/tracks/011-bronchiectasis-demonstrator/spec.md)** — multi-aetiology and overlap stress test.
 - **[005-economic-social-burden — Patient, family, economic and social burden module](../conductor/archive/005-economic-social-burden/spec.md)** — health-system, household and societal consequences.
