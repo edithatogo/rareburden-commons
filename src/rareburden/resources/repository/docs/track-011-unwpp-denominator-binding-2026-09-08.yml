@@ -8,6 +8,13 @@ source:
   title: "World Population Prospects 2024"
   url: "https://www.un.org/development/desa/pd/content/population-trends-0"
   revision: "2024"
+  exact_artifact:
+    url: "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx"
+    filename: "WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx"
+    retrieved_at_utc: "2026-09-11T12:17:29Z"
+    bytes: 26142942
+    sha256: "98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d"
+    verification: "publisher_download_sha256_matches_prior_recorded_candidate_hash"
   retrieval_observation:
     receipt: "docs/track-002-live-reachability-probe-2026-08-03.md"
     sha256: "98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d"
@@ -27,7 +34,8 @@ extraction:
   required_receipts: ["exact_download_url", "retrieved_at_utc", "file_sha256", "sheet_or_query", "row_and_column_selection", "terms_snapshot"]
   transformations: ["none until exact artifact is bound", "if selected, document period alignment and unit conversion in code"]
 quality_and_limits:
-  - "The recorded hash proves only a prior reachability observation; it is not a retained artifact or licence grant."
+  - "The exact publisher download was re-retrieved and its hash and size were verified on 2026-09-11; the workbook is not retained or redistributed by this repository."
+  - "The exact workbook terms and field-level redistribution permission remain unresolved; the retrieval is not a licence grant."
   - "No denominator value is asserted by this packet and no empirical parameter is activated."
   - "Different AIHW reporting periods and definitions must not be collapsed into one rate."
 next_gate: "Obtain and retain an exact WPP extract receipt and terms snapshot, then complete scientific qualification before execution or redistribution."
