@@ -27,7 +27,9 @@ def test_track011_authorization_fails_closed_on_claim_drift(tmp_path: Path) -> N
     shutil.copytree(ROOT / "docs", tmp_path / "docs")
     shutil.copytree(ROOT / "manifests", tmp_path / "manifests")
     shutil.copytree(ROOT / "results", tmp_path / "results")
-    shutil.copytree(ROOT / "src", tmp_path / "src")
+    engine = tmp_path / "src/rareburden/demonstrator_bronchiectasis.py"
+    engine.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(ROOT / "src/rareburden/demonstrator_bronchiectasis.py", engine)
 
     decision_path = tmp_path / DECISION
     data = yaml.safe_load(decision_path.read_text(encoding="utf-8"))
