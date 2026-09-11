@@ -1,7 +1,7 @@
 {
   "id": "004-federated-node-runner",
   "title": "Federated country-node execution package",
-  "status": "complete",
+  "status": "blocked",
   "priority": "must",
   "created": "2026-07-19",
   "updated": "2026-09-06",
