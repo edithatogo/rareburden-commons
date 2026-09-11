@@ -113,7 +113,7 @@ The exact machine-readable release plan is maintained in `conductor/roadmap.yml`
 - **[003-monogenic-diabetes-demonstrator — Monogenic diabetes rare-within-common demonstrator](../conductor/archive/003-monogenic-diabetes-demonstrator/spec.md)** — first rare-within-common proof.
 - **[011-bronchiectasis-demonstrator — Bronchiectasis rare-aetiology demonstrator](../conductor/archive/011-bronchiectasis-demonstrator/spec.md)** — multi-aetiology and overlap stress test.
 - **[005-economic-social-burden — Patient, family, economic and social burden module](../conductor/archive/005-economic-social-burden/spec.md)** — health-system, household and societal consequences.
-- **[012-paediatric-burden-demonstrator — Collective paediatric rare-disease burden demonstrator](../conductor/tracks/012-paediatric-burden-demonstrator/spec.md)** — linked administrative-data and country-portability test.
+- **[012-paediatric-burden-demonstrator — Collective paediatric rare-disease burden demonstrator](../conductor/archive/012-paediatric-burden-demonstrator/spec.md)** — linked administrative-data and country-portability test.
 
 ### Federated platform, trust and products
 
