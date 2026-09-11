@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track: "016-security-reliability-operations"
-status: "planned"
+status: "blocked"
 prepared_at: "2026-08-21"
 scope: "reversible synthetic/public preparation and cross-cutting security engineering"
 
