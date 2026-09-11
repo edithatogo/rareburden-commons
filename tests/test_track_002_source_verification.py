@@ -19,7 +19,7 @@ def test_exact_source_verification_preserves_fail_closed_boundaries() -> None:
 
     assert (
         records["un-world-population-prospects"]["archival"]
-            == "exact_private_raw_copy_permitted_with_attribution_and_preserved_notices"
+        == "exact_private_raw_copy_permitted_with_attribution_and_preserved_notices"
     )
     assert records["un-world-population-prospects"]["licence"] == "CC BY 3.0 IGO"
     assert (
