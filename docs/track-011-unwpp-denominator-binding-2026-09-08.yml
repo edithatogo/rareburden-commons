@@ -19,7 +19,12 @@ source:
     receipt: "docs/track-002-live-reachability-probe-2026-08-03.md"
     sha256: "98e34d9b65b53858cd08a57a566e45050b08093ad85ba5714fe6fbd78055ae6d"
     content_type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-  rights: "conditional_pending_exact_artifact_terms"
+  rights: "cc_by_3_0_igo_embedded_notice_un_fields_only_third_party_fields_pending"
+  terms_observation:
+    source: "embedded workbook sharedStrings.xml notice"
+    notice: "© July 2024 by United Nations, made available under a Creative Commons license CC BY 3.0 IGO"
+    attribution: "United Nations, Department of Economic and Social Affairs, Population Division (2024), World Population Prospects 2024, Online Edition"
+    scope_limit: "Do not redistribute or activate third-party-attributed classification fields without separate review."
 contract:
   geography: "Australia"
   required_dimensions: ["calendar_year", "sex", "age_band", "population"]
