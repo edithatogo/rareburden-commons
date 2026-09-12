@@ -108,3 +108,23 @@ assurance. It supplies no real child-level data, access authority, coding
 validation, clinical/economic interpretation, transportability evidence or
 policy claim. Panel findings and owner disposition also remain pending. Track
 012 therefore remains **blocked**.
+
+### Real-public denominator rebind review — 2026-09-12
+
+World Bank Australia 2023 total-population and age-0-to-14 percentage responses
+were bound by exact URLs and hashes. The derived denominator was reproduced as
+a public aggregate only. Review passed arithmetic, lineage, privacy and
+engineering controls with scope limits; it is not a rare-disease cohort,
+linkage, mortality, cost or Indigenous-status estimate.
+
+Paediatric clinical, scientific, economic, privacy, Indigenous/data-governance
+and patient/community lanes were repository-owned advisory limitation
+challenges. They do not constitute actual participation, external authority,
+independent human review or clinical validation. The owner accepted the
+denominator supplement and retained all disease, controlled-data, linkage and
+production activation false. Evidence is recorded in
+`docs/track-012-real-public-denominator-rebind-2026-09-12.yml` and
+`docs/reviews/track-012-real-public-denominator-panel-2026-09-12.yml`.
+
+Disposition: **Complete (bounded real-public denominator supplement; no disease
+activation)**; archive with the residual gates retained.

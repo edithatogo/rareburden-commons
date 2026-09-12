@@ -1,0 +1,16 @@
+schema_version: "1.0"
+review_id: "track-012-real-public-denominator-panel-2026-09-12"
+track: "012-paediatric-burden-demonstrator"
+panel_mode: "role-separated advisory agents under ADR-0009"
+candidate: "docs/track-012-real-public-denominator-rebind-2026-09-12.yml"
+findings:
+  paediatric_clinical: "pass_with_scope_limit: denominator only, no disease cohort"
+  scientific: "pass: exact API receipts and deterministic arithmetic"
+  economics: "pass_with_scope_limit: no cost or utilization inference"
+  privacy: "pass: public aggregate and no small cells"
+  indigenous_data_governance: "pass_with_scope_limit: no Indigenous attribute or authority claim"
+  patient_community: "pass_with_scope_limit: simulated harm challenge only"
+  engineering_security: "pass: bounded derived output and no restricted bytes"
+blocking_findings: []
+non_claims: ["clinical validity", "rare-disease cohort", "person-level linkage", "Indigenous representation", "actual community participation", "independent human review", "production activation"]
+owner_disposition: {decision: "accept_bounded_denominator_supplement", decided_by: "edithatogo", date: "2026-09-12"}

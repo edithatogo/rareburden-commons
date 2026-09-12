@@ -105,3 +105,19 @@
   Evidence: closed out as bounded synthetic reference demonstrator in
   `docs/decisions/2026-09-06-track-012-owner-reference-disposition.yml` and
   `docs/track-012-reference-closeout-2026-09-06.md`.
+
+## Real-public denominator rebind — 2026-09-12
+
+- [x] Bind World Bank Australia 2023 total-population and age-0-to-14
+  percentage API responses with retrieval hashes and CC BY 4.0 attribution.
+  Evidence: `docs/track-012-real-public-denominator-rebind-2026-09-12.yml`.
+- [x] Execute the approved aggregate denominator arithmetic and preserve the
+  derived output hash. No rare-disease cohort, person-level linkage, mortality,
+  cost or Indigenous-status estimate is computed.
+- [x] Complete paediatric clinical, scientific, economic, privacy,
+  Indigenous/data-governance, patient/community and engineering/security
+  limitation review through the role-separated advisory panel, with owner
+  disposition. No actual participation, external authority or independent
+  human review is claimed.
+- [x] Record the unusable New Zealand age-share retrieval as excluded; no
+  cross-country comparison or silent imputation is performed.

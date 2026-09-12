@@ -1,0 +1,2 @@
+source_id,country_iso3,year,total_population,population_age_0_14_percent,derived_population_age_0_14,derived_unit
+world-bank-indicators-api,AUS,2023,26659922,18.0302829475224,4806859.370189,population persons estimated from published percentage

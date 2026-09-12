@@ -1,0 +1,50 @@
+schema_version: "1.0"
+packet_id: "track-012-real-public-denominator-rebind-2026-09-12"
+track: "012-paediatric-burden-demonstrator"
+status: "bounded_real_public_denominator_supplement_complete"
+owner_approval: {decision: "approve_bounded_real_data_extension", decided_by: "edithatogo", decision_date: "2026-09-12", authority_scope: "repository-owned aggregate denominator derivative"}
+source_bindings:
+  - source_id: "world-bank-indicators-api"
+    publisher: "World Bank"
+    indicator: "SP.POP.TOTL"
+    country: "Australia (AUS)"
+    year: 2023
+    url: "https://api.worldbank.org/v2/country/AUS/indicator/SP.POP.TOTL?date=2023&format=json"
+    response_bytes: 288
+    response_sha256: "3bdfc4d6a207da380c12eee8bf5ff593806770f422bac380669534a08c2b48dd"
+    value: 26659922
+    licence: "CC BY 4.0"
+  - source_id: "world-bank-indicators-api"
+    publisher: "World Bank"
+    indicator: "SP.POP.0014.TO.ZS"
+    country: "Australia (AUS)"
+    year: 2023
+    url: "https://api.worldbank.org/v2/country/AUS/indicator/SP.POP.0014.TO.ZS?date=2023&format=json"
+    response_bytes: 329
+    response_sha256: "038b7f385bd6d9e312120714a05654c1dd0c423cf3d868300ab44d934e5cc8b7"
+    value: 18.0302829475224
+    licence: "CC BY 4.0"
+derived_output:
+  path: "examples/empirical/track-012-world-bank-australia-paediatric-denominator-2023.csv"
+  sha256: "5da568a66d63210b1841e85adf111cbac1767d89ebe5cd8a29c7defa2e07450d"
+  transformation: "total_population multiplied by published age-0-to-14 percentage divided by 100"
+  result: "4806859.370189 estimated persons aged 0-14"
+  execution_status: "executed_denominator_only"
+scope:
+  permitted: ["denominator context for aggregate paediatric planning", "reproducible arithmetic", "sensitivity and coverage documentation"]
+  prohibited: ["rare-disease cohort inference", "person-level linkage", "mortality estimate", "cost estimate", "Indigenous-status estimate", "clinical validation", "transport to New Zealand", "production activation"]
+review:
+  paediatric_clinical: "advisory limitation review only; no clinical validity"
+  scientific: "pass for arithmetic and source lineage; not a disease estimand"
+  economics: "not_applicable; no cost or utilization data"
+  privacy: "pass; public aggregate only and no small cells"
+  indigenous_data_governance: "not_applicable_to_non-Indigenous aggregate denominator; not a substitute for Indigenous governance"
+  patient_community: "simulated harm and interpretation challenge only; no actual participation or representation"
+  engineering_security: "pass; deterministic bounded output and no raw restricted data"
+limitations:
+  - "An age-share-derived denominator is not a paediatric rare-disease population or cohort."
+  - "World Bank indicator values are not evidence of disease ascertainment, linkage completeness or clinical validity."
+  - "The attempted New Zealand age-share retrieval was not used; no cross-country comparison is made."
+  - "No WHO, AIHW, Orphadata, controlled, Indigenous or person-level source is activated by this packet."
+owner_disposition: "accept bounded Australian denominator supplement; retain paediatric empirical, clinical, economic, linkage and controlled-data activation false"
+release: false
