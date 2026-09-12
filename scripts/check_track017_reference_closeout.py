@@ -62,7 +62,7 @@ def validate_authorization(root: Path) -> None:
         "independent_review": False,
         "patient_community_approval": False,
         "publication_authority": False,
-        "release_authority": True,
+        "release_authority": False,
     }
     if (
         decision.get("track_id") != TRACK_ID
@@ -71,7 +71,7 @@ def validate_authorization(root: Path) -> None:
         or decision.get("accountable_role") != "repository owner and sole accountable human"
         or decision.get("selected_option") != "A"
         or not isinstance(authorization, dict)
-        or authorization.get("track_complete") is not True
+        or authorization.get("track_complete") is not False
         or authorization.get("scope")
         != "bounded v1 documentation, adoption, sustainability and single-owner release candidate"
         or claims != expected_claims
@@ -126,16 +126,16 @@ def validate_plan_and_registry(root: Path) -> None:
         raise Track017CloseoutError("Track 017 plan contains unchecked tasks")
 
     metadata = json.loads((root / METADATA).read_text(encoding="utf-8"))
-    if metadata.get("status") != "complete":
-        raise Track017CloseoutError("Track 017 metadata status is not complete")
+    if metadata.get("status") != "blocked":
+        raise Track017CloseoutError("Track 017 metadata status is not blocked")
 
     registry_text = (root / REGISTRY).read_text(encoding="utf-8")
     row_match = re.search(r"^\|\s*017\s*\|([^|]+)\|([^|]+)\|", registry_text, re.MULTILINE)
     if not row_match:
         raise Track017CloseoutError("Track 017 row missing from registry")
     status_cell = row_match.group(2).strip()
-    if not status_cell.startswith("Complete"):
-        raise Track017CloseoutError(f"Track 017 registry status {status_cell} must be Complete")
+    if not status_cell.startswith("Blocked"):
+        raise Track017CloseoutError(f"Track 017 registry status {status_cell} must be Blocked")
 
 
 def main() -> None:

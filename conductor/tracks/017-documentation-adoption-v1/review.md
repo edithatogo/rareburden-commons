@@ -198,3 +198,13 @@ promoted. The evidence-recording commit is later than the reviewed guide candida
    Recorded in `docs/decisions/2026-09-06-track-017-owner-reference-disposition.yml` selecting Option A to accept bounded v1 documentation, adoption, sustainability, and release candidate closeout.
 5. **Closeout Documentation & Automated Verification:**
    Documented in `docs/track-017-reference-closeout-2026-09-06.md` and enforced via `scripts/check_track017_reference_closeout.py` and `tests/test_track017_reference_closeout.py`.
+
+## Exact-candidate release audit — 2026-09-12
+
+The 2026-09-06 bounded closeout wording was reconciled after review because it
+conflicted with the blocked metadata. The owner-operated audit is bound to
+baseline commit `8da7c861a8502e762a7245fe56408ed8c6911bb1` and tree
+`e0d772f7d640f395ed6adf66cd611c228611e06c`. It confirms two retained
+owner-operated candidate/reproduction records but does not call them
+independent. Stable-release authorization, publication and post-publication
+verification remain false; Track 017 remains blocked.

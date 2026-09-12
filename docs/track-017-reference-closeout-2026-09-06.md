@@ -3,7 +3,7 @@
 **Date:** 2026-09-06  
 **Track:** 017-documentation-adoption-v1  
 **Protocol:** RBC-A001 v0.2.0-bounded  
-**Lifecycle Status:** Complete (bounded v1 documentation, adoption and single-owner release candidate)  
+**Lifecycle Status:** Blocked (bounded v1 documentation and release candidate recorded; stable gates remain)
 **Sole Accountable Human:** `edithatogo` (repository owner)  
 **Governance Framework:** ADR-0005 (v1 scope boundary), ADR-0009 (role-separated advisory panel with sole accountable human disposition), ADR-0011 (single-accountable-human enforcement)
 
@@ -48,3 +48,11 @@ Following the simulated advisory panel evaluation (`docs/reviews/track-017-refer
 - **Independent Clinical Authority:** Excluded; platform serves methodological and demonstrator purposes.
 - **Backup Owner Assignment:** FALSE (sole accountable human is `edithatogo` under ADR-0011; incapacity fails closed).
 - **Live Hospital EHR Linkages:** Excluded from v1 scope.
+
+## Reconciliation — 2026-09-12
+
+The earlier bounded disposition used “complete” for the preparation slice,
+which conflicted with the track metadata. The current disposition is blocked.
+The exact-candidate audit records the two owner-operated candidate/reproduction
+records without treating them as independent evidence. No stable release,
+publication, or post-publication verification is recorded.

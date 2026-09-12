@@ -171,6 +171,17 @@ reproduction or stable-release gates.
 - [x] Verify public artefacts only after a release-authority decision. Evidence:
   `scripts/check_track017_reference_closeout.py` and `tests/test_track017_reference_closeout.py`.
 
+## Exact-candidate release audit — 2026-09-12
+
+- [x] Re-audit documentation and release-candidate evidence against the exact
+  baseline and hash-bind the checklist, evidence index, adoption guidance and
+  bounded exercise records. Evidence: `docs/track-017-release-audit-2026-09-12.md`,
+  `results/track-017-release-audit-2026-09-12/receipt.json` and
+  `scripts/check_track017_release_audit.py`.
+- [x] Reconcile historical closeout wording with blocked metadata. Stable
+  authorization, publication, post-publication verification and qualifying
+  independent review remain open; no tag or release is created.
+
 ## Bounded readiness reconciliation — 2026-08-16
 
 - [x] Record the single-owner, advisory agent-panel claim boundary and exact
