@@ -162,3 +162,18 @@
   freeze, Track 003 eligibility, publication and release remain false. Evidence:
   `docs/decisions/2026-08-27-track-010-post-dependency-re-review.yml`; the
   repository owner selected Option A for bounded synthetic pre-alpha retention.
+
+## Real-public aggregate rebind — 2026-09-12
+
+- [x] Bind the exact Orphadata epidemiology artifact and one-row derived
+  observation to the lineage contract. Evidence:
+  `docs/track-010-real-public-aggregate-rebind-2026-09-12.yml` and the Track
+  261 extraction receipt.
+- [x] Execute the permitted aggregate observation extraction and preserve its
+  output hash. No burden, causal, mortality, cost or transport estimate is
+  computed; empirical parameter activation remains false.
+- [x] Complete role-separated advisory methods, clinical, patient/community,
+  rights/data-use and engineering challenge and record owner disposition.
+  Evidence: `docs/reviews/track-010-real-public-aggregate-panel-2026-09-12.yml`.
+- [x] Record limitations and non-claims. External clinical, community,
+  Indigenous, independent and publisher authority are not inferred.

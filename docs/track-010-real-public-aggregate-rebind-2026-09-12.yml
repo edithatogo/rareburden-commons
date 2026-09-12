@@ -1,0 +1,44 @@
+schema_version: "1.0"
+packet_id: "track-010-real-public-aggregate-rebind-2026-09-12"
+track: "010-public-burden-engine"
+status: "bounded_real_public_observation_only"
+owner_approval:
+  decision: "approve_bounded_real_data_extension"
+  decided_by: "edithatogo"
+  decision_date: "2026-09-12"
+  authority_scope: "repository-owned descriptive derived artefact; no publisher or clinical authority created"
+source_binding:
+  source_id: "orphadata-science-epidemiology"
+  role: "single disease-specific aggregate observation for interface and lineage assurance"
+  artifact_url: "https://www.orphadata.com/data/xml/en_product9_prev.xml"
+  release: "2026-06-23"
+  sha256: "6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0"
+  record: "OrphaCode 10802, prevalence record 5857, Finland, annual incidence 1.8 per 100000 per year"
+  licence: "CC BY 4.0"
+  derived_output: "examples/empirical/track-261-idiopathic-bronchiectasis-finland.csv"
+  derived_output_sha256: "15394abd47fbd9ae47e1c401379cfb5ffc960be2b6a0ef7a6fbf28bc2ba72c47"
+analysis:
+  execution_status: "executed_bounded_descriptive_extract"
+  result: "The exact source record is preserved as a one-row lineage-bound observation; no affected-population, causal, mortality, cost or transport estimate was computed."
+  empirical_parameter_activation: false
+  contract_frozen: false
+  production_use: false
+review_scope:
+  methods: "pass for descriptive lineage and unit handling; fail for population transport or burden inference"
+  clinical: "advisory limitation review only; no clinical validation or diagnostic use"
+  patient_community: "simulated harm and interpretation challenge only; no actual participation or representation"
+  rights_data_use: "pass for the exact CC BY 4.0 artifact and attribution; no rights inferred for other sources"
+  engineering: "pass for deterministic extraction and fail-closed non-activation"
+limitations:
+  - "Finnish historical hospital-discharge evidence is not a current or globally transportable incidence estimate."
+  - "The record is not an aetiologic fraction, prevalence, mortality, DALY, cost or service-use estimate."
+  - "Study observation period, age/sex strata and uncertainty interval remain unbound."
+  - "No AIHW, WPP, WHO or controlled source is activated by this packet."
+claims:
+  allowed: ["The source publisher reports the bound historical aggregate observation.", "The repository can reproduce the bound descriptive extraction."]
+  prohibited: ["clinical validity", "independent validation", "population transport", "causal burden", "production activation", "community endorsement"]
+disposition:
+  owner_decision: "accept bounded real-public observation supplement; retain engine empirical activation false"
+  release: false
+  publication: false
+  next_gate: "Study-level qualification and role-appropriate review are required before any empirical parameter or burden analysis."

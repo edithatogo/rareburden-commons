@@ -132,3 +132,24 @@ panel independence claims, owner-operated work labelled independent review,
 and freezes lacking exact engine, ledger and Track 003 interface hashes plus
 migration, benchmark/reproducibility and accountable-decision evidence. Track
 010 remains blocked; no review or alpha-freeze authority is inferred.
+
+### Real-public aggregate rebind review — 2026-09-12
+
+The exact Orphadata artifact and one-row derived observation were reviewed under
+the role-separated advisory panel contract. The panel passed deterministic
+lineage, attribution and non-activation controls with scope limits. It found no
+basis for a burden, causal, mortality, cost or transport estimate.
+
+The clinical and patient/community lanes are advisory limitation challenges;
+they are not clinical validation, lived experience, community participation,
+representation, consent or endorsement. No Indigenous/data-governance or
+independent human review occurred. The owner (`edithatogo`) accepted the
+bounded supplement and retained empirical activation, contract freeze,
+publication and production as false. Evidence is recorded in
+`docs/track-010-real-public-aggregate-rebind-2026-09-12.yml` and
+`docs/reviews/track-010-real-public-aggregate-panel-2026-09-12.yml`.
+
+Disposition: **Complete (bounded real-public aggregate observation supplement;
+no empirical engine activation)**. The track is eligible for archival with
+the residual study-level, clinical, community, Indigenous-governance,
+independent-review and release gates preserved as future conditions.
