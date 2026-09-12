@@ -1,12 +1,12 @@
 {
   "id": "013-quality-validation-gap-equity",
   "title": "Quality, validation, gap mapping and equity assurance",
-  "status": "blocked",
+  "status": "complete",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-09-06",
+  "updated": "2026-09-12",
   "target_release": "0.8.0",
-  "stage": "assurance",
+  "stage": "bounded_real_public_aggregate_validation",
   "owner_role": "Repository owner (sole accountable human)",
   "dependencies": [
     "003-monogenic-diabetes-demonstrator",

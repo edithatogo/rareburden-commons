@@ -1,0 +1,16 @@
+schema_version: "1.0"
+review_id: "track-013-real-validation-panel-2026-09-12"
+track: "013-quality-validation-gap-equity"
+panel_mode: "role-separated advisory agents under ADR-0009"
+candidate_manifest: "manifests/quality/track013-real-validation-2026-09-12.json"
+lanes:
+  methods: {disposition: "pass_with_scope_limit", finding: "Exact inputs are hash-bound and reproduced; shared-source comparison is not independent triangulation."}
+  bias_transportability: {disposition: "pass_with_limitations", finding: "Historical ascertainment, missing strata and non-comparable geography are explicit."}
+  equity: {disposition: "pass_with_scope_limit", finding: "Absent Indigenous, subnational, out-of-care and actual patient/community coverage is recorded."}
+  uncertainty: {disposition: "pass_with_scope_limit", finding: "Unavailable source intervals and age/sex detail are not imputed."}
+  privacy_data_governance: {disposition: "pass", finding: "Only public aggregate derivatives are used; no participant-level or small-cell data are present."}
+  engineering: {disposition: "pass", finding: "Two isolated executions produced byte-identical receipts."}
+  release: {disposition: "blocked", finding: "Independent validation, external authority and release evidence are absent; fail-closed release is required."}
+blocking_findings: ["Independent human validation is absent and cannot be created by agent review.", "No actual patient/community or Indigenous participation occurred."]
+dissent: "Methods, equity and release lanes reject overclaiming shared-source consistency as independent validation and reject population or subgroup sufficiency claims."
+owner_disposition: {decision: "accept_bounded_validation_and_retain_release_block", decided_by: "edithatogo", date: "2026-09-12"}

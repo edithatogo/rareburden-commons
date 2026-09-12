@@ -130,3 +130,29 @@ claims actually activated. Track 013 remains blocked by Tracks 003, 005, 010,
 011 and 012; their incomplete empirical candidates prevent the four
 triangulation tasks and a qualifying separate reproduction. This is a data and
 dependency boundary, not an independent-advice requirement.
+
+### Exact real-public aggregate validation review — 2026-09-12
+
+The exact Track 010/011 Orphadata observation and Track 012 World Bank
+denominator were bound to candidate commit `06d73c5ba4ac2187994355899a4869c7437f7c35`
+and tree `74100df286d9aebc2d516724d86e0414419eed95`. Two isolated
+owner-operated executions produced byte-identical receipts. The assessment
+records bias, absent populations, non-estimable transportability, shared-source
+overlap, unavailable source uncertainty and fail-closed decision sensitivity.
+
+The panel's methods, equity and release dissent rejects calling shared-source
+consistency independent triangulation or treating the denominator as a disease
+cohort. Clinical, patient/community and Indigenous/data-governance lanes are
+advisory challenges only; no actual participation, external authority or
+independent human validation occurred.
+
+The owner (`edithatogo`) accepts this bounded validation tranche and retains
+empirical validation, equity sufficiency, global representativeness, clinical
+validation, production and release claims as false. Evidence:
+`manifests/quality/track013-real-validation-2026-09-12.json`,
+`results/track-013-real-validation-2026-09-12/validation-receipt.json` and
+`docs/reviews/track-013-real-validation-panel-2026-09-12.yml`.
+
+Disposition: **Complete (bounded exact real-public aggregate validation;
+release gates retained)**. Archive without implying the residual external
+validation or authority gates are satisfied.
