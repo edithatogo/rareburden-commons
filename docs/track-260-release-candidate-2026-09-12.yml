@@ -1,0 +1,95 @@
+schema_version: "0.1.0"
+candidate_id: "rbc-260-0.3.0rc2-2026-09-12"
+issue: 260
+status: "bounded_pre_release_candidate"
+release_kind: "release_candidate_preparation"
+activation:
+  tag_created: false
+  stable_release_authorized: false
+  public_artifact_publication: false
+  production_operations_enabled: false
+repository:
+  name: "edithatogo/rareburden-commons"
+  ref: "main"
+  commit: "878a004e6fdc075590e3c8ad7669c3edd5389ea6"
+  tree: "accd34eccc4ec444d2008effa453718e75edfbda"
+  tree_state: "clean_at_candidate_binding"
+  software_version: "0.3.0rc2"
+  supported_runtime: "python3.13"
+  source_date_epoch: 1760000000
+inputs:
+  - path: "uv.lock"
+    sha256: "2a0b76b88a5ee9be65b3618f1f29dec52d2298acbd4302ffaf1ceb532f7c5ef5"
+    bytes: 266515
+  - path: "pyproject.toml"
+    sha256: "ba8e3ac3694536f4406428375b8ee4c215e875eb928d101f409c2c03282919ea"
+  - path: "docs/release-policy.md"
+    sha256: "2f4626b33d7402a33e0a56238ee5484618ca21699f320e42193dac761eb7bcb1"
+builds:
+  method: "scripts/build_distributions.py"
+  clean_builds_required: 2
+  clean_builds_completed: 2
+  byte_identity: "pass"
+  environment: "owner-operated local locked environment"
+  artifacts:
+    - filename: "rareburden-0.3.0rc2-py3-none-any.whl"
+      bytes: 2319332
+      sha256: "0b39e62d1d29f445ce7fd0241655069978510cdbd446800363a616fd184c395f"
+    - filename: "rareburden-0.3.0rc2.tar.gz"
+      bytes: 2003774
+      sha256: "6c22997e339d4ae0f536e563a8d5153b6c3d678f8eb4b81120af2c7acf30e58a"
+owner_reproduction:
+  status: "repository_evidence_pending_current_candidate_transcript"
+  owner: "edithatogo"
+  independent: false
+  required_command: "make PYTHON=.venv/bin/python check"
+  required_result: "all checks pass on this exact commit and tree"
+sbom:
+  status: "generated_owner_operated"
+  format: "CycloneDX 1.5 JSON"
+  generator: "scripts/build_sbom.py"
+  lockfile: "uv.lock"
+  component_count: 88
+  bytes: 19532
+  sha256: "ec7528327fadef97deae591dd29e07d7fafa0d6c8953064d9f2718df02f02999"
+provenance:
+  status: "pending_tagged_release_attestation"
+  predicate_type: "https://slsa.dev/provenance/v1"
+  signer_workflow: ".github/workflows/release.yml"
+  attestation_bundle: null
+  verification_receipt: null
+rollback_and_support:
+  status: "repository_policy_prepared_not_operationally_exercised"
+  support_policy: "docs/track-016-support-security-fix-policy.md"
+  release_policy: "docs/release-policy.md"
+  rollback_controls:
+    - "retain prior known-good artefact hashes"
+    - "disable affected acquisition or node pathways"
+    - "publish corrections without rewriting prior history"
+    - "withdraw affected artefacts when required"
+  operational_receipt: null
+  backup_restore_receipt: null
+qualifying_evidence:
+  independent_security:
+    status: "pending"
+    receipt: null
+    exact_candidate_commit: null
+    exact_candidate_tree: null
+  independent_operator:
+    status: "pending"
+    receipt: null
+    exact_candidate_commit: null
+    exact_candidate_tree: null
+  production_operations:
+    status: "pending"
+    receipt: null
+    exact_candidate_commit: null
+    exact_candidate_tree: null
+release_decision:
+  status: "bounded_do_not_release"
+  decided_by: "edithatogo"
+  decision_date: "2026-09-12"
+  decision: "Candidate preparation is approved; tagging, publication, stable-release and production claims are not authorized until every qualifying receipt passes."
+  exclusions: ["independent review", "production operations", "stable publication", "external authority", "controlled-data activation"]
+  expiry_or_reassessment: "Rebind all hashes and evidence if the candidate commit or tree changes."
+completion_rule: "Do not tag or publish unless owner reproduction, provenance, independent security/operator receipts, production receipt, rollback/support evidence and final release authority are all bound to this exact candidate."
