@@ -101,3 +101,19 @@
   receipts and fail-closed rights boundary for future AIHW rate comparison.
   Evidence: `docs/track-011-unwpp-denominator-binding-2026-09-08.yml`.
   No denominator value or empirical parameter is activated by this specification.
+
+## Real-public aggregate rebind — 2026-09-12
+
+- [x] Rebind the demonstrator to the exact Orphadata bronchiectasis observation
+  as a descriptive real-data supplement, preserving the synthetic
+  multi-aetiology reference as the only executable composition model. Evidence:
+  `docs/track-011-real-public-aggregate-rebind-2026-09-12.yml`.
+- [x] Execute and receipt the approved aggregate extraction by reusing the
+  exact Track 261 one-row output. No aetiologic fraction, current incidence,
+  clinical, mortality, cost or transport estimate is computed.
+- [x] Review clinical, patient/community, Indigenous/data-governance,
+  scientific, economic, privacy and engineering limits through the repository's
+  role-separated advisory panel, with owner disposition. No actual community,
+  Indigenous, independent human or external clinical authority is claimed.
+- [x] Record AIHW observations as contextual and non-activating because exact
+  artifact rights and compatible denominator/estimand evidence remain open.

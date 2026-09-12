@@ -1,0 +1,39 @@
+schema_version: "1.0"
+packet_id: "track-011-real-public-aggregate-rebind-2026-09-12"
+track: "011-bronchiectasis-demonstrator"
+status: "bounded_real_public_supplement_complete"
+owner_approval: {decision: "approve_bounded_real_data_extension", decided_by: "edithatogo", decision_date: "2026-09-12", authority_scope: "repository-owned aggregate derivative and descriptive analysis"}
+source:
+  source_id: "orphadata-science-epidemiology"
+  url: "https://www.orphadata.com/data/xml/en_product9_prev.xml"
+  release: "2026-06-23"
+  sha256: "6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0"
+  record: "OrphaCode 10802 / prevalence record 5857 / Finland / annual incidence 1.8 per 100000 per year"
+  licence: "CC BY 4.0"
+  output: "examples/empirical/track-261-idiopathic-bronchiectasis-finland.csv"
+  output_sha256: "15394abd47fbd9ae47e1c401379cfb5ffc960be2b6a0ef7a6fbf28bc2ba72c47"
+execution:
+  status: "executed_descriptive_aggregate_only"
+  result: "Reproduced the exact one-row publisher observation; the synthetic multi-aetiology workflow was not populated with this incompatible single incidence record."
+  empirical_activation: false
+  clinical_interpretation: false
+  transportability: false
+  production: false
+contextual_sources:
+  aihw: "Observed official webpage aggregates remain contextual only; exact downloadable artifact rights and a compatible denominator/estimand receipt are not bound."
+  unwpp: "Denominator binding remains a candidate contract; no rate recomputation was performed."
+review:
+  methods: "pass_with_scope_limit"
+  clinical: "advisory limitation review only; no clinical validation"
+  patient_community: "simulated harm challenge only; no actual participation or representation"
+  indigenous_data_governance: "not_applicable_to_the_public_one_row_but_not_a_substitute_for_governance_review"
+  economics: "not_applicable; no cost or service-use estimate"
+  privacy: "pass for aggregate derivative; no participant-level or small-cell data"
+  engineering: "pass; deterministic extraction and fail-closed activation"
+limitations:
+  - "One historical Finnish incidence record cannot validate the multi-aetiology bronchiectasis composition model."
+  - "Age, sex, observation period and uncertainty are not fully bound from the publisher row."
+  - "No current, Australian, paediatric, causal, mortality, cost or clinical claim is permitted."
+  - "No actual clinical, patient/community, Indigenous, independent or publisher review is claimed."
+owner_disposition: "accept bounded descriptive supplement; retain empirical activation and multi-aetiology real-data execution false"
+release: false
