@@ -14,7 +14,7 @@ def test_wpp_exact_workbook_terms_support_archival_without_activation() -> None:
     assert payload["activation"] == "disabled"
     assert wpp["terms_evidence"]["licence"] == "CC BY 3.0 IGO"
     assert wpp["archival_disposition"] == (
-        "raw_copy_permitted_with_attribution_and_preserved_notices"
+        "exact_private_raw_copy_permitted_with_attribution_and_preserved_notices"
     )
     assert "exclude third-party aggregate classification fields" in " ".join(
         wpp["derived_use_conditions"]
