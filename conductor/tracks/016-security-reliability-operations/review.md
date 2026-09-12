@@ -164,3 +164,12 @@ pending and production remains disabled.
 5. **Closeout Documentation & Automated Verification:**
    Documented in `docs/track-016-reference-closeout-2026-09-06.md` and enforced via `scripts/check_track016_reference_closeout.py` and `tests/test_track016_reference_closeout.py`.
 
+## Exact-candidate operations audit — 2026-09-12
+
+The 2026-09-06 bounded closeout wording was reconciled after review because it
+conflicted with the blocked metadata and production-readiness envelope. The
+owner-operated audit is bound to baseline commit
+`8da7c861a8502e762a7245fe56408ed8c6911bb1` and tree
+`e0d772f7d640f395ed6adf66cd611c228611e06c`. It confirms the retained evidence
+and keeps independent security/operator review, production operations, release
+authority and publication verification false. Track 016 remains blocked.

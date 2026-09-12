@@ -251,6 +251,17 @@
 
 ## Bounded implementation position — 2026-09-05
 
+## Exact-candidate operations audit — 2026-09-12
+
+- [x] Re-audit bounded operations evidence against the exact baseline and
+  hash-bind the readiness, operations, owner-exercise and real-data-boundary
+  records. Evidence: `docs/track-016-operations-audit-2026-09-12.md`,
+  `results/track-016-operations-audit-2026-09-12/receipt.json` and
+  `scripts/check_track016_operations_audit.py`.
+- [x] Reconcile historical bounded-closeout wording with blocked metadata.
+  Independent security/operator review, production operations, release
+  authority and publication remain open.
+
 ## Real-data operations boundary — 2026-09-08
 
 - [x] Define the runtime and promotion boundary for approved public aggregate
