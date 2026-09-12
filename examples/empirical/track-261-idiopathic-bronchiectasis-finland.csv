@@ -1,0 +1,2 @@
+candidate_id,disease,orpha_code,geography,study_publication_period,study_observation_period,measure,value,unit,source_record_id,source_reference
+rbc-261-idiopathic-bronchiectasis-finland-incidence-1998,idiopathic bronchiectasis,10802,Finland,1998-08,not_stated,annual incidence,1.8,cases per 100000 population per year,5857,9787927[PMID]
