@@ -58,14 +58,51 @@ def validate(root: Path) -> dict[str, Any]:
         "triangulation": {
             "bronchiectasis": "same-source descriptive consistency only; no independent validation",
             "paediatric": "denominator arithmetic consistency only; not a disease estimate",
-            "overlap": "Track 010 and Track 011 intentionally reuse the same Orphadata record; not independent evidence",
+            "overlap": (
+                "Track 010 and Track 011 intentionally reuse the same Orphadata record; "
+                "not independent evidence"
+            ),
         },
-        "bias": ["historical hospital-discharge ascertainment", "unknown age/sex and observation-period detail", "aggregate denominator is not disease ascertainment"],
-        "equity": {"absent": ["Indigenous status", "subnational populations", "people outside recorded care", "actual patient/community voice"], "harm": ["misreading a denominator as a cohort", "transporting Finland incidence to Australia", "overinterpreting aggregate counts"]},
-        "transportability": "not_estimable; Finland incidence and Australian population denominator are not combined",
-        "uncertainty": "not quantified for the source observations; missing intervals and age/sex detail remain explicit",
-        "decision_sensitivity": {"activation": "any missing exact hash, rights, fitness or review receipt keeps empirical activation false", "release": "any unresolved critical assurance gate blocks atlas/release claims"},
-        "claims": {"empirical_validation": False, "clinical_validation": False, "equity_sufficiency": False, "global_representativeness": False, "production_activation": False},
+        "bias": [
+            "historical hospital-discharge ascertainment",
+            "unknown age/sex and observation-period detail",
+            "aggregate denominator is not disease ascertainment",
+        ],
+        "equity": {
+            "absent": [
+                "Indigenous status",
+                "subnational populations",
+                "people outside recorded care",
+                "actual patient/community voice",
+            ],
+            "harm": [
+                "misreading a denominator as a cohort",
+                "transporting Finland incidence to Australia",
+                "overinterpreting aggregate counts",
+            ],
+        },
+        "transportability": (
+            "not_estimable; Finland incidence and Australian population denominator "
+            "are not combined"
+        ),
+        "uncertainty": (
+            "not quantified for the source observations; missing intervals and "
+            "age/sex detail remain explicit"
+        ),
+        "decision_sensitivity": {
+            "activation": (
+                "any missing exact hash, rights, fitness or review receipt keeps "
+                "empirical activation false"
+            ),
+            "release": "any unresolved critical assurance gate blocks atlas/release claims",
+        },
+        "claims": {
+            "empirical_validation": False,
+            "clinical_validation": False,
+            "equity_sufficiency": False,
+            "global_representativeness": False,
+            "production_activation": False,
+        },
     }
 
 
