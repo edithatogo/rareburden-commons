@@ -44,7 +44,8 @@ bibliographic_source:
 transformation_lineage:
   extraction: "Parse the exact Orphadata XML and select the single bound Prevalence record by disorder id and prevalence id."
   conversions: ["none; retain publisher value and unit exactly as represented"]
-  derived_output: "candidate ledger record only; no raw XML or modified public dataset"
+  derived_output: "examples/empirical/track-261-idiopathic-bronchiectasis-finland.csv"
+  derived_output_scope: "one-row descriptive extract; no raw XML or modified source dataset"
 quality_and_transportability:
   representativeness: "Finnish hospital discharge register; not established as national population incidence without study-level review."
   ascertainment: "Hospital-discharge ascertainment may miss outpatient-only disease and may reflect coding practices."
@@ -60,6 +61,22 @@ required_receipts:
   - "uncertainty and missingness disposition"
   - "reproducible extraction receipt with output hash"
   - "owner disposition after panel advice"
+owner_disposition:
+  decision: "approve_bounded_candidate_preparation_not_activation"
+  decided_by: "edithatogo"
+  decision_date: "2026-09-12"
+  authority_scope: "repository-owned derived artefact and candidate preparation"
+  source_custodian_permission_created: false
+  scientific_review_created: false
+  conditions: ["retain empirical_parameter_activation=false", "do not claim independent validation", "do not transport Finland result to another geography"]
+reproducible_extraction:
+  status: "repository_owner_executed_preliminary_extract"
+  method: "stdlib XML parser selecting Disorder id 10802 and Prevalence id 5857"
+  output_path: "examples/empirical/track-261-idiopathic-bronchiectasis-finland.csv"
+  output_bytes: 338
+  output_sha256: "15394abd47fbd9ae47e1c401379cfb5ffc960be2b6a0ef7a6fbf28bc2ba72c47"
+  independent_reproduction_receipt: false
+  study_level_reconciliation: false
 claims:
   allowed_now: ["Orphadata reports this bounded historical Finnish incidence record."]
   prohibited: ["current Finnish incidence", "Australian incidence", "population prevalence", "clinical validity", "comprehensive coverage", "causal burden", "public empirical activation"]
