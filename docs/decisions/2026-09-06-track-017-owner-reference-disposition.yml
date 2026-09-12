@@ -7,9 +7,9 @@ decided_on: "2026-09-06"
 governance_framework: "ADR-0009 role-separated advisory panel with sole accountable human disposition under ADR-0011"
 selected_option: "A"
 authorization:
-  track_complete: true
+  track_complete: false
   scope: "bounded v1 documentation, adoption, sustainability and single-owner release candidate"
-  status_label: "Complete (bounded v1 documentation, adoption and single-owner release candidate)"
+  status_label: "Blocked (bounded v1 documentation and release candidate; stable gates remain)"
   closeout_document: "docs/track-017-reference-closeout-2026-09-06.md"
 claims:
   empirical_activation: false
@@ -20,12 +20,12 @@ claims:
   independent_review: false
   patient_community_approval: false
   publication_authority: false
-  release_authority: true
+  release_authority: false
 panel_review_packet:
   path: "docs/reviews/track-017-reference-output-panel-2026-09-06.yml"
   result: "pass_all_lanes"
 rationale: >-
-  Track 017 has delivered complete role-based documentation (8 guides), verified reference
+  Track 017 has delivered bounded role-based documentation (8 guides), verified reference
   workflows, accessibility and usability reviews, a zero-cost sustainability operating model,
   and comprehensive evaluation of all 67 blocking v1 criteria under the bounded scope of
   ADR-0005, ADR-0009, and ADR-0011. The simulated advisory panel unanimously passed all lanes.

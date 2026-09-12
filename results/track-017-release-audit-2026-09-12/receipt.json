@@ -1,0 +1,20 @@
+{
+  "track_id": "017-documentation-adoption-v1",
+  "candidate_commit": "8da7c861a8502e762a7245fe56408ed8c6911bb1",
+  "candidate_tree": "e0d772f7d640f395ed6adf66cd611c228611e06c",
+  "status": "blocked_external_gates_remain",
+  "owner_operated_clean_candidate_count": 2,
+  "owner_operated_reproduction": "passed_non_independent",
+  "independent_review": false,
+  "stable_release_authorized": false,
+  "tag_created": false,
+  "publication_verified": false,
+  "post_publication_verification": false,
+  "evidence_sha256": {
+    "docs/v1-release-candidate-checklist-017.md": "7479e3b34f3a29d0221337ba2cb180b3a825cac3ee5968f44790958a5d4ba61b",
+    "docs/v1-evidence-index-2026-08-16.md": "5d061f7c1118dfa30c16a2081b56a62c2fba9460acb329bafa96f108bf6a1ce0",
+    "docs/track-017-real-data-adoption-guidance-2026-09-08.yml": "3747fc3a4ce1354e53f5e0cf1ab1a8eb0e459d7f6952afbe60df780a5c3a8c15",
+    "manifests/release/v1-evidence-index-2026-08-16.json": "4a619919b930d60be1d65e7dcf3c26841b00dd8744b03dd950c7478c93c0f314",
+    "manifests/release/track-017-bounded-exercises-2026-08-16.json": "3c2d002426b64483f58a56b3344bf0264a251509d68e0f2c0090b65ed9def4b1"
+  }
+}
