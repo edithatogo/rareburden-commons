@@ -1,0 +1,28 @@
+{
+  "status": "exact_candidate_audit_pass_with_release_gates_pending",
+  "candidate": {
+    "commit": "110da59060d1183f82b7e54e388ca18225c5e88d",
+    "tree": "006fc0292585f9e5ac9beb5cc5c1bf0a96cc3cd5"
+  },
+  "execution": {
+    "local_validator": "scripts/check_track014_release_candidate_audit.py",
+    "exit_code": 0,
+    "operator": "repository_owner_primary_operator",
+    "independent": false
+  },
+  "assessment": {
+    "accessibility": "contract and advisory review pass; real-user certification absent",
+    "usability": "repository-authored journeys only; user research absent",
+    "reproduction": "owner-operated installed-wheel reproduction pass; independent reproduction absent",
+    "rights": "synthetic package boundary verified; real-source redistribution scope remains pending",
+    "provenance": "candidate and output hashes verified; external archive/DOI authority absent",
+    "release_content": "exact reference outputs verified; no public artifact or endpoint published"
+  },
+  "claims": {
+    "accessibility_approved": false,
+    "independent_reproduction": false,
+    "archive_or_doi_authorized": false,
+    "public_artifact_verified": false,
+    "release_authorized": false
+  }
+}
