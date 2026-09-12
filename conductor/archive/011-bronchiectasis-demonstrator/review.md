@@ -77,3 +77,23 @@ track completion. Track 011 is now **Complete (synthetic reference; no empirical
 Independent cohort comparison is formally adjudicated through documented non-comparability
 with tertiary referral series. Empirical activation, clinical interpretation, and release
 authority remain strictly false.
+
+### Real-public aggregate rebind review — 2026-09-12
+
+The Orphadata record and Track 261 derived output were bound and reproduced as
+a descriptive supplement. Review passed exact lineage, attribution, aggregate
+privacy and fail-closed engineering controls with scope limits. The record is
+not sufficient for the multi-aetiology model, a current or transported
+incidence estimate, or a clinical claim. AIHW and WPP observations remain
+contextual because compatible denominator and exact artifact-rights receipts
+are not bound.
+
+The clinical, patient/community, Indigenous/data-governance and economics lanes
+are repository-owned advisory challenges, not actual participation, authority,
+independent review or validation. The owner accepted the narrow supplement and
+kept empirical activation false. Evidence is in
+`docs/track-011-real-public-aggregate-rebind-2026-09-12.yml` and
+`docs/reviews/track-011-real-public-aggregate-panel-2026-09-12.yml`.
+
+Disposition: **Complete (bounded real-public descriptive supplement; no
+multi-aetiology empirical activation)**; archive with residual gates retained.

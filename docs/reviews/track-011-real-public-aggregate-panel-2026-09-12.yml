@@ -1,0 +1,16 @@
+schema_version: "1.0"
+review_id: "track-011-real-public-aggregate-panel-2026-09-12"
+track: "011-bronchiectasis-demonstrator"
+panel_mode: "role-separated advisory agents under ADR-0009"
+candidate: "docs/track-011-real-public-aggregate-rebind-2026-09-12.yml"
+findings:
+  methods: "pass_with_scope_limit: exact descriptive extraction only"
+  clinical: "pass_with_scope_limit: no clinical interpretation or validation"
+  patient_community: "pass_with_scope_limit: simulated harm challenge only"
+  indigenous_data_governance: "pass_with_scope_limit: no Indigenous data or authority claim"
+  economics: "pass_with_scope_limit: no cost/service-use output"
+  privacy: "pass: aggregate derivative with no small cells"
+  engineering: "pass: deterministic receipt and fail-closed activation"
+blocking_findings: []
+non_claims: ["independent human review", "actual community participation", "clinical validation", "population transport", "production activation"]
+owner_disposition: {decision: "accept_bounded_real_public_supplement", decided_by: "edithatogo", date: "2026-09-12"}
