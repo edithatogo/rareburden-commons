@@ -1,0 +1,30 @@
+track_id: "014-atlas-api-release"
+review_date: "2026-09-12"
+candidate:
+  commit: "110da59060d1183f82b7e54e388ca18225c5e88d"
+  tree: "006fc0292585f9e5ac9beb5cc5c1bf0a96cc3cd5"
+review_mode: "role-separated advisory agent review plus owner-operated repository checks"
+status: "bounded_candidate_audit_pass_release_blocked"
+lanes:
+  accessibility: "pass_for_contract_and_advisory_checklist_only"
+  usability: "limited_to_repository_authored_journeys"
+  reproduction: "owner_operated_pass_not_independent"
+  provenance: "pass_for_local_hash_bound_candidate"
+  rights: "synthetic_scope_only_real_redistribution_pending"
+  release_content: "exact_local_outputs_verified_not_published"
+  release_authority: "blocked"
+  public_artifact_verification: "blocked_not_applicable_before_authorization"
+findings:
+  - "The static/package/API/lifecycle candidate is locally consistent and content-addressed."
+  - "The current candidate contains no authorised public endpoint or release publication."
+  - "Owner approval cannot substitute for independent accessibility, usability or reproduction evidence."
+  - "The synthetic rights boundary does not clear real-source redistribution or archive/DOI authority."
+dissent:
+  - lane: "usability"
+    position: "Repository-authored journeys are design hypotheses, not evidence of user comprehension or accessibility."
+  - lane: "release"
+    position: "Do not publish or tag until release authorization and public-artifact verification are separately evidenced."
+owner_disposition:
+  decided_by: "edithatogo"
+  decision: "accept_bounded_candidate_audit_and_retain_fail_closed_release_gates"
+  release_authorized: false

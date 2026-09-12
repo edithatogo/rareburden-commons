@@ -204,3 +204,17 @@
   improvement while preventing a pre-existing output-directory symlink from
   escaping the declared artefact root; `tests/test_reference.py` exercises the
   fail-closed case.
+
+## Exact candidate audit — 2026-09-12
+
+- [x] Bind the audit to the exact merged candidate commit/tree and verify the
+  static/package/API/lifecycle release surface, provenance, and output hashes.
+  Evidence: `scripts/check_track014_release_candidate_audit.py` and
+  `results/track-014-release-candidate-audit-2026-09-12/audit-receipt.json`.
+- [x] Record accessibility/usability, reproduction, rights, archive/DOI and
+  exact release-content findings with advisory dissent. Evidence:
+  `docs/reviews/track-014-release-candidate-audit-2026-09-12.yml`.
+- [x] Keep independent accessibility/usability and reproduction, real-source
+  redistribution, archive/DOI authority, owner release authorization and
+  public-artifact verification fail-closed. No endpoint, archive, DOI or
+  public artifact is published by this tranche.
