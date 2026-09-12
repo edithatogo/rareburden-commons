@@ -19,7 +19,7 @@ def test_wpp_exact_workbook_terms_support_archival_without_activation() -> None:
     assert "exclude third-party aggregate classification fields" in " ".join(
         wpp["derived_use_conditions"]
     )
-    assert wpp["scientific_activation"] == "disabled_pending_track_gates"
+    assert wpp["scientific_activation"] == "disabled_pending_exact_terms_and_track_gates"
 
 
 def test_who_terms_allow_private_copy_but_keep_redistribution_fail_closed() -> None:
