@@ -1,0 +1,62 @@
+schema_version: "0.1.0"
+receipt_id: ""
+packet_id: "track-004-controlled-data-pilot-2026-09-12"
+gate: "custodian_data_governance"
+decision: "approve|pass|revise|reject|defer|stop"
+accountable:
+  custodian: ""
+  organisation: ""
+  authority_basis: ""
+  operator: ""
+  export_reviewer: ""
+  conflict_of_interest: ""
+decision_date_utc: ""
+expiry_or_review_date_utc: ""
+source:
+  dataset_name: ""
+  release_or_snapshot: ""
+  locator: ""
+  input_sha256: ""
+  input_bytes: null
+  permitted_fields_and_dimensions: []
+  excluded_fields: []
+terms:
+  purpose: ""
+  access: ""
+  retention: ""
+  transformation: ""
+  export: ""
+  withdrawal: ""
+  disclosure_thresholds: ""
+execution:
+  repository_commit: ""
+  candidate_manifest_sha256: ""
+  environment_id: ""
+  runtime: ""
+  lockfile_sha256: ""
+  protocol: ""
+  execution_started_at_utc: ""
+  execution_finished_at_utc: ""
+  output_sha256: ""
+  output_bytes: null
+  output_class: "aggregate_only_disclosure_controlled"
+  participant_level_output: false
+  row_level_output: false
+  small_cell_output: false
+export_review:
+  status: ""
+  reviewer: ""
+  reviewed_output_sha256: ""
+  suppression_or_redaction_applied: ""
+  differencing_check: ""
+  approved_release_locator: ""
+withdrawal_and_correction:
+  withdrawal_test: ""
+  correction_test: ""
+  incident_route: ""
+limitations_and_dissent: []
+attestation:
+  submitted_by: ""
+  submitted_at_utc: ""
+  signature_or_approval_record: ""
+  supersedes_receipt_id: ""

@@ -1,0 +1,73 @@
+schema_version: "0.1.0"
+packet_id: "track-004-controlled-data-pilot-2026-09-12"
+track: "004"
+issue: 259
+status: "ready_for_custodian_submission"
+purpose: "Prepare a custodian-controlled pilot without importing controlled data or activating a production release."
+repository:
+  id: "edithatogo/rareburden-commons"
+  owner: "edithatogo"
+  repository_data_custodian: true
+  owner_authority_scope: "repository-owned artefacts and repository governance only"
+source_binding:
+  status: "awaiting_exact_custodian_source_binding"
+  dataset_name: ""
+  custodian: ""
+  source_release_or_snapshot: ""
+  source_locator: ""
+  input_sha256: ""
+  input_bytes: null
+  access_class: "restricted"
+  participant_level_data_enters_repository: false
+  exact_binding_required_before_execution: true
+permission_scope:
+  status: "pending_custodian_receipt"
+  permitted_purpose: ""
+  permitted_geographies_and_periods: []
+  permitted_estimands_and_dimensions: []
+  prohibited_uses: ["re-identification", "participant-level export", "row-level export", "small-cell export", "unapproved linkage", "public raw-data redistribution"]
+  retention_period: ""
+  withdrawal_and_destruction_route: ""
+approved_environment:
+  status: "pending_custodian_receipt"
+  environment_id: ""
+  operator: ""
+  operating_system: ""
+  runtime_version: ""
+  lockfile_sha256: ""
+  network_policy: ""
+  access_controls: []
+  secrets_handling: ""
+disclosure_controls:
+  status: "repository_policy_prepared_custodian_threshold_pending"
+  minimum_cell_count: null
+  differencing_protection: ""
+  permitted_dimensions: []
+  query_budget: null
+  export_reviewer: ""
+  withdrawal_and_correction_checks: ["source withdrawal", "rights or terms change", "definition change", "schema change", "privacy or disclosure incident"]
+execution_contract:
+  candidate_manifest_id: ""
+  code_revision: ""
+  analysis_protocol: ""
+  output_schema: "aggregate-only disclosure-controlled parameters"
+  output_must_contain_participant_identifiers: false
+  output_must_contain_raw_rows: false
+  output_must_contain_small_cells: false
+  local_output_retention: ""
+required_receipts:
+  - "custodian identity and scope-matched permission"
+  - "access, retention, transformation, export and withdrawal terms"
+  - "approved environment and accountable operator"
+  - "disclosure-control and export-review approval"
+  - "exact input hash and candidate manifest hash"
+  - "completed aggregate-only execution receipt"
+  - "post-run export review result"
+  - "correction and withdrawal test result"
+completion_rules:
+  activation: false
+  public_redistribution: false
+  production_use: false
+  completion_requires_all_receipts: true
+  missing_or_expired_receipt_action: "freeze_and_do_not_export"
+  owner_approval_is_sufficient_for_external_custodian_permission: false
