@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "track_id": "013-quality-validation-gap-equity",
+  "candidate_commit": "06d73c5ba4ac2187994355899a4869c7437f7c35",
+  "candidate_tree": "74100df286d9aebc2d516724d86e0414419eed95",
+  "scope": "bounded real-public aggregate validation; no independent or clinical validation",
+  "status": "executed_and_separately_reproduced_owner_operated",
+  "inputs": {"bronchiectasis_observation": {"path": "examples/empirical/track-261-idiopathic-bronchiectasis-finland.csv", "sha256": "15394abd47fbd9ae47e1c401379cfb5ffc960be2b6a0ef7a6fbf28bc2ba72c47"}, "paediatric_denominator": {"path": "examples/empirical/track-012-world-bank-australia-paediatric-denominator-2023.csv", "sha256": "5da568a66d63210b1841e85adf111cbac1767d89ebe5cd8a29c7defa2e07450d"}},
+  "runs": [{"execution": "owner_operated_isolated_root_1", "exit_code": 0, "receipt_sha256": "0db886c3dba8e31b6c4cf25c36b8b1b7b5d53d96dc817187c1f7eedc70cf85f1"}, {"execution": "owner_operated_isolated_root_2", "exit_code": 0, "receipt_sha256": "0db886c3dba8e31b6c4cf25c36b8b1b7b5d53d96dc817187c1f7eedc70cf85f1"}],
+  "receipt": {"path": "results/track-013-real-validation-2026-09-12/validation-receipt.json", "sha256": "f030ea1c4fd677d3c613622d014031fa996191be8e905c83542415423b6a04d7"},
+  "findings": {"triangulation": "same-source consistency and denominator arithmetic only", "bias": "historical hospital-discharge ascertainment, missing source strata and aggregate denominator limitations", "equity": "Indigenous status, subnational populations, people outside recorded care and actual patient/community voice are absent", "transportability": "not estimable and no Finland-to-Australia combination performed", "overlap": "Track 010 and 011 share the Orphadata input and are not independent", "uncertainty": "source intervals and age/sex detail are unavailable; no uncertainty estimate asserted", "decision_sensitivity": "any missing exact hash, rights, fitness, review or critical assurance receipt retains fail-closed activation"},
+  "claims": {"empirical_validation": false, "clinical_validation": false, "equity_sufficiency": false, "global_representativeness": false, "production_activation": false},
+  "dissent": [{"lane": "methods", "position": "Do not call same-source reuse triangulation or use the incidence row as a burden parameter."}, {"lane": "equity", "position": "A denominator-only result must not be presented as coverage of Indigenous, underserved or out-of-care populations."}, {"lane": "release", "position": "Keep atlas and release claims blocked until qualifying independent and rights evidence exists."}],
+  "owner_disposition": {"decision": "accept_bounded_validation_tranche_and_preserve_fail_closed_gates", "decided_by": "edithatogo", "date": "2026-09-12"}
+}

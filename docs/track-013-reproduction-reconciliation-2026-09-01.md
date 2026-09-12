@@ -6,7 +6,7 @@ validation, Track 013 completion or release decision.
 
 ## Criterion and exact existing evidence
 
-The [Track 013 specification](../conductor/tracks/013-quality-validation-gap-equity/spec.md)
+The [Track 013 specification](../conductor/archive/013-quality-validation-gap-equity/spec.md)
 requires at least one exact analysis candidate to be separately reproduced in an
 owner-operated run, with agent challenge and no independent-human-execution
 claim. The [Track 003 acceptance record](track-003-reference-closeout-2026-08-31.md)

@@ -1,0 +1,11 @@
+{
+  "bias": ["historical hospital-discharge ascertainment", "unknown age/sex and observation-period detail", "aggregate denominator is not disease ascertainment"],
+  "claims": {"clinical_validation": false, "empirical_validation": false, "equity_sufficiency": false, "global_representativeness": false, "production_activation": false},
+  "decision_sensitivity": {"activation": "any missing exact hash, rights, fitness or review receipt keeps empirical activation false", "release": "any unresolved critical assurance gate blocks atlas/release claims"},
+  "equity": {"absent": ["Indigenous status", "subnational populations", "people outside recorded care", "actual patient/community voice"], "harm": ["misreading a denominator as a cohort", "transporting Finland incidence to Australia", "overinterpreting aggregate counts"]},
+  "inputs": {"examples/empirical/track-012-world-bank-australia-paediatric-denominator-2023.csv": "5da568a66d63210b1841e85adf111cbac1767d89ebe5cd8a29c7defa2e07450d", "examples/empirical/track-261-idiopathic-bronchiectasis-finland.csv": "15394abd47fbd9ae47e1c401379cfb5ffc960be2b6a0ef7a6fbf28bc2ba72c47"},
+  "status": "bounded_real_public_aggregate_validation_pass",
+  "transportability": "not_estimable; Finland incidence and Australian population denominator are not combined",
+  "triangulation": {"bronchiectasis": "same-source descriptive consistency only; no independent validation", "overlap": "Track 010 and Track 011 intentionally reuse the same Orphadata record; not independent evidence", "paediatric": "denominator arithmetic consistency only; not a disease estimate"},
+  "uncertainty": "not quantified for the source observations; missing intervals and age/sex detail remain explicit"
+}

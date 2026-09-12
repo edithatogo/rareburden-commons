@@ -90,3 +90,19 @@ demonstrator validation and uncertainty decomposition.
 ## Dependency review — 2026-07-27
 
 - [x] Record that Track 013 cannot activate until Tracks 003, 005, 007, 010, 011 and 012 are complete. Evidence: `c126052`.
+
+## Exact real-public aggregate validation tranche — 2026-09-12
+
+- [x] Bind the exact merged Track 010/011 Orphadata observation and Track 012
+  World Bank denominator outputs by commit, tree and SHA-256.
+  Evidence: `manifests/quality/track013-real-validation-2026-09-12.json`.
+- [x] Separately reproduce the validation receipt in two isolated
+  owner-operated roots; preserve the identical receipt hashes and explicitly
+  label the result non-independent.
+- [x] Assess bias, equity, transportability, overlap, uncertainty and decision
+  sensitivity without combining incompatible geographies or imputing missing
+  strata. Evidence: `results/track-013-real-validation-2026-09-12/validation-receipt.json`.
+- [x] Preserve dissent and complete role-separated advisory review with owner
+  disposition. Evidence: `docs/reviews/track-013-real-validation-panel-2026-09-12.yml`.
+- [x] Retain atlas, empirical, clinical, community, Indigenous, independent
+  and production gates as fail-closed where their evidence is absent.
