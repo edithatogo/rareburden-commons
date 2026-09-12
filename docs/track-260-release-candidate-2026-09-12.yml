@@ -39,11 +39,15 @@ builds:
       bytes: 2003774
       sha256: "6c22997e339d4ae0f536e563a8d5153b6c3d678f8eb4b81120af2c7acf30e58a"
 owner_reproduction:
-  status: "repository_evidence_pending_current_candidate_transcript"
+  status: "owner_operated_repository_evidence"
   owner: "edithatogo"
   independent: false
   required_command: "make PYTHON=.venv/bin/python check"
-  required_result: "all checks pass on this exact commit and tree"
+  observed_checkout_commit: "878a004e6fdc075590e3c8ad7669c3edd5389ea6"
+  observed_checkout_tree: "accd34eccc4ec444d2008effa453718e75edfbda"
+  observed_at_utc: "2026-09-12T03:36:41Z"
+  result: "pass; 2209 tests passed and all repository assurance checks passed"
+  qualification: "owner-operated and non-independent; reproduced from the exact candidate commit and tree"
 sbom:
   status: "generated_owner_operated"
   format: "CycloneDX 1.5 JSON"
