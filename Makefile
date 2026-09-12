@@ -32,6 +32,8 @@ SDIST := dist/rareburden-$(VERSION).tar.gz
 	track-014-reference-closeout-check \
 	track-016-reference-closeout-check \
 	track-017-reference-closeout-check \
+	track-016-operations-audit-check \
+	track-017-release-audit-check \
 	track-021-reference-closeout-check \
 	track-004-reference-closeout-check \
 	track-016-production-release-readiness-check \
@@ -122,6 +124,12 @@ track-016-reference-closeout-check:
 track-017-reference-closeout-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track017_reference_closeout.py \
 		--root .
+
+track-016-operations-audit-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track016_operations_audit.py --root .
+
+track-017-release-audit-check:
+	PYTHONPATH=src:. $(PYTHON) scripts/check_track017_release_audit.py --root .
 
 track-021-reference-closeout-check:
 	PYTHONPATH=src:. $(PYTHON) scripts/check_track021_reference_closeout.py \

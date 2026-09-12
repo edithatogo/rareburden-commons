@@ -71,7 +71,7 @@ def validate_authorization(root: Path) -> None:
         or decision.get("accountable_role") != "repository owner and sole accountable human"
         or decision.get("selected_option") != "A"
         or not isinstance(authorization, dict)
-        or authorization.get("track_complete") is not True
+        or authorization.get("track_complete") is not False
         or authorization.get("scope")
         != (
             "bounded operational hardening, resource budgets and synthetic exercises; "
@@ -129,16 +129,16 @@ def validate_plan_and_registry(root: Path) -> None:
         raise Track016CloseoutError("Track 016 plan contains unchecked tasks")
 
     metadata = json.loads((root / METADATA).read_text(encoding="utf-8"))
-    if metadata.get("status") != "complete":
-        raise Track016CloseoutError("Track 016 metadata status is not complete")
+    if metadata.get("status") != "blocked":
+        raise Track016CloseoutError("Track 016 metadata status is not blocked")
 
     registry_text = (root / REGISTRY).read_text(encoding="utf-8")
     row_match = re.search(r"^\|\s*016\s*\|([^|]+)\|([^|]+)\|", registry_text, re.MULTILINE)
     if not row_match:
         raise Track016CloseoutError("Track 016 row missing from registry")
     status_cell = row_match.group(2).strip()
-    if not status_cell.startswith("Complete"):
-        raise Track016CloseoutError(f"Track 016 registry status {status_cell} must be Complete")
+    if not status_cell.startswith("Blocked"):
+        raise Track016CloseoutError(f"Track 016 registry status {status_cell} must be Blocked")
 
 
 def main() -> None:

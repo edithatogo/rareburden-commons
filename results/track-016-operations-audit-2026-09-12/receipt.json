@@ -1,0 +1,18 @@
+{
+  "track_id": "016-security-reliability-operations",
+  "candidate_commit": "8da7c861a8502e762a7245fe56408ed8c6911bb1",
+  "candidate_tree": "e0d772f7d640f395ed6adf66cd611c228611e06c",
+  "status": "blocked_external_gates_remain",
+  "owner_operated_checks": "passed_against_exact_baseline",
+  "independent_security_review": false,
+  "independent_operator_review": false,
+  "production_operations": false,
+  "release_authorized": false,
+  "publication_verified": false,
+  "evidence_sha256": {
+    "docs/track-016-production-release-readiness-2026-08-21.yml": "ae418b82332cca3b94b152c870c7f4048ce1378d0366639a5d1038bd2b7a55d4",
+    "docs/track-016-operations-review-packet.md": "70d19073ccdf7664b361c97a787b30ec46efe17363fd5f61aebc8a0b76e2272e",
+    "docs/track-016-owner-operated-exercise-receipt-2026-08-16.json": "b31435c60e2e3986eb1befaf33d2682fe9747e09ee416e423f7e62f754b95c58",
+    "docs/track-016-real-data-operations-boundary-2026-09-08.yml": "174f0e662963790332dc06cd0c01cc9c57aba895b9a0a4f1518b5bc577d81017"
+  }
+}
