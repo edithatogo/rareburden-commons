@@ -4,9 +4,9 @@
   "status": "complete",
   "priority": "must",
   "created": "2026-07-19",
-  "updated": "2026-08-29",
+  "updated": "2026-09-12",
   "target_release": "0.5.0",
-  "stage": "modelling_core",
+  "stage": "real_public_aggregate_supplement",
   "owner_role": "Repository owner (sole accountable human)",
   "dependencies": [
     "009-evidence-parameter-ledger"

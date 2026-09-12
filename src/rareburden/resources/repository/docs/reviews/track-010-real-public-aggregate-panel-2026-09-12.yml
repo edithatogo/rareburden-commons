@@ -1,0 +1,18 @@
+schema_version: "1.0"
+review_id: "track-010-real-public-aggregate-panel-2026-09-12"
+track: "010-public-burden-engine"
+candidate: "docs/track-010-real-public-aggregate-rebind-2026-09-12.yml"
+panel_mode: "role-separated advisory agents under ADR-0009"
+owner: "edithatogo"
+findings:
+  methods: {disposition: "pass_with_scope_limit", finding: "The Orphadata row is suitable for a descriptive provenance-bound observation, not an activated burden parameter."}
+  clinical: {disposition: "pass_with_scope_limit", finding: "No clinical interpretation, diagnostic threshold or validation claim is permitted."}
+  patient_community: {disposition: "pass_with_scope_limit", finding: "Language and misuse boundaries are recorded; this is not lived community review."}
+  rights_data_use: {disposition: "pass", finding: "The exact artifact's recorded CC BY 4.0 route supports the bound derived observation with attribution."}
+  engineering: {disposition: "pass", finding: "The existing exact extraction receipt is deterministic and the activation guard remains false."}
+blocking_findings: []
+non_claims: ["No independent human review occurred.", "No actual patient, community or Indigenous participation occurred.", "No clinical or population validation occurred.", "No production, publication or empirical engine activation occurred."]
+owner_disposition:
+  decision: "accept_bounded_supplement_and_preserve_fail_closed_activation"
+  decided_by: "edithatogo"
+  date: "2026-09-12"
