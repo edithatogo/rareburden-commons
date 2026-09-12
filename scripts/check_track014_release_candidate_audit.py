@@ -15,12 +15,15 @@ COMMIT = "110da59060d1183f82b7e54e388ca18225c5e88d"
 TREE = "006fc0292585f9e5ac9beb5cc5c1bf0a96cc3cd5"
 SURFACE = Path("manifests/atlas/track-014-bounded-release-surface-2026-08-16.json")
 ARTIFACTS = {
-    Path("results/track-014-reference-2026-09-06/reference-report.md"):
-        "d378fada43f9cfb289ead9e3490f849d47009814f520b73b9b03366ad553a197",
-    Path("results/track-014-reference-2026-09-06/reference-results.json"):
-        "756e98484ad8bc81b4346df7987dc878931d9755335e39857fa802adeaaccf31",
-    Path("results/track-014-reference-2026-09-06/reference-tables.csv"):
-        "495703787a4f22811325defabbadb5fe58d9ce675baba8f135df57eef54e3e3c",
+    Path(
+        "results/track-014-reference-2026-09-06/reference-report.md"
+    ): "d378fada43f9cfb289ead9e3490f849d47009814f520b73b9b03366ad553a197",
+    Path(
+        "results/track-014-reference-2026-09-06/reference-results.json"
+    ): "756e98484ad8bc81b4346df7987dc878931d9755335e39857fa802adeaaccf31",
+    Path(
+        "results/track-014-reference-2026-09-06/reference-tables.csv"
+    ): "495703787a4f22811325defabbadb5fe58d9ce675baba8f135df57eef54e3e3c",
 }
 SUPPORTING = {
     Path("docs/track-014-accessibility-checklist.md"),
@@ -70,20 +73,17 @@ def validate(root: Path) -> dict[str, Any]:
             "accessibility": "contract and advisory review pass; real-user certification absent",
             "usability": "repository-authored journeys only; user research absent",
             "reproduction": (
-                "owner-operated installed-wheel reproduction pass; "
-                "independent reproduction absent"
+                "owner-operated installed-wheel reproduction pass; independent reproduction absent"
             ),
             "rights": (
                 "synthetic package boundary verified; real-source redistribution "
                 "scope remains pending"
             ),
             "provenance": (
-                "candidate and output hashes verified; external archive/DOI "
-                "authority absent"
+                "candidate and output hashes verified; external archive/DOI authority absent"
             ),
             "release_content": (
-                "exact reference outputs verified; no public artifact or endpoint "
-                "published"
+                "exact reference outputs verified; no public artifact or endpoint published"
             ),
         },
         "claims": {
