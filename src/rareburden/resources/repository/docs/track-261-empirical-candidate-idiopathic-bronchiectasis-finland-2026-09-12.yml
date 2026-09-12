@@ -1,0 +1,66 @@
+schema_version: "0.1.0"
+candidate_id: "rbc-261-idiopathic-bronchiectasis-finland-incidence-1998"
+issue: 261
+status: "candidate_bound_non_activating"
+activation:
+  empirical_parameter_activation: false
+  public_redistribution: false
+  production_use: false
+estimand:
+  measure: "annual incidence"
+  value: 1.8
+  unit: "cases per 100000 population per year"
+  disease: "idiopathic bronchiectasis"
+  orphacode: "10802"
+  geography: "Finland"
+  period: "study publication 1998; observation period must be recovered from the cited study"
+  population: "population represented by the Finnish Hospital Discharge Register study"
+  age_scope: "age distribution is reported by the cited study; exact extract is not yet bound"
+  sex_scope: "not stated in the Orphadata record"
+source:
+  source_id: "orphadata-science-epidemiology"
+  publisher: "Orphadata Science / Orphanet"
+  release: "2026-06-23"
+  artifact_url: "https://www.orphadata.com/data/xml/en_product9_prev.xml"
+  artifact_name: "en_product9_prev.xml"
+  artifact_bytes: 16178169
+  artifact_sha256: "6b492b3cc61e5a0327de12f59386a07a071760a938d0bbd8f525bc4a5f71b7f0"
+  retrieved_at_utc: "2026-09-12T03:13:57Z"
+  licence: "CC BY 4.0"
+  licence_evidence: "Official Orphadata epidemiology product page lists this file and CC BY 4.0."
+  attribution: "Orphadata Science / Orphanet, July 2026 release"
+  source_record:
+    xpath: "/JDBOR/DisorderList/Disorder[@id='10802']/PrevalenceList/Prevalence[@id='5857']"
+    prevalence_id: "5857"
+    source_reference: "9787927[PMID]"
+    geographic_label: "Finland"
+    validation_label: "Validated (publisher field; not independent validation by this repository)"
+bibliographic_source:
+  pubmed_id: "9787927"
+  title: "Evaluation of the incidence and age distribution of bronchiectasis from the Finnish hospital discharge register."
+  publication_date: "1998-08"
+  metadata_url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=9787927&retmode=json"
+  metadata_response_sha256: "e391c5ac59e0df679646825b8258e3c87a237a7a6008041797dbcbb8df974b9c"
+transformation_lineage:
+  extraction: "Parse the exact Orphadata XML and select the single bound Prevalence record by disorder id and prevalence id."
+  conversions: ["none; retain publisher value and unit exactly as represented"]
+  derived_output: "candidate ledger record only; no raw XML or modified public dataset"
+quality_and_transportability:
+  representativeness: "Finnish hospital discharge register; not established as national population incidence without study-level review."
+  ascertainment: "Hospital-discharge ascertainment may miss outpatient-only disease and may reflect coding practices."
+  temporal_fit: "Historical publication; not current incidence and observation period is not yet bound."
+  geography_transport: "Finland cannot be transported to Australia, New Zealand or other settings without a prespecified transportability assessment."
+  age_and_sex_overlap: "Not established from the Orphadata row; recover from the cited study before age-specific use."
+  uncertainty: "No confidence interval or uncertainty measure is present in the bound Orphadata record; empirical activation requires recovery or explicit not-available disposition."
+  causal_or_burden_interpretation: "Not permitted; incidence is not prevalence, mortality, DALY, service burden or causal fraction."
+required_receipts:
+  - "study-level exact observation period, population denominator and age/sex strata"
+  - "source and case-definition review against the cited publication"
+  - "scientific/statistical review bound to this candidate id"
+  - "uncertainty and missingness disposition"
+  - "reproducible extraction receipt with output hash"
+  - "owner disposition after panel advice"
+claims:
+  allowed_now: ["Orphadata reports this bounded historical Finnish incidence record."]
+  prohibited: ["current Finnish incidence", "Australian incidence", "population prevalence", "clinical validity", "comprehensive coverage", "causal burden", "public empirical activation"]
+next_gate: "Complete study-level qualification and scientific review; retain empirical_parameter_activation=false until every required receipt passes."
