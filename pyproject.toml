@@ -7,7 +7,7 @@ name = "rareburden"
 version = "0.3.0rc2"
 description = "Reproducibility, provenance and burden-estimation utilities for RareBurden Commons"
 readme = "README.md"
-requires-python = ">=3.12,<3.15"
+requires-python = ">=3.15,<3.16"
 license = "Apache-2.0"
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
