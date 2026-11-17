@@ -4,7 +4,9 @@
     "github>edithatogo/renovate-config",
     "helpers:pinGitHubActionDigests"
   ],
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
   "labels": [
     "dependencies"
   ],
